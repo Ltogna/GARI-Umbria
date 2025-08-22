@@ -1,0 +1,1863 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridEntitaHttpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allRows" >allRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#analisiDataService" >analisiDataService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#analisiFormService" >analisiFormService</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#entitaCoinvolta" >entitaCoinvolta</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridpublicService" >gridpublicService</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#objParams" >objParams</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectionChangeFn" >selectionChangeFn</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#applySort" >applySort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#arrayFiltersData" >arrayFiltersData</a>
+                            </li>
+                            <li>
+                                <a href="#handlerChangeDates" >handlerChangeDates</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setColumnsGrid" >setColumnsGrid</a>
+                            </li>
+                            <li>
+                                <a href="#setModelGrid" >setModelGrid</a>
+                            </li>
+                            <li>
+                                <a href="#setRowGrid" >setRowGrid</a>
+                            </li>
+                            <li>
+                                <a href="#setSelectedAttributeRow" >setSelectedAttributeRow</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, gridpublicService: GridPublicService, objParametriAgenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, entitaConfigService: <a href="../injectables/EntitaConfigService.html" target="_self">EntitaConfigService</a>, analisiFormService: <a href="../injectables/AnalisiTerrenoFormService.html" target="_self">AnalisiTerrenoFormService</a>, analisiDataService: <a href="../injectables/AnalisiTerrenoService.html" target="_self">AnalisiTerrenoService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:37</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridpublicService</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>entitaConfigService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EntitaConfigService.html" target="_self" >EntitaConfigService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>analisiFormService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnalisiTerrenoFormService.html" target="_self" >AnalisiTerrenoFormService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>analisiDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnalisiTerrenoService.html" target="_self" >AnalisiTerrenoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applySort"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>applySort</b></span>
+                        <a href="#applySort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applySort(rows: KendoGridRow[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="381"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:381</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>KendoGridRow[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>KendoGridRow[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="arrayFiltersData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>arrayFiltersData</b></span>
+                        <a href="#arrayFiltersData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>arrayFiltersData(arrEntities: any[], entita: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>, valInizio, valFine)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>arrEntities</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entita</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valInizio</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>valFine</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlerChangeDates"></a>
+                    <span class="name">
+                        <span ><b>handlerChangeDates</b></span>
+                        <a href="#handlerChangeDates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handlerChangeDates(values, entitaValue: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="358"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:358</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>values</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entitaValue</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, oldRow?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="377"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:377</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GridEntitaServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumnsGrid"></a>
+                    <span class="name">
+                        <span ><b>setColumnsGrid</b></span>
+                        <a href="#setColumnsGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumnsGrid(columnsName, entitaValue: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>columnsName</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entitaValue</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;KendoGridColumn&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setModelGrid"></a>
+                    <span class="name">
+                        <span ><b>setModelGrid</b></span>
+                        <a href="#setModelGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setModelGrid(model, entitaValue: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>model</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entitaValue</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRowGrid"></a>
+                    <span class="name">
+                        <span ><b>setRowGrid</b></span>
+                        <a href="#setRowGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRowGrid(responseRows, entitaValue: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>responseRows</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entitaValue</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSelectedAttributeRow"></a>
+                    <span class="name">
+                        <span ><b>setSelectedAttributeRow</b></span>
+                        <a href="#setSelectedAttributeRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setSelectedAttributeRow(itemOfRows: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, entitaValue: <a href="../undefineds/enum_Entita_Analisi.html" target="_self">enum_Entita_Analisi</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>itemOfRows</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>entitaValue</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >enum_Entita_Analisi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allRows"></a>
+                    <span class="name">
+                        <span ><b>allRows</b></span>
+                        <a href="#allRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analisiDataService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>analisiDataService</b></span>
+                        <a href="#analisiDataService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AnalisiTerrenoService.html" target="_self" >AnalisiTerrenoService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="analisiFormService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>analisiFormService</b></span>
+                        <a href="#analisiFormService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/AnalisiTerrenoFormService.html" target="_self" >AnalisiTerrenoFormService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_PAGE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="entitaCoinvolta"></a>
+                    <span class="name">
+                        <span ><b>entitaCoinvolta</b></span>
+                        <a href="#entitaCoinvolta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#enum_Entita_Analisi" target="_self" >BehaviorSubject&lt;enum_Entita_Analisi&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;enum_Entita_Analisi&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;EntitaGridId&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridpublicService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridpublicService</b></span>
+                        <a href="#gridpublicService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParams"></a>
+                    <span class="name">
+                        <span ><b>objParams</b></span>
+                        <a href="#objParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;idEntita&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionChangeFn"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectionChangeFn</b></span>
+                        <a href="#selectionChangeFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/analisi-terreno/analisi-terreno-edit/griglia-entita/service/grid-griglia-entita.service.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &quot;@angular/core&quot;;
+import { enum_Entita_Analisi } from &quot;app/Model/TipiEnumerativi&quot;;
+import { ObjParametriAgendaService } from &quot;app/Service/obj-parametri-agenda.service&quot;;
+import { CommandsColumnSettings, ExcelSettings, PDFSettings, SelectableSettings, Sortable, SortMode, SortSettings } from &#x27;gias-kendo-grid&#x27;;
+import {  EditingMode, KendoGridColumn, KendoGridModel, KendoGridRow, KendoServerResult, LoaderType, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { AnalisiTerrenoFormService } from &quot;app/analisi-terreno/griglia-analisi-terreno/service/analisi-terreno-form.service&quot;;
+import { AnalisiTerrenoService } from &quot;app/analisi-terreno/griglia-analisi-terreno/service/analisi-terreno.service&quot;;
+import { BehaviorSubject, Observable, catchError, map, of, switchMap } from &quot;rxjs&quot;;
+import { EntitaConfigService } from &quot;./entita-config.service&quot;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { SelectionEvent } from &quot;@progress/kendo-angular-grid&quot;;
+import { GiasKendoGridComponent } from &#x27;gias-kendo-grid&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &quot;app/Model/CostantiPersonalizzate&quot;;
+
+export class GridEntitaServerResult extends KendoServerResult {
+    constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+        super(model, cols, rows);
+    }
+}
+
+@Injectable()
+export class GridEntitaHttpService extends AbstractGridConfigService&lt;GridEntitaServerResult&gt; {
+
+    editingMode: EditingMode &#x3D; EditingMode.IN_PAGE;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    rowId: string &#x3D; &quot;idEntita&quot;;
+    gridId: string &#x3D; &quot;EntitaGridId&quot;;
+
+    objParams;
+
+    allRows: any[] &#x3D; [];
+
+    entitaCoinvolta: BehaviorSubject&lt;enum_Entita_Analisi&gt; &#x3D; new BehaviorSubject&lt;enum_Entita_Analisi&gt;(null);
+
+    constructor(injector: Injector,
+        public gridpublicService: GridPublicService,
+        private objParametriAgenda: ObjParametriAgendaService,
+        private entitaConfigService: EntitaConfigService,
+        public analisiFormService: AnalisiTerrenoFormService,
+        public analisiDataService: AnalisiTerrenoService
+    ) {
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        this.objParams &#x3D; this.objParametriAgenda.getObjParamValue();
+
+        this.cmdColumn &#x3D; new CommandsColumnSettings({ editBtn: false, infoBtn: false, removeBtn: false });
+
+        this.behavior.excelSettings &#x3D; new ExcelSettings({ enabled: false });
+        this.behavior.pdfSettings &#x3D; new PDFSettings({ enabled: false });
+        // this.generalSettings.reordable &#x3D; false;
+        this.generalSettings.performOnEdit &#x3D; true;
+        this.columnMenu.kendoGridColumnChooser &#x3D; true;
+        this.views.enabled &#x3D; false;
+
+        this.selectable.selectable &#x3D; new SelectableSettings({
+            checkboxOnly: true,
+            enabled: (this.objParams.TipoOperazioneDB !&#x3D;&#x3D; Enum_DBTypeOperation.Read &amp;&amp; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCoinvolte&#x27;).value.length &lt;&#x3D; 1),
+            // mode: (this.reportMultiSelectGridOrogel.includes(paramFiltroRicercaNG.CodificaStampe) || paramFiltroRicercaNG.TipoComportamentoFiltroRicercaNG &#x3D;&#x3D; Enum_TipoComportamento_FiltroRicerca.SelezionamentoEntita) ? &#x27;multiple&#x27; : &#x27;single&#x27;
+        });
+
+        this.selectable.preselectedRows.selectionChangeFn &#x3D; this.selectionChangeFn;
+        this.selectable.columnSettings.showSelectAll &#x3D; true;
+        this.selectable.shouldShowCheckbox &#x3D; true;
+        this.selectable.columnSettings.title &#x3D; &#x27; &#x27;;
+
+        this.groups.groupable.enabled &#x3D; false;
+
+        this.resizable.autoFitColumns &#x3D; true;
+
+        // this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;).valueChanges.subscribe(values &#x3D;&gt; {
+
+        //     //pulisco l&#x27;array delle entità 
+        //     this.analisiFormService.arrayEntita.splice(0, this.analisiFormService.arrayEntita.length);
+
+        //     let statusGrid &#x3D; this.gridpublicService.getValue();
+
+        //     const validitaInizio &#x3D; values.inizio;
+        //     const validitaFine &#x3D; values.fine;
+
+        //     if (validitaFine &amp;&amp; validitaInizio &amp;&amp; new Date(validitaFine) &lt; new Date(validitaInizio)) {
+        //         statusGrid.data.rows &#x3D; [];
+        //     } else {
+        //         if (this.allRows.length &gt; 0) {    //ricarico la griglia filtrata
+        //             statusGrid.data.rows &#x3D; this.arrayFiltersData(this.allRows, validitaInizio, validitaFine);
+        //         }
+        //     }
+
+        //     this.gridpublicService.refresh(false, statusGrid.data);
+        // });
+    }
+
+    public selectionChangeFn &#x3D; (event: SelectionEvent, component: GiasKendoGridComponent) &#x3D;&gt; {
+        const selectedRows &#x3D; event.selectedRows.map(item &#x3D;&gt; item.dataItem);
+        const deselectedRows &#x3D; event.deselectedRows.map(item &#x3D;&gt; item.dataItem);
+
+        if (selectedRows.length &gt; 0) {
+            const toBeAdded &#x3D; selectedRows.filter(item &#x3D;&gt; !this.analisiFormService.arrayEntita.find(itemEntita &#x3D;&gt; itemEntita.chiave &#x3D;&#x3D; item.chiave));
+            this.analisiFormService.arrayEntita.push(...toBeAdded);
+        }
+
+        if (deselectedRows.length &gt; 0) {
+            this.analisiFormService.arrayEntita &#x3D; this.analisiFormService.arrayEntita.filter(item &#x3D;&gt; !deselectedRows.find(itemEntita &#x3D;&gt; itemEntita.chiave &#x3D;&#x3D; item.chiave));
+        }
+
+        if (this.analisiFormService.arrayEntita.length &gt; 0) {
+            // this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;inizio&#x27;)?.disable({ emitEvent: false });
+            // this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;fine&#x27;)?.disable({ emitEvent: false });
+            this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.disable({ emitEvent: false });
+        } else {
+            // this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;inizio&#x27;)?.enable({ emitEvent: false });
+            // this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;fine&#x27;)?.enable({ emitEvent: false });
+            this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.enable({ emitEvent: false });
+        }
+
+
+        GridEntitaHttpService.applySort(this.gridPublicService?.getValue()?.data?.rows ?? []);
+    }
+
+    read(options?: any): Observable&lt;GridEntitaServerResult&gt; {
+
+        // let entitaValue &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCoinvolte&#x27;).value;
+
+        return this.entitaCoinvolta.pipe(
+            switchMap(entitaValue &#x3D;&gt; {
+
+                let resp: Observable&lt;any&gt;;
+
+                this.loadingService.set_isLoading({ isLoading: true, component: this.gridPublicService.gridElRef });
+
+                if (entitaValue !&#x3D;&#x3D; null || entitaValue !&#x3D;&#x3D; undefined) {
+                    switch (entitaValue) {
+
+                        case enum_Entita_Analisi.Campo:
+                            resp &#x3D; this.analisiDataService.LeggiCampiEntita(this.objParams);
+                            break;
+
+                        case enum_Entita_Analisi.Centro:
+                            resp &#x3D; this.analisiDataService.LeggiCentriEntita(this.objParams);
+                            break;
+
+                        case enum_Entita_Analisi.Appezzamento:
+                            resp &#x3D; this.analisiDataService.LeggiAppezzamentiEntita(this.objParams);
+                            break;
+
+                        case enum_Entita_Analisi.Impianto:
+                            resp &#x3D; this.analisiDataService.LeggiImpiantiEntita(this.objParams);
+                            break;
+
+                        case enum_Entita_Analisi.Particella:
+                            resp &#x3D; this.analisiDataService.LeggiCatastoEntita(this.objParams);
+                            break;
+                    }
+                }
+
+                return resp.pipe(catchError((err) &#x3D;&gt; {
+                    this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+                    return of();
+                }), map((r: any) &#x3D;&gt; {
+
+                    this.loadingService.set_isLoading({ isLoading: false, component: this.gridPublicService.gridElRef });
+
+                    const valInizio &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;inizio&#x27;)?.value ?? AGRODATAINIZIO;
+                    const valFine &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.get(&#x27;fine&#x27;)?.value ?? AGRODATAFINE;
+
+                    if (Array.isArray(r)) {
+                        this.allRows &#x3D; r;
+                        r &#x3D; this.arrayFiltersData(r, entitaValue, valInizio, valFine);
+                    } else {
+                        this.allRows &#x3D; r.kendo_rows;
+                        r.kendo_rows &#x3D; this.arrayFiltersData(r.kendo_rows, entitaValue, valInizio, valFine);
+                    }
+
+                    const rows &#x3D; Array.isArray(r) ? this.setRowGrid(r, entitaValue) : this.setRowGrid(r.kendo_rows, entitaValue);
+                    const columns &#x3D; Array.isArray(r) ? this.setColumnsGrid(r.length &gt; 0 ? Object.keys(r[0]) : [], entitaValue) : this.setColumnsGrid(r.kendo_columns, entitaValue);
+                    const model &#x3D; Array.isArray(r) ? this.setModelGrid(r.length &gt; 0 ? Object.keys(r[0]) : [], entitaValue) : r.kendo_model;
+
+                    let gridEntitaServerResult: GridEntitaServerResult &#x3D; new GridEntitaServerResult(rows, columns, model);
+                    return gridEntitaServerResult;
+                }));
+            })
+        );
+    }
+
+    private arrayFiltersData(arrEntities: any[], entita: enum_Entita_Analisi, valInizio, valFine) {
+
+        if (entita &#x3D;&#x3D; enum_Entita_Analisi.Impianto) {
+            //per gli impianti, occorre anche fare una distinct 
+            const seen &#x3D; new Set();
+            return arrEntities
+                .filter(item &#x3D;&gt; {
+                    return item.Validita_Inizio_Impianto &lt;&#x3D; valFine &amp;&amp; item.Validita_Fine_Impianto &gt;&#x3D; valInizio;
+                })
+                .filter(item &#x3D;&gt; {
+                    const key &#x3D; item.PIVA + &quot;_&quot; + item.SA_COD + &quot;_&quot; + item.APPEZZA + &quot;_&quot; + item.id_Reg;
+                    if (seen.has(key)) return false;
+                    seen.add(key);
+                    return true;
+                })
+                .sort((a, b) &#x3D;&gt; {
+                    return a.chiave.localeCompare(b.chiave)
+                });
+        } else
+            return arrEntities.filter(item &#x3D;&gt; {
+                return item.Validita_Inizio &lt;&#x3D; valFine &amp;&amp; item.Validita_Fine &gt;&#x3D; valInizio;
+            });
+    }
+
+    setRowGrid(responseRows, entitaValue: enum_Entita_Analisi) {
+        let rows: Array&lt;KendoGridRow&gt; &#x3D; [];
+        let idEntita &#x3D; 0;
+
+        for (let itemOfRows of responseRows) {
+            itemOfRows.idEntita &#x3D; idEntita;
+            itemOfRows.Selected &#x3D; this.setSelectedAttributeRow(itemOfRows, entitaValue);
+
+            if (itemOfRows.Selected &amp;&amp; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCoinvolte&#x27;).value.length &#x3D;&#x3D; 1) {
+                this.analisiFormService.formAnalisiTerreno.get(&#x27;validita&#x27;)?.disable({ emitEvent: false });
+                this.analisiFormService.arrayEntita.push(itemOfRows);
+            }
+
+            idEntita++;
+
+            if ((this.objParams.TipoOperazioneDB !&#x3D;&#x3D; Enum_DBTypeOperation.Read &amp;&amp; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCoinvolte&#x27;).value.length &lt;&#x3D; 1) || itemOfRows.Selected)
+                rows.push(
+                    itemOfRows
+                );
+        }
+
+        return GridEntitaHttpService.applySort(rows);
+    }
+
+    setColumnsGrid(columnsName, entitaValue: enum_Entita_Analisi): Array&lt;KendoGridColumn&gt; {
+
+        switch (entitaValue) {
+
+            case enum_Entita_Analisi.Campo:
+                return this.entitaConfigService.kendoColumnsCampi;
+                break;
+
+            case enum_Entita_Analisi.Centro:
+                return this.entitaConfigService.kendoColumnsCentri;
+                break;
+
+            case enum_Entita_Analisi.Impianto:
+                return this.entitaConfigService.kendoColumnsImpianti;
+                break;
+
+            case enum_Entita_Analisi.Appezzamento:
+                return this.entitaConfigService.kendoColumnsAppezzamenti;
+                break;
+
+            case enum_Entita_Analisi.Particella:
+                return columnsName.filter(item &#x3D;&gt; item.field !&#x3D;&#x3D; &#x27;part_cod&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Sa_Cod&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Piva&#x27; &amp;&amp;
+                    item.field !&#x3D;&#x3D; &#x27;Titolo_Possesso_Cod&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;MetodoProduzione_Cod&#x27; &amp;&amp;
+                    item.field !&#x3D;&#x3D; &#x27;Attivo&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Data_Creazione&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Utente_Creazione&#x27; &amp;&amp;
+                    item.field !&#x3D;&#x3D; &#x27;Data_Modifica&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Utente_Modifica&#x27; &amp;&amp; item.field !&#x3D;&#x3D; &#x27;Prov&#x27; &amp;&amp;
+                    item.field !&#x3D;&#x3D; &#x27;Com&#x27;
+                );
+                break;
+
+            default:
+                let columns: Array&lt;KendoGridColumn&gt; &#x3D; [];
+                for (let itemOfColumns of columnsName) {
+                    columns.push(
+                        new KendoGridColumn({ field: itemOfColumns, title: itemOfColumns }, { resizable: true, editable: false })
+                    );
+                }
+                return columns;
+                break;
+
+        }
+    }
+
+    setModelGrid(model, entitaValue: enum_Entita_Analisi) {
+
+        switch (entitaValue) {
+
+            case enum_Entita_Analisi.Campo:
+                return this.entitaConfigService.kendoModelCampi;
+                break;
+
+            case enum_Entita_Analisi.Centro:
+                return this.entitaConfigService.kendoModelCentri;
+                break;
+
+            case enum_Entita_Analisi.Impianto:
+                return this.entitaConfigService.kendoModelImpianti;
+                break;
+
+            case enum_Entita_Analisi.Appezzamento:
+                return this.entitaConfigService.kendoModelAppezzamenti;
+                break;
+
+            default:
+                const objModel: { [key: string]: any } &#x3D; {};
+                model.forEach(key &#x3D;&gt; {
+                    objModel[key] &#x3D; new ModelEntry(CELL_TYPES.STRING);
+                });
+                return objModel;
+                break;
+        }
+    }
+
+    setSelectedAttributeRow(itemOfRows: any, entitaValue: enum_Entita_Analisi): boolean {
+
+        //sono in scrittura, devo postare il primo elemento a selected true e aggiornare l&#x27;array
+        if (this.objParams.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Write) {
+            return false;
+        }
+
+        switch (entitaValue) {
+            case enum_Entita_Analisi.Campo:
+                let arrCampi &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCampi&#x27;).getRawValue();
+                return arrCampi.some(item &#x3D;&gt; item.elementoAnagrafico.primaryKey.centroAziendalePK.codice &#x3D;&#x3D; itemOfRows.sa_cod
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.centroAziendalePK.partitaIva &#x3D;&#x3D; itemOfRows.PIVA
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.codice &#x3D;&#x3D; itemOfRows.Campo_Cod);
+                break;
+
+            case enum_Entita_Analisi.Centro:
+                let arrCentri &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaCentri&#x27;).getRawValue();
+                return arrCentri.some(item &#x3D;&gt; item.elementoAnagrafico.primaryKey.codice &#x3D;&#x3D; itemOfRows.sa_cod
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.partitaIva &#x3D;&#x3D; itemOfRows.Piva);
+                break;
+
+            case enum_Entita_Analisi.Appezzamento:
+                let arrAppezzamenti &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaAppezzamenti&#x27;).getRawValue();
+                return arrAppezzamenti.some(item &#x3D;&gt; item.elementoAnagrafico.primaryKey.centroAziendalePK.codice &#x3D;&#x3D; itemOfRows.Sa_Cod
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.centroAziendalePK.partitaIva &#x3D;&#x3D; itemOfRows.Piva
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.codice &#x3D;&#x3D; itemOfRows.Appezza);
+                break;
+
+            case enum_Entita_Analisi.Impianto:
+                let arrImpianti &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaImpianti&#x27;).getRawValue();
+                return arrImpianti.some(item &#x3D;&gt; item.elementoAnagrafico.primaryKey.appezzamentoPK.centroAziendalePK.codice &#x3D;&#x3D; itemOfRows.SA_COD
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.appezzamentoPK.centroAziendalePK.partitaIva &#x3D;&#x3D; itemOfRows.PIVA
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.appezzamentoPK.codice &#x3D;&#x3D; itemOfRows.APPEZZA
+                    &amp;&amp; item.elementoAnagrafico.primaryKey.codice &#x3D;&#x3D; itemOfRows.id_Reg);
+                break;
+
+            case enum_Entita_Analisi.Particella:
+                let arrCatasto &#x3D; this.analisiFormService.formAnalisiTerreno.get(&#x27;entitaParticelleCatastali&#x27;).getRawValue();
+                return arrCatasto.some(item &#x3D;&gt; item.elementoAnagrafico.particella.primaryKey.Prov &#x3D;&#x3D; itemOfRows.Prov
+                    &amp;&amp; item.elementoAnagrafico.particella.primaryKey.Com &#x3D;&#x3D; itemOfRows.Com
+                    &amp;&amp; item.elementoAnagrafico.particella.primaryKey.Sezione &#x3D;&#x3D; itemOfRows.SEZIONE
+                    &amp;&amp; item.elementoAnagrafico.particella.primaryKey.Foglio &#x3D;&#x3D; itemOfRows.FOGLIO
+                    &amp;&amp; item.elementoAnagrafico.particella.primaryKey.Numero &#x3D;&#x3D; itemOfRows.NUMERO
+                    &amp;&amp; item.elementoAnagrafico.particella.primaryKey.Subalterno &#x3D;&#x3D; itemOfRows.SUBALTERNO
+                    &amp;&amp; item.elementoAnagrafico.centro.codice &#x3D;&#x3D; itemOfRows.Sa_Cod
+                    &amp;&amp; item.elementoAnagrafico.centro.partitaIva &#x3D;&#x3D; itemOfRows.Piva);
+                break;
+        }
+    }
+
+    handlerChangeDates(values, entitaValue: enum_Entita_Analisi) {
+        this.analisiFormService.arrayEntita.splice(0, this.analisiFormService.arrayEntita.length);
+
+        let statusGrid &#x3D; this.gridpublicService.getValue();
+
+        const validitaInizio &#x3D; values.inizio;
+        const validitaFine &#x3D; values.fine;
+
+        if (validitaFine &amp;&amp; validitaInizio &amp;&amp; new Date(validitaFine) &lt; new Date(validitaInizio)) {
+            statusGrid.data.rows &#x3D; [];
+        } else {
+            if (this.allRows.length &gt; 0) {    //ricarico la griglia filtrata
+                statusGrid.data.rows &#x3D; this.arrayFiltersData(this.allRows, entitaValue, validitaInizio, validitaFine);
+            }
+        }
+
+        this.gridpublicService.refresh(false, statusGrid.data);
+    }
+
+    perform(actionType: HttpAction, items: any, oldRow?: any): Observable&lt;any&gt; {
+        throw new Error(&quot;Method not implemented.&quot;);
+    }
+
+    public static applySort(rows: KendoGridRow[]): KendoGridRow[] {
+        return rows.sort((a, b) &#x3D;&gt; Number(b[&#x27;Selected&#x27;] || 0) - Number(a[&#x27;Selected&#x27;] || 0))
+    }
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridEntitaHttpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

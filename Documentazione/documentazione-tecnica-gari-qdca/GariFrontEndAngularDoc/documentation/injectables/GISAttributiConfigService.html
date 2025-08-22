@@ -1,0 +1,2072 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GISAttributiConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#eventListener_Remove" >eventListener_Remove</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoLayer" >kendoLayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoRows" >kendoRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#layerItemSelected" >layerItemSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#layerTypeSelected" >layerTypeSelected</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessi" >permessi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#readIsLoading" >readIsLoading</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#serviceId" >serviceId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subs" >subs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ultimaFeatureSelezionata" >ultimaFeatureSelezionata</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addItem" >addItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractDataFromFeatures" >extractDataFromFeatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#extractDescrizioneFromFeatures" >extractDescrizioneFromFeatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getTreeKey" >getTreeKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handlePagination" >handlePagination</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#onComponentDestroy" >onComponentDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onEditFeature" >onEditFeature</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshGrid" >refreshGrid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectRow" >selectRow</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, featureService: <a href="../injectables/FeatureService.html" target="_self">FeatureService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, translocoService: TranslocoService, gisClient: <a href="../injectables/GisClient.html" target="_self">GisClient</a>, gisAttributiGridEventsService: <a href="../injectables/GISAttributiEventsService.html" target="_self">GISAttributiEventsService</a>, editFeatureService: <a href="../injectables/EditFeatureService.html" target="_self">EditFeatureService</a>, kendoWindowService: <a href="../injectables/KendoWindowsService.html" target="_self">KendoWindowsService</a>, drawWindowOperationService: <a href="../injectables/DrawWindowOperationService.html" target="_self">DrawWindowOperationService</a>, treeGisService: <a href="../injectables/TreeGisService.html" target="_self">TreeGisService</a>, googleMapGeoJsonService: <a href="../injectables/GoogleMapGeoJsonService.html" target="_self">GoogleMapGeoJsonService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:70</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureService.html" target="_self" >FeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisClient.html" target="_self" >GisClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisAttributiGridEventsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISAttributiEventsService.html" target="_self" >GISAttributiEventsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>editFeatureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EditFeatureService.html" target="_self" >EditFeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kendoWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoWindowsService.html" target="_self" >KendoWindowsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawWindowOperationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawWindowOperationService.html" target="_self" >DrawWindowOperationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>treeGisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TreeGisService.html" target="_self" >TreeGisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapGeoJsonService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapGeoJsonService.html" target="_self" >GoogleMapGeoJsonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addItem"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addItem</b></span>
+                        <a href="#addItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addItem()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="246"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:246</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractDataFromFeatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>extractDataFromFeatures</b></span>
+                        <a href="#extractDataFromFeatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractDataFromFeatures()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractDescrizioneFromFeatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>extractDescrizioneFromFeatures</b></span>
+                        <a href="#extractDescrizioneFromFeatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractDescrizioneFromFeatures()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="372"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:372</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTreeKey"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getTreeKey</b></span>
+                        <a href="#getTreeKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTreeKey()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="274"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:287</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePagination"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handlePagination</b></span>
+                        <a href="#handlePagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handlePagination()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:323</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>PaginationSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onComponentDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>onComponentDestroy</b></span>
+                        <a href="#onComponentDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onComponentDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onEditFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onEditFeature</b></span>
+                        <a href="#onEditFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onEditFeature()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="397"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:397</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(action: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GISAttributiKendoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshGrid"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>refreshGrid</b></span>
+                        <a href="#refreshGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshGrid(keepModel?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>keepModel</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectRow"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectRow</b></span>
+                        <a href="#selectRow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectRow(chiave: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>chiave</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="eventListener_Remove"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>eventListener_Remove</b></span>
+                        <a href="#eventListener_Remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/List.html" target="_self" >google.maps.MapsEventListener</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;GISAttributi&#x60;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      { field: &#x27;Descrizione&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;) },
+      { resizable: true, editable: true, validators: [forbiddenCharactersValidator] }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoLayer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoLayer</b></span>
+                        <a href="#kendoLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/KendoGISAppuntiModel.html" target="_self" >KendoGISAppuntiModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    Descrizione: new ModelEntry(CELL_TYPES.STRING, false)
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoRows</b></span>
+                        <a href="#kendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridRow[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layerItemSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>layerItemSelected</b></span>
+                        <a href="#layerItemSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >[TipologiaLayer, boolean]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layerTypeSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>layerTypeSelected</b></span>
+                        <a href="#layerTypeSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessi</b></span>
+                        <a href="#permessi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PermessiFeature.html" target="_self" >PermessiFeature</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new PermessiFeature()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="readIsLoading"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>readIsLoading</b></span>
+                        <a href="#readIsLoading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serviceId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>serviceId</b></span>
+                        <a href="#serviceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subs</b></span>
+                        <a href="#subs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ultimaFeatureSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>ultimaFeatureSelezionata</b></span>
+                        <a href="#ultimaFeatureSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/GIS/GIS-attributi/GIS-attributi-grid/GIS-attributi-grid-config.service.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { process } from &#x27;@progress/kendo-data-query&#x27;;
+import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { enum_GISDrawingOperations } from &#x27;app/GIS/GIS-enum/GIS-drawing-operations&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;app/GIS/GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { DrawWindowOperationService } from &#x27;app/GIS/GIS-kendo-window/draw-window/draw-window-operation.service&#x27;;
+import { GoogleMapGeoJsonService } from &#x27;app/GIS/google-map/google-map-geojson.service&#x27;;
+import { EditFeatureService } from &#x27;app/GIS/services/edit-feature.service&#x27;;
+import { PermessiFeature, FeatureService } from &#x27;app/GIS/services/feature.service&#x27;;
+import { LayerService } from &#x27;app/GIS/services/layer.service&#x27;;
+import { SharedDataService } from &#x27;app/GIS/services/shared-data.service&#x27;;
+import { SMARTPHONE_WIDTH } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { FeatureType, GeoJSONAgroGisProp, GeoJson_Feature_New } from &#x27;app/Model/GIS/GisDataReadRval_New&#x27;;
+import { KendoWindowsService, WindowTypes } from &#x27;app/Service&#x27;;
+import { TipologiaLayer, GisClient } from &#x27;app/Service/api.service&#x27;;
+import { getServiceIdAndLog } from &#x27;app/Service/utils&#x27;;
+import { AgrSelectableSettings, ToolbarSettings, CommandsColumnSettings, PaginationSettings, CustomColumnSettings } from &#x27;gias-kendo-grid&#x27;;
+import { KendoGridColumn, ModelEntry,  KendoGridRow, EditingMode, LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { TreeGisService } from &#x27;app/Utility/Template/kendo-tree/services/tree-gis.service&#x27;;
+import { Subscription, Subject, Observable, tap, forkJoin, map } from &#x27;rxjs&#x27;;
+import { GISAttributiKendoServerResult, KendoGISAppuntiModel } from &#x27;./GIS-attributi-grid.model&#x27;;
+import { GISAttributiEventsService } from &#x27;./GIS-attributi-grid-events.service&#x27;;
+import { FormControl } from &#x27;@angular/forms&#x27;;
+import { TreeNode } from &#x27;../../../Utility/Template/kendo-tree/model&#x27;;
+import { FeatureInformationService } from &#x27;app/GIS/services/feature-information.service&#x27;;
+
+export function forbiddenCharactersValidator(input: FormControl): any {
+  if (input.getRawValue().indexOf(&#x27;§&#x27;) !&#x3D; -1 || input.getRawValue().indexOf(&#x27;|&#x27;) !&#x3D; -1)
+    return { &#x27;character&#x27;: true };
+  else return null;
+}
+
+@Injectable()
+export class GISAttributiConfigService extends AbstractGridConfigService&lt;GISAttributiKendoServerResult&gt;{
+
+  gridId: string &#x3D; &#x60;GISAttributi&#x60;;
+  rowId: string &#x3D; &#x27;chiave&#x27;;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+
+  public readIsLoading: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+
+  private kendoColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      { field: &#x27;Descrizione&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;) },
+      { resizable: true, editable: true, validators: [forbiddenCharactersValidator] }
+    )
+  ];
+
+  private kendoModel: KendoGISAppuntiModel &#x3D; {
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    Descrizione: new ModelEntry(CELL_TYPES.STRING, false)
+  };
+
+  private kendoRows: KendoGridRow[] &#x3D; [];
+
+  private subs: Subscription &#x3D; new Subscription();
+  private eventListener_Remove: google.maps.MapsEventListener;
+
+  private kendoLayer: any;
+  private layerItemSelected: [TipologiaLayer, boolean];
+  private layerTypeSelected: string &#x3D; &#x27;&#x27;;
+  private permessi: PermessiFeature &#x3D; new PermessiFeature();
+
+  private ultimaFeatureSelezionata: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;;
+
+  private serviceId &#x3D; null;
+
+  constructor(
+    injector: Injector,
+    private featureService: FeatureService,
+    private sharedDataService: SharedDataService,
+    private layerService: LayerService,
+    private translocoService: TranslocoService,
+    private gisClient: GisClient,
+    private gisAttributiGridEventsService: GISAttributiEventsService,
+    private editFeatureService: EditFeatureService,
+    private kendoWindowService: KendoWindowsService,
+    private drawWindowOperationService: DrawWindowOperationService,
+    private treeGisService: TreeGisService,
+    private googleMapGeoJsonService: GoogleMapGeoJsonService,
+    private featureInformationService: FeatureInformationService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.serviceId &#x3D; getServiceIdAndLog(&#x27;GISAttributiConfigService&#x27;, &#x27;constructor&#x27;);
+
+    let featureSelezionate &#x3D; this.featureService.getFeatureSelezionate();
+    this.ultimaFeatureSelezionata &#x3D; featureSelezionate[featureSelezionate.length - 1];
+
+    this.subs.add(this.featureService.getFeatureSelezionate$()
+      .subscribe(featureSelezionate &#x3D;&gt; {
+        const indiceUltimaFeature &#x3D; featureSelezionate.length - 1;
+        this.ultimaFeatureSelezionata &#x3D; featureSelezionate[indiceUltimaFeature];
+
+        if (this.ultimaFeatureSelezionata !&#x3D; undefined) {
+          this.permessi &#x3D; this.featureService.getPermessiFeature(this.ultimaFeatureSelezionata);
+
+          if (this.layerTypeSelected !&#x3D; this.ultimaFeatureSelezionata?.properties.layer) {
+            this.layerTypeSelected &#x3D; this.ultimaFeatureSelezionata?.properties.layer;
+
+            // this.gridId &#x3D; &#x60;GISAttributi${this.layerTypeSelected}&#x60;;
+            this.gridPublicService.refresh(true);
+            this.handleCustomizations();
+          }
+        }
+
+        // la riga sottostante fa si che alla selezione di una feature venga selezionata la riga corrispondente
+        this.selectRow(&lt;string&gt;this.ultimaFeatureSelezionata?.properties.id);
+      })
+    );
+
+    this.layerItemSelected &#x3D; this.layerService.layerItemSelected;
+    this.layerTypeSelected &#x3D; this.layerItemSelected[0]?.id;
+    this.permessi &#x3D; this.sharedDataService.getPermessiLayer(this.layerItemSelected[0]);
+
+    this.subs.add(this.gridPublicService.changeDetected.subscribe((c) &#x3D;&gt; {
+      if (c[&#x27;action&#x27;] &#x3D;&#x3D; &#x27;cancel&#x27;) {
+        this.drawWindowOperationService.setOperation(enum_GISDrawingOperations.none);
+
+        if (Number.parseInt(this.layerService.layerItemSelected[0].FeatureTypeId) &#x3D;&#x3D; FeatureType.Polygon)
+          this.gisAttributiGridEventsService.cancelPolygon();
+        if (Number.parseInt(this.layerService.layerItemSelected[0].FeatureTypeId) &#x3D;&#x3D; FeatureType.Point)
+          this.gisAttributiGridEventsService.cancelMarker();
+        if (Number.parseInt(this.layerService.layerItemSelected[0].FeatureTypeId) &#x3D;&#x3D; FeatureType.LineString)
+          this.gisAttributiGridEventsService.cancelPolyline();
+      }
+    }));
+
+    this.subs.add(this.sharedDataService.geoJsonLoaded.subscribe(v &#x3D;&gt; {
+      this.gridPublicService.refresh(true);
+    }));
+
+    this.subs.add(this.editFeatureService.editFeature.subscribe(l &#x3D;&gt; {
+      this.selectRow(&lt;string&gt;l.getId());
+      this.onEditFeature();
+    }));
+
+    this.subs.add(this.gridPublicService.selection.getSelectedValue.subscribe(r &#x3D;&gt; {
+      this.gisAttributiGridEventsService.selectFeature(r?.value.selectedRows[0].dataItem.chiave);
+    }));
+
+    this.subs.add(this.gridPublicService.filters.subscribe(c &#x3D;&gt; {
+      let filteredRows: any[] &#x3D; process(this.kendoRows, { filter: c }).data;
+
+      if (filteredRows.length &gt; 0)
+        this.googleMapGeoJsonService.setMapCenterOfPassedFeatures(filteredRows.map(fr &#x3D;&gt; fr.chiave));
+    }));
+
+    this.handleCustomizations();
+  }
+
+  perform(action: HttpAction, items: any): Observable&lt;any[]&gt; {
+    if (action &#x3D;&#x3D; HttpAction.CREATE) {
+      this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+      return this.gisAttributiGridEventsService
+        .addItem(items)
+        .pipe(tap((risultato) &#x3D;&gt; {
+          if (risultato &#x3D;&#x3D; null) {
+            return;
+          }
+          let datiFeature &#x3D; this.sharedDataService.getDatiFeatureConAttributi();
+          datiFeature.EntitaCod &#x3D; risultato.RispostaStringa.ListaEntitaInserite[0];
+          datiFeature.DatiCompleti &#x3D; true;
+          this.sharedDataService.setDatiFeatureConAttributi(datiFeature);
+          this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+          this.sharedDataService.closeAttributiTable.next(&#x27;&#x27;);
+          this.kendoWindowService.close(WindowTypes.MarkerWindow);
+          this.drawWindowOperationService.setOperation(enum_GISDrawingOperations.none);
+        }));
+    }
+    if (action &#x3D;&#x3D; HttpAction.UPDATE) {
+      this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+      return this.gisAttributiGridEventsService.updateItem(items).pipe(tap((risultato) &#x3D;&gt; {
+        let datiFeature &#x3D; this.sharedDataService.getDatiFeatureConAttributi();
+        datiFeature.DatiCompleti &#x3D; true;
+        this.sharedDataService.setDatiFeatureConAttributi(datiFeature);
+        this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+        this.sharedDataService.closeAttributiTable.next(&#x27;&#x27;);
+        this.kendoWindowService.close(WindowTypes.MarkerWindow);
+        this.drawWindowOperationService.setOperation(enum_GISDrawingOperations.none);
+      }));
+    }
+  }
+
+  read(options?: any): Observable&lt;GISAttributiKendoServerResult&gt; {
+    this.readIsLoading.next(true);
+    let obs: Observable&lt;any&gt;[] &#x3D; [];
+    if (this.layerTypeSelected !&#x3D; undefined) {
+      this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+      obs &#x3D; [
+        this.gisClient.gisLeggiElencoStrutturaAttributiLayer(this.layerTypeSelected)
+      ];
+    }
+
+    return forkJoin(obs).pipe(map(result &#x3D;&gt; {
+      this.kendoLayer &#x3D; JSON.parse(result[0].RispostaStringa.KendoGridAttributiLayer);
+      this.kendoRows &#x3D; &lt;Array&lt;any&gt;&gt;(this.kendoLayer?.kendo_rows);
+
+      let tableData;
+      if (this.kendoLayer?.kendo_model &#x3D;&#x3D; undefined || this.kendoLayer?.kendo_columns &#x3D;&#x3D; undefined) {
+        this.extractDescrizioneFromFeatures();
+
+        tableData &#x3D; new GISAttributiKendoServerResult(
+          this.kendoModel,
+          this.kendoColumns,
+          this.kendoRows
+        );
+      } else {
+        this.kendoLayer.kendo_model[&#x27;chiave&#x27;] &#x3D; { editable: false, type: &#x27;string&#x27; };
+
+        this.kendoModel &#x3D; this.kendoLayer.kendo_model;
+        this.kendoColumns &#x3D; this.kendoLayer.kendo_columns.map(c &#x3D;&gt;
+          new KendoGridColumn(
+            { field: c.field, title: c.title },
+            { resizable: true, editable: true, width: 150, validators: [forbiddenCharactersValidator] }
+          )
+        );
+        this.extractDataFromFeatures();
+
+        tableData &#x3D; new GISAttributiKendoServerResult(
+          this.kendoModel,
+          this.kendoColumns,
+          this.kendoRows
+        );
+      }
+
+      this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+      this.readIsLoading.next(false);
+      return tableData;
+    }));
+  }
+
+  public selectRow(chiave: string): void {
+    if (this.gridPublicService.filters.getValue() &#x3D;&#x3D; undefined || this.gridPublicService.filters.getValue().filters.length &#x3D;&#x3D; 0) {
+      this.gridPublicService.selection.setSelected.next({ keys: [chiave], resetPreviousSelection: true });
+      this.gridPublicService.giasGridComponent?.grid.scrollTo({
+        row: this.gridPublicService.giasGridComponent.rows.findIndex(r &#x3D;&gt; r[&#x27;chiave&#x27;] &#x3D;&#x3D; chiave)
+      });
+    }
+  }
+
+  public addItem(): void {
+    this.gridPublicService.gridComp.add.next({ sender: this.gridPublicService.gridComp, dataItem: undefined, isNew: true, rowIndex: 0 })
+  }
+
+  public onComponentDestroy(): void {
+    google.maps.event.removeListener(this.eventListener_Remove);
+    this.subs.unsubscribe();
+  }
+
+  public refreshGrid(keepModel?: boolean): void {
+    if (this.kendoLayer?.kendo_model &#x3D;&#x3D; undefined || this.kendoLayer?.kendo_columns &#x3D;&#x3D; undefined)
+      this.extractDescrizioneFromFeatures();
+    else
+      this.extractDataFromFeatures();
+
+    if (keepModel)
+      this.gridPublicService.refresh(
+        false,
+        {
+          model: this.kendoModel,
+          columns: this.kendoColumns,
+          rows: this.kendoRows
+        }
+      );
+    else
+      this.gridPublicService.refresh(true);
+  }
+
+  private getTreeKey(): string {
+    let checkedKeys: Array&lt;any&gt; &#x3D; this.sharedDataService.getTreeViewCheckedKeys();
+    if (checkedKeys.length &lt; 2) {
+      if (this.ultimaFeatureSelezionata) {
+        return this.ultimaFeatureSelezionata?.properties.chiavealbero;
+      } else if (checkedKeys.length &#x3D;&#x3D; 1) {
+        let node: TreeNode &#x3D; this.treeGisService.getTreeNodeFromCheckedKey(checkedKeys[0]);
+        return node.id;
+      }
+    }
+    return &#x27;&#x27;;
+  }
+
+  private handleCustomizations(): void {
+    this.pagination &#x3D; this.handlePagination();
+
+    const permessoEdit: boolean &#x3D; this.permessi.modifica;
+    const permessoRemove: boolean &#x3D; false; //this.permessi.cancellazione;
+    const permessoInserimento: boolean &#x3D; false; //this.permessi.inserimento;
+
+    this.selectable &#x3D; new AgrSelectableSettings();
+    this.selectable.selectable.checkboxOnly &#x3D; false;
+    this.selectable.selectable.enabled &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; false;
+
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; false; //permessoInserimento;
+    this.toolbar.resetChanges &#x3D; false;
+
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: permessoEdit,
+      infoBtn: false,
+      removeBtn: permessoRemove,
+      onDisableInfoBtn: () &#x3D;&gt; false
+    });
+
+    this.resizable.autoFitColumns &#x3D; false;
+    this.resizable.isResizable &#x3D; true;
+
+    if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+      this.toolbar.newItem &#x3D; false; //permessoInserimento;
+      this.cmdColumn.editBtn &#x3D; permessoEdit;
+      this.groups.groupable.enabled &#x3D; false;
+      this.views.enabled &#x3D; false;
+    }
+
+    this.customColumn &#x3D; new CustomColumnSettings({ showColumn: true, width: 50, useCustomColumnCellTemplate: true });
+  }
+
+  private handlePagination(): PaginationSettings {
+    const result: PaginationSettings &#x3D; new PaginationSettings();
+    result.gridState &#x3D; {
+      sort: [],
+      skip: 0,
+      group: [],
+      take: 5,
+      filter: {
+        logic: &#x27;and&#x27;,
+        filters: [],
+      },
+    };
+    result.pageable &#x3D; {
+      buttonCount: 4,
+      info: true,
+      type: &#x27;input&#x27;,
+      pageSizes: [5, 8, 10, 25, 50, 100, {
+        text: this.translocoService.translate(&#x27;Tutti&#x27;),
+        value: &quot;all&quot;,
+      } as any as number]
+    };
+    result.navigable &#x3D; false;
+
+    return result;
+  }
+
+  private extractDataFromFeatures(): void {
+    const features &#x3D; this.featureInformationService.getByLayer(this.layerTypeSelected);
+    let rows: Array&lt;any&gt; &#x3D; [];
+
+    features.forEach(f &#x3D;&gt; {
+      let row &#x3D; &lt;any&gt;{};
+      let dataString: string &#x3D; f.properties.AppIdRate;
+
+      dataString.split(&#x27;|&#x27;).forEach(d &#x3D;&gt; {
+        let dd: Array&lt;string&gt; &#x3D; d.split(&#x27;§&#x27;);
+        let field: string &#x3D; dd[0];
+        let value: string &#x3D; dd[1];
+
+        row[field] &#x3D; value;
+      });
+      row[&#x27;chiave&#x27;] &#x3D; f.properties.id;
+
+      rows.push(row);
+    });
+
+    this.kendoRows &#x3D; rows;
+  }
+
+  private extractDescrizioneFromFeatures(): void {
+    let features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[];
+    if (
+      this.ultimaFeatureSelezionata?.properties.layer &#x3D;&#x3D; enum_LayerElementiGraficiStd.CAMPIONAMENTI ||
+      this.layerService.layerItemSelected[0].id &#x3D;&#x3D; enum_LayerElementiGraficiStd.CAMPIONAMENTI
+    ) {
+      features &#x3D; this.featureInformationService.getByNode(this.layerTypeSelected, this.getTreeKey());
+    } else {
+      features &#x3D; this.featureInformationService.getByLayer(this.layerTypeSelected);
+    }
+
+    let rows: Array&lt;any&gt; &#x3D; [];
+    features.forEach(f &#x3D;&gt; {
+      let row &#x3D; &lt;any&gt;{};
+      let dataString: string &#x3D; f.properties.Testo;
+
+      row[&#x27;Descrizione&#x27;] &#x3D; dataString;
+      row[&#x27;chiave&#x27;] &#x3D; f.properties.id;
+
+      rows.push(row);
+    });
+
+    this.kendoRows &#x3D; rows;
+  }
+
+  private onEditFeature(): void {
+    const dataItem: KendoGridRow &#x3D; this.gridPublicService.giasGridComponent.rows.find(
+      r &#x3D;&gt; r[&#x27;chiave&#x27;] &#x3D;&#x3D; this.ultimaFeatureSelezionata.properties.id
+    );
+
+    const idx: number &#x3D; this.gridPublicService.giasGridComponent.rows.findIndex(
+      r &#x3D;&gt; r[&#x27;chiave&#x27;] &#x3D;&#x3D; this.ultimaFeatureSelezionata.properties.id
+    );
+
+    this.gridPublicService.giasGridComponent.editHandler(
+      { dataItem: dataItem, isNew: false, rowIndex: idx, sender: this.gridPublicService.giasGridComponent.grid }
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GISAttributiConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

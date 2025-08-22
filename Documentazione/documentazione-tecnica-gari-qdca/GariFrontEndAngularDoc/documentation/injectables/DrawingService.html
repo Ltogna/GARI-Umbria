@@ -1,0 +1,2657 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DrawingService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/services/drawing.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addEvent" >addEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#giasMarkerDrawings" >giasMarkerDrawings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#giasPolygonDrawings" >giasPolygonDrawings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#giasPolylineDrawings" >giasPolylineDrawings</a>
+                            </li>
+                            <li>
+                                <a href="#removeEvent" >removeEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#serviceId" >serviceId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#subs" >subs</a>
+                            </li>
+                            <li>
+                                <a href="#updatedDrawEvent" >updatedDrawEvent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addDrawing" >addDrawing</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addMarker" >addMarker</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addPolygon" >addPolygon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addPolyline" >addPolyline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkForRemove" >checkForRemove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteSubscriptions" >deleteSubscriptions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fromPointsToPolygon" >fromPointsToPolygon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fromPointsToPolyline" >fromPointsToPolyline</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fromPointToMarker" >fromPointToMarker</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPolygonFromCoordinates" >getPolygonFromCoordinates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPolygonValidator" >getPolygonValidator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPolylineFromCoordinates" >getPolylineFromCoordinates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newDrawId" >newDrawId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newMarkerID" >newMarkerID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newPolygonID" >newPolygonID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#newPolylineID" >newPolylineID</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeAllMarkers" >removeAllMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeAllPolygons" >removeAllPolygons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeAllPolylines" >removeAllPolylines</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeDrawing" >removeDrawing</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateGeometry" >updateGeometry</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#googleMapWrapper" >googleMapWrapper</a>
+                                </li>
+                                <li>
+                                    <a href="#polygons" >polygons</a>
+                                </li>
+                                <li>
+                                    <a href="#markers" >markers</a>
+                                </li>
+                                <li>
+                                    <a href="#polylines" >polylines</a>
+                                </li>
+                                <li>
+                                    <a href="#markers$" >markers$</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, googleMapDataService: <a href="../injectables/GoogleMapDataService.html" target="_self">GoogleMapDataService</a>, gisToolbarService: <a href="../injectables/GisToolbarService.html" target="_self">GisToolbarService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, drawingOptionsService: <a href="../injectables/DrawingOptionsService.html" target="_self">DrawingOptionsService</a>, kendoWindowsService: <a href="../injectables/KendoWindowsService.html" target="_self">KendoWindowsService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>, googleMapGeoJsonLazyService: <a href="../injectables/GoogleMapGeoJsonLazyService.html" target="_self">GoogleMapGeoJsonLazyService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/GIS/services/drawing.service.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapDataService.html" target="_self" >GoogleMapDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisToolbarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisToolbarService.html" target="_self" >GisToolbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawingOptionsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawingOptionsService.html" target="_self" >DrawingOptionsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kendoWindowsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoWindowsService.html" target="_self" >KendoWindowsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapGeoJsonLazyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapGeoJsonLazyService.html" target="_self" >GoogleMapGeoJsonLazyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addDrawing"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addDrawing</b></span>
+                        <a href="#addDrawing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addDrawing(draw: <a href="../interfaces/Marker.html" target="_self">google.maps.Polygon | google.maps.Marker | google.maps.Polyline</a>, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, validatePolygon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>draw</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Marker.html" target="_self" >google.maps.Polygon | google.maps.Marker | google.maps.Polyline</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>validatePolygon</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addMarker"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addMarker</b></span>
+                        <a href="#addMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addMarker(draw: <a href="../interfaces/Marker.html" target="_self">google.maps.Marker</a>, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, validatePolygon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>draw</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Marker.html" target="_self" >google.maps.Marker</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validatePolygon</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPolygon"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addPolygon</b></span>
+                        <a href="#addPolygon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addPolygon(draw: google.maps.Polygon, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>draw</td>
+                                            <td>
+                                                        <code>google.maps.Polygon</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addPolyline"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addPolyline</b></span>
+                        <a href="#addPolyline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addPolyline(draw: google.maps.Polyline, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="230"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:230</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>draw</td>
+                                            <td>
+                                                        <code>google.maps.Polyline</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkForRemove"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>checkForRemove</b></span>
+                        <a href="#checkForRemove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkForRemove(e)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="349"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>e</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteSubscriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteSubscriptions</b></span>
+                        <a href="#deleteSubscriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteSubscriptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fromPointsToPolygon"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>fromPointsToPolygon</b></span>
+                        <a href="#fromPointsToPolygon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fromPointsToPolygon(coordinates: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng[] | google.maps.LatLngLiteral[]</a>, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coordinates</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng[] | google.maps.LatLngLiteral[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fromPointsToPolyline"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>fromPointsToPolyline</b></span>
+                        <a href="#fromPointsToPolyline"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fromPointsToPolyline(coordinates: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng[] | google.maps.LatLngLiteral[]</a>, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coordinates</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng[] | google.maps.LatLngLiteral[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fromPointToMarker"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>fromPointToMarker</b></span>
+                        <a href="#fromPointToMarker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fromPointToMarker(coordinates: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng</a>, isMultiplePointAllowed: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, validatePolygon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coordinates</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMultiplePointAllowed</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>validatePolygon</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPolygonFromCoordinates"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getPolygonFromCoordinates</b></span>
+                        <a href="#getPolygonFromCoordinates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPolygonFromCoordinates(coordinates: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng[] | google.maps.LatLngLiteral[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coordinates</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng[] | google.maps.LatLngLiteral[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>google.maps.Polygon</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPolygonValidator"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getPolygonValidator</b></span>
+                        <a href="#getPolygonValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPolygonValidator(giasMarkers: <a href="../interfaces/Marker.html" target="_self">GiasMarker[]</a>, drawingManager: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="224"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:224</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>giasMarkers</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Marker.html" target="_self" >GiasMarker[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>drawingManager</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPolylineFromCoordinates"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getPolylineFromCoordinates</b></span>
+                        <a href="#getPolylineFromCoordinates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPolylineFromCoordinates(coordinates: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng[] | google.maps.LatLngLiteral[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>coordinates</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng[] | google.maps.LatLngLiteral[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>google.maps.Polyline</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newDrawId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>newDrawId</b></span>
+                        <a href="#newDrawId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newDrawId(array: <a href="../classes/GiasBaseDraw.html" target="_self">GiasBaseDraw[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>array</td>
+                                            <td>
+                                                            <code><a href="../classes/GiasBaseDraw.html" target="_self" >GiasBaseDraw[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newMarkerID"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>newMarkerID</b></span>
+                        <a href="#newMarkerID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newMarkerID()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newPolygonID"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>newPolygonID</b></span>
+                        <a href="#newPolygonID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newPolygonID()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newPolylineID"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>newPolylineID</b></span>
+                        <a href="#newPolylineID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>newPolylineID()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllMarkers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeAllMarkers</b></span>
+                        <a href="#removeAllMarkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAllMarkers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="317"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:317</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllPolygons"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeAllPolygons</b></span>
+                        <a href="#removeAllPolygons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAllPolygons()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeAllPolylines"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>removeAllPolylines</b></span>
+                        <a href="#removeAllPolylines"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeAllPolylines()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeDrawing"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeDrawing</b></span>
+                        <a href="#removeDrawing"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeDrawing(id: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, validatePolygon: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="265"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:265</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>validatePolygon</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateGeometry"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateGeometry</b></span>
+                        <a href="#updateGeometry"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateGeometry(drawing: <a href="../classes/GiasBaseDraw.html" target="_self">GiasBaseDraw</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="333"
+                                    class="link-to-prism">src/app/GIS/services/drawing.service.ts:333</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>drawing</td>
+                                            <td>
+                                                            <code><a href="../classes/GiasBaseDraw.html" target="_self" >GiasBaseDraw</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addEvent"></a>
+                    <span class="name">
+                        <span ><b>addEvent</b></span>
+                        <a href="#addEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasBaseDraw.html" target="_self" >Subject&lt;GiasBaseDraw&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;GiasBaseDraw&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/GIS/services/drawing.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="giasMarkerDrawings"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>giasMarkerDrawings</b></span>
+                        <a href="#giasMarkerDrawings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Marker.html" target="_self" >BehaviorSubject&lt;Array&lt;GiasMarker&gt;&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Array&lt;GiasMarker&gt;&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/GIS/services/drawing.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="giasPolygonDrawings"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>giasPolygonDrawings</b></span>
+                        <a href="#giasPolygonDrawings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasPolygon.html" target="_self" >BehaviorSubject&lt;Array&lt;GiasPolygon&gt;&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Array&lt;GiasPolygon&gt;&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/GIS/services/drawing.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="giasPolylineDrawings"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>giasPolylineDrawings</b></span>
+                        <a href="#giasPolylineDrawings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasPolyline.html" target="_self" >BehaviorSubject&lt;Array&lt;GiasPolyline&gt;&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Array&lt;GiasPolyline&gt;&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/GIS/services/drawing.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeEvent"></a>
+                    <span class="name">
+                        <span ><b>removeEvent</b></span>
+                        <a href="#removeEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasBaseDraw.html" target="_self" >Subject&lt;GiasBaseDraw&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;GiasBaseDraw&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/GIS/services/drawing.service.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serviceId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>serviceId</b></span>
+                        <a href="#serviceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/GIS/services/drawing.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="subs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>subs</b></span>
+                        <a href="#subs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/GIS/services/drawing.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updatedDrawEvent"></a>
+                    <span class="name">
+                        <span ><b>updatedDrawEvent</b></span>
+                        <a href="#updatedDrawEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasBaseDraw.html" target="_self" >Subject&lt;GiasBaseDraw&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;GiasBaseDraw&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/GIS/services/drawing.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="googleMapWrapper"></a>
+                        <span class="name"><b>googleMapWrapper</b><a href="#googleMapWrapper"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>googleMapWrapper()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/GIS/services/drawing.service.ts:28</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="polygons"></a>
+                        <span class="name"><b>polygons</b><a href="#polygons"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>polygons()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/GIS/services/drawing.service.ts:32</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="markers"></a>
+                        <span class="name"><b>markers</b><a href="#markers"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>markers()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/GIS/services/drawing.service.ts:36</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="polylines"></a>
+                        <span class="name"><b>polylines</b><a href="#polylines"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>polylines()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/GIS/services/drawing.service.ts:40</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="markers$"></a>
+                        <span class="name"><b>markers$</b><a href="#markers$"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>markers$()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/GIS/services/drawing.service.ts:44</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { BehaviorSubject, Subject, Subscription } from &#x27;rxjs&#x27;;
+import { GoogleMapService } from &quot;../google-map/google-map.service&quot;;
+import { GisToolbarService } from &#x27;../GIS-toolbar/gis-toolbar.service&#x27;;
+import { getServiceIdAndLog } from &quot;app/Service/utils&quot;;
+import { GiasBaseDraw, GiasMarker, GiasPolygon, GiasPolyline } from &#x27;../models/gias-drawings.model&#x27;;
+import { LayerService } from &#x27;./layer.service&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;../GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { DrawingOptionsService } from &quot;./drawing-options.service&quot;;
+import { KendoWindowsService, WindowTypes } from &quot;app/Service&quot;;
+import {GoogleMapDataService} from &#x27;./google.maps-services/google-map-data.service&#x27;;
+import { FeatureInformationService } from &quot;./feature-information.service&quot;;
+import { GeoJsonUtils } from &quot;../utils/geo-json.utils&quot;;
+import { GoogleMapGeoJsonLazyService } from &quot;./google.maps-services/google-map-geojson-lazy.service&quot;;
+
+@Injectable()
+export class DrawingService {
+    private giasPolygonDrawings: BehaviorSubject&lt;Array&lt;GiasPolygon&gt;&gt; &#x3D; new BehaviorSubject&lt;Array&lt;GiasPolygon&gt;&gt;([]);
+    private giasPolylineDrawings: BehaviorSubject&lt;Array&lt;GiasPolyline&gt;&gt; &#x3D; new BehaviorSubject&lt;Array&lt;GiasPolyline&gt;&gt;([]);
+    private giasMarkerDrawings: BehaviorSubject&lt;Array&lt;GiasMarker&gt;&gt; &#x3D; new BehaviorSubject&lt;Array&lt;GiasMarker&gt;&gt;([]);
+
+    removeEvent: Subject&lt;GiasBaseDraw&gt; &#x3D; new Subject&lt;GiasBaseDraw&gt;();
+    updatedDrawEvent: Subject&lt;GiasBaseDraw&gt; &#x3D; new Subject&lt;GiasBaseDraw&gt;();
+    addEvent: Subject&lt;GiasBaseDraw&gt; &#x3D; new Subject&lt;GiasBaseDraw&gt;();
+
+    private subs: Subscription &#x3D; new Subscription();
+
+    private get googleMapWrapper() {
+        return this.googleMapService.googleMapWrapper;
+    }
+
+    public get polygons() {
+        return (&lt;Array&lt;GiasPolygon&gt;&gt;this.giasPolygonDrawings.getValue().filter(d &#x3D;&gt; d instanceof GiasPolygon));
+    }
+
+    public get markers() {
+        return (&lt;Array&lt;GiasMarker&gt;&gt;this.giasMarkerDrawings.getValue().filter(d &#x3D;&gt; d instanceof GiasMarker));
+    }
+
+    public get polylines() {
+        return (&lt;Array&lt;GiasPolyline&gt;&gt;this.giasPolylineDrawings.getValue().filter(d &#x3D;&gt; d instanceof GiasPolyline));
+    }
+
+    public get markers$() {
+        return this.giasMarkerDrawings.asObservable();
+    }
+
+    private serviceId &#x3D; null;
+
+    constructor(
+        private googleMapService: GoogleMapService,
+        private googleMapDataService: GoogleMapDataService,
+        private gisToolbarService: GisToolbarService,
+        private layerService: LayerService,
+        private drawingOptionsService: DrawingOptionsService,
+        private kendoWindowsService: KendoWindowsService,
+        private featureInformationService: FeatureInformationService,
+        private googleMapGeoJsonLazyService: GoogleMapGeoJsonLazyService
+    ) {
+        this.serviceId &#x3D; getServiceIdAndLog(&#x27;DrawingService&#x27;, &#x27;constructor&#x27;);
+
+        this.subs.add(this.removeEvent.subscribe((drawing) &#x3D;&gt; {
+            this.removeDrawing(drawing?.id);
+        }));
+
+        this.subs.add(this.updatedDrawEvent.subscribe((drawing) &#x3D;&gt; {
+            this.updateGeometry(drawing);
+        }));
+
+        this.subs.add(this.layerService.layerItemSelected$.subscribe(l &#x3D;&gt; {
+            // in modo che al cambio del layer non rimangano elementi non salvati sulla mappa
+            this.removeAllPolygons();
+            this.removeAllMarkers();
+            this.removeAllPolylines();
+        }));
+    }
+
+    private newDrawId(array: GiasBaseDraw[]): number {
+        let max_id &#x3D; 0;
+        array.forEach(d &#x3D;&gt; {
+            if (d.id &gt; max_id){
+              max_id &#x3D; d.id
+            }
+        });
+        return ++max_id;
+    }
+
+    private newPolygonID(): number {
+        return this.newDrawId(this.giasPolygonDrawings.getValue());
+    }
+
+    private newPolylineID(): number {
+        return this.newDrawId(this.giasPolylineDrawings.getValue());
+    }
+
+    private newMarkerID(): number {
+        return this.newDrawId(this.giasMarkerDrawings.getValue());
+    }
+
+    public addDrawing(draw: google.maps.Polygon | google.maps.Marker | google.maps.Polyline, isMultiplePointAllowed: boolean &#x3D; false, validatePolygon: boolean &#x3D; false): void {
+        if (draw instanceof google.maps.Polygon) {
+            this.addPolygon(draw, isMultiplePointAllowed);
+        } else if (draw instanceof google.maps.Marker) {
+            this.addMarker(draw, isMultiplePointAllowed, validatePolygon);
+        } else if (draw instanceof google.maps.Polyline) {
+            this.addPolyline(draw, isMultiplePointAllowed);
+        }
+    }
+
+    public fromPointToMarker(coordinates: google.maps.LatLng, isMultiplePointAllowed: boolean, validatePolygon: boolean): void {
+        const markerOptions: google.maps.MarkerOptions &#x3D; this.drawingOptionsService.getMarkerDrawingOptions(enum_LayerElementiGraficiStd.DEEFAULT);
+        markerOptions.position &#x3D; coordinates;
+        markerOptions.map &#x3D; this.googleMapWrapper.googleMap;
+        this.addMarker(new google.maps.Marker(markerOptions), isMultiplePointAllowed, validatePolygon);
+    }
+
+    // types accepted as PolygonOption path: MVCArray&lt;MVCArray&lt;LatLng&gt;&gt; | MVCArray&lt;LatLng&gt; | Array&lt;Array&lt;LatLng|LatLngLiteral&gt;&gt; | Array&lt;LatLng|LatLngLiteral&gt;
+    public fromPointsToPolygon(coordinates: google.maps.LatLng[] | google.maps.LatLngLiteral[], isMultiplePointAllowed: boolean): void {
+        const polygon &#x3D; this.getPolygonFromCoordinates(coordinates);
+        polygon.setMap(this.googleMapWrapper.googleMap);
+        this.addPolygon(polygon, isMultiplePointAllowed);
+    }
+
+    public fromPointsToPolyline(coordinates: google.maps.LatLng[] | google.maps.LatLngLiteral[], isMultiplePointAllowed: boolean): void {
+        const polyline &#x3D; this.getPolylineFromCoordinates(coordinates);
+        polyline.setMap(this.googleMapWrapper.googleMap);
+        this.addPolyline(polyline, isMultiplePointAllowed);
+    }
+
+    public getPolygonFromCoordinates(coordinates: google.maps.LatLng[] | google.maps.LatLngLiteral[]): google.maps.Polygon {
+        const polygonOptions &#x3D; this.drawingOptionsService.getPolygonDrawingOptions(enum_LayerElementiGraficiStd.DEEFAULT);
+        polygonOptions.paths &#x3D; coordinates;
+        return new google.maps.Polygon(polygonOptions);
+    }
+
+    private getPolylineFromCoordinates(coordinates: google.maps.LatLng[] | google.maps.LatLngLiteral[]): google.maps.Polyline {
+        const polylineOptions &#x3D; this.drawingOptionsService.getPolylineDrawingOptions(enum_LayerElementiGraficiStd.DEEFAULT);
+        polylineOptions.path &#x3D; coordinates;
+        return new google.maps.Polyline(polylineOptions);
+    }
+
+    private addPolygon(draw: google.maps.Polygon, isMultiplePointAllowed: boolean): void {
+        let giasPolygon &#x3D; new GiasPolygon(
+            this,
+            this.newPolygonID(),
+            &lt;google.maps.Polygon&gt;draw,
+            this.layerService.layerItemSelected[0]
+        );
+        // TODO Salvo: cercare soluzione migliore di quella sottostante appena se ne ha il tempo
+        // per evitare che rimangano dei poligoni disegnati sulla mappa
+        if (isMultiplePointAllowed) {
+            this.giasPolygonDrawings.next([...this.giasPolygonDrawings.value, giasPolygon])
+        } else {
+            this.removeAllPolygons();
+            this.giasPolygonDrawings.next([giasPolygon]);
+        }
+
+        draw &#x3D; null;
+        const fo: google.maps.Data.FeatureOptions &#x3D; {
+            id: giasPolygon.id,
+            geometry: new google.maps.Data.Polygon(
+                giasPolygon.polygon.getPaths().getArray().map((p, i) &#x3D;&gt; [p.getAt(i), p.getAt(i)])
+            )
+        };
+
+        const f &#x3D; new google.maps.Data.Feature(fo);
+        const geoJsonFeature &#x3D; GeoJsonUtils.featureToGeoJson(f);
+        this.featureInformationService.addFeatures(this.googleMapWrapper.data.getMap().getProjection(), true, geoJsonFeature);
+
+        giasPolygon.polygon.addListener(&#x27;click&#x27;, this.checkForRemove.bind(this));
+
+        let firstPointCoordinates: google.maps.LatLng &#x3D; new google.maps.LatLng(giasPolygon.polygon.getPaths().getArray()[0].getArray()[0]);
+        this.gisToolbarService.setLatLng(firstPointCoordinates.lat(), firstPointCoordinates.lng());
+
+        this.addEvent.next(giasPolygon);
+    }
+
+    private addMarker(draw: google.maps.Marker, isMultiplePointAllowed: boolean, validatePolygon: boolean): void {
+        let fo: google.maps.Data.FeatureOptions;
+        let f: google.maps.Data.Feature;
+
+        let giasMarker &#x3D; new GiasMarker(
+            this,
+            this.newMarkerID(),
+            &lt;google.maps.Marker&gt;draw,
+            this.layerService.layerItemSelected[0],
+            isMultiplePointAllowed
+        );
+
+        if (validatePolygon) {
+            const drawingManager &#x3D; require(&#x27;../../GiasJSLibraries/GIS-js-libraries/DrawingManager&#x27;);
+            const poligoValidator &#x3D; this.getPolygonValidator([...this.giasMarkerDrawings.value, giasMarker], drawingManager);
+            if (!poligoValidator.isValid) {
+                drawingManager.DisplayErrorPolyLines(poligoValidator.intersection, this.googleMapWrapper.googleMap);
+                return;
+            }
+        }
+
+        giasMarker.marker.setVisible(true);
+
+        // TODO Salvo: gestire disegno multipoint, quindi la riga sottostante va ripensata
+        if (isMultiplePointAllowed) {
+            this.giasMarkerDrawings.next([...this.giasMarkerDrawings.value, giasMarker])
+        } else {
+            this.removeAllMarkers();
+            this.giasMarkerDrawings.next([giasMarker]);
+        }
+
+        draw &#x3D; null;
+        fo &#x3D; {
+            id: giasMarker.id,
+            geometry: new google.maps.Data.Point(
+                giasMarker.marker.getPosition()
+            )
+        };
+
+        this.gisToolbarService.setLatLng(giasMarker.marker.getPosition().lat(), giasMarker.marker.getPosition().lng());
+
+        if (!this.kendoWindowsService.getOpenState(WindowTypes.MarkerWindow)) {
+            this.addEvent.next(giasMarker);
+        }
+    }
+
+    private getPolygonValidator(giasMarkers: GiasMarker[], drawingManager: any): any {
+        const polygon &#x3D; this.getPolygonFromCoordinates(giasMarkers.map(x &#x3D;&gt; x.marker.getPosition()));
+        const polygonValidator &#x3D; new drawingManager.PolygonValidator(polygon.getPath());
+        return polygonValidator;
+    }
+
+    private addPolyline(draw: google.maps.Polyline, isMultiplePointAllowed: boolean): void {
+        let fo: google.maps.Data.FeatureOptions;
+        let f: google.maps.Data.Feature;
+
+        let giasPolyline &#x3D; new GiasPolyline(
+            this,
+            this.newPolylineID(),
+            &lt;google.maps.Polyline&gt;draw,
+            this.layerService.layerItemSelected[0]
+        );
+
+        if (isMultiplePointAllowed) {
+            this.giasPolylineDrawings.next([...this.giasPolylineDrawings.value, giasPolyline])
+        } else {
+            this.giasPolylineDrawings.next([giasPolyline]);
+        }
+
+        draw &#x3D; null;
+        fo &#x3D; {
+            id: giasPolyline.id,
+            geometry: new google.maps.Data.LineString(
+                giasPolyline.polyline.getPath().getArray()
+            )
+        };
+
+        f &#x3D; new google.maps.Data.Feature(fo);
+        const geoJsonFeature &#x3D; GeoJsonUtils.featureToGeoJson(f);
+        this.featureInformationService.addFeatures(this.googleMapWrapper.data.getMap().getProjection(), true, geoJsonFeature);
+
+        let firstPointCoordinates: google.maps.LatLng &#x3D; new google.maps.LatLng(giasPolyline.polyline.getPath()[0]);
+        this.gisToolbarService.setLatLng(firstPointCoordinates.lat(), firstPointCoordinates.lng());
+
+        this.addEvent.next(giasPolyline);
+    }
+
+    public removeDrawing(id: any, validatePolygon: boolean &#x3D; false): void {
+        let p: GiasPolygon | GiasMarker | GiasPolyline &#x3D; this.giasPolygonDrawings.getValue().find(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+        if (p &#x3D;&#x3D; undefined) p &#x3D; this.giasMarkerDrawings.getValue().find(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+        if (p &#x3D;&#x3D; undefined) p &#x3D; this.giasPolylineDrawings.getValue().find(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+
+        let idx &#x3D; this.giasPolygonDrawings.getValue().findIndex(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+        if (idx &#x3D;&#x3D; -1) idx &#x3D; this.giasMarkerDrawings.getValue().findIndex(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+        if (idx &#x3D;&#x3D; -1) idx &#x3D; this.giasPolylineDrawings.getValue().findIndex(d &#x3D;&gt; d.id &#x3D;&#x3D; id);
+
+        let f &#x3D; this.googleMapWrapper.data.getFeatureById(id);
+
+        if (p instanceof GiasPolygon) {
+            (&lt;GiasPolygon&gt;p).polygon.setMap(null);
+            let newValue &#x3D; this.giasPolygonDrawings.getValue();
+            newValue.splice(idx, 1);
+            this.giasPolygonDrawings.next(newValue);
+        } else if (p instanceof GiasMarker) {
+            if (validatePolygon &amp;&amp; this.giasMarkerDrawings.getValue().length &gt; 2) {
+                const drawingManager &#x3D; require(&#x27;../../GiasJSLibraries/GIS-js-libraries/DrawingManager&#x27;);
+                const markers &#x3D; [...this.giasMarkerDrawings.getValue()];
+                markers.splice(idx, 1);
+                const poligoValidator &#x3D; this.getPolygonValidator(markers, drawingManager);
+                if (!poligoValidator.isValid) {
+                    drawingManager.DisplayErrorPolyLines(poligoValidator.intersection, this.googleMapWrapper.googleMap);
+                    return;
+                }
+            }
+
+            (&lt;GiasMarker&gt;p).marker.setMap(null);
+            let newValue &#x3D; this.giasMarkerDrawings.getValue();
+            newValue.splice(idx, 1);
+            this.giasMarkerDrawings.next(newValue);
+        } else if (p instanceof GiasPolyline) {
+            (&lt;GiasPolyline&gt;p).polyline.setMap(null);
+            let newValue &#x3D; this.giasPolylineDrawings.getValue();
+            newValue.splice(idx, 1);
+            this.giasPolylineDrawings.next(newValue);
+        }
+        // if (f) {
+        //     const feature &#x3D; this.featureInformationService.getById(f.getId().toString());
+        //     this.googleMapDataService.removeFeature(feature);
+        // }
+    }
+
+    public removeAllPolygons(): void {
+        this.giasPolygonDrawings.getValue().forEach(p &#x3D;&gt; {
+            p.polygon.setMap(null);
+            p &#x3D; null;
+        });
+        this.giasPolygonDrawings.next([]);
+    }
+
+    public removeAllMarkers(): void {
+        this.giasMarkerDrawings.getValue().forEach(m &#x3D;&gt; {
+            m.marker.setMap(null);
+            m &#x3D; null;
+        });
+        this.giasMarkerDrawings.next([]);
+    }
+
+    private removeAllPolylines(): void {
+        this.giasPolylineDrawings.getValue().forEach(p &#x3D;&gt; {
+            p.polyline.setMap(null);
+            p &#x3D; null;
+        });
+        this.giasPolylineDrawings.next([]);
+    }
+
+    private updateGeometry(drawing: GiasBaseDraw): void {
+        let f &#x3D; this.googleMapWrapper.data.getFeatureById(drawing.id);
+
+        if (drawing instanceof GiasPolygon) {
+            let geometry &#x3D; new google.maps.Data.Polygon(
+                drawing.polygon.getPaths().getArray().map((p, i) &#x3D;&gt; [p.getAt(i), p.getAt(i)])
+            )
+            f.setGeometry(geometry);
+        } else if (drawing instanceof GiasPolyline) {
+            let geometry &#x3D; new google.maps.Data.LineString(
+                drawing.polyline.getPath().getArray()
+            )
+            f.setGeometry(geometry);
+        }
+    }
+
+    private checkForRemove(e) {
+        const DrawingManager &#x3D; require(&#x27;../../GiasJSLibraries/GIS-js-libraries/DrawingManager&#x27;);
+
+        DrawingManager.checkForRemove(this.giasPolygonDrawings[0].polygon, e, this.googleMapWrapper.googleMap);
+    }
+
+    public deleteSubscriptions(): void {
+        this.subs.unsubscribe();
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DrawingService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

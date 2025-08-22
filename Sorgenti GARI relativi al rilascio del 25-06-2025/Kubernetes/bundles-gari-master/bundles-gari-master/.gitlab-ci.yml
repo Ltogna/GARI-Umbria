@@ -1,0 +1,101 @@
+variables:
+  PROJECT_NAME: bundles-gari
+
+.build-image: &build-image-def
+  stage: build-image
+  image:
+    name: gcr.io/kaniko-project/executor:debug
+    entrypoint: [""]
+  script:
+    - mkdir -p /kaniko/.docker
+    - echo "$DOCKER_AUTH_CONFIG" > /kaniko/.docker/config.json
+    - /kaniko/executor --context $CI_PROJECT_DIR --dockerfile $CI_PROJECT_DIR/Dockerfile --destination $NEXUS_CONTAINER_REGISTRY_URL/umbria-gari/$PROJECT_NAME:$TAG
+
+.chart-push: &chart-push-def
+  stage: helm
+  image:
+    name: $KUBETOOLS_IMAGE
+  script:
+    - helm repo add nexus $NEXUS_REPO --username $NEXUS_USERNAME --password $NEXUS_PASSWORD
+    - helm dependency update $CI_PROJECT_DIR/helm
+    - export VER=$CI_COMMIT_TAG
+    - export CONTAINER_REGISTRY=$ABACO_CONTAINER_REGISTRY_URL/umbria-gari
+    - export IMAGE_NAME=$PROJECT_NAME:$CI_COMMIT_TAG
+    - echo "Ver = ${VER} name = ${PROJECT_NAME}"
+    - yq e ".image = \"$IMAGE_NAME\"" -i ${CI_PROJECT_DIR}/helm/values.yaml
+    - yq e ".containerRegistry = \"$CONTAINER_REGISTRY\"" -i ${CI_PROJECT_DIR}/helm/values.yaml
+    - yq e ".version = \"${VER}\"" -i ${CI_PROJECT_DIR}/helm/Chart.yaml
+    - yq e ".appVersion = \"${VER}\"" -i ${CI_PROJECT_DIR}/helm/Chart.yaml
+    - yq e ".name = \"${PROJECT_NAME}\"" -i ${CI_PROJECT_DIR}/helm/Chart.yaml
+    - yq e ".appName = \"${PROJECT_NAME}\"" -i ${CI_PROJECT_DIR}/helm/values.yaml
+    - helm package ${CI_PROJECT_DIR}/helm
+    - curl -u $NEXUS_USERNAME:$NEXUS_PASSWORD $NEXUS_REPO --upload-file *.tgz -v
+
+.k8s-deploy: &k8s-deploy-def
+  stage: deploy
+  image:
+    name: $KUBETOOLS_IMAGE
+  script:
+    - mkdir -p ~/.kube
+    - echo -n "$KUBE_CONFIG" > ~/.kube/config && chmod -R 700 ~/.kube
+    - helm repo add nexus $NEXUS_REPO --username $NEXUS_USERNAME --password $NEXUS_PASSWORD
+    - helm repo update
+    - helm upgrade --install ${PROJECT_NAME} nexus/${PROJECT_NAME} --version=$COMMIT -f $VALUES_FILE -n $NAMESPACE --wait --timeout 30m
+
+stages:
+  - build-image
+  - helm
+  - deploy
+
+build-image:
+  <<: *build-image-def
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    TAG: $CI_COMMIT_TAG
+
+chart-push:
+  <<: *chart-push-def
+  needs: [build-image]
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    NEXUS_REPO: $HELM_NEXUS_REPOSITORY
+
+k8s-deploy-dev:
+  <<: *k8s-deploy-def
+  needs: [chart-push]
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    COMMIT: $CI_COMMIT_TAG
+    VALUES_FILE: $CI_PROJECT_DIR/k8s/values-dev.yaml
+    KUBE_CONFIG: $DEV_RKE2_KUBE_CONFIG
+    NEXUS_REPO: $HELM_NEXUS_REPOSITORY
+    NAMESPACE: "umbria-dev"
+
+k8s-deploy-coll:
+  <<: *k8s-deploy-def
+  needs: [chart-push]
+  when: manual
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    COMMIT: $CI_COMMIT_TAG
+    VALUES_FILE: $CI_PROJECT_DIR/k8s/values-coll.yaml
+    KUBE_CONFIG: $COLL_GARI_KUBE_CONFIG
+    NEXUS_REPO: $HELM_NEXUS_REPOSITORY
+    NAMESPACE: "umbria-coll"
+
+k8s-deploy-prod:
+  <<: *k8s-deploy-def
+  needs: [chart-push]
+  when: manual
+  rules:
+    - if: "$CI_COMMIT_TAG"
+  variables:
+    COMMIT: $CI_COMMIT_TAG
+    VALUES_FILE: $CI_PROJECT_DIR/k8s/values-prod.yaml
+    KUBE_CONFIG: $PROD_GARI_KUBE_CONFIG
+    NEXUS_REPO: $HELM_NEXUS_REPOSITORY
+    NAMESPACE: "umbria-prod"

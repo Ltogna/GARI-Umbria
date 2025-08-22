@@ -1,0 +1,932 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >OperationEditService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editForm" >editForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSaveParams" >getSaveParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LeggiListaPersone" >LeggiListaPersone</a>
+                            </li>
+                            <li>
+                                <a href="#listaMacchineModificaMultipla" >listaMacchineModificaMultipla</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#parseRisorsaMacchina" >parseRisorsaMacchina</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#parseRisorsaPersona" >parseRisorsaPersona</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#saveCurrent" >saveCurrent</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#attivitaSelezionate" >attivitaSelezionate</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, apiService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, dialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, transloco: TranslocoService, dateUtils: <a href="../injectables/DateUtilsServiceService.html" target="_self">DateUtilsServiceService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:42</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>apiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dateUtils</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DateUtilsServiceService.html" target="_self" >DateUtilsServiceService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSaveParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getSaveParams</b></span>
+                        <a href="#getSaveParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSaveParams()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="111"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:111</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ModificaMultipla_Operazione.html" target="_self" >ModificaMultipla_Operazione</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LeggiListaPersone"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LeggiListaPersone</b></span>
+                        <a href="#LeggiListaPersone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>LeggiListaPersone()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carica i contatti assegnabili come manodopera nella modifica multipla di
+attività</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Contatto.html" target="_self" >Promise&lt;Contatto[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaMacchineModificaMultipla"></a>
+                    <span class="name">
+                        <span ><b>listaMacchineModificaMultipla</b></span>
+                        <a href="#listaMacchineModificaMultipla"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>listaMacchineModificaMultipla()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carica le macchine assegnabili nella modifica multipla di attività</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;ParcoMacchine[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseRisorsaMacchina"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>parseRisorsaMacchina</b></span>
+                        <a href="#parseRisorsaMacchina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parseRisorsaMacchina(row: <a href="../classes/MassEditMacchinaRowModel.html" target="_self">MassEditMacchinaRowModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/MassEditMacchinaRowModel.html" target="_self" >MassEditMacchinaRowModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RisorsaMacchina.html" target="_self" >RisorsaMacchina</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseRisorsaPersona"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>parseRisorsaPersona</b></span>
+                        <a href="#parseRisorsaPersona"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parseRisorsaPersona(row: <a href="../classes/MassEditOperaioRowModel.html" target="_self">MassEditOperaioRowModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/MassEditOperaioRowModel.html" target="_self" >MassEditOperaioRowModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RisorsaPersona.html" target="_self" >RisorsaPersona</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveCurrent"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>saveCurrent</b></span>
+                        <a href="#saveCurrent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>saveCurrent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editForm"></a>
+                    <span class="name">
+                        <span ><b>editForm</b></span>
+                        <a href="#editForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+        attivita: &#x27;&#x27;,
+        operazione: &#x27;&#x27;,
+        magazzino: &#x27;&#x27;,
+        manodopera: this.fb.group({
+            mostraSoloAziendali: false,
+            eliminaAssociati: false,
+            contatti: []
+        }),
+        macchine: this.fb.group({
+            mostraSoloAziendali: false,
+            eliminaAssociate: false,
+            macchine: []
+        })
+    })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="attivitaSelezionate"></a>
+                        <span class="name"><b>attivitaSelezionate</b><a href="#attivitaSelezionate"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>attivitaSelezionate()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/operation-edit.service.ts:52</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, TemplateRef} from &#x27;@angular/core&#x27;;
+import {FormBuilder, FormGroup} from &#x27;@angular/forms&#x27;;
+import {Contatto} from &#x27;app/Model/anagrafiche/Contatto&#x27;;
+import {ParcoMacchine} from &#x27;app/Model/anagrafiche/ParcoMacchine&#x27;;
+import {AgendaClient} from &#x27;app/Service/api.service&#x27;;
+import {RapportoContabile} from &#x27;app/Model/anagrafiche/RapportoContabile&#x27;;
+import {RisorseUmane} from &#x27;app/Model/anagrafiche/RisorseUmane&#x27;;
+import {RisorsaMacchina} from &#x27;app/Model/attivita/risorse/RisorsaMacchina&#x27;;
+import {RisorsaPersona} from &#x27;app/Model/attivita/risorse/RisorsaPersona&#x27;;
+import {AjaxAgronicaAPIService} from &#x27;app/Service/ajax-agronica.api.service&#x27;;
+import {GiasDialogService} from &#x27;app/Service/gias-dialog.service&#x27;;
+import {lastValueFrom, map, Observable, timeout} from &#x27;rxjs&#x27;;
+import {AttivitaxModificaMutipla, enum_ModificaMultiplaOperazioni, ModificaMultipla_Operazione} from &#x27;../models&#x27;;
+import {MacchineService} from &#x27;app/Service/Anagrafica/macchine.service&#x27;;
+import {MassEditOperaioRowModel} from &#x27;./grid-add-operai/grid-add-operai.service&#x27;;
+import {MassEditMacchinaRowModel} from &#x27;./grid-add-macchine/grid-add-macchine.service&#x27;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import {DateUtilsServiceService} from &quot;../../../Service/date-utils-service.service&quot;;
+
+//const link_ModificaMultipla_Attivita_Old &#x3D; &#x27;/Agenda/Agenda.asmx/ModificaMultiplaListaAttivita&#x27;;
+const link_ModificaMultipla_Attivita &#x3D; &#x27;Agenda/ModificaMultiplaListaAttivita&#x27;;
+
+@Injectable({
+    providedIn: &#x27;root&#x27;
+})
+export class OperationEditService {
+
+    editForm: FormGroup &#x3D; this.fb.group({
+        attivita: &#x27;&#x27;,
+        operazione: &#x27;&#x27;,
+        magazzino: &#x27;&#x27;,
+        manodopera: this.fb.group({
+            mostraSoloAziendali: false,
+            eliminaAssociati: false,
+            contatti: []
+        }),
+        macchine: this.fb.group({
+            mostraSoloAziendali: false,
+            eliminaAssociate: false,
+            macchine: []
+        })
+    });
+
+    constructor(private fb: FormBuilder,
+                private apiService: AjaxAgronicaAPIService,
+                private dialogService: GiasDialogService,
+                private transloco: TranslocoService,
+                private dateUtils: DateUtilsServiceService
+    ) {
+    }
+
+    get attivitaSelezionate(): AttivitaxModificaMutipla[] {
+      return this.editForm.get(&#x27;attivita&#x27;).value
+        .filter(s &#x3D;&gt; s[&#x27;Selected&#x27;] &#x3D;&#x3D;&#x3D; true)
+        .map(a &#x3D;&gt; {
+            const attivita: AttivitaxModificaMutipla &#x3D; {
+              ID_Agenda: parseInt(a.ID, 10),
+              Raccoglitore_Cod: parseInt(a.Raccoglitore_Cod, 10),
+              Lav_Cod: parseInt(a.Lav_cod, 10),
+              Lav_Des: a.Lav_Des,
+              Piva: a.Piva,
+              Sa_Cod: parseInt(a.sa_cod, 10),
+              Data: a.Data
+            };
+            if (typeof (a.Data) &#x3D;&#x3D;&#x3D; &#x27;string&#x27;) {
+              attivita.Data &#x3D; this.dateUtils.parseDate(a.Data);
+            }
+            return attivita;
+        });
+    }
+
+    public async saveCurrent() {
+        try {
+            this.apiService.ajaxAPIPost&lt;any, any&gt;(link_ModificaMultipla_Attivita,
+                this.getSaveParams(), true
+            ).pipe(map(async R &#x3D;&gt; {
+                let msg &#x3D; &#x27;&#x27;;
+                if (R.ErroriGias.length &gt; 1)
+                    msg &#x3D; R.ErroriGias.splice(1)
+                        .map(e &#x3D;&gt; e.messaggio)
+                        .reduce((a, b) &#x3D;&gt; a + &#x27;&lt;/br&gt;&#x27; + b);
+                if (!R.RispostaOK) {
+                    this.dialogService.baseError(&#x27;&#x27;, msg, false);
+                } else {
+                    let s &#x3D; await this.dialogService.baseSuccess(
+                        &#x27;SalvataggioAvvenutoConSuccesso&#x27;,
+                        R.RispostaStringa[0].messaggio + &#x27;\n&#x27; + msg, undefined, false);
+                    // this.dialogService.baseInfo(&#x27;&#x27;, msg);
+                }
+            })).subscribe();
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    /** Carica i contatti assegnabili come manodopera nella modifica multipla di
+     * attività */
+    public LeggiListaPersone(): Promise&lt;Contatto[]&gt; {
+        return lastValueFrom(this.apiService.ajaxAPIPost&lt;ModificaMultipla_Operazione, Contatto[]&gt;(
+            &#x27;Agenda/CaricaListaPersone&#x27;, this.getSaveParams()
+        ).pipe(map(res &#x3D;&gt; res.RispostaOK ? res.RispostaStringa : [])));
+    }
+
+    /** Carica le macchine assegnabili nella modifica multipla di attività */
+    listaMacchineModificaMultipla(): Observable&lt;ParcoMacchine[]&gt; {
+        return this.apiService.ajaxAPIPost&lt;ModificaMultipla_Operazione, ParcoMacchine[]&gt;(
+            &#x27;Agenda/CaricaListaMacchine&#x27;, this.getSaveParams()
+        ).pipe(map(R &#x3D;&gt;  R?.RispostaOK ? R.RispostaStringa : []));
+    }
+
+    private getSaveParams(): ModificaMultipla_Operazione {
+        const data: ModificaMultipla_Operazione &#x3D; {
+            Tipo_Modifica: this.editForm.get(&#x27;operazione&#x27;).value,
+            Attivita_list: [],
+            Risorsa_list: [],
+            Magazzino: this.editForm.get(&#x27;magazzino&#x27;).value,
+            Solo_Aziendali: this.editForm.get(&#x27;manodopera&#x27;).get(&#x27;mostraSoloAziendali&#x27;).value || false,
+            Elimina_Precedenti: false
+        };
+        data.Attivita_list &#x3D; this.attivitaSelezionate;
+        if (data.Tipo_Modifica &#x3D;&#x3D;&#x3D; enum_ModificaMultiplaOperazioni.AGGIUNGI_MACCHINE) {
+            data.Risorsa_list &#x3D; this.editForm.get(&#x27;macchine&#x27;).get(&#x27;macchine&#x27;).value
+                .filter(m &#x3D;&gt; m[&#x27;Selected&#x27;])
+                .map(m &#x3D;&gt; this.parseRisorsaMacchina(m));
+            data.Elimina_Precedenti &#x3D; this.editForm.get(&#x27;macchine&#x27;).get(&#x27;eliminaAssociate&#x27;).value;
+            data.Solo_Aziendali &#x3D; this.editForm.get(&#x27;macchine&#x27;).get(&#x27;mostraSoloAziendali&#x27;).value;
+        } else if (data.Tipo_Modifica &#x3D;&#x3D;&#x3D; enum_ModificaMultiplaOperazioni.AGGIUNGI_CONTATTI) {
+            data.Risorsa_list &#x3D; this.editForm.get(&#x27;manodopera&#x27;).get(&#x27;contatti&#x27;).value
+                .filter(c &#x3D;&gt; c[&#x27;Selected&#x27;])
+                .map(c &#x3D;&gt; this.parseRisorsaPersona(c));
+            data.Elimina_Precedenti &#x3D; this.editForm.get(&#x27;manodopera&#x27;).get(&#x27;eliminaAssociati&#x27;).value;
+            data.Solo_Aziendali &#x3D; this.editForm.get(&#x27;manodopera&#x27;).get(&#x27;mostraSoloAziendali&#x27;).value;
+        } else if (data.Tipo_Modifica &#x3D;&#x3D;&#x3D; enum_ModificaMultiplaOperazioni.RIMUOVI_MACCHINE
+            || data.Tipo_Modifica &#x3D;&#x3D;&#x3D; enum_ModificaMultiplaOperazioni.RIMUOVI_CONTATTI) {
+            data.Elimina_Precedenti &#x3D; true;
+        }
+        return data;
+    }
+
+    private parseRisorsaPersona(row: MassEditOperaioRowModel): RisorsaPersona {
+        let ris: RisorsaPersona &#x3D; new RisorsaPersona();
+        ris.risorsaUmana &#x3D; new RisorseUmane();
+        ris.risorsaUmana.rapportoContabile &#x3D; new RapportoContabile(+row.Cod_Rapporto);
+        ris.risorsaUmana.rapportoContabile.descrizione &#x3D; row.Rapporto_Des;
+        ris.risorsaUmana.contatto &#x3D; new Contatto();
+        ris.risorsaUmana.contatto.ragione_Sociale &#x3D; row.Impresa;
+        ris.risorsaUmana.codice &#x3D; +row.Cod_RisUm;
+        return ris;
+    }
+
+    private parseRisorsaMacchina(row: MassEditMacchinaRowModel): RisorsaMacchina {
+        let ris: RisorsaMacchina &#x3D; new RisorsaMacchina();
+        ris.macchina &#x3D; new ParcoMacchine();
+        ris.macchina.descrizione &#x3D; row.Mac_Des;
+        ris.macchina.codice &#x3D; parseInt(row.Mac_Cod, 10);
+        return ris;
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'OperationEditService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

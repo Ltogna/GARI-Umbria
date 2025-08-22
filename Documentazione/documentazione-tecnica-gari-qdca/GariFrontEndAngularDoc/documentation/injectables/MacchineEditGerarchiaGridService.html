@@ -1,0 +1,1584 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MacchineEditGerarchiaGridService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#behavior" >behavior</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#edit" >edit</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#generalSettings" >generalSettings</a>
+                            </li>
+                            <li>
+                                <a href="#gerarchia" >gerarchia</a>
+                            </li>
+                            <li>
+                                <a href="#gerarchiaColumns" >gerarchiaColumns</a>
+                            </li>
+                            <li>
+                                <a href="#gerarchiaMacchinaParentForm" >gerarchiaMacchinaParentForm</a>
+                            </li>
+                            <li>
+                                <a href="#gerarchiaMacchinaParentFormSub" >gerarchiaMacchinaParentFormSub</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#caricaDropdownComp" >caricaDropdownComp</a>
+                            </li>
+                            <li>
+                                <a href="#caricaDropdownLeg" >caricaDropdownLeg</a>
+                            </li>
+                            <li>
+                                <a href="#caricaDropdownUdM" >caricaDropdownUdM</a>
+                            </li>
+                            <li>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                <a href="#handleDropdowns" >handleDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setColumnsGridGerarchia" >setColumnsGridGerarchia</a>
+                            </li>
+                            <li>
+                                <a href="#setModelGridGerarchia" >setModelGridGerarchia</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, macchineService: <a href="../injectables/MacchineFactoryService.html" target="_self">MacchineFactoryService</a>, fb: FormBuilder, objP: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, translocoService: TranslocoService, controlContainer: ControlContainer, gerarchiaService: <a href="../injectables/GerarchiaService.html" target="_self">GerarchiaService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>macchineService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MacchineFactoryService.html" target="_self" >MacchineFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objP</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>controlContainer</td>
+                                                  
+                                                        <td>
+                                                                    <code>ControlContainer</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gerarchiaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GerarchiaService.html" target="_self" >GerarchiaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaDropdownComp"></a>
+                    <span class="name">
+                        <span ><b>caricaDropdownComp</b></span>
+                        <a href="#caricaDropdownComp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaDropdownComp()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/List.html" target="_self" >Observable&lt;DropdownListItem[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaDropdownLeg"></a>
+                    <span class="name">
+                        <span ><b>caricaDropdownLeg</b></span>
+                        <a href="#caricaDropdownLeg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaDropdownLeg()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="368"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:368</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/List.html" target="_self" >Observable&lt;DropdownListItem[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaDropdownUdM"></a>
+                    <span class="name">
+                        <span ><b>caricaDropdownUdM</b></span>
+                        <a href="#caricaDropdownUdM"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaDropdownUdM()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="374"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:374</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/List.html" target="_self" >Observable&lt;DropdownListItem[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDropdowns"></a>
+                    <span class="name">
+                        <span ><b>handleDropdowns</b></span>
+                        <a href="#handleDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleDropdowns(columns: KendoGridColumn[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="293"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:293</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>columns</td>
+                                            <td>
+                                                        <code>KendoGridColumn[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, rows: Array<any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="319"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:319</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;KendoGridRow[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="78"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;MacchinaKendoServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumnsGridGerarchia"></a>
+                    <span class="name">
+                        <span ><b>setColumnsGridGerarchia</b></span>
+                        <a href="#setColumnsGridGerarchia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumnsGridGerarchia()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;KendoGridColumn&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setModelGridGerarchia"></a>
+                    <span class="name">
+                        <span ><b>setModelGridGerarchia</b></span>
+                        <a href="#setModelGridGerarchia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setModelGridGerarchia()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>KendoGridModel</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="behavior"></a>
+                    <span class="name">
+                        <span ><b>behavior</b></span>
+                        <a href="#behavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSettings({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="edit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>edit</b></span>
+                        <a href="#edit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generalSettings"></a>
+                    <span class="name">
+                        <span ><b>generalSettings</b></span>
+                        <a href="#generalSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GeneralSettings</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gerarchia"></a>
+                    <span class="name">
+                        <span ><b>gerarchia</b></span>
+                        <a href="#gerarchia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gerarchiaColumns"></a>
+                    <span class="name">
+                        <span ><b>gerarchiaColumns</b></span>
+                        <a href="#gerarchiaColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gerarchiaMacchinaParentForm"></a>
+                    <span class="name">
+                        <span ><b>gerarchiaMacchinaParentForm</b></span>
+                        <a href="#gerarchiaMacchinaParentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gerarchiaMacchinaParentFormSub"></a>
+                    <span class="name">
+                        <span ><b>gerarchiaMacchinaParentFormSub</b></span>
+                        <a href="#gerarchiaMacchinaParentFormSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;MacchineEditGerarchiaGridService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;codice&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/macchine-edit-gerarchia/gerarchia-grid.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { ControlContainer, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { MacchinaGerarchia, ParcoMacchine, enum_TipoLegame } from &#x27;app/Model/anagrafiche/ParcoMacchine&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { enum_UnitaMisura } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { Dialog_Type, GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { MacchineFactoryService, MACCHINE_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/macchine.factory.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { AgrSelectableSettings, BehaviorSettings, CommandsColumnSettings, GeneralSettings, ResizableSettings, ToolbarSettings } from &#x27;gias-kendo-grid&#x27;;
+import {  DateSettings, DropdownListItem, DropdownListWithForm, EditingMode, KendoGridColumn, KendoGridModel, KendoGridRow, LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { forkJoin, from, map, Observable, of, Subscription } from &#x27;rxjs&#x27;;
+import { MacchinaKendoServerResult } from &#x27;../../macchine.model&#x27;;
+import { GerarchiaService } from &#x27;./gerarchia.service&#x27;;
+import {IntervalloTemporale} from &#x27;../../../../Model/anagrafiche/IntervalloTemporale&#x27;;
+
+
+@Injectable()
+export class MacchineEditGerarchiaGridService extends AbstractGridConfigService&lt;MacchinaKendoServerResult&gt; {
+  gridId &#x3D; &#x27;MacchineEditGerarchiaGridService&#x27;;
+
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &#x27;codice&#x27;;
+  generalSettings &#x3D; new GeneralSettings;
+  gerarchiaColumns: KendoGridColumn[];
+  behavior &#x3D; new BehaviorSettings({});
+  private objParametriAgenda;
+  private edit;
+
+  gerarchia: any[] &#x3D; [];
+
+  gerarchiaMacchinaParentForm: FormGroup &#x3D; this.fb.group({});
+  gerarchiaMacchinaParentFormSub: Subscription;
+
+  constructor(
+      injector: Injector,
+      @Inject(MACCHINE_SERVICE_TOKEN) private macchineService: MacchineFactoryService,
+      private fb: FormBuilder,
+      private objP: ObjParametriAgendaService,
+      private translocoService: TranslocoService,
+      private controlContainer: ControlContainer,
+      private gerarchiaService: GerarchiaService,
+      private giasDialogService: GiasDialogService){
+      super(injector, ConfigTemplate.DefaultTemplate);
+
+      this.objParametriAgenda &#x3D; this.objP.getObjParamValue();
+      this.edit &#x3D; true;
+
+      if (this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Read) {
+        this.edit &#x3D; false;
+      }
+
+
+      this.resizable &#x3D; new ResizableSettings();
+      this.resizable.autoFitColumns &#x3D; true;
+
+      this.behavior.saveExternalChanges &#x3D; true;
+
+      this.generalSettings.performOnEdit &#x3D; true;
+      this.handleCustomizations();
+
+        this.gerarchiaService.gerarchiaSource.subscribe((val) &#x3D;&gt; {
+          console.log(&quot;refresh&quot;)
+          this.gridPublicService.refresh(true);
+        })
+
+
+
+  }
+
+
+
+  read(): Observable&lt;MacchinaKendoServerResult&gt; {
+
+    this.gerarchia &#x3D; this.controlContainer.control.parent.value.gerarchiaFigli;
+
+      const columns &#x3D; this.setColumnsGridGerarchia();
+      const model &#x3D; this.setModelGridGerarchia();
+
+      this.handleDropdowns(columns);
+
+      let rows &#x3D; []
+      this.gerarchia.forEach(comp &#x3D;&gt; {
+        rows.push({ID: comp.ID,
+          codice: comp.codice,
+          Componente_Cod: comp.macchina.codice,
+          Componente_Des: comp.macchina.descrizione !&#x3D; &quot;&quot; ? comp.macchina.descrizione : comp.macchina.dettaglio_1.descrizione,
+          Legame_Cod: comp.legame.codice,
+          Legame_Des: enum_TipoLegame[comp.legame.codice],
+          DescrizioneLegame: comp.desclegame,
+          UdM_Cod: comp.udm.codice,
+          UdM_Des: enum_UnitaMisura[comp.udm.codice],
+          Qta: comp.qta,
+          validita_inizio: comp.validita_inizio,
+          validita_fine: comp.validita_fine
+        } as KendoGridRow)
+      })
+
+      const result: MacchinaKendoServerResult &#x3D; new MacchinaKendoServerResult(model, columns, rows);
+      return of(result)
+
+  }
+
+  handleCustomizations(): void {
+      this.selectable &#x3D; new AgrSelectableSettings();
+      this.selectable.selectable.checkboxOnly &#x3D; false;
+
+      this.toolbar &#x3D; new ToolbarSettings();
+      this.toolbar.newItem &#x3D; this.edit;
+      this.toolbar.resetChanges &#x3D; false;
+
+      this.cmdColumn &#x3D; new CommandsColumnSettings(
+          {
+              editBtn: false,
+              infoBtn: false,
+              removeBtn: true,
+              onDisableInfoBtn: () &#x3D;&gt; false
+          });
+
+      this.resizable.autoFitColumns &#x3D; false;
+      this.resizable.isResizable &#x3D; true;
+      this.views.enabled &#x3D; false;
+      this.columnMenu.columnMenu &#x3D; false;
+      this.groups.groupable.enabled &#x3D; false;
+  }
+
+  setColumnsGridGerarchia(){
+      const columns: Array&lt;KendoGridColumn&gt;&#x3D;[
+          new KendoGridColumn(
+            {
+                field: &#x27;codice&#x27;,
+                title: this.translocoService.translate(&#x27;Codice&#x27;)
+            },
+            {
+                hidden: true,
+                resizable:true,
+                editable: this.edit,
+                numeric: { defaultValue: 0 }
+                //validators: [Validators.required]
+            }
+          ),
+          new KendoGridColumn(
+              {
+                  field: &#x27;Componente_Cod&#x27;,
+                  title: this.translocoService.translate(&#x27;Componente&#x27;)
+              },
+              {
+                  hidden: false,
+                  resizable:true,
+                  editable: this.edit,
+                  validators: [Validators.required]
+              }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;Legame_Cod&#x27;,
+                title: this.translocoService.translate(&#x27;Tipo Legame&#x27;)
+            },
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit,
+                numeric: { defaultValue: 0 },
+                validators: [Validators.required]
+            }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;DescrizioneLegame&#x27;,
+                title: this.translocoService.translate(&#x27;Descrizione Legame&#x27;)},
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit
+            }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;UdM_Cod&#x27;,
+                title: this.translocoService.translate(&#x27;Unità di Misura&#x27;)
+            },
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit,
+            }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;Qta&#x27;,
+                title: this.translocoService.translate(&#x27;Quantità&#x27;)
+            },
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit,
+                numeric: { defaultValue: 0 },
+            }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;validita_inizio&#x27;,
+                title: this.translocoService.translate(&#x27;ValiditàInizio&#x27;)},
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit,
+                date: new DateSettings({ defaultValue: AGRODATAINIZIO }),
+                validators: [Validators.required]
+            }
+          ),
+          new KendoGridColumn(
+            {
+                field: &#x27;validita_fine&#x27;,
+                title: this.translocoService.translate(&#x27;ValiditàFine&#x27;)},
+            {
+                hidden: false,
+                resizable:true,
+                editable: this.edit,
+                date: new DateSettings({ defaultValue: AGRODATAFINE }),
+                validators: [Validators.required]
+            }
+          )
+      ];
+
+      return columns;
+  }
+
+  setModelGridGerarchia(){
+    this.cmdColumn.removeBtn &#x3D; this.edit;
+      const model: KendoGridModel&#x3D;{
+          ID:{
+            editable: false,
+            type: CELL_TYPES.NUMBER
+          },
+          codice:{
+              editable: false,
+              type: CELL_TYPES.NUMBER
+          },
+          Componente_Des:{
+              editable: true,
+              type: CELL_TYPES.STRING
+          },
+          Componente_Cod:{
+            editable: true,
+            type: CELL_TYPES.DROPDOWNLIST
+          },
+          Legame_Des:{
+              editable: true,
+              type: CELL_TYPES.STRING
+          },
+          Legame_Cod:{
+            editable: true,
+            type: CELL_TYPES.DROPDOWNLIST
+          },
+          DescrizioneLegame:{
+              editable: true,
+              type: CELL_TYPES.STRING
+          },
+          UdM_Cod:{
+            editable: true,
+            type: CELL_TYPES.DROPDOWNLIST
+          },
+          UdM_Des:{
+            editable: true,
+            type: CELL_TYPES.STRING
+          },
+          Qta:{
+            editable: true,
+            type: CELL_TYPES.NUMBER
+          },
+          flag_cancellazione: {
+              editable: true,
+              type: CELL_TYPES.BOOLEAN
+          },
+          validita_inizio:{
+            editable: true,
+            type: CELL_TYPES.DATE
+          },
+          validita_fine:{
+            editable: true,
+            type: CELL_TYPES.DATE
+          }
+      };
+      return model;
+  }
+
+  handleDropdowns(columns: KendoGridColumn[]): void {
+      const colComp &#x3D; columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Componente_Cod&#x27;);
+      const dataComp: DropdownListItem[] &#x3D; [];
+      colComp .ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;Componente_Cod&#x27;, &#x27;descrizione&#x27;, dataComp);
+      colComp .ddl.valuePrimitive &#x3D; false;
+      colComp .ddl.descriptionField &#x3D; &#x27;Componente_Des&#x27;;
+      colComp .ddl.loadOnEdit &#x3D; true;
+      colComp .ddl.loadFunction &#x3D; this.caricaDropdownComp.bind(this);
+
+      const colLeg &#x3D; columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Legame_Cod&#x27;);
+      const dataLeg: DropdownListItem[] &#x3D; [];
+      colLeg.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;Legame_Cod&#x27;, &#x27;descrizione&#x27;, dataLeg);
+      colLeg.ddl.valuePrimitive &#x3D; true;
+      colLeg.ddl.descriptionField &#x3D; &#x27;Legame_Des&#x27;;
+      colLeg.ddl.loadOnEdit &#x3D; true;
+      colLeg.ddl.loadFunction &#x3D; this.caricaDropdownLeg.bind(this);
+
+      const colUdM &#x3D; columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;UdM_Cod&#x27;);
+      const dataUdM: DropdownListItem[] &#x3D; [];
+      colUdM.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;UdM_Cod&#x27;, &#x27;descrizione&#x27;, dataUdM);
+      colUdM.ddl.valuePrimitive &#x3D; true;
+      colUdM.ddl.descriptionField &#x3D; &#x27;UdM_Des&#x27;;
+      colUdM.ddl.loadOnEdit &#x3D; true;
+      colUdM.ddl.loadFunction &#x3D; this.caricaDropdownUdM.bind(this);
+  }
+
+  perform(actionType: HttpAction, rows: Array&lt;any&gt;): Observable&lt;KendoGridRow[]&gt; {
+    switch(actionType) {
+      case HttpAction.CREATE:
+        if(this.gerarchia.filter(t &#x3D;&gt; { return t.macchina.codice &#x3D;&#x3D;&#x3D; rows[0].Componente_Cod.id &amp;&amp; ((rows[0].validita_inizio &lt;&#x3D; t.validita_fine) &amp;&amp; (rows[0].validita_fine &gt;&#x3D; t.validita_inizio))}).length !&#x3D; 0) {
+          this.giasDialogService.alertMessage(this.transloco.translate(&quot;DateMacchineSovrapposizione&quot;), null, Dialog_Type.error)
+          break;
+        }
+        let maxcod &#x3D; 0
+        this.gerarchia.forEach(t &#x3D;&gt; {
+          if (t.codice &gt; maxcod) {
+            maxcod &#x3D; t.codice
+          }
+        })
+        this.gerarchia.push(new MacchinaGerarchia(0, maxcod + 1, rows[0].Componente_Cod.data, rows[0].Legame_Cod, rows[0].Legame_Des, rows[0].DescrizioneLegame, rows[0].UdM_Cod, rows[0].UdM_Des, rows[0].Qta, new IntervalloTemporale(rows[0].validita_inizio, rows[0].validita_fine)))
+        break;
+    case HttpAction.UPDATE:
+      this.gerarchia.forEach(comp &#x3D;&gt; {
+        if(comp.codice &#x3D;&#x3D; rows[0].codice){
+            this.gerarchia[this.gerarchia.indexOf(comp)] &#x3D; new MacchinaGerarchia(rows[0].ID, rows[0].codice, {codice: rows[0].Componente_Cod.id, descrizione: rows[0].Componente_Cod.name !&#x3D; null ? rows[0].Componente_Cod.name : rows[0].Componente_Des} as ParcoMacchine, rows[0].Legame_Cod, rows[0].Legame_Des, rows[0].DescrizioneLegame, rows[0].UdM_Cod, rows[0].UdM_Des, rows[0].Qta, new IntervalloTemporale(rows[0].validita_inizio, rows[0].validita_fine))
+        }
+    });
+      break;
+    case HttpAction.REMOVE:
+        this.gerarchia.forEach(comp &#x3D;&gt; {
+            if(comp.codice &#x3D;&#x3D; rows[0].codice){
+                this.gerarchia.splice(this.gerarchia.indexOf(comp), 1)
+            }
+        });
+      break;
+    }
+    this.gerarchiaService.setGerarchia(this.gerarchia);
+    return from([]);
+  }
+
+  caricaDropdownComp(): Observable&lt;DropdownListItem[]&gt; {
+    let macchine &#x3D; this.macchineService.leggiMacchine(this.objP.getObjParamValue())
+    let ddlitems &#x3D; []
+    return forkJoin({macchine}).pipe(map(result &#x3D;&gt; {
+      let kendoMacchine &#x3D; &lt;any&gt;result.macchine.RispostaStringa;
+      let macchineKendo &#x3D; &lt;Array&lt;any&gt;&gt;(kendoMacchine.kendo_rows);
+      macchineKendo.forEach(macchina &#x3D;&gt; {
+        if (macchina.Mac_Cod !&#x3D; this.controlContainer.control.parent.value.codice) {
+          ddlitems.push({codice: macchina.Mac_Cod, descrizione: macchina.Macchina !&#x3D; &quot;&quot; ? macchina.Macchina : macchina.tipologia, tipo: {codice: &quot;&quot;, descrizione: macchina.tipologia}} as ParcoMacchine);
+        }
+      });
+      return ddlitems;
+    }));
+  }
+
+  caricaDropdownLeg(): Observable&lt;DropdownListItem[]&gt; {
+    let ddlitems &#x3D; []
+    ddlitems.push({codice:enum_TipoLegame.Gerarchia, descrizione: this.transloco.translate(&quot;Gerarchia&quot;)});
+    return of(ddlitems);
+  }
+
+  caricaDropdownUdM(): Observable&lt;DropdownListItem[]&gt; {
+    let ddlitems &#x3D; []
+    ddlitems.push({codice:enum_UnitaMisura.Numero, descrizione: this.transloco.translate(&quot;Numero&quot;)}, {codice:enum_UnitaMisura.Metri, descrizione: this.transloco.translate(&quot;Metri&quot;)});
+    return of(ddlitems);
+  }
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MacchineEditGerarchiaGridService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

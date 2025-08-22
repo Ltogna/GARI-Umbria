@@ -1,0 +1,176 @@
+{
+  "$schema": "../../../abaco-workflow-schema.json",
+  "code": "NO_SPREADING_PERIODS",
+  "version": "1.0.2",
+  "nodes": [
+    {
+      "name": "START",
+      "type": "start",
+      "description": "start"
+    },
+    {
+      "name": "CREATED",
+      "type": "status",
+      "description": "Creata"
+    },
+    {
+      "name": "PRE_IN_COMPILATION",
+      "type": "proc",
+      "description": "On compilation",
+      "procedures": [
+        {
+          "class_name": "com.abacogroup.pua.workflow.proc.LoadTipologiaDichiarazione"
+        },
+        {
+          "class_name": "com.abacogroup.pua.workflow.proc.CheckOneApplicationPerYear"
+        },
+        {
+          "class_name": "com.abacogroup.applicationworkflowsdk.v2.procedures.StopTransitionProcedure"
+        }
+      ]
+    },
+    {
+      "name": "IN_COMPILATION",
+      "type": "status",
+      "description": "In compilazione"
+    },
+    {
+      "name": "PRE_CONTROLLED",
+      "type": "proc",
+      "description": "On controlled",
+      "procedures": [
+        {
+          "class_name": "com.abacogroup.pua.workflow.proc.CheckNoSpreadingPeriodApplicationCompiled"
+        },
+        {
+          "class_name": "com.abacogroup.applicationworkflowsdk.v2.procedures.StopTransitionProcedure"
+        }
+      ]
+    },
+    {
+      "name": "CONTROLLED",
+      "type": "status",
+      "description": "Controllata"
+    },
+    {
+      "name": "PROTOCOLLED",
+      "type": "end",
+      "description": "Protocollata",
+      "metadata": {
+        "multiple-applications-allowed": true,
+        "isAmendable": true
+      }
+    },
+    {
+      "name": "PRE_RECTIFIED_FROM_PROTOCOLLED",
+      "type": "proc",
+      "description": "On Rettifica",
+      "procedures": [
+        {
+          "class_name": "com.abacogroup.pua.workflow.proc.UpdateAmendApplication"
+        }
+      ]
+    },
+    {
+      "name": "RECTIFIED",
+      "type": "end",
+      "description": "Rettifica"
+    },
+    {
+      "name": "DELETED",
+      "type": "end",
+      "description": "Cancellata",
+      "metadata": {
+        "multiple-applications-allowed": true,
+        "process-instance-closed": true
+      }
+    }
+  ],
+  "transitions": [
+    {
+      "node_from": "START",
+      "node_to": "CREATED",
+      "description": "Crea"
+    },
+    {
+      "node_from": "CREATED",
+      "node_to": "PRE_IN_COMPILATION",
+      "description": "Compila"
+    },
+    {
+      "node_from": "CREATED",
+      "node_to": "DELETED",
+      "description": "Cancella"
+    },
+    {
+      "node_from": "PRE_IN_COMPILATION",
+      "node_to": "IN_COMPILATION",
+      "description": "Procedi a compila"
+    },
+    {
+      "node_from": "IN_COMPILATION",
+      "node_to": "PRE_CONTROLLED",
+      "description": "Controlla"
+    },
+    {
+      "node_from": "PRE_CONTROLLED",
+      "node_to": "CONTROLLED",
+      "description": "Controlla"
+    },
+    {
+      "node_from": "IN_COMPILATION",
+      "node_to": "DELETED",
+      "description": "Cancella"
+    },
+    {
+      "node_from": "IN_COMPILATION",
+      "node_to": "CREATED",
+      "description": "Cambia anno di campagna"
+    },
+    {
+      "node_from": "CONTROLLED",
+      "node_to": "PROTOCOLLED",
+      "description": "Protocolla"
+    },
+    {
+      "node_from": "PROTOCOLLED",
+      "node_to": "PRE_RECTIFIED_FROM_PROTOCOLLED",
+      "description": "Rettifica",
+      "scopes": [
+        {
+          "scope": "application-amendable"
+        }
+      ],
+      "tags": [
+        "AMEND_TAG"
+      ]
+    },
+    {
+      "node_from": "PRE_RECTIFIED_FROM_PROTOCOLLED",
+      "node_to": "RECTIFIED",
+      "description": "Rettifica"
+    },
+    {
+      "node_from": "CONTROLLED",
+      "node_to": "IN_COMPILATION",
+      "description": "Compila"
+    },
+    {
+      "node_from": "CONTROLLED",
+      "node_to": "CREATED",
+      "description": "Cambia tipo dichiarazione"
+    },
+    {
+      "node_from": "CONTROLLED",
+      "node_to": "DELETED",
+      "description": "Cancella"
+    }
+  ],
+  "variables": [
+    {
+      "name": "workflowParams",
+      "type": "com.abacogroup.applicationworkflowsdk.model.ApplicationsWorkflowParams",
+      "is_list": 0
+    }
+  ]
+}

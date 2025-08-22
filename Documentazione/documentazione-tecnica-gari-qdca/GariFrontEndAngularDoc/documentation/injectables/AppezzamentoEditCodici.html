@@ -1,0 +1,1025 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AppezzamentoEditCodici</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#codici" >codici</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#codiciList" >codiciList</a>
+                            </li>
+                            <li>
+                                <a href="#currentodici" >currentodici</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridPublicService" >gridPublicService</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#getCodici" >getCodici</a>
+                            </li>
+                            <li>
+                                <a href="#leggiDatiTabella" >leggiDatiTabella</a>
+                            </li>
+                            <li>
+                                <a href="#leggiDropdowns" >leggiDropdowns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#postForm" >postForm</a>
+                            </li>
+                            <li>
+                                <a href="#setCodici" >setCodici</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setRowsUniqueId" >setRowsUniqueId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#updateTable" >updateTable</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ajaxAgronicaService: <a href="../injectables/AjaxAgronicaService.html" target="_self">AjaxAgronicaService</a>, ajaxAgronicaAPIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ajaxAgronicaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaService.html" target="_self" >AjaxAgronicaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCodici"></a>
+                    <span class="name">
+                        <span ><b>getCodici</b></span>
+                        <a href="#getCodici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCodici()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="42"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>CodiciAnagrafeValoriChiave[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiDatiTabella"></a>
+                    <span class="name">
+                        <span ><b>leggiDatiTabella</b></span>
+                        <a href="#leggiDatiTabella"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiDatiTabella()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;CodiciAnagrafeValoriChiave[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiDropdowns"></a>
+                    <span class="name">
+                        <span ><b>leggiDropdowns</b></span>
+                        <a href="#leggiDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiDropdowns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;CodiceAnagrafe[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="postForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>postForm</b></span>
+                        <a href="#postForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>postForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCodici"></a>
+                    <span class="name">
+                        <span ><b>setCodici</b></span>
+                        <a href="#setCodici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCodici(vals: CodiciAnagrafeValoriChiave[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>vals</td>
+                                            <td>
+                                                        <code>CodiciAnagrafeValoriChiave[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRowsUniqueId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setRowsUniqueId</b></span>
+                        <a href="#setRowsUniqueId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setRowsUniqueId(rows: CodiciAnagrafeValoriChiave[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>CodiciAnagrafeValoriChiave[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateTable"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>updateTable</b></span>
+                        <a href="#updateTable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateTable(action: HttpAction, row: <a href="../classes/CodiciAnagrafeValoriChiave.html" target="_self">CodiciAnagrafeValoriChiave</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="50"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>action</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/CodiciAnagrafeValoriChiave.html" target="_self" >CodiciAnagrafeValoriChiave</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codici"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>codici</b></span>
+                        <a href="#codici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;CodiciAnagrafeValoriChiave[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;CodiciAnagrafeValoriChiave[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codiciList"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>codiciList</b></span>
+                        <a href="#codiciList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CodiceAnagrafe[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentodici"></a>
+                    <span class="name">
+                        <span ><b>currentodici</b></span>
+                        <a href="#currentodici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;CodiciAnagrafeValoriChiave[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.codici.asObservable()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;AppezzamentoCodici&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridPublicService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridPublicService</b></span>
+                        <a href="#gridPublicService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/appezzamento-edit-codici.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { CodiceAnagrafe } from &quot;app/Model/anagrafiche/CodiceAnagrafe&quot;;
+import { CodiciAnagrafeValoriChiave } from &quot;app/Model/anagrafiche/CodiciAnagrafeValori&quot;;
+import { IntervalloTemporale } from &quot;app/Model/anagrafiche/IntervalloTemporale&quot;;
+import { CoreWS_Generic } from &quot;app/Model/CoreWS/CoreWS_Generic&quot;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &quot;app/Model/CostantiPersonalizzate&quot;;
+import { AjaxAgronicaAPIService } from &quot;app/Service/ajax-agronica.api.service&quot;;
+import { AjaxAgronicaService } from &quot;app/Service/ajax-agronica.service&quot;;
+import { MasterService } from &quot;app/Service/master.service&quot;;
+import { ICodiciTemplateService } from &quot;app/Utility/Template/codici-template/services/codici-template.service&quot;;
+import { HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { BehaviorSubject, map, Observable, of, take } from &quot;rxjs&quot;;
+
+const itemIndex &#x3D; (item: CodiciAnagrafeValoriChiave, data: CodiciAnagrafeValoriChiave[]): number &#x3D;&gt; {
+    for (let idx &#x3D; 0; idx &lt; data.length; idx++) {
+        if (data[idx].chiave &#x3D;&#x3D;&#x3D; item.chiave) {
+            return idx;
+        }
+    }
+
+    return -1;
+};
+
+@Injectable()
+export class AppezzamentoEditCodici implements ICodiciTemplateService {
+    gridId &#x3D; &quot;AppezzamentoCodici&quot;;
+
+    public gridPublicService: GridPublicService;
+        private codici: BehaviorSubject&lt;CodiciAnagrafeValoriChiave[]&gt; &#x3D; new BehaviorSubject&lt;CodiciAnagrafeValoriChiave[]&gt;([]);
+    currentodici: Observable&lt;CodiciAnagrafeValoriChiave[]&gt; &#x3D; this.codici.asObservable();
+
+    private codiciList: CodiceAnagrafe[];
+
+    constructor(private ajaxAgronicaService: AjaxAgronicaService,
+                private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+                private masterService: MasterService
+    ) {
+        let a &#x3D; 0;
+    }
+
+    getCodici(): CodiciAnagrafeValoriChiave[] {
+        return this.codici.getValue();
+    }
+
+    setCodici(vals: CodiciAnagrafeValoriChiave[])  {
+        this.codici.next(vals);
+    }
+
+    public updateTable(action: HttpAction, row: CodiciAnagrafeValoriChiave) {
+        let newCods &#x3D; this.codici.getValue();
+        switch(action) {
+            case HttpAction.CREATE:
+                const chiave &#x3D; Math.max.apply(Math, this.codici.getValue().map(function (o) {
+                    return o.chiave;
+                }));
+                if (chiave &gt; 0) {
+                    row.chiave &#x3D; chiave + 1;
+                } else {
+                    row.chiave &#x3D; 0;
+                }
+                newCods.push(row);
+                break;
+            case HttpAction.UPDATE:
+                const index &#x3D; itemIndex(row, this.codici.getValue());
+                newCods.splice(index, 1, row);
+                break;
+            case HttpAction.REMOVE:
+                const _index &#x3D; itemIndex(row, this.codici.getValue());
+                newCods.splice(_index, 1);
+                break;
+        }
+        this.codici.next(newCods);
+        this.gridPublicService.refresh(true);
+    }
+
+    private setRowsUniqueId(rows: CodiciAnagrafeValoriChiave[]) {
+        let i &#x3D; 0;
+        rows.forEach((row) &#x3D;&gt; {
+            row.chiave &#x3D; i++;
+        });
+    }
+
+    public async postForm() {
+      let a &#x3D; 0; //Commento per funzione vuota SonarQube
+    }
+
+    /*leggiDropdowns_Old(): Observable&lt;CodiceAnagrafe[]&gt; {
+        if (this.codiciList &#x3D;&#x3D; null) {
+            let parametri:CoreWS_Generic&lt;object&gt; &#x3D; {
+                objP: this.masterService.getCoreWSGenericObjP(),
+                InData: null
+            }
+            const obs: Observable&lt;CodiceAnagrafe[]&gt; &#x3D;
+                this.ajaxAgronicaService.ajaxAgronicaCoreWS_GenericsObs&lt;CodiceAnagrafe[], object&gt;(
+                    this.masterService.link_CoreWS + &quot;/Anagrafica/Appezzamento.asmx/Leggi_DropDown_Appezzamenti_Codici&quot;,
+                    parametri).pipe(take(1), map(el &#x3D;&gt; {
+                        this.codiciList &#x3D; el.RispostaStringa;
+                    return el.RispostaStringa;
+                }))
+            return obs;
+        } else {
+            return of(this.codiciList);
+        }
+    }*/
+
+    leggiDropdowns(): Observable&lt;CodiceAnagrafe[]&gt; {
+        if (this.codiciList &#x3D;&#x3D; null) {
+            let parametri:object &#x3D; {
+                InData: null
+            }
+            const obs: Observable&lt;CodiceAnagrafe[]&gt; &#x3D;
+                this.ajaxAgronicaAPIService.ajaxAPIGet&lt;object, CodiceAnagrafe[]&gt;(&quot;AnagraficaNG/LeggiDropDownAppezzamentiCodici&quot;,
+                    parametri).pipe(take(1), map(el &#x3D;&gt; {
+                        this.codiciList &#x3D; el.RispostaStringa;
+                    return el.RispostaStringa;
+                }))
+            return obs;
+        } else {
+            return of(this.codiciList);
+        }
+    }
+
+    leggiDatiTabella(): Observable&lt;CodiciAnagrafeValoriChiave[]&gt; {
+        return of(this.codici.getValue());
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppezzamentoEditCodici.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

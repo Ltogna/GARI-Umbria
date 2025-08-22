@@ -1,0 +1,52 @@
+<kendo-expansionpanel [title]="'Utenti' | transloco" [expanded]="true">
+  <gias-kendo-grid #gridUtentiVisibiilita></gias-kendo-grid>
+</kendo-expansionpanel>
+<section class="grid-imprese-container">
+  <!--  <span class="infotext">{{ 'InfoModificaVisibilita' | transloco }}</span>-->
+  <div class="btn-container">
+    <div kendoTooltip [title]="'prof.CopiaVisibilitaDa' | transloco">
+      <button kendoButton type="button" class="btn" (click)="openCopyVisibilityDialog()">
+        <fa-icon size="lg" [icon]="faCopy"></fa-icon>
+      </button>
+    </div>
+    <button kendoButton class="btn btn-primary btn-primary-fill btn-sm btn-primary-text"
+            *ngIf="hasVisibilitaTotale && !selezionatiHannoVisibilitaTotale"
+            (click)="assegnaTotale()">{{ 'prof.AssegnaVisibilitaTotale' | transloco }}</button>
+    <button kendoButton class="btn btn-primary btn-primary-fill btn-sm btn-primary-text"
+            (click)="overwriteVisibility()">{{ 'prof.SostituisciAziendeVisibilita' | transloco }}</button>
+    <button kendoButton class="btn btn-primary btn-primary-fill btn-sm btn-primary-text"
+            *ngIf="!selezionatiHannoVisibilitaTotale && !selezionatiVisibilitaDiversa"
+            (click)="updateVisibility()">{{ 'prof.AggiungiAziendeVisibilita' | transloco }}</button>
+  </div>
+
+  <div class="full-width"
+       *ngIf="selezionatiHannoVisibilitaTotale || selezionatiNonHannoVisibilita || selezionatiVisibilitaDiversa; else gridImpreseContainer">
+    <div *ngIf="selezionatiHannoVisibilitaTotale && !selezionatiVisibilitaDiversa">
+      <h6 *ngIf="utenti.length === 1">{{'prof.UtenteHaVisibilitaTotale' | transloco}}</h6>
+      <h6 *ngIf="utenti.length > 1">{{'prof.UtentiHannoVisibilitaTotale' | transloco}}</h6>
+    </div>
+    <div *ngIf="selezionatiNonHannoVisibilita && !selezionatiVisibilitaDiversa">
+      <h6 *ngIf="utenti.length === 1">{{'prof.UtenteNonHaVisibilita' | transloco}}</h6>
+      <h6 *ngIf="utenti.length > 1">{{'prof.UtentiNonHannoVisibilita' | transloco}}</h6>
+    </div>
+    <div *ngIf="selezionatiVisibilitaDiversa">
+      <h6>{{'prof.UtentiHannoVisibilitaDiversa' | transloco}}</h6>
+    </div>
+  </div>
+  <ng-template #gridImpreseContainer>
+    <app-grid-visibilita-edit #gridImprese></app-grid-visibilita-edit>
+  </ng-template>
+</section>
+
+
+<ng-template #copyVisibilityRef>
+  <form [formGroup]="form">
+    <gias-drop-down-template-s id="utente" [obligatory]="true"
+       [name]="'prof.SelezionaUtenteCopiaVisibilita' | transloco"
+       textField="Descrizione" valueField="UserName"
+       [listItems]="utentiDdl"
+       [valuePrimitive]="true" [virtual]="virtual"
+       giasFormControlName="utente"
+    ></gias-drop-down-template-s>
+  </form>
+</ng-template>

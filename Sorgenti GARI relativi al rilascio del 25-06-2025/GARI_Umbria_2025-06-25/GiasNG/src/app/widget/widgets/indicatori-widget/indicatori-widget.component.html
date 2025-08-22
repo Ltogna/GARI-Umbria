@@ -1,0 +1,59 @@
+<div *ngIf="loading" class="widget-loading-container">
+  <kendo-loader type="converging-spinner"></kendo-loader>
+</div>
+
+<div *ngIf="!error" class="indicatori-container">
+  <ng-container *ngIf="!loading && data != null">
+    <div class="indicatori-widget-title">
+      {{'RiepilogoIndicatoriEmergenzeDSS' | transloco}}
+    </div>
+
+    <!-- <kendo-chart class="indicatori-widget-chart" *ngIf="series.length > 0" (click)="fullWidgetOpened = true"> -->
+    <kendo-chart class="indicatori-widget-chart" *ngIf="series.length > 0" (click)="onClickChart()">
+      <kendo-chart-area [margin]="0" [height]="95"></kendo-chart-area>
+      <kendo-chart-series>
+        <kendo-chart-series-item type="pie" [data]="series">
+          
+        </kendo-chart-series-item>
+      </kendo-chart-series>
+      <kendo-chart-legend [labels]="{ font: '11px sans-serif' }"></kendo-chart-legend>
+    </kendo-chart>
+
+    <div *ngIf="areDateControlsVisible()" class="indicatori-widget-dates">
+      <span *ngIf="areDateControlsVisible()" class="fa-stack fa-1x pointer" (click)="isDatePickerDialogOpen = true"
+        [title]="'CambiaDate' | transloco" kendoTooltip>
+        <i aria-hidden="true" class="fa fa-calendar-o fa-stack-1x" style="font-size: 1.6em"></i>
+      </span>
+      <p style="margin-bottom: 0">{{ startDate | date }} - {{ endDate | date }}</p>
+      <span *ngIf="areDateControlsVisible()" class=" fa-stack fa-1x pointer" (click)="resetDates()"
+        [title]="'ReimpostaDate' | transloco" kendoTooltip>
+        <i aria-hidden="true" class="fa fa-calendar-o fa-stack-1x"></i>
+        <i aria-hidden="true" class="fa fa-ban fa-stack-2x" style="color: red"></i>
+      </span>
+    </div>
+  </ng-container>
+</div>
+
+<div *ngIf="error" class="widget-loading-container">
+  <p class="widget-no-data">{{ 'IndicatoriDSSNonDisponibili' | transloco }}</p>
+</div>
+
+<app-indicatori-widget-full *ngIf="fullWidgetOpened" [data]="data"
+  (closeEvent)="fullWidgetOpened = false"></app-indicatori-widget-full>
+
+<kendo-dialog *ngIf="isDatePickerDialogOpen" (close)="rejectDialog()">
+  <kendo-dialog-titlebar>
+    <div class="text_uppercase font-700"> {{ 'Impostazione periodo calcolo indicatori emergenze DSS' | transloco }}
+    </div>
+  </kendo-dialog-titlebar>
+
+  <div class="datepicker-row">
+    <kendo-datepicker [(value)]="dialogStartDate" calendarType="classic"></kendo-datepicker>
+    <kendo-datepicker [(value)]="dialogEndDate" calendarType="classic"></kendo-datepicker>
+  </div>
+  <kendo-dialog-actions [layout]="actionsLayout">
+    <button kendoButton (click)="rejectDialog()">{{ 'Annulla' | transloco }}</button>
+    <button kendoButton (click)="confirmDialog()" themeColor="primary">{{ 'Conferma' | transloco }}</button>
+  </kendo-dialog-actions>
+
+</kendo-dialog>

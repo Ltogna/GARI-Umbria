@@ -1,0 +1,917 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >Farmaco</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#Chiave" >Chiave</a>
+                            </li>
+                            <li>
+                                <a href="#Codice" >Codice</a>
+                            </li>
+                            <li>
+                                <a href="#CodiceAIC" >CodiceAIC</a>
+                            </li>
+                            <li>
+                                <a href="#Descrizione" >Descrizione</a>
+                            </li>
+                            <li>
+                                <a href="#Lotto" >Lotto</a>
+                            </li>
+                            <li>
+                                <a href="#Qta" >Qta</a>
+                            </li>
+                            <li>
+                                <a href="#UdM" >UdM</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(chiave: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, descrizione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, codiceAIC: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, lotto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, udm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, qta: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>chiave</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>codice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>descrizione</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>codiceAIC</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lotto</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>udm</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qta</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Chiave"></a>
+                    <span class="name">
+                        <span ><b>Chiave</b></span>
+                        <a href="#Chiave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Codice"></a>
+                    <span class="name">
+                        <span ><b>Codice</b></span>
+                        <a href="#Codice"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CodiceAIC"></a>
+                    <span class="name">
+                        <span ><b>CodiceAIC</b></span>
+                        <a href="#CodiceAIC"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Descrizione"></a>
+                    <span class="name">
+                        <span ><b>Descrizione</b></span>
+                        <a href="#Descrizione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Lotto"></a>
+                    <span class="name">
+                        <span ><b>Lotto</b></span>
+                        <a href="#Lotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Qta"></a>
+                    <span class="name">
+                        <span ><b>Qta</b></span>
+                        <a href="#Qta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UdM"></a>
+                    <span class="name">
+                        <span ><b>UdM</b></span>
+                        <a href="#UdM"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/zoo/components/trattamento-zoo/griglie-trattamento/griglia-prodotti-somministrazione/service/grid-prodotto-somministrazione.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector, OnDestroy } from &quot;@angular/core&quot;;
+import { SelectionEvent } from &quot;@progress/kendo-angular-grid&quot;;
+import { AbstractGridConfigService, CommandsColumnSettings, CommandsDropDownSettings, ConfigTemplate, EditingMode, GiasKendoGridComponent, GridPublicService, HttpAction, KendoGridColumn, KendoGridModel, KendoGridRow, KendoServerResult, LoaderType, SelectableSettings } from &quot;gias-kendo-grid&quot;;
+import { Observable, catchError, map, of, Subject, takeUntil } from &quot;rxjs&quot;;
+import { ProdottoSomministrazioneConfigService } from &quot;./prodotto-somministrazione-config.service&quot;;
+import { LeggiGiacenzaFarmaci, OperazioniZooClient } from &quot;app/Service/net-core6-api.service&quot;;
+import { TrattamentoZooFormService } from &quot;../../../service/trattamento-zoo-form.service&quot;;
+import { GiasDialogService } from &quot;gias-ui-kit&quot;;
+import { enum_TipoPrescrizione } from &quot;app/zoo/models/tipo-prescrizione.enum&quot;;
+
+class Farmaco {
+    Chiave: number;
+    Codice: number;
+    Descrizione: string;
+    CodiceAIC: string;
+    Lotto: string;
+    UdM: string;
+    Qta: number;
+
+    constructor(chiave: number, codice: number, descrizione: string, codiceAIC: string, lotto: string, udm: string, qta: number) {
+        this.Chiave &#x3D; chiave;
+        this.Codice &#x3D; codice;
+        this.Descrizione &#x3D; descrizione;
+        this.CodiceAIC &#x3D; codiceAIC;
+        this.Lotto &#x3D; lotto;
+        this.UdM &#x3D; udm;
+        this.Qta &#x3D; qta;
+    }
+}
+
+export class GridProdottiSomministrazioneServerResult extends KendoServerResult {
+    constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+        super(model, cols, rows);
+    }
+}
+
+@Injectable()
+export class GridProdottiSomministrazioneService extends AbstractGridConfigService&lt;GridProdottiSomministrazioneServerResult&gt; implements OnDestroy {
+    
+    editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+
+    rowId: string &#x3D; &#x27;Chiave&#x27;;
+    gridId: string &#x3D; &#x27;ProdottiDellaSomministrazioneId&#x27;;
+
+    signal: Subject&lt;void&gt; &#x3D; new Subject();
+
+    proCod: number &#x3D; 0;
+    codiceAIC: string[] &#x3D; [];
+
+    // lottiPerProdotto &#x3D; new Map&lt;string, Set&lt;string&gt;&gt;();
+
+    constructor(injector: Injector,
+                public gridpublicService: GridPublicService,
+                private trattamentoFormService: TrattamentoZooFormService,
+                private zooService: OperazioniZooClient,
+                private prodottoConfigService: ProdottoSomministrazioneConfigService,
+                private giasDialogService: GiasDialogService
+    ) {
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        this.resizable.autoFitColumns &#x3D; true;
+
+        this.cmdColumn &#x3D; new CommandsColumnSettings({
+            editBtn: false,
+            infoBtn: false,
+            removeBtn: false,
+            onDisableInfoBtn: () &#x3D;&gt; false,
+            width: 10
+        });
+
+        this.cmdDropDown &#x3D; new CommandsDropDownSettings({
+            removeBtn: false, infoBtn: false
+        });
+
+
+        if (!this.trattamentoFormService.isInfoMode) {
+            this.selectable.selectable &#x3D; new SelectableSettings({
+                checkboxOnly: true,
+                enabled: true /*,
+                mode: &#x27;single&#x27;*/
+            });
+
+            this.selectable.preselectedRows.selectionChangeFn &#x3D; this.selectionChangeFn;
+            this.selectable.columnSettings.showSelectAll &#x3D; false;
+            this.selectable.shouldShowCheckbox &#x3D; true;
+            this.selectable.columnSettings.title &#x3D; &#x27; &#x27;;
+        }
+
+        this.groups.groupable.enabled &#x3D; false;
+
+        this.trattamentoFormService.ddlSelectionSubject.pipe(takeUntil(this.signal)).subscribe(value &#x3D;&gt; {
+            this.gridpublicService.refresh(true);
+        });
+
+        this.trattamentoFormService.attivitaDaChiamante.risorse.forEach(itemRis &#x3D;&gt;  {
+            if (itemRis.classType &#x3D;&#x3D; &#x27;DettaglioRegistroSomministrazioni&#x27;) {
+                // this.proCod &#x3D; itemRis.prodotto.codice;
+                this.codiceAIC.push(itemRis[&#x27;codiceAIC&#x27;]);
+            }
+        });
+    }
+
+    public selectionChangeFn &#x3D; (event: SelectionEvent, component: GiasKendoGridComponent) &#x3D;&gt; {
+        const selectedRows &#x3D; event.selectedRows;
+        const deselectedRows &#x3D; event.deselectedRows;
+
+        // Aggiungi le nuove righe selezionate se rispettano il vincolo
+        if (selectedRows.length &gt; 0) {
+            selectedRows.forEach(item &#x3D;&gt; {
+                const selectedCodice &#x3D; item.dataItem.Codice;
+                const selectedUdm &#x3D; item.dataItem.UdM;
+
+                // Verifica che tutte le righe selezionate abbiano lo stesso codice
+                let signalOneTime: boolean &#x3D; true;
+                component.rows.forEach(row &#x3D;&gt; {
+                    if (row[&#x27;Selected&#x27;] &amp;&amp; row[&#x27;Codice&#x27;] !&#x3D;&#x3D; selectedCodice) {
+                        // Deseleziona la riga se il codice è diverso
+                        row[&#x27;Selected&#x27;] &#x3D; false;
+                        // occorre deselezionare le righe eventualemente scelte sui capi animali
+                        if (signalOneTime) {
+                            this.trattamentoFormService.signalChangeDrugSelected(selectedCodice, selectedUdm);   //per ora, non ci importa il valore del farmaco, l&#x27;importante è che la signal venga lanciata
+                            signalOneTime &#x3D; false;
+                        }
+                    }
+                });
+            });
+        }
+    }
+    
+    read(options?: any): Observable&lt;GridProdottiSomministrazioneServerResult&gt; {
+        this.loadingService.set_isLoading({ isLoading: true, component: this.gridPublicService.gridElRef });
+
+        let farmaciInfo: Array&lt;KendoGridRow&gt; &#x3D; [];
+
+        if (this.trattamentoFormService.isInfoOrUpdateMode) {
+            // se sono in questo caso, ho le info sui farmaci passati dal chiamante
+
+            let index &#x3D; 0;
+
+            this.trattamentoFormService.attivitaDaChiamante.risorse
+            .filter(item &#x3D;&gt; item.classType &#x3D;&#x3D; &#x27;DettaglioRegistroSomministrazioni&#x27;)
+            .forEach(itemRis &#x3D;&gt; {
+                index++;
+                let risorsaProdotto &#x3D; this.trattamentoFormService.attivitaDaChiamante.risorse
+                                    .filter(item &#x3D;&gt; item.classType &#x3D;&#x3D; &#x27;RisorsaProdotto&#x27;);
+
+                let prodottoSelezionato &#x3D; risorsaProdotto.filter((el) &#x3D;&gt; { return (el.prodotto.elemCod &#x3D; itemRis.prodotto.elemCod) &amp;&amp; (itemRis.prodotto.codice &#x3D;&#x3D; el.prodotto.codice) });
+
+                let farmaco &#x3D; new Farmaco(index, itemRis.prodotto.codice, itemRis.prodotto.descrizione, itemRis.codiceAIC, &#x27;&#x27;, itemRis.unitaDiMisura.simbolo, itemRis.quantitaTotaleReale);
+                let magazzino, Piva, sa_cod, Fabbricato_Cod, Fabbricato_Des;
+
+                if (prodottoSelezionato.length &gt; 0){
+                    prodottoSelezionato.forEach(element &#x3D;&gt; {
+                       if (element.MagazziniMovimentazioni !&#x3D; null &amp;&amp; element.MagazziniMovimentazioni.length &gt; 0){
+                            magazzino &#x3D; element.MagazziniMovimentazioni[0]?.Magazzino;
+                            Piva &#x3D; magazzino?.primaryKey?.centroAziendalePK?.partitaIva;
+                            sa_cod &#x3D; magazzino?.primaryKey?.centroAziendalePK?.codice;
+                            Fabbricato_Cod &#x3D; magazzino?.primaryKey?.codice;
+                            Fabbricato_Des &#x3D; magazzino?.descrizione;
+                            farmaco.Lotto &#x3D; element.MagazziniMovimentazioni[0].Lotto;
+                        }
+                        
+                        farmaco.Qta &#x3D; element.quantitaTotaleReale;
+                        farmaco.UdM &#x3D; element.unitaDiMisura.simbolo;
+
+                        console.log(magazzino);
+                        farmaciInfo.push(
+                            { ...farmaco, 
+                                Piva:Piva, 
+                                Sa_Cod: sa_cod,
+                                Fabbricato_Cod: Fabbricato_Cod,
+                                Fabbricato_Des: Fabbricato_Des,
+                                Selected: true
+                            }
+                        ); 
+                    });
+                }
+            });
+
+            if (this.trattamentoFormService.isInfoMode) {
+
+                this.loadingService.set_isLoading({ isLoading: false, component: this.gridPublicService.gridElRef });
+
+                return of(new GridProdottiSomministrazioneServerResult(
+                    farmaciInfo,
+                    this.prodottoConfigService.kendoColumnsProdottoSomministrazione,
+                    this.prodottoConfigService.kendoModelProdottoSomministrazione
+                ));
+            }
+
+        }
+        
+        if (!this.trattamentoFormService.isInfoMode) {
+
+            // return this.ajaxAgronicaAPIService.ajaxAPIPost(&#x27;Anagrafica/LeggiGiacenzaFarmaci&#x27;, param).pipe(catchError((err) &#x3D;&gt; {
+            return this.zooService.operazioniZooLeggiGiacenzaFarmaci(this.getParam()).pipe(catchError((err) &#x3D;&gt; {
+                this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+                return of();
+            }), map((r:any) &#x3D;&gt; {
+
+                this.loadingService.set_isLoading({ isLoading: false, component: this.gridPublicService.gridElRef });
+
+                let respobj &#x3D; JSON.parse(r.RispostaStringa);
+
+                //array che mi servirà in fase di salvataggio
+                this.trattamentoFormService.arrayDettagliProdottiSomministrazione &#x3D; [...respobj, 
+                    ...this.trattamentoFormService.attivitaDaChiamante.risorse.filter(item &#x3D;&gt; item.classType &#x3D;&#x3D; &#x27;DettaglioRegistroSomministrazioni&#x27;)
+                                                                              .map(itemRis &#x3D;&gt; { 
+                                                                                                    let risorsaProdotto &#x3D; this.trattamentoFormService.attivitaDaChiamante.risorse
+                                                                                                                            .filter(item &#x3D;&gt; item.classType &#x3D;&#x3D; &#x27;RisorsaProdotto&#x27;)
+                                                                                                                            .filter((el) &#x3D;&gt; { return (el.prodotto.elemCod &#x3D; itemRis.prodotto.elemCod) &amp;&amp; (itemRis.prodotto.codice &#x3D;&#x3D; el.prodotto.codice) });
+                                                                                                                            
+                                                                                                    if (risorsaProdotto.length &gt; 0) {
+                                                                                                        itemRis.MagazziniMovimentazioni &#x3D; risorsaProdotto[0]?.MagazziniMovimentazioni ?? null;
+                                                                                                        itemRis.MagazziniMovimentazioni[0].udm &#x3D; itemRis.unitaDiMisura;
+                                                                                                    }
+                                                                                                    return itemRis;
+                                                                              })];
+
+                let gridProdottiSomministrazioneServerResult &#x3D; new GridProdottiSomministrazioneServerResult(
+                    this.setRowGrid(respobj, farmaciInfo),
+                    this.prodottoConfigService.kendoColumnsProdottoSomministrazione,
+                    this.prodottoConfigService.kendoModelProdottoSomministrazione
+                );
+
+                return gridProdottiSomministrazioneServerResult;
+            }));
+        }
+
+    }
+
+    private getParam(): LeggiGiacenzaFarmaci {
+
+        let formValues &#x3D; this.trattamentoFormService.formTrattamentoZoo.getRawValue();
+        let codiceFiscaleProprietarioCapi;
+
+        let proprietario &#x3D; this.trattamentoFormService?.attivitaDaChiamante?.risorse?.filter((r) &#x3D;&gt; { 
+            let risorsaUmana &#x3D; r.classType &#x3D;&#x3D; &quot;RisorsaPersona&quot; ;
+            let proprietario &#x3D; r.risorsaUmana?.contatto?.tipo &#x3D;&#x3D; &quot;proprietario&quot;;
+            return risorsaUmana &amp;&amp; proprietario;
+        })
+
+        if (proprietario.length &gt; 0) {
+            codiceFiscaleProprietarioCapi &#x3D; proprietario[0].risorsaUmana?.contatto?.codiceFiscale
+        }
+
+        return {
+            Piva: this.trattamentoFormService.objParametriAgenda.Piva,
+            SaCod: formValues?.CentroAziendale?.codice ?? 0,
+            codiceBDN: formValues?.Stalla?.BDN_Codice_Azienda ?? &#x27;&#x27;,
+            codFiscaleProprietario: codiceFiscaleProprietarioCapi ?? &#x27;&#x27;,
+            ProCod: this.proCod,
+            codiceAIC: this.codiceAIC.map(item &#x3D;&gt; item.toString().substring(0, 6)),
+            ValiditaFine: formValues?.Data
+        } as LeggiGiacenzaFarmaci;
+    }
+
+    private setRowGrid(responseRows, farmaciInfo: Array&lt;KendoGridRow&gt;): Array&lt;KendoGridRow&gt; {
+        let rows: Array&lt;KendoGridRow&gt; &#x3D; [];
+        let indexProdottiSomministrazione &#x3D; 0;
+
+        for (let itemOfRows of responseRows) {
+            for (let movMagazzino of itemOfRows.MagazziniMovimentazioni) {
+                indexProdottiSomministrazione++;
+                let item &#x3D; new Farmaco(indexProdottiSomministrazione, itemOfRows.prodotto.codice, itemOfRows.prodotto.descrizione, itemOfRows.codiceAIC, movMagazzino.Lotto, itemOfRows.unitaDiMisura.simbolo, movMagazzino.Qta);
+
+                let magazzino &#x3D; movMagazzino.Magazzino;
+                let Piva &#x3D; magazzino.primaryKey.centroAziendalePK.partitaIva;
+                let sa_cod &#x3D; magazzino.primaryKey.centroAziendalePK.codice;
+                let Fabbricato_Cod &#x3D; magazzino.primaryKey.codice;
+                let Fabbricato_Des &#x3D; magazzino.descrizione;
+
+                let farmItemInfo &#x3D; farmaciInfo.find(farmaco &#x3D;&gt; farmaco[&#x27;Codice&#x27;] &#x3D;&#x3D;&#x3D; item.Codice &amp;&amp; farmaco[&#x27;Lotto&#x27;] &#x3D;&#x3D;&#x3D; item.Lotto);
+
+                if (farmItemInfo) {
+                    item.Qta +&#x3D; farmItemInfo[&#x27;Qta&#x27;]; // Somma la quantità se il farmaco è già presente
+                    item[&#x27;Selected&#x27;] &#x3D; true; // Imposta Selected a true se il farmaco è già presente
+                }
+                
+                if (this.checkIfPushDrug(item, farmaciInfo))
+                    rows.push(
+                        { ...item, 
+                            Piva:Piva, 
+                            Sa_Cod: sa_cod,
+                            Fabbricato_Cod: Fabbricato_Cod,
+                            Fabbricato_Des: Fabbricato_Des
+                        }
+                    );
+            }
+        }
+
+        //bisogna quindi eventualmente aggiungere i farmaci che sono stati passati dal chiamante e dei quali non abbiamo più giacenza
+        rows.push(...farmaciInfo.filter(farmaco &#x3D;&gt; !rows.some(row &#x3D;&gt; row[&#x27;Codice&#x27;] &#x3D;&#x3D;&#x3D; farmaco[&#x27;Codice&#x27;] &amp;&amp; row[&#x27;Lotto&#x27;] &#x3D;&#x3D;&#x3D; farmaco[&#x27;Lotto&#x27;])));
+
+        rows.sort((a, b) &#x3D;&gt; {
+            if (b[&#x27;Selected&#x27;] !&#x3D;&#x3D; a[&#x27;Selected&#x27;]) {
+                return b[&#x27;Selected&#x27;] ? 1 : -1;
+            }
+            return a[&#x27;Lotto&#x27;].localeCompare(b[&#x27;Lotto&#x27;]);
+        });
+
+        if (rows.length &gt; 0) {
+            if (!rows[0][&#x27;Selected&#x27;]) {
+                rows[0][&#x27;Selected&#x27;] &#x3D; true; // Se non c&#x27;è nessun elemento selezionato, seleziona il primo elemento
+                // this.trattamentoFormService.signalChangeDrugSelected(rows[0][&#x27;Codice&#x27;], rows[0][&#x27;UdM&#x27;]);
+            }
+        } else
+            this.giasDialogService.alertMessage(this.transloco.translate(this.trattamentoFormService.transloco.translate(&#x27;zoo.GiacenzaNonTrovataModificaNonPossibile&#x27;))).subscribe(value &#x3D;&gt; {
+                if (value[&#x27;returnObj&#x27;]) {
+                    this.trattamentoFormService.goToGridPage();
+                }
+            });
+        
+        return rows;
+    }
+
+    private checkIfPushDrug(item: any, farmaciInfo: Array&lt;KendoGridRow&gt;): boolean {
+        // Controlla se il farmaco è già presente nella lista
+        if (!this.trattamentoFormService.checkIfIsEditingFromVeterinaryPrescripton())
+            return true;
+        else
+            //nel caso di prescrizione per indicazione terapeutica, posso solo selezionare farmaci con lotto diverso
+            // ma stesso codice, per cui li aggiungo alla grid solo in questi casi
+            if (farmaciInfo.length &gt; 0) {
+                return (farmaciInfo.findIndex(farm &#x3D;&gt; farm[&#x27;Codice&#x27;] &#x3D;&#x3D;&#x3D; item.Codice) &gt; -1);
+            } else 
+                return true; // Se il farmaco non è presente, lo aggiunge alla lista
+    }
+
+    ngOnDestroy(): void {
+        this.signal.next();
+        this.signal.complete();
+    }
+    
+    perform(actionType: HttpAction, items: any, oldRow?: any): Observable&lt;any&gt; {
+        throw new Error(&quot;Method not implemented.&quot;);
+    }
+
+}</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Farmaco.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

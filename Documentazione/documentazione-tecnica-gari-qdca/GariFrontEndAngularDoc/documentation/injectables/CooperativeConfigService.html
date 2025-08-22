@@ -1,0 +1,1321 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CooperativeConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#behavior" >behavior</a>
+                            </li>
+                            <li>
+                                <a href="#cmdColumn" >cmdColumn</a>
+                            </li>
+                            <li>
+                                <a href="#cooperativeFormGroup" >cooperativeFormGroup</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#padri" >padri</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#caricaPadri" >caricaPadri</a>
+                            </li>
+                            <li>
+                                <a href="#GetModel" >GetModel</a>
+                            </li>
+                            <li>
+                                <a href="#getPadriCount" >getPadriCount</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setPadri" >setPadri</a>
+                            </li>
+                            <li>
+                                <a href="#setTipologiaDDL" >setTipologiaDDL</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, gridPubService: GridPublicService, transloco: TranslocoService, contattiRootService: <a href="../injectables/ContattiRootService.html" target="_self">ContattiRootService</a>, parametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, rootFormGroup: FormGroupDirective)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridPubService</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contattiRootService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContattiRootService.html" target="_self" >ContattiRootService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rootFormGroup</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormGroupDirective</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaPadri"></a>
+                    <span class="name">
+                        <span ><b>caricaPadri</b></span>
+                        <a href="#caricaPadri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaPadri(selezionata: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="164"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selezionata</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetModel"></a>
+                    <span class="name">
+                        <span ><b>GetModel</b></span>
+                        <a href="#GetModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GetModel(rows: <a href="../undefineds/CooperativeKendoGridRow.html" target="_self">CooperativeKendoGridRow[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#CooperativeKendoGridRow" target="_self" >CooperativeKendoGridRow[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPadriCount"></a>
+                    <span class="name">
+                        <span ><b>getPadriCount</b></span>
+                        <a href="#getPadriCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPadriCount()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="203"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:203</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, item: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;CooperativeKendoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPadri"></a>
+                    <span class="name">
+                        <span ><b>setPadri</b></span>
+                        <a href="#setPadri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPadri(padri: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>padri</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setTipologiaDDL"></a>
+                    <span class="name">
+                        <span ><b>setTipologiaDDL</b></span>
+                        <a href="#setTipologiaDDL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setTipologiaDDL(col: KendoGridColumn)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>col</td>
+                                            <td>
+                                                        <code>KendoGridColumn</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="behavior"></a>
+                    <span class="name">
+                        <span ><b>behavior</b></span>
+                        <a href="#behavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSettings</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSettings({ saveExternalChanges: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cmdColumn"></a>
+                    <span class="name">
+                        <span ><b>cmdColumn</b></span>
+                        <a href="#cmdColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >CommandsColumnSettings</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new CommandsColumnSettings({infoBtn: false, editBtn: false,  removeBtn: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cooperativeFormGroup"></a>
+                    <span class="name">
+                        <span ><b>cooperativeFormGroup</b></span>
+                        <a href="#cooperativeFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;CooperativeConfigService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="padri"></a>
+                    <span class="name">
+                        <span ><b>padri</b></span>
+                        <a href="#padri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ImpresaPadre[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/anagrafica/imprese/impresa-edit/cooperative-edit/cooperative-edit-config.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { FormGroup, FormGroupDirective, Validators } from &#x27;@angular/forms&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { ImpresaPadre } from &#x27;app/Model/anagrafiche/ImpresaPadre&#x27;;
+import { AGRODATAINIZIO } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { BehaviorSettings, CommandsColumnSettings, ExcelSettings, PDFSettings } from &#x27;gias-kendo-grid&#x27;;
+import {  DateSettings, DropdownListItem, DropdownListWithForm, EditingMode, KendoGridColumn, LoaderType, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { Observable, of } from &#x27;rxjs&#x27;;
+import { ContattiRootService } from &#x27;../contatti-edit/contattiRoot.service&#x27;;
+import { ImpresaEditService } from &#x27;../impresa-edit.service&#x27;;
+import { CooperativeKendoGridRow, CooperativeKendoServerResult } from &#x27;./utils&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+
+@Injectable()
+export class CooperativeConfigService extends
+    AbstractGridConfigService&lt;CooperativeKendoServerResult&gt;{
+    editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    rowId: string &#x3D; &#x27;chiave&#x27;;
+    gridId: string &#x3D; &#x27;CooperativeConfigService&#x27;;
+    behavior: BehaviorSettings &#x3D; new BehaviorSettings({ saveExternalChanges: true });
+
+    cmdColumn: CommandsColumnSettings &#x3D; new CommandsColumnSettings({infoBtn: false, editBtn: false,  removeBtn: true })
+
+    
+
+    padri: ImpresaPadre[];
+
+    cooperativeFormGroup: FormGroup;
+
+    constructor(injector: Injector,
+        private gridPubService: GridPublicService,
+        protected transloco: TranslocoService,
+        private contattiRootService: ContattiRootService,
+        private parametriAgendaService: ObjParametriAgendaService,
+        private rootFormGroup: FormGroupDirective) {
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        
+        this.toolbar.newItem &#x3D; true;
+        this.generalSettings.performOnEdit &#x3D; true;
+        this.cmdColumn.editBtn &#x3D; false;
+
+        if ((&lt;ObjParametriAgenda&gt;this.parametriAgendaService.getObjParamValue()).TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Read){
+            this.disableGrid();
+        }
+
+        this.columnMenu.columnMenu &#x3D; false;
+        this.columnMenu.filterable &#x3D; false;
+        this.behavior.excelSettings &#x3D; new ExcelSettings({enabled: false});
+        this.behavior.pdfSettings &#x3D; new PDFSettings({enabled: false});
+        this.generalSettings.reordable &#x3D; false;
+        this.generalSettings.performOnEdit &#x3D; true;
+        this.groups.groupable.enabled &#x3D; false;
+        this.views.enabled &#x3D; false;
+
+        this.cmdColumn.editBtn &#x3D; false;
+    }
+
+    read(options?: any): Observable&lt;CooperativeKendoServerResult&gt; {
+            
+            //const agenda: ObjParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+
+            //this.handleDropdowns()
+            let rows: CooperativeKendoGridRow[] &#x3D; [];
+            this.cooperativeFormGroup &#x3D; this.rootFormGroup.form as FormGroup;  
+            this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).value.forEach(padre &#x3D;&gt; {
+                rows.push({ chiave: padre.partitaIva,
+                    codcooperativa: padre.partitaIva,
+                    cooperativa: padre.ragioneSociale,
+                    numero: padre.codice_iscrizione_libro_soci,
+                    data: padre.data_iscrizione_libro_soci ? padre.data_iscrizione_libro_soci : AGRODATAINIZIO,
+                    flag_cancellazione: false
+            })
+        })
+            const tableData &#x3D; this.GetModel(rows);
+            if ((&lt;ObjParametriAgenda&gt;this.parametriAgendaService.getObjParamValue()).TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Read){
+                this.makeCellsUneditable();
+            }
+            return of(tableData);
+    }
+    
+    perform(actionType: HttpAction, item: any[]): Observable&lt;any[]&gt; {
+        let cooperativePadre: ImpresaPadre[] &#x3D; this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).value;
+        switch(actionType){
+            case HttpAction.CREATE:
+                item[0].codcooperativa.data.codice_iscrizione_libro_soci &#x3D; item[0].numero;
+                item[0].codcooperativa.data.data_iscrizione_libro_soci &#x3D; item[0].data ? item[0].data : new Date(1900, 0, 1, 0, 0, 0, 0);
+                cooperativePadre.push(item[0].codcooperativa.data);
+                this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).patchValue(cooperativePadre);
+            break;
+            case HttpAction.UPDATE:
+                let modifica &#x3D; cooperativePadre.find(impresa &#x3D;&gt; item[0].chiave &#x3D;&#x3D; impresa.partitaIva);
+                if(item[0].codcooperativa.data) {
+                    for(var k in item[0].codcooperativa.data) modifica[k] &#x3D; item[0].codcooperativa.data[k];
+                }
+                modifica.codice_iscrizione_libro_soci &#x3D; item[0].numero;
+                modifica.data_iscrizione_libro_soci &#x3D; item[0].data ? item[0].data : new Date(1900, 0, 1, 0, 0, 0, 0); 
+                this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).patchValue(cooperativePadre);
+            break;
+            case HttpAction.REMOVE:
+                cooperativePadre &#x3D; cooperativePadre.filter(impresa &#x3D;&gt; impresa.partitaIva !&#x3D; item[0].codcooperativa);
+                this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).patchValue(cooperativePadre);
+            break;
+        }
+        if(cooperativePadre.length !&#x3D; 1) {
+            this.contattiRootService.singoloPadreSource.next(false);
+            this.contattiRootService.setSalvaInPadre(false);
+        } else {
+            this.contattiRootService.singoloPadreSource.next(true)
+        }
+        this.gridPubService.refresh(true);
+        return of([]);
+    }
+
+
+    GetModel(rows: CooperativeKendoGridRow[]) {
+
+        this.columns &#x3D; [
+            new KendoGridColumn(
+                { field: &#x27;codcooperativa&#x27;, title: this.transloco.translate(&#x27;CooperativaReferente&#x27;, {}) },
+                { validators: [Validators.required], width: 135}
+            ),
+            new KendoGridColumn(
+                { field: &#x27;numero&#x27;, title: this.transloco.translate(&#x27;NumeroLibroSoci&#x27;, {}) },
+                { /*validators: [Validators.required],*/ width: 135}
+            ),
+            new KendoGridColumn(
+              { field: &#x27;data&#x27;, title: this.transloco.translate(&#x27;DataIscrizioneLibroSoci&#x27;, {}) },
+              { /*validators: [Validators.required],*/ width: 135, date: new DateSettings({ defaultValue: AGRODATAINIZIO })}
+          )
+        ];
+        this.setTipologiaDDL(this.columns[0]);
+
+        this.model &#x3D; {
+            codcooperativa: new ModelEntry(CELL_TYPES.DROPDOWNLIST),
+            cooperativa: new ModelEntry(CELL_TYPES.STRING, false),
+            numero: new ModelEntry(CELL_TYPES.STRING),
+            data: new ModelEntry(CELL_TYPES.DATE)
+        }
+
+        //this.makeCellsUneditable();
+
+        return new CooperativeKendoServerResult(this.model, this.columns, rows);
+    }
+
+    setTipologiaDDL(col: KendoGridColumn) {
+        let list: DropdownListItem[] &#x3D; [];
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;partitaIva&#x27;, &#x27;codcooperativa&#x27;, &#x27;ragioneSociale&#x27;, list, null);
+        col.ddl.valuePrimitive &#x3D; false;
+        col.ddl.loadOnEdit &#x3D; true;
+        col.ddl.descriptionField &#x3D; &quot;cooperativa&quot;;
+        col.ddl.loadFunction &#x3D; this.caricaPadri.bind(this);
+        
+    }
+
+    caricaPadri(selezionata: any){
+        let cooperativePadre: ImpresaPadre[] &#x3D; this.cooperativeFormGroup.get(&#x27;impresaPadre&#x27;).value;
+        if(selezionata.codcooperativa){
+            cooperativePadre &#x3D; cooperativePadre.filter(impresa &#x3D;&gt; impresa.partitaIva !&#x3D; selezionata.codcooperativa.id)
+        }
+        return of(this.padri.filter(a &#x3D;&gt; !cooperativePadre.map(b&#x3D;&gt;b.partitaIva).includes(a.partitaIva)));
+    }
+
+    /*handleDropdowns(): void {
+        let data;
+        let col;
+        // Centro
+        col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Sa_Cod&#x27;);
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;VisibilitaPubblica&#x27;, &#x27;Sa_Cod&#x27;, &#x27;descrizione&#x27;, [], new DropdownListItem(0, &#x27;&#x27;));
+        col.ddl.valuePrimitive &#x3D; false;
+        col.validators &#x3D; [Validators.required];
+        col.ddl.id &#x3D; &#x27;codice&#x27;;
+        col.ddl.formControlValue &#x3D; &#x27;descrizione&#x27;;
+        col.ddl.loadOnEdit &#x3D; true;
+        col.ddl.descriptionField &#x3D; &#x27;Visibilita&#x27;;
+        col.ddl.loadFunction &#x3D; this.impresePadre.bind(this);
+
+        col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;CLASS_CODE&#x27;);
+        data &#x3D; this.tipo.map(cod &#x3D;&gt; new DropdownListItem(cod.CLASS_CODE, cod.CLASS_DESC));
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;Tipologia&#x27;, &#x27;CLASS_CODE&#x27;, &#x27;tipologia&#x27;, data);
+        col.ddl.valuePrimitive &#x3D; true;
+        col.validators &#x3D; [Validators.required];
+
+        col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Ditta_Cod&#x27;);
+        data &#x3D; this.marche.map(cod &#x3D;&gt; new DropdownListItem(cod.codice, cod.descrizione));
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;Marche&#x27;, &#x27;Ditta_Cod&#x27;, &#x27;Ditta_Des&#x27;, data);
+        col.ddl.valuePrimitive &#x3D; true;
+
+    }*/
+
+    setPadri(padri: any){
+        this.padri &#x3D; padri;
+    }
+
+    getPadriCount() {
+        return this.padri.length
+    }
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CooperativeConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

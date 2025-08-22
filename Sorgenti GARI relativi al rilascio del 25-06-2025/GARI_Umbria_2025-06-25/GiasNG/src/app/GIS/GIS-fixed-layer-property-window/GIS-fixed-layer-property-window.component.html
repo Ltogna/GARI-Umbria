@@ -1,0 +1,27 @@
+<gis-window [windowArgs]="windowArgs" class="pb-3">
+    <div>
+        <kendo-label [text]="'Trasparenza' | transloco"></kendo-label><br/>
+        <kendo-slider class="kendo-slider-trasparenza"
+            #sliderTrasparenza
+            [showButtons]="false"
+            [min]="1"
+            [max]="100"
+            [smallStep]="1"
+            [tickPlacement]="'none'"
+            [(ngModel)]="sliderTrasparenzaValue"
+            (valueChange)="onChangeTrasparenza($event)">
+        </kendo-slider>
+    </div>
+    <div>
+        <mat-slide-toggle
+            color="primary"
+            [(ngModel)]="infoClickMappaToggle"
+            (change)="onChangeInfoClickMappa($event)">
+            {{'gis.InformazioniSuClickInMappa' | transloco}}
+        </mat-slide-toggle>
+    </div>
+    <div><p></p></div>
+    <div class="save-button">
+        <button (click)="submit()">{{'Salva' | transloco}}</button>
+    </div>
+</gis-window>

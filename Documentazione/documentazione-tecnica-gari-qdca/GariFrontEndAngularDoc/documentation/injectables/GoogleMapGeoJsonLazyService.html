@@ -1,0 +1,3214 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GoogleMapGeoJsonLazyService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cfgAlberoGisUtente" >cfgAlberoGisUtente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clusteringLevel" >clusteringLevel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clusters" >clusters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#featureInClusters" >featureInClusters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#featuresLoaded" >featuresLoaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#geoJson" >geoJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isHeatmapShown" >isHeatmapShown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#layerVisible" >layerVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadedSubject" >loadedSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#previousZoom" >previousZoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addFeature" >addFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearClusteringFeatures" >clearClusteringFeatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearClusters" >clearClusters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearLocalClusters" >clearLocalClusters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#couldPlaceFeatureInCluster" >couldPlaceFeatureInCluster</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#forceMapRefresh" >forceMapRefresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getVisibleClusters" >getVisibleClusters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getVisibleFeatures" >getVisibleFeatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handlePanning" >handlePanning</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleZoomIn" >handleZoomIn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleZoomOut" >handleZoomOut</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initHeatmap" >initHeatmap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isRasterVisible" >isRasterVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isZoomIn" >isZoomIn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isZoomOut" >isZoomOut</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadClusteringLevel" >loadClusteringLevel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadFeatures" >loadFeatures</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadGeoJson" >loadGeoJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#placeInLocalCluster" >placeInLocalCluster</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#placeInLocalHeatMap" >placeInLocalHeatMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeFeature" >removeFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#renderGeoJson" >renderGeoJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#renderOnLayerVisibilityChanged" >renderOnLayerVisibilityChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#reset" >reset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPolyLabelsFromGoogleMapData" >setPolyLabelsFromGoogleMapData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#switchClusteringMode" >switchClusteringMode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#loaded$" >loaded$</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(polygonLabelInfoWindowService: <a href="../injectables/PolygonLabelInfowindowService.html" target="_self">PolygonLabelInfowindowService</a>, polygonLabelService: <a href="../injectables/PolygonLabelService.html" target="_self">PolygonLabelService</a>, infoWindowClustererService: <a href="../injectables/InfowindowClustererService.html" target="_self">InfowindowClustererService</a>, googleMapFeatureService: <a href="../injectables/GoogleMapFeatureService.html" target="_self">GoogleMapFeatureService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>, editFeatureWindowService: <a href="../injectables/EditFeatureWindowService.html" target="_self">EditFeatureWindowService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, googleMapHeatmapService: <a href="../injectables/GoogleMapHeatmapService.html" target="_self">GoogleMapHeatmapService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:33</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>polygonLabelInfoWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PolygonLabelInfowindowService.html" target="_self" >PolygonLabelInfowindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>polygonLabelService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PolygonLabelService.html" target="_self" >PolygonLabelService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>infoWindowClustererService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/InfowindowClustererService.html" target="_self" >InfowindowClustererService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapFeatureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapFeatureService.html" target="_self" >GoogleMapFeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>editFeatureWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EditFeatureWindowService.html" target="_self" >EditFeatureWindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapHeatmapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapHeatmapService.html" target="_self" >GoogleMapHeatmapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addFeature</b></span>
+                        <a href="#addFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addFeature(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearClusteringFeatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearClusteringFeatures</b></span>
+                        <a href="#clearClusteringFeatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearClusteringFeatures()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="421"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:421</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearClusters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearClusters</b></span>
+                        <a href="#clearClusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearClusters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearLocalClusters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearLocalClusters</b></span>
+                        <a href="#clearLocalClusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearLocalClusters(clusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="366"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:366</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="couldPlaceFeatureInCluster"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>couldPlaceFeatureInCluster</b></span>
+                        <a href="#couldPlaceFeatureInCluster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>couldPlaceFeatureInCluster(featureId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, positionLatLng: <a href="../classes/LatLng.html" target="_self">google.maps.LatLng</a>, positionPoint: google.maps.Point, clusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>, zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="332"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:332</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>positionLatLng</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLng</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>positionPoint</td>
+                                            <td>
+                                                        <code>google.maps.Point</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>clusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forceMapRefresh"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>forceMapRefresh</b></span>
+                        <a href="#forceMapRefresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>forceMapRefresh(googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="426"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:426</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVisibleClusters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getVisibleClusters</b></span>
+                        <a href="#getVisibleClusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getVisibleClusters(viewPort: <a href="../classes/LatLng.html" target="_self">google.maps.LatLngBounds</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="293"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:293</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>viewPort</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLngBounds</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVisibleFeatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getVisibleFeatures</b></span>
+                        <a href="#getVisibleFeatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getVisibleFeatures(viewPort: <a href="../classes/LatLng.html" target="_self">google.maps.LatLngBounds</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="280"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:280</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>viewPort</td>
+                                            <td>
+                                                            <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLngBounds</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Feature.html" target="_self" >GeoJson_Feature_New[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePanning"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handlePanning</b></span>
+                        <a href="#handlePanning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handlePanning(features: GeoJson_Feature_New<GeoJSONAgroGisProp>[], localClusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>, zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>features</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>localClusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleZoomIn"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleZoomIn</b></span>
+                        <a href="#handleZoomIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleZoomIn(features: GeoJson_Feature_New<GeoJSONAgroGisProp>[], localClusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>, zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>features</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>localClusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleZoomOut"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleZoomOut</b></span>
+                        <a href="#handleZoomOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleZoomOut(features: GeoJson_Feature_New<GeoJSONAgroGisProp>[], localClusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>, zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="194"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:194</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>features</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>localClusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initHeatmap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initHeatmap</b></span>
+                        <a href="#initHeatmap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initHeatmap()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="400"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isRasterVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isRasterVisible</b></span>
+                        <a href="#isRasterVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isRasterVisible(layerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="430"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:430</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isZoomIn"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isZoomIn</b></span>
+                        <a href="#isZoomIn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isZoomIn(zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isZoomOut"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isZoomOut</b></span>
+                        <a href="#isZoomOut"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isZoomOut(zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadClusteringLevel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadClusteringLevel</b></span>
+                        <a href="#loadClusteringLevel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadClusteringLevel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="393"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:393</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadFeatures"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadFeatures</b></span>
+                        <a href="#loadFeatures"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadFeatures(features: GeoJson_Feature_New<GeoJSONAgroGisProp>[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="269"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>features</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadGeoJson"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadGeoJson</b></span>
+                        <a href="#loadGeoJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadGeoJson(geoJson: GeoJson_Shape_New<GeoJSONAgroGisProp>, googleMap: google.maps.Map, fitBounds: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, reset: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>geoJson</td>
+                                            <td>
+                                                        <code>GeoJson_Shape_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fitBounds</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>reset</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeInLocalCluster"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>placeInLocalCluster</b></span>
+                        <a href="#placeInLocalCluster"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>placeInLocalCluster(featureId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, clusters: <a href="../classes/Cluster.html" target="_self">Cluster[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="305"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:305</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>clusters</td>
+                                            <td>
+                                                            <code><a href="../classes/Cluster.html" target="_self" >Cluster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="placeInLocalHeatMap"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>placeInLocalHeatMap</b></span>
+                        <a href="#placeInLocalHeatMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>placeInLocalHeatMap(featureId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:323</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeFeature</b></span>
+                        <a href="#removeFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeFeature(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderGeoJson"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>renderGeoJson</b></span>
+                        <a href="#renderGeoJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>renderGeoJson(googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderOnLayerVisibilityChanged"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>renderOnLayerVisibilityChanged</b></span>
+                        <a href="#renderOnLayerVisibilityChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>renderOnLayerVisibilityChanged(layers: literal type[], config: <a href="../interfaces/CfgAlbero_CfgGisUtente.html" target="_self">CfgAlbero_CfgGisUtente</a>, googleMap: google.maps.Map)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layers</td>
+                                            <td>
+                                                        <code>literal type[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>config</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CfgAlbero_CfgGisUtente.html" target="_self" >CfgAlbero_CfgGisUtente</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>googleMap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>reset</b></span>
+                        <a href="#reset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reset()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="347"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:347</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPolyLabelsFromGoogleMapData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setPolyLabelsFromGoogleMapData</b></span>
+                        <a href="#setPolyLabelsFromGoogleMapData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPolyLabelsFromGoogleMapData(zoom: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, features: <a href="../interfaces/Feature.html" target="_self">google.maps.Data.Feature[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>zoom</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>features</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Feature.html" target="_self" >google.maps.Data.Feature[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="switchClusteringMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>switchClusteringMode</b></span>
+                        <a href="#switchClusteringMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>switchClusteringMode(mode: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="406"
+                                    class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:406</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>mode</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cfgAlberoGisUtente"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cfgAlberoGisUtente</b></span>
+                        <a href="#cfgAlberoGisUtente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/CfgAlbero_CfgGisUtente.html" target="_self" >CfgAlbero_CfgGisUtente</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusteringLevel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clusteringLevel</b></span>
+                        <a href="#clusteringLevel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clusters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clusters</b></span>
+                        <a href="#clusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, Cluster&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureInClusters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>featureInClusters</b></span>
+                        <a href="#featureInClusters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featuresLoaded"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>featuresLoaded</b></span>
+                        <a href="#featuresLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="geoJson"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>geoJson</b></span>
+                        <a href="#geoJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GeoJson_Shape_New&lt;GeoJSONAgroGisProp&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ features: [], type: GEOJSON_TYPE }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isHeatmapShown"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isHeatmapShown</b></span>
+                        <a href="#isHeatmapShown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layerVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>layerVisible</b></span>
+                        <a href="#layerVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;string, boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadedSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadedSubject</b></span>
+                        <a href="#loadedSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReplaySubject&lt;void&gt;(1)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="previousZoom"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>previousZoom</b></span>
+                        <a href="#previousZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loaded$"></a>
+                        <span class="name"><b>loaded$</b><a href="#loaded$"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>loaded$()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/GIS/services/google.maps-services/google-map-geojson-lazy.service.ts:50</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Optional } from &#x27;@angular/core&#x27;;
+import { FeatureType, GeoJSONAgroGisProp, GeoJson_Feature_New, GeoJson_Shape_New } from &#x27;app/Model/GIS/GisDataReadRval_New&#x27;;
+import { guid } from &#x27;@progress/kendo-angular-common&#x27;;
+import { Cluster } from &#x27;../../google-map/cluster&#x27;;
+import { GoogleMapUtils } from &#x27;../../utils/google-map.utils&#x27;;
+import { PolygonLabelInfowindowService } from &#x27;../polygon-label-infowindow.service&#x27;;
+import { PolygonLabelService } from &#x27;../polygon-label.service&#x27;;
+import { InfowindowClustererService } from &#x27;../../infowindow-clusterer/infowindow-clusterer.service&#x27;;
+import { GoogleMapFeatureService } from &#x27;./google-map-feature.service&#x27;;
+import { FeatureInformationService } from &#x27;../feature-information.service&#x27;;
+import { CfgAlbero_CfgGisUtente, TipologiaLayer } from &#x27;app/Service/api.service&#x27;;
+import { Observable, ReplaySubject } from &#x27;rxjs&#x27;;
+import { EditFeatureWindowService } from &#x27;../edit-feature-window.service&#x27;;
+import { GoogleMapHeatmapService } from &#x27;./google-map-heatmap.service&#x27;;
+import { SharedDataService } from &#x27;../shared-data.service&#x27;;
+import { enum_ClusteringLevel } from &#x27;app/GIS/GIS-enum/GIS-clustering-level&#x27;;
+
+export const GEOJSON_TYPE &#x3D; &#x27;FeatureCollection&#x27;;
+const MIN_PIXEL_CLUSTER_DISTANCE &#x3D; 100;
+const MIN_RENDERABLE_AREA_SIZE &#x3D; 5_000_000_000;
+
+@Injectable()
+export class GoogleMapGeoJsonLazyService {
+  private geoJson: GeoJson_Shape_New&lt;GeoJSONAgroGisProp&gt; &#x3D; { features: [], type: GEOJSON_TYPE };
+  private clusters &#x3D; new Map&lt;string, Cluster&gt;();
+  private featureInClusters &#x3D; new Map&lt;string, string&gt;();
+  private featuresLoaded &#x3D; new Map&lt;string, boolean&gt;();
+  private layerVisible &#x3D; new Map&lt;string, boolean&gt;();
+  private previousZoom: number | null &#x3D; null;
+  private loadedSubject &#x3D; new ReplaySubject&lt;void&gt;(1);
+  private clusteringLevel: number;
+  private isHeatmapShown: boolean;
+  private cfgAlberoGisUtente: CfgAlbero_CfgGisUtente;
+
+  constructor(
+    private polygonLabelInfoWindowService: PolygonLabelInfowindowService,
+    private polygonLabelService: PolygonLabelService,
+    private infoWindowClustererService: InfowindowClustererService,
+    private googleMapFeatureService: GoogleMapFeatureService,
+    private featureInformationService: FeatureInformationService,
+    private editFeatureWindowService: EditFeatureWindowService,
+    private sharedDataService: SharedDataService,
+    @Optional() private googleMapHeatmapService: GoogleMapHeatmapService
+  ) {
+    this.cfgAlberoGisUtente &#x3D; this.sharedDataService.getCfgAlberoGisUtente()[0];
+    this.loadClusteringLevel();
+    this.initHeatmap();
+  }
+
+  public get loaded$(): Observable&lt;void&gt; {
+    return this.loadedSubject.asObservable();
+  }
+
+  public loadGeoJson(geoJson: GeoJson_Shape_New&lt;GeoJSONAgroGisProp&gt;, googleMap: google.maps.Map, fitBounds: boolean, reset: boolean): void {
+    const zoom &#x3D; googleMap.getZoom();
+    if (reset) {
+      this.reset();
+    }
+
+    this.geoJson.features &#x3D; this.geoJson.features.concat(geoJson.features);
+    this.featureInformationService.addFeatures(googleMap.getProjection(), false, ...geoJson.features);
+    this.clearClusteringFeatures();
+
+    this.previousZoom &#x3D; zoom;
+
+    if (fitBounds) {
+      const bounds &#x3D; GoogleMapUtils.getInitialBounds(this.geoJson.features.map(f &#x3D;&gt; this.featureInformationService.getGeometry(f.properties.id)));
+      googleMap.fitBounds(bounds);
+      googleMap.setCenter(bounds.getCenter());
+    } else {
+      this.forceMapRefresh(googleMap);
+    }
+
+    this.loadedSubject.next();
+  }
+
+  public addFeature(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;, googleMap: google.maps.Map): void {
+    const id &#x3D; feature.properties.id;
+
+    const alreadyExistingIndex &#x3D; this.geoJson.features.findIndex(f &#x3D;&gt; f.properties.id &#x3D;&#x3D; id);
+    if (alreadyExistingIndex !&#x3D; -1) {
+      this.geoJson.features.splice(alreadyExistingIndex, 1);
+      this.googleMapFeatureService.removeFeatures(id);
+      this.featuresLoaded.set(id, false);
+    }
+
+    this.geoJson.features.push(feature);
+    this.featureInformationService.addFeatures(googleMap.getProjection(), false, feature);
+    this.editFeatureWindowService.load(feature);
+    this.renderGeoJson(googleMap);
+  }
+
+  public removeFeature(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;, googleMap: google.maps.Map): void {
+    const id &#x3D; feature.properties.id;
+
+    const alreadyExistingIndex &#x3D; this.geoJson.features.findIndex(f &#x3D;&gt; f.properties.id &#x3D;&#x3D; id);
+    if (alreadyExistingIndex !&#x3D; -1) {
+      this.geoJson.features.splice(alreadyExistingIndex, 1);
+      this.googleMapFeatureService.removeFeatures(id);
+      this.featuresLoaded.set(id, false);
+    }
+
+    this.renderGeoJson(googleMap);
+  }
+
+  public renderGeoJson(googleMap: google.maps.Map): void {
+    const zoom &#x3D; googleMap.getZoom();
+    const viewPort &#x3D; googleMap.getBounds();
+
+    const visibleFeatures &#x3D; this.getVisibleFeatures(viewPort);
+    const visibleClusters &#x3D; this.getVisibleClusters(viewPort);
+    this.clearLocalClusters(visibleClusters);
+    this.googleMapHeatmapService?.clearFeatures();
+
+    if (this.isZoomIn(zoom)) {
+      this.handleZoomIn(visibleFeatures, visibleClusters, zoom, googleMap);
+    } else if (this.isZoomOut(zoom)) {
+      this.handleZoomOut(visibleFeatures, visibleClusters, zoom, googleMap);
+    } else {
+      this.handlePanning(visibleFeatures, visibleClusters, zoom, googleMap);
+    }
+
+    if (this.isHeatmapShown) {
+      this.googleMapHeatmapService?.displayHeatmap();
+    } else {
+      visibleClusters.forEach(cluster &#x3D;&gt; cluster.setMarker(googleMap));
+    }
+
+    // This probably can be improved if we have performance issues
+    this.setPolyLabelsFromGoogleMapData(zoom, [...this.googleMapFeatureService.getCurrentFeatures()]);
+  }
+
+  public renderOnLayerVisibilityChanged(layers: { TipologiaLayer: TipologiaLayer; visible: boolean; }[], config: CfgAlbero_CfgGisUtente,  googleMap: google.maps.Map) {
+    this.layerVisible.clear();
+    this.cfgAlberoGisUtente &#x3D; config;
+    layers.forEach(layer &#x3D;&gt; this.layerVisible.set(layer.TipologiaLayer.id, layer.visible));
+
+    const zoom &#x3D; googleMap.getZoom();
+    const viewPort &#x3D; googleMap.getBounds();
+
+    const visibleFeatures &#x3D; this.getVisibleFeatures(viewPort);
+    const visibleClusters &#x3D; this.getVisibleClusters(viewPort);
+    this.clearLocalClusters(visibleClusters);
+    this.handlePanning(visibleFeatures, visibleClusters, zoom, googleMap);
+
+    // This probably can be improved if we have performance issues
+    this.setPolyLabelsFromGoogleMapData(zoom, [...this.googleMapFeatureService.getCurrentFeatures()]);
+  }
+
+  private isZoomIn(zoom: number): boolean {
+    return zoom &gt; this.previousZoom;
+  }
+
+  private isZoomOut(zoom: number): boolean {
+    return zoom &lt; this.previousZoom;
+  }
+
+  private handleZoomIn(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[], localClusters: Cluster[], zoom: number, googleMap: google.maps.Map): void {
+    // While zooming in we can render new features but never remove old ones
+    // And we can lose old clusters and create new ones
+    const toBeLoaded: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] &#x3D; [];
+
+    for (const feature of features) {
+      const id &#x3D; feature.properties.id;
+      const layerId &#x3D; feature.properties.layer;
+
+      // Don&#x27;t handle features already loaded (it cannot be removed since we are zooming in)
+      // Don&#x27;t handle features hidden
+      if (this.featuresLoaded.get(id) || (!this.isRasterVisible(layerId) &amp;&amp; !this.layerVisible.get(layerId))) {
+        continue;
+      }
+
+      // If feature is not big enough and we have not zoom in enough, place it in cluster, otherwise render it
+      const area &#x3D; this.featureInformationService.getArea(id);
+      const pixelSize &#x3D; Math.pow(2, -zoom);
+      if (zoom &lt; this.clusteringLevel &amp;&amp; (area / pixelSize) &lt;&#x3D; MIN_RENDERABLE_AREA_SIZE) {
+        if (this.isHeatmapShown) {
+          this.placeInLocalHeatMap(id);
+        } else {
+          this.placeInLocalCluster(id, zoom, localClusters);
+        }
+      } else {
+        toBeLoaded.push(feature);
+        this.featuresLoaded.set(id, true);
+      }
+    }
+
+    // render features and clusters
+    this.loadFeatures(toBeLoaded);
+
+    this.previousZoom &#x3D; zoom;
+  }
+
+  private handleZoomOut(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[], localClusters: Cluster[], zoom: number, googleMap: google.maps.Map): void {
+    // While zooming out we cannot render new features but we can remove old ones
+    // And we can lose old clusters and create new one
+
+    for (const feature of features) {
+      const id &#x3D; feature.properties.id;
+      const layerId &#x3D; feature.properties.layer;
+
+      // Don&#x27;t handle features hidden
+      if (!this.isRasterVisible(layerId) &amp;&amp; !this.layerVisible.get(layerId)) {
+        continue;
+      }
+
+      // If feature is not big enough and we have not zoom in enough, remove it (if rendered) and cluster it
+      const area &#x3D; this.featureInformationService.getArea(id);
+      const pixelSize &#x3D; Math.pow(2, -zoom)
+      if (zoom &lt; this.clusteringLevel &amp;&amp; (area / pixelSize) &lt;&#x3D; MIN_RENDERABLE_AREA_SIZE) {
+        if (this.featuresLoaded.get(id)) {
+          this.googleMapFeatureService.removeFeatures(id);
+          this.featuresLoaded.set(id, false);
+        }
+
+        if (this.isHeatmapShown) {
+          this.placeInLocalHeatMap(id);
+        } else {
+          this.placeInLocalCluster(id, zoom, localClusters);
+        }
+      }
+    }
+
+    // only render clusters because we cannot add new features while zooming out
+
+    this.previousZoom &#x3D; zoom;
+  }
+
+  private handlePanning(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[], localClusters: Cluster[], zoom: number, googleMap: google.maps.Map): void {
+    // While panning we can both render new features and remove old ones (because zoom-in / out was done somewhere else)
+    // And we can lose old clusters and create new ones
+    const toBeLoaded: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] &#x3D; [];
+
+    for (const feature of features) {
+      const id &#x3D; feature.properties.id;
+      const layerId &#x3D; feature.properties.layer;
+
+      // Don&#x27;t handle features hidden
+      if (!this.isRasterVisible(layerId) &amp;&amp; !this.layerVisible.get(layerId)) {
+        continue;
+      }
+
+      // If feature is not big enough and we have not zoom in enough, remove it (if rendered) and cluster it
+      const area &#x3D; this.featureInformationService.getArea(id);
+      const pixelSize &#x3D; Math.pow(2, -zoom)
+      if (zoom &lt; this.clusteringLevel &amp;&amp; (area / pixelSize) &lt;&#x3D; MIN_RENDERABLE_AREA_SIZE) {
+        if (this.featuresLoaded.get(id)) {
+          this.googleMapFeatureService.removeFeatures(id);
+          this.featuresLoaded.set(id, false);
+        }
+        if (this.isHeatmapShown) {
+          this.placeInLocalHeatMap(id);
+        } else {
+          this.placeInLocalCluster(id, zoom, localClusters);
+        }
+      } else {
+        // only render feature if it has not been loaded
+        if (!this.featuresLoaded.get(id)) {
+          toBeLoaded.push(feature);
+          this.featuresLoaded.set(id, true);
+        }
+      }
+    }
+
+    // render features and clusters
+    this.loadFeatures(toBeLoaded);
+  }
+
+  private loadFeatures(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]): void {
+    this.googleMapFeatureService.loadByGeoJson({
+      type: GEOJSON_TYPE,
+      features: features
+    });
+
+    for (const feature of features) {
+      this.editFeatureWindowService.load(feature);
+    }
+  }
+
+  private getVisibleFeatures(viewPort: google.maps.LatLngBounds): GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] {
+    const visibleFeatures: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] &#x3D; [];
+    for (const feature of this.geoJson.features) {
+      const featureId &#x3D; feature.properties.id;
+      const position &#x3D; this.featureInformationService.getPosition(featureId);
+      if (viewPort.contains(position)) {
+        visibleFeatures.push(feature);
+      }
+    }
+
+    return visibleFeatures;
+  }
+
+  private getVisibleClusters(viewPort: google.maps.LatLngBounds): Cluster[] {
+    const visibleClusters: Cluster[] &#x3D; [];
+    for (const cluster of this.clusters.values()) {
+      if (viewPort.contains(cluster.position)) {
+        visibleClusters.push(cluster);
+      }
+    }
+
+    return visibleClusters;
+  }
+
+
+  private placeInLocalCluster(featureId: string, zoom: number, clusters: Cluster[]): void {
+    const positionLatLng &#x3D; this.featureInformationService.getPosition(featureId);
+    const positionPoint &#x3D; this.featureInformationService.getPositionPoint(featureId);
+    const hasFeatureBeenPlaced &#x3D; this.couldPlaceFeatureInCluster(featureId, positionLatLng, positionPoint, clusters, zoom);
+    if (hasFeatureBeenPlaced) {
+      return;
+    }
+
+    // Could not add the feature to an existing claster, create a new one
+    const clusterId &#x3D; guid();
+    const cluster &#x3D; new Cluster(clusterId);
+    cluster.addFeature(featureId, positionLatLng, positionPoint);
+    clusters.push(cluster);
+
+    this.featureInClusters.set(featureId, clusterId);
+    this.clusters.set(clusterId, cluster);
+  }
+
+  private placeInLocalHeatMap(featureId: string) {
+    const positionLatLng &#x3D;
+      this.featureInformationService.getPosition(featureId);
+    const weight &#x3D;
+      this.featureInformationService.getTotalOriginalArea(featureId) +
+      this.featureInformationService.getTotalOriginalFeatures(featureId);
+    this.googleMapHeatmapService?.addFeature(positionLatLng, weight);
+  }
+
+  private couldPlaceFeatureInCluster(featureId: string, positionLatLng: google.maps.LatLng, positionPoint: google.maps.Point, clusters: Cluster[], zoom: number): boolean {
+    const pixelSize &#x3D; Math.pow(2, -zoom);
+    for (const cluster of clusters) {
+      const distanceFromClusterCenter &#x3D; GoogleMapUtils.getPixelDistanceFromPoint(positionPoint, cluster.positionPoint, pixelSize);
+      if (distanceFromClusterCenter &lt; MIN_PIXEL_CLUSTER_DISTANCE) {
+        cluster.addFeature(featureId, positionLatLng, positionPoint);
+        this.googleMapHeatmapService?.addFeature(positionLatLng);
+        this.featureInClusters.set(featureId, cluster.id);
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  private reset(): void {
+    const ids &#x3D; this.googleMapFeatureService.getCurrentFeatures().map(feature &#x3D;&gt; feature.getId().toString());
+    this.googleMapFeatureService.removeFeatures(...ids);
+    this.featureInformationService.clear();
+    this.featuresLoaded.clear();
+    this.clearClusteringFeatures();
+    this.googleMapFeatureService.removeAll();
+    this.geoJson.features &#x3D; [];
+  }
+
+  private clearClusters(): void {
+    for (const cluster of this.clusters.values()) {
+      cluster.remove();
+    }
+
+    this.clusters.clear();
+    this.featureInClusters.clear();
+  }
+
+  private clearLocalClusters(clusters: Cluster[]): void {
+    for (const cluster of clusters) {
+      cluster.remove();
+      this.clusters.delete(cluster.id);
+      for (const featureId of cluster.features) {
+        this.featureInClusters.delete(featureId);
+      }
+    }
+
+    clusters.splice(0, clusters.length);
+  }
+
+  private setPolyLabelsFromGoogleMapData(zoom: number, features: google.maps.Data.Feature[]): void {
+    this.infoWindowClustererService?.resetPolyLabels();
+
+    // Start rendering labels only after &quot;clusteringLevel&quot;
+    if (zoom &gt;&#x3D; this.clusteringLevel) {
+      features.forEach(feature &#x3D;&gt; {
+        const f &#x3D; this.featureInformationService.getById(feature.getId().toString());
+        this.polygonLabelInfoWindowService.createPolyLabelAssociatedInfoWindow(f);
+      });
+
+      this.polygonLabelService.renderPolyLabels(true);
+      this.infoWindowClustererService?.recompute();
+    }
+  }
+
+  private loadClusteringLevel(): void {
+    this.clusteringLevel &#x3D; enum_ClusteringLevel.default;
+    this.sharedDataService.getCfgAlberoGisUtente$().subscribe((cfgAlberoGisUtente) &#x3D;&gt; {
+      this.clusteringLevel &#x3D; cfgAlberoGisUtente[0]?.CfgGisUtente?.LivelloClusterizzazione ?? enum_ClusteringLevel.default;
+    });
+  }
+
+  private initHeatmap(): void {
+    this.googleMapHeatmapService?.isShown$?.subscribe((isShown) &#x3D;&gt;
+      this.switchClusteringMode(isShown)
+    );
+  }
+
+  private switchClusteringMode(mode: boolean) {
+    this.isHeatmapShown &#x3D; mode;
+    let googleMap: google.maps.Map | null;
+    if (this.isHeatmapShown) {
+      googleMap &#x3D; this.clusters.values().next().value?.marker?.getMap();
+      this.clearClusters();
+    } else {
+      googleMap &#x3D; this.googleMapHeatmapService.getHeatmap()?.getMap();
+      this.googleMapHeatmapService.removeHeatMap();
+    }
+    if (googleMap) {
+      this.renderGeoJson(googleMap);
+    }
+  }
+
+  private clearClusteringFeatures() {
+    this.clearClusters();
+    this.googleMapHeatmapService?.removeHeatMap();
+  }
+
+  public forceMapRefresh(googleMap: google.maps.Map): void {
+    google.maps.event.trigger(googleMap, &#x27;idle&#x27;);
+  }
+
+  private isRasterVisible(layerId: string) {
+    const isGoogleGridVisible &#x3D; this.cfgAlberoGisUtente?.CfgGisUtente?.ckGrigliaTiles_Sviluppo ?? false;
+    const isRaster &#x3D; this.sharedDataService.getTipologiaLayerById(layerId)?.FeatureTypeId &#x3D;&#x3D;&#x3D; FeatureType.Raster.toString();
+    const isRasterVisible &#x3D; isRaster &amp;&amp; isGoogleGridVisible &amp;&amp; this.layerVisible.get(layerId);
+    return isRasterVisible;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GoogleMapGeoJsonLazyService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

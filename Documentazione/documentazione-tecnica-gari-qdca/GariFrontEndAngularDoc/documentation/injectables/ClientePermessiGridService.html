@@ -1,0 +1,1914 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ClientePermessiGridService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridFilter" >_gridFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridGroup" >_gridGroup</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridSort" >_gridSort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridStateChangeSub" >_gridStateChangeSub</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_isEditing$" >_isEditing$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_prevEditingVal" >_prevEditingVal</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#gridForm" >gridForm</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridPublicService" >gridPublicService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoRows" >kendoRows</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#tuttiPermessi" >tuttiPermessi</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formattaPerGrid" >formattaPerGrid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCheckboxHide" >handleCheckboxHide</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomization" >handleCustomization</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleEvents" >handleEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handlePagination" >handlePagination</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hideCheckbox" >hideCheckbox</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoGerarchia2row" >permessoGerarchia2row</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permissionIsNotEditable" >permissionIsNotEditable</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#isEditing" >isEditing</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, gridPublicService: GridPublicService, utentiService: <a href="../injectables/ProfilazioneUtentiService.html" target="_self">ProfilazioneUtentiService</a>, tipologieUtentiService: <a href="../injectables/TipologieUtentiService.html" target="_self">TipologieUtentiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:79</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridPublicService</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>utentiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfilazioneUtentiService.html" target="_self" >ProfilazioneUtentiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>tipologieUtentiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TipologieUtentiService.html" target="_self" >TipologieUtentiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formattaPerGrid"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formattaPerGrid</b></span>
+                        <a href="#formattaPerGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>formattaPerGrid(attivo: <a href="../classes/ClientePermesso.html" target="_self">ClientePermesso</a>, permessoGerarchia: <a href="../interfaces/UtentePermessoGerarchia.html" target="_self">UtentePermessoGerarchia</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>attivo</td>
+                                            <td>
+                                                            <code><a href="../classes/ClientePermesso.html" target="_self" >ClientePermesso</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>permessoGerarchia</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UtentePermessoGerarchia.html" target="_self" >UtentePermessoGerarchia</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ codice: any; modulo: any; funzione: any; attivitadesc: any; id_operazione: any; permessolettura: any; permessoscrittura: any; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCheckboxHide"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCheckboxHide</b></span>
+                        <a href="#handleCheckboxHide"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCheckboxHide()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="145"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:145</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomization"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomization</b></span>
+                        <a href="#handleCustomization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomization()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEvents"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleEvents</b></span>
+                        <a href="#handleEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="212"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:212</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePagination"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handlePagination</b></span>
+                        <a href="#handlePagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handlePagination()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="234"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:234</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>PaginationSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideCheckbox"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>hideCheckbox</b></span>
+                        <a href="#hideCheckbox"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hideCheckbox()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoGerarchia2row"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoGerarchia2row</b></span>
+                        <a href="#permessoGerarchia2row"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>permessoGerarchia2row(r: <a href="../interfaces/UtentePermessoGerarchia.html" target="_self">UtentePermessoGerarchia</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="221"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:221</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UtentePermessoGerarchia.html" target="_self" >UtentePermessoGerarchia</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ codice: any; modulo: any; funzione: any; attivitadesc: any; permessolettura: any; permessoscrittura: any; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permissionIsNotEditable"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permissionIsNotEditable</b></span>
+                        <a href="#permissionIsNotEditable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>permissionIsNotEditable(row)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;ClientePermessiGridServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridFilter</b></span>
+                        <a href="#_gridFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CompositeFilterDescriptor | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>undefined</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridGroup"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridGroup</b></span>
+                        <a href="#_gridGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GroupDescriptor[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[{field: &quot;modulo&quot;}]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridSort"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridSort</b></span>
+                        <a href="#_gridSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SortDescriptor[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridStateChangeSub"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridStateChangeSub</b></span>
+                        <a href="#_gridStateChangeSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_isEditing$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_isEditing$</b></span>
+                        <a href="#_isEditing$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_prevEditingVal"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_prevEditingVal</b></span>
+                        <a href="#_prevEditingVal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>gridForm</b></span>
+                        <a href="#gridForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;FormGroup&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;ClientePermessiGridID&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridPublicService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridPublicService</b></span>
+                        <a href="#gridPublicService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn({field: &#x27;modulo&#x27;, title: this.transloco.translate(&#x27;Modulo&#x27;)}, {resizable: true}),
+    new KendoGridColumn({field: &#x27;funzione&#x27;, title: this.transloco.translate(&#x27;Funzione&#x27;)}, {resizable: true}),
+    new KendoGridColumn({field: &#x27;codice&#x27;, title: this.transloco.translate(&#x27;Codice&#x27;)}, {resizable: true, hidden: true}),
+    new KendoGridColumn({
+      field: &#x27;attivitadesc&#x27;,
+      title: this.transloco.translate(&#x27;DescrizioneAutorizzazione&#x27;)
+    }, {resizable: true}),
+    new KendoGridColumn({
+      field: &#x27;permessolettura&#x27;,
+      title: this.transloco.translate(&#x27;PermessoLettura&#x27;)
+    }, {resizable: true}),
+    new KendoGridColumn({
+      field: &#x27;permessoscrittura&#x27;,
+      title: this.transloco.translate(&#x27;PermessoScrittura&#x27;)
+    }, {resizable: true})
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    codice: new ModelEntry(CELL_TYPES.NUMBER),
+    modulo: new ModelEntry(CELL_TYPES.STRING),
+    funzione: new ModelEntry(CELL_TYPES.STRING),
+    attivitadesc: new ModelEntry(CELL_TYPES.STRING),
+    id_operazione: new ModelEntry(CELL_TYPES.NUMBER),
+    permessolettura: new ModelEntry(CELL_TYPES.STRING),
+    permessoscrittura: new ModelEntry(CELL_TYPES.STRING)
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoRows</b></span>
+                        <a href="#kendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;codice&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tuttiPermessi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>tuttiPermessi</b></span>
+                        <a href="#tuttiPermessi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isEditing"></a>
+                        <span class="name"><b>isEditing</b><a href="#isEditing"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isEditing()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:94</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>isEditing(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/profilazione/cliente-permessi/cliente-permessi-grid/cliente-permessi-grid.service.ts:98</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, Injector} from &#x27;@angular/core&#x27;;
+import {MasterService} from &#x27;app/Service/master.service&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import {
+  AbstractGridConfigService,
+  CommandsColumnSettings,
+  EditingMode,
+  GridPublicService,
+  HttpAction,
+  KendoGridColumn,
+  KendoGridModel,
+  KendoGridRow,
+  KendoServerResult,
+  LoaderType,
+  ModelEntry,
+  PaginationSettings,
+  RendererGridEvent,
+  ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import {ClientePermesso, ProfilazioneUtentiService} from &#x27;app/profilazione/services/profilazione-utenti.service&#x27;;
+import {TipologieUtentiService} from &#x27;app/profilazione/services/profili-permessi/tipologie-utenti.service&#x27;;
+import {BehaviorSubject, forkJoin, from, map, Observable, Subscription, takeUntil, tap} from &#x27;rxjs&#x27;;
+import {UtentePermessoGerarchia} from &quot;../../models/profili-permessi/UtentePermessoGerarchia.model&quot;;
+import {enum_TipoPermesso} from &quot;../../models/profilazione.model&quot;;
+import {FormGroup} from &quot;@angular/forms&quot;;
+import {DataResult, GroupDescriptor, process, SortDescriptor} from &quot;@progress/kendo-data-query&quot;;
+import {PERMS_CANNOT_BE_DISABLED} from &quot;./cliente-permessi-grid.component&quot;;
+import {CompositeFilterDescriptor} from &quot;@progress/kendo-data-query/dist/npm/filtering/filter-descriptor.interface&quot;;
+
+export class ClientePermessiGridServerResult extends KendoServerResult {
+  constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+    super(model, cols, rows);
+  }
+}
+
+@Injectable()
+export class ClientePermessiGridService extends AbstractGridConfigService&lt;ClientePermessiGridServerResult&gt; {
+
+  editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &#x27;codice&#x27;;
+  gridId &#x3D; &#x27;ClientePermessiGridID&#x27;;
+
+  private _prevEditingVal &#x3D; false;
+  private _isEditing$ &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+  private _gridStateChangeSub: Subscription &#x3D; null;
+  private _gridSort: SortDescriptor[] &#x3D; [];
+  private _gridFilter: CompositeFilterDescriptor | undefined &#x3D; undefined;
+  private _gridGroup: GroupDescriptor[] &#x3D; [{field: &quot;modulo&quot;}];
+  private gridForm: BehaviorSubject&lt;FormGroup&gt;;
+  private tuttiPermessi &#x3D; [];
+
+  private kendoRows &#x3D; [];
+  private kendoModel &#x3D; {
+    codice: new ModelEntry(CELL_TYPES.NUMBER),
+    modulo: new ModelEntry(CELL_TYPES.STRING),
+    funzione: new ModelEntry(CELL_TYPES.STRING),
+    attivitadesc: new ModelEntry(CELL_TYPES.STRING),
+    id_operazione: new ModelEntry(CELL_TYPES.NUMBER),
+    permessolettura: new ModelEntry(CELL_TYPES.STRING),
+    permessoscrittura: new ModelEntry(CELL_TYPES.STRING)
+  };
+  private kendoColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn({field: &#x27;modulo&#x27;, title: this.transloco.translate(&#x27;Modulo&#x27;)}, {resizable: true}),
+    new KendoGridColumn({field: &#x27;funzione&#x27;, title: this.transloco.translate(&#x27;Funzione&#x27;)}, {resizable: true}),
+    new KendoGridColumn({field: &#x27;codice&#x27;, title: this.transloco.translate(&#x27;Codice&#x27;)}, {resizable: true, hidden: true}),
+    new KendoGridColumn({
+      field: &#x27;attivitadesc&#x27;,
+      title: this.transloco.translate(&#x27;DescrizioneAutorizzazione&#x27;)
+    }, {resizable: true}),
+    new KendoGridColumn({
+      field: &#x27;permessolettura&#x27;,
+      title: this.transloco.translate(&#x27;PermessoLettura&#x27;)
+    }, {resizable: true}),
+    new KendoGridColumn({
+      field: &#x27;permessoscrittura&#x27;,
+      title: this.transloco.translate(&#x27;PermessoScrittura&#x27;)
+    }, {resizable: true})
+  ];
+
+  constructor(
+    injector: Injector,
+    private masterService: MasterService,
+    public gridPublicService: GridPublicService,
+    private utentiService: ProfilazioneUtentiService,
+    private tipologieUtentiService: TipologieUtentiService
+  ) {
+    super(injector);
+    this.gridForm &#x3D; this.gridPublicService.formGroup;
+    this.handleCustomization();
+    this.handleEvents();
+  }
+
+  private get isEditing(): boolean {
+    return this._isEditing$.getValue();
+  }
+
+  private set isEditing(value: boolean) {
+    this._prevEditingVal &#x3D; this._isEditing$.value;
+    this._isEditing$.next(value);
+  }
+
+  read(): Observable&lt;ClientePermessiGridServerResult&gt; {
+    this.masterService.set_isLoading({isLoading: true, message: &#x27;&#x27;});
+    return forkJoin([
+      this.utentiService.readGerarchiaPermessi(),
+      this.utentiService.leggiClientePermessi(this.masterService.objP_utenti.UtenteUsername)
+    ]).pipe(map(result &#x3D;&gt; {
+      this.tuttiPermessi &#x3D; result[0].Permessi;
+      let permessiAbilitati &#x3D; [];
+      for (let t of result[1] as ClientePermesso[]) {
+        let permesso: UtentePermessoGerarchia &#x3D; this.tuttiPermessi.find(r &#x3D;&gt; r.Attivita_Cod &#x3D;&#x3D; t.Id_Attivita);
+        if (permesso) permessiAbilitati.push(this.formattaPerGrid(t, permesso));
+      }
+      let permessiNonAbilitati &#x3D; [];
+      if (this.isEditing) {
+        permessiNonAbilitati &#x3D; this.tuttiPermessi.filter(permesso &#x3D;&gt; !permessiAbilitati.filter(el &#x3D;&gt; el.codice &#x3D;&#x3D;&#x3D; permesso.Attivita_Cod).length)
+          .map(t &#x3D;&gt; {
+            const template &#x3D; new ClientePermesso(t.Attivita_Cod, enum_TipoPermesso.DISABILITATO);
+            return this.formattaPerGrid(template, t);
+          });
+      }
+      this.kendoRows &#x3D; permessiAbilitati.concat(permessiNonAbilitati);
+      this.masterService.set_isLoading({isLoading: false, message: &#x27;&#x27;});
+      return new ClientePermessiGridServerResult(this.kendoRows, this.kendoColumns, this.kendoModel);
+    }));
+  }
+
+  perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+    return from([]);
+  }
+
+  applyRendererRules(opts: RendererGridEvent) {
+    super.applyRendererRules(opts);
+    if (this.gridPublicService.gridComp &amp;&amp; this._gridStateChangeSub &#x3D;&#x3D; null) {
+      this.handleCheckboxHide(); // set subscription to grid state change
+    }
+    // when entering in editing mode checkbox are shown
+    if (this.isEditing &amp;&amp; !this._prevEditingVal) {
+      this.hideCheckbox();
+      this._prevEditingVal &#x3D; this.isEditing;
+    }
+  }
+
+  private handleCheckboxHide() {
+    console.log(&#x27;subscribing&#x27;);
+    this._gridStateChangeSub &#x3D; this.gridPublicService.gridComp.dataStateChange
+      .pipe(
+        takeUntil(this.signal),
+        tap(stateChange &#x3D;&gt; this._gridSort &#x3D; stateChange.sort),
+        tap(stateChange &#x3D;&gt; this._gridFilter &#x3D; stateChange.filter),
+        tap(stateChange &#x3D;&gt; this._gridGroup &#x3D; stateChange.group)
+      ).subscribe(() &#x3D;&gt; this.hideCheckbox());
+  }
+
+  private hideCheckbox() {
+    const dataResult: DataResult &#x3D; process(this.kendoRows, {
+      group: this._gridGroup,
+      sort: this._gridSort,
+      filter: this._gridFilter
+    });
+    let sortedRows: any[];
+    if (this._gridGroup.length &#x3D;&#x3D;&#x3D; 0) {
+      sortedRows &#x3D; dataResult.data;
+    } else {
+      sortedRows &#x3D; dataResult.data.flatMap(gr &#x3D;&gt; gr.items);
+    }
+    console.log(&#x27;statechange&#x27;, sortedRows);
+    const domgrid &#x3D; this.gridPublicService.gridElRef.nativeElement.querySelectorAll(&quot;tbody tr.k-master-row&quot;);
+    for (let i &#x3D; 0; i &lt; domgrid.length; i++) {
+      let checkbox &#x3D; domgrid[i].querySelector(&quot;.k-checkbox&quot;);
+      if (!!checkbox) {
+        checkbox.style.display &#x3D; this.permissionIsNotEditable(sortedRows[i]) ? &quot;none&quot; : &quot;block&quot;;
+      }
+    }
+  }
+
+  private permissionIsNotEditable(row): boolean {
+    return PERMS_CANNOT_BE_DISABLED.includes(row.codice);
+  }
+
+  private formattaPerGrid(attivo: ClientePermesso, permessoGerarchia: UtentePermessoGerarchia) {
+    return {
+      codice: attivo.Id_Attivita,
+      modulo: permessoGerarchia.MenuPrimoLivello?.descrizione ?? &#x27;&#x27;,
+      funzione: permessoGerarchia.MenuSecondoLivello?.descrizione ?? &#x27;&#x27;,
+      attivitadesc: permessoGerarchia.Attivita_Des,
+      id_operazione: attivo.Id_Operazione,
+      permessolettura: attivo.Id_Operazione &#x3D;&#x3D; 0 || attivo.Id_Operazione &#x3D;&#x3D; 2
+        ? this.transloco.translate(&#x27;Si&#x27;) : this.transloco.translate(&#x27;No&#x27;),
+      permessoscrittura: attivo.Id_Operazione &#x3D;&#x3D; 2
+        ? this.transloco.translate(&#x27;Si&#x27;) : this.transloco.translate(&#x27;No&#x27;)
+    };
+  }
+
+  private handleCustomization() {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      infoBtn: false,
+      editBtn: false,
+      removeBtn: false,
+    });
+    this.pagination &#x3D; this.handlePagination();
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; false;
+    this.groups.groupable.enabled &#x3D; true;
+    this.selectable.selectable.enabled &#x3D; this.isEditing;
+    this.selectable.selectable.mode &#x3D; &quot;multiple&quot;;
+    this.selectable.columnSettings.showSelectAll &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; true;
+  }
+
+  private handleEvents() {
+    this.tipologieUtentiService.isEditing.pipe(takeUntil(this.signal))
+      .subscribe((editing: boolean) &#x3D;&gt; {
+        this.isEditing &#x3D; editing;
+        this.gridPublicService.refresh(true);
+        this.handleCustomization();
+      });
+  }
+
+  private permessoGerarchia2row(r: UtentePermessoGerarchia) {
+    return {
+      codice: r.Attivita_Cod,
+      modulo: r.MenuPrimoLivello.descrizione,
+      funzione: r.MenuSecondoLivello.descrizione,
+      attivitadesc: r.Attivita_Des,
+      permessolettura: r.Id_Operazione &#x3D;&#x3D; 0 || r.Id_Operazione &#x3D;&#x3D; 2
+        ? this.transloco.translate(&quot;Si&quot;) : this.transloco.translate(&quot;No&quot;),
+      permessoscrittura: r.Id_Operazione &#x3D;&#x3D; 2
+        ? this.transloco.translate(&quot;Si&quot;) : this.transloco.translate(&quot;No&quot;)
+    };
+  }
+
+  private handlePagination(): PaginationSettings {
+    const result: PaginationSettings &#x3D; new PaginationSettings();
+    result.gridState &#x3D; {
+      sort: [],
+      skip: 0,
+      take: 999,
+      group: this._gridGroup
+    };
+    result.pageable &#x3D; {
+      buttonCount: 4,
+      info: true,
+      type: &#x27;input&#x27;,
+      pageSizes: [5, 8, 10, 25, 50, 100, 999, {
+        text: this.transloco.translate(&#x27;Tutti&#x27;),
+        value: &quot;all&quot;,
+      } as any as number]
+    };
+    result.navigable &#x3D; false;
+    return result;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ClientePermessiGridService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

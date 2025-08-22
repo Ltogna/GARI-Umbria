@@ -1,0 +1,64 @@
+@base=https://umbria-dev.fe.abacogroup.eu
+
+###
+# @name login
+
+POST {{base}}/sso2/master/public/v1/login
+Content-Type: application/json
+Accept: application/json
+
+{
+    "username": "admin",
+    "password": "welcome!"
+}
+
+###
+
+GET {{base}}/vector-data-layers/master/public/v1/layers
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}
+
+###
+
+POST {{base}}/vector-data-layers/master/public/v1/layers/BLOCKS_3003/geometries?reference_date=20241108
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}
+
+{
+  "touchingGeometry": "POLYGON ((1506631.80918 4951716.56977, 1506619.27942 4951710.02581, 1506634.8947 4951658.05389, 1506686.27913 4951694.66265, 1506705.83358 4951674.49746, 1506737.665 4951719.57855, 1506799.1541 4951646.08936, 1506776.88719 4951686.15224, 1506795.06952 4951714.57005, 1506833.18272 4951708.34025, 1506863.45702 4951782.03112, 1506824.3601 4951802.51422, 1506844.55445 4951848.04671, 1506835.47983 4951874.79383, 1506801.91932 4951797.23975, 1506725.94714 4951755.46217, 1506704.48367 4951782.15301, 1506631.80918 4951716.56977))"
+}
+
+###
+
+POST {{base}}/vector-data-layers/master/public/v1/layers/BLOCKS/geometries/intersection?reference_date=20241108&srs=EPSG:3003
+# &nextKey=xxxxx if not null
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}
+
+{
+  "touchingGeometry": "POLYGON ((1506631.80918 4951716.56977, 1506619.27942 4951710.02581, 1506634.8947 4951658.05389, 1506686.27913 4951694.66265, 1506705.83358 4951674.49746, 1506737.665 4951719.57855, 1506799.1541 4951646.08936, 1506776.88719 4951686.15224, 1506795.06952 4951714.57005, 1506833.18272 4951708.34025, 1506863.45702 4951782.03112, 1506824.3601 4951802.51422, 1506844.55445 4951848.04671, 1506835.47983 4951874.79383, 1506801.91932 4951797.23975, 1506725.94714 4951755.46217, 1506704.48367 4951782.15301, 1506631.80918 4951716.56977))"
+}
+
+###
+
+GET {{base}}/lpis-server-api/master/public/v1/lpis/sectors?include_geometries=false
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}
+
+###
+
+GET {{base}}/crop-plan-api/master/public/v1/crop-plans/land-uses/CROPPLAN
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}
+
+###
+
+GET {{base}}/data-importer/master/public/v1/import-party-registry/BNNMRZ59M19H501E
+Content-Type: application/json
+Accept: application/json
+Authorization: JWT {{login.response.body.$.auth_token}}

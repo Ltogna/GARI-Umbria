@@ -1,0 +1,934 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DropdownListAvversita</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/quaderno-di-campagna-form/quaderno-di-campagna-form.model.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>MultiColumnComboboxGiasTemplate</code>
+                            <code><a href="../interfaces/AvversitaGruppo.html" target="_self" >AvversitaGruppo</a></code>
+                            <code><a href="../interfaces/Avversita.html" target="_self" >Avversita</a></code>
+            </p>
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Campo } from &#x27;app/Model/anagrafiche/Campo&#x27;;
+import { CentroAziendale } from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import { ClasseTessitura } from &#x27;app/Model/anagrafiche/ClasseTessitura&#x27;;
+import { Fabbricato } from &#x27;app/Model/anagrafiche/Fabbricato&#x27;;
+import {Attivita, Tipo_Ricetta} from &#x27;app/Model/attivita/Attivita&#x27;;
+import { AttivitaPersonalizzata } from &#x27;app/Model/attivita/AttivitaPersonalizzata&#x27;;
+import { DettaglioFertilizzazione } from &#x27;app/Model/attivita/dettagli/DettaglioFertilizzazione&#x27;;
+import { DettaglioRaccolta } from &#x27;app/Model/attivita/dettagli/DettaglioRaccolta&#x27;;
+import { DettaglioSemina } from &#x27;app/Model/attivita/dettagli/DettaglioSemina&#x27;;
+import { DettaglioTrattamento } from &#x27;app/Model/attivita/dettagli/DettaglioTrattamento&#x27;;
+import { Lavorazione } from &#x27;app/Model/attivita/Lavorazione&#x27;;
+import { DoseAcqua } from &#x27;app/Model/attivita/risorse/RisorsaAcqua&#x27;;
+import { BaseCodeDescr } from &#x27;app/Model/baseClass/baseCodeDescr&#x27;;
+import { AvversitaGruppo } from &#x27;app/Model/metaschema/avversita/AvversitaGruppo&#x27;;
+import { Disciplinare } from &#x27;app/Model/metaschema/Disciplinari&#x27;;
+import { DoseEtichetta } from &#x27;app/Model/metaschema/DoseEtichetta&#x27;;
+import { Epoca } from &#x27;app/Model/metaschema/Epoca&#x27;;
+import { Soglia } from &#x27;app/Model/metaschema/Soglia&#x27;;
+import { UnitaDiMisura } from &#x27;app/Model/metaschema/UnitaDiMisura&#x27;;
+import { DestinazioneUso } from &#x27;app/Model/metaschema/utilizzi/DestinazioneUso&#x27;;
+import { Specie } from &#x27;app/Model/metaschema/utilizzi/Specie&#x27;;
+import { MultiColumnComboboxGiasTemplate } from &#x27;gias-ui-kit&#x27;;
+import { NotaInterventoDdlItem } from &#x27;../componenti/grid-note/note.model&#x27;;
+import { OpzioniRaccolta } from &#x27;../componenti/prodotti/sezioni/raccolta/opzioni-raccolta/opzioni-raccolta.model&#x27;;
+import {ErroreGias, ErroreGias_Severity} from &quot;../../../Service/master.service&quot;;
+import {DittaMacchina} from &quot;../../../Model/metaschema/DittaMacchina&quot;;
+import {MacchineDettaglio1} from &quot;../../../Model/metaschema/MacchineDettaglio1&quot;;
+import {MacchineDettaglio2} from &quot;../../../Model/metaschema/MacchineDettaglio2&quot;;
+import {Macchine} from &quot;../../../Model/metaschema/Macchine&quot;;
+import {DettaglioRilievo} from &#x27;../../../Model/attivita/dettagli/DettaglioRilievo&#x27;;
+import {FormArray, FormControl, FormGroup} from &#x27;@angular/forms&#x27;;
+import {AssociazionePK} from &quot;../../../Model/attivita/AssociazionePK&quot;;
+import { MenuRicette } from &quot;../../../Service/Agenda/Agenda.service&quot;;
+import { Avversita } from &#x27;app/Model/metaschema/avversita/Avversita&#x27;;
+import { Operatore } from &#x27;app/Model/metaschema/utilizzi/Operatore&#x27;;
+import { Impresa } from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import {Pua} from &quot;../../../Model/metaschema/Pua&quot;;
+import { DropdownListSpecieAnimali } from &#x27;../service/testata/specie-animali-service&#x27;;
+import {Blocco} from &quot;../../../Model/attivita/Blocco&quot;;
+import { ProdottoDaTrattareCDC } from &#x27;app/Model/attivita/centri_di_costo/ProdottoDaTrattareCDC&#x27;;
+import { Stati, Tipo_Attivita } from &#x27;gias-ui-kit&#x27;;
+import {IntervalloTemporale} from &quot;../../../Model/anagrafiche/IntervalloTemporale&quot;;
+
+export class QdCFormModel{
+
+    Trattamento: Trattamento;
+
+    constructor(){
+        this.Trattamento&#x3D;new Trattamento();
+    }
+}
+
+export class Trattamento{
+
+    Testata: Testata;
+    CostiAccessori: CostiAccessori;
+    Impianti: Impianti;
+    ProdottiDaTrattare: ProdottiDaTrattare;
+    Superfici: Superfici;
+    Acqua: Acqua;
+    Sezioni_Prodotto: Array&lt;Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Formulati | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta&gt;;
+    Sezioni_Senza_Prodotto: Array&lt;Sezione_Rilievi&gt;;
+    Causali: Array&lt;Causale&gt;;
+    Nota_Testuale: string;
+    Note: Array&lt;NotaInterventoDdlItem&gt;;
+
+    constructor(){
+        this.Testata&#x3D;new Testata();
+        this.CostiAccessori&#x3D; new CostiAccessori();
+        this.Impianti &#x3D; new Impianti();
+        this.ProdottiDaTrattare &#x3D; new ProdottiDaTrattare();
+        this.Superfici&#x3D;new Superfici();
+        this.Sezioni_Prodotto &#x3D; [];
+        this.Sezioni_Senza_Prodotto &#x3D; [];
+        this.Causali &#x3D; [];
+        this.Nota_Testuale &#x3D; &quot;&quot;;
+        this.Note &#x3D; [];
+    }
+}
+
+export class Testata{
+    Codici_Attivita: Array&lt;CodiciXOperazione&gt;;
+    Origine: string;
+
+    flagVisita: boolean;    //valorizzato a true solo in caso si arrivi dal monitor Menu Visite
+
+    //MultiCentro valorizzato a true solo in modifica di una operazione multicentro e insieme con la proprietà
+    //Centro_Aziendale valorizzata nell&#x27;Array Codici_Attivita
+    MultiCentro: boolean;
+    Raccoglitore: number;
+    Tipo: Tipo_Attivita;
+    TipoRicetta: Tipo_Ricetta;
+    Stato: Stati;
+    Latitude: number;
+    Longitude: number;
+    Visualizza_Solo_Operazioni_Preferite: boolean;
+    Operazioni: Array&lt;Lavorazione&gt;;
+    Data: Date;
+    Ora: Date;
+    Specie: Specie | DestinazioneUso;
+    Disciplinare: DropdownListDisciplinare;
+    Centro_Aziendale: CentroAziendale;
+    Campo: DropdownListCampo;
+    Attivita_Personalizzata: DropdownListAttivitaPersonalizzata;
+    Descrizione_Altre_Lavorazioni: string;
+    Attivita_Collegate: Array&lt;Attivita&gt;;
+    Blocco_Attivita: Blocco;
+    //Valorizzati solo per le Ricette
+    InviaRicetta: boolean;
+    Ricetta_Des: string;
+    Ricetta_Des_Long: string;
+    Ricetta_Numero: string;
+    Ricetta_Note: string;
+    Ricetta_Data_Da: Date;
+    Ricetta_Data_A: Date;
+    TestataVisita: Testata_Visita;
+    constructor(){
+        this.Codici_Attivita &#x3D; [];
+        this.Operazioni &#x3D; [];
+        this.Attivita_Collegate &#x3D; [];
+        this.TestataVisita &#x3D; new Testata_Visita();
+    }
+}
+
+export class Testata_Visita{
+    //valorizzati per le Visite
+    // Data_e_Ora_Visita: Date;
+    Data_Visita: Date;
+    Ora_Inizio_Visita: Date;
+    Ora_Fine_Visita: Date;
+    Operatore_Visita: Operatore;
+    Azienda_Visita: Impresa;
+    Da_Remoto_Visita: boolean;
+    statoWorkflow_Visita: boolean
+    Aziende_Agenzie: boolean;
+    impOrarioFine_Visita: number;
+    NrOreTotali_Visita: number;
+    SpecieAnimali_Visita: DropdownListSpecieAnimali;
+    Visualizza_Specie: boolean;
+
+}
+
+export class Impianti{
+    ImpiantiSelezionati: Array&lt;GridImpiantoSelezionatoModel&gt;;
+
+    constructor(){
+        this.ImpiantiSelezionati &#x3D; [];
+    }
+}
+
+export class ProdottiDaTrattare{
+    ProdottiDaTrattareSelezionati: Array&lt;ProdottoDaTrattareCDC&gt;;
+
+    constructor(){
+        this.ProdottiDaTrattareSelezionati &#x3D; [];
+    }
+}
+
+export class Superfici{
+    Sup_Selezionata: number;
+    Sup_Trattata: number;
+}
+
+export class Sezione {
+    Operazione: Lavorazione;
+}
+
+export class Sezione_Prodotto extends Sezione {
+    Categoria_Magazzino: number;
+    //Nessun_Magazzino:boolean;
+    //magazzino: Fabbricato;
+    flagDoseQuantitaTotale: number;
+    flagTipoDose: number;
+    Visualizza_Magazzini_Agenzie: boolean;
+    Visualizza_Magazzini_Esterni: boolean;
+    Magazzino_Agenzia: Fabbricato;
+    Magazzino_Esterno: Fabbricato;
+    Visualizza_Solo_Prodotti_in_Giacenza: boolean;
+    Magazzino_del_Prodotto_Selezionato: DropdownListMagazzino;
+    Lotto: string;
+    UdM: UnitaDiMisura;
+    Dose_Ha: number;
+    Dose_Hl: number;
+    DoseTot_Ha: number;
+    Modalita_Applicazione: BaseCodeDescr;
+    DosiProdotti: Array&lt;any&gt;;
+
+    //Memorizzo tutto il valore della sezione durante la creazione nel quaderno-di-campagna-form.service.ts
+    Original_Row_Value: object;
+
+    constructor(){
+        super();
+        this.DosiProdotti &#x3D; [];
+    }
+}
+
+export class Sezione_Prodotto_Formulati extends Sezione_Prodotto{
+    Prodotto: MultiColumnComboboxTrattamento;
+    EpocaDPI: Epoca;
+    Avversita: DropdownListAvversita;
+    Soglia_Avversita: Soglia;
+    Dose_Etichetta: MultiColumnComboboxDose_Etichetta;
+
+    constructor(){
+        super();
+    }
+}
+
+export class Sezione_Prodotto_Fertilizzanti extends Sezione_Prodotto{
+    Utilizza_Direttiva_Nitrati: boolean;
+    Direttiva_Nitrati: Disciplinare;
+    Prodotto: MultiColumnComboboxFertilizzazione;
+    N_Percentuale_X_Prodotto: number;
+    EpocaFertilizzazione: Epoca;
+    Efficienza: number;
+    N_Utile: number;
+    N: number;
+    P: number;
+    K: number;
+    Cu: number;
+
+    constructor(){
+        super();
+    }
+}
+
+export class Sezione_Prodotto_Sementi extends Sezione_Prodotto{
+    Prodotto: MultiColumnComboboxSemina;
+    Opzioni_Semina: BaseCodeDescr;
+    Sup_Calcolata: number;
+
+    constructor(){
+        super();
+    }
+}
+
+export class Sezione_Prodotto_Raccolta extends Sezione_Prodotto{
+    ProdottiRaccolti: Array&lt;DettaglioRaccolta&gt;;
+    Opzioni_Raccolta: OpzioniRaccolta;
+    Data_Raccolta: Date;
+    // Valorizzato alla creazione della sezione raccolta,
+    // serve in caso vengano rimossi tutti i prodotti (anche &#x27;Nessuna Selezione&#x27;)
+    FastHarvestTemplate: DettaglioRaccolta;
+
+    constructor(){
+        super();
+    }
+}
+
+export  class  Sezione_Rilievi extends Sezione {
+    DettagliRilievi: Array&lt;DettaglioRilievo&gt; &#x3D; [];
+
+    constructor() {
+        super();
+    }
+
+    public toFormGroup(): FormGroup {
+        const form &#x3D; new FormGroup({});
+
+        let rilievi: FormArray &#x3D; new FormArray([]);
+        this.DettagliRilievi.forEach(r &#x3D;&gt; rilievi.push(r.toFormGroup()));
+        form.addControl(&#x27;DettagliRilievi&#x27;, rilievi);
+
+        form.addControl(&#x27;Operazione&#x27;, new FormControl(this.Operazione))
+
+        return form;
+    }
+}
+
+export class Acqua{
+    Acqua_Ha: number;
+    Acqua_Tot: number;
+    Dose_Acqua: DoseAcqua;
+}
+
+export class CostiAccessori{
+    Macchine: Array&lt;GridMacchinaModel&gt;;
+    Operatori: Array&lt;GridOperatoreModel&gt;;
+
+    constructor(){
+        this.Macchine &#x3D; [];
+        this.Operatori &#x3D; [];
+    }
+}
+
+export class GridImpiantoSelezionatoModel{
+    PIVA: string;//chiave dell&#x27;impianto
+    SA_COD: number;//chiave dell&#x27;impianto
+    APPEZZA: number;//chiave dell&#x27;impianto
+    ID_REG: number;//chiave dell&#x27;impianto
+    Progetto_Cod: number;//chiave dell&#x27;esercizio
+    Progetto_Des: string;//nome dell&#x27;esercizio
+    GRFI_COD: number;
+    Grfi_Des: string;
+    Cop_Cod: number;
+    Copertura: string;
+    Flag_Protetto: number;
+    App_Nome: string;
+    Sup_Imp_help: number;
+    Sup_Riduzione_BufferZone: number;
+    Perc_Riduzione_Deriva: number;
+    CUL_COD: number;
+    Cul_Des: string;
+    ListaClassiTessitura: Array&lt;ClasseTessitura&gt;;
+    Validita_Inizio_Distinta: Date;
+    Validita_Fine_Distinta: Date;
+    Obj_Disciplinare: Disciplinare;
+    Regolamento_Cod: number;
+    Data_Raccolta: Date;
+    Data_Raccolta_Prevista: Date;
+    CarenzaStr: string;
+    DataCarenza: Date;
+    Stato_Cod: string;
+    flag_N_Max: boolean;
+    flag_P_Max: boolean;
+    flag_K_Max: boolean;
+    flag_Mg_Max: boolean;
+    flag_CU_Max: boolean;
+    N_Max: number;
+    P_Max: number;
+    K_Max:number;
+    Mg_Max:number;
+    CU_Max:number;
+    N_Residuo: number;
+    P_Residuo: number;
+    K_Residuo:number;
+    Mg_Residuo:number;
+    CU_Residuo:number;
+    N_Residuo_Percentuale:number;
+    P_Residuo_Percentuale:number;
+    K_Residuo_Percentuale:number;
+    Mg_Residuo_Percentuale:number;
+    CU_Residuo_Percentuale:number;
+    //-----------------------------------------------------------------------------------
+    Sup_Imp: number;
+    DistBZ_CorpiIdrici: number;
+    DistBZ_AreeResPub: number;
+    DistBZ_Allevamenti: number;
+    DistBZ_VegNatNonColt: number;
+    SupBZ_Riduzione: number;
+    Dichiarazione_Non_Utilizzo_Trattamenti: boolean;
+    Dichiarazione_Non_Utilizzo_Fertilizzazioni: boolean;
+    //-----------------------------------------------------------------------------------
+    constructor(
+        PIVA: string,
+        SA_COD: number,
+        APPEZZA: number,
+        ID_REG: number,
+        Progetto_Cod: number,
+        GRFI_COD: number,
+        Grfi_Des: string,
+        Cop_Cod: number,
+        Copertura: string,
+        Flag_Protetto: number,
+        Sup_Imp_help: number,
+        Sup_Riduzione_BufferZone: number,
+        Perc_Riduzione_Deriva: number,
+        CUL_COD: number,
+        Cul_Des: string,
+        ListaClassiTessitura: Array&lt;ClasseTessitura&gt;,
+        Validita_Inizio_Distinta: Date,
+        Validita_Fine_Distinta: Date,
+        App_Nome: string,
+        Obj_Disciplinare: Disciplinare,
+        Regolamento_Cod: number,
+        Data_Raccolta: Date,
+        Data_Raccolta_Prevista: Date,
+        CarenzaStr: string,
+        DataCarenza: Date,
+        Sup_Imp: number,
+        DistBZ_CorpiIdrici: number,
+        DistBZ_AreeResPub: number,
+        DistBZ_Allevamenti: number,
+        DistBZ_VegNatNonColt: number,
+        SupBZ_Riduzione: number,
+        Progetto_Des: string &#x3D; &quot;&quot;,
+        Stato_Cod:string,
+        flag_N_Max: boolean &#x3D; false,
+        flag_P_Max: boolean &#x3D; false,
+        flag_K_Max: boolean &#x3D; false,
+        flag_Mg_Max: boolean &#x3D; false,
+        flag_CU_Max: boolean &#x3D; false,
+        N_Max: number &#x3D; 0,
+        P_Max: number &#x3D; 0,
+        K_Max:number &#x3D; 0,
+        Mg_Max:number &#x3D; 0,
+        CU_Max:number &#x3D; 0,
+        N_Residuo: number &#x3D; 0,
+        P_Residuo: number &#x3D; 0,
+        K_Residuo:number &#x3D; 0,
+        Mg_Residuo:number &#x3D; 0,
+        CU_Residuo:number &#x3D; 0,
+        N_Residuo_Percentuale:number &#x3D; 0,
+        P_Residuo_Percentuale:number &#x3D; 0,
+        K_Residuo_Percentuale:number &#x3D; 0,
+        Mg_Residuo_Percentuale:number &#x3D; 0,
+        CU_Residuo_Percentuale:number &#x3D; 0,
+        Dichiarazione_Non_Utilizzo_Trattamenti: boolean &#x3D; false,
+        Dichiarazione_Non_Utilizzo_Fertilizzazioni: boolean &#x3D; false
+    ) {
+
+        this.PIVA &#x3D; PIVA;
+        this.SA_COD &#x3D; SA_COD;
+        this.APPEZZA &#x3D; APPEZZA;
+        this.ID_REG &#x3D; ID_REG;
+        this.Progetto_Cod &#x3D; Progetto_Cod;
+        this.Progetto_Des &#x3D; Progetto_Des;
+        this.GRFI_COD &#x3D; GRFI_COD;
+        this.Grfi_Des &#x3D; Grfi_Des;
+        this.Cop_Cod &#x3D; Cop_Cod;
+        this.Copertura &#x3D; Copertura;
+        this.Flag_Protetto &#x3D; Flag_Protetto;
+        this.Sup_Imp_help &#x3D; Sup_Imp_help;
+        this.Sup_Riduzione_BufferZone &#x3D; Sup_Riduzione_BufferZone;
+        this.Perc_Riduzione_Deriva &#x3D; Perc_Riduzione_Deriva;
+        this.CUL_COD &#x3D; CUL_COD;
+        this.Cul_Des &#x3D; Cul_Des;
+        this.ListaClassiTessitura &#x3D; ListaClassiTessitura;
+        this.Obj_Disciplinare &#x3D; Obj_Disciplinare;
+        this.Regolamento_Cod &#x3D; Regolamento_Cod;
+        this.Validita_Inizio_Distinta &#x3D; Validita_Inizio_Distinta;
+        this.Validita_Fine_Distinta &#x3D; Validita_Fine_Distinta;
+        this.Data_Raccolta &#x3D; Data_Raccolta;
+        this.Data_Raccolta_Prevista &#x3D; Data_Raccolta_Prevista;
+
+        this.App_Nome &#x3D; App_Nome;
+
+        this.CarenzaStr &#x3D; CarenzaStr;
+
+        this.DataCarenza &#x3D; DataCarenza;
+
+        this.Stato_Cod &#x3D; Stato_Cod;
+
+        this.Sup_Imp &#x3D; Sup_Imp
+        this.DistBZ_CorpiIdrici &#x3D; DistBZ_CorpiIdrici;
+        this.DistBZ_AreeResPub &#x3D; DistBZ_AreeResPub;
+        this.DistBZ_Allevamenti &#x3D; DistBZ_Allevamenti;
+        this.DistBZ_VegNatNonColt &#x3D; DistBZ_VegNatNonColt;
+        this.SupBZ_Riduzione &#x3D; SupBZ_Riduzione;
+
+        this.flag_N_Max &#x3D; flag_N_Max;
+        this.flag_P_Max &#x3D; flag_P_Max;
+        this.flag_K_Max &#x3D; flag_K_Max;
+        this.flag_Mg_Max &#x3D; flag_Mg_Max;
+        this.flag_CU_Max &#x3D; flag_CU_Max;
+
+        this.N_Max &#x3D; N_Max;
+        this.P_Max &#x3D; P_Max;
+        this.K_Max &#x3D; K_Max;
+        this.Mg_Max &#x3D; Mg_Max;
+        this.CU_Max &#x3D; CU_Max;
+        this.N_Residuo &#x3D; N_Residuo;
+        this.P_Residuo &#x3D; P_Residuo;
+        this.K_Residuo &#x3D; K_Residuo;
+        this.Mg_Residuo &#x3D; Mg_Residuo;
+        this.CU_Residuo&#x3D; CU_Residuo;
+        this.N_Residuo_Percentuale &#x3D; N_Residuo_Percentuale;
+        this.P_Residuo_Percentuale &#x3D; P_Residuo_Percentuale;
+        this.K_Residuo_Percentuale &#x3D; K_Residuo_Percentuale;
+        this.Mg_Residuo_Percentuale &#x3D; Mg_Residuo_Percentuale;
+        this.CU_Residuo_Percentuale &#x3D; CU_Residuo_Percentuale;
+        this.Dichiarazione_Non_Utilizzo_Fertilizzazioni &#x3D; Dichiarazione_Non_Utilizzo_Fertilizzazioni;
+      this.Dichiarazione_Non_Utilizzo_Trattamenti &#x3D; Dichiarazione_Non_Utilizzo_Trattamenti;
+    }
+}
+
+export class GridMacchinaModel{
+    Risorsa_Cod: string;
+    Risorsa_Des: string;
+    Piva: string;
+    Mac_Cod: number;
+    Taratura_Ugello: number;
+    Modello: string;
+    Marca: DittaMacchina;
+    Data_Scadenza_Taratura: Date;
+    Mac_Des: string;
+    Tipo: Macchine;
+    Dettaglio_1: MacchineDettaglio1;
+    Dettaglio_2: MacchineDettaglio2;
+    Validita: IntervalloTemporale;
+
+    constructor(Risorsa_Cod: string,Risorsa_Des: string,Piva: string,Mac_Cod: number,Taratura_Ugello: number,
+                Modello: string,Marca:DittaMacchina,Data_Scadenza_Taratura: Date,Mac_Des: string,
+                Tipo: Macchine,Dettaglio_1: MacchineDettaglio1, Dettaglio_2: MacchineDettaglio2, Validita: IntervalloTemporale){
+
+        this.Risorsa_Cod &#x3D; Risorsa_Cod;
+        this.Risorsa_Des &#x3D; Risorsa_Des;
+        this.Piva &#x3D; Piva;
+        this.Mac_Cod &#x3D; Mac_Cod;
+        this.Taratura_Ugello &#x3D; Taratura_Ugello;
+        this.Modello &#x3D; Modello;
+        this.Marca&#x3D; Marca;
+        this.Data_Scadenza_Taratura &#x3D; Data_Scadenza_Taratura;
+        this.Mac_Des &#x3D; Mac_Des;
+        this.Tipo &#x3D; Tipo;
+        this.Dettaglio_1 &#x3D; Dettaglio_1;
+        this.Dettaglio_2 &#x3D; Dettaglio_2;
+        this.Validita &#x3D; Validita;
+    }
+}
+
+export class GridOperatoreModel{
+    Piva: string;
+    Cod_Contatto: string;
+    Cod_RisUm: number;
+    Risorsa_Cod: string;
+    Risorsa_Des: string;
+    Cod_Rapporto: number;
+    Rapporto_Des: string;
+    Nome: string;
+    Cognome: string;
+    Data_Scadenza_Patentino: Date;
+
+    constructor(Piva: string,Cod_Contatto: string,Cod_RisUm: number,Risorsa_Cod: string,Risorsa_Des: string,
+                Cod_Rapporto: number, Rapporto_Des: string,Nome: string, Cognome: string,Data_Scadenza_Patentino: Date ){
+        this.Piva &#x3D; Piva;
+        this.Cod_Contatto &#x3D; Cod_Contatto;
+        this.Cod_RisUm &#x3D; Cod_RisUm;
+        this.Risorsa_Cod &#x3D; Risorsa_Cod;
+        this.Risorsa_Des &#x3D; Risorsa_Des;
+        this.Cod_Rapporto &#x3D; Cod_Rapporto;
+        this.Rapporto_Des &#x3D; Rapporto_Des;
+        this.Nome &#x3D; Nome;
+        this.Cognome &#x3D; Cognome;
+        this.Data_Scadenza_Patentino &#x3D; Data_Scadenza_Patentino;
+    }
+}
+ //@description:
+//Aggiunto questa classe per sapere in fase di salvataggio di una Attività il suo codice e
+//se ne sto aggiungendo una nuova in modifica
+//La chiave ora è CodiceAttivita, CodiceRicetta, CodiceOperazioneRicetta,Operazione,Centro_Aziendale
+//N.B. Il Centro_Aziendale è da valorizzare solamente in modifica di una Attivita
+export class CodiciXOperazione  {
+    CodiceAttivita: string;
+    CodiceRicetta: string;
+    CodiceOperazioneRicetta: string;
+    Operazione: Lavorazione;
+    Associazione_PK: AssociazionePK;
+    Centro_Aziendale: CentroAziendale;
+    APP_RicettaOperazione_ID: string;
+    CodiceAttivitaVisita: string; //Viene Memorizzato l&#x27;id agenda a cui ho associato l&#x27;operazione che sto facendo
+    pua: Pua;
+
+    constructor(CodiceAttivita: string,CodiceRicetta: string,CodiceOperazioneRicetta: string, Operazione:Lavorazione,Associazione_PK: AssociazionePK,Centro_Aziendale: CentroAziendale,APP_RicettaOperazione_ID: string, CodiceAttivitaVisita: string,pua: Pua){
+        this.CodiceAttivita &#x3D; CodiceAttivita;
+        this.CodiceRicetta &#x3D; CodiceRicetta;
+        this.CodiceOperazioneRicetta &#x3D; CodiceOperazioneRicetta;
+        this.Operazione &#x3D; Operazione;
+        this.Associazione_PK &#x3D; Associazione_PK;
+        this.Centro_Aziendale &#x3D; Centro_Aziendale;
+        this.APP_RicettaOperazione_ID &#x3D; APP_RicettaOperazione_ID;
+        this.CodiceAttivitaVisita &#x3D; CodiceAttivitaVisita;
+        this.pua &#x3D; pua;
+    }
+}
+
+export class SupTrattata_x_DettaglioSemina
+{
+    Mat_Cod: number;
+    Sup_Trattata: number;
+}
+
+export class Codici_Attivita_x_CentriAziendali{
+    Id_Agenda: number;
+    Sa_Cod : number;
+    Lav_Cod: number;
+    Ricetta_Cod: number;
+    Ricetta_Operazione_Cod: number;
+}
+
+export class DataCarenzaRaccolta_x_Impianto
+{
+    KeyImpianto: string; //PIVA | SA_COD | APPEZZA | ID_REG
+    App_Nome: string;
+    DataCarenza: string;
+    CarenzaStr: string;
+}
+
+
+export interface MultiColumnComboboxTrattamento extends MultiColumnComboboxProdotto, DettaglioTrattamento{
+    Polverulento_Str: string;
+    impollinatore: string;
+}
+
+export interface MultiColumnComboboxFertilizzazione extends MultiColumnComboboxProdotto, DettaglioFertilizzazione{
+    N_Str: string;
+    P_Str: string;
+    K_Str: string;
+    Cu_Str: string;
+    Dichiarato_nel_PUA_Str: string;
+}
+
+export interface MultiColumnComboboxSemina extends MultiColumnComboboxProdotto, DettaglioSemina{}
+
+export interface MultiColumnComboboxDose_Etichetta extends MultiColumnComboboxGiasTemplate, DoseEtichetta{}
+
+export interface MultiColumnComboboxProdotto extends MultiColumnComboboxGiasTemplate {
+    Tutti_Problemi_DettaglioProdotto: Array&lt;enum_Problema_DettaglioProdotto&gt;;
+    Problema_DettaglioProdotto_Da_Risolvere: enum_Problema_DettaglioProdotto;
+}
+
+export interface DropdownListDisciplinare extends MultiColumnComboboxGiasTemplate, Disciplinare{}
+
+export interface DropdownListAttivitaPersonalizzata extends MultiColumnComboboxGiasTemplate, AttivitaPersonalizzata{}
+
+export interface DropdownListMagazzino extends MultiColumnComboboxGiasTemplate, Fabbricato{}
+
+export interface DropdownListCampo extends MultiColumnComboboxGiasTemplate, Campo{}
+
+export interface DropdownListAvversita extends MultiColumnComboboxGiasTemplate, AvversitaGruppo,Avversita{}
+
+
+export class Parametri_Aggiuntivi_Attivita{
+    operazione: Lavorazione;
+    key: string;
+    value: string;
+}
+
+export class Parametri_Aggiuntivi_ControllaDosi{
+    key: string;
+    value: string;
+}
+
+//@description:
+//Parametri Aggiuntivi comuni sia per il salvataggio dell&#x27;attivita sia per il controlla_dosi
+export enum Key_Parametri_Aggiuntivi{
+    lista_Codici_Attivita_x_CentriAziendali &#x3D; &quot;lista_Codici_Attivita_x_CentriAziendali&quot;,
+    Formulati_Non_Corretti &#x3D; &quot;Formulati_Non_Corretti&quot;,
+    Formulati_Ambigui &#x3D; &quot;Formulati_Ambigui&quot;,
+    Avversita_Non_Corrette &#x3D; &quot;Avversita_Non_Corrette&quot;,
+    Avversita_Ambigue &#x3D; &quot;Avversita_Ambigue&quot;,
+    Avversita_Non_Valorizzate &#x3D; &quot;Avversita_Non_Valorizzate&quot;,
+    Id_Visita_Collegata &#x3D; &quot;Id_Visita_Collegata&quot;,
+    Fertilizzanti_Non_Corretti &#x3D; &quot;Fertilizzanti_Non_Corretti&quot;,
+    Fertilizzanti_Ambigui &#x3D; &quot;Fertilizzanti_Ambigui&quot;,
+}
+
+export enum Key_Parametri_Aggiuntivi_Attivita{
+    lista_SupTrattata_x_DettaglioSemina &#x3D; &quot;lista_SupTrattata_x_DettaglioSemina&quot;,
+    DataCarenzaRaccolta_x_Impianto&#x3D; &quot;list_DataCarenzaRaccolta_x_Impianto&quot;,
+    Opzione_Semina &#x3D; &quot;Opzione_Semina&quot;,
+    CaricoMagazzinoAutomatico &#x3D; &quot;CaricoMagazzinoAutomatico&quot;,
+    lista_MostraWarning &#x3D; &quot;lista_MostraWarning&quot;,
+    mostraWarning_CheckListaAttivita &#x3D; &quot;mostraWarning_CheckListaAttivita&quot;,
+    mostraWarning_CheckMagazzino &#x3D; &quot;mostraWarning_CheckMagazzino&quot;,
+    mostraWarning_ScriviAttivitaToAgenda &#x3D; &quot;mostraWarning_ScriviAttivitaToAgenda&quot;,
+    mostraWarning_CheckDPI &#x3D; &quot;mostraWarning_CheckDPI&quot;,
+    mostraWarning_InviaRicettaAdAPP &#x3D; &quot;mostraWarning_InviaRicettaAdAPP&quot;,
+    mostraWarning_Dichiarazione_non_Utilizzo &#x3D; &quot;mostraWarning_Dichiarazione_non_Utilizzo&quot;
+}
+
+export enum Key_Parametri_Aggiuntivi_ControlloDosi
+{
+    mostraWarning_CheckGiacenza &#x3D; &quot;mostraWarning_CheckGiacenza&quot;,
+    mostraWarning_CheckMassimali &#x3D; &quot;mostraWarning_CheckMassimali&quot;,
+    mostraWarning_CheckEtichetta &#x3D; &quot;mostraWarning_CheckEtichetta&quot;,
+    mostraWarning_CheckProdottoInRibaltamento &#x3D; &quot;mostraWarning_CheckProdottoInRibaltamento&quot;
+
+}
+
+export enum enum_Problema_DettaglioProdotto{
+    Nessuno &#x3D; 0,
+    Formulato_Non_Corretto &#x3D; 1,
+    Formulato_Ambiguo &#x3D; 2,
+    Avversita_Non_Corretta &#x3D; 3,
+    Avversita_Ambigua &#x3D; 4,
+    Avversita_Non_Valorizzata &#x3D; 5,
+    Fertilizzante_Non_Corretto &#x3D; 6,
+    Fertilizzante_Ambiguo &#x3D; 7
+}
+
+export class Obj_Errore_Gias_QdC{
+    severity: ErroreGias_Severity;
+    result: any;
+    list_errori_filtrati: ErroreGias[];
+}
+
+export class Voci_Menu{
+  text: string;
+  value: MenuRicette | CodiciXOperazione;
+  disabled: boolean
+}
+
+export class Obj_Dose_Hl_Tot{
+    Dose_Hl: number;
+    DoseTot_Ha: number;
+}
+
+export class Obj_Dose_Ha_Tot{
+    Dose_Ha: number;
+    DoseTot_Ha: number;
+}
+
+export class Obj_Dose_Ha_Hl{
+    Dose_Ha: number;
+    Dose_Hl: number;
+}
+
+export class Causale {
+    Id: number;
+    Causale: string;
+
+    constructor(id: number, causale: string) {
+        this.Id &#x3D; id;
+        this.Causale &#x3D; causale;
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DropdownListAvversita.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

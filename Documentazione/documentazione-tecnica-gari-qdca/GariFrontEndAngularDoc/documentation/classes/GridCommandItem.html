@@ -1,0 +1,1190 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >GridCommandItem</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/components/utils.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#action" >action</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#actionName" >actionName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#fontawesomeIcon" >fontawesomeIcon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#iconClass" >iconClass</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isStatic" >isStatic</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#paramsforTrasloco" >paramsforTrasloco</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(actionName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, action: <a href="../interfaces/Command.html" target="_self">CommandsDropDownEvents | number</a>, iconClass?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, fontawesomeIcon?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, isStatic: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, paramsforTrasloco: HashMap)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="614" class="link-to-prism">src/app/menu-agenda/components/utils.ts:614</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>actionName</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>action</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../interfaces/Command.html" target="_self" >CommandsDropDownEvents | number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>iconClass</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fontawesomeIcon</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>isStatic</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>paramsforTrasloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>HashMap</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="action"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>action</b></span>
+                        <a href="#action"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >CommandsDropDownEvents | number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="617" class="link-to-prism">src/app/menu-agenda/components/utils.ts:617</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="actionName"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>actionName</b></span>
+                        <a href="#actionName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="616" class="link-to-prism">src/app/menu-agenda/components/utils.ts:616</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fontawesomeIcon"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>fontawesomeIcon</b></span>
+                        <a href="#fontawesomeIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="619" class="link-to-prism">src/app/menu-agenda/components/utils.ts:619</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="iconClass"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>iconClass</b></span>
+                        <a href="#iconClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="618" class="link-to-prism">src/app/menu-agenda/components/utils.ts:618</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isStatic"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isStatic</b></span>
+                        <a href="#isStatic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="620" class="link-to-prism">src/app/menu-agenda/components/utils.ts:620</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="paramsforTrasloco"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>paramsforTrasloco</b></span>
+                        <a href="#paramsforTrasloco"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>HashMap</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="621" class="link-to-prism">src/app/menu-agenda/components/utils.ts:621</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { KendoGridColumn, KendoGridModel, KendoGridRow, KendoServerResult, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import {
+    LAVCOD_ABBATTIMENTOIMPIANTI,
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_FORAGGI,
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_MANGIMI,
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_FORAGGI,
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_MANGIMI,
+    LAVCOD_ALTRE_OPERAZIONI,
+    LAVCOD_ANDANAMENTO,
+    LAVCOD_ARATURA,
+    LAVCOD_ASPORTAZIONE_ORGANI_INFETTI,
+    LAVCOD_ASSOLCATURA,
+    LAVCOD_CARICO_MANUALE_FRUTTA,
+    LAVCOD_CIMATURA,
+    LAVCOD_CONCIA_SEME,
+    LAVCOD_CONCIMAZIONE_FOGLIARE,
+    LAVCOD_CONFUSIONE_SESSUALE,
+    LAVCOD_DIRADAMENTO_MANUALE,
+    LAVCOD_DISERBO,
+    LAVCOD_DISORIENTAMENTO_SESSUALE,
+    LAVCOD_DISSECCAMENTO,
+    LAVCOD_DISSODAMENTO,
+    LAVCOD_DISTRIBUZIONE_AMMENDANTI,
+    LAVCOD_DISTRIBUZIONE_CONCIME,
+    LAVCOD_DISTRIBUZIONE_INSETTI,
+    LAVCOD_ERPICATURA,
+    LAVCOD_ERPICATURA_ROTANTE,
+    LAVCOD_ESPIANTO,
+    LAVCOD_ESTIRPATURA,
+    LAVCOD_FALCIACONDIZIONATURA,
+    LAVCOD_FALCIATURA_ERBAI,
+    LAVCOD_FERTIRRIGAZIONE,
+    LAVCOD_FORMAZIONE_ARGINELLI,
+    LAVCOD_FRANGIZOLLATURA,
+    LAVCOD_FRESATURA,
+    LAVCOD_GEBIATURA,
+    LAVCOD_GEODISINFESTAZIONE,
+    LAVCOD_IMBALLO_FIENO_ROTOLI,
+    LAVCOD_INTERRAMENTO_PAGLIE,
+    LAVCOD_INTERVENTO_ANTIBRINA,
+    LAVCOD_LAVORAZIONE_CONBINATA,
+    LAVCOD_LAVORAZIONE_SU_FILA,
+    LAVCOD_LAVORAZIONE_TRA_FILA,
+    LAVCOD_LEGATURA,
+    LAVCOD_LIVELLAMENTO,
+    LAVCOD_MANUTENZIONE_ARGINI,
+    LAVCOD_MESSA_DIMORA_PIANTE,
+    LAVCOD_MIETITREBBIATURA,
+    LAVCOD_MINIMUM_TILLAGE,
+    LAVCOD_PACCIAMATURA,
+    LAVCOD_PIRODISERBO,
+    LAVCOD_POTATURA_SECCA,
+    LAVCOD_POTATURA_VERDE,
+    LAVCOD_PRESSATURA,
+    LAVCOD_RACCOLTA_MANUALE,
+    LAVCOD_RACCOLTA_MECCANICA,
+    LAVCOD_RANGHINATURA,
+    LAVCOD_RINCALZATURA,
+    LAVCOD_RIPPATURA,
+    LAVCOD_RIPUNTATURA,
+    LAVCOD_RIVOLTAMENTO_FORAGGIO,
+    LAVCOD_ROMPICROSTA,
+    LAVCOD_RULLATURA,
+    LAVCOD_SARCHIATURA,
+    LAVCOD_SARCHIATURA_CONCIMAZIONE,
+    LAVCOD_SCARIFICATURA,
+    LAVCOD_SCASSO,
+    LAVCOD_STRIGLIATURA,
+    LAVCOD_TRATTAMENTO_ANTIBUTTERATURA,
+    LAVCOD_TRATTAMENTO_ANTIPARASSITARIO,
+    LAVCOD_TRATTAMENTO_FITOREGOLATORE,
+    LAVCOD_TRINCIATURA,
+    LAVCOD_VANGATURA,
+    LAVCOD_ZAPPATURA,
+    LAVCOD__RACCOLTA_LEGNA_POTATURA,
+    LAVCOD_CONFUSIONE_DISORIENTAMENTO_SESSUALE
+} from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { CommandsDropDownEvents } from &#x27;gias-kendo-grid&#x27;;
+import {enum_LAVCOD, enum_TipoOperazioneDB} from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { APP_Ricetta_Operazione, Ricetta_Operazione } from &#x27;app/Service/Agenda/Agenda.service&#x27;;
+import {FormControl, FormGroup} from &#x27;@angular/forms&#x27;;
+import {HashMap} from &quot;@jsverse/transloco/lib/types&quot;;
+
+
+//export const TableQdCLink_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/CaricaOperazioni&#x27;;
+export const TableQdCLink &#x3D; &#x27;Agenda/CaricaOperazioni&#x27;;
+
+export class ReadDataFilters {
+    filtro: string;
+    piva: string;
+    objP_server: string;
+    objP_utenti: string;
+}
+
+export class Filters {
+    TipoGriglia: string;
+    xFiltroAggiuntivo_colturali: string;
+    txt_Data1: string;
+    txt_Data2: string;
+    flag_TerrenoNudo: boolean;
+    sa_cod: string;
+    veg_cod: string;
+    mode: string;
+    ricetta_cod: string;
+    tipoOperazione: number[];
+    impianti: string[];
+    flag_NessunaSpecieQdC: boolean;
+
+    constructor(params: Required&lt;Filters&gt;) {
+        this.TipoGriglia &#x3D; params.TipoGriglia;
+        this.xFiltroAggiuntivo_colturali &#x3D; params.xFiltroAggiuntivo_colturali;
+        this.txt_Data1 &#x3D; params.txt_Data1;
+        this.txt_Data2 &#x3D; params.txt_Data2;
+        this.flag_TerrenoNudo &#x3D; params.flag_TerrenoNudo;
+        this.sa_cod &#x3D; params.sa_cod;
+        this.veg_cod &#x3D; params.veg_cod;
+        this.mode &#x3D; params.mode;
+        this.ricetta_cod &#x3D; params.ricetta_cod;
+        this.tipoOperazione &#x3D; params.tipoOperazione;
+        this.impianti &#x3D; params.impianti;
+        this.flag_NessunaSpecieQdC &#x3D; params.flag_NessunaSpecieQdC;
+    }
+}
+
+export class RicetteServerResult extends KendoServerResult {
+    constructor(model: KendoGridModel, columns: KendoGridColumn[], rows: RicettaRow[]) {
+        super(model, columns,rows);
+    }
+};
+
+export class BrogliaccioServerResult extends KendoServerResult {
+    constructor(model: KendoGridModel, columns: KendoGridColumn[], rows: KendoGridRow[]) {
+        super(model, columns, rows);
+    }
+};
+
+
+export type DDLs &#x3D; (
+    CentroItem[] | SpecieItem[] | OperazioneItem[] | ImpiantoItem[] | TipoVisitaItem[]
+)[];
+
+
+export function ValidValuesFor(specie: SpecieItem, centro: CentroItem): boolean {
+    const veg_cod &#x3D; specie.veg_cod;
+    const sa_cod &#x3D; centro.sa_cod;
+    const invalidValues &#x3D; [&#x27;0&#x27;, &#x27;&#x27;];
+    return invalidValues.includes(veg_cod) &amp;&amp; invalidValues.includes(sa_cod);
+}
+
+export function GetOperazioniParams(objServer: string): OperazioniParams {
+    const parametri &#x3D; {
+        objP_server: objServer,
+        Flag_OpColturali: true,
+        Flag_OpZoo: false,
+        Flag_OpMacchine: false,
+        Flag_OpContabili: true
+    };
+    return parametri;
+}
+
+export function GetCentriParams(obj_server: string, piva: string): CentriParams {
+    return {
+        &#x27;objP_server&#x27;: obj_server,
+        &#x27;PrimaRiga_Flag&#x27;: false,
+        &#x27;PrimaRiga_Text&#x27;: &#x27;&#x27;,
+        &#x27;PrimaRiga_Value&#x27;: &#x27;&#x27;,
+        &#x27;Piva&#x27;: piva,
+        &#x27;Flag_SoloCentriAttivi&#x27;: false,
+        &#x27;Tipo_Value&#x27;: 2
+    };
+}
+
+export function GetCentriParams_NG(obj_server: string, piva: string): CentriParams_NG {
+    return {
+        &#x27;PrimaRiga_Flag&#x27;: false,
+        &#x27;PrimaRiga_Text&#x27;: &#x27;&#x27;,
+        &#x27;PrimaRiga_Value&#x27;: &#x27;&#x27;,
+        &#x27;Piva&#x27;: piva,
+        &#x27;Flag_SoloCentriAttivi&#x27;: false,
+        &#x27;Tipo_Value&#x27;: 2
+    };
+}
+
+
+export function GetSpeciParams(obj_server: string, piva: string): SpeciParams {
+    const sa_cod &#x3D; 0;
+    const data_da &#x3D; new Date(&#x27;01/01/1900&#x27;);
+    const data_a &#x3D; new Date(&#x27;12/31/2100&#x27;);
+
+    return {
+        &#x27;PrimaRiga_Flag&#x27;: false,
+        &#x27;PrimaRiga_Text&#x27;: &#x27;&#x27;,
+        &#x27;PrimaRiga_Value&#x27;: &#x27;&#x27;,
+        &#x27;Piva&#x27;: piva,
+        &#x27;Sa_Cod&#x27;: sa_cod,
+        &#x27;Data_Da&#x27;: data_da,
+        &#x27;Data_A&#x27;: data_a,
+        &#x27;ConsideraTerrenoNudo&#x27;: true,
+        &#x27;leggiAncheBloccati&#x27;: true
+    };
+}
+
+/*const links_Old &#x3D; [
+    &#x27;/Agenda/Impianti.asmx/LeggiImpianti&#x27;,
+    &#x27;/Metaschema/Operazioni.asmx/Leggi_GruppoOperazioni&#x27;,
+    &#x27;/AgronicaCoreUtility/CaricaListControl.asmx/LeggiSpecieColtivate&#x27;,
+    &#x27;/Anagrafica/CentroAziendale.asmx/LeggiCentriConFiltroUtente&#x27;
+];*/
+
+const links &#x3D; [
+    &#x27;Agenda/LeggiImpianti&#x27;,
+    &#x27;MetaschemaNG/Leggi_GruppoOperazioni&#x27;,
+    &#x27;Anagrafica/LeggiSpecieVegetaliQdC&#x27;,
+    &#x27;AnagraficaNG/LeggiCentriConFiltroUtente&#x27;
+];
+
+export const IMPIANTI_LNK &#x3D; links[0];
+export const OPERAZIONI_LNK &#x3D; links[1];
+export const SPECI_LNK &#x3D; links[2];
+export const CENTRI_LNK &#x3D; links[3];
+
+
+
+
+export interface OperazioniParams {
+    objP_server: string;
+    Flag_OpColturali: boolean;
+    Flag_OpZoo: boolean;
+    Flag_OpMacchine: boolean;
+    Flag_OpContabili: boolean;
+}
+
+export interface ImpiantiParams {
+    piva: string;
+    Sa_Cod: string;
+    Veg_Cod: string;
+    Data_Inizio: Date;
+    Data_Fine: Date;
+}
+
+export interface SpeciParams {
+    PrimaRiga_Flag: boolean;
+    PrimaRiga_Text: string;
+    PrimaRiga_Value: string;
+    Piva: string;
+    Sa_Cod: number;
+    Data_Da: Date;
+    Data_A: Date;
+    ConsideraTerrenoNudo: boolean;
+    leggiAncheBloccati: boolean;
+}
+
+export interface CentriParams {
+    objP_server: string;
+    PrimaRiga_Flag: boolean;
+    PrimaRiga_Text: string;
+    PrimaRiga_Value: string;
+    Piva: string;
+    Flag_SoloCentriAttivi: boolean;
+    Tipo_Value: number;
+}
+
+export interface CentriParams_NG {
+    PrimaRiga_Flag: boolean;
+    PrimaRiga_Text: string;
+    PrimaRiga_Value: string;
+    Piva: string;
+    Flag_SoloCentriAttivi: boolean;
+    Tipo_Value: number;
+}
+
+export interface CentroItem { sa_nome: string; sa_cod: string }
+export interface SpecieItem { veg_cod: string; veg_des: string }
+export interface OperazioneItem { gru_cod: number; gru_des: string; tipo: string }
+export interface ImpiantoItem { chiave: string; des: string }
+export interface TipoVisitaItem {chiave: number; des: string}                       //aggiunta per le Visite
+
+
+// export const lav_cod_non_editabili: number[] &#x3D; [
+//     LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_FORAGGI, LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_FORAGGI,
+//     LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_MANGIMI, LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_MANGIMI];
+
+// export const lav_cod_copiabili: number[] &#x3D; [LAVCOD_CONFUSIONE_SESSUALE, LAVCOD_DISORIENTAMENTO_SESSUALE, LAVCOD_DISTRIBUZIONE_INSETTI,
+//     LAVCOD_TRATTAMENTO_ANTIPARASSITARIO, LAVCOD_TRATTAMENTO_FITOREGOLATORE, LAVCOD_CONCIA_SEME, LAVCOD_GEODISINFESTAZIONE, LAVCOD_DISERBO,
+//     LAVCOD_DISSECCAMENTO, LAVCOD_TRATTAMENTO_ANTIBUTTERATURA, LAVCOD_CONCIMAZIONE_FOGLIARE, LAVCOD_DISTRIBUZIONE_AMMENDANTI,
+//     LAVCOD_DISTRIBUZIONE_CONCIME, LAVCOD_FERTIRRIGAZIONE, LAVCOD_SARCHIATURA_CONCIMAZIONE, LAVCOD_ANDANAMENTO, LAVCOD_ARATURA,
+//     LAVCOD_ASPORTAZIONE_ORGANI_INFETTI, LAVCOD_ASSOLCATURA, LAVCOD_CARICO_MANUALE_FRUTTA, LAVCOD_CIMATURA, LAVCOD_DIRADAMENTO_MANUALE,
+//     LAVCOD_DISSODAMENTO, LAVCOD_ERPICATURA, LAVCOD_ESTIRPATURA, LAVCOD_ESPIANTO, LAVCOD_FALCIACONDIZIONATURA, LAVCOD_FALCIATURA_ERBAI,
+//     LAVCOD_FORMAZIONE_ARGINELLI, LAVCOD_FRANGIZOLLATURA, LAVCOD_FRESATURA, LAVCOD_IMBALLO_FIENO_ROTOLI, LAVCOD_INTERRAMENTO_PAGLIE,
+//     LAVCOD_LAVORAZIONE_TRA_FILA, LAVCOD_LAVORAZIONE_SU_FILA, LAVCOD_LEGATURA, LAVCOD_LIVELLAMENTO, LAVCOD_MANUTENZIONE_ARGINI,
+//     LAVCOD_MESSA_DIMORA_PIANTE, LAVCOD_MIETITREBBIATURA, LAVCOD_MINIMUM_TILLAGE, LAVCOD_PACCIAMATURA, LAVCOD_POTATURA_SECCA, LAVCOD_POTATURA_VERDE,
+//     LAVCOD_PRESSATURA, LAVCOD__RACCOLTA_LEGNA_POTATURA, LAVCOD_RACCOLTA_MANUALE, LAVCOD_RACCOLTA_MECCANICA, LAVCOD_RANGHINATURA, LAVCOD_RINCALZATURA,
+//     LAVCOD_RIPPATURA, LAVCOD_RIPUNTATURA, LAVCOD_RIVOLTAMENTO_FORAGGIO, LAVCOD_RULLATURA, LAVCOD_SARCHIATURA, LAVCOD_SCARIFICATURA, LAVCOD_SCASSO,
+//     LAVCOD_TRINCIATURA, LAVCOD_VANGATURA, LAVCOD_ZAPPATURA, LAVCOD_GEBIATURA, LAVCOD_ROMPICROSTA, LAVCOD_LAVORAZIONE_CONBINATA,
+//     LAVCOD_ERPICATURA_ROTANTE, LAVCOD_INTERVENTO_ANTIBRINA, LAVCOD_ALTRE_OPERAZIONI, LAVCOD_STRIGLIATURA, LAVCOD_PIRODISERBO, LAVCOD_ABBATTIMENTOIMPIANTI];
+
+export class RicettaForm {
+    dataInizio: Date;
+    dataFine: Date;
+    numero: string;
+    descrizione: string;
+    nota: string;
+}
+
+export class CreateRecipeData {
+    lblHtmlRicettaDaCreare: string;
+    piva_ricetta: string;
+    sa_cod: number;
+    id_agenda: string;
+    stesso_vag_cod: boolean;
+    ErroreSingolaSpecie: string;
+    data_operazione: string;
+
+    ricettaForm: RicettaForm;
+
+    prevent: boolean &#x3D; false;
+
+    constructor() {
+        this.ricettaForm &#x3D; new RicettaForm();
+    }
+}
+
+export class GridMassiveEvent {
+    items: KendoGridRow[];
+    type: emun_MassiveEventType;
+}
+
+export enum emun_MassiveEventType {
+    REMOVE,
+    LOCK,
+}
+
+//export const RicetteNumLink_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/ricetta_numero_default&#x27;;
+export const RicetteNumLink &#x3D; &#x27;Agenda/ricetta_numero_default&#x27;;
+//export const CreateRicettaLink_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/crea_ricetta&#x27;;
+export const CreateRicettaLink &#x3D; &#x27;Agenda/crea_ricetta&#x27;;
+//export const CopiaOperazioneSingola_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/CopiaOperazioneSingola&#x27;;
+export const CopiaOperazioneSingola &#x3D; &#x27;Agenda/CopiaOperazioneSingola&#x27;
+//export const BloccaAttivitaAgendaLink_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/BloccaAttivitaAgenda&#x27;;
+export const BloccaAttivitaAgendaLink &#x3D; &#x27;Agenda/BloccaAttivitaAgenda&#x27;;
+//export const SbloccaAttivitaAgendaLink_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/SbloccaAttivitaAgenda&#x27;;
+export const SbloccaAttivitaAgendaLink &#x3D; &#x27;Agenda/SbloccaAttivitaAgenda&#x27;;
+
+export class RicettaModalParams {
+
+}
+
+
+export const lav_cod_non_editabili: number[] &#x3D; [
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_FORAGGI, LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_FORAGGI,
+    LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MANUALE_MANGIMI, LAVCOD_ALIMENTAZIONE_DISTRIBUZIONE_MECCANICA_MANGIMI];
+
+export const lav_cod_copiabili: number[] &#x3D; [LAVCOD_CONFUSIONE_SESSUALE, LAVCOD_DISORIENTAMENTO_SESSUALE, LAVCOD_DISTRIBUZIONE_INSETTI,
+    LAVCOD_TRATTAMENTO_ANTIPARASSITARIO, LAVCOD_TRATTAMENTO_FITOREGOLATORE, LAVCOD_CONCIA_SEME, LAVCOD_GEODISINFESTAZIONE, LAVCOD_DISERBO,
+    LAVCOD_DISSECCAMENTO, LAVCOD_TRATTAMENTO_ANTIBUTTERATURA, LAVCOD_CONCIMAZIONE_FOGLIARE, LAVCOD_DISTRIBUZIONE_AMMENDANTI,
+    LAVCOD_DISTRIBUZIONE_CONCIME, LAVCOD_FERTIRRIGAZIONE, LAVCOD_SARCHIATURA_CONCIMAZIONE, LAVCOD_ANDANAMENTO, LAVCOD_ARATURA,
+    LAVCOD_ASPORTAZIONE_ORGANI_INFETTI, LAVCOD_ASSOLCATURA, LAVCOD_CARICO_MANUALE_FRUTTA, LAVCOD_CIMATURA, LAVCOD_DIRADAMENTO_MANUALE,
+    LAVCOD_DISSODAMENTO, LAVCOD_ERPICATURA, LAVCOD_ESTIRPATURA, LAVCOD_ESPIANTO, LAVCOD_FALCIACONDIZIONATURA, LAVCOD_FALCIATURA_ERBAI,
+    LAVCOD_FORMAZIONE_ARGINELLI, LAVCOD_FRANGIZOLLATURA, LAVCOD_FRESATURA, LAVCOD_IMBALLO_FIENO_ROTOLI, LAVCOD_INTERRAMENTO_PAGLIE,
+    LAVCOD_LAVORAZIONE_TRA_FILA, LAVCOD_LAVORAZIONE_SU_FILA, LAVCOD_LEGATURA, LAVCOD_LIVELLAMENTO, LAVCOD_MANUTENZIONE_ARGINI,
+    LAVCOD_MESSA_DIMORA_PIANTE, LAVCOD_MIETITREBBIATURA, LAVCOD_MINIMUM_TILLAGE, LAVCOD_PACCIAMATURA, LAVCOD_POTATURA_SECCA, LAVCOD_POTATURA_VERDE,
+    LAVCOD_PRESSATURA, LAVCOD__RACCOLTA_LEGNA_POTATURA, LAVCOD_RACCOLTA_MANUALE, LAVCOD_RACCOLTA_MECCANICA, LAVCOD_RANGHINATURA, LAVCOD_RINCALZATURA,
+    LAVCOD_RIPPATURA, LAVCOD_RIPUNTATURA, LAVCOD_RIVOLTAMENTO_FORAGGIO, LAVCOD_RULLATURA, LAVCOD_SARCHIATURA, LAVCOD_SCARIFICATURA, LAVCOD_SCASSO,
+    LAVCOD_TRINCIATURA, LAVCOD_VANGATURA, LAVCOD_ZAPPATURA, LAVCOD_GEBIATURA, LAVCOD_ROMPICROSTA, LAVCOD_LAVORAZIONE_CONBINATA,
+    LAVCOD_ERPICATURA_ROTANTE, LAVCOD_INTERVENTO_ANTIBRINA, LAVCOD_ALTRE_OPERAZIONI, LAVCOD_STRIGLIATURA, LAVCOD_PIRODISERBO, LAVCOD_ABBATTIMENTOIMPIANTI,
+    LAVCOD_CONFUSIONE_DISORIENTAMENTO_SESSUALE, enum_LAVCOD.PASCOLAMENTO_PROPRIO, enum_LAVCOD.PASCOLAMENTO_TERZI
+];
+
+
+export enum TabTypes {
+    QuadernoDiCampagna &#x3D; 0,
+    Ricette &#x3D; 1,
+    Brogliaccio &#x3D; 2,
+    Initializer &#x3D; null
+}
+
+export enum RibaltamentoTypes {
+    Nessuno &#x3D; 0,
+    Da_Brogliaccio_ad_Agenda &#x3D; 1,
+    Da_Ricetta_a_Brogliaccio &#x3D; 2,
+    Da_Ricetta_ad_Agenda &#x3D; 3
+}
+
+
+
+
+
+export class RicettaRow extends KendoGridRow {
+    App_Nome: string;
+    APP_Ricetta_Operazione_ID: string;
+    blocco_flag: string;
+    Costi_Macchine: string;
+    Costi_Operatori: string;
+    Descrizione_Unica: string;
+    Dettaglio_Tecnico: string;
+    in_uso: string;
+    Invia_App: string;
+    lav_cod: number;
+    lav_des: string;
+    PermessoModifica: string;
+    piva: string;
+    Ricetta_Cod: number;
+    Ricetta_Des: string;
+    Ricetta_Numero: string;
+    Ricetta_Operazione_Cod: number;
+    Ricetta_Operazione_Data: Date;
+    Sa_Cod: number;
+    sa_nome: string;
+    Sup_Trattata: number;
+    Tipo_Ricetta_des: string;
+    Tipo_Ricetta: number;
+    Validita_Fine: Date;
+    Validita_Inizio: Date;
+    veg_cod_op: number;
+    veg_cod_r: number;
+    veg_des_unificato: string;
+    WAnagraficaStati_Cod: number;
+    WAnagraficaStati_Colore: string;
+}
+
+export class QdCRow extends KendoGridRow implements IChiaveCompositaPiva{
+    Appezzamenti_Coinvolti: string;
+    Avversita: string;
+    blocco_flag: string;
+    Centro_Aziendale: string;
+    Centro_Campo: string;
+    chiave_composita: string;
+    contabilizzato: string;
+    Costi_Macchine: string;
+    Costi_Operatori: string;
+    Creatore_Intervento: string;
+    cul_Des: string;
+    Data: Date;
+    Data_Ultima_Modifica_Intervento: Date;
+    Data2: Date;
+    Descrizione_Unica: string;
+    Dettaglio_Tecnico: string;
+    gru_des: string;
+    ID: string;
+    id_agenda: string;
+    id_mov_det: string;
+    Lav_cod: string;
+    Lav_Des: string;
+    LottiImpianto: string;
+    LottiProduzione: string;
+    Note: string;
+    Operazione_DES: string;
+    PermessoModifica: boolean;
+    Piva: string;
+    Prodotti_Utilizzati: string;
+    Rag_Soc: string;
+    Ricetta_Cod: string;
+    Ricetta_Des: string;
+    sa_cod: string;
+    Specie: string;
+    Specie_Varieta: string;
+    Sup_Trattata: number;
+    tipo: string;
+    Veg_cod: string;
+}
+
+// TODO(RV)
+export interface BrogliaccioRow extends KendoGridRow
+{
+    App_Nome: string;
+    APP_Ricetta_Operazione_ID: string;
+    blocco_flag: string;
+    Costi_Macchine: string;
+    Costi_Operatori: string;
+    Descrizione_Unica: string;
+    Dettaglio_Tecnico: string;
+    in_uso: string;
+    lav_cod: number;
+    lav_des: string;
+    Origine: string;
+    PermessoModifica: string;
+    piva: string;
+    Ricetta_Cod: number;
+    Ricetta_Des: string;
+    Ricetta_Numero: string;
+    Ricetta_Operazione_Cod: number;
+    Ricetta_Operazione_Data: string;
+    Sa_Cod: number;
+    sa_nome: string;
+    Sup_Trattata: number;
+    Tipo_Ricetta_des: string;
+    Tipo_Ricetta: number;
+    Validita_Fine: string;
+    Validita_Inizio: string;
+    veg_cod_op: number;
+    veg_cod_r: number;
+    veg_des_unificato: string;
+    WAnagraficaStati_Cod: number;
+    WAnagraficaStati_Colore: string;
+}
+
+// Errors
+export const SLIGHTLY_DIFFERENT_CODE_FROM_GIAS2010 &#x3D;
+    &quot;Manca la gestione di .btnCreaOp. Sembra di essere commentato e non utilizzato in GIAS2010.&quot;;
+export const DA_GESTIRE_PUA &#x3D; &quot;PUA non gestito&quot;;
+export const DA_GESTIRE_PIANO_DISTRIBUZIONE_CONCIMI &#x3D; &quot;non gestito&quot;;
+
+export class ImpostazioniApp {
+    ImportaSoloAziendaSelezionata: boolean;
+    SincroDatiApp: boolean;
+}
+
+
+export function isQdCRow (x: any): x is QdCRow {
+    return !!x.Centro_Aziendale &amp;&amp; typeof x.Centro_Aziendale &#x3D;&#x3D;&#x3D; &#x27;string&#x27;
+}
+
+export function isBrogliaccioRow (x: any): x is BrogliaccioRow {
+    return !!x.Origine &amp;&amp; typeof x.Origine &#x3D;&#x3D;&#x3D; &#x27;string&#x27;
+}
+
+export class GridZooResult extends KendoServerResult {
+    constructor(
+        model: ZooModel,
+        columns: KendoGridColumn[],
+        rows: KendoGridRow[]) {
+        super(model, columns, rows);
+    }
+};
+
+export class ZooModel extends KendoGridModel {
+    [value: string]: ModelEntry;
+};
+
+export class ZooRow extends KendoGridRow implements IChiaveCompositaPiva{
+    id_mov_det: 147915;
+    id_agenda: string;
+    Data2: Date;
+    Lav_Des: string;
+    Prodotti_Utilizzati: string;
+    Dettaglio_Tecnico: string;
+    Centro_Aziendale: string;
+    chiave_composita: string;
+    tipo: string;
+    Data: Date;
+    contabilizzato: string;
+    LottiProduzione: string;
+    Note: string;
+    Costi_Operatori: string;
+    Costi_Macchine: string;
+    Creatore_Intervento: string;
+    ID: number;
+    Lav_cod: string;
+    blocco_flag: string;
+    Piva: string;
+    sa_cod: string;
+    Operazione_DES: string;
+    Prodotti: string;
+    Rag_Soc: string;
+    PermessoModifica: string;
+    Descrizione_Unica: string;
+}
+
+
+//export const Link_ElimOpMultipla_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/elimina_operazione_multipla&#x27;;
+
+export const Link_ElimOpMultipla &#x3D; &#x27;Agenda/EliminaOperazioneMultipla&#x27;;
+
+export interface IChiaveCompositaPiva {
+  chiave_composita: string;
+  Piva: string;
+}
+
+export function construisciChiaviComposite (rows: IChiaveCompositaPiva[])
+{
+    if(rows.length &#x3D;&#x3D; 1) {
+        let chiave &#x3D; rows[0].chiave_composita + &quot;_&quot; + rows[0].Piva;
+        return chiave;
+    }
+    else {
+        let chiavi &#x3D; &quot;&quot;;
+        for (var row of rows) {
+            chiavi +&#x3D; row.chiave_composita + &quot;_&quot; + row.Piva + &#x27;,&#x27;;
+        }
+
+        if (chiavi !&#x3D;&#x3D; &quot;&quot;) {
+            //elimino l&#x27;ultima virgola
+            chiavi &#x3D; chiavi.slice(0, -1);
+        }
+        return chiavi;
+    }
+}
+
+// grid commands
+export enum enum_menuAgendaGridCommands {
+    RICERCA_DOCUMENTI,
+    NUOVO_ALLEGATO,
+    VAI_AI_COSTI,
+    COPIA,
+    AGGIUNGI_RICETTA,
+    STAMPA_RICETTA,
+    STAMPA_ORDINE_LAVORO,
+    BROGLIACCIO,
+    QUADERNO_DI_CAMPAGNA,
+    INFO,
+    MODIFICA,
+    CANCELLA,
+    VAI_AL_PIANO_CONCIMAZIONE,
+    IMPORTA_NEL_PUA,
+    VAI_ALLA_VISITA
+}
+
+export interface IMenuAgendaGridCommand {
+    action: enum_menuAgendaGridCommands;
+    event: any;
+    dataItem: any;
+}
+
+export class GridCommandItem {
+    constructor(
+        public actionName: string,
+        public action: CommandsDropDownEvents | number,
+        public iconClass?: string,
+        public fontawesomeIcon?: any,
+        public isStatic: boolean &#x3D; true,
+        public paramsforTrasloco: HashMap &#x3D; null,
+    ) {}
+}
+
+export class ModificaListaRicetteQdC {
+    ListaRicette: Array&lt;APP_Ricetta_Operazione&gt;;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridCommandItem.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

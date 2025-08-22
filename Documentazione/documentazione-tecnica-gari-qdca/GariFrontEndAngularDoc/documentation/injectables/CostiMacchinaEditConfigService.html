@@ -1,0 +1,1516 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CostiMacchinaEditConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#behavior" >behavior</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#costi" >costi</a>
+                            </li>
+                            <li>
+                                <a href="#costiColumns" >costiColumns</a>
+                            </li>
+                            <li>
+                                <a href="#costiDataSub" >costiDataSub</a>
+                            </li>
+                            <li>
+                                <a href="#costiMacchinaParentForm" >costiMacchinaParentForm</a>
+                            </li>
+                            <li>
+                                <a href="#costiMacchinaParentFormSub" >costiMacchinaParentFormSub</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#edit" >edit</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#form" >form</a>
+                            </li>
+                            <li>
+                                <a href="#generalSettings" >generalSettings</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                <a href="#TipoUnitaMisura" >TipoUnitaMisura</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getRows" >getRows</a>
+                            </li>
+                            <li>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                <a href="#handleDropdowns" >handleDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setColumnsGridCostiUnitari" >setColumnsGridCostiUnitari</a>
+                            </li>
+                            <li>
+                                <a href="#setModelGridCostiUnitari" >setModelGridCostiUnitari</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, macchineService: <a href="../injectables/MacchineFactoryService.html" target="_self">MacchineFactoryService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, fb: FormBuilder, parametriAgenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, macchineEditCostsService: <a href="../injectables/CostiMacchinaEditService.html" target="_self">CostiMacchinaEditService</a>, costiMacchinaDataService: <a href="../injectables/CostiMacchinaDataService.html" target="_self">CostiMacchinaDataService</a>, costiMacchinaParentFormService: <a href="../injectables/CostiMacchinaParentFormService.html" target="_self">CostiMacchinaParentFormService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:56</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>macchineService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MacchineFactoryService.html" target="_self" >MacchineFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>parametriAgenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>macchineEditCostsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CostiMacchinaEditService.html" target="_self" >CostiMacchinaEditService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>costiMacchinaDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CostiMacchinaDataService.html" target="_self" >CostiMacchinaDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>costiMacchinaParentFormService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CostiMacchinaParentFormService.html" target="_self" >CostiMacchinaParentFormService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getRows</b></span>
+                        <a href="#getRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRows()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDropdowns"></a>
+                    <span class="name">
+                        <span ><b>handleDropdowns</b></span>
+                        <a href="#handleDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleDropdowns(ddlist: <a href="../classes/UnitaDiMisura.html" target="_self">UnitaDiMisura[]</a>, columns: KendoGridColumn[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="254"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:254</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ddlist</td>
+                                            <td>
+                                                            <code><a href="../classes/UnitaDiMisura.html" target="_self" >UnitaDiMisura[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>columns</td>
+                                            <td>
+                                                        <code>KendoGridColumn[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, rows: Array<any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;KendoGridRow[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;MacchinaKendoServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumnsGridCostiUnitari"></a>
+                    <span class="name">
+                        <span ><b>setColumnsGridCostiUnitari</b></span>
+                        <a href="#setColumnsGridCostiUnitari"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumnsGridCostiUnitari()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Array&lt;KendoGridColumn&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setModelGridCostiUnitari"></a>
+                    <span class="name">
+                        <span ><b>setModelGridCostiUnitari</b></span>
+                        <a href="#setModelGridCostiUnitari"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setModelGridCostiUnitari()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>KendoGridModel</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="behavior"></a>
+                    <span class="name">
+                        <span ><b>behavior</b></span>
+                        <a href="#behavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSettings({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costi"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>costi</b></span>
+                        <a href="#costi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CostoUnitarioChiave[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costiColumns"></a>
+                    <span class="name">
+                        <span ><b>costiColumns</b></span>
+                        <a href="#costiColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costiDataSub"></a>
+                    <span class="name">
+                        <span ><b>costiDataSub</b></span>
+                        <a href="#costiDataSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costiMacchinaParentForm"></a>
+                    <span class="name">
+                        <span ><b>costiMacchinaParentForm</b></span>
+                        <a href="#costiMacchinaParentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="costiMacchinaParentFormSub"></a>
+                    <span class="name">
+                        <span ><b>costiMacchinaParentFormSub</b></span>
+                        <a href="#costiMacchinaParentFormSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="edit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>edit</b></span>
+                        <a href="#edit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="form"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>form</b></span>
+                        <a href="#form"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ParcoMacchine.html" target="_self" >ParcoMacchine</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generalSettings"></a>
+                    <span class="name">
+                        <span ><b>generalSettings</b></span>
+                        <a href="#generalSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GeneralSettings</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;MacchineEditConfigService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TipoUnitaMisura"></a>
+                    <span class="name">
+                        <span ><b>TipoUnitaMisura</b></span>
+                        <a href="#TipoUnitaMisura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/UnitaDiMisura.html" target="_self" >Array&lt;UnitaDiMisura&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+        { descrizione: &#x27;Ettaro&#x27;, codice: 1},
+        { descrizione: &#x27;Ora&#x27;, codice: 2}
+    ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/anagrafica/macchine/macchine-edit/costi-macchina-edit/costi-macchina-edit-grid-config.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { AbstractControl, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { CostoUnitarioChiave } from &#x27;app/Model/anagrafiche/CostoUnitario&#x27;;
+import { ParcoMacchine } from &#x27;app/Model/anagrafiche/ParcoMacchine&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { UnitaDiMisura } from &#x27;app/Model/metaschema/UnitaDiMisura&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { MacchineFactoryService, MACCHINE_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/macchine.factory.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { AgrSelectableSettings, BehaviorSettings, CommandsColumnSettings, GeneralSettings, ResizableSettings, ToolbarSettings } from &#x27;gias-kendo-grid&#x27;;
+import {  DropdownListItem, DropdownListWithForm, EditingMode, KendoGridColumn, KendoGridModel, KendoGridRow, LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { from, Observable, of, Subscription } from &#x27;rxjs&#x27;;
+import { MacchinaKendoServerResult } from &#x27;../../macchine.model&#x27;;
+
+import { CostiMacchinaDataService } from &#x27;./costi-macchina-data.service&#x27;;
+import { CostiMacchinaEditService } from &#x27;./costi-macchina-edit.service&#x27;;
+import { CostiMacchinaParentFormService } from &#x27;./costi-macchina-parent-form.service&#x27;;
+
+
+export function forbiddenPriceValidator(control: AbstractControl) {
+    if (control.value &#x3D;&#x3D; undefined || control.value &lt;&#x3D; 0) {
+        return { &#x27;brandCode&#x27;: true };
+    }
+    return null;
+}
+
+@Injectable()
+export class CostiMacchinaEditConfigService extends AbstractGridConfigService&lt;MacchinaKendoServerResult&gt; {
+    gridId &#x3D; &#x27;MacchineEditConfigService&#x27;;
+
+    editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    rowId &#x3D; &#x27;chiave&#x27;;
+    generalSettings &#x3D; new GeneralSettings;
+    costiColumns: KendoGridColumn[];
+    behavior &#x3D; new BehaviorSettings({});
+    costiDataSub: Subscription;
+    private objParametriAgenda;
+    private edit;
+
+    public form: ParcoMacchine;
+    public costi: CostoUnitarioChiave[];
+
+    costiMacchinaParentForm: FormGroup &#x3D; this.fb.group({});
+    costiMacchinaParentFormSub: Subscription;
+
+    // array per ddl Unita_Misura
+    TipoUnitaMisura: Array&lt;UnitaDiMisura&gt; &#x3D; [
+        { descrizione: &#x27;Ettaro&#x27;, codice: 1},
+        { descrizione: &#x27;Ora&#x27;, codice: 2}
+    ];
+
+    constructor(
+        injector: Injector,
+        @Inject(MACCHINE_SERVICE_TOKEN) private macchineService: MacchineFactoryService,
+        private masterService: MasterService,
+        private fb: FormBuilder,
+        private parametriAgenda: ObjParametriAgendaService,
+        private macchineEditCostsService: CostiMacchinaEditService,
+        private costiMacchinaDataService: CostiMacchinaDataService,
+        private costiMacchinaParentFormService: CostiMacchinaParentFormService,
+        private translocoService: TranslocoService){
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        this.objParametriAgenda &#x3D; this.parametriAgenda.getObjParamValue();
+        this.edit &#x3D; true;
+
+        if (this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Read) {
+            this.edit &#x3D; false;
+        }
+
+        this.resizable &#x3D; new ResizableSettings();
+        this.resizable.autoFitColumns &#x3D; true;
+
+        this.behavior.saveExternalChanges &#x3D; true;
+
+        this.generalSettings.performOnEdit &#x3D; true;
+        this.handleCustomizations();
+
+        this.costiMacchinaParentFormSub &#x3D; this.costiMacchinaParentFormService.costimacchinaParentFormSource
+        .subscribe(i &#x3D;&gt; {
+            this.costiMacchinaParentForm &#x3D; this.costiMacchinaParentFormService.getCostiMacchinaParentForm();
+        });
+    }
+
+
+
+    read(): Observable&lt;MacchinaKendoServerResult&gt; {
+
+        const columns &#x3D; this.setColumnsGridCostiUnitari();
+        const model &#x3D; this.setModelGridCostiUnitari();
+
+        this.handleDropdowns(this.TipoUnitaMisura, columns);
+
+        let rows &#x3D; new Array&lt;KendoGridRow&gt;();
+
+        rows &#x3D; this.getRows();
+
+        const result: MacchinaKendoServerResult &#x3D; new MacchinaKendoServerResult(model, columns, rows);
+        return of(result)
+
+    }
+
+    private getRows() {
+        let rows &#x3D; this.costiMacchinaDataService.getCostiMacchina();
+        let kendoRows &#x3D; new Array();
+        rows.forEach(r &#x3D;&gt; {
+            let row: any &#x3D; {};
+
+            row.chiave &#x3D; r.chiave;
+            row.codice &#x3D; r.codice;
+            row.prezzo &#x3D; r.prezzo;
+            row.Unita_Misura_Des &#x3D; r.unitaDiMisura.descrizione;
+            row.Unita_Misura_Cod &#x3D; r.unitaDiMisura.codice;
+            row.Validita_Inizio &#x3D; r.validita.inizio;
+            row.Validita_Fine &#x3D; r.validita.fine;
+            row.flag_cancellazione &#x3D; r.flag_cancellazione;
+            kendoRows.push(row);
+        });
+        return kendoRows;
+    }
+
+    handleCustomizations(): void {
+        this.selectable &#x3D; new AgrSelectableSettings();
+        this.selectable.selectable.checkboxOnly &#x3D; false;
+
+        this.toolbar &#x3D; new ToolbarSettings();
+        this.toolbar.newItem &#x3D; this.edit;
+        this.toolbar.resetChanges &#x3D; false;
+
+        this.cmdColumn &#x3D; new CommandsColumnSettings(
+            {
+                editBtn: false,
+                infoBtn: false,
+                removeBtn: true,
+                onDisableInfoBtn: () &#x3D;&gt; false
+            });
+
+        this.resizable.autoFitColumns &#x3D; false;
+        this.resizable.isResizable &#x3D; true;
+        this.views.enabled &#x3D; false;
+        this.columnMenu.columnMenu &#x3D; false;
+        this.groups.groupable.enabled &#x3D; false;
+    }
+
+    setColumnsGridCostiUnitari(){
+
+        const columns: Array&lt;KendoGridColumn&gt;&#x3D;[
+            new KendoGridColumn(
+                {
+                    field: &#x27;prezzo&#x27;,
+                    title: this.translocoService.translate(&#x27;Prezzo&#x27;)},
+                {
+                    hidden: false,
+                    resizable:true,
+                    numeric:{ defaultValue: 0, min: 0 },
+                    editable: this.edit,
+                    validators: [Validators.required, forbiddenPriceValidator],
+                    width: 130
+                }
+            ),
+            new KendoGridColumn(
+                {
+                    field: &#x27;Unita_Misura_Cod&#x27;,
+                    title: this.translocoService.translate(&#x27;UnitàDiMisura&#x27;)
+                },
+                {
+                    hidden: false,
+                    resizable:true,
+                    editable: this.edit,
+                    validators: [Validators.required],
+                    width: 150
+                }
+            ),
+            new KendoGridColumn(
+                {
+                    field: &#x27;Validita_Inizio&#x27;,
+                    title: this.translocoService.translate(&#x27;ValiditàInizio&#x27;)
+                },
+                {
+                    hidden: false,
+                    resizable:true,
+                    editable: this.edit,
+                    date: {
+                        defaultValue: AGRODATAINIZIO
+                    },
+                    width: 130
+                }
+            ),
+            new KendoGridColumn(
+                {
+                    field: &#x27;Validita_Fine&#x27;,
+                    title: this.translocoService.translate(&#x27;ValiditàFine&#x27;)
+                },
+                {
+                    hidden: false,
+                    resizable:true,
+                    editable: this.edit,
+                    date: {
+                        defaultValue: AGRODATAFINE
+                    },
+                    width: 130
+                }
+            )
+        ];
+
+        return columns;
+    }
+
+    setModelGridCostiUnitari(){
+
+        const model: KendoGridModel&#x3D;{
+            chiave:{
+                editable: true,
+                type: CELL_TYPES.NUMBER
+            },
+            codice:{
+                editable: false,
+                type: CELL_TYPES.NUMBER
+            },
+            prezzo:{
+                editable: true,
+                type: CELL_TYPES.NUMBER
+            },
+            Unita_Misura_Des:{
+                editable: true,
+                type: CELL_TYPES.STRING
+            },
+            Unita_Misura_Cod:{
+                editable: true,
+                type: CELL_TYPES.DROPDOWNLIST
+            },
+            Validita_Inizio:{
+                editable: true,
+                type: CELL_TYPES.DATE
+            },
+            Validita_Fine:{
+                editable: true,
+                type: CELL_TYPES.DATE
+            },
+            flag_cancellazione: {
+                editable: true,
+                type: CELL_TYPES.BOOLEAN
+            }
+        };
+        return model;
+    }
+
+    handleDropdowns(ddlist: UnitaDiMisura[], columns: KendoGridColumn[]): void {
+        const col &#x3D; columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Unita_Misura_Cod&#x27;);
+
+        const data: DropdownListItem[] &#x3D; ddlist.map(cod &#x3D;&gt; new DropdownListItem(cod.codice, cod.descrizione));
+
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;Unita_Misura&#x27;, &#x27;Unita_Misura_Cod&#x27;, &#x27;descrizione&#x27;, data);
+        col.ddl.valuePrimitive &#x3D; true;
+        col.ddl.descriptionField &#x3D; &#x27;Unita_Misura_Des&#x27;;
+    }
+
+    perform(actionType: HttpAction, rows: Array&lt;any&gt;): Observable&lt;KendoGridRow[]&gt; {
+        rows.forEach((row)&#x3D;&gt; {
+            this.macchineEditCostsService.perform(actionType, row);
+        });
+        return from([]);
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CostiMacchinaEditConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,3507 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >LayerService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/services/layer.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#AllLayerGrouping" >AllLayerGrouping</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#AllLayersVisible" >AllLayersVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#endLoadLayers" >endLoadLayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#esistonoLayerConTemi" >esistonoLayerConTemi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GroupLabels" >GroupLabels</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#layerDeleted" >layerDeleted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItemCenterMap" >LayerItemCenterMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItemChangeColor" >LayerItemChangeColor</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItemGrouping" >LayerItemGrouping</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItemLabelVisible" >LayerItemLabelVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItems" >LayerItems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#LayerItemSelected" >LayerItemSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerItemVisible" >LayerItemVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerSelected" >LayerSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ListLayerItemVisible" >ListLayerItemVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ObservableLayer" >ObservableLayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoAgendaAccessoMenu" >permessoAgendaAccessoMenu</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoAnalisiCurveMaturazione" >permessoAnalisiCurveMaturazione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoLinkAgronicaSementi" >permessoLinkAgronicaSementi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoReportRaccolteGIS" >permessoReportRaccolteGIS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reloadPageNotifier" >reloadPageNotifier</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#serviceId" >serviceId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ShowLabels" >ShowLabels</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#areLayersToBeReloaded" >areLayersToBeReloaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkFilterMultiAzienda" >checkFilterMultiAzienda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getBackEndColorByHex" >getBackEndColorByHex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getLayers" >getLayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPermessiTipologieLayer" >getPermessiTipologieLayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getPermesso" >getPermesso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSliderTransparencyByHex" >getSliderTransparencyByHex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSliderTransparencyByOpacity" >getSliderTransparencyByOpacity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getWhiteHexColorBySliderTransparency" >getWhiteHexColorBySliderTransparency</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isLayerVisible" >isLayerVisible</a>
+                            </li>
+                            <li>
+                                <a href="#isTipologiaLayerAbilitati" >isTipologiaLayerAbilitati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#layerItemCenterMap" >layerItemCenterMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LayerSelectedTrigger" >LayerSelectedTrigger</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshFilterableLayers" >refreshFilterableLayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#refreshLayers" >refreshLayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reloadLayers" >reloadLayers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#SeLayerConTemi" >SeLayerConTemi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setLayerItemSelected" >setLayerItemSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#submit" >submit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleLayerItemGrouping" >toggleLayerItemGrouping</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleLayerItemLabelVisible" >toggleLayerItemLabelVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleLayerItemSelected" >toggleLayerItemSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleLayerItemVisible" >toggleLayerItemVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateListLayerItemVisibile" >updateListLayerItemVisibile</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#layerItemSelected" >layerItemSelected</a>
+                                </li>
+                                <li>
+                                    <a href="#layerItemSelected$" >layerItemSelected$</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(gisClient: <a href="../injectables/GisClient.html" target="_self">GisClient</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/GIS/services/layer.service.ts:113</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>gisClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisClient.html" target="_self" >GisClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="areLayersToBeReloaded"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>areLayersToBeReloaded</b></span>
+                        <a href="#areLayersToBeReloaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>areLayersToBeReloaded(oldLayers: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer[]</a>, newLayers: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="423"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:423</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>oldLayers</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>newLayers</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkFilterMultiAzienda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>checkFilterMultiAzienda</b></span>
+                        <a href="#checkFilterMultiAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkFilterMultiAzienda(listaLayer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer[]</a>, paramGeoJson: <a href="../classes/paramLoadGeoJson.html" target="_self">paramLoadGeoJson</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="281"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:281</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Checks if we are loading filters inside a widget,
+if so we need to filter the layers to show only
+the ones selected in the widget</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listaLayer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the list containing all the layers</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>paramGeoJson</td>
+                                            <td>
+                                                            <code><a href="../classes/paramLoadGeoJson.html" target="_self" >paramLoadGeoJson</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the parameters to filter the layers</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>the filtered list of layers or the original list</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getBackEndColorByHex"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getBackEndColorByHex</b></span>
+                        <a href="#getBackEndColorByHex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getBackEndColorByHex(hexColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, defaultTransparency: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="369"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:369</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>hexColor</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>defaultTransparency</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/BackEndColor.html" target="_self" >BackEndColor</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLayers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getLayers</b></span>
+                        <a href="#getLayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLayers()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="163"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:163</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPermessiTipologieLayer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getPermessiTipologieLayer</b></span>
+                        <a href="#getPermessiTipologieLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPermessiTipologieLayer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPermesso"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getPermesso</b></span>
+                        <a href="#getPermesso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPermesso(enumPermesso: <a href="../undefineds/enum_Security_Attivita.html" target="_self">enum_Security_Attivita</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="157"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>enumPermesso</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Security_Attivita" target="_self" >enum_Security_Attivita</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSliderTransparencyByHex"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getSliderTransparencyByHex</b></span>
+                        <a href="#getSliderTransparencyByHex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSliderTransparencyByHex(hexColor: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="390"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:390</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>hexColor</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSliderTransparencyByOpacity"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getSliderTransparencyByOpacity</b></span>
+                        <a href="#getSliderTransparencyByOpacity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSliderTransparencyByOpacity(opacity: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="395"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:395</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opacity</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getWhiteHexColorBySliderTransparency"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getWhiteHexColorBySliderTransparency</b></span>
+                        <a href="#getWhiteHexColorBySliderTransparency"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getWhiteHexColorBySliderTransparency(sliderTransparency: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="401"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:401</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>sliderTransparency</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isLayerVisible</b></span>
+                        <a href="#isLayerVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerVisible(layerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="419"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTipologiaLayerAbilitati"></a>
+                    <span class="name">
+                        <span ><b>isTipologiaLayerAbilitati</b></span>
+                        <a href="#isTipologiaLayerAbilitati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isTipologiaLayerAbilitati(tipologiaLayerCod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tipologiaLayerCod</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layerItemCenterMap"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>layerItemCenterMap</b></span>
+                        <a href="#layerItemCenterMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>layerItemCenterMap(idLayer: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="336"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:336</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>idLayer</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerSelectedTrigger"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerSelectedTrigger</b></span>
+                        <a href="#LayerSelectedTrigger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>LayerSelectedTrigger(type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="365"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:365</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshFilterableLayers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>refreshFilterableLayers</b></span>
+                        <a href="#refreshFilterableLayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshFilterableLayers(forzaCaricamento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, readParameters: <a href="../interfaces/GisDataReadParam.html" target="_self">GisDataReadParam</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="197"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:197</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>forzaCaricamento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>readParameters</td>
+                                            <td>
+                                                            <code><a href="../interfaces/GisDataReadParam.html" target="_self" >GisDataReadParam</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refreshLayers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>refreshLayers</b></span>
+                        <a href="#refreshLayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refreshLayers(item: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>, objParamLoadGeoJson?: <a href="../classes/paramLoadGeoJson.html" target="_self">paramLoadGeoJson</a>, defaultValues: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="216"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:216</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>objParamLoadGeoJson</td>
+                                            <td>
+                                                            <code><a href="../classes/paramLoadGeoJson.html" target="_self" >paramLoadGeoJson</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>defaultValues</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reloadLayers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reloadLayers</b></span>
+                        <a href="#reloadLayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reloadLayers(layersList: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="320"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:320</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layersList</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SeLayerConTemi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>SeLayerConTemi</b></span>
+                        <a href="#SeLayerConTemi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>SeLayerConTemi(listaTipologieLayer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="301"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:301</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listaTipologieLayer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setLayerItemSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setLayerItemSelected</b></span>
+                        <a href="#setLayerItemSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setLayerItemSelected(layerSelected: <a href="../interfaces/TipologiaLayer.html" target="_self">[TipologiaLayer, boolean]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layerSelected</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >[TipologiaLayer, boolean]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>submit(tipologia: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, payloadData: <a href="../interfaces/DatiLayer.html" target="_self">DatiLayer[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="311"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tipologia</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>payloadData</td>
+                                            <td>
+                                                            <code><a href="../interfaces/DatiLayer.html" target="_self" >DatiLayer[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Observable&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLayerItemGrouping"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleLayerItemGrouping</b></span>
+                        <a href="#toggleLayerItemGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleLayerItemGrouping(layer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, active?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="351"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:351</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>active</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLayerItemLabelVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleLayerItemLabelVisible</b></span>
+                        <a href="#toggleLayerItemLabelVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleLayerItemLabelVisible(layer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, visible?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="358"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:358</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visible</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLayerItemSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleLayerItemSelected</b></span>
+                        <a href="#toggleLayerItemSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleLayerItemSelected(layer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, selected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="324"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:324</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>selected</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleLayerItemVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleLayerItemVisible</b></span>
+                        <a href="#toggleLayerItemVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleLayerItemVisible(layer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, visible?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:328</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visible</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateListLayerItemVisibile"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateListLayerItemVisibile</b></span>
+                        <a href="#updateListLayerItemVisibile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateListLayerItemVisibile(layer: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, visible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/GIS/services/layer.service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layer</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visible</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AllLayerGrouping"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>AllLayerGrouping</b></span>
+                        <a href="#AllLayerGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/GIS/services/layer.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AllLayersVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>AllLayersVisible</b></span>
+                        <a href="#AllLayersVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/GIS/services/layer.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="endLoadLayers"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>endLoadLayers</b></span>
+                        <a href="#endLoadLayers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;[boolean,GisDataReadParam]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/GIS/services/layer.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esistonoLayerConTemi"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>esistonoLayerConTemi</b></span>
+                        <a href="#esistonoLayerConTemi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/GIS/services/layer.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GroupLabels"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>GroupLabels</b></span>
+                        <a href="#GroupLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/GIS/services/layer.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="layerDeleted"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>layerDeleted</b></span>
+                        <a href="#layerDeleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >Subject&lt;TipologiaLayer&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;TipologiaLayer&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/GIS/services/layer.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemCenterMap"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItemCenterMap</b></span>
+                        <a href="#LayerItemCenterMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;string&gt;(&#x27;&#x27;)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/GIS/services/layer.service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemChangeColor"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItemChangeColor</b></span>
+                        <a href="#LayerItemChangeColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >Subject&lt;TipologiaLayer&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;TipologiaLayer&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/GIS/services/layer.service.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemGrouping"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItemGrouping</b></span>
+                        <a href="#LayerItemGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;[TipologiaLayer, boolean]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/GIS/services/layer.service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemLabelVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItemLabelVisible</b></span>
+                        <a href="#LayerItemLabelVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;[TipologiaLayer, boolean]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/GIS/services/layer.service.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItems"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItems</b></span>
+                        <a href="#LayerItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >Subject&lt;ObjOptionHTML_Out[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReplaySubject&lt;ObjOptionHTML_Out[]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/GIS/services/layer.service.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>LayerItemSelected</b></span>
+                        <a href="#LayerItemSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;[TipologiaLayer, boolean]&gt;([undefined, false])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/GIS/services/layer.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerItemVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerItemVisible</b></span>
+                        <a href="#LayerItemVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;[TipologiaLayer, boolean]&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/GIS/services/layer.service.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LayerSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LayerSelected</b></span>
+                        <a href="#LayerSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >BehaviorSubject&lt;ObjOptionHTML_Out&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;ObjOptionHTML_Out&gt;(undefined)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/GIS/services/layer.service.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ListLayerItemVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ListLayerItemVisible</b></span>
+                        <a href="#ListLayerItemVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;Array&lt;literal type&gt;&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Array&lt;{TipologiaLayer: TipologiaLayer, visible: boolean}&gt;&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/GIS/services/layer.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ObservableLayer"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ObservableLayer</b></span>
+                        <a href="#ObservableLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >ReplaySubject&lt;TipologiaLayer[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ReplaySubject&lt;TipologiaLayer[]&gt;(1)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/GIS/services/layer.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoAgendaAccessoMenu"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoAgendaAccessoMenu</b></span>
+                        <a href="#permessoAgendaAccessoMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/GIS/services/layer.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoAnalisiCurveMaturazione"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoAnalisiCurveMaturazione</b></span>
+                        <a href="#permessoAnalisiCurveMaturazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/app/GIS/services/layer.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoLinkAgronicaSementi"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoLinkAgronicaSementi</b></span>
+                        <a href="#permessoLinkAgronicaSementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/GIS/services/layer.service.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoReportRaccolteGIS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoReportRaccolteGIS</b></span>
+                        <a href="#permessoReportRaccolteGIS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/app/GIS/services/layer.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reloadPageNotifier"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reloadPageNotifier</b></span>
+                        <a href="#reloadPageNotifier"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="98" class="link-to-prism">src/app/GIS/services/layer.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serviceId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>serviceId</b></span>
+                        <a href="#serviceId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/GIS/services/layer.service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ShowLabels"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ShowLabels</b></span>
+                        <a href="#ShowLabels"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;boolean&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/GIS/services/layer.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="layerItemSelected"></a>
+                        <span class="name"><b>layerItemSelected</b><a href="#layerItemSelected"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>layerItemSelected()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/GIS/services/layer.service.ts:58</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="layerItemSelected$"></a>
+                        <span class="name"><b>layerItemSelected$</b><a href="#layerItemSelected$"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>layerItemSelected$()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/GIS/services/layer.service.ts:61</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { BackEndColor } from &#x27;app/Model/GIS/BackEndColor&#x27;;
+import { GisDataReadParam } from &#x27;app/Model/GIS/GisDataReadParam&#x27;;
+import {
+  AggiornaElencoTipologie_In,
+  DatiLayer,
+  GisClient,
+  ObjOptionHTML_Out,
+  RispostaStandard,
+  RispostaStandard_1OfElencoTipologieLayer,
+  SalvaColoriLayer2_In,
+  TipologiaLayer
+} from &#x27;app/Service/api.service&#x27;;
+import { getServiceIdAndLog } from &#x27;app/Service/utils&#x27;;
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from &#x27;rxjs&#x27;;
+import { enum_TipologiaLayer } from &#x27;../GIS-enum/GIS-tipologia-layer&#x27;;
+import { SharedDataService } from &#x27;./shared-data.service&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import {DrawingManagerService} from &#x27;./drawing-manager.service&#x27;;
+import {enum_FeatureProperty} from &#x27;../GIS-enum/GIS-feature&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import {GISUtility} from &#x27;../../Service/utils/GIS-utils/GIS-utility&#x27;;
+import {HttpContext} from &#x27;@angular/common/http&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;../GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { enum_OrigineChiamataLoadGeoJson } from &#x27;../GIS-enum/GIS-origine-chiamata&#x27;;
+
+export class paramLoadGeoJson{
+  forzaCaricamento: boolean;
+  readParameters: GisDataReadParam;
+}
+
+@Injectable()
+export class LayerService {
+
+  public endLoadLayers: Subject&lt;[boolean,GisDataReadParam]&gt; &#x3D; new Subject&lt;[boolean,GisDataReadParam]&gt;();
+
+  // Lettura, refresh e cambio ordinamento layer
+  public ObservableLayer: ReplaySubject&lt;TipologiaLayer[]&gt; &#x3D; new ReplaySubject&lt;TipologiaLayer[]&gt;(1);
+
+  // Raggruppa etichette
+  public GroupLabels: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+
+  // Raggruppamento per tutti i layers
+  public AllLayerGrouping: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+
+  // Mostra etichette
+  public ShowLabels: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+
+  // Tutti i layer visibili
+  public AllLayersVisible: Subject&lt;boolean&gt; &#x3D; new Subject&lt;boolean&gt;();
+
+  // fires when a layer is deleted
+  public layerDeleted: Subject&lt;TipologiaLayer&gt; &#x3D; new Subject&lt;TipologiaLayer&gt;();
+
+  // Layer selezionato
+  private LayerItemSelected: BehaviorSubject&lt;[TipologiaLayer, boolean]&gt; &#x3D; new BehaviorSubject&lt;[TipologiaLayer, boolean]&gt;([undefined, false]);
+  public get layerItemSelected(): [TipologiaLayer, boolean] {
+    return this.LayerItemSelected.getValue();
+  }
+  public get layerItemSelected$(): Observable&lt;[TipologiaLayer, boolean]&gt; {
+    return this.LayerItemSelected.asObservable();
+  }
+  public setLayerItemSelected(layerSelected: [TipologiaLayer, boolean]): void {
+    this.LayerItemSelected.next(layerSelected);
+    if(layerSelected[1])
+      this.sharedDataService.setLayerSelezionato(layerSelected[0]);
+  }
+
+  // Etichetta layer visibile
+  public LayerItemLabelVisible: Subject&lt;[TipologiaLayer, boolean]&gt; &#x3D; new Subject&lt;[TipologiaLayer, boolean]&gt;();
+
+  // Raggruppamento del layer
+  public LayerItemGrouping: Subject&lt;[TipologiaLayer, boolean]&gt; &#x3D; new Subject&lt;[TipologiaLayer, boolean]&gt;();
+
+  // Layer visibile
+  public LayerItemVisible: Subject&lt;[TipologiaLayer, boolean]&gt; &#x3D; new Subject&lt;[TipologiaLayer, boolean]&gt;();
+
+  // Layer cambio colore
+  public LayerItemChangeColor: Subject&lt;TipologiaLayer&gt; &#x3D; new Subject&lt;TipologiaLayer&gt;();
+
+  // Layer centra mappa
+  public LayerItemCenterMap: BehaviorSubject&lt;string&gt; &#x3D; new BehaviorSubject&lt;string&gt;(&#x27;&#x27;);
+
+  // Layer selezionato dal dropdown
+  public LayerSelected: BehaviorSubject&lt;ObjOptionHTML_Out&gt; &#x3D; new BehaviorSubject&lt;ObjOptionHTML_Out&gt;(undefined);
+
+  // Lista Layer Items
+  public LayerItems: Subject&lt;ObjOptionHTML_Out[]&gt; &#x3D; new ReplaySubject&lt;ObjOptionHTML_Out[]&gt;();
+
+  // Layer visibile
+  public ListLayerItemVisible: BehaviorSubject&lt;Array&lt;{TipologiaLayer: TipologiaLayer, visible: boolean}&gt;&gt; &#x3D; new BehaviorSubject&lt;Array&lt;{TipologiaLayer: TipologiaLayer, visible: boolean}&gt;&gt;([]);
+
+  // Layer con temi
+  public esistonoLayerConTemi: boolean &#x3D; false;
+
+
+  public reloadPageNotifier &#x3D; new Subject();
+
+  // Permessi
+
+  //---- Avversità + Fenologia
+  public permessoAgendaAccessoMenu &#x3D; false;
+  //---- Rilievi Vegeto Produttivi + Analisi Cronologia Agenda
+  public permessoAnalisiCurveMaturazione &#x3D; false;
+  //---- Percorsi
+  public permessoReportRaccolteGIS &#x3D; false;
+  //---- Organizzazione di Appartenenza
+  public permessoLinkAgronicaSementi &#x3D; false;
+
+  // Debug
+
+  private serviceId &#x3D; null;
+
+  constructor(
+    private gisClient: GisClient,
+    private sharedDataService: SharedDataService,
+    private permessiUtenteService: PermessiUtenteService,
+    private masterService: MasterService
+  ) {
+
+    this.serviceId &#x3D; getServiceIdAndLog(&#x27;LayerService&#x27;,&#x27;constructor&#x27;);
+
+    this.getPermessiTipologieLayer();
+
+    this.getLayers();
+
+    //#region
+    // this.ObservableLayer.subscribe(x &#x3D;&gt; console.log(&#x27;ObservableLayer: &#x27;, x));
+    // this.GroupLabels.subscribe(x &#x3D;&gt; console.log(&#x27;GroupLabels: &#x27;, x));
+    // this.ShowLabels.subscribe(x &#x3D;&gt; console.log(&#x27;ShowLabels: &#x27;, x));
+    // this.AllLayersVisible.subscribe(x &#x3D;&gt; console.log(&#x27;AllLayersVisible: &#x27;, x));
+    // this.LayerItemSelected.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItemSelected: &#x27;, x));
+    // this.LayerItemLabelVisible.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItemLabelVisible: &#x27;, x));
+    // this.LayerItemVisible.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItemVisible: &#x27;, x));
+    // this.LayerItemGrouping.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItemGrouping: &#x27;, x));
+    // this.LayerItemChangeColor.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItemChangeColor: &#x27;, x));
+    // this.LayerSelected.subscribe(x &#x3D;&gt; console.log(&#x27;LayerSelected: &#x27;, x));
+    // this.LayerItems.subscribe(x &#x3D;&gt; console.log(&#x27;LayerItems: &#x27;, x));
+    //#endregion
+
+    this.ObservableLayer.subscribe(list &#x3D;&gt; {
+      this.ListLayerItemVisible.next(list.map( e &#x3D;&gt; {
+        return {TipologiaLayer: e, visible: true}
+      }));
+    });
+
+  }
+
+  private getPermessiTipologieLayer() {
+    this.permessoAgendaAccessoMenu &#x3D; this.getPermesso(enum_Security_Attivita.Agenda_AccessoMenu_NG);
+    this.permessoAnalisiCurveMaturazione &#x3D; this.getPermesso(enum_Security_Attivita.Analisi_Curve_Maturazione);
+    this.permessoReportRaccolteGIS &#x3D; this.getPermesso(enum_Security_Attivita.ReportRaccolteGIS);
+    this.permessoLinkAgronicaSementi &#x3D; this.getPermesso(enum_Security_Attivita.Link_AgronicaSementi);
+  }
+
+  private getPermesso(enumPermesso: enum_Security_Attivita): boolean {
+    const permessoLettura &#x3D; this.permessiUtenteService.getPermesso(enumPermesso,0);
+    const permessoScrittura &#x3D; this.permessiUtenteService.getPermesso(enumPermesso,2);
+    return permessoLettura || permessoScrittura;
+  }
+
+  public getLayers() {
+    this.gisClient
+      .gisCaricaDdlTipologiaLayer()
+      .subscribe(result &#x3D;&gt; {
+        let selectedLayer &#x3D; localStorage.getItem(&quot;selectedLayer&quot;);
+        if (!selectedLayer) {
+          selectedLayer &#x3D; enum_TipologiaLayer.Entita;
+        }
+        let layerSelected &#x3D; result.RispostaStringa?.find(item &#x3D;&gt; item.Option_Value &#x3D;&#x3D;&#x3D; selectedLayer);
+        this.LayerSelected.next(layerSelected);
+        // TODO Andrea (3): filtro temporaneo per primo rilascio
+        let ddlTipologiaLayer &#x3D; result.RispostaStringa?.filter(item &#x3D;&gt; this.isTipologiaLayerAbilitati(item.Option_Value));
+        this.LayerItems.next(ddlTipologiaLayer);
+      });
+  }
+
+  isTipologiaLayerAbilitati(tipologiaLayerCod: string): boolean {
+    let tipologieLayerAbilitati &#x3D; [
+      enum_TipologiaLayer.Entita.toString(),
+      enum_TipologiaLayer.GruppoColturale.toString(),
+      enum_TipologiaLayer.Cultivar.toString()
+    ];
+    if (this.permessoAgendaAccessoMenu) {
+      tipologieLayerAbilitati.push(enum_TipologiaLayer.Avversita.toString());
+      tipologieLayerAbilitati.push(enum_TipologiaLayer.Fenologia.toString());
+    }
+    if (this.permessoAnalisiCurveMaturazione) {
+      tipologieLayerAbilitati.push(enum_TipologiaLayer.RilieviVegetoProduttivi.toString());
+    }
+    if(this.permessoLinkAgronicaSementi)
+      tipologieLayerAbilitati.push(enum_TipologiaLayer.OrganizzazioneAppartenenza.toString());
+    return tipologieLayerAbilitati.includes(tipologiaLayerCod);
+  }
+
+  public refreshFilterableLayers(
+    forzaCaricamento: boolean,
+    readParameters: GisDataReadParam
+  ) {
+    let tipoLayerSelezionato &#x3D; this.sharedDataService.getTipoLayerSelezionato();
+    if  (this.sharedDataService.tipiLayerDaFiltrare.includes(tipoLayerSelezionato)) {
+      let objParamLoadGeoJson: paramLoadGeoJson &#x3D; {
+        forzaCaricamento: forzaCaricamento,
+        readParameters: readParameters
+      }
+      this.refreshLayers(
+        { Option_Value: tipoLayerSelezionato },
+        objParamLoadGeoJson
+      );
+    } else {
+      this.endLoadLayers.next([forzaCaricamento,readParameters]);
+    }
+  }
+
+  public refreshLayers(item: ObjOptionHTML_Out, objParamLoadGeoJson?: paramLoadGeoJson, defaultValues: boolean &#x3D; false) {
+    if (item &#x3D;&#x3D; null) {
+      return;
+    }
+
+    localStorage.setItem(&quot;selectedLayer&quot;, item.Option_Value);
+
+    const payload &#x3D; {
+      Layer_Selezionato: item.Option_Value
+    } as AggiornaElencoTipologie_In;
+
+    this.masterService.set_isLoading({isLoading: true});
+    let obs: (body?: AggiornaElencoTipologie_In | undefined, httpContext?: HttpContext) &#x3D;&gt; Observable&lt;RispostaStandard_1OfElencoTipologieLayer&gt;;
+    if (defaultValues) {
+      obs &#x3D; GISUtility.defaultGisAggiornaElencoTipologie4;
+    } else {
+      obs &#x3D; this.gisClient.gisAggiornaElencoTipologie4.bind(this.gisClient);
+    }
+
+    obs(payload)
+      .subscribe(result &#x3D;&gt; {
+        if (result.RispostaStringa?.ListaTipologieLayer.every((layer: TipologiaLayer) &#x3D;&gt; layer.MostraDescrizioneAssociata &#x3D;&#x3D;&#x3D; &#x27;0&#x27;)) {
+          this.ShowLabels.next(false);
+        }
+        // Forzatura iniziale visibilità &#x3D; false per fixed layer di tipo entità (es. WMS)
+        let listaTipologieLayer &#x3D; [];
+        if (result.RispostaStringa?.ListaTipologieLayer) {
+          listaTipologieLayer &#x3D; result.RispostaStringa.ListaTipologieLayer;
+        }
+        if (listaTipologieLayer &amp;&amp; payload.Layer_Selezionato &#x3D;&#x3D;&#x3D; enum_TipologiaLayer.Entita) {
+          listaTipologieLayer.forEach(tipologiaLayer &#x3D;&gt; {
+            let idLayer &#x3D; parseInt(tipologiaLayer.id);
+            if (idLayer &lt; 0) {
+              tipologiaLayer.flagvisibile&#x3D;&#x27;0&#x27;;
+            }
+          });
+        }
+
+        listaTipologieLayer &#x3D; this.checkFilterMultiAzienda(
+          listaTipologieLayer,
+          objParamLoadGeoJson
+        );
+
+        // Ritorno observable
+        this.ObservableLayer.next(listaTipologieLayer); // se array non preordinato -&gt; .sort((a, b)&#x3D;&gt; +a?.zindex - +b?.zindex));
+        this.SeLayerConTemi(listaTipologieLayer);
+        if (objParamLoadGeoJson) {
+          this.endLoadLayers.next([
+            objParamLoadGeoJson.forzaCaricamento,
+            objParamLoadGeoJson.readParameters
+          ]);
+        }
+
+        this.masterService.set_isLoading({isLoading: false});
+      });
+  }
+
+  /**
+   * Checks if we are loading filters inside a widget,
+   * if so we need to filter the layers to show only
+   * the ones selected in the widget
+   * @param listaLayer the list containing all the layers
+   * @param paramGeoJson the parameters to filter the layers
+   * @returns the filtered list of layers or the original list
+   */
+  private checkFilterMultiAzienda(
+    listaLayer: TipologiaLayer[],
+    paramGeoJson: paramLoadGeoJson
+  ): TipologiaLayer[] {
+    let origineChiamata &#x3D; this.sharedDataService.getOrigineChiamataLoadGeoJson();
+    if (
+      paramGeoJson?.readParameters.layerElementiGrafici_cod.length &gt; 0 &amp;&amp;
+      origineChiamata &#x3D;&#x3D;&#x3D; enum_OrigineChiamataLoadGeoJson.WidgetMultiAzienda
+    ) {
+      let list &#x3D; listaLayer.filter(
+        (layer) &#x3D;&gt;
+          paramGeoJson?.readParameters.layerElementiGrafici_cod.includes(parseInt(layer.id))
+      );
+      this.setLayerItemSelected([list[0], true]);
+      return list;
+    } else {
+      return listaLayer;
+    }
+  }
+
+  private SeLayerConTemi(listaTipologieLayer: TipologiaLayer[]) {
+    this.esistonoLayerConTemi &#x3D; false;
+    for (let i &#x3D; 0; i &lt; listaTipologieLayer.length; i++) {
+      if (listaTipologieLayer[i].tiles &amp;&amp; listaTipologieLayer[i].tiles.length &gt; 0) {
+        this.esistonoLayerConTemi &#x3D; true;
+        break;
+      };
+    }
+  }
+
+  public submit(tipologia: number, payloadData: DatiLayer[]): Observable&lt;RispostaStandard&gt; {
+    const payload &#x3D; {
+      Tipologia: tipologia,
+      ListaDatiLayer: payloadData
+    } as SalvaColoriLayer2_In;
+
+    return this.gisClient.gisSalvaColoriLayer2(payload);
+  }
+
+  public reloadLayers(layersList: TipologiaLayer[]) {
+    this.ObservableLayer.next(layersList);
+  }
+
+  public toggleLayerItemSelected(layer: TipologiaLayer, selected: boolean) {
+    this.setLayerItemSelected([layer, selected]);
+  }
+
+  public toggleLayerItemVisible(layer: TipologiaLayer, visible?: boolean) {
+    const isCurrentlyVisible &#x3D; layer.flagvisibile &#x3D;&#x3D;&#x3D; &#x27;1&#x27;;
+    const newVisibility &#x3D; visible ?? !isCurrentlyVisible;
+    layer.flagvisibile &#x3D; newVisibility ? &#x27;1&#x27; : &#x27;0&#x27;;
+    this.LayerItemVisible.next([layer, newVisibility]);
+    this.updateListLayerItemVisibile(layer, newVisibility);
+  }
+
+  public layerItemCenterMap(idLayer: string) {
+    this.LayerItemCenterMap.next(idLayer);
+  }
+
+  private updateListLayerItemVisibile(layer: TipologiaLayer, visible: boolean): void {
+    let list &#x3D; this.ListLayerItemVisible.getValue();
+
+    this.ListLayerItemVisible.next(list.map(e &#x3D;&gt; {
+      if(e.TipologiaLayer &#x3D;&#x3D; layer)
+        e.visible &#x3D; visible;
+
+      return e;
+    }));
+  }
+
+  public toggleLayerItemGrouping(layer: TipologiaLayer, active?: boolean) {
+    const isCurrentlyActive &#x3D; layer.RaggruppaDescrizioneAssociata &#x3D;&#x3D;&#x3D; &#x27;1&#x27;;
+    const newActivation &#x3D; active ?? !isCurrentlyActive;
+    layer.RaggruppaDescrizioneAssociata &#x3D; newActivation ? &#x27;1&#x27; : &#x27;0&#x27;;
+    this.LayerItemGrouping.next([layer, newActivation]);
+  }
+
+  public toggleLayerItemLabelVisible(layer: TipologiaLayer, visible?: boolean) {
+    const isCurrentlyVisible &#x3D; layer.MostraDescrizioneAssociata &#x3D;&#x3D;&#x3D; &#x27;1&#x27;;
+    const newVisibility &#x3D; visible ?? !isCurrentlyVisible;
+    layer.MostraDescrizioneAssociata &#x3D; newVisibility ? &#x27;1&#x27; : &#x27;0&#x27;;
+    this.LayerItemLabelVisible.next([layer, newVisibility]);
+  }
+
+  public LayerSelectedTrigger(type: ObjOptionHTML_Out) {
+    this.LayerSelected.next(type);
+  }
+
+  public getBackEndColorByHex(hexColor: string, defaultTransparency: string): BackEndColor {
+
+    // Il colore viene inviato al BackEnd in esadecimale senza #,
+    // mentre la trasparenza in formato stringa &#x27;0.x&#x27;.
+    // E&#x27; necessario dividere il colore dalla trasparenza nel colore in output
+    // e convertire la trasparenza in numero e successivamente in stringa.
+
+    let backEndColor &#x3D; new BackEndColor();
+
+    // Trasparenza
+    const transparency &#x3D; hexColor.length &gt; 7 ? (+(&#x27;0x&#x27; + hexColor.substring(7)) / 0xff).toFixed(1) : 1 //defaultTransparency;
+    backEndColor.Transparency &#x3D; transparency.toString().substring(0, 4);
+
+    // Colore
+    backEndColor.Color &#x3D; hexColor.substring(1, 7);
+
+    // Ritorno
+    return backEndColor;
+
+  }
+
+  public getSliderTransparencyByHex(hexColor: string): string {
+    const backEndColor &#x3D; this.getBackEndColorByHex(hexColor,&#x27;1&#x27;);
+    return this.getSliderTransparencyByOpacity(backEndColor.Transparency);
+  }
+
+  public getSliderTransparencyByOpacity(opacity: string): string {
+    const opacityNumber &#x3D; parseFloat(opacity.replace(&#x27;,&#x27;,&#x27;.&#x27;));
+    const transparencyNumber &#x3D; 100 - (opacityNumber * 100);
+    return transparencyNumber.toFixed(0);
+  }
+
+  public getWhiteHexColorBySliderTransparency(sliderTransparency: string): string {
+
+    // sliderTransparency: 0&#x3D;Opaco, 100&#x3D;Trasparente
+
+    const whiteHexColor &#x3D; &quot;#ffffff&quot;;
+
+    const opacityNumber &#x3D; 100 - parseInt(sliderTransparency) ;
+
+    const opacityHexNumber: number &#x3D; parseInt((opacityNumber / 100 * 255).toFixed(0));
+
+    const opacityHex &#x3D; opacityHexNumber.toString(16);
+
+    // trasparenza BackEnd: 0&#x3D;Trasparente, 1&#x3D;Opaco
+
+    return whiteHexColor + opacityHex;
+
+  }
+
+  public isLayerVisible(layerId: string): boolean {
+    return this.ListLayerItemVisible.getValue().find( e &#x3D;&gt; e.TipologiaLayer.id &#x3D;&#x3D; layerId)?.visible;
+  }
+
+  public static areLayersToBeReloaded(oldLayers: TipologiaLayer[], newLayers: TipologiaLayer[]): boolean {
+    if (oldLayers.length !&#x3D; newLayers.length) {
+      return true;
+    }
+
+    for (let i &#x3D; 0; i &lt; newLayers.length; i++) {
+      const oldLayer &#x3D; oldLayers[i];
+      const newLayer &#x3D; newLayers[i];
+      if (JSON.stringify(oldLayer) !&#x3D; JSON.stringify(newLayer)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LayerService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,172 @@
+{
+    "code": "ID",
+    "version": "9",
+    "description": "Dati identificativi",
+    "title": {
+        "en": "Documenti d'identità",
+        "it": "Documenti d'identità"
+    },
+    "metadata": {
+        "maxOccurs": 999,
+        "timeOverlap": true,
+        "defaultLocale": "it",
+        "summaryFields": [
+            "id_type",
+            "release_date",
+            "expiration_date",
+            "number"
+        ],
+        "startDateField": "release_date",
+        "endDateField": "expiration_date"
+    },
+    "lookups": [
+        {
+            "code": "id_type_lookup",
+            "entries": [
+                {
+                    "code": "id_card",
+                    "label": {
+                        "en": "ID CARD",
+                        "it": "CARTA DI IDENTITA'"
+                    }
+                },
+                {
+                    "code": "passport",
+                    "label": {
+                        "en": "PASSPORT",
+                        "it": "PASSAPORTO"
+                    }
+                },
+                {
+                    "code": "licence",
+                    "label": {
+                        "en": "LICENCE",
+                        "it": "PATENTE AUTO"
+                    }
+                },
+                {
+                    "code": "other_document",
+                    "label": {
+                        "en": "OTHER DOCUMENT",
+                        "it": "ALTRO DOCUMENTO"
+                    }
+                }
+            ]
+        }
+    ],
+    "fieldSets": [
+        {
+            "code": "Dati anagrafici",
+            "minOccurs": 1,
+            "maxOccurs": 1,
+            "label": {
+                "it": "Dati anagrafici",
+                "en": "Personal data"
+            },
+            "fields": [
+                {
+                    "code": "id_type",
+                    "required": true,
+                    "label": {
+                        "en": "Document Type",
+                        "it": "Tipo Documento"
+                    },
+                    "lookupCode": "id_type_lookup",
+                    "type": "string",
+                    "style": "radio"
+                },
+                {
+                    "code": "release_agent",
+                    "required": false,
+                    "label": {
+                        "en": "Released By",
+                        "it": "Rilasciato Da"
+                    },
+                    "type": "string"
+                },
+                {
+                    "code": "release_date",
+                    "required": true,
+                    "label": {
+                        "en": "Release Date",
+                        "it": "Data Rilascio"
+                    },
+                    "type": "date"
+                },
+                {
+                    "code": "expiration_date",
+                    "required": true,
+                    "label": {
+                        "en": "Expiration Date",
+                        "it": "Data Scadenza"
+                    },
+                    "help": [
+                        {
+                            "title": {
+                                "en": "",
+                                "it": ""
+                            },
+                            "content": {
+                                "en": "",
+                                "it": ""
+                            }
+                        }
+                    ],
+                    "type": "date"
+                },
+                {
+                    "code": "number",
+                    "required": true,
+                    "label": {
+                        "en": "Number",
+                        "it": "Numero"
+                    },
+                    "help": [
+                        {
+                            "title": {
+                                "en": "",
+                                "it": ""
+                            },
+                            "content": {
+                                "en": "",
+                                "it": ""
+                            }
+                        }
+                    ],
+                    "type": "string"
+                },
+                {
+                    "code": "note",
+                    "required": false,
+                    "label": {
+                        "en": "Notes",
+                        "it": "Note"
+                    },
+                    "type": "string",
+                    "style": "textarea"
+                }
+            ]
+        },
+        {
+            "code": "Files",
+            "minOccurs": 1,
+            "maxOccurs": 999,
+            "label": {
+                "en": "Personal files",
+                "it": "Allegati anagrafici"
+            },
+            "fields": [
+                {
+                    "code": "file",
+                    "required": false,
+                    "label": {
+                        "en": "File",
+                        "it": "Allegato"
+                    },
+                    "type": "file",
+                    "style": "radio"
+                }
+            ]
+        }
+    ]
+}

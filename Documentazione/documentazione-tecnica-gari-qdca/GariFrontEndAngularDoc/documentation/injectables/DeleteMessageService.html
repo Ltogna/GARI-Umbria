@@ -1,0 +1,1441 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DeleteMessageService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/delete-message.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#appezzamentoDeleteMsg_Fail" >appezzamentoDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#appezzamentoDeleteMsg_Succ" >appezzamentoDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                <a href="#campiDeleteMsg_Fail" >campiDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#campiDeleteMsg_Succ" >campiDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                <a href="#catastoDeleteMsg_Fail" >catastoDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#catastoDeleteMsg_Succ" >catastoDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                <a href="#impreseDeleteMsg_Fail" >impreseDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#impreseDeleteMsg_Succ" >impreseDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                <a href="#macchineDeleteMsg_Fail" >macchineDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#macchineDeleteMsg_Succ" >macchineDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#sonoInBudget" >sonoInBudget</a>
+                            </li>
+                            <li>
+                                <a href="#valutazioniDeleteMsg_Fail" >valutazioniDeleteMsg_Fail</a>
+                            </li>
+                            <li>
+                                <a href="#valutazioniDeleteMsg_Succ" >valutazioniDeleteMsg_Succ</a>
+                            </li>
+                            <li>
+                                <a href="#valutazionieleteMsg_Succ" >valutazionieleteMsg_Succ</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(istatService: <a href="../injectables/GiasIstatService.html" target="_self">GiasIstatService</a>, GiasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, GiasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, notificationService: NotificationService, budgetService: <a href="../injectables/BudgetService.html" target="_self">BudgetService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/Service/delete-message.service.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>istatService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasIstatService.html" target="_self" >GiasIstatService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>GiasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>GiasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>notificationService</td>
+                                                  
+                                                        <td>
+                                                                    <code>NotificationService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>budgetService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BudgetService.html" target="_self" >BudgetService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appezzamentoDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>appezzamentoDeleteMsg_Fail</b></span>
+                        <a href="#appezzamentoDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>appezzamentoDeleteMsg_Fail(rispostaStd: rispostaStandard<Appezzamento>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="68"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                        <code>rispostaStandard&lt;Appezzamento&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="appezzamentoDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>appezzamentoDeleteMsg_Succ</b></span>
+                        <a href="#appezzamentoDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>appezzamentoDeleteMsg_Succ(rispostaStd: rispostaStandard<Appezzamento>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                        <code>rispostaStandard&lt;Appezzamento&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campiDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>campiDeleteMsg_Fail</b></span>
+                        <a href="#campiDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>campiDeleteMsg_Fail(rispostaStd: <a href="../interfaces/RispostaStandard.html" target="_self">RispostaStandard</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="41"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RispostaStandard.html" target="_self" >RispostaStandard</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campiDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>campiDeleteMsg_Succ</b></span>
+                        <a href="#campiDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>campiDeleteMsg_Succ(rispostaStd: <a href="../interfaces/RispostaStandard.html" target="_self">RispostaStandard</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="28"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RispostaStandard.html" target="_self" >RispostaStandard</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catastoDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>catastoDeleteMsg_Fail</b></span>
+                        <a href="#catastoDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>catastoDeleteMsg_Fail(cat: <a href="../interfaces/CatastoCentroAziendale.html" target="_self">CatastoCentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cat</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CatastoCentroAziendale.html" target="_self" >CatastoCentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catastoDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>catastoDeleteMsg_Succ</b></span>
+                        <a href="#catastoDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>catastoDeleteMsg_Succ(cat: <a href="../interfaces/CatastoCentroAziendale.html" target="_self">CatastoCentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>cat</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CatastoCentroAziendale.html" target="_self" >CatastoCentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="impreseDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>impreseDeleteMsg_Fail</b></span>
+                        <a href="#impreseDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>impreseDeleteMsg_Fail(r: <a href="../interfaces/Impresa.html" target="_self">rispostaStandard&lt;Impresa&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Impresa.html" target="_self" >rispostaStandard&lt;Impresa&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="impreseDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>impreseDeleteMsg_Succ</b></span>
+                        <a href="#impreseDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>impreseDeleteMsg_Succ(r: <a href="../interfaces/Impresa.html" target="_self">rispostaStandard&lt;Impresa&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Impresa.html" target="_self" >rispostaStandard&lt;Impresa&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="macchineDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>macchineDeleteMsg_Fail</b></span>
+                        <a href="#macchineDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>macchineDeleteMsg_Fail(rispostaStd: <a href="../interfaces/RispostaStandard.html" target="_self">RispostaStandard</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RispostaStandard.html" target="_self" >RispostaStandard</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="macchineDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>macchineDeleteMsg_Succ</b></span>
+                        <a href="#macchineDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>macchineDeleteMsg_Succ(rispostaStd: <a href="../interfaces/RispostaStandard.html" target="_self">RispostaStandard</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rispostaStd</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RispostaStandard.html" target="_self" >RispostaStandard</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sonoInBudget"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>sonoInBudget</b></span>
+                        <a href="#sonoInBudget"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sonoInBudget()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valutazioniDeleteMsg_Fail"></a>
+                    <span class="name">
+                        <span ><b>valutazioniDeleteMsg_Fail</b></span>
+                        <a href="#valutazioniDeleteMsg_Fail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>valutazioniDeleteMsg_Fail(r: <a href="../interfaces/Test.html" target="_self">rispostaStandard&lt;ValutazioneTestata&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Test.html" target="_self" >rispostaStandard&lt;ValutazioneTestata&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valutazioniDeleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>valutazioniDeleteMsg_Succ</b></span>
+                        <a href="#valutazioniDeleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>valutazioniDeleteMsg_Succ(imp: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imp</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valutazionieleteMsg_Succ"></a>
+                    <span class="name">
+                        <span ><b>valutazionieleteMsg_Succ</b></span>
+                        <a href="#valutazionieleteMsg_Succ"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>valutazionieleteMsg_Succ(r: <a href="../interfaces/Test.html" target="_self">rispostaStandard&lt;ValutazioneTestata&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/Service/delete-message.service.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Test.html" target="_self" >rispostaStandard&lt;ValutazioneTestata&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { NotificationService } from &quot;@progress/kendo-angular-notification&quot;;
+import { Appezzamento } from &#x27;app/Model/anagrafiche/Appezzamento&#x27;;
+import { CatastoCentroAziendale } from &#x27;app/Model/anagrafiche/CatastoCentroAziendale&#x27;;
+import { Impresa } from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import { rispostaStandard, RispostaStandard } from &#x27;./master.service&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { BudgetService } from &#x27;./Budget/budget.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { Dialog_Type, GiasDialogService } from &quot;./gias-dialog.service&quot;;
+import { ValutazioneTestata } from &#x27;app/Model/valutazioni/ValutazioneTestata&#x27;;
+import {GiasIstatService} from &#x27;./istat/gias-istat.service&#x27;;
+
+@Injectable({
+  providedIn: &#x27;root&#x27;,
+})
+export class DeleteMessageService {
+
+  constructor(
+    private istatService: GiasIstatService,
+    private GiasMessageService: GiasMessageService,
+    private GiasDialogService: GiasDialogService,
+    private notificationService: NotificationService,
+    private budgetService: BudgetService,
+    private translocoService: TranslocoService) {
+  }
+
+  campiDeleteMsg_Succ(rispostaStd: RispostaStandard) {
+    let obj &#x3D; JSON.parse(rispostaStd.RispostaStringa);
+    if (this.sonoInBudget()) {
+      this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;Campo&#x27;) + &#x27;: &#x27; + obj.ElementoAnagrafico.descrizione + &#x27; &#x27; + this.translocoService.translate(&#x27;EliminatoCorrettamente&#x27;));
+    } else {
+      this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;Campo&#x27;) + &#x27;: &#x27; + obj.descrizione + &#x27; &#x27; + this.translocoService.translate(&#x27;EliminatoCorrettamente&#x27;));
+    }
+  }
+
+  private sonoInBudget() {
+    return this.budgetService.getBudget().activeBudget &#x3D;&#x3D; true;
+  }
+
+  campiDeleteMsg_Fail(rispostaStd: RispostaStandard) {
+    let obj &#x3D; JSON.parse(rispostaStd.RispostaStringa);
+    this.GiasDialogService.alertMessage(this.translocoService.translate(&#x27;ErroreEliminazioneCampo&#x27;) + &quot;: &quot; + obj.descrizione, () &#x3D;&gt; { return true; }, Dialog_Type.error);
+  }
+
+  macchineDeleteMsg_Succ(rispostaStd: RispostaStandard) {
+    let obj &#x3D; JSON.parse(rispostaStd.RispostaStringa);
+    this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;MacchinaAttrezzatura&#x27;) + &quot;: &quot; + obj.descrizione + &quot; &quot; + this.translocoService.translate(&#x27;EliminataCorrettamente&#x27;));
+  }
+
+  macchineDeleteMsg_Fail(rispostaStd: RispostaStandard) {
+    let obj &#x3D; JSON.parse(rispostaStd.RispostaStringa);
+    this.GiasDialogService.alertMessage(this.translocoService.translate(&#x27;ErroreEliminazioneMacchina&#x27;) + &quot; &quot; + obj.descrizione, () &#x3D;&gt; { return true; }, Dialog_Type.error);
+  }
+
+  appezzamentoDeleteMsg_Succ(rispostaStd: rispostaStandard&lt;Appezzamento&gt;) {
+    let app &#x3D; JSON.parse(rispostaStd.RispostaStringa.toString());
+    this.notificationService.show({
+      content: this.translocoService.translate(&#x27;Appezzamento&#x27;) + &#x27;: &#x27; + app.descrizione + &quot; &quot; + this.translocoService.translate(&#x27;EliminatoCorrettamente&#x27;),
+      cssClass: &#x27;button-notification&#x27;,
+      animation: { type: &#x27;slide&#x27;, duration: 400 },
+      position: { horizontal: &#x27;right&#x27;, vertical: &#x27;top&#x27; },
+      type: { style: &#x27;success&#x27;, icon: true },
+      closable: true,
+    });
+  }
+
+  appezzamentoDeleteMsg_Fail(rispostaStd: rispostaStandard&lt;Appezzamento&gt;) {
+    let app &#x3D; JSON.parse(rispostaStd.RispostaStringa.toString());
+    this.GiasDialogService.alertMessage(&#x27;Errore durante eliminazione appezzamento: &#x27; + app.descrizione, () &#x3D;&gt; { return true; }, Dialog_Type.error);
+  }
+
+  catastoDeleteMsg_Succ(cat: CatastoCentroAziendale) {
+    let provincia &#x3D; this.istatService.getProvincie().filter((p) &#x3D;&gt; p.Istat_Prov &#x3D;&#x3D; cat.particella.primaryKey.Prov);
+
+    this.istatService.leggiComuni(cat.particella.primaryKey.Prov).then((el) &#x3D;&gt; {
+      let comune &#x3D; el.filter((c) &#x3D;&gt; c.codice &#x3D;&#x3D; cat.particella.primaryKey.Com);
+      this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;ParticellaCatastale&#x27;) + &quot;: &quot; + this.translocoService.translate(&#x27;Provincia&#x27;) + provincia[0].Provincia_Des + &#x27; (&#x27; + cat.particella.primaryKey.Prov + &#x27;)&#x27;
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Comune&#x27;) + comune[0].descrizione + &#x27; (&#x27; + cat.particella.primaryKey.Com + &#x27;)&#x27;
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Sezione&#x27;) + cat.particella.primaryKey.Sezione
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Foglio&#x27;) + cat.particella.primaryKey.Foglio
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Numero&#x27;) + cat.particella.primaryKey.Numero
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Subalterno&#x27;) + cat.particella.primaryKey.Subalterno + this.translocoService.translate(&#x27;EliminataCorrettamente&#x27;));
+    })
+  }
+
+  catastoDeleteMsg_Fail(cat: CatastoCentroAziendale) {
+    let provincia &#x3D; this.istatService.getProvincie().filter((p) &#x3D;&gt; p.Istat_Prov &#x3D;&#x3D; cat.particella.primaryKey.Prov);
+
+    this.istatService.leggiComuni(cat.particella.primaryKey.Prov).then((el) &#x3D;&gt; {
+      let comune &#x3D; el.filter((c) &#x3D;&gt; c.codice &#x3D;&#x3D; cat.particella.primaryKey.Com);
+      let content &#x3D; this.translocoService.translate(&#x27;ErroreEliminazioneMacchina&#x27;) + &quot;: &quot; + this.translocoService.translate(&#x27;Provincia&#x27;) + provincia[0].Provincia_Des + &#x27; (&#x27; + cat.particella.primaryKey.Prov + &#x27;)&#x27;
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Comune&#x27;) + comune[0].descrizione + &#x27; (&#x27; + cat.particella.primaryKey.Com + &#x27;)&#x27;
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Sezione&#x27;) + cat.particella.primaryKey.Sezione
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Foglio&#x27;) + cat.particella.primaryKey.Foglio
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Numero&#x27;) + cat.particella.primaryKey.Numero
+        + &#x27;, &#x27; + this.translocoService.translate(&#x27;Subalterno&#x27;) + cat.particella.primaryKey.Subalterno
+      //this.GiasMessageService.errorMessage(content);
+      this.GiasDialogService.alertMessage(content, () &#x3D;&gt; { return true; }, Dialog_Type.error);
+    })
+  }
+
+  impreseDeleteMsg_Succ(r: rispostaStandard&lt;Impresa&gt;) {
+    let imp &#x3D; r.RispostaStringa
+    this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;Impresa&#x27;) + &quot;: &quot; + imp.ragioneSociale + &quot; &quot; + this.translocoService.translate(&#x27;EliminataCorrettamente&#x27;));
+  }
+
+  valutazionieleteMsg_Succ(r: rispostaStandard&lt;ValutazioneTestata&gt;) {
+    let imp &#x3D; r.RispostaStringa
+    this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;Valutazione&#x27;) + &quot;: &quot; + imp.Ragione_Sociale + &quot; &quot; + this.translocoService.translate(&#x27;EliminataCorrettamente&#x27;));
+  }
+
+  valutazioniDeleteMsg_Succ(imp: any) {
+    this.GiasMessageService.successMessage(this.translocoService.translate(&#x27;Valutazione&#x27;) + &quot;: &quot; + imp.primaryKey.Id_Testata + &quot; &quot; + this.translocoService.translate(&#x27;EliminataCorrettamente&#x27;));
+  }
+
+  impreseDeleteMsg_Fail(r: rispostaStandard&lt;Impresa&gt;) {
+    let imp &#x3D; r.RispostaStringa
+    let content &#x3D; this.translocoService.translate(&#x27;ErroreEliminazioneImpresa&#x27;) + &quot;: &quot; + imp.ragioneSociale;
+    //this.GiasMessageService.errorMessage(content)
+    //this.GiasDialogService.alertMessage(content, ()&#x3D;&gt; { return true;}, Dialog_Type.error);
+  }
+
+  valutazioniDeleteMsg_Fail(r: rispostaStandard&lt;ValutazioneTestata&gt;) {
+    let imp &#x3D; r.RispostaStringa
+    let content &#x3D; this.translocoService.translate(&#x27;ErroreEliminazioneValutazione&#x27;) + &quot;: &quot; + imp.Ragione_Sociale;
+    //this.GiasMessageService.errorMessage(content)
+    //this.GiasDialogService.alertMessage(content, ()&#x3D;&gt; { return true;}, Dialog_Type.error);
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DeleteMessageService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,97 @@
+{
+    "code": "bank_header",
+    "version": "0.0.1",
+    "description": "Attestazione Bancaria",
+    "title": {
+        "en": "Bank Header",
+        "it": "Attestazione Bancaria"
+    },
+    "metadata": {
+        "maxOccurs": 1,
+        "timeOverlap": false,
+        "defaultLocale": "it",
+        "startDateField": "01-11-2023",
+        "endDateField": "31-12-9999"
+    },
+    "fieldSets": [
+        {
+            "code": "attachments",
+            "minOccurs": 1,
+            "maxOccurs": 999,
+            "label": {
+                "en": "attachments",
+                "it": "Allegati"
+            },
+            "fields": [
+                {
+                    "code": "document_attachment_type",
+                    "required": true,
+                    "label": {
+                        "en": "Document type",
+                        "it": "Tipologia Allegato"
+                    },
+                    "type": "string",
+                    "lookupCode": "document_attachment_type_lookup"
+                },
+                {
+                    "code": "attachment_file",
+                    "required": true,
+                    "label": {
+                        "en": "Attachment",
+                        "it": "Allegato"
+                    },
+                    "type": "file"
+                }
+            ]
+        },
+        {
+            "code": "bank_header_related_data",
+            "minOccurs": 1,
+            "maxOccurs": 1,
+            "label": {
+                "en": "Bank Header Related Data",
+                "it": "Dati Relativi all'Attestazione Bancaria"
+            },
+            "fields": [
+                {
+                    "code": "note",
+                    "required": true,
+                    "label": {
+                        "en": "Subscription date",
+                        "it": "Data sottoscrizione"
+                    },
+                    "type": "string",
+                    "style": "textarea"
+                }
+            ]
+        }
+    ],
+    "lookups": [
+        {
+            "code": "document_attachment_type_lookup",
+            "entries": [
+                {
+                    "code": "bank_statement",
+                    "label": {
+                        "en": "STATEMENT FROM THE BANK IN WHICH THE C/C IS HELD",
+                        "it": "DICHIARAZIONE DELL'ISTITUTO BANCARIO DI INTESTAZIONE DEL C/C"
+                    }
+                },
+                {
+                    "code": "account_agreement",
+                    "label": {
+                        "en": "CURRENT ACCOUNT AGREEMENT",
+                        "it": "CONTRATTO DI CONTO CORRENTE"
+                    }
+                },
+                {
+                    "code": "statement_header",
+                    "label": {
+                        "en": "STATEMENT HEADER FOR CURRENT ACCOUNT SUMMARY",
+                        "it": "INTESTAZIONE DELL'ESTRATTO PER RIASSUNTO DI CONTO CORRENTE"
+                    }
+                }
+            ]
+        }
+    ]
+}

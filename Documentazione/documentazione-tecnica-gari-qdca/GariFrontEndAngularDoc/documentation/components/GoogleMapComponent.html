@@ -1,0 +1,3064 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GoogleMapComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/GIS/google-map/google-map.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>AfterViewInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gias-google-map</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./google-map.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./google-map.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#allegatiDaRicettaSubject" >allegatiDaRicettaSubject</a>
+                            </li>
+                            <li>
+                                <a href="#allegatoSelected" >allegatoSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calcHeight" >calcHeight</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#center" >center</a>
+                            </li>
+                            <li>
+                                <a href="#dialogListaAllegatiOpen" >dialogListaAllegatiOpen</a>
+                            </li>
+                            <li>
+                                <a href="#GISModality" >GISModality</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#googleMap" >googleMap</a>
+                            </li>
+                            <li>
+                                <a href="#labelZoom" >labelZoom</a>
+                            </li>
+                            <li>
+                                <a href="#listaAllegati" >listaAllegati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapZoomListener" >mapZoomListener</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#notificationRef" >notificationRef</a>
+                            </li>
+                            <li>
+                                <a href="#operation" >operation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#options" >options</a>
+                            </li>
+                            <li>
+                                <a href="#signal" >signal</a>
+                            </li>
+                            <li>
+                                <a href="#zoom" >zoom</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#callOperation" >callOperation</a>
+                            </li>
+                            <li>
+                                <a href="#closeAllegatiDaRicettaDialog" >closeAllegatiDaRicettaDialog</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDrawingMode" >getDrawingMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getMarkerWindowTitle" >getMarkerWindowTitle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSementiMsg" >getSementiMsg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSelectedFeaturesStyle" >handleSelectedFeaturesStyle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadPrecisionData" >loadPrecisionData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#manageLayer" >manageLayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#mapInitializedHandler" >mapInitializedHandler</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#quickGeoJson" >quickGeoJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#quickWKT" >quickWKT</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setMapOptions" >setMapOptions</a>
+                            </li>
+                            <li>
+                                <a href="#setOperation" >setOperation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setStyle" >setStyle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showLineeGuidaABWindow" >showLineeGuidaABWindow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showMarkerWindow" >showMarkerWindow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#showPolygonMergeWindow" >showPolygonMergeWindow</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#startDrawingMode" >startDrawingMode</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modality" >modality</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Outputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#loaded" >loaded</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, drawingManagerService: <a href="../injectables/DrawingManagerService.html" target="_self">DrawingManagerService</a>, googleMapGeoJsonService: <a href="../injectables/GoogleMapGeoJsonService.html" target="_self">GoogleMapGeoJsonService</a>, polygonWindowEventsService: <a href="../injectables/PolygonWindowEventsService.html" target="_self">PolygonWindowEventsService</a>, kendoWindowsService: <a href="../injectables/KendoWindowsService.html" target="_self">KendoWindowsService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, featureService: <a href="../injectables/FeatureService.html" target="_self">FeatureService</a>, gisService: <a href="../injectables/GisService.html" target="_self">GisService</a>, transloco: TranslocoService, wmsService: <a href="../injectables/WmsService.html" target="_self">WmsService</a>, editFeatureService: <a href="../injectables/EditFeatureService.html" target="_self">EditFeatureService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, creaDaPoligonoService: <a href="../injectables/CreaDaPoligonoService.html" target="_self">CreaDaPoligonoService</a>, googleMapDataService: <a href="../injectables/GoogleMapDataService.html" target="_self">GoogleMapDataService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, drawWindowOperationService: <a href="../injectables/DrawWindowOperationService.html" target="_self">DrawWindowOperationService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, gisGeometrySelectionService: <a href="../injectables/GISGeometrySelectionService.html" target="_self">GISGeometrySelectionService</a>, gisClient: <a href="../injectables/GisClient.html" target="_self">GisClient</a>, googleMapMovementControlService: <a href="../injectables/GoogleMapMovementControlService.html" target="_self">GoogleMapMovementControlService</a>, geoJsonLazyService: <a href="../injectables/GoogleMapGeoJsonLazyService.html" target="_self">GoogleMapGeoJsonLazyService</a>, googleMapFeatureService: <a href="../injectables/GoogleMapFeatureService.html" target="_self">GoogleMapFeatureService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>, clipboardService: <a href="../injectables/ClipboardService.html" target="_self">ClipboardService</a>, wktService: <a href="../injectables/WKTService.html" target="_self">WKTService</a>, dataLayerStyleService: <a href="../injectables/DataLayerStyleService.html" target="_self">DataLayerStyleService</a>, gisToolbarService: <a href="../injectables/GisToolbarService.html" target="_self">GisToolbarService</a>, funzioniComuniService: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>, ricetteService: <a href="../injectables/RicetteService.html" target="_self">RicetteService</a>, gisAnalisiMappeSatellitariWindowService: <a href="../injectables/GISAnalisiMappeSatellitariWindowService.html" target="_self">GISAnalisiMappeSatellitariWindowService</a>, mappePrescrizioneService: <a href="../injectables/MappePrescrizioneService.html" target="_self">MappePrescrizioneService</a>, mapGridOverlayService: <a href="../injectables/MapGridOverlayService.html" target="_self">MapGridOverlayService</a>, gisRasterConfigurationWindowService: <a href="../injectables/GISRasterConfigurationWindowService.html" target="_self">GISRasterConfigurationWindowService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:91</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawingManagerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawingManagerService.html" target="_self" >DrawingManagerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapGeoJsonService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapGeoJsonService.html" target="_self" >GoogleMapGeoJsonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>polygonWindowEventsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PolygonWindowEventsService.html" target="_self" >PolygonWindowEventsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kendoWindowsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoWindowsService.html" target="_self" >KendoWindowsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureService.html" target="_self" >FeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisService.html" target="_self" >GisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>wmsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WmsService.html" target="_self" >WmsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>editFeatureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/EditFeatureService.html" target="_self" >EditFeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>creaDaPoligonoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CreaDaPoligonoService.html" target="_self" >CreaDaPoligonoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapDataService.html" target="_self" >GoogleMapDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawWindowOperationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawWindowOperationService.html" target="_self" >DrawWindowOperationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisGeometrySelectionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISGeometrySelectionService.html" target="_self" >GISGeometrySelectionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisClient.html" target="_self" >GisClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapMovementControlService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapMovementControlService.html" target="_self" >GoogleMapMovementControlService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>geoJsonLazyService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapGeoJsonLazyService.html" target="_self" >GoogleMapGeoJsonLazyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapFeatureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapFeatureService.html" target="_self" >GoogleMapFeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>clipboardService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ClipboardService.html" target="_self" >ClipboardService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>wktService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/WKTService.html" target="_self" >WKTService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataLayerStyleService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DataLayerStyleService.html" target="_self" >DataLayerStyleService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisToolbarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisToolbarService.html" target="_self" >GisToolbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>funzioniComuniService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ricetteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RicetteService.html" target="_self" >RicetteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisAnalisiMappeSatellitariWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISAnalisiMappeSatellitariWindowService.html" target="_self" >GISAnalisiMappeSatellitariWindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mappePrescrizioneService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MappePrescrizioneService.html" target="_self" >MappePrescrizioneService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>mapGridOverlayService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MapGridOverlayService.html" target="_self" >MapGridOverlayService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisRasterConfigurationWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISRasterConfigurationWindowService.html" target="_self" >GISRasterConfigurationWindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modality"></a>
+                        <b>modality</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#GISModality" target="_self" >GISModality | undefined</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>GISModality.Full</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:71</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+    <section data-compodoc="block-outputs">
+    <h3 id="outputs">Outputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="loaded"></a>
+                        <b>loaded</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter</code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:72</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="callOperation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>callOperation</b></span>
+                        <a href="#callOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>callOperation()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeAllegatiDaRicettaDialog"></a>
+                    <span class="name">
+                        <span ><b>closeAllegatiDaRicettaDialog</b></span>
+                        <a href="#closeAllegatiDaRicettaDialog"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>closeAllegatiDaRicettaDialog(result: <a href="../interfaces/AllegatiDaRicettaDestinazione.html" target="_self">AllegatiDaRicettaDestinazione | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="332"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:332</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>result</td>
+                                            <td>
+                                                            <code><a href="../interfaces/AllegatiDaRicettaDestinazione.html" target="_self" >AllegatiDaRicettaDestinazione | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDrawingMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getDrawingMode</b></span>
+                        <a href="#getDrawingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDrawingMode()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="556"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:556</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >google.maps.drawing.OverlayType</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMarkerWindowTitle"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getMarkerWindowTitle</b></span>
+                        <a href="#getMarkerWindowTitle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMarkerWindowTitle(modality: <a href="../undefineds/MarkerWindowModality.html" target="_self">MarkerWindowModality</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="460"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:460</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>modality</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#MarkerWindowModality" target="_self" >MarkerWindowModality</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSementiMsg"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getSementiMsg</b></span>
+                        <a href="#getSementiMsg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSementiMsg()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="286"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:286</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedFeaturesStyle"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSelectedFeaturesStyle</b></span>
+                        <a href="#handleSelectedFeaturesStyle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectedFeaturesStyle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="256"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:256</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadPrecisionData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadPrecisionData</b></span>
+                        <a href="#loadPrecisionData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadPrecisionData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="480"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:480</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageLayer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>manageLayer</b></span>
+                        <a href="#manageLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageLayer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="565"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:565</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapInitializedHandler"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>mapInitializedHandler</b></span>
+                        <a href="#mapInitializedHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>mapInitializedHandler()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="293"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:293</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="577"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:577</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quickGeoJson"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>quickGeoJson</b></span>
+                        <a href="#quickGeoJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>quickGeoJson()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="585"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:585</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="quickWKT"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>quickWKT</b></span>
+                        <a href="#quickWKT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>quickWKT()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="591"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:591</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setMapOptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setMapOptions</b></span>
+                        <a href="#setMapOptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setMapOptions()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="300"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:300</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOperation"></a>
+                    <span class="name">
+                        <span ><b>setOperation</b></span>
+                        <a href="#setOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOperation(op: <a href="../undefineds/enum_GISDrawingOperations.html" target="_self">enum_GISDrawingOperations</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="326"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:326</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>op</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_GISDrawingOperations" target="_self" >enum_GISDrawingOperations</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setStyle"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setStyle</b></span>
+                        <a href="#setStyle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setStyle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="245"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:245</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showLineeGuidaABWindow"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showLineeGuidaABWindow</b></span>
+                        <a href="#showLineeGuidaABWindow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showLineeGuidaABWindow()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="473"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:473</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showMarkerWindow"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showMarkerWindow</b></span>
+                        <a href="#showMarkerWindow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showMarkerWindow(modality: <a href="../undefineds/MarkerWindowModality.html" target="_self">MarkerWindowModality</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="445"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:445</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>modality</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#MarkerWindowModality" target="_self" >MarkerWindowModality</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="showPolygonMergeWindow"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>showPolygonMergeWindow</b></span>
+                        <a href="#showPolygonMergeWindow"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>showPolygonMergeWindow()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="453"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:453</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startDrawingMode"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>startDrawingMode</b></span>
+                        <a href="#startDrawingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startDrawingMode()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="547"
+                                    class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:547</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allegatiDaRicettaSubject"></a>
+                    <span class="name">
+                        <span ><b>allegatiDaRicettaSubject</b></span>
+                        <a href="#allegatiDaRicettaSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;AllegatiDaRicettaDestinazione | null&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="allegatoSelected"></a>
+                    <span class="name">
+                        <span ><b>allegatoSelected</b></span>
+                        <a href="#allegatoSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcHeight"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calcHeight</b></span>
+                        <a href="#calcHeight"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;calc(100vh - 0px);&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="center"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>center</b></span>
+                        <a href="#center"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/LatLng.html" target="_self" >google.maps.LatLngLiteral</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{ lat: 0, lng: 0 }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="84" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dialogListaAllegatiOpen"></a>
+                    <span class="name">
+                        <span ><b>dialogListaAllegatiOpen</b></span>
+                        <a href="#dialogListaAllegatiOpen"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GISModality"></a>
+                    <span class="name">
+                        <span ><b>GISModality</b></span>
+                        <a href="#GISModality"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>GISModality</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:89</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="googleMap"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>googleMap</b></span>
+                        <a href="#googleMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GoogleMap</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(GoogleMap)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="labelZoom"></a>
+                    <span class="name">
+                        <span ><b>labelZoom</b></span>
+                        <a href="#labelZoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="listaAllegati"></a>
+                    <span class="name">
+                        <span ><b>listaAllegati</b></span>
+                        <a href="#listaAllegati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/AllegatiDaRicettaDestinazione.html" target="_self" >AllegatiDaRicettaDestinazione[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapZoomListener"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapZoomListener</b></span>
+                        <a href="#mapZoomListener"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/List.html" target="_self" >google.maps.MapsEventListener</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="notificationRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>notificationRef</b></span>
+                        <a href="#notificationRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NotificationRef</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="91" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="operation"></a>
+                    <span class="name">
+                        <span ><b>operation</b></span>
+                        <a href="#operation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#enum_GISDrawingOperations" target="_self" >enum_GISDrawingOperations</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="options"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>options</b></span>
+                        <a href="#options"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>google.maps.MapOptions</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signal"></a>
+                    <span class="name">
+                        <span ><b>signal</b></span>
+                        <a href="#signal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="zoom"></a>
+                    <span class="name">
+                        <span ><b>zoom</b></span>
+                        <a href="#zoom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>3</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/GIS/google-map/google-map.component.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  Output,
+  EventEmitter,
+  Input,
+  ChangeDetectorRef,
+  Optional
+} from &#x27;@angular/core&#x27;;
+import { GoogleMap } from &#x27;@angular/google-maps&#x27;;
+import { catchError, combineLatest, debounceTime, filter, forkJoin, map, of, skip, Subject, Subscription, switchMap, take, takeUntil, tap, throwError } from &#x27;rxjs&#x27;;
+import { enum_GISDrawingOperations } from &#x27;../GIS-enum/GIS-drawing-operations&#x27;;
+import { DrawingManagerService } from &#x27;../services/drawing-manager.service&#x27;;
+import { GoogleMapGeoJsonService } from &#x27;./google-map-geojson.service&#x27;;
+import { GoogleMapService } from &#x27;./google-map.service&#x27;;
+import { PolygonWindowEventsService } from &#x27;../services/polygon-window-events.service&#x27;;
+import { enum_OrigineChiamata, enum_OrigineChiamataLoadGeoJson } from &#x27;../GIS-enum/GIS-origine-chiamata&#x27;;
+import { KendoWindowsService, WindowArgs, WindowTypes } from &#x27;app/Service&#x27;;
+import { FeatureService } from &#x27;../services/feature.service&#x27;;
+import { GisService } from &#x27;../GIS.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GISModality, enum_FeatureProperty } from &#x27;../GIS-enum/GIS-feature&#x27;;
+import { EditFeatureService } from &#x27;../services/edit-feature.service&#x27;;
+import { WmsService } from &#x27;../services/wms.service&#x27;;
+import { SharedDataService } from &#x27;../services/shared-data.service&#x27;;
+import { CreaDaPoligonoService } from &#x27;../services/crea-da-poligono.service&#x27;;
+import { LayerService } from &#x27;../services/layer.service&#x27;;
+import { FeatureType } from &#x27;../../Model/GIS/GisDataReadRval_New&#x27;;
+import { DEFAULT_TOP_POSITION, GisToolbarService } from &#x27;../GIS-toolbar/gis-toolbar.service&#x27;;
+import { DrawWindowOperationService } from &#x27;../GIS-kendo-window/draw-window/draw-window-operation.service&#x27;;
+import { GiasDialogService } from &#x27;../../Service/gias-dialog.service&#x27;;
+import { MarkerWindowModality } from &#x27;../GIS-kendo-window/marker-window/marker-window.component&#x27;;
+import { ThemeWindowService } from &#x27;../GIS-kendo-window/theme-window/theme-window.service&#x27;;
+import { RicetteService } from &#x27;app/menu-agenda/components/grid-ricette/ricette.service&#x27;;
+import { AllegatiDaRicettaDestinazione, GisClient, LeggiAllegatiDaRicettaDestinazione_In, RispostaStandard_1OfGisDataReadRval_New_1OfGeoJSONAgroGisProp } from &#x27;app/Service/api.service&#x27;;
+import { FunzioniComuniService } from &#x27;app/Service/FunzioniComuni.service&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;../GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { GISAnalisiMappeSatellitariWindowService } from &#x27;../GIS-analisi-mappe-satellitari-window/GIS-analisi-mappe-satellitari-window.service&#x27;;
+import { GiasMessageService } from &#x27;../../Service/gias-message.service&#x27;;
+import { enum_TipologiaLayer } from &#x27;../GIS-enum/GIS-tipologia-layer&#x27;;
+import { NotificationRef } from &#x27;@progress/kendo-angular-notification&#x27;;
+import { GoogleMapDataService } from &#x27;../services/google.maps-services/google-map-data.service&#x27;;
+import { ClipboardService } from &#x27;../../Service/clipboard.service&#x27;;
+import { WKTService } from &#x27;../services/wkt.service&#x27;;
+import { MappePrescrizioneService } from &#x27;../services/mappe-prescrizione.service&#x27;;
+import { GoogleMapMovementControlService } from &#x27;../services/google-map-movement-control.service&#x27;;
+import { MapGridOverlayService } from &#x27;../services/map-grid-overlay.service&#x27;;
+import { GISRasterConfigurationWindowService } from &#x27;../GIS-raster-configuration-window/GIS-raster-configuration-window.service&#x27;;
+import { GoogleMapGeoJsonLazyService } from &#x27;../services/google.maps-services/google-map-geojson-lazy.service&#x27;;
+import { GoogleMapFeatureService } from &#x27;../services/google.maps-services/google-map-feature.service&#x27;;
+import { FeatureInformationService } from &#x27;../services/feature-information.service&#x27;;
+import { DataLayerStyleService } from &#x27;../services/data-layer-style.service&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import { GISGeometrySelectionService } from &#x27;../services/gis-geometry-selection.service&#x27;;
+
+const DEFAULT_GEOJSON_OPTIONS &#x3D; {
+  idPropertyName: enum_FeatureProperty.id
+};
+
+@Component({
+  standalone: false,
+  selector: &#x27;gias-google-map&#x27;,
+  templateUrl: &#x27;./google-map.component.html&#x27;,
+  styleUrls: [&#x27;./google-map.component.css&#x27;],
+})
+export class GoogleMapComponent implements OnInit, AfterViewInit, OnDestroy {
+  @ViewChild(GoogleMap) googleMap: GoogleMap;
+  @Input() modality: GISModality | undefined &#x3D; GISModality.Full;
+  @Output() loaded &#x3D; new EventEmitter&lt;void&gt;();
+
+  signal: Subject&lt;void&gt; &#x3D; new Subject();
+  allegatiDaRicettaSubject &#x3D; new Subject&lt;AllegatiDaRicettaDestinazione | null&gt;();
+  dialogListaAllegatiOpen &#x3D; false;
+  listaAllegati: AllegatiDaRicettaDestinazione[] &#x3D; [];
+  allegatoSelected: number | null &#x3D; null;
+
+  public calcHeight &#x3D; &#x27;calc(100vh - 0px);&#x27;;
+
+  operation: enum_GISDrawingOperations;
+
+  public readonly center: google.maps.LatLngLiteral &#x3D; { lat: 0, lng: 0 };
+  private options: google.maps.MapOptions;
+  zoom: number &#x3D; 3;
+  private mapZoomListener: google.maps.MapsEventListener;
+  labelZoom: string &#x3D; &#x27;&#x27;;
+  GISModality &#x3D; GISModality;
+
+  private notificationRef: NotificationRef;
+
+  constructor(
+    private googleMapService: GoogleMapService,
+    private masterService: MasterService,
+    private drawingManagerService: DrawingManagerService,
+    private googleMapGeoJsonService: GoogleMapGeoJsonService,
+    private polygonWindowEventsService: PolygonWindowEventsService,
+    private kendoWindowsService: KendoWindowsService,
+    private giasMessageService: GiasMessageService,
+    private featureService: FeatureService,
+    private gisService: GisService,
+    private transloco: TranslocoService,
+    private wmsService: WmsService,
+    private editFeatureService: EditFeatureService,
+    private sharedDataService: SharedDataService,
+    private creaDaPoligonoService: CreaDaPoligonoService,
+    private googleMapDataService: GoogleMapDataService,
+    private layerService: LayerService,
+    private drawWindowOperationService: DrawWindowOperationService,
+    private giasDialogService: GiasDialogService,
+    private gisGeometrySelectionService: GISGeometrySelectionService,
+    private gisClient: GisClient,
+    private googleMapMovementControlService: GoogleMapMovementControlService,
+    private geoJsonLazyService: GoogleMapGeoJsonLazyService,
+    private googleMapFeatureService: GoogleMapFeatureService,
+    private featureInformationService: FeatureInformationService,
+    private clipboardService: ClipboardService,
+    private wktService: WKTService,
+    private dataLayerStyleService: DataLayerStyleService,
+    private gisToolbarService: GisToolbarService,
+    private funzioniComuniService: FunzioniComuniService,
+    @Optional() private ricetteService: RicetteService,
+    @Optional() private gisAnalisiMappeSatellitariWindowService: GISAnalisiMappeSatellitariWindowService,
+    @Optional() private mappePrescrizioneService: MappePrescrizioneService,
+    @Optional() private mapGridOverlayService: MapGridOverlayService,
+    @Optional() private gisRasterConfigurationWindowService: GISRasterConfigurationWindowService,
+  ) {
+    // console.log(&#x27;[google-map.component] constructor&#x27;);
+    this.polygonWindowEventsService.reloadFeatures
+      .pipe(takeUntil(this.signal)).subscribe(() &#x3D;&gt; {
+        this.sharedDataService.setOrigineChiamataLoadGeoJson(enum_OrigineChiamataLoadGeoJson.DisegnoPoligono);
+        this.googleMapGeoJsonService.loadGeoJsonForzato(false);
+      });
+
+    this.drawWindowOperationService
+      .operation$
+      .pipe(takeUntil(this.signal))
+      .subscribe(operation &#x3D;&gt; this.setOperation(operation));
+
+
+    combineLatest([
+      this.sharedDataService.getCfgAlberoGisUtente$(),
+      this.sharedDataService.geoJsonLoaded.pipe(take(1))
+    ])
+      .pipe(takeUntil(this.signal))
+      .subscribe(([config, _]) &#x3D;&gt; {
+        if (config[0]?.CfgGisUtente?.ckGrigliaTiles_Sviluppo) {
+          this.mapGridOverlayService.add(this.googleMap);
+        } else {
+          this.mapGridOverlayService.remove(this.googleMap);
+        }
+      });
+
+    // TODO remove
+    combineLatest([this.googleMapService.idle$, this.sharedDataService.geoJsonLoaded.pipe(take(1))])
+      .pipe(
+        skip(1), // We do not care about the first one because we will zoom on the available features
+        takeUntil(this.signal),
+        debounceTime(200),
+        tap(() &#x3D;&gt; this.geoJsonLazyService.renderGeoJson(this.googleMap.data.getMap()))
+      ).subscribe();
+
+    this.googleMapFeatureService
+      .addFeatures$
+      .pipe(takeUntil(this.signal))
+      .subscribe(features &#x3D;&gt; {
+        const addedFeatures &#x3D; features.map(feature &#x3D;&gt; this.googleMap.data.add(feature));
+        this.googleMapFeatureService.addedFeatures(...addedFeatures);
+        this.setStyle();
+      });
+
+    this.googleMapFeatureService
+      .removeFeatures$
+      .pipe(takeUntil(this.signal))
+      .subscribe(features &#x3D;&gt; {
+        features.forEach(feature &#x3D;&gt; this.googleMap.data.remove(feature));
+        this.googleMapFeatureService.removedFeatures(...features);
+        this.setStyle();
+      });
+
+    this.googleMapFeatureService
+      .loadGeoJson$
+      .pipe(takeUntil(this.signal))
+      .subscribe(geoJson &#x3D;&gt; {
+        const addedFeatures &#x3D; this.googleMap.data.addGeoJson(geoJson, DEFAULT_GEOJSON_OPTIONS);
+        this.googleMapFeatureService.loadedByGeoJson(geoJson, ...addedFeatures);
+        this.handleSelectedFeaturesStyle();
+      });
+  }
+
+  ngOnInit(): void {
+    if (document.querySelector(&#x27;header&#x27;))
+      this.calcHeight &#x3D; (window.innerHeight - document.querySelector(&#x27;header&#x27;).offsetHeight) + &#x27;px&#x27;;
+    else
+      this.calcHeight &#x3D; (window.innerHeight) + &#x27;px&#x27;;
+
+    if (this.sharedDataService.getCfgSementiAsValue() !&#x3D; undefined)
+      this.notificationRef &#x3D; this.giasMessageService.customMessage(this.getSementiMsg(), &#x27;&#x27;, &#x27;&#x27;, () &#x3D;&gt; { return; })
+  }
+
+  ngAfterViewInit(): void {
+    google.maps.event.addListenerOnce(this.googleMap.googleMap, &#x27;projection_changed&#x27;, () &#x3D;&gt; {
+      this.googleMapService.googleMapWrapper &#x3D; this.googleMap;
+      this.setMapOptions();
+
+      this.googleMap.googleMap.addListener(&#x27;click&#x27;,
+        (e) &#x3D;&gt; {
+          // handled separetely
+          if (this.gisToolbarService.isMarkerPlacerActive) {
+            return;
+          }
+
+          if (this.gisAnalisiMappeSatellitariWindowService.isActive &amp;&amp; this.gisAnalisiMappeSatellitariWindowService.isMapInfoActive) {
+            this.gisAnalisiMappeSatellitariWindowService?.nextMapClick(e);
+            return;
+          }
+
+          if (this.gisRasterConfigurationWindowService.isAnyMapInfoActive) {
+            this.gisRasterConfigurationWindowService.nextMapClickEvent(e);
+            return;
+          }
+
+          this.googleMapGeoJsonService.seDeselezionaFeatureSelezionate(enum_OrigineChiamata.Mappa);
+          this.wmsService.seWmsInfoClickMappa(e);
+        });
+      this.googleMap.googleMap.addListener(
+        &#x27;idle&#x27;,
+        () &#x3D;&gt; {
+          const currentZoom &#x3D; this.googleMapService.googleMapWrapper.getZoom();
+          this.googleMapService.nextIdle(this.googleMapService.googleMapWrapper.getCenter(), currentZoom);
+          this.gisAnalisiMappeSatellitariWindowService?.nextMapIdle();
+          this.googleMapMovementControlService.nextIdle(this.googleMapService.googleMapWrapper.getCenter(), currentZoom);
+          this.labelZoom &#x3D; &#x60;Livello zoom: ${currentZoom}&#x60;;
+        }
+      );
+
+      // Imposto il tipo di mappa di default a HYBRID
+      this.googleMap.googleMap.setMapTypeId(google.maps.MapTypeId.HYBRID);
+
+      this.loaded.emit();
+    });
+  }
+
+  private setStyle(): void {
+    this.googleMap.data.setStyle((f: google.maps.Data.Feature) &#x3D;&gt; {
+      const feature &#x3D; this.featureInformationService.getById(f.getId().toString());
+      if (feature !&#x3D; undefined) {
+        return this.dataLayerStyleService.getFeatureStyle(feature);
+      } else {
+        return;
+      }
+    });
+  }
+
+  private handleSelectedFeaturesStyle(): void {
+    const selected &#x3D; this.gisGeometrySelectionService
+      .getCurrentSelection()
+      .filter(([_, selected]) &#x3D;&gt; selected)
+      .map(([id, _]) &#x3D;&gt; id);
+
+    if (selected.length &#x3D;&#x3D; 0) {
+      return;
+    }
+
+    this.googleMap.data.forEach(f &#x3D;&gt; {
+      const feature &#x3D; this.featureInformationService.getById(f.getId().toString());
+      if (feature &#x3D;&#x3D; null) {
+        return;
+      }
+
+      const chiaveAlberoCompleta &#x3D; FunzioniComuniService.chiaveAlberoRidottaToBig(feature.properties.chiavealbero) as string;
+      if (!selected.find(key &#x3D;&gt; chiaveAlberoCompleta.includes(key))) {
+        return;
+      }
+
+      const permessiFeature &#x3D; this.featureService.getPermessiFeature(feature);
+      if (permessiFeature.modifica &amp;&amp; this.modality &#x3D;&#x3D; GISModality.Full) {
+        this.googleMapDataService.overrideFeatureStyle(feature, this.googleMapGeoJsonService.stileModificabile(feature));
+      } else {
+        this.googleMapDataService.overrideFeatureStyle(feature, this.googleMapGeoJsonService.stileSelezionato(feature));
+      }
+    });
+  }
+
+  private getSementiMsg(): string {
+    if (this.sharedDataService.getCfgSementiAsValue().SementiMappaturaLibera !&#x3D; &#x27;True&#x27;)
+      return this.sharedDataService.getCfgSementiAsValue().Sementi.split(&#x27;|&#x27;)[5];
+    else
+      return this.transloco.translate(&#x27;gis.MappaturaLibera&#x27;);
+  }
+
+  public mapInitializedHandler() {
+    setTimeout(() &#x3D;&gt; {
+      google.maps.event.trigger(this.googleMap.googleMap, &#x27;resize&#x27;);
+      // this.googleMap.googleMap.setCenter(new google.maps.LatLng(this.center?.lat, this.center?.lng));
+    }, 900);
+  }
+
+  private setMapOptions() {
+    this.options &#x3D; {
+      mapTypeControl: false,
+      mapTypeControlOptions: {
+        position: google.maps.ControlPosition.LEFT_TOP,
+        style: google.maps.MapTypeControlStyle.DEFAULT,
+        mapTypeIds: [google.maps.MapTypeId.HYBRID, google.maps.MapTypeId.TERRAIN, google.maps.MapTypeId.SATELLITE, google.maps.MapTypeId.ROADMAP]
+      },
+      disableDoubleClickZoom: true,
+      fullscreenControlOptions: {
+        position: google.maps.ControlPosition.RIGHT_CENTER
+      },
+      zoomControlOptions: {
+        position: google.maps.ControlPosition.LEFT_CENTER
+      },
+      cameraControl: false,
+      streetViewControl: false,
+      disableDefaultUI: false,
+      zoomControl: true,
+      tilt: 0
+      //draggableCursor: &#x27;vertical-text&#x27;,
+      //draggingCursor: &#x27;vertical-text&#x27;
+    }
+    this.googleMap.googleMap.setOptions(this.options);
+  }
+
+  setOperation(op: enum_GISDrawingOperations) {
+    this.drawingManagerService.stopDrawingMode();
+    this.operation &#x3D; op;
+    this.callOperation();
+  }
+
+  closeAllegatiDaRicettaDialog(result: AllegatiDaRicettaDestinazione | null): void {
+    this.dialogListaAllegatiOpen &#x3D; false;
+    this.allegatiDaRicettaSubject.next(result);
+  }
+
+  private callOperation() {
+
+    switch (this.operation) {
+
+      case enum_GISDrawingOperations.marker: {
+        this.manageLayer();
+        this.drawingManagerService.setDrawing_Modes(google.maps.drawing.OverlayType.MARKER);
+        this.drawingManagerService.startDrawingMode(true);
+        this.showMarkerWindow(MarkerWindowModality.Marker);
+        break;
+      }
+
+      case enum_GISDrawingOperations.scomponiModificaPunti: {
+        this.showMarkerWindow(MarkerWindowModality.Scomponi);
+        break;
+      }
+
+      case enum_GISDrawingOperations.strumentoDisegnoAvanzato: {
+        this.showMarkerWindow(MarkerWindowModality.DisegnoAvanzato);
+        break;
+      }
+
+      case enum_GISDrawingOperations.strumentoUnisci: {
+        this.showPolygonMergeWindow();
+        break;
+      }
+
+      case enum_GISDrawingOperations.polygon: {
+        // this.kendoWindowsService.close(WindowTypes.MarkerWindow);
+        this.startDrawingMode();
+        break;
+      }
+
+      case enum_GISDrawingOperations.erase: {
+        this.googleMapGeoJsonService.seDeselezionaFeatureSelezionate(enum_OrigineChiamata.Mappa);
+        break;
+      }
+
+      case enum_GISDrawingOperations.delete: {
+        if (this.featureService.getFeatureSelezionate().length &#x3D;&#x3D;&#x3D; 0) {
+          //this.giasMessageService.errorMessage(this.transloco.translate(&#x27;gis.SelezionarePoligono&#x27;));
+          this.giasDialogService.baseError(&#x27;Elimina feature&#x27;, &#x27;gis.SelezionarePoligono&#x27;);
+          break;
+        }
+        let altezzaFinestra &#x3D; 225;
+        if (!this.sharedDataService.getCfgGisGenerali().permessoPrecisionFarming) {
+          altezzaFinestra -&#x3D; 50;
+        }
+        const windowArgs &#x3D; new WindowArgs(WindowTypes.DeleteLayerWindow, true, &quot;Elimina impianto&quot;, altezzaFinestra, 350, undefined, undefined, 200, true, true, true, false, false, false);
+        this.kendoWindowsService.open(WindowTypes.DeleteLayerWindow, windowArgs);
+        break;
+      }
+
+      case enum_GISDrawingOperations.copy: {
+        this.gisService.copiaFeature();
+        break;
+      }
+
+      case enum_GISDrawingOperations.paste: {
+        this.gisService.incollaFeature();
+        break;
+      }
+
+      case enum_GISDrawingOperations.save: {
+        if (this.featureService.getFeatureSelezionate().length &#x3D;&#x3D;&#x3D; 0) {
+          // this.giasMessageService.errorMessage(&quot;Selezionare prima un poligono da modificare&quot;);
+          this.giasDialogService.baseError(&#x27;Modifica feature&#x27;, &#x27;Selezionare prima un poligono da modificare&#x27;, false);
+          break;
+        }
+        if (this.featureService.getFeatureSelezionate().length &gt; 1) {
+          // this.giasMessageService.errorMessage(&quot;Selezionare un solo poligono da modificare&quot;);
+          this.giasDialogService.baseError(&#x27;Modifica feature&#x27;, &#x27;Selezionare un solo poligono da modificare&#x27;, false);
+          break;
+        }
+        this.editFeatureService.modificaFeature();
+        break;
+      }
+
+      case enum_GISDrawingOperations.new: {
+        if (this.featureService.getFeatureSelezionate().length &#x3D;&#x3D;&#x3D; 0) {
+          // this.giasMessageService.errorMessage(&quot;Selezionare prima un poligono&quot;);
+          this.giasDialogService.baseError(&#x27;Modifica feature&#x27;, &#x27;Selezionare prima un poligono&#x27;, false);
+          break;
+        }
+        if (this.featureService.getFeatureSelezionate().length &gt; 1) {
+          // this.giasMessageService.errorMessage(&quot;Selezionare un solo poligono&quot;);
+          this.giasDialogService.baseError(&#x27;Modifica feature&#x27;, &#x27;Selezionare un solo poligono&#x27;, false);
+          break;
+        }
+        this.creaDaPoligonoService.creaImpiantoDaPoligono();
+        break;
+      }
+
+      case enum_GISDrawingOperations.lineeGuidaAB: {
+        this.showLineeGuidaABWindow();
+        break;
+      }
+
+      case enum_GISDrawingOperations.datiAgricolturaPrecisone: {
+        this.loadPrecisionData();
+        break;
+      }
+
+      default: console.log(&#x27;Operation not yet implemented&#x27;);
+
+    }
+  }
+
+  private showMarkerWindow(modality: MarkerWindowModality): void {
+    const width &#x3D; 625;
+    const title &#x3D; this.getMarkerWindowTitle(modality);
+    const windowArgs &#x3D; new WindowArgs(WindowTypes.MarkerWindow, true, title, null, width, 250, 100, DEFAULT_TOP_POSITION, true, true, true, true, true, false, true);
+    windowArgs.additionalArgs &#x3D; { modality: modality };
+    this.kendoWindowsService.open(windowArgs.windowType, windowArgs);
+  }
+
+  private showPolygonMergeWindow(): void {
+    const width &#x3D; 625;
+    const title &#x3D; this.transloco.translate(&#x27;gis.StrumentoUnisciPoligoni&#x27;);
+    const windowArgs &#x3D; new WindowArgs(WindowTypes.PolygonMergeWindow, true, title, null, width, 250, 100, DEFAULT_TOP_POSITION, false, false, true, true, true, false, true);
+    this.kendoWindowsService.open(windowArgs.windowType, windowArgs);
+  }
+
+  private getMarkerWindowTitle(modality: MarkerWindowModality): string {
+    switch (modality) {
+      case MarkerWindowModality.Marker:
+        return this.transloco.translate(&#x27;gis.StrumentoDisegnoPunti&#x27;);
+      case MarkerWindowModality.Scomponi:
+        return this.transloco.translate(&#x27;gis.StrumentoScomponiModificaPunti&#x27;);
+      case MarkerWindowModality.DisegnoAvanzato:
+        return this.transloco.translate(&#x27;gis.StrumentoDisegnoAvanzato&#x27;);
+      default:
+        return &quot;&quot;;
+    }
+  }
+
+  private showLineeGuidaABWindow(): void {
+    const width &#x3D; 250;
+    const title &#x3D; this.transloco.translate(&#x27;gis.StrumentoLineeGuidaAB&#x27;);
+    const windowArgs &#x3D; new WindowArgs(WindowTypes.LineeGuidaABWindow, true, title, null, width, 250, 100, DEFAULT_TOP_POSITION, true, true, true, true, true, false, true);
+    this.kendoWindowsService.open(windowArgs.windowType, windowArgs);
+  }
+
+  private loadPrecisionData(): void {
+    const ricetteOpCodes &#x3D; this.ricetteService.getSelected().map(x &#x3D;&gt; x.Ricetta_Operazione_Cod);
+    if (ricetteOpCodes.length &#x3D;&#x3D; 0) {
+      return;
+    }
+
+    const feature &#x3D; this.featureService.getUltimaFeatureSelezionata();
+    const chiaveAlbero &#x3D; this.featureService.getChiaveAlberoCompletaByFeature(feature);
+    const objChiaveAlbero &#x3D; FunzioniComuniService.scomponiChiaveAlbero(chiaveAlbero);
+
+    const body &#x3D; {
+      Allegati_Documenti_CatCod: 75,
+      Appezza: objChiaveAlbero.Appezza,
+      Id_Imp: objChiaveAlbero.Id_Imp,
+      Piva: objChiaveAlbero.Piva,
+      Sa_Cod: objChiaveAlbero.Sa_Cod,
+      Ricetta_Operazione_Cod: ricetteOpCodes[0]
+    } as LeggiAllegatiDaRicettaDestinazione_In;
+
+    // sub is used to avoid multiple emit of this.allegatiDaRicettaSubject.asObservable()
+    const sub: Subscription &#x3D; this.gisClient
+      .gisLeggiAllegatiDaRicettaDestinazione(body)
+      .pipe(
+        catchError(() &#x3D;&gt; throwError(() &#x3D;&gt; new Error(&quot;gis.DatiAgricolturaPrecisoneErrore&quot;))),
+        switchMap(res &#x3D;&gt; {
+          const lista &#x3D; res.RispostaStringa.ListaAllegati;
+          if (lista.length &#x3D;&#x3D; 0) {
+            this.giasDialogService.baseError(&quot;gis.DatiAgricolturaPrecisone&quot;, &quot;gis.DatiAgricolturaPrecisoneListaAllegatiVuota&quot;);
+            return of(null);
+          }
+
+          if (lista.length &#x3D;&#x3D; 1) {
+            return of(lista[0].Allegati_Documenti_Cod);
+          }
+
+          this.listaAllegati &#x3D; lista;
+          this.dialogListaAllegatiOpen &#x3D; true;
+          return this.allegatiDaRicettaSubject.asObservable().pipe(map(x &#x3D;&gt; x?.Allegati_Documenti_Cod));
+        }),
+        tap(res &#x3D;&gt; {
+          if (res &#x3D;&#x3D; null) {
+            sub.unsubscribe();
+          }
+          this.listaAllegati &#x3D; [];
+          this.allegatoSelected &#x3D; null;
+        }),
+        tap(() &#x3D;&gt; this.masterService.set_isLoading({ isLoading: true })),
+        filter(res &#x3D;&gt; res !&#x3D; null),
+        switchMap(code &#x3D;&gt; forkJoin([of(code), this.gisClient.gisCaricaDatiPrecisionXmlDaAllegati({ Flag_TipoCod: 1, Lista_RicettaOp_Cod: [code] })])),
+        switchMap(([code, res]) &#x3D;&gt; res &#x3D;&#x3D; null ? throwError(() &#x3D;&gt; new Error(&quot;gis.DatiAgricolturaPrecisoneErrore&quot;)) : of([code, res]))
+      )
+      .subscribe({
+        next: ([code, res]: [number, RispostaStandard_1OfGisDataReadRval_New_1OfGeoJSONAgroGisProp]) &#x3D;&gt; {
+          this.mappePrescrizioneService.setGeoJsonLoaded({ allegatoCode: code, geoJson: res.RispostaStringa.myGeoJson as any });
+          this.googleMapGeoJsonService.addPrecisionDataFeatures(res.RispostaStringa.myGeoJson as any, false);
+          this.giasDialogService.baseSuccess(&quot;gis.DatiAgricolturaPrecisone&quot;, &quot;gis.DatiAgricolturaPrecisoneCaricato&quot;);
+          this.masterService.set_isLoading({ isLoading: false });
+          sub.unsubscribe();
+        },
+        error: () &#x3D;&gt; {
+          this.giasDialogService.baseError(&quot;gis.DatiAgricolturaPrecisone&quot;, &quot;gis.DatiAgricolturaPrecisoneErrore&quot;);
+          this.masterService.set_isLoading({ isLoading: false });
+          sub.unsubscribe();
+        }
+      });
+  }
+
+  private startDrawingMode() {
+    this.manageLayer();
+    if (this.layerService.layerItemSelected[0]?.id !&#x3D; &#x27;-1&#x27;) {
+      this.drawingManagerService.setDrawing_Modes(this.getDrawingMode());
+      this.drawingManagerService.setLayer(this.layerService.layerItemSelected[0])
+      this.drawingManagerService.startDrawingMode();
+    }
+  }
+
+  private getDrawingMode(): google.maps.drawing.OverlayType {
+    if (Number.parseInt(this.layerService.layerItemSelected[0]?.FeatureTypeId) &#x3D;&#x3D; FeatureType.Polygon)
+      return google.maps.drawing.OverlayType.POLYGON;
+    if (Number.parseInt(this.layerService.layerItemSelected[0]?.FeatureTypeId) &#x3D;&#x3D; FeatureType.Point)
+      return google.maps.drawing.OverlayType.MARKER;
+    if (Number.parseInt(this.layerService.layerItemSelected[0]?.FeatureTypeId) &#x3D;&#x3D; FeatureType.LineString)
+      return google.maps.drawing.OverlayType.POLYLINE;
+  }
+
+  private manageLayer() {
+    if (
+      !this.layerService.layerItemSelected[1] ||
+      (
+        this.sharedDataService.getCfgSementiAsValue() !&#x3D; undefined &amp;&amp;
+        this.layerService.LayerSelected.getValue().Option_Value !&#x3D; enum_TipologiaLayer.OrganizzazioneAppartenenza
+      )
+    ) {
+      this.layerService.setLayerItemSelected([this.sharedDataService.getTipologiaLayerById(enum_LayerElementiGraficiStd.IMPIANTI), true]);
+    }
+  }
+
+  ngOnDestroy(): void {
+    this.notificationRef?.hide();
+    this.signal.next();
+    this.signal.complete();
+    this.drawingManagerService.onDestroy();
+    google.maps.event.removeListener(this.mapZoomListener);
+  }
+
+  public quickGeoJson(): void {
+    const geometry &#x3D; this.featureInformationService.getGeometry(this.featureService.getUltimaFeatureSelezionata().properties.id);
+    this.clipboardService.copyObjAsJsonToClipboard(this.wktService.wktToGeoJson(this.wktService.geometryToWKT(geometry)));
+    this.giasMessageService.successMessage(&#x27;gis.CopiatoCorrettamenteInClipboard&#x27;, false, true);
+  }
+
+  public quickWKT(): void {
+    const geometry &#x3D; this.featureInformationService.getGeometry(this.featureService.getUltimaFeatureSelezionata().properties.id);
+    this.clipboardService.copyStringToCliboard(this.wktService.geometryToWKT(geometry));
+    this.giasMessageService.successMessage(&#x27;gis.CopiatoCorrettamenteInClipboard&#x27;, false, true);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;google-map id&#x3D;&quot;map&quot; [center]&#x3D;&quot;center&quot; [height]&#x3D;&quot;calcHeight&quot; width&#x3D;&quot;100%&quot; [zoom]&#x3D;&quot;zoom&quot;
+    (mapInitialized)&#x3D;&quot;mapInitializedHandler()&quot;&gt;
+
+    &lt;div id&#x3D;&quot;zoomtextbox&quot; style&#x3D;&quot;
+            background-color: white;
+            border-radius: 3px;
+            box-shadow: 0 2px 6px rgba(0,0,0,.3);
+            color: black;
+            /*margin: 8px 0 60px;*/
+            cursor: default;
+            text-align: center;
+            font-size: 16px;
+            z-index: 50;
+
+            margin: 5px;
+            position: absolute;
+            bottom: 8%;
+            left: 42.5%;
+        &quot;&gt;
+        &lt;kendo-textbox *ngIf&#x3D;&quot;modality &#x3D;&#x3D; GISModality.Full&quot; [(ngModel)]&#x3D;&quot;labelZoom&quot; readonly&#x3D;&quot;true&quot;
+            style&#x3D;&quot;font-family: Arial, sans-serif; font-size: 14px; font-weight: bold;&quot;&gt;&lt;/kendo-textbox&gt;
+    &lt;/div&gt;
+
+    &lt;div *ngIf&#x3D;&quot;modality &#x3D;&#x3D; GISModality.Full&quot;&gt;
+        &lt;draw-window [modality]&#x3D;&quot;modality&quot;&gt;&lt;/draw-window&gt;
+        &lt;app-marker-window&gt;&lt;/app-marker-window&gt;
+        &lt;gis-polygon-merge-window&gt;&lt;/gis-polygon-merge-window&gt;
+        &lt;app-linee-guida-ab-window&gt;&lt;/app-linee-guida-ab-window&gt;
+        &lt;app-gestione-piano-rateo-window&gt;&lt;/app-gestione-piano-rateo-window&gt;
+    &lt;/div&gt;
+    &lt;polygon-window&gt;&lt;/polygon-window&gt;
+    &lt;!-- &lt;map-heatmap-layer&gt;&lt;/map-heatmap-layer&gt; --&gt;
+&lt;/google-map&gt;
+
+&lt;kendo-dialog *ngIf&#x3D;&quot;dialogListaAllegatiOpen&quot; (close)&#x3D;&quot;closeAllegatiDaRicettaDialog(null)&quot;
+    [width]&#x3D;&quot;500&quot;&gt;
+
+    &lt;kendo-dialog-titlebar&gt;
+      &lt;div class&#x3D;&quot;text_uppercase font-700&quot;&gt; {{ &#x27;gis.DatiAgricolturaPrecisone&#x27; | transloco }}&lt;/div&gt;
+    &lt;/kendo-dialog-titlebar&gt;
+
+    &lt;p&gt;{{ &#x27;gis.DatiAgricolturaPrecisoneSeleziona&#x27; | transloco }}&lt;/p&gt;
+
+    &lt;kendo-dropdownlist [data]&#x3D;&quot;listaAllegati&quot; textField&#x3D;&quot;Allegati_Documenti_Des&quot; valueField&#x3D;&quot;Allegati_Documenti_Cod&quot;
+        [(ngModel)]&#x3D;&quot;allegatoSelected&quot;&gt;
+    &lt;/kendo-dropdownlist&gt;
+
+    &lt;kendo-dialog-actions&gt;
+        &lt;!-- &lt;button kendoButton (click)&#x3D;&quot;closeAllegatiDaRicettaDialog(null)&quot;&gt;{{ &#x27;Annulla&#x27; | tranloco }}&lt;/button&gt; --&gt;
+        &lt;button kendoButton (click)&#x3D;&quot;closeAllegatiDaRicettaDialog(allegatoSelected)&quot; themeColor&#x3D;&quot;primary&quot;&gt;{{ &#x27;Conferma&#x27;
+            | transloco }}&lt;/button&gt;
+    &lt;/kendo-dialog-actions&gt;
+&lt;/kendo-dialog&gt;
+
+&lt;!--SALVATORE ZAMMATARO 05-06-2023: il btn sottostante è necessario al funzionamento dei btns per la copia di oggetti WKT e GeoJson dalla infowindow--&gt;
+&lt;button
+    id&#x3D;&quot;copyGeoJsonBtnInfoWindow&quot;
+    kendoButton
+    style&#x3D;&quot;display: none&quot;
+    (click)&#x3D;&quot;quickGeoJson()&quot;
+&gt;
+&lt;/button&gt;
+&lt;button
+    id&#x3D;&quot;copyWKTBtnInfoWindow&quot;
+    kendoButton
+    style&#x3D;&quot;display: none&quot;
+    (click)&#x3D;&quot;quickWKT()&quot;
+&gt;
+&lt;/button&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./google-map.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">#map div[style*&#x3D;&quot;cursor&quot;] {
+    cursor: vertical-text !important;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><google-map id="map" [center]="center" [height]="calcHeight" width="100%" [zoom]="zoom"    (mapInitialized)="mapInitializedHandler()">    <div id="zoomtextbox" style="            background-color: white;            border-radius: 3px;            box-shadow: 0 2px 6px rgba(0,0,0,.3);            color: black;            /*margin: 8px 0 60px;*/            cursor: default;            text-align: center;            font-size: 16px;            z-index: 50;            margin: 5px;            position: absolute;            bottom: 8%;            left: 42.5%;        ">        <kendo-textbox *ngIf="modality == GISModality.Full" [(ngModel)]="labelZoom" readonly="true"            style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold;"></kendo-textbox>    </div>    <div *ngIf="modality == GISModality.Full">        <draw-window [modality]="modality"></draw-window>        <app-marker-window></app-marker-window>        <gis-polygon-merge-window></gis-polygon-merge-window>        <app-linee-guida-ab-window></app-linee-guida-ab-window>        <app-gestione-piano-rateo-window></app-gestione-piano-rateo-window>    </div>    <polygon-window></polygon-window>    <!-- <map-heatmap-layer></map-heatmap-layer> --></google-map><kendo-dialog *ngIf="dialogListaAllegatiOpen" (close)="closeAllegatiDaRicettaDialog(null)"    [width]="500">    <kendo-dialog-titlebar>      <div class="text_uppercase font-700"> {{ \'gis.DatiAgricolturaPrecisone\' | transloco }}</div>    </kendo-dialog-titlebar>    <p>{{ \'gis.DatiAgricolturaPrecisoneSeleziona\' | transloco }}</p>    <kendo-dropdownlist [data]="listaAllegati" textField="Allegati_Documenti_Des" valueField="Allegati_Documenti_Cod"        [(ngModel)]="allegatoSelected">    </kendo-dropdownlist>    <kendo-dialog-actions>        <!-- <button kendoButton (click)="closeAllegatiDaRicettaDialog(null)">{{ \'Annulla\' | tranloco }}</button> -->        <button kendoButton (click)="closeAllegatiDaRicettaDialog(allegatoSelected)" themeColor="primary">{{ \'Conferma\'            | transloco }}</button>    </kendo-dialog-actions></kendo-dialog><!--SALVATORE ZAMMATARO 05-06-2023: il btn sottostante è necessario al funzionamento dei btns per la copia di oggetti WKT e GeoJson dalla infowindow--><button    id="copyGeoJsonBtnInfoWindow"    kendoButton    style="display: none"    (click)="quickGeoJson()"></button><button    id="copyWKTBtnInfoWindow"    kendoButton    style="display: none"    (click)="quickWKT()"></button></div>'
+    var COMPONENTS = [{'name': 'AbbattimentoImpiantiComponent', 'selector': 'app-abbattimento-impianti'},{'name': 'AccessoNegatoComponent', 'selector': 'app-accesso-negato'},{'name': 'AcquaComponent', 'selector': 'app-acqua'},{'name': 'AgendaFiltersComponent', 'selector': 'agenda-filters'},{'name': 'AgriculturalExerciceContributeLinkComponent', 'selector': 'app-agricultural-exercice-contribute-link'},{'name': 'AgriculturalPlotMachineLinkComponent', 'selector': 'app-agricultural-plots-machines-link'},{'name': 'AgriculturalPlotSlopeComponent', 'selector': 'app-agricultural-plot-slope'},{'name': 'AgriculturalPlotWeavingComponent', 'selector': 'app-agricultural-plot-weaving'},{'name': 'AlertDocumentiWidgetComponent', 'selector': 'app-alert-documenti-widget'},{'name': 'AllOperationsTableComponent', 'selector': 'all-operations-table'},{'name': 'AnagraficaComponent', 'selector': 'gias-anagrafica'},{'name': 'AnagraficaTreeFiltersComponent', 'selector': 'tree-filters'},{'name': 'AnagraficheIndiciMaturitaComponent', 'selector': 'app-anagrafiche-indici-maturita'},{'name': 'AnagraficheRilieviAvversitaComponent', 'selector': 'app-anagrafiche-rilievi-avversita'},{'name': 'AnalisiTerrenoComponent', 'selector': 'app-analisi-terreno'},{'name': 'AnalisiTerrenoEditComponent', 'selector': 'app-analisi-terreno-edit'},{'name': 'AnnoValutazioniEditComponent', 'selector': 'app-anno-valutazioni-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppezzamentiCampoEditComponent', 'selector': 'app-appezzamento-campo-edit'},{'name': 'AppezzamentiComponent', 'selector': 'app-appezzamenti'},{'name': 'AppezzamentoEditComponent', 'selector': 'app-appezzamento-edit'},{'name': 'AppezzamentoGlobalEditComponent', 'selector': 'app-appezzamento-global-edit'},{'name': 'AvversitaComponent', 'selector': 'app-avversita'},{'name': 'AxpMessageContentComponent', 'selector': 'app-axp-message-content'},{'name': 'AziendaComponent', 'selector': 'app-azienda'},{'name': 'AziendeMultiPieWidgetComponent', 'selector': 'app-aziende-multi-pie-widget'},{'name': 'BiologicoComponent', 'selector': 'centri-biologico'},{'name': 'BottoneAggiuntaProdottoComponent', 'selector': 'app-bottone-aggiunta-prodotto'},{'name': 'BottoneCreaProdottoComponent', 'selector': 'app-bottone-crea-prodotto'},{'name': 'BottoneRicercaProdotti', 'selector': 'app-bottone-ricerca-prodotti'},{'name': 'BottoniGestioneProdottoComponent', 'selector': 'app-bottoni-gestione-prodotto'},{'name': 'BottoniSalvataggioComponent', 'selector': 'app-bottoni-salvataggio'},{'name': 'BottoniSezioneProdottiComponent', 'selector': 'app-bottoni-sezione-prodotti'},{'name': 'BottoniTestataComponent', 'selector': 'btn-bottoni-testata'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'BrogliaccioGridComponent', 'selector': 'brogliaccio-table'},{'name': 'BudgetComponent', 'selector': 'gias-budget'},{'name': 'CacCodificheComponent', 'selector': 'app-cac-codifiche'},{'name': 'CampiComponent', 'selector': 'app-campi'},{'name': 'CampiEditComponent', 'selector': 'app-campi-edit'},{'name': 'CampiShortDescriptionComponent', 'selector': 'campi-short-description'},{'name': 'CardImpostazioneComponent', 'selector': 'app-card-impostazione'},{'name': 'CatastoCampoEditComponent', 'selector': 'app-catasto-campo-edit'},{'name': 'CatastoClassamentoEditComponent', 'selector': 'app-catasto-classamento-edit'},{'name': 'CatastoComponent', 'selector': 'app-catasto'},{'name': 'CatastoEditComponent', 'selector': 'app-catasto-edit'},{'name': 'CatastoMacrousiEditComponent', 'selector': 'app-catasto-macrousi-edit'},{'name': 'CatastoMetodoProduzioneEditComponent', 'selector': 'app-catasto-metodo-produzione-edit'},{'name': 'CatastoPossessiEditComponent', 'selector': 'app-catasto-possessi-edit'},{'name': 'CatastoZoneEditComponent', 'selector': 'app-catasto-zone-edit'},{'name': 'CentriCodiciGridComponent', 'selector': 'grid-centri-codici'},{'name': 'CentriComponent', 'selector': 'gias-anagrafica-centri'},{'name': 'CentroEditComponent', 'selector': 'app-centri-edit'},{'name': 'ChartWidgetComponent', 'selector': 'app-chart-widget'},{'name': 'ClearButtonComponent', 'selector': 'app-clear-button'},{'name': 'ClientePermessiComponent', 'selector': 'app-cliente-permessi'},{'name': 'ClientePermessiGridComponent', 'selector': 'app-cliente-permessi-grid'},{'name': 'Co2ComparisonWidgetComponent', 'selector': 'app-co2-comparison-widget'},{'name': 'CodiciComponent', 'selector': 'app-codici'},{'name': 'CodiciTemplateComponent', 'selector': 'gias-codici-template'},{'name': 'ColtureMultiAziendaWidget', 'selector': 'app-colture-multiazienda-widget'},{'name': 'ColtureWidgetComponent', 'selector': 'app-colture-widget'},{'name': 'ColumnsChartWidgetComponent', 'selector': 'app-columns-chart-widget'},{'name': 'ComparisonWidgetComponent', 'selector': 'app-comparison-widget'},{'name': 'ConfigurazioneOperazioniCulturaliComponent', 'selector': 'app-configurazione-operazioni-culturali'},{'name': 'ConformitaWidgetComponent', 'selector': 'app-conformita-widget'},{'name': 'ConfrontoPcCatastoComponent', 'selector': 'app-confronto-pc-catasto'},{'name': 'ConfrontoPcCatastoGridComponent', 'selector': 'app-confronto-pc-catasto-grid'},{'name': 'ConfrontoPianoColturaleComponent', 'selector': 'app-confronto-piano-colturale'},{'name': 'ConsultaSincroDatiAppComponent', 'selector': 'app-consulta-sincro-dati-app'},{'name': 'ContattiAssociaUtenteComponent', 'selector': 'app-contatti-associa-utente'},{'name': 'ContattiComponent', 'selector': 'app-contatti'},{'name': 'ContattiEditComponent', 'selector': 'app-contatti-edit'},{'name': 'ContoEconomicoDettaglioComponent', 'selector': 'app-conto-economico-dettaglio'},{'name': 'CooperativeComponent', 'selector': 'cooperative-edit'},{'name': 'CostiAccessoriComponent', 'selector': 'app-costi-accessori'},{'name': 'CostiMacchinaEditComponent', 'selector': 'app-macchina-edit-costi'},{'name': 'CostiRicaviAIWidgetComponent', 'selector': 'costi-ricavi-ai-widget'},{'name': 'CounterComponent', 'selector': 'app-counter-component'},{'name': 'CustomMessageComponent', 'selector': 'custom-message-component'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataOperazioneComponent', 'selector': 'app-data-operazione'},{'name': 'DatiAccessoriComponent', 'selector': 'dati-accessori'},{'name': 'DatiCatastaliComponent', 'selector': 'app-dati-catastali'},{'name': 'DatiCentroComponent', 'selector': 'dati-centro'},{'name': 'DatiGeneraliFarmersComponent', 'selector': 'app-dati-generali-farmers-widget'},{'name': 'DatiPrevisionailiColtureGridComponent', 'selector': 'app-dati-previsionaili-colture-grid'},{'name': 'DatiPrevisionaliColtureComponent', 'selector': 'app-dati-previsionali-colture'},{'name': 'DettagliFertilizzantiComponent', 'selector': 'app-dettagli-fertilizzanti'},{'name': 'DettagliFormulatiComponent', 'selector': 'app-dettagli-formulati'},{'name': 'DettagliSementiComponent', 'selector': 'app-dettagli-sementi'},{'name': 'DialogComponent', 'selector': 'app-dialog'},{'name': 'DisciplinareComponent', 'selector': 'app-disciplinare'},{'name': 'DomandaIrriguaComponent', 'selector': 'app-menu-dss'},{'name': 'DosiComponent', 'selector': 'app-dosi'},{'name': 'DraggableComponent', 'selector': 'app-draggable'},{'name': 'DrawWindowComponent', 'selector': 'draw-window'},{'name': 'EditGruppiMerceComponent', 'selector': 'app-gruppi-merce'},{'name': 'EditGruppiMerceGridComponent', 'selector': 'gruppi-merce-grid'},{'name': 'ErosioneComparisonWidgetComponent', 'selector': 'app-erosione-comparison-widget'},{'name': 'EserciziComponent', 'selector': 'app-esercizi'},{'name': 'EserciziCopiaSpostaAppezzamentiComponent', 'selector': 'app-esercizi-copia-sposta-appezzamenti'},{'name': 'EsercizioEditComponent', 'selector': 'app-esercizio-edit'},{'name': 'ExportQdCToAgeaComponent', 'selector': 'app-export-qdc-to-agea'},{'name': 'ExportQdcToAgeaFarmFilterComponent', 'selector': 'app-export-qdc-to-agea-farm-filter'},{'name': 'ExportQdcToAgeaJsonDialogComponent', 'selector': 'app-export-qdc-to-agea-json-dialog'},{'name': 'FabbricatiComponent', 'selector': 'app-fabbricati'},{'name': 'FabbricatiEditComponent', 'selector': 'app-fabbricati-edit'},{'name': 'FertilizzantiComponent', 'selector': 'app-fertilizzanti'},{'name': 'FetchDataComponent', 'selector': 'app-fetch-data'},{'name': 'FiltersRilieviComponent', 'selector': 'app-filters-rilievi'},{'name': 'FiltersVisiteComponent', 'selector': 'app-filters-visite'},{'name': 'FiltriRequisitiStabilimentoComponent', 'selector': 'app-filtri-requisiti-stabilimento'},{'name': 'FiltriTemporaliComponent', 'selector': 'app-filtri-temporali'},{'name': 'FiltriUtenteComponent', 'selector': 'app-filtri-utente'},{'name': 'FiltroRicercaComponent', 'selector': 'app-filtro-ricerca'},{'name': 'FiltroSqlMateriePrimeComponent', 'selector': 'app-filtro-sql-materie-prime'},{'name': 'FlagMagazziniAgenzieComponent', 'selector': 'app-flag-magazzini-agenzie'},{'name': 'FlagMagazziniEsterniComponent', 'selector': 'app-flag-magazzini-esterni'},{'name': 'FlagVisualizzaGiacenzeZeroComponent', 'selector': 'app-flag-visualizza-giacenze-zero'},{'name': 'FooterComponent', 'selector': 'gias-master-footer'},{'name': 'FormatiStampaComponent', 'selector': 'impostazione-formati-stampa'},{'name': 'FormImpostazioniAziendeCentriComponent', 'selector': 'app-form-impostazioni-aziende-centri'},{'name': 'FormImpostazioniComponent', 'selector': 'app-form-impostazioni'},{'name': 'FormulatiComponent', 'selector': 'app-formulati'},{'name': 'GeneralFieldComponent', 'selector': 'app-settings-general-field'},{'name': 'GeoFiltersComponent', 'selector': 'app-geo-filters'},{'name': 'GestioneNoteComponent', 'selector': 'app-gestione-note'},{'name': 'GestioneOperazioniComponent', 'selector': 'app-gestione-operazioni'},{'name': 'GestioneRichiesteComponent', 'selector': 'gias-gestione-richieste'},{'name': 'GhgColtureWidgetComponent', 'selector': 'app-ghg-colture-widget'},{'name': 'GiasAddressTemplateComponent', 'selector': 'gias-address-template'},{'name': 'GiasBreadcrumbsComponent', 'selector': 'gias-breadcrumbs'},{'name': 'GisAlgorithmConfigurationComponent', 'selector': 'gis-algorithm-configuration'},{'name': 'GisAlgorithmConfigurationLogComponent', 'selector': 'gis-algorithm-configuration-log'},{'name': 'GisAlgorithmConfigurationWindowComponent', 'selector': 'gis-algorithm-configuration-window'},{'name': 'GISAlgorithmResultComponent', 'selector': 'gis-algorithm-result'},{'name': 'GISAnalisiMappeSatellitariAnimationComponent', 'selector': 'gis-analisi-mappe-satellitari-animation'},{'name': 'GISAnalisiMappeSatellitariCalendarioComponent', 'selector': 'gis-analisi-mappe-satellitari-calendario'},{'name': 'GISAnalisiMappeSatellitariGraficiComponent', 'selector': 'gis-analisi-mappe-satellitari-grafici'},{'name': 'GISAnalisiMappeSatellitariNotificheComponent', 'selector': 'gis-analisi-mappe-satellitari-notifiche'},{'name': 'GISAnalisiMappeSatellitariOpzioniComponent', 'selector': 'gis-analisi-mappe-satellitari-opzioni'},{'name': 'GISAnalisiMappeSatellitariWindowComponent', 'selector': 'gis-analisi-mappe-satellitari-window'},{'name': 'GISAttributiAlgorithmConfigurationComponent', 'selector': 'gis-attributi-algorithm-configuration'},{'name': 'GISAttributiComponent', 'selector': 'GIS-attributi'},{'name': 'GISAttributiExportComponent', 'selector': 'gis-attributi-export'},{'name': 'GISAttributiFileUploadCatastoComponent', 'selector': 'gis-attributi-file-upload-catasto'},{'name': 'GISAttributiFileUploadComponent', 'selector': 'gis-attributi-file-upload'},{'name': 'GISAttributiFileUploadRasterComponent', 'selector': 'gis-attributi-file-upload-raster'},{'name': 'GISAttributiFileUploadStandardComponent', 'selector': 'gis-attributi-file-upload-standard'},{'name': 'GISAttributiGridComponent', 'selector': 'GIS-attributi-grid'},{'name': 'GISAttributiMuzGridComponent', 'selector': 'GIS-attributi-muz-grid'},{'name': 'GISAttributiRasterMasksComponent', 'selector': 'gis-attributi-raster-masks'},{'name': 'GISAttributiRasterMasksGroupsPermissionsComponent', 'selector': 'gis-attributi-raster-masks-groups-permissions'},{'name': 'GISAttributiRasterMasksPermissionsComponent', 'selector': 'gis-attributi-raster-masks-permissions'},{'name': 'GISAttributiRasterMasksUsersPermissionsComponent', 'selector': 'gis-attributi-raster-masks-users-permissions'},{'name': 'GISAttributiSettingsComponent', 'selector': 'gis-attributi-settings'},{'name': 'GISBookmarksWindowComponent', 'selector': 'gis-bookmarks-window'},{'name': 'GisBottomWindow', 'selector': 'gis-bottom-window'},{'name': 'GISCalendarModalComponent', 'selector': 'app-gis-calendar-modal'},{'name': 'GISCfgProiezioniComponent', 'selector': 'gis-cfg-proiezioni'},{'name': 'GISCfgProiezioniConfigComponent', 'selector': 'gis-cfg-proiezioni-config'},{'name': 'GISCfgProiezioniDialogComponent', 'selector': 'gis-cfg-proiezioni-dialog'},{'name': 'GISCfgProiezioniGroupsPermissionsComponent', 'selector': 'gis-cfg-proiezioni-groups-permissions'},{'name': 'GISCfgProiezioniUsersPermissionsComponent', 'selector': 'gis-cfg-proiezioni-users-permissions'},{'name': 'GISCfgProziezioniLayerComponent', 'selector': 'gis-cfg-proiezioni-layer'},{'name': 'GISCfgProziezioniPermissionsComponent', 'selector': 'gis-cfg-proiezioni-permissions'},{'name': 'GisCheckboxComponent', 'selector': 'gis-checkbox'},{'name': 'GISComponent', 'selector': 'GIS'},{'name': 'GISConfigurationModalComponent', 'selector': 'app-gis-configuration-modal'},{'name': 'GISDeleteFeatureWindowComponent', 'selector': 'gis-delete-feature-window'},{'name': 'GISEditMuzComponent', 'selector': 'gis-edit-muz'},{'name': 'GISEditMuzParticelleCatastaliComponent', 'selector': 'gis-edit-muz-particelle-catastali'},{'name': 'GISFixedLayerPropertyWindowComponent', 'selector': 'gis-fixed-layer-property-window'},{'name': 'GISGestionePianoRateoComponent', 'selector': 'gis-gestione-piano-rateo'},{'name': 'GISGestionePianoRateoLoaderComponent', 'selector': 'gis-gestione-piano-rateo-loader'},{'name': 'GISGestionePianoRateoPickerComponent', 'selector': 'gis-gestione-piano-rateo-picker'},{'name': 'GISInitMuzGroupComponent', 'selector': 'gis-init-muz-group'},{'name': 'GISLayerAdvancedSettingsWindowComponent', 'selector': 'gis-layer-advanced-settings-window'},{'name': 'GISLayerColorPickerWindowComponent', 'selector': 'gis-layer-color-picker-window'},{'name': 'GISLayerGroupsPermissionsComponent', 'selector': 'gis-layer-groups-permissions'},{'name': 'GISLayerListItemComponent', 'selector': 'gis-layer-list-item'},{'name': 'GISLayerListItemMappeSatellitariComponent', 'selector': 'gis-layer-list-item-mappe-satellitari'},{'name': 'GISLayerListItemRasterComponent', 'selector': 'gis-layer-list-item-raster'},{'name': 'GISLayerPermissionsWindowComponent', 'selector': 'gis-layer-permissions-window'},{'name': 'GISLayerUsersPermissionsComponent', 'selector': 'gis-layer-users-permissions'},{'name': 'GISLayerVisibilityConfigurationWindowComponent', 'selector': 'gis-layer-visibility-configuration-window'},{'name': 'GISLayerWindowComponent', 'selector': 'gis-layer-window'},{'name': 'GISLayerWindowToolbarComponent', 'selector': 'gis-layer-window-toolbar'},{'name': 'GISParticelleCatastaliComponent', 'selector': 'gis-particelle-catastali'},{'name': 'GISRasterConfigurationWindowComponent', 'selector': 'gis-raster-configuration-window'},{'name': 'GisToolbarComponent', 'selector': 'gis-toolbar'},{'name': 'GisToolbarMobileComponent', 'selector': 'gis-toolbar-mobile'},{'name': 'GisTreeFiltersComponent', 'selector': 'tree-filters-gis'},{'name': 'GISWindowComponent', 'selector': 'gis-window'},{'name': 'GoogleMapComponent', 'selector': 'gias-google-map'},{'name': 'GridAddMacchineComponent', 'selector': 'app-grid-add-macchine'},{'name': 'GridAddOperaiComponent', 'selector': 'app-grid-add-operai'},{'name': 'GridAziendeCentriComponent', 'selector': 'app-grid-aziende-centri'},{'name': 'GridAziendeCentriImpostazioniComponent', 'selector': 'app-grid-aziende-centri-impostazioni'},{'name': 'GridCapiAnimaliComponent', 'selector': 'app-capi-animali'},{'name': 'GridDosiProdottiComponent', 'selector': 'app-grid-dosi-prodotti'},{'name': 'GridGroupTransitionsComponent', 'selector': 'app-grid-group-transitions'},{'name': 'GridGruppiComponent', 'selector': 'app-grid-gruppi'},{'name': 'GridImpiantiComponent', 'selector': 'app-grid-impianti'},{'name': 'GridMacchineComponent', 'selector': 'app-grid-macchine'},{'name': 'GridNoteComponent', 'selector': 'app-grid-note'},{'name': 'GridOperatoriComponent', 'selector': 'app-grid-operatori'},{'name': 'GridPasswordComponent', 'selector': 'app-grid-password'},{'name': 'GridPermessiComponent', 'selector': 'app-grid-permessi'},{'name': 'GridPermessiEditComponent', 'selector': 'app-grid-permessi-edit'},{'name': 'GridProdottiDaTrattareComponent', 'selector': 'app-grid-prodotti-da-trattare'},{'name': 'GridProdottiSomministrazioneComponent', 'selector': 'app-prodotti-somministrazione'},{'name': 'GridProfiliComponent', 'selector': 'app-grid-profili'},{'name': 'GridProfiliPermessiComponent', 'selector': 'app-grid-profili-permessi'},{'name': 'GridRaccoltaAutoComponent', 'selector': 'app-grid-raccolta-auto'},{'name': 'GridRilieviComponent', 'selector': 'app-grid-rilievi'},{'name': 'GridRipartizioneManualeComponent', 'selector': 'app-grid-ripartizione-manuale'},{'name': 'GridUtentiPermessiComponent', 'selector': 'app-grid-utenti-permessi'},{'name': 'GridVisibilitaEditComponent', 'selector': 'app-grid-visibilita-edit'},{'name': 'GridZooComponent', 'selector': 'grid-zoo'},{'name': 'GrigliaAnalisiTerrenoComponent', 'selector': 'app-griglia-analisi-terreno'},{'name': 'GrigliaEntitaComponent', 'selector': 'app-griglia-entita'},{'name': 'GrigliaFiltroRicercaComponent', 'selector': 'app-griglia-filtro'},{'name': 'GruppiMerceGrid2Component', 'selector': 'gruppi-merce-grid2'},{'name': 'GruppiMerceMasterComponent', 'selector': 'app-gruppi-merce'},{'name': 'GruppiRaccoltaComponent', 'selector': 'app-gruppi-raccolta'},{'name': 'GruppiUtentiComponent', 'selector': 'app-gruppi-utenti'},{'name': 'GruppiUtentiGridComponent', 'selector': 'gruppi-utenti-grid'},{'name': 'GruppiUtentiPerGruppiMerce', 'selector': 'gruppi-utentix-gruppi-merce'},{'name': 'GruppiUtentixGruppiMerceGridComponent', 'selector': 'gruppi-utentix-gruppi-merce-grid'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImgBase64Component', 'selector': 'app-img64'},{'name': 'ImpiantiComponent', 'selector': 'app-impianti'},{'name': 'ImpiantoEditComponent', 'selector': 'app-impianto-edit'},{'name': 'ImpiantoShortDescriptionComponent', 'selector': 'impianto-short-description'},{'name': 'ImportUtentiComponent', 'selector': 'app-import-utenti'},{'name': 'ImpostazioniUtenteComponent', 'selector': 'app-impostazioni-utente'},{'name': 'ImpresaEditComponent', 'selector': 'gias-impresa-edit'},{'name': 'ImpreseComponent', 'selector': 'gias-anagrafica-imprese'},{'name': 'ImpreseFilterComponent', 'selector': 'gias-imprese-filter'},{'name': 'ImpreseParametriGHGComponent', 'selector': 'app-imprese-parametri-ghg'},{'name': 'IndicatoriWidgetComponent', 'selector': 'app-indicatori-widget'},{'name': 'IndicatoriWidgetDashboardComponent', 'selector': 'app-indicatori-widget-dashboard'},{'name': 'IndicatoriWidgetFullComponent', 'selector': 'app-indicatori-widget-full'},{'name': 'IndicatoriWidgetGridComponent', 'selector': 'app-indicatori-widget-grid'},{'name': 'IndicazioniComponent', 'selector': 'zoo-indicazioni'},{'name': 'IndirizziComponent', 'selector': 'app-appezzamento-edit-indirizzi'},{'name': 'InvestimentoCatastaleAppezzamentoComponent', 'selector': 'app-investimento-catastale-appezzamento'},{'name': 'InvestimentoCatastaleCampoComponent', 'selector': 'app-investimento-catastale-campo'},{'name': 'InvestimentoCatastaleComponent', 'selector': 'app-investimento-catastale'},{'name': 'KendoTreeContainerComponent', 'selector': 'app-kendo-tree'},{'name': 'LayerWindowComponent', 'selector': 'satellite-data-window'},{'name': 'LettureContatoriAziendaliGridComponent', 'selector': 'app-letture-contatori-aziendali-grid'},{'name': 'LettureContatoriComponent', 'selector': 'app-letture-contatori'},{'name': 'LineeGuidaABWindowComponent', 'selector': 'app-linee-guida-ab-window'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MacchinaEditCaratteristicheComponent', 'selector': 'app-macchine-edit-caratteristiche'},{'name': 'MacchinaShortDescriptionComponent', 'selector': 'macchina-short-description'},{'name': 'MacchineComponent', 'selector': 'app-macchine'},{'name': 'MacchineEditComponent', 'selector': 'app-macchine-edit'},{'name': 'MacchineEditGerarchiaComponent', 'selector': 'app-macchine-edit-gerarchia'},{'name': 'MacchineEditImageComponent', 'selector': 'app-macchine-edit-image'},{'name': 'MagazzinoLottoComponent', 'selector': 'app-magazzino-lotto'},{'name': 'MainValutazioniEditComponent', 'selector': 'app-main-valutazioni-edit'},{'name': 'MappaMultiAziendaComponent', 'selector': 'app-mappa-multiazienda-widget'},{'name': 'MarkerWindowComponent', 'selector': 'app-marker-window'},{'name': 'MenuAgendaComponent', 'selector': 'app-menu-agenda'},{'name': 'MenuContestualeComponent', 'selector': 'gias-menu-contestuale'},{'name': 'MenuImpostazioniAziendeCentriComponent', 'selector': 'app-menu-impostazioni-aziende-centri'},{'name': 'MenuProfilazioneComponent', 'selector': 'app-menu-profilazione'},{'name': 'MenuProfilazioneGridComponent', 'selector': 'app-grid-menu-profilazione'},{'name': 'MenuRilieviComponent', 'selector': 'app-menu-rilievi'},{'name': 'MenuUtentiComponent', 'selector': 'app-menu-utenti'},{'name': 'MenuVisibilitaComponent', 'selector': 'app-menu-visibilita'},{'name': 'MenuVisiteComponent', 'selector': 'app-menu-visite'},{'name': 'MenuZooComponent', 'selector': 'zoo-menu'},{'name': 'MeteoWidgetComponent', 'selector': 'app-meteo-widget'},{'name': 'MeteoWidgetFullComponent', 'selector': 'app-meteo-widget-full'},{'name': 'ModalitaApplicazioneComponent', 'selector': 'app-modalita-applicazione'},{'name': 'MonitoraggioWidgetComponent', 'selector': 'app-monitoraggio-widget'},{'name': 'MultiOperazioneComponent', 'selector': 'app-multi-operazione'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'NotaTestualeComponent', 'selector': 'app-nota-testuale'},{'name': 'NuovaOperazioneComponent', 'selector': 'app-esercizi-nuova-operazione'},{'name': 'OnCloseEsercizioComponent', 'selector': 'app-on-close-esercizio'},{'name': 'OperationsListComponent', 'selector': 'operations-list'},{'name': 'OperationsMassEditComponent', 'selector': 'app-operations-mass-edit'},{'name': 'OperatoreComponent', 'selector': 'app-operatore'},{'name': 'OperazioneCausaleComponent', 'selector': 'app-operazione-causale'},{'name': 'OperazioniTemplateWidgetComponent', 'selector': 'app-operazioni-template-widget'},{'name': 'OpzioniRaccoltaComponent', 'selector': 'app-opzioni-raccolta'},{'name': 'OpzioniSeminaComponent', 'selector': 'app-opzioni-semina'},{'name': 'PaeseMultiAziendaComponent', 'selector': 'app-paese-multiazienda-widget'},{'name': 'PageNotFoundComponent', 'selector': 'gias-page-not-found'},{'name': 'PaginaAziendeCentriImpostazioniComponent', 'selector': 'app-pagina-aziende-centri-impostazioni'},{'name': 'PaginaImpostazioniMassiveComponent', 'selector': 'app-pagina-impostazioni-massive'},{'name': 'ParametriAnalisiTerrenoComponent', 'selector': 'app-parametri-analisi-terreno'},{'name': 'PercentGridViewerComponent', 'selector': 'app-percent-grid-viewer'},{'name': 'PianoColturaleGridComponent', 'selector': 'app-piano-colturale-grid'},{'name': 'PianoContiComponent', 'selector': 'app-piano-conti'},{'name': 'PianoContiEditComponent', 'selector': 'app-piano-conti-edit'},{'name': 'PlvComparisonWidgetComponent', 'selector': 'app-plv-comparison-widget'},{'name': 'PolygonMergeWindowComponent', 'selector': 'gis-polygon-merge-window'},{'name': 'PolygonWindowComponent', 'selector': 'polygon-window'},{'name': 'PreferitiConfigComponent', 'selector': 'app-preferiti-config'},{'name': 'PreferitoCardComponent', 'selector': 'app-preferito-card'},{'name': 'PrintExportComponent', 'selector': 'print-export-button'},{'name': 'ProdottiComponent', 'selector': 'app-prodotti'},{'name': 'ProduttivitaComparisonWidgetComponent', 'selector': 'app-produttivita-comparison-widget'},{'name': 'ProduzioneColtureWidgetComponent', 'selector': 'app-produzione-colture-widget'},{'name': 'ProfilazioneImpreseCampoApplicativoComponent', 'selector': 'app-profilazione-imprese-campo-applicativo'},{'name': 'ProfilazioneImpreseComponent', 'selector': 'app-profilazione-imprese'},{'name': 'ProfilazioneImpreseContattiComponent', 'selector': 'app-profilazione-imprese-contatti'},{'name': 'ProfilazioneImpreseDefaultDistintaProduzioneComponent', 'selector': 'app-profilazione-imprese-default-distinta-produzione'},{'name': 'ProfilazioneImpreseDefaultPianiColturaliComponent', 'selector': 'app-profilazione-imprese-default-piani-colturali'},{'name': 'ProfilazioneImpreseDefaultSpecieComponent', 'selector': 'app-profilazione-imprese-default-specie'},{'name': 'ProfilazioneImpreseGlobalComponent', 'selector': 'app-profilazione-imprese-global'},{'name': 'ProfilazioneImpreseGruppoNoteDialogComponent', 'selector': 'app-profilazione-imprese-gruppo-note-dialog'},{'name': 'ProfilazioneImpreseGruppoOperazioneComponent', 'selector': 'app-profilazione-imprese-gruppo-operazione'},{'name': 'ProfilazioneImpreseLavorazioneComponent', 'selector': 'app-profilazione-imprese-lavorazione'},{'name': 'ProfilazioneImpreseMacchineComponent', 'selector': 'app-profilazione-imprese-macchine'},{'name': 'ProfilazioneImpreseMacchineDialogComponent', 'selector': 'app-profilazione-imprese-macchine-dialog'},{'name': 'ProfilazioneImpreseMacchineOperatoriComponent', 'selector': 'app-profilazione-imprese-macchine-operatori'},{'name': 'ProfilazioneImpreseNoteComponent', 'selector': 'app-profilazione-imprese-note'},{'name': 'ProfilazioneImpreseNoteListComponent', 'selector': 'app-profilazione-imprese-note-list'},{'name': 'ProfilazioneImpreseParametriGeneraliColturaComponent', 'selector': 'app-profilazione-imprese-parametri-generali-coltura'},{'name': 'ProfilazioneImpreseSpecieComponent', 'selector': 'app-profilazione-imprese-specie'},{'name': 'ProfilazioneImpreseVarietaComponent', 'selector': 'app-profilazione-imprese-varieta'},{'name': 'ProfiliPermessiComponent', 'selector': 'app-profili-permessi'},{'name': 'ProtocolliComponent', 'selector': 'zoo-protocolli'},{'name': 'ProtocolliInCorsoComponent', 'selector': 'zoo-protocolli-in-corso'},{'name': 'ProvinciaComuneMultiselectComponent', 'selector': 'app-provincia-comune-multiselect'},{'name': 'QuadernoDiCampagnaComponent', 'selector': 'app-quaderno-di-campagna'},{'name': 'QuantitaProdottiComponent', 'selector': 'app-quantita-prodotti'},{'name': 'RaccoltaComponent', 'selector': 'app-raccolta'},{'name': 'RedSpotComponent', 'selector': 'app-red-spot'},{'name': 'ReportAbilitazionePdCComponent', 'selector': 'app-report-abilitazione-pdc'},{'name': 'ReportImpiegoProdottiFitosanitariComponent', 'selector': 'app-report-impiego-prodotti-fitosanitari'},{'name': 'RequisitiStabilimentoComponent', 'selector': 'app-requisiti-stabilimento'},{'name': 'RequisitiStabilimentoContrattiGridComponent', 'selector': 'app-requisiti-stabilimento-contratti-grid'},{'name': 'RequisitiStabilimentoGridComponent', 'selector': 'app-requisiti-stabilimento-grid'},{'name': 'RicercaFertilizzantiComponent', 'selector': 'app-ricerca-fertilizzanti'},{'name': 'RicercaFormulatiComponent', 'selector': 'app-ricerca-formulati'},{'name': 'RicercaSementiComponent', 'selector': 'app-ricerca-sementi'},{'name': 'RicetteComponent', 'selector': 'grid-ricette'},{'name': 'RiepilogoMeteoWidgetComponent', 'selector': 'app-riepilogo-meteo-widget'},{'name': 'RilevaFaseEpocaComponent', 'selector': 'btn-rileva-fase-epoca'},{'name': 'RilieviAvversitaComponent', 'selector': 'app-rilievi-avversita'},{'name': 'RilieviComponent', 'selector': 'app-rilievi'},{'name': 'RipartizioneManualeComponent', 'selector': 'app-ripartizione-manuale'},{'name': 'RischioMeteoAggregatoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-aggregato-comparison-widget'},{'name': 'RischioMeteoAllagamentoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-allagamento-comparison-widget'},{'name': 'RischioMeteoGelataComparisonWidgetComponent', 'selector': 'app-rischio-meteo-gelata-comparison-widget'},{'name': 'RischioMeteoGrandineComparisonWidgetComponent', 'selector': 'app-rischio-meteo-grandine-comparison-widget'},{'name': 'RischioMeteoSiccitaComparisonWidgetComponent', 'selector': 'app-rischio-meteo-siccita-comparison-widget'},{'name': 'RischioMeteoVentoForteComparisonWidgetComponent', 'selector': 'app-rischio-meteo-vento-forte-comparison-widget'},{'name': 'SalvataggioAppezzamentoGISComponent', 'selector': 'salvataggio-appezzamento-GIS'},{'name': 'SelezionaCentroComponent', 'selector': 'app-seleziona-centro'},{'name': 'SementiComponent', 'selector': 'app-sementi'},{'name': 'SeminatiMultiAziendaWidgetComponent', 'selector': 'app-seminati-multiazienda-widget'},{'name': 'SettingsAnnataAgrariaComponent', 'selector': 'app-settings-annata-agraria'},{'name': 'SettingsCategorieMagazzinoComponent', 'selector': 'app-settings-categorie-magazzino'},{'name': 'SettingsGiasAppComponent', 'selector': 'app-settings-gias-app'},{'name': 'SettingsGisComponent', 'selector': 'app-settings-gis'},{'name': 'SettingsLavorazioniGridComponent', 'selector': 'app-settings-lavorazioni-grid'},{'name': 'SettingsManagerComponent', 'selector': 'app-settings-manager'},{'name': 'SettingsProxyComponent', 'selector': 'app-settings-proxy'},{'name': 'SettingsSpecieVarietaComponent', 'selector': 'app-settings-specie-varieta'},{'name': 'SezioneImpostazioniComponent', 'selector': 'app-sezione-impostazioni'},{'name': 'SezioniNoProdottoComponent', 'selector': 'app-sezioni-no-prodotto'},{'name': 'SidemenuChildComponent', 'selector': 'app-sidemenu-child'},{'name': 'SideMenuComponent', 'selector': 'gias-sidemenu'},{'name': 'SideMenuFooterComponent', 'selector': 'gias-sidemenu-footer'},{'name': 'SideMenuServicesComponent', 'selector': 'gias-sidemenu-services'},{'name': 'SpecialEditComponent', 'selector': 'app-special-edit'},{'name': 'SpecieAnimaleComponent', 'selector': 'app-specie-animale'},{'name': 'SpecieComponent', 'selector': 'app-specie'},{'name': 'StimeProduzioneColtureWidgetComponent', 'selector': 'app-stime-produzione-colture-widget'},{'name': 'SuperficiImpiantiComponent', 'selector': 'app-superfici-impianti'},{'name': 'SvgIconSpeciesComponent', 'selector': 'gias-svg-icon-species-species'},{'name': 'TargetSuperficieWidgetComponent', 'selector': 'app-target-superficie-widget'},{'name': 'TestAnagraficaCampiComponent', 'selector': 'app-test-anagrafica-campi'},{'name': 'TestAnagraficaCatastoComponent', 'selector': 'app-test-anagrafica-catasto'},{'name': 'TestAnagraficaCentriComponent', 'selector': 'app-test-anagrafica-centri'},{'name': 'TestAnagraficaComponent', 'selector': 'app-test-anagrafica'},{'name': 'TestAnagraficaImpiantiComponent', 'selector': 'app-test-anagrafica-impianti'},{'name': 'TestAnagraficaImpreseComponent', 'selector': 'app-test-anagrafica-imprese'},{'name': 'TestAnagraficaMacchineComponent', 'selector': 'app-test-anagrafica-macchine'},{'name': 'TestataComponent', 'selector': 'app-testata'},{'name': 'TestataRicettaComponent', 'selector': 'app-testata-ricetta'},{'name': 'TestataVisitaComponent', 'selector': 'app-testata-visita'},{'name': 'TestComponent', 'selector': 'app-test'},{'name': 'TestGiasGiasKendoGridComponent', 'selector': 'app-test-gias-kendo-grid'},{'name': 'TestGridComponent', 'selector': 'test-grid'},{'name': 'ThemeWindowBandSliderComponent', 'selector': 'theme-window-band-slider'},{'name': 'ThemeWindowComponent', 'selector': 'theme-window'},{'name': 'ThemeWindowSettingsComponent', 'selector': 'theme-window-settings'},{'name': 'ToolDisegnaPuntiComponent', 'selector': 'app-tool-disegna-punti'},{'name': 'ToolDisegnoAvanzatoComponent', 'selector': 'app-tool-disegno-avanzato'},{'name': 'ToolPolygonMergeComponent', 'selector': 'app-tool-polygon-merge'},{'name': 'ToolScomponiPuntiComponent', 'selector': 'app-tool-scomponi-punti'},{'name': 'TrattamentoComponent', 'selector': 'app-trattamento'},{'name': 'TrattamentoZooComponent', 'selector': 'app-trattamento-zoo'},{'name': 'TreeAziende', 'selector': 'app-tree-aziende'},{'name': 'TreeAziendeFilters', 'selector': 'app-tree-aziende-filters'},{'name': 'TreeViewComponent', 'selector': 'app-treeview'},{'name': 'TreeWindowComponent', 'selector': 'tree-window'},{'name': 'UltimeAttivitaWidgetComponent', 'selector': 'app-ultime-attivita-widget'},{'name': 'UltimeVisiteWidgetComponent', 'selector': 'app-ultime-visite-widget'},{'name': 'UltimiAcquistiWidgetComponent', 'selector': 'app-ultimi-acquisti-widget'},{'name': 'UltimiProdottiWidgetComponent', 'selector': 'app-ultimi-prodotti-widget'},{'name': 'UltimiRilieviWidgetComponent', 'selector': 'app-ultimi-rilievi-widget'},{'name': 'UniqueRatingWidgetComponent', 'selector': 'app-unique-rating-widget'},{'name': 'UnitaDiMisuraComponent', 'selector': 'app-unita-di-misura'},{'name': 'UtilizzoTerrenoComponent', 'selector': 'app-utilizzo-terreno'},{'name': 'ValutazioneEditDettaglioComponent', 'selector': 'app-valutazione-edit-dettaglio'},{'name': 'ValutazioniComponent', 'selector': 'app-valutazioni'},{'name': 'ValutazioniContoEconomicoComponent', 'selector': 'app-valutazioni-conto-economico'},{'name': 'ValutazioniEditComponent', 'selector': 'app-valutazioni-edit'},{'name': 'ValutazioniMainComponentComponent', 'selector': 'app-valutazioni-main-component'},{'name': 'ValutazioniStatoPatrimonialeComponent', 'selector': 'app-valutazioni-stato-patrimoniale'},{'name': 'ValutazioniStatoPatrimonialeDettaglioComponent', 'selector': 'app-valutazioni-stato-patrimoniale-dettaglio'},{'name': 'VDContrattiComponent', 'selector': 'app-v-d-contratti'},{'name': 'VDPianoColturaleComponent', 'selector': 'app-v-d-piano-colturale'},{'name': 'VisibilitaUtenteEditComponent', 'selector': 'app-visibilita-utente'},{'name': 'VisiteComponent', 'selector': 'app-visite'},{'name': 'VisualizzaDettagliComponent', 'selector': 'app-visualizza-dettagli'},{'name': 'WidgetConfigComponent', 'selector': 'app-widget-config'},{'name': 'WidgetConfigListComponent', 'selector': 'app-widget-config-list'},{'name': 'WidgetGridComponent', 'selector': 'app-widget-grid'},{'name': 'WidgetResizerComponent', 'selector': 'app-widget-resizer'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'},{'name': 'WidgetTemplateComponent', 'selector': 'app-widget-template'},{'name': 'WindowMessaggioErroreComponent', 'selector': 'gias-master-window-messaggio-errore'},{'name': 'WMSWindowComponent', 'selector': 'wms-window'},{'name': 'ZooComponent', 'selector': 'app-zoo'},{'name': 'ZooFavoritesEditingComponent', 'selector': 'zoo-favorites-editing'},{'name': 'ZooOperationsGridComponent', 'selector': 'zoo-operations-grid'}];
+    var DIRECTIVES = [{'name': 'AfterValueChangedDirective', 'selector': '[afterValueChanged]'},{'name': 'BackButtonDirective', 'selector': '[backButton]'},{'name': 'ClearInputButtonDirective', 'selector': '[clear-input-button]'},{'name': 'DraggableDirective', 'selector': '[draggable]'},{'name': 'GISTooltipDirective', 'selector': '[gisTooltip]'},{'name': 'HomeButtonDirective', 'selector': '[homeButton]'},{'name': 'ProjectDocumentaleDirective', 'selector': '[projectDocumentale]'}];
+    var ACTUAL_COMPONENT = {'name': 'GoogleMapComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GoogleMapComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

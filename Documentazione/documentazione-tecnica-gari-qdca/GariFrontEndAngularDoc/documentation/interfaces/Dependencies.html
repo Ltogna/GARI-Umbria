@@ -1,0 +1,795 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Dependencies</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/components/grid-qdc/pulsanteGestioneCosti.service.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#agenda" 
+>
+                                            agenda
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#ajaxAgronicaAPIService" 
+>
+                                            ajaxAgronicaAPIService
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#dataStore" 
+>
+                                            dataStore
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#gestioneRichieste" 
+>
+                                            gestioneRichieste
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#notifications" 
+>
+                                            notifications
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#objParametriAgendaService" 
+>
+                                            objParametriAgendaService
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#renderer" 
+>
+                                            renderer
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="agenda"></a>
+                                        <span class="name "><b>agenda</b>
+                                            <a href="#agenda">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>agenda:         <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="ajaxAgronicaAPIService"></a>
+                                        <span class="name "><b>ajaxAgronicaAPIService</b>
+                                            <a href="#ajaxAgronicaAPIService">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>ajaxAgronicaAPIService:         <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="dataStore"></a>
+                                        <span class="name "><b>dataStore</b>
+                                            <a href="#dataStore">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>dataStore:         <code><a href="../injectables/MenuAgendaDataStore.html" target="_self" >MenuAgendaDataStore</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/MenuAgendaDataStore.html" target="_self" >MenuAgendaDataStore</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="gestioneRichieste"></a>
+                                        <span class="name "><b>gestioneRichieste</b>
+                                            <a href="#gestioneRichieste">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>gestioneRichieste:         <code><a href="../injectables/GestioneRichiesteService.html" target="_self" >GestioneRichiesteService</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/GestioneRichiesteService.html" target="_self" >GestioneRichiesteService</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="notifications"></a>
+                                        <span class="name "><b>notifications</b>
+                                            <a href="#notifications">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>notifications:         <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="objParametriAgendaService"></a>
+                                        <span class="name "><b>objParametriAgendaService</b>
+                                            <a href="#objParametriAgendaService">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>objParametriAgendaService:         <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="renderer"></a>
+                                        <span class="name "><b>renderer</b>
+                                            <a href="#renderer">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>renderer:     <code>Renderer2</code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>    <code>Renderer2</code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ElementRef, Renderer2 } from &#x27;@angular/core&#x27;;
+import { enum_PagineAgenda_2010, Enum_SiteRedirector } from &#x27;app/Model/siti.enum&#x27;;
+import { enum_LAVCOD, enum_PagineGiasNG } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { AjaxAgronicaAPIService } from &#x27;app/Service/ajax-agronica.api.service&#x27;;
+import { GestioneRichiesteService, KeyValuePair, ParametriAggiuntivi_QueryString } from &#x27;app/Service/gestione-richieste.service&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { isNullOrUndefined, NumToStr } from &#x27;app/Service/utils&#x27;;
+import { UtilityFunctions } from &#x27;app/Utility/UtilityFunctions&#x27;;
+import { map, Observable, of } from &#x27;rxjs&#x27;;
+import { MenuAgendaDataStore } from &#x27;../../shared_services/menu-agenda-datastore.service&#x27;;
+import { QdCRow } from &#x27;../utils&#x27;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+
+interface Dependencies {
+    dataStore: MenuAgendaDataStore;
+    agenda: ObjParametriAgendaService;
+    notifications: GiasMessageService;
+    gestioneRichieste: GestioneRichiesteService;
+    renderer: Renderer2;
+    ajaxAgronicaAPIService: AjaxAgronicaAPIService;
+    objParametriAgendaService: ObjParametriAgendaService;
+};
+
+interface ApplicaStili {
+    qdcGridRef: ElementRef;
+    domElems: any;
+    rows: QdCRow[];
+}
+
+const links &#x3D; {
+    //OperazioniVisibili_Old: &quot;Agenda/Agenda.asmx/CaricaGrigliaOperazioni&quot;,
+    OperazioniVisibili: &quot;Agenda/CaricaGrigliaOperazioni&quot;,
+    CostiCollegati: &quot;Agenda/Agenda.asmx/OperazioneAgenda&quot;
+};
+
+export class PulsanteGestioneCostiService {
+
+    /**
+     * Services
+     */
+    private dataStore: MenuAgendaDataStore;
+    private agenda: ObjParametriAgendaService;
+    private notifications: GiasMessageService;
+    private gestioneRichieste: GestioneRichiesteService;
+    private renderer: Renderer2;
+    private ajaxAgronicaAPIService: AjaxAgronicaAPIService;
+    private objParametriAgendaService: ObjParametriAgendaService;
+
+    /**
+     * Global variables
+     */
+    private alreadyElaboratedRowIds &#x3D; &quot;&quot;;
+
+    constructor(deps: Dependencies) {
+        this.dataStore &#x3D; deps.dataStore;
+        this.agenda &#x3D; deps.agenda;
+        this.notifications &#x3D; deps.notifications;
+        this.gestioneRichieste &#x3D; deps.gestioneRichieste;
+        this.renderer &#x3D; deps.renderer;
+        this.ajaxAgronicaAPIService &#x3D; deps.ajaxAgronicaAPIService;
+        this.objParametriAgendaService &#x3D; deps.objParametriAgendaService;
+    }
+
+    /**
+     * Getters/Setters
+     */
+    get lavCodOperazioniVisibili(): number[] {
+        return this.dataStore.lavCodOpVisibili;
+    }
+
+    /**
+     * Public API
+     */
+
+    public applyStyle(deps: ApplicaStili) {
+        this._applyStylePolicy(deps);
+    }
+
+    public getCostiStyleClass(row: QdCRow): Promise&lt;string&gt;{
+        return new Promise((resolve, reject) &#x3D;&gt; {
+            this.getOperazioniVisibiliDeiCosti().GiasSubscribe(lavList &#x3D;&gt; {
+                this.getCostiCollegatiFor(row.id_agenda).GiasSubscribe( costi &#x3D;&gt; {
+                    if (!costi.length &amp;&amp; !this.erroriRiscontrati(row)) {
+                        const css: string &#x3D; this.getBtnStyle(costi, row.id_agenda);
+                        resolve(css);
+                    }
+                    resolve(&#x27;&#x27;);
+                });
+            });
+        });
+    }
+
+    public vaiAiCosti(row: QdCRow) {
+        this._vaiAiCostiPolicy(row);
+    }
+
+    /**
+     * Functions used by the public API.
+     */
+
+    private _applyStylePolicy(deps: ApplicaStili) {
+        this.getOperazioniVisibiliDeiCosti().subscribe((costi: number[]) &#x3D;&gt; {
+            const rowIdsAwaitingElaboration &#x3D; this.hideBtns(deps.domElems, deps.rows);
+
+            this.setEachButtonAStyle(rowIdsAwaitingElaboration, deps.rows, deps.domElems);
+            this.alreadyElaboratedRowIds &#x3D; &quot;&quot;;
+        });
+    }
+
+    /*private getOperazioniVisibiliDeiCosti_Old(): Observable&lt;number[]&gt; {
+
+        if(!isNullOrUndefined(this.lavCodOperazioniVisibili))
+            return of(this.lavCodOperazioniVisibili);
+
+        const params &#x3D; (...args: HttpArgs) &#x3D;&gt; {
+            const master &#x3D; args[1];
+            return {
+                filtroAggiuntivo: this.getFiltroAggiuntivoOpVisibili(),
+                objP_server: master.ObjParametri_Server
+            };
+        };
+
+        return this.http.post2(links.OperazioniVisibili, params.bind(this), true)
+            .pipe(map((risultato: RispostaStandard) &#x3D;&gt; {
+                const rows: any[]&#x3D; JSON.parse(risultato.RispostaStringa);
+                const opVisibili &#x3D; rows.map((row) &#x3D;&gt; row.LAV_COD);
+                this.dataStore.lavCodOpVisibili &#x3D; opVisibili;
+                return this.lavCodOperazioniVisibili;
+            }));
+    }*/
+
+    private getOperazioniVisibiliDeiCosti(): Observable&lt;number[]&gt; {
+
+        if(!isNullOrUndefined(this.lavCodOperazioniVisibili))
+            return of(this.lavCodOperazioniVisibili);
+
+        return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any[]&gt;(links.OperazioniVisibili, this.getFiltroAggiuntivoOpVisibili())
+            .pipe(map((risultato) &#x3D;&gt; {
+                const rows: any[]&#x3D; risultato.RispostaStringa;
+                const opVisibili &#x3D; rows.map((row) &#x3D;&gt; row.LAV_COD);
+                this.dataStore.lavCodOpVisibili &#x3D; opVisibili;
+                return this.lavCodOperazioniVisibili;
+            }));
+    }
+
+    private getFiltroAggiuntivoOpVisibili() {
+        return &quot;LAV_COD &lt; 1000 AND (GRU_OP in (3,4,5) or Lav_cod &#x3D; &quot; +
+            + enum_LAVCOD.RACCOLTA + &quot;)&quot;;
+    }
+
+    private setEachButtonAStyle(rowIdsAwaitingElaboration: string,
+        rows: QdCRow[], domElems: any) {
+
+        if(!this.expensiveOperationToDisplay(rows.length) &amp;&amp;
+           !this.workAlreadyFinishedFor(rowIdsAwaitingElaboration)) {
+
+            this.alreadyElaboratedRowIds &#x3D; rowIdsAwaitingElaboration;
+
+            this.getCostiCollegatiFor(rowIdsAwaitingElaboration)
+                .subscribe((costi: any[])&#x3D;&gt; {
+                    if(costi.length &gt; 0) {
+                        rows.forEach((row: QdCRow, index) &#x3D;&gt; {
+                            if(!this.erroriRiscontrati(row)) {
+                                const css &#x3D; this.getBtnStyle(costi, row.id_agenda);
+
+                                const elem &#x3D; domElems[index];
+                                UtilityFunctions.addClass(this.renderer, elem, &quot;.btnCosti&quot;, css);
+                            }
+                        });
+
+                    }
+                });
+        }
+    }
+
+    private expensiveOperationToDisplay(numRigheVisibile: number) {
+        const threshold &#x3D; 100;
+        return numRigheVisibile &gt; threshold;
+    }
+
+    private workAlreadyFinishedFor(rowIds: string) {
+        return rowIds &#x3D;&#x3D;&#x3D; this.alreadyElaboratedRowIds;
+    }
+
+    /*private getCostiCollegatiFor_Old(rowIdsAwaitingElaboration: string) {
+        const params &#x3D; (...args: HttpArgs): any &#x3D;&gt; {
+            const agenda &#x3D; args[0];
+            const master &#x3D; args[1];
+            return {
+                Piva: agenda.getObjParamValue().Piva,
+                listaIdAgenda: rowIdsAwaitingElaboration,
+                objP_server: master.ObjParametri_Server
+            };
+        };
+        return this.http.post2(links.CostiCollegati, params)
+            .pipe(map((risposta: string) &#x3D;&gt; {
+                return JSON.parse(risposta);
+            }));
+    }*/
+
+    private getCostiCollegatiFor(rowIdsAwaitingElaboration: string) {
+
+        return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any[]&gt;(&#x27;Agenda/OperazioneAgenda&#x27;, {
+            Piva: this.objParametriAgendaService.getObjParamValue().Piva,
+            listaIdAgenda: rowIdsAwaitingElaboration,
+            })
+            .pipe(map(risposta &#x3D;&gt; {
+                return risposta.RispostaStringa;
+            }));
+    }
+
+
+    private getBtnStyle(costi: any[], idAgenda: string) {
+        for(let costo of costi) {
+            if(idAgenda &#x3D;&#x3D;&#x3D; costo.Id_Agenda.toString()) {
+                if(costo.EsistonoCostiCollegatiCDG)
+                    return &quot;btn-black&quot;;
+            }
+        }
+        return &quot;btn-warning&quot;;
+    }
+
+    private hideBtns(domElems: any, rows: QdCRow[]): string {
+        let rowIdsAwaitingElaboration &#x3D; &quot;&quot;;
+        rows.forEach((dataItem: QdCRow, index: number) &#x3D;&gt; {
+            let currDomRow &#x3D; domElems[index];
+
+            if(!this.operazioneVisibile(dataItem)) {
+                UtilityFunctions.hideElem(this.renderer, currDomRow, &#x27;.btnCosti&#x27;);
+            } else {
+                UtilityFunctions.showElem(this.renderer, currDomRow, &#x27;.btnCosti&#x27;);
+            }
+
+            if (rowIdsAwaitingElaboration !&#x3D;&#x3D; &quot;&quot;) {
+                rowIdsAwaitingElaboration +&#x3D; &quot;,&quot;;
+            }
+
+            rowIdsAwaitingElaboration +&#x3D; dataItem.ID;
+        });
+        return rowIdsAwaitingElaboration;
+    }
+
+    /****/
+
+    private _vaiAiCostiPolicy(row: QdCRow) {
+        if (this.erroriRiscontrati(row)) {
+            this.notifications.errorMessage(&#x27;impossibileInserireCosti&#x27;, false, true);
+            return;
+        }
+
+        this.vaiAiCostiDaGestioneRichieste(row);
+    }
+
+    private erroriRiscontrati(row: QdCRow): boolean {
+        return +row.Lav_cod &gt; 1000 || !this.operazioneVisibile(row);
+    }
+
+    private vaiAiCostiDaGestioneRichieste(row: QdCRow) {
+        let objAgenda: ObjParametriAgenda &#x3D; JSON.parse(JSON.stringify(this.agenda.getObjParamValue()));
+        objAgenda.Id_Agenda &#x3D; +row.id_agenda;
+        objAgenda.Pagina_Provenienza &#x3D; enum_PagineGiasNG.Pagina_Menu_Agenda;
+
+        const parametri: ParametriAggiuntivi_QueryString[] &#x3D; [
+            KeyValuePair.Create(&quot;p&quot;, row.Piva,true),
+            KeyValuePair.Create(&quot;id_agenda&quot;, row.id_agenda,true),
+            KeyValuePair.Create(&quot;entrata_diretta&quot;, NumToStr(0),true)
+        ];
+        this.gestioneRichieste.gestionePassaggioAltroSito(
+            Enum_SiteRedirector.Sito_AgronicaAgenda_2010,
+            enum_PagineAgenda_2010.Pagina_Gestione_Costi,
+            parametri,
+            objAgenda).then(resp &#x3D;&gt; window.location.href &#x3D; resp);
+    }
+
+
+    /** Utility functions */
+    private operazioneVisibile(dataItem: QdCRow) {
+        return this.lavCodOperazioniVisibili.includes(+dataItem.Lav_cod);
+    }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Dependencies.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

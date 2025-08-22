@@ -1,0 +1,68 @@
+{{- $global := default (dict) .Values.global -}}
+{{- $serviceAccount := default (.Values.serviceAccount) $global.serviceAccount -}}
+{{- $containerRegistry := default (.Values.containerRegistry) $global.containerRegistry -}}
+
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: "apply-{{ .Chart.Name }}"
+  labels:
+    app.kubernetes.io/managed-by: {{ .Chart.Name | quote }}
+    app.kubernetes.io/instance: {{ .Chart.Name | quote }}
+    app.kubernetes.io/version: {{ .Chart.AppVersion }}
+    helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": pre-install, pre-upgrade
+    "helm.sh/hook-weight": "-5"
+#    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    metadata:
+      name: "{{ .Release.Name }}"
+      labels:
+        app.kubernetes.io/managed-by: {{ .Chart.Name | quote }}
+        app.kubernetes.io/instance: {{ .Chart.Name | quote }}
+        helm.sh/chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: {{ .Chart.Name }}
+          image: {{ $containerRegistry }}/{{ .Values.image }}
+          imagePullPolicy: Always
+          env:
+            - name: RABBITMQ_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: stateless-env
+                  key: RMQ_HOST
+            - name: RABBITMQ_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: stateless-env
+                  key: RMQ_USER
+            - name: RABBITMQ_VIRUTALHOST
+              valueFrom:
+                configMapKeyRef:
+                  name: stateless-env
+                  key: RMQ_VHOST
+            - name: RABBITMQ_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: stateless-env
+                  key: RMQ_PORT
+            - name: RABBITMQ_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: stateless-pwd
+                  key: RMQ_PASSWORD
+            - name: TZ
+              valueFrom:
+                configMapKeyRef:
+                  name: stateless-env
+                  key: TIME_ZONE
+      serviceAccount: {{ $serviceAccount | default "default" }}
+      serviceAccountName: {{ $serviceAccount | default "default" }}
+      imagePullSecrets:
+      - name: registry-credentials

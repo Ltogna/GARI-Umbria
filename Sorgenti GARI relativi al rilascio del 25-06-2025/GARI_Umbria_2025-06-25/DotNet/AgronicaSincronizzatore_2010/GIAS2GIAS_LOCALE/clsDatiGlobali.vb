@@ -1,0 +1,3 @@
+﻿
+
+' Spostato in AgronicaCoreModello

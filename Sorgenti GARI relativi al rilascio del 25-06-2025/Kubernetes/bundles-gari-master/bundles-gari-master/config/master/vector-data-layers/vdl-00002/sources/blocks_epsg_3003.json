@@ -1,0 +1,30 @@
+{
+    "ID": {
+        "sourceCode": "BLOCKS_3003"
+    },
+    "data": {
+        "sqlSelect": "select bd.sector_block_id, bd.geom, bd.srs, bd.short_descr, s.sector from lpis_sector_block_details bd inner join lpis_sector_blocks sb on sb.id = bd.sector_block_id inner join lpis_sectors s on s.id = sb.sector_id and s.tenant_id = sb.tenant_id inner join lpis_sector_areas sa on sa.sector_id = sb.sector_id and sa.tenant_id = sb.tenant_id inner join lpis_areas_hierarchies a on a.area_id = sa.area_id and a.tenant_id = sa.tenant_id where §current_timestamp§ between bd.dt_insert and bd.dt_delete and §current_timestamp§ between sa.dt_insert and sa.dt_delete and §current_timestamp§ between a.dt_insert and a.dt_delete and :reference_date between sa.day_from and sa.day_to and :reference_date between a.day_from and a.day_to and s.tenant_id={tenant} and bd.srs = 'EPSG:3003' and {spatial_where_clause}",
+        "filterGeometryColumn": "bd.geom",
+        "geometryColumn": "geom",
+        "identifierColumn": "sector_block_id",
+        "geometryType": "POLYGONAL",
+        "labelColumn": "short_descr",
+        "fillColor": "#AAAAAA40",
+        "borderColor": "#AAAAAA99",
+        "fontColor": "#AAAAAA99",
+        "borderTick": 1,
+        "fontSize": 12,
+        "srs": "EPSG:3003",
+        "datasource": "lpis"
+    },
+    "additionalQueryParams": [
+        {
+            "queryParamName": "reference_date",
+            "type": "String",
+            "description": "reference date filter"
+        }
+    ],
+    "description": {
+        "it": "Fogli catastali (EPSG:3003)"
+    }
+}

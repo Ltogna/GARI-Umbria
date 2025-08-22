@@ -1,0 +1,2744 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MenuAgendaDataStore</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridCommandList" >_gridCommandList</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridDataQdc" >_gridDataQdc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_lav_cod_ricettabili" >_lav_cod_ricettabili</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#_lavCodOperazioniVisibili" >_lavCodOperazioniVisibili</a>
+                            </li>
+                            <li>
+                                <a href="#commandExecuted" >commandExecuted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridDataBrogliaccio" >gridDataBrogliaccio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridDataRicette" >gridDataRicette</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridDataZoo" >gridDataZoo</a>
+                            </li>
+                            <li>
+                                <a href="#isMenuAgendaCalledFromGis" >isMenuAgendaCalledFromGis</a>
+                            </li>
+                            <li>
+                                <a href="#recipeModalData" >recipeModalData</a>
+                            </li>
+                            <li>
+                                <a href="#selectedTabstrip" >selectedTabstrip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setupShowDDT" >setupShowDDT</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addBaseCommand" >addBaseCommand</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#azzeraDatiGrigliaBrogliaccio" >azzeraDatiGrigliaBrogliaccio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#azzeraDatiGrigliaQdc" >azzeraDatiGrigliaQdc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#azzeraDatiGrigliaRicette" >azzeraDatiGrigliaRicette</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#azzeraDatiGrigliaZoo" >azzeraDatiGrigliaZoo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#CaricaAgendaDaTabelleAPP" >CaricaAgendaDaTabelleAPP</a>
+                            </li>
+                            <li>
+                                <a href="#CaricaRicette" >CaricaRicette</a>
+                            </li>
+                            <li>
+                                <a href="#CaricaZoo" >CaricaZoo</a>
+                            </li>
+                            <li>
+                                <a href="#forceRefreshBrogliaccio" >forceRefreshBrogliaccio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#GetQdCGridData" >GetQdCGridData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getStampePreferite" >getStampePreferite</a>
+                            </li>
+                            <li>
+                                <a href="#getTabIndexFromCache" >getTabIndexFromCache</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ImportaAgendaDaTabelleAPP" >ImportaAgendaDaTabelleAPP</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ImportaRicetteDaTabelleAPP" >ImportaRicetteDaTabelleAPP</a>
+                            </li>
+                            <li>
+                                <a href="#initializeOperations" >initializeOperations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#InviaRicettaApp" >InviaRicettaApp</a>
+                            </li>
+                            <li>
+                                <a href="#memorizeCurActiveTab" >memorizeCurActiveTab</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resetGridData" >resetGridData</a>
+                            </li>
+                            <li>
+                                <a href="#setPrevSelectedTab" >setPrevSelectedTab</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#currentTab" >currentTab</a>
+                                </li>
+                                <li>
+                                    <a href="#lav_cod_ricettabili" >lav_cod_ricettabili</a>
+                                </li>
+                                <li>
+                                    <a href="#gridDataQdc" >gridDataQdc</a>
+                                </li>
+                                <li>
+                                    <a href="#lavCodOpVisibili" >lavCodOpVisibili</a>
+                                </li>
+                                <li>
+                                    <a href="#gridCommandList" >gridCommandList</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(cookies: <a href="../injectables/CookieService.html" target="_self">CookieService</a>, filters: <a href="../injectables/FiltersService.html" target="_self">FiltersService</a>, operations: <a href="../injectables/OperationsService.html" target="_self">OperationsService</a>, APIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:142</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>cookies</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CookieService.html" target="_self" >CookieService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filters</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FiltersService.html" target="_self" >FiltersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>operations</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OperationsService.html" target="_self" >OperationsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>APIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addBaseCommand"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addBaseCommand</b></span>
+                        <a href="#addBaseCommand"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addBaseCommand(btn: <a href="../classes/GridCommandItem.html" target="_self">GridCommandItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>btn</td>
+                                            <td>
+                                                            <code><a href="../classes/GridCommandItem.html" target="_self" >GridCommandItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="azzeraDatiGrigliaBrogliaccio"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>azzeraDatiGrigliaBrogliaccio</b></span>
+                        <a href="#azzeraDatiGrigliaBrogliaccio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>azzeraDatiGrigliaBrogliaccio()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="419"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="azzeraDatiGrigliaQdc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>azzeraDatiGrigliaQdc</b></span>
+                        <a href="#azzeraDatiGrigliaQdc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>azzeraDatiGrigliaQdc()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="415"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:415</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="azzeraDatiGrigliaRicette"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>azzeraDatiGrigliaRicette</b></span>
+                        <a href="#azzeraDatiGrigliaRicette"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>azzeraDatiGrigliaRicette()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="423"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:423</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="azzeraDatiGrigliaZoo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>azzeraDatiGrigliaZoo</b></span>
+                        <a href="#azzeraDatiGrigliaZoo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>azzeraDatiGrigliaZoo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="427"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:427</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CaricaAgendaDaTabelleAPP"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>CaricaAgendaDaTabelleAPP</b></span>
+                        <a href="#CaricaAgendaDaTabelleAPP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>CaricaAgendaDaTabelleAPP(importaSoloAziendaSelezionata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, tipo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="461"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:461</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>importaSoloAziendaSelezionata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>tipo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CaricaRicette"></a>
+                    <span class="name">
+                        <span ><b>CaricaRicette</b></span>
+                        <a href="#CaricaRicette"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CaricaRicette(tabType: <a href="../undefineds/TabTypes.html" target="_self">TabTypes</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Questo metodo viene chiamato in Gias2010 sia per le ricette che per il
+brogliaccio.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tabType</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#TabTypes" target="_self" >TabTypes</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CaricaZoo"></a>
+                    <span class="name">
+                        <span ><b>CaricaZoo</b></span>
+                        <a href="#CaricaZoo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>CaricaZoo(tabType: <a href="../undefineds/TabTypes.html" target="_self">TabTypes</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="246"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:246</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tabType</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#TabTypes" target="_self" >TabTypes</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="forceRefreshBrogliaccio"></a>
+                    <span class="name">
+                        <span ><b>forceRefreshBrogliaccio</b></span>
+                        <a href="#forceRefreshBrogliaccio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>forceRefreshBrogliaccio()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="400"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:400</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GetQdCGridData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>GetQdCGridData</b></span>
+                        <a href="#GetQdCGridData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>GetQdCGridData(filters: <a href="../classes/Filters.html" target="_self">Filters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filters</td>
+                                            <td>
+                                                            <code><a href="../classes/Filters.html" target="_self" >Filters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStampePreferite"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getStampePreferite</b></span>
+                        <a href="#getStampePreferite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStampePreferite()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="431"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:431</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Command.html" target="_self" >Promise&lt;GridCommandItem[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTabIndexFromCache"></a>
+                    <span class="name">
+                        <span ><b>getTabIndexFromCache</b></span>
+                        <a href="#getTabIndexFromCache"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTabIndexFromCache()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImportaAgendaDaTabelleAPP"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ImportaAgendaDaTabelleAPP</b></span>
+                        <a href="#ImportaAgendaDaTabelleAPP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ImportaAgendaDaTabelleAPP(importaSoloAziendaSelezionata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="165"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:165</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>importaSoloAziendaSelezionata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImportaRicetteDaTabelleAPP"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ImportaRicetteDaTabelleAPP</b></span>
+                        <a href="#ImportaRicetteDaTabelleAPP"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ImportaRicetteDaTabelleAPP(importaSoloAziendaSelezionata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>importaSoloAziendaSelezionata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeOperations"></a>
+                    <span class="name">
+                        <span ><b>initializeOperations</b></span>
+                        <a href="#initializeOperations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeOperations(signal: Subject<void>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="215"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:215</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>signal</td>
+                                            <td>
+                                                        <code>Subject&lt;void&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="InviaRicettaApp"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>InviaRicettaApp</b></span>
+                        <a href="#InviaRicettaApp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>InviaRicettaApp(listaRicette: <a href="../classes/RicettaRow.html" target="_self">RicettaRow[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="471"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:471</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listaRicette</td>
+                                            <td>
+                                                            <code><a href="../classes/RicettaRow.html" target="_self" >RicettaRow[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="memorizeCurActiveTab"></a>
+                    <span class="name">
+                        <span ><b>memorizeCurActiveTab</b></span>
+                        <a href="#memorizeCurActiveTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>memorizeCurActiveTab(tabAttivoIndx: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>tabAttivoIndx</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetGridData"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>resetGridData</b></span>
+                        <a href="#resetGridData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetGridData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="408"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:408</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Azzera i dati delle 3 giiglie. Questo porta al ricaricamento
+dei dati (tramite una chiamata http) quando un tab viene cambiato.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPrevSelectedTab"></a>
+                    <span class="name">
+                        <span ><b>setPrevSelectedTab</b></span>
+                        <a href="#setPrevSelectedTab"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setPrevSelectedTab()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridCommandList"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridCommandList</b></span>
+                        <a href="#_gridCommandList"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >GridCommandItem[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {
+      actionName: &quot;Informazioni&quot;,
+      action: enum_menuAgendaGridCommands.INFO,
+      iconClass: &quot;btn-Info k-grid-Info k-rounded-md&quot;,
+      isStatic: true,
+      paramsforTrasloco: null
+    },
+    {
+      actionName: &quot;Modifica&quot;,
+      action: enum_menuAgendaGridCommands.MODIFICA,
+      iconClass: &#x27;faEditFull&#x27;,
+      isStatic: true,
+      paramsforTrasloco: null
+    },
+    {
+      actionName: &quot;Cancella&quot;,
+      action: enum_menuAgendaGridCommands.CANCELLA,
+      iconClass: &#x27;&#x27;,
+      fontawesomeIcon: faTrashAlt,
+      isStatic: true,
+      paramsforTrasloco: null
+    }, {
+      actionName: &quot;Copia&quot;,
+      iconClass: &#x27;faCopySingle02&#x27;,
+      action: enum_menuAgendaGridCommands.COPIA,
+      isStatic: true,
+      paramsforTrasloco: null
+    }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="106" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:106</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Items in drop-down button</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridDataQdc"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridDataQdc</b></span>
+                        <a href="#_gridDataQdc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/ImpresaKendoServerResult.html" target="_self" >ImpresaKendoServerResult</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_lav_cod_ricettabili"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_lav_cod_ricettabili</b></span>
+                        <a href="#_lav_cod_ricettabili"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_lavCodOperazioniVisibili"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>_lavCodOperazioniVisibili</b></span>
+                        <a href="#_lavCodOperazioniVisibili"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Section Gestione Costi</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="commandExecuted"></a>
+                    <span class="name">
+                        <span ><b>commandExecuted</b></span>
+                        <a href="#commandExecuted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;IMenuAgendaGridCommand&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridDataBrogliaccio"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridDataBrogliaccio</b></span>
+                        <a href="#gridDataBrogliaccio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BrogliaccioServerResult.html" target="_self" >BrogliaccioServerResult</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridDataRicette"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridDataRicette</b></span>
+                        <a href="#gridDataRicette"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/RicetteServerResult.html" target="_self" >RicetteServerResult</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:82</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridDataZoo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridDataZoo</b></span>
+                        <a href="#gridDataZoo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GridZooResult.html" target="_self" >GridZooResult</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="83" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMenuAgendaCalledFromGis"></a>
+                    <span class="name">
+                        <span ><b>isMenuAgendaCalledFromGis</b></span>
+                        <a href="#isMenuAgendaCalledFromGis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="recipeModalData"></a>
+                    <span class="name">
+                        <span ><b>recipeModalData</b></span>
+                        <a href="#recipeModalData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;CreateRecipeData&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedTabstrip"></a>
+                    <span class="name">
+                        <span ><b>selectedTabstrip</b></span>
+                        <a href="#selectedTabstrip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;TabTypes&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(TabTypes.Initializer)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupShowDDT"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setupShowDDT</b></span>
+                        <a href="#setupShowDDT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentTab"></a>
+                        <span class="name"><b>currentTab</b><a href="#currentTab"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>currentTab()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:61</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>currentTab(index: <a href="../undefineds/TabTypes.html" target="_self">TabTypes</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:65</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>index</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../miscellaneous/enumerations.html#TabTypes" target="_self" >TabTypes</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lav_cod_ricettabili"></a>
+                        <span class="name"><b>lav_cod_ricettabili</b><a href="#lav_cod_ricettabili"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lav_cod_ricettabili()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:75</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>lav_cod_ricettabili(value: number[])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:71</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                        <code>number[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gridDataQdc"></a>
+                        <span class="name"><b>gridDataQdc</b><a href="#gridDataQdc"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>gridDataQdc()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="90" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:90</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>gridDataQdc(value: <a href="../classes/ImpresaKendoServerResult.html" target="_self">ImpresaKendoServerResult</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="86" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:86</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>value</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../classes/ImpresaKendoServerResult.html" target="_self" >ImpresaKendoServerResult</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lavCodOpVisibili"></a>
+                        <span class="name"><b>lavCodOpVisibili</b><a href="#lavCodOpVisibili"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lavCodOpVisibili()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:97</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>lavCodOpVisibili(values: number[])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:101</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>values</td>
+                                                    
+                                                            <td>
+                                                                        <code>number[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="gridCommandList"></a>
+                        <span class="name"><b>gridCommandList</b><a href="#gridCommandList"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>gridCommandList()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/menu-agenda/shared_services/menu-agenda-datastore.service.ts:136</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {ImpresaKendoServerResult} from &#x27;app/anagrafica/imprese/imprese.model&#x27;;
+import {MasterService} from &#x27;app/Service/master.service&#x27;;
+import {parseServerResult} from &#x27;app/Service/utils&#x27;;
+import { KendoGridColumn, KendoServerResult, ServerResult } from &#x27;gias-kendo-grid&#x27;;
+import {cloneDeep} from &#x27;lodash&#x27;;
+import {CookieService} from &#x27;ngx-cookie-service&#x27;;
+import {BehaviorSubject, Observable, of, Subject} from &#x27;rxjs&#x27;;
+import {switchMap, takeUntil} from &#x27;rxjs/operators&#x27;;
+import {FiltersService} from &#x27;../components/filters/filters.service&#x27;;
+import {OperationsService} from &#x27;../components/operations-list/operations.service&#x27;;
+import {
+  BrogliaccioServerResult,
+  CreateRecipeData,
+  enum_menuAgendaGridCommands,
+  Filters,
+  GridCommandItem,
+  GridZooResult,
+  IMenuAgendaGridCommand,
+  ModificaListaRicetteQdC,
+  RicettaRow,
+  RicetteServerResult,
+  TableQdCLink,
+  TabTypes
+} from &#x27;../components/utils&#x27;;
+import {faTrashAlt} from &quot;@fortawesome/free-solid-svg-icons&quot;;
+import {AjaxAgronicaAPIService} from &#x27;app/Service/ajax-agronica.api.service&#x27;;
+import {APP_Ricetta_Operazione} from &#x27;app/Service/Agenda/Agenda.service&#x27;;
+import {BaseCodeDescr} from &#x27;../../Model/baseClass/baseCodeDescr&#x27;;
+import {ObjParametriAgendaService} from &quot;../../Service/obj-parametri-agenda.service&quot;;
+
+
+//const importaAgendaImpresaSelezionata_Old &#x3D; &quot;/Contab/Ricette.asmx/ImportaAgendaAziendaDaTabelleAPP&quot;;
+const importaAgendaImpresaSelezionata &#x3D; &quot;Contab/ImportaAgendaAziendaDaTabelleAPP&quot;;
+//const importaTuttaLAgenda_Old &#x3D; &quot;/Contab/Ricette.asmx/ImportaAgendaDaTabelleAPP&quot;;
+const importaTuttaLAgenda &#x3D; &quot;/Contab/Ricette.asmx/ImportaAgendaDaTabelleAPP&quot;;
+//const importaRicetteAgenda &#x3D; &quot;Contab/Ricette.asmx/ImportaRicetteAziendaDaTabelleAPP&quot;;
+const importaRicetteAgenda &#x3D; &quot;Contab/ImportaRicetteAziendaDaTabelleAPP&quot;;
+//const importaRicette_Old &#x3D; &quot;Contab/Ricette.asmx/ImportaRicetteDaTabelleAPP&quot;;
+const importaRicette &#x3D; &quot;Contab/ImportaRicetteDaTabelleAPP&quot;;
+
+const activeTabCacheId &#x3D; &quot;QDC_MenuAgenda_TabAttivo&quot;;
+//const caricaAgendaLink_Old &#x3D; &quot;/GiasApp/SincroDatiApp.asmx/CaricaDatiApp&quot;;
+const caricaAgendaLink &#x3D; &quot;/GiasApp/CaricaDatiApp&quot;;
+
+
+//export const LinkRicette_Old &#x3D; &#x27;/Agenda/MenuBS_WS.asmx/CaricaRicette&#x27;;
+export const LinkRicette &#x3D; &#x27;Agenda/CaricaRicette&#x27;;
+//const CaricaLavcodOperazioniVisibili_Old &#x3D; &quot;Agenda/Agenda.asmx/CaricaGrigliaOperazioni&quot;;
+const CaricaLavcodOperazioniVisibili &#x3D; &quot;Agenda/CaricaGrigliaOperazioni&quot;;
+
+
+@Injectable({providedIn: &#x27;root&#x27;})
+export class MenuAgendaDataStore {
+  isMenuAgendaCalledFromGis &#x3D; false;
+
+  recipeModalData: BehaviorSubject&lt;CreateRecipeData&gt; &#x3D; new BehaviorSubject(null);
+  selectedTabstrip: BehaviorSubject&lt;TabTypes&gt; &#x3D; new BehaviorSubject(TabTypes.Initializer);
+  commandExecuted: BehaviorSubject&lt;IMenuAgendaGridCommand&gt; &#x3D; new BehaviorSubject(null);
+
+  public get currentTab() {
+    return this.selectedTabstrip.value;
+  }
+
+  public set currentTab(index: TabTypes) {
+    this.selectedTabstrip.next(index);
+  }
+
+  private _lav_cod_ricettabili: number[];
+
+  public set lav_cod_ricettabili(value: number[]) {
+    this._lav_cod_ricettabili &#x3D; value;
+  }
+
+  public get lav_cod_ricettabili() {
+    return this._lav_cod_ricettabili;
+  }
+
+  public setupShowDDT: boolean &#x3D; false;
+
+  public gridDataBrogliaccio: BrogliaccioServerResult;
+  public gridDataRicette: RicetteServerResult;
+  public gridDataZoo: GridZooResult;
+
+  private _gridDataQdc: ImpresaKendoServerResult;
+  public set gridDataQdc(value: ImpresaKendoServerResult) {
+    this._gridDataQdc &#x3D; value;
+  }
+
+  public get gridDataQdc() {
+    return this._gridDataQdc;
+  }
+
+  /** Section Gestione Costi */
+  public _lavCodOperazioniVisibili: number[];
+
+  get lavCodOpVisibili() {
+    return this._lavCodOperazioniVisibili;
+  }
+
+  set lavCodOpVisibili(values: number[]) {
+    this._lavCodOperazioniVisibili &#x3D; values;
+  }
+
+  /** Items in drop-down button */
+  private _gridCommandList: GridCommandItem[] &#x3D; [
+    {
+      actionName: &quot;Informazioni&quot;,
+      action: enum_menuAgendaGridCommands.INFO,
+      iconClass: &quot;btn-Info k-grid-Info k-rounded-md&quot;,
+      isStatic: true,
+      paramsforTrasloco: null
+    },
+    {
+      actionName: &quot;Modifica&quot;,
+      action: enum_menuAgendaGridCommands.MODIFICA,
+      iconClass: &#x27;faEditFull&#x27;,
+      isStatic: true,
+      paramsforTrasloco: null
+    },
+    {
+      actionName: &quot;Cancella&quot;,
+      action: enum_menuAgendaGridCommands.CANCELLA,
+      iconClass: &#x27;&#x27;,
+      fontawesomeIcon: faTrashAlt,
+      isStatic: true,
+      paramsforTrasloco: null
+    }, {
+      actionName: &quot;Copia&quot;,
+      iconClass: &#x27;faCopySingle02&#x27;,
+      action: enum_menuAgendaGridCommands.COPIA,
+      isStatic: true,
+      paramsforTrasloco: null
+    }
+  ];
+  get gridCommandList(): GridCommandItem[] {
+    return cloneDeep(this._gridCommandList);
+  }
+
+  public addBaseCommand(btn: GridCommandItem) {
+    this._gridCommandList.push(btn);
+  }
+
+  constructor(private cookies: CookieService,
+              private filters: FiltersService,
+              private operations: OperationsService,
+              private APIService: AjaxAgronicaAPIService,
+              private masterService: MasterService,
+              private objParametriAgendaService: ObjParametriAgendaService) {
+
+  }
+
+
+  /*public ImportaAgendaDaTabelleAPP_Old(importaSoloAziendaSelezionata: boolean) {
+      let link &#x3D; importaSoloAziendaSelezionata
+          ? importaAgendaImpresaSelezionata: importaTuttaLAgenda;
+
+      return this.http.post_legacy(
+          link,
+          this.ImportaTabelleAppParams(importaSoloAziendaSelezionata),
+          true
+      );
+  }*/
+
+  public ImportaAgendaDaTabelleAPP(importaSoloAziendaSelezionata: boolean) {
+    const piva &#x3D; importaSoloAziendaSelezionata
+      ? this.objParametriAgendaService.getObjParamValue().Piva : &quot;&quot;;
+    let link &#x3D; importaSoloAziendaSelezionata
+      ? importaAgendaImpresaSelezionata : importaTuttaLAgenda;
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(link, piva);
+  }
+
+  /*public ImportaRicetteDaTabelleAPP(importaSoloAziendaSelezionata: boolean) {
+      let link &#x3D; importaSoloAziendaSelezionata
+          ? importaRicetteAgenda: importaRicette;
+
+      return this.http.post_legacy(
+          link,
+          this.ImportaTabelleAppParams(importaSoloAziendaSelezionata),
+          true
+      );
+  }*/
+
+  public ImportaRicetteDaTabelleAPP(importaSoloAziendaSelezionata: boolean) {
+    const piva &#x3D; importaSoloAziendaSelezionata
+      ? this.objParametriAgendaService.getObjParamValue().Piva
+      : &quot;&quot;;
+    if (importaSoloAziendaSelezionata) {
+      return this.APIService.ajaxAPIPost&lt;any, any&gt;(importaRicetteAgenda, piva, true);
+    } else {
+      return this.APIService.ajaxAPIGet&lt;any, any&gt;(importaRicette, piva, true);
+    }
+  }
+
+
+  public GetQdCGridData(filters: Filters): Observable&lt;unknown&gt; {
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(TableQdCLink, {
+      filtro: JSON.stringify(filters),
+      piva: this.objParametriAgendaService.getObjParamValue().Piva
+    })
+  }
+
+
+  memorizeCurActiveTab(tabAttivoIndx: any) {
+    this.cookies.set(
+      activeTabCacheId, JSON.stringify(tabAttivoIndx), {path: &#x27;/&#x27;}
+    );
+  }
+
+  getTabIndexFromCache() {
+    return this.cookies.get(activeTabCacheId);
+  }
+
+
+  initializeOperations(signal: Subject&lt;void&gt;) {
+    this.selectedTabstrip.pipe(takeUntil(signal)).subscribe((selectedIndx: TabTypes) &#x3D;&gt; {
+      if (selectedIndx &#x3D;&#x3D;&#x3D; TabTypes.Initializer)
+        return;
+
+      switch (selectedIndx) {
+        case TabTypes.QuadernoDiCampagna:
+          this.operations.LoadFavorites();
+          break;
+        case TabTypes.Ricette:
+          this.operations.LoadFavoritesPerRicette();
+          break;
+        case TabTypes.Brogliaccio:
+          this.operations.LoadFavoritesBrogliaccio();
+          break;
+        default:
+          throw new Error(&#x27;Undefined tab type!&#x27;);
+      }
+    })
+  }
+
+  setPrevSelectedTab() {
+    const cacheIndx &#x3D; this.getTabIndexFromCache();
+    let index &#x3D; parseInt(cacheIndx);
+    if (isNaN(index)) {
+      index &#x3D; 0;
+    }
+
+    this.currentTab &#x3D; index;
+  }
+
+  CaricaZoo(tabType: TabTypes) {
+
+    const providesArgs &#x3D; (...args) &#x3D;&gt; {
+      let agenda &#x3D; args[0];
+      let master &#x3D; args[1];
+
+      const filters &#x3D; this.filters.getFiltriRicette();
+
+      return {
+        filtri: JSON.stringify(filters),
+
+        objParam_server: master.ObjParametri_Server,
+        objParam_utenti: master.ObjParametri_Utenti
+      };
+    }
+
+    const providesArgs_NG &#x3D; (...args) &#x3D;&gt; {
+      const filters &#x3D; this.filters.getFiltriRicette();
+
+      return filters;
+    }
+
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(LinkRicette, providesArgs_NG.bind(this))
+      .pipe(switchMap((data) &#x3D;&gt; {
+        let serverResult &#x3D; data.RispostaStringa as any as ServerResult;
+        switch (tabType) {
+          case TabTypes.Ricette:
+            this.gridDataRicette &#x3D; parseServerResult(serverResult);
+            return of(this.gridDataRicette);
+          case TabTypes.Brogliaccio:
+            this.gridDataBrogliaccio &#x3D; parseServerResult(serverResult);
+            return of(this.gridDataBrogliaccio);
+          default:
+            throw Error(&quot;Something went terribly wrong&quot;);
+        }
+      }));
+
+    /*return this.http.post2&lt;RicetteServerResult&gt;(LinkRicette, providesArgs.bind(this))
+    .pipe(switchMap((data) &#x3D;&gt; {
+        let serverResult &#x3D; JSON.parse(data as any) as ServerResult;
+        switch (tabType) {
+            case TabTypes.Ricette:
+                this.gridDataRicette &#x3D; parseServerResult(serverResult);
+                return of(this.gridDataRicette);
+            case TabTypes.Brogliaccio:
+                this.gridDataBrogliaccio &#x3D; parseServerResult(serverResult);
+                return of(this.gridDataBrogliaccio);
+            default:
+                throw Error(&quot;Something went terribly wrong&quot;);
+        }
+    }));*/
+  }
+
+  /**
+   * Questo metodo viene chiamato in Gias2010 sia per le ricette che per il
+   * brogliaccio.
+   */
+  CaricaRicette(tabType: TabTypes) {
+
+    const providesArgs &#x3D; (...args) &#x3D;&gt; {
+      let agenda &#x3D; args[0];
+      let master &#x3D; args[1];
+
+      let filters &#x3D; null;
+      switch (tabType) {
+        case TabTypes.Ricette:
+          filters &#x3D; this.filters.getFiltriRicette();
+          break;
+
+        case TabTypes.Brogliaccio:
+          filters &#x3D; this.filters.getFiltriBrogliaccio();
+          break;
+
+        default:
+          throw Error(&quot;Tab type not handled&quot;);
+      }
+
+      let params &#x3D; agenda.getObjParamValue();
+      return {
+        piva: params.Piva,
+        filtri: JSON.stringify(filters),
+
+        objParam_server: master.ObjParametri_Server,
+        objParam_utenti: master.ObjParametri_Utenti
+      };
+    }
+
+    const providesArgs_NG &#x3D; (...args) &#x3D;&gt; {
+      let agenda &#x3D; args[0];
+      let master &#x3D; args[1];
+
+      let filters &#x3D; null;
+      switch (tabType) {
+        case TabTypes.Ricette:
+          filters &#x3D; this.filters.getFiltriRicette();
+          break;
+
+        case TabTypes.Brogliaccio:
+          filters &#x3D; this.filters.getFiltriBrogliaccio();
+          break;
+
+        default:
+          throw Error(&quot;Tab type not handled&quot;);
+      }
+
+      let params &#x3D; agenda.getObjParamValue();
+      return {
+        piva: params.Piva,
+        filtri: JSON.stringify(filters),
+
+        objParam_server: master.ObjParametri_Server,
+        objParam_utenti: master.ObjParametri_Utenti
+      };
+    }
+
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(LinkRicette, providesArgs_NG(this.objParametriAgendaService, this.masterService))
+      .pipe(switchMap((data) &#x3D;&gt; {
+        if (!data) {
+          throw Error(&quot;Oh no! The output data is &quot; + data + &quot;!&quot;);
+        }
+
+        let serverResult &#x3D; data.RispostaStringa as any as ServerResult;
+        switch (tabType) {
+          case TabTypes.Ricette:
+            this.gridDataRicette &#x3D; parseServerResult(serverResult);
+            return of(this.gridDataRicette);
+          case TabTypes.Brogliaccio:
+            this.gridDataBrogliaccio &#x3D; parseServerResult(serverResult);
+            return of(this.gridDataBrogliaccio);
+          default:
+            throw Error(&quot;Something went terribly wrong&quot;);
+        }
+      }));
+
+    /*return this.http.post2&lt;RicetteServerResult&gt;(LinkRicette, providesArgs.bind(this))
+    .pipe(switchMap((data) &#x3D;&gt; {
+        if (!data) {
+            throw Error(&quot;Oh no! The output data is &quot;+ data +&quot;!&quot;);
+        }
+
+        let serverResult &#x3D; JSON.parse(data as any) as ServerResult;
+        switch (tabType) {
+            case TabTypes.Ricette:
+                this.gridDataRicette &#x3D; parseServerResult(serverResult);
+                return of(this.gridDataRicette);
+            case TabTypes.Brogliaccio:
+                this.gridDataBrogliaccio &#x3D; parseServerResult(serverResult);
+                return of(this.gridDataBrogliaccio);
+            default:
+                throw Error(&quot;Something went terribly wrong&quot;);
+        }
+    }));*/
+  }
+
+  forceRefreshBrogliaccio() {
+    this.gridDataBrogliaccio &#x3D; null;
+  }
+
+  /**
+   * Azzera i dati delle 3 giiglie. Questo porta al ricaricamento
+   * dei dati (tramite una chiamata http) quando un tab viene cambiato.
+   */
+  public resetGridData() {
+    this.azzeraDatiGrigliaQdc();
+    this.azzeraDatiGrigliaBrogliaccio();
+    this.azzeraDatiGrigliaRicette();
+    this.azzeraDatiGrigliaZoo();
+  }
+
+  public azzeraDatiGrigliaQdc() {
+    this.gridDataQdc &#x3D; null;
+  }
+
+  public azzeraDatiGrigliaBrogliaccio() {
+    this.gridDataBrogliaccio &#x3D; null;
+  }
+
+  public azzeraDatiGrigliaRicette() {
+    this.gridDataRicette &#x3D; null;
+  }
+
+  public azzeraDatiGrigliaZoo() {
+    this.gridDataZoo &#x3D; null;
+  }
+
+  public async getStampePreferite(): Promise&lt;GridCommandItem[]&gt; {
+    let stampe: GridCommandItem[] &#x3D; [];
+    const R &#x3D; await this.APIService.ajaxAPIGet&lt;string, object&gt;(&#x27;Agenda/getStampePreferite&#x27;, &quot;&quot;, false, true).toPromise();
+
+    (R.RispostaStringa as Array&lt;BaseCodeDescr&gt;).forEach((item: BaseCodeDescr) &#x3D;&gt; {
+      stampe.push(new GridCommandItem(item.descrizione, item.codice));
+    })
+    return stampe;
+  }
+
+  /*public CaricaAgendaDaTabelleAPP_Old(importaSoloAziendaSelezionata: boolean, tipo: string) {
+      const params &#x3D; (...args: HttpArgs) &#x3D;&gt; {
+          const agenda &#x3D; args[0];
+          const master &#x3D; args[1];
+          let piva &#x3D; &quot;&quot;;
+          if(importaSoloAziendaSelezionata)
+              piva &#x3D; agenda.getObjParamValue().Piva;
+
+          return {
+              tipo: tipo,
+              piva: piva,
+              objP_super_server: master.ObjParametri_Super_Server,
+              objP_server: master.ObjParametri_Server,
+              objP_utenti: master.ObjParametri_Utenti
+          };
+      };
+
+      return this.http.post2(caricaAgendaLink, params, true, false);
+  }*/
+
+  public CaricaAgendaDaTabelleAPP(importaSoloAziendaSelezionata: boolean, tipo: string) {
+    let objAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+    const params &#x3D; {
+      tipo: tipo,
+      piva: objAgenda.Piva
+    };
+
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(caricaAgendaLink, params, true);
+  }
+
+  public async InviaRicettaApp(listaRicette: RicettaRow[]) {
+    return new Promise((resolve, reject) &#x3D;&gt; {
+      let lst: Array&lt;APP_Ricetta_Operazione&gt; &#x3D; listaRicette.filter(r &#x3D;&gt; r.Invia_App !&#x3D;&#x3D; &#x27;1&#x27;).map(r &#x3D;&gt; {
+        let ricetta &#x3D; new APP_Ricetta_Operazione();
+        ricetta.Ricetta_Cod &#x3D; r.Ricetta_Cod;
+        ricetta.Ricetta_Operazione_Cod &#x3D; r.Ricetta_Operazione_Cod;
+        return ricetta;
+      })
+
+      let inData &#x3D; new ModificaListaRicetteQdC();
+      inData.ListaRicette &#x3D; lst;
+
+      this.APIService.ajaxAPIPost&lt;ModificaListaRicetteQdC, any&gt;(
+        &#x27;Agenda/GestioneFlagRicettaInviaApp&#x27;, inData
+      ).GiasSubscribe(R &#x3D;&gt; {
+        console.log(&#x27;done&#x27;, R)
+        resolve(R);
+      });
+
+    });
+  }
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MenuAgendaDataStore.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

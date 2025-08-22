@@ -1,0 +1,2590 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >QdCControlliSalvataggioService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#list_Warning_QdC" >list_Warning_QdC</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Controlla_Grid_Dosi_Prodotti" >Controlla_Grid_Dosi_Prodotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Grid_Impianti" >Controlla_Grid_Impianti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Grid_Prodotti_Magazzino" >Controlla_Grid_Prodotti_Magazzino</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Controlla_Se_Ci_Sono_Righe_Non_Salvate" >Controlla_Se_Ci_Sono_Righe_Non_Salvate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Sezione_Fertilizzanti" >Controlla_Sezione_Fertilizzanti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Sezione_Formulati" >Controlla_Sezione_Formulati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Sezione_Raccolta" >Controlla_Sezione_Raccolta</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Sezione_Sementi" >Controlla_Sezione_Sementi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Sezioni_Prodotti" >Controlla_Sezioni_Prodotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Specie" >Controlla_Specie</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Unita_Di_Misura" >Controlla_Unita_Di_Misura</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ControllaQdC" >ControllaQdC</a>
+                            </li>
+                            <li>
+                                <a href="#GestisciWarning" >GestisciWarning</a>
+                            </li>
+                            <li>
+                                <a href="#GestisciWarning_Ricette" >GestisciWarning_Ricette</a>
+                            </li>
+                            <li>
+                                <a href="#GestisciWarningDichiarazione_non_Utilizzo" >GestisciWarningDichiarazione_non_Utilizzo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Operazioni_Non_Utilizzo_Scelte" >Operazioni_Non_Utilizzo_Scelte</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, translocoService: TranslocoService, testataService: <a href="../injectables/QdCTestataService.html" target="_self">QdCTestataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>testataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCTestataService.html" target="_self" >QdCTestataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Grid_Dosi_Prodotti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>Controlla_Grid_Dosi_Prodotti</b></span>
+                        <a href="#Controlla_Grid_Dosi_Prodotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Grid_Dosi_Prodotti(elem_cod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lav_cod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Grid_Dosi_Prodotti: Array<any>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>, from_salvataggio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="602"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:602</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>elem_cod</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>lav_cod</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>Grid_Dosi_Prodotti</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>from_salvataggio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Grid_Impianti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Grid_Impianti</b></span>
+                        <a href="#Controlla_Grid_Impianti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Grid_Impianti(Testata: <a href="../classes/Testata.html" target="_self">Testata</a>, Grid_Impianti_Selezionati: Array<GridImpiantoSelezionatoModel>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="361"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:361</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Testata</td>
+                                            <td>
+                                                            <code><a href="../classes/Testata.html" target="_self" >Testata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Grid_Impianti_Selezionati</td>
+                                            <td>
+                                                        <code>Array&lt;GridImpiantoSelezionatoModel&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Grid_Prodotti_Magazzino"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Grid_Prodotti_Magazzino</b></span>
+                        <a href="#Controlla_Grid_Prodotti_Magazzino"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Grid_Prodotti_Magazzino(Testata: <a href="../classes/Testata.html" target="_self">Testata</a>, Grid_ProdottiDaTrattare_Selezionati: Array<any>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="422"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:422</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Testata</td>
+                                            <td>
+                                                            <code><a href="../classes/Testata.html" target="_self" >Testata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Grid_ProdottiDaTrattare_Selezionati</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Se_Ci_Sono_Righe_Non_Salvate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>Controlla_Se_Ci_Sono_Righe_Non_Salvate</b></span>
+                        <a href="#Controlla_Se_Ci_Sono_Righe_Non_Salvate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Se_Ci_Sono_Righe_Non_Salvate(Grid_Dosi_Prodotti: Array<any>, from_salvataggio: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="669"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:669</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Grid_Dosi_Prodotti</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>from_salvataggio</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Sezione_Fertilizzanti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Sezione_Fertilizzanti</b></span>
+                        <a href="#Controlla_Sezione_Fertilizzanti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Sezione_Fertilizzanti(Sezione_Fertilizzanti: <a href="../classes/Sezione_Prodotto_Fertilizzanti.html" target="_self">Sezione_Prodotto_Fertilizzanti</a>, listerroriGias)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="495"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:495</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sezione_Fertilizzanti</td>
+                                            <td>
+                                                            <code><a href="../classes/Sezione_Prodotto_Fertilizzanti.html" target="_self" >Sezione_Prodotto_Fertilizzanti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Sezione_Formulati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Sezione_Formulati</b></span>
+                        <a href="#Controlla_Sezione_Formulati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Sezione_Formulati(Sezione_Formulati: <a href="../classes/Sezione_Prodotto_Formulati.html" target="_self">Sezione_Prodotto_Formulati</a>, listerroriGias)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="484"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:484</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sezione_Formulati</td>
+                                            <td>
+                                                            <code><a href="../classes/Sezione_Prodotto_Formulati.html" target="_self" >Sezione_Prodotto_Formulati</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Sezione_Raccolta"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Sezione_Raccolta</b></span>
+                        <a href="#Controlla_Sezione_Raccolta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Sezione_Raccolta(Sezione_Raccolta: <a href="../classes/Sezione_Prodotto_Raccolta.html" target="_self">Sezione_Prodotto_Raccolta</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="575"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:575</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sezione_Raccolta</td>
+                                            <td>
+                                                            <code><a href="../classes/Sezione_Prodotto_Raccolta.html" target="_self" >Sezione_Prodotto_Raccolta</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Sezione_Sementi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Sezione_Sementi</b></span>
+                        <a href="#Controlla_Sezione_Sementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Sezione_Sementi(Sezione_Sementi: <a href="../classes/Sezione_Prodotto_Sementi.html" target="_self">Sezione_Prodotto_Sementi</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="505"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:505</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sezione_Sementi</td>
+                                            <td>
+                                                            <code><a href="../classes/Sezione_Prodotto_Sementi.html" target="_self" >Sezione_Prodotto_Sementi</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Sezioni_Prodotti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Sezioni_Prodotti</b></span>
+                        <a href="#Controlla_Sezioni_Prodotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Sezioni_Prodotti(Sezione_ProdottoFormArrayValue: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="463"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:463</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sezione_ProdottoFormArrayValue</td>
+                                            <td>
+                                                        <code>Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Specie"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Specie</b></span>
+                        <a href="#Controlla_Specie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Specie(Testata: <a href="../classes/Testata.html" target="_self">Testata</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="341"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:341</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Testata</td>
+                                            <td>
+                                                            <code><a href="../classes/Testata.html" target="_self" >Testata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Unita_Di_Misura"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Unita_Di_Misura</b></span>
+                        <a href="#Controlla_Unita_Di_Misura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Unita_Di_Misura(raccolta: <a href="../classes/DettaglioRaccolta.html" target="_self">DettaglioRaccolta[]</a>, err: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="582"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:582</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>raccolta</td>
+                                            <td>
+                                                            <code><a href="../classes/DettaglioRaccolta.html" target="_self" >DettaglioRaccolta[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>err</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ControllaQdC"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ControllaQdC</b></span>
+                        <a href="#ControllaQdC"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ControllaQdC()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ErroreGias.html" target="_self" >Promise&lt;ErroreGias[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GestisciWarning"></a>
+                    <span class="name">
+                        <span ><b>GestisciWarning</b></span>
+                        <a href="#GestisciWarning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GestisciWarning(listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="741"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:741</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GestisciWarning_Ricette"></a>
+                    <span class="name">
+                        <span ><b>GestisciWarning_Ricette</b></span>
+                        <a href="#GestisciWarning_Ricette"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GestisciWarning_Ricette(testata: <a href="../classes/Testata.html" target="_self">Testata</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="762"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:762</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>testata</td>
+                                            <td>
+                                                            <code><a href="../classes/Testata.html" target="_self" >Testata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GestisciWarningDichiarazione_non_Utilizzo"></a>
+                    <span class="name">
+                        <span ><b>GestisciWarningDichiarazione_non_Utilizzo</b></span>
+                        <a href="#GestisciWarningDichiarazione_non_Utilizzo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>GestisciWarningDichiarazione_non_Utilizzo(testata: <a href="../classes/Testata.html" target="_self">Testata</a>, impiantiSelezionati: Array<GridImpiantoSelezionatoModel>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="778"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:778</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>testata</td>
+                                            <td>
+                                                            <code><a href="../classes/Testata.html" target="_self" >Testata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>impiantiSelezionati</td>
+                                            <td>
+                                                        <code>Array&lt;GridImpiantoSelezionatoModel&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Operazioni_Non_Utilizzo_Scelte"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Operazioni_Non_Utilizzo_Scelte</b></span>
+                        <a href="#Operazioni_Non_Utilizzo_Scelte"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Operazioni_Non_Utilizzo_Scelte(Operazioni: <a href="../classes/Lavorazione.html" target="_self">Array&lt;Lavorazione&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Operazioni</td>
+                                            <td>
+                                                            <code><a href="../classes/Lavorazione.html" target="_self" >Array&lt;Lavorazione&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="list_Warning_QdC"></a>
+                    <span class="name">
+                        <span ><b>list_Warning_QdC</b></span>
+                        <a href="#list_Warning_QdC"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Parametri_Aggiuntivi_Attivita[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[{
+       key: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_InviaRicettaAdAPP,
+       value: &quot;true&quot;,
+       operazione: null
+    },
+    {
+      key: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_Dichiarazione_non_Utilizzo,
+      value: &quot;true&quot;,
+      operazione: null
+    }]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/qdc-controlli-salvataggio.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &quot;@angular/core&quot;;
+import {QdCService} from &quot;./qdc.service&quot;;
+import {
+    GridImpiantoSelezionatoModel, Key_Parametri_Aggiuntivi_Attivita, Obj_Errore_Gias_QdC,
+    Parametri_Aggiuntivi_Attivita,
+    Sezione_Prodotto_Fertilizzanti,
+    Sezione_Prodotto_Formulati,
+    Sezione_Prodotto_Raccolta,
+    Sezione_Prodotto_Sementi,
+    Testata
+} from &quot;../quaderno-di-campagna-form/quaderno-di-campagna-form.model&quot;;
+import {FERTILIZZANTI, FORMULATI, INSETTI, SEMENTI, TRASFORMATI_VEGETALI} from &#x27;../../../Model/CostantiPersonalizzate&#x27;;
+import {enum_LAVCOD, enum_SEMINA_TIPO} from &quot;../../../Model/TipiEnumerativi&quot;;
+import {enum_ErroreGias_Tipo, ErroreGias, ErroreGias_Severity} from &quot;../../../Service/master.service&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import {Lavorazione} from &quot;../../../Model/attivita/Lavorazione&quot;;
+import {DettaglioRaccolta} from &quot;app/Model/attivita/dettagli/DettaglioRaccolta&quot;;
+import {DestinazioneUso} from &quot;../../../Model/metaschema/utilizzi/DestinazioneUso&quot;;
+import {Specie} from &quot;../../../Model/metaschema/utilizzi/Specie&quot;;
+import {QdCTestataService} from &quot;./testata/testata.service&quot;;
+import {Tipo_Ricetta} from &quot;../../../Model/attivita/Attivita&quot;;
+import {GiasKendoGridComponent} from &#x27;gias-kendo-grid&#x27;;
+import { Tipo } from &quot;app/Model/attivita/centri_di_costo/CentroDiCosto&quot;;
+import { Tipo_Attivita, Stati } from &#x27;gias-ui-kit&#x27;;
+
+
+@Injectable()
+
+export class QdCControlliSalvataggioService{
+
+    list_Warning_QdC: Parametri_Aggiuntivi_Attivita[] &#x3D; [{
+       key: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_InviaRicettaAdAPP,
+       value: &quot;true&quot;,
+       operazione: null
+    },
+    {
+      key: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_Dichiarazione_non_Utilizzo,
+      value: &quot;true&quot;,
+      operazione: null
+    }];
+
+    constructor(private qdcservice: QdCService,
+                private translocoService: TranslocoService,
+                private testataService: QdCTestataService
+                ) {
+    }
+
+    public ControllaQdC(): Promise&lt;ErroreGias[]&gt; {
+
+        return new Promise&lt;ErroreGias[]&gt;( (resolve, reject) &#x3D;&gt; {
+            let listerroriGias: ErroreGias[] &#x3D; [];
+
+            this.GestisciWarning(listerroriGias);
+
+            let Operazioni &#x3D; this.qdcservice.TestataForm.get(&quot;Operazioni&quot;).getRawValue() as Array&lt;Lavorazione&gt;;
+
+            let flagVisita &#x3D; this.qdcservice.TestataForm.get(&quot;flagVisita&quot;).value;
+
+            let attivitaPersonalizzata &#x3D; this.qdcservice.TestataForm.get(&quot;Attivita_Personalizzata&quot;).value;
+
+            let specieSelezionata &#x3D; this.qdcservice.TestataForm.get(&quot;Specie&quot;).value;
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+                if (!flagVisita &amp;&amp; (!Operazioni || Operazioni.length &#x3D;&#x3D;&#x3D; 0)) {
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnOperazione&quot;)
+                    });
+                }
+            }
+
+            //aggiunta condizione per la quale se siamo una visita e non è stata scelta alcuna specie, allora alert
+            // if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+            //     if (flagVisita &amp;&amp; ((specieSelezionata.codice &#x3D;&#x3D;&#x3D; 0) || (specieSelezionata.codice &#x3D;&#x3D;&#x3D; -1))) {
+            //             listerroriGias.push(&lt;ErroreGias&gt;{
+            //                 severity: ErroreGias_Severity.Bloccante,
+            //                 tipo:  enum_ErroreGias_Tipo.Generico,
+            //                 messaggio: this.translocoService.translate(&quot;SelezionareUnaSpecie&quot;)
+            //             });
+            //     }
+            // }
+
+            //aggiunto controllo sull&#x27;inserimento di un numero razionale nelle Ore Totali
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if (flagVisita &amp;&amp; this.qdcservice.TestataVisitaForm.get(&quot;impOrarioFine_Visita&quot;).value &#x3D;&#x3D;&#x3D; 0 &amp;&amp; !isNumeroPositivoValido(this.qdcservice.TestataVisitaForm.get(&quot;NrOreTotali_Visita&quot;).value)) {
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;InserireOreTotaliValido&quot;)
+                    });
+                }
+            }
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if (flagVisita &amp;&amp; this.qdcservice.TestataVisitaForm.get(&quot;Operatore_Visita&quot;).value &#x3D;&#x3D; null) {
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;SelezionareOperatoreVisita&quot;)
+                    });
+                }
+            }
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if (flagVisita &amp;&amp; this.qdcservice.TestataVisitaForm.get(&quot;Azienda_Visita&quot;).value &#x3D;&#x3D; null) {
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;SelezionareAziendaVisita&quot;)
+                    });
+                }
+            }
+
+            //aggiunta condizione per la quale se siamo una visita ed è stato scelta &quot;Altre operazioni&quot;, deve essere necessariamente specificata un&#x27;attività
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if (flagVisita &amp;&amp; (Operazioni.findIndex((element) &#x3D;&gt; element.primaryKey.codice &#x3D;&#x3D;&#x3D; enum_LAVCOD.VISITA.toString()) &gt;&#x3D; 0)) {
+                        if (!attivitaPersonalizzata) {
+                            listerroriGias.push(&lt;ErroreGias&gt;{
+                                severity: ErroreGias_Severity.Bloccante,
+                                tipo:  enum_ErroreGias_Tipo.Generico,
+                                messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnAttivita&quot;)
+                            });
+                        }
+                }
+            }
+
+            //Controllo Grid Operatori righe non salvate
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if(this.qdcservice.GridOperatoriPublicService){
+                    let giasGridComponent: GiasKendoGridComponent &#x3D; this.qdcservice.GridOperatoriPublicService.giasGridComponent;
+
+                    if(giasGridComponent &amp;&amp; giasGridComponent.inLineModificaIsDisabled){
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&quot;CisonoOperatoriNonSalvati&quot;)
+                        });
+                    }
+                }
+            }
+
+            //Controllo Grid Macchine righe non salvate
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if(this.qdcservice.GridMacchinePublicService){
+                    let giasGridComponent: GiasKendoGridComponent &#x3D; this.qdcservice.GridMacchinePublicService.giasGridComponent;
+
+                    if(giasGridComponent &amp;&amp; giasGridComponent.inLineModificaIsDisabled){
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&quot;CisonoMacchineNonSalvate&quot;)
+                        });
+                    }
+                }
+            }
+
+            let Sezioni_ProdottoFormArrayValue: Array&lt;Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Formulati | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta&gt; &#x3D; this.qdcservice.Sezioni_ProdottoFormArray.getRawValue();
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+                let Operazioni_senza_Sezione_Prodotto: Array&lt;string&gt; &#x3D; [];
+
+                Operazioni.forEach(o&#x3D;&gt;{
+
+                    let Categoria_Magazzino &#x3D; this.qdcservice.getCategoria_Magazzino(+ o.primaryKey.codice);
+
+                    switch (Categoria_Magazzino){
+                        case INSETTI:
+                        case FORMULATI:
+                        case FERTILIZZANTI:
+                        case SEMENTI:
+                        case TRASFORMATI_VEGETALI:
+
+                            if(+ o.primaryKey.codice &#x3D;&#x3D;&#x3D; enum_LAVCOD.RACCOLTA){
+                                if(!Sezioni_ProdottoFormArrayValue ||
+                                    Sezioni_ProdottoFormArrayValue.findIndex(s&#x3D;&gt;+ s.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; enum_LAVCOD.RACCOLTA) &#x3D;&#x3D;&#x3D; -1){
+
+                                    Operazioni_senza_Sezione_Prodotto.push(o.descrizione);
+
+                                }
+                            }else{
+                                if(!Sezioni_ProdottoFormArrayValue ||
+                                    Sezioni_ProdottoFormArrayValue.findIndex(s&#x3D;&gt;s.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; o.primaryKey.codice) &#x3D;&#x3D;&#x3D; -1){
+
+                                    Operazioni_senza_Sezione_Prodotto.push(o.descrizione);
+                                }
+                            }
+
+                            break;
+                    }
+                });
+
+                if(Operazioni_senza_Sezione_Prodotto.length &gt; 0){
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;qdc.IndicareUnProdottoNellaSezione&quot;,{ OperazioniList: Operazioni_senza_Sezione_Prodotto.join(&quot;,&quot;) })
+                    });
+                }
+
+
+            }
+
+            //Controllo frazionamento e modifica appezzamenti semina con una operazione
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+                if(Operazioni.length &gt; 1 &amp;&amp; Sezioni_ProdottoFormArrayValue.length &gt; 0){
+
+                    let Sezione_Semina &#x3D; Sezioni_ProdottoFormArrayValue.find(s&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Sementi.includes(+ s.Operazione.primaryKey.codice)) as Sezione_Prodotto_Sementi;
+
+                    if(Sezione_Semina &amp;&amp;
+                        Sezione_Semina.Opzioni_Semina &amp;&amp;
+                        (Sezione_Semina.Opzioni_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default ||
+                            Sezione_Semina.Opzioni_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Semina_e_Modifica_Appezzamenti_Default)){
+
+                        let Operazioni_Senza_Semina &#x3D; Operazioni.filter(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Sementi.includes(+ o.primaryKey.codice) &#x3D;&#x3D;&#x3D; false);
+
+                        if(Sezione_Semina.Opzioni_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default){
+                            listerroriGias.push(&lt;ErroreGias&gt;{
+                                severity: ErroreGias_Severity.Bloccante,
+                                tipo:  enum_ErroreGias_Tipo.Generico,
+                                messaggio: this.translocoService.translate(&quot;qdc.FrazionamentoSeminaMultiOperazione&quot;)
+                            });
+                        }else if(Sezione_Semina.Opzioni_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Semina_e_Modifica_Appezzamenti_Default){
+                            listerroriGias.push(&lt;ErroreGias&gt;{
+                                severity: ErroreGias_Severity.Bloccante,
+                                tipo:  enum_ErroreGias_Tipo.Generico,
+                                messaggio: this.translocoService.translate(&quot;qdc.ModificaAnagraficaSeminaMultiOperazione&quot;)
+                            });
+                        }
+
+
+                    }
+                }
+            }
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+                if (this.qdcservice.getCentroDiCostoTipo() &#x3D;&#x3D; Tipo.ProdottoDaTrattare) {
+                    this.Controlla_Grid_Prodotti_Magazzino(this.qdcservice.TestataForm.getRawValue(),this.qdcservice.ProdottiDaTrattareSelezionatiFormArray.getRawValue(), listerroriGias);
+                } else {
+                    this.Controlla_Grid_Impianti(this.qdcservice.TestataForm.getRawValue(),this.qdcservice.ImpiantiSelezionatiFormArray.getRawValue(), listerroriGias);
+                }
+            }
+
+            if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0)
+                this.Controlla_Specie(this.qdcservice.TestataForm.getRawValue(), listerroriGias);
+
+            if (listerroriGias.length &#x3D;&#x3D;&#x3D; 0) {
+
+                for(let op of Operazioni){
+
+                    let lav_cod: number &#x3D; + op.primaryKey.codice;
+
+                    let Sezione_ProdottoFormArrayValue: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta &#x3D; Sezioni_ProdottoFormArrayValue.find(
+                        (s: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta)&#x3D;&gt;{
+                            return + s.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; lav_cod;
+                        }
+                    );
+
+                    if(Sezione_ProdottoFormArrayValue){
+
+                        this.Controlla_Sezioni_Prodotti(Sezione_ProdottoFormArrayValue,listerroriGias);
+
+                    }else{
+
+                        if(!this.qdcservice.Elenco_Operazioni_Lavorazioni.includes(lav_cod)){
+
+                        }
+                    }
+
+                }
+            }
+
+
+            //Mostro gli errori a video
+            if(listerroriGias.length &gt; 0){
+                //listerroriGias[0].messaggio &#x3D; this.translocoService.translate(&quot;AttenzioneLOperazioneNonÈStataRegistrataBr&quot;) + &quot;&quot; + listerroriGias[0].messaggio;
+
+
+                this.qdcservice.gestisci_ErroriGias(listerroriGias,true,true).then(async (res:Obj_Errore_Gias_QdC)&#x3D;&gt;{
+                    if(res){
+                        switch(res.severity){
+                            case ErroreGias_Severity.Bloccante:
+                                resolve(res.list_errori_filtrati);
+                                break;
+                            case ErroreGias_Severity.WarningBloccante:
+                                resolve(res.list_errori_filtrati);
+                                break;
+                            case ErroreGias_Severity.Warning:
+                                if (res.result.returnObj &#x3D;&#x3D;&#x3D; true) {
+
+                                    //Imposto il value a false del warning per non mostrarlo di nuovo se l&#x27;utente vuole continuare con il salvataggio
+                                    let distinct_warning: ErroreGias[] &#x3D; [...new Map(res.list_errori_filtrati.map(item &#x3D;&gt; [item[&quot;ex&quot;], item])).values()];
+
+                                    if(distinct_warning &amp;&amp; this.list_Warning_QdC){
+                                        for(let v of this.list_Warning_QdC){
+                                            for(let w of distinct_warning){
+                                                if(v.key &#x3D;&#x3D;&#x3D; w.ex){
+                                                    v.value &#x3D; &quot;false&quot;;
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    //Rifaccio i controlli saltando il warning che l&#x27;utente ha confermato
+                                    res.list_errori_filtrati &#x3D; await this.ControllaQdC()
+
+                                    resolve(res.list_errori_filtrati);
+
+                                }else{
+                                    resolve(res.list_errori_filtrati);
+                                }
+                                break;
+                        }
+                    }
+                });
+            }else{
+                resolve(listerroriGias);
+            }
+        });
+
+    }
+
+    //Se tutte le Operazioni sono di non utilizzo allora sono nel caso di non utilizzo
+    private Operazioni_Non_Utilizzo_Scelte(Operazioni: Array&lt;Lavorazione&gt;):boolean{
+
+        if (this.qdcservice.TestataForm.get(&#x27;flagVisita&#x27;).value)
+                return true;
+
+        let NonUtilizzo &#x3D; false;
+
+        let Operazioni_Non_Utilizzo &#x3D; Operazioni.filter(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Non_Utilizzo.includes(+ o.primaryKey.codice));
+
+        if(Operazioni_Non_Utilizzo &amp;&amp; Operazioni_Non_Utilizzo.length &gt; 0 &amp;&amp; Operazioni_Non_Utilizzo.length &#x3D;&#x3D;&#x3D; Operazioni.length){
+            NonUtilizzo &#x3D; true;
+        }
+
+        return NonUtilizzo;
+    }
+
+    private Controlla_Specie(Testata: Testata, listerroriGias: ErroreGias[]){
+
+        let specie:Specie | DestinazioneUso &#x3D; Testata.Specie;
+
+        if(!specie || specie.codice &lt; 0){
+
+            if(this.Operazioni_Non_Utilizzo_Scelte(Testata.Operazioni) &#x3D;&#x3D;&#x3D; false &amp;&amp; !this.qdcservice.RilievoSenzaImpianti()){
+
+                listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;SelezionareUnaSpecieVegetale&quot;)
+                });
+
+            }
+        }
+
+    }
+
+
+    private Controlla_Grid_Impianti(Testata: Testata,Grid_Impianti_Selezionati: Array&lt;GridImpiantoSelezionatoModel&gt;,listerroriGias: ErroreGias[]){
+
+        if(Grid_Impianti_Selezionati.length &#x3D;&#x3D;&#x3D; 0){
+
+            if(this.Operazioni_Non_Utilizzo_Scelte(Testata.Operazioni) &#x3D;&#x3D;&#x3D; false &amp;&amp; !this.qdcservice.RilievoSenzaImpianti()) {
+                listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnImpiantoColturale&quot;)
+                });
+
+                return;
+            }else{
+
+              if(this.qdcservice.RilievoSenzaImpianti()){
+                //I rilievi senza impianti devono avere almeno un centro aziendale selezionato per compatibilità con l&#x27;APP
+                if(!Testata.Centro_Aziendale || Testata.Centro_Aziendale.primaryKey.codice &#x3D;&#x3D;&#x3D; 0){
+                  listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnCentroAziendale&quot;)
+                  });
+
+                  return;
+                }
+              }else{
+
+                if(!Testata.flagVisita &amp;&amp; (!this.testataService.Array_CentriAziendale || this.testataService.Array_CentriAziendale.length &lt;&#x3D; 1)){
+                  listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;CreaCentroAziendaleAssociatoAdImpresa&quot;)
+                  });
+                  return;
+
+                }else{
+
+                  if ((Testata.flagVisita &amp;&amp; Testata.Operazioni.findIndex(item &#x3D;&gt; this.qdcservice.Elenco_Operazioni_Rilievi.includes(+item.primaryKey.codice)) &gt;-1)
+                    || !Testata.flagVisita) {
+
+                    if(Testata.Specie &amp;&amp; Testata.Specie.codice &gt; 0){
+                      listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnImpiantoColturale&quot;)
+                      });
+
+                      return;
+                    }
+                  }
+
+                }
+
+              }
+
+            }
+
+        }
+
+    }
+
+    private Controlla_Grid_Prodotti_Magazzino(Testata: Testata, Grid_ProdottiDaTrattare_Selezionati: Array&lt;any&gt;,listerroriGias: ErroreGias[]){
+
+        if(Grid_ProdottiDaTrattare_Selezionati.length &gt; 0) {
+            return;
+        }
+
+        if(this.Operazioni_Non_Utilizzo_Scelte(Testata.Operazioni) &#x3D;&#x3D;&#x3D; false) {
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnProdottoDaTrattare&quot;)
+            });
+            return;
+        }
+
+
+        if(!Testata.flagVisita &amp;&amp; (!this.testataService.Array_CentriAziendale || this.testataService.Array_CentriAziendale.length &lt;&#x3D; 1)){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&quot;CreaCentroAziendaleAssociatoAdImpresa&quot;)
+            });
+            return;
+
+        }
+
+        if ((Testata.flagVisita &amp;&amp; Testata.Operazioni.findIndex(item &#x3D;&gt; this.qdcservice.Elenco_Operazioni_Rilievi.includes(+item.primaryKey.codice)) &gt;-1)
+            || !Testata.flagVisita) {
+
+            if(Testata.Specie &amp;&amp; Testata.Specie.codice &gt; 0){
+                listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnProdottoDaTrattare&quot;)
+                });
+
+                return;
+            }
+        }
+    }
+
+    private Controlla_Sezioni_Prodotti(Sezione_ProdottoFormArrayValue: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi | Sezione_Prodotto_Raccolta, listerroriGias: ErroreGias[]){
+        let elem_cod: number &#x3D; Sezione_ProdottoFormArrayValue.Categoria_Magazzino;
+
+        switch(elem_cod){
+            case FORMULATI:
+            case INSETTI:
+                this.Controlla_Sezione_Formulati(Sezione_ProdottoFormArrayValue as Sezione_Prodotto_Formulati,listerroriGias);
+                break;
+            case FERTILIZZANTI:
+                this.Controlla_Sezione_Fertilizzanti(Sezione_ProdottoFormArrayValue as Sezione_Prodotto_Fertilizzanti,listerroriGias);
+                break;
+            case SEMENTI:
+                this.Controlla_Sezione_Sementi(Sezione_ProdottoFormArrayValue as Sezione_Prodotto_Sementi,listerroriGias);
+                break;
+            case TRASFORMATI_VEGETALI:
+                if (Sezione_ProdottoFormArrayValue.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; enum_LAVCOD.RACCOLTA.toString()){
+                    this.Controlla_Sezione_Raccolta(Sezione_ProdottoFormArrayValue as Sezione_Prodotto_Raccolta,listerroriGias);
+                }
+        }
+    }
+
+    private Controlla_Sezione_Formulati(Sezione_Formulati: Sezione_Prodotto_Formulati,listerroriGias){
+
+        let lav_cod &#x3D; + Sezione_Formulati.Operazione.primaryKey.codice;
+
+        this.Controlla_Grid_Dosi_Prodotti(FORMULATI,lav_cod, Sezione_Formulati.DosiProdotti,listerroriGias);
+
+        if(listerroriGias.length &gt; 0)
+            return;
+
+    }
+
+    private Controlla_Sezione_Fertilizzanti(Sezione_Fertilizzanti: Sezione_Prodotto_Fertilizzanti,listerroriGias){
+
+        let lav_cod &#x3D; + Sezione_Fertilizzanti.Operazione.primaryKey.codice;
+
+        this.Controlla_Grid_Dosi_Prodotti(FERTILIZZANTI,lav_cod, Sezione_Fertilizzanti.DosiProdotti,listerroriGias);
+
+        if(listerroriGias.length &gt; 0)
+            return;
+    }
+
+    private Controlla_Sezione_Sementi(Sezione_Sementi: Sezione_Prodotto_Sementi, listerroriGias: ErroreGias[]){
+
+        let Grid_Dosi_Prodotti: Array&lt;any&gt; &#x3D; Sezione_Sementi.DosiProdotti;
+
+        let lav_cod &#x3D; + Sezione_Sementi.Operazione.primaryKey.codice;
+
+        this.Controlla_Grid_Dosi_Prodotti(SEMENTI,lav_cod, Grid_Dosi_Prodotti,listerroriGias);
+
+        if(listerroriGias.length &gt; 0)
+            return;
+
+        let Operazione:Lavorazione &#x3D; Sezione_Sementi.Operazione;
+
+        let Opzione_Semina &#x3D; this.qdcservice.getOpzione_Semina_Model(Operazione);
+
+        if(Opzione_Semina){
+
+            if(Opzione_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default){
+
+                let Sementi_Con_Sup_Calcolata_0 &#x3D; Grid_Dosi_Prodotti.filter(d&#x3D;&gt;d.Sup_Calcolata &#x3D;&#x3D;&#x3D; 0);
+
+                if(Sementi_Con_Sup_Calcolata_0.length &gt; 0){
+                    let list_prodotti: Array&lt;string&gt; &#x3D; [];
+
+                    Sementi_Con_Sup_Calcolata_0.forEach(s&#x3D;&gt;{
+                        let msg: string &#x3D; s.Fr_Des;
+
+                        if(s.Fabbricato_Des  &amp;&amp; s.Fabbricato_Des !&#x3D;&#x3D; &quot;&quot;)
+                            msg +&#x3D; &quot; - &quot; +s.Fabbricato_Des;
+
+                        if(s.Lotto  &amp;&amp; s.Lotto !&#x3D;&#x3D; &quot;&quot;)
+                            msg +&#x3D; &quot; - &quot; +s.Lotto;
+
+                        list_prodotti.push(msg);
+                    });
+
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;qdc.ProdotticonSupCalcolataNonValorizzata&quot;,{ ProdottiList: list_prodotti.join(&quot;,&quot;) })
+                    });
+
+                    return;
+                }
+
+                this.qdcservice.Controllo_Sup_Calcolata(Opzione_Semina,null,Grid_Dosi_Prodotti,listerroriGias); // TODO M
+
+            }else if(Opzione_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Semina_e_Modifica_Appezzamenti_Default){
+                //Posso seminare prodotti solo con lo stesso Mat_Cod (e lotto diverso)
+
+                let distinct_mat_cod &#x3D; [];
+
+                Grid_Dosi_Prodotti.forEach(d&#x3D;&gt;{
+                    if(!distinct_mat_cod.includes(d.Fr_Cod))
+                        distinct_mat_cod.push(d.Fr_Cod);
+                });
+
+                if(distinct_mat_cod.length !&#x3D;&#x3D; 1){
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;qdc.SelezionareunaSementeperModificareGliImpianti&quot;)
+                    });
+
+                    return;
+                }
+            }
+        }
+    }
+
+    private Controlla_Sezione_Raccolta(Sezione_Raccolta: Sezione_Prodotto_Raccolta, listerroriGias: ErroreGias[]){
+        let Prodotti_Raccolti &#x3D; Sezione_Raccolta.ProdottiRaccolti;
+
+        // TODO: Aggiungere controllo carenze(?)
+        this.Controlla_Unita_Di_Misura(Prodotti_Raccolti, listerroriGias);
+    }
+
+    private Controlla_Unita_Di_Misura(raccolta: DettaglioRaccolta[], err: ErroreGias[]) {
+        let filtered, udm;
+        let codes &#x3D; raccolta.map(prod &#x3D;&gt; prod.prodotto.codice);
+        codes &#x3D; codes.filter((elem,index) &#x3D;&gt; codes.indexOf(elem) &#x3D;&#x3D;&#x3D; index);
+
+        for (let code of codes) {
+            filtered &#x3D; raccolta.filter(rac &#x3D;&gt; rac.prodotto.codice &#x3D;&#x3D;&#x3D; code);
+
+            udm &#x3D; filtered.map(f &#x3D;&gt; f.unitaDiMisura.codice);
+            udm &#x3D; udm.filter((elem,index) &#x3D;&gt; udm.indexOf(elem) &#x3D;&#x3D;&#x3D; index);
+
+            if (udm.length &gt; 1) err.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&quot;UnitaMisuraNonConforme&quot;)
+            });
+
+        }
+    }
+
+    public Controlla_Grid_Dosi_Prodotti(elem_cod: number,lav_cod: number, Grid_Dosi_Prodotti: Array&lt;any&gt;,listerroriGias: ErroreGias[],from_salvataggio: boolean &#x3D; true){
+
+        //Per la Raccolta non ho la grid Dosi Prodotti
+
+        if(lav_cod !&#x3D;&#x3D; enum_LAVCOD.RACCOLTA){
+
+            //Posso salvare una semina fast(senza prodotti) mentre negli altri casi ci devono essere i prodotti
+            if(elem_cod !&#x3D;&#x3D; SEMENTI){
+                if(!Grid_Dosi_Prodotti || Grid_Dosi_Prodotti.length &#x3D;&#x3D;&#x3D; 0){
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&quot;SelezionareAlmenoUnProdotto&quot;)
+                    });
+
+                    return;
+                }else{
+                    this.Controlla_Se_Ci_Sono_Righe_Non_Salvate(Grid_Dosi_Prodotti,from_salvataggio,listerroriGias);
+
+                    if(listerroriGias.length &gt; 0)
+                        return;
+                }
+            }else{
+
+                if(Grid_Dosi_Prodotti &amp;&amp; Grid_Dosi_Prodotti.length &gt; 0){
+
+                    this.Controlla_Se_Ci_Sono_Righe_Non_Salvate(Grid_Dosi_Prodotti,from_salvataggio,listerroriGias);
+
+                    if(listerroriGias.length &gt; 0)
+                        return;
+                }
+            }
+
+
+        }
+
+        if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+            let Prodotti_Con_Magazzini_Errati_List: Array&lt;string&gt; &#x3D; [];
+
+            for(let row of Grid_Dosi_Prodotti){
+                if(!this.qdcservice.Controlla_Magazzino(row) &amp;&amp; !Prodotti_Con_Magazzini_Errati_List.includes(row.Prodotto.Descrizione_Concatenata)){
+                    Prodotti_Con_Magazzini_Errati_List.push(row.Prodotto.Descrizione_Concatenata);
+                }
+            }
+
+            if(Prodotti_Con_Magazzini_Errati_List.length &gt; 0){
+
+                let Msg_Errore &#x3D; &quot;&lt;br&gt; - &quot;+Prodotti_Con_Magazzini_Errati_List.join(&quot;&lt;br&gt; - &quot;);
+
+                listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: this.translocoService.translate(&quot;qdc.SelezionareUnMagazzinoAziendaPerProdotti&quot;,{nomeAzienda: this.qdcservice.objParametriAgenda.RagSoc}) + Msg_Errore
+                });
+            }
+
+
+        }
+
+    }
+
+    /*
+    *@description: Controllo Prodotti nella grid Dosi
+    * Posso salvare una semina fast(senza prodotti) mentre negli altri casi ci devono essere i prodotti
+    * (Se nella semina ho cercato un prodotto ma non l&#x27;ho confermato comujnque ti blocco, per salvare una semina fast non devo aver selezionato nessun prodotto)
+     */
+    public  Controlla_Se_Ci_Sono_Righe_Non_Salvate(Grid_Dosi_Prodotti: Array&lt;any&gt;,from_salvataggio:boolean,listerroriGias: ErroreGias[]){
+
+        let Grid_Dosi_Prodotti_Con_Righe_non_Salvate &#x3D; Grid_Dosi_Prodotti.filter(d&#x3D;&gt;d.Riga_Salvata &#x3D;&#x3D;&#x3D; false);
+
+        if(Grid_Dosi_Prodotti_Con_Righe_non_Salvate.length &gt; 0){
+
+            let descrizione_prodotti_non_salvati &#x3D; [];
+
+            let msg &#x3D; &quot;&quot;;
+
+            let Grid_Dosi_Prodotti_Con_Righe_non_Salvate_Semine &#x3D; Grid_Dosi_Prodotti_Con_Righe_non_Salvate.filter(d&#x3D;&gt;d.Categoria_Magazzino &#x3D;&#x3D;&#x3D; SEMENTI);
+
+            if(Grid_Dosi_Prodotti_Con_Righe_non_Salvate_Semine.length &gt; 0){
+
+                descrizione_prodotti_non_salvati &#x3D; Grid_Dosi_Prodotti_Con_Righe_non_Salvate_Semine.filter(d&#x3D;&gt;d.Prodotto &amp;&amp; d.Prodotto.Codice_Concatenato !&#x3D;&#x3D; &quot;&quot; &amp;&amp; d.Prodotto.Descrizione_Concatenata !&#x3D;&#x3D; &quot;&quot;).map(d&#x3D;&gt;d.Prodotto.Descrizione_Concatenata);
+
+                if(descrizione_prodotti_non_salvati.length &gt; 0){
+
+                    let descrizioni &#x3D; descrizione_prodotti_non_salvati.join(&quot;,&quot;);
+
+                    if(from_salvataggio){
+                        msg &#x3D; this.translocoService.translate(&quot;qdc.PrimaConfermaIProdotti&quot;,{ ProdottiList: descrizioni });
+                    }else{
+                        msg &#x3D; this.translocoService.translate(&quot;qdc.SalvaIProdotti&quot;,{ ProdottiList: descrizioni });
+                    }
+
+                }
+            }else{
+
+                descrizione_prodotti_non_salvati &#x3D; Grid_Dosi_Prodotti_Con_Righe_non_Salvate.map(d&#x3D;&gt;d.Prodotto?.Descrizione_Concatenata);
+
+                if(descrizione_prodotti_non_salvati.findIndex(d&#x3D;&gt;!d) &gt; -1){
+
+                    let operazioni &#x3D; Grid_Dosi_Prodotti_Con_Righe_non_Salvate.map(d&#x3D;&gt;d.Operazione.descrizione).join(&quot;,&quot;);
+
+                    if(from_salvataggio){
+                        msg &#x3D; this.translocoService.translate(&quot;qdc.PerSalvareScegliereUnProdottoNelleSezioni&quot;,{ OperazioniList: operazioni });
+                    }else{
+                        msg &#x3D; this.translocoService.translate(&quot;qdc.ScegliereUnProdottoNelleSezioni&quot;,{ OperazioniList: operazioni });
+                    }
+
+
+                }else{
+
+                    if(Grid_Dosi_Prodotti_Con_Righe_non_Salvate.filter(d&#x3D;&gt;d.Categoria_Magazzino !&#x3D;&#x3D; SEMENTI).length &#x3D;&#x3D;&#x3D; Grid_Dosi_Prodotti_Con_Righe_non_Salvate.length){
+                        let descrizioni &#x3D; descrizione_prodotti_non_salvati.join(&quot;,&quot;);
+
+                        if(from_salvataggio){
+                            msg &#x3D; this.translocoService.translate(&quot;qdc.PrimaConfermaIProdotti&quot;,{ ProdottiList: descrizioni });
+                        }else{
+                            msg &#x3D; this.translocoService.translate(&quot;qdc.SalvaIProdotti&quot;,{ ProdottiList: descrizioni });
+                        }
+                    }
+
+
+                }
+            }
+
+            if(msg !&#x3D;&#x3D; &quot;&quot;){
+                listerroriGias.push(&lt;ErroreGias&gt;{
+                    severity: ErroreGias_Severity.Bloccante,
+                    tipo:  enum_ErroreGias_Tipo.Generico,
+                    messaggio: msg
+                });
+            }
+
+
+            return;
+        }
+
+    }
+
+    GestisciWarning(listerroriGias: ErroreGias[]){
+        let testata: Testata &#x3D; this.qdcservice.TestataForm.getRawValue();
+
+        if(testata.Tipo &#x3D;&#x3D;&#x3D; Tipo_Attivita.Ricetta &amp;&amp; testata.TipoRicetta &#x3D;&#x3D;&#x3D; Tipo_Ricetta.Standard_Destinazioni &amp;&amp; testata.Stato &#x3D;&#x3D;&#x3D; Stati.Da_Eseguire){
+            this.GestisciWarning_Ricette(testata,listerroriGias);
+        }
+
+        if(testata.Operazioni &amp;&amp; testata.Operazioni.findIndex(o&#x3D;&gt; this.qdcservice.Elenco_Operazioni_Fertilizzanti.includes(+ o.primaryKey.codice) || this.qdcservice.Elenco_Operazioni_Formulati.includes(+ o.primaryKey.codice)) &gt; -1){
+
+          let impiantiSelezionati: Array&lt;GridImpiantoSelezionatoModel&gt; &#x3D; this.qdcservice.ImpiantiSelezionatiFormArray.getRawValue();
+
+          if(impiantiSelezionati &amp;&amp; impiantiSelezionati.length &gt; 0){
+            this.GestisciWarningDichiarazione_non_Utilizzo(testata,impiantiSelezionati, listerroriGias);
+          }
+
+
+        }
+
+        return listerroriGias;
+    }
+
+    GestisciWarning_Ricette(testata: Testata, listerroriGias: ErroreGias[]){
+        if(testata.InviaRicetta &#x3D;&#x3D;&#x3D; true &amp;&amp;
+            this.list_Warning_QdC.findIndex(w&#x3D;&gt;w.key &#x3D;&#x3D;&#x3D; Key_Parametri_Aggiuntivi_Attivita.mostraWarning_InviaRicettaAdAPP &amp;&amp; w.value &#x3D;&#x3D;&#x3D; &quot;true&quot;) &gt; -1){
+
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Warning,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&quot;ImpossibileModificareRibaltareRicetteDopoSalvataggio&quot;),
+                ex: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_InviaRicettaAdAPP
+            });
+
+        }
+
+        return listerroriGias;
+    }
+
+    GestisciWarningDichiarazione_non_Utilizzo(testata: Testata, impiantiSelezionati: Array&lt;GridImpiantoSelezionatoModel&gt;, listerroriGias: ErroreGias[]){
+
+      if(this.list_Warning_QdC.findIndex(w&#x3D;&gt;w.key &#x3D;&#x3D;&#x3D; Key_Parametri_Aggiuntivi_Attivita.mostraWarning_Dichiarazione_non_Utilizzo &amp;&amp; w.value &#x3D;&#x3D;&#x3D; &quot;true&quot;) &gt; -1 &amp;&amp;
+        listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+        let msg: string &#x3D; &quot;&quot;;
+
+        if(testata.Operazioni.findIndex(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Formulati.includes(+ o.primaryKey.codice)) &gt; -1 &amp;&amp;
+          testata.Operazioni.findIndex(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Fertilizzanti.includes(+ o.primaryKey.codice)) &gt; -1 &amp;&amp;
+          impiantiSelezionati.findIndex(i&#x3D;&gt;i.Dichiarazione_Non_Utilizzo_Trattamenti) &gt; -1 &amp;&amp;
+          impiantiSelezionati.findIndex(i&#x3D;&gt;i.Dichiarazione_Non_Utilizzo_Fertilizzazioni) &gt; -1){
+
+          msg &#x3D; this.translocoService.translate(&quot;qdc.AttenzioneImpiantiConDichiarazioniDiNonUtilizzo&quot;);
+
+        }else{
+
+          if(testata.Operazioni.findIndex(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Formulati.includes(+ o.primaryKey.codice)) &gt; -1 &amp;&amp;
+            impiantiSelezionati.findIndex(i&#x3D;&gt;i.Dichiarazione_Non_Utilizzo_Trattamenti) &gt; -1){
+
+            msg &#x3D; this.translocoService.translate(&quot;qdc.AttenzioneImpiantiConDichiarazioniDiNonUtilizzoTrattamenti&quot;);
+
+          }else if(testata.Operazioni.findIndex(o&#x3D;&gt;this.qdcservice.Elenco_Operazioni_Fertilizzanti.includes(+ o.primaryKey.codice)) &gt; -1 &amp;&amp;
+                   impiantiSelezionati.findIndex(i&#x3D;&gt;i.Dichiarazione_Non_Utilizzo_Fertilizzazioni) &gt; -1){
+
+            msg &#x3D; this.translocoService.translate(&quot;qdc.AttenzioneImpiantiConDichiarazioniDiNonUtilizzoFertilizzazioni&quot;);
+
+          }
+
+        }
+
+        if(msg !&#x3D;&#x3D; &quot;&quot;){
+          listerroriGias.push(&lt;ErroreGias&gt;{
+            severity: ErroreGias_Severity.Warning,
+            tipo:  enum_ErroreGias_Tipo.Generico,
+            messaggio: msg,
+            ex: Key_Parametri_Aggiuntivi_Attivita.mostraWarning_Dichiarazione_non_Utilizzo
+          });
+        }
+
+      }
+
+      return listerroriGias;
+    }
+
+}
+
+function isNumeroPositivoValido(input: string): boolean {
+    // Utilizza una regular expression per verificare se la stringa è un numero positivo con o senza virgola
+    const numeroPattern &#x3D; /^(0|[1-9]\d*)(\.\d+)?$/;
+
+    // Testa la stringa con il pattern
+    return numeroPattern.test(input);
+  }
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'QdCControlliSalvataggioService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

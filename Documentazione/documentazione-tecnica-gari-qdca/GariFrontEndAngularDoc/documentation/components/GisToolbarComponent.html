@@ -1,0 +1,2857 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GisToolbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/GIS/GIS-toolbar/gis-toolbar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>AfterViewInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gis-toolbar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./gis-toolbar.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./gis-toolbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addingMarkers" >addingMarkers</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#btnCentraSuAzienda" >btnCentraSuAzienda</a>
+                            </li>
+                            <li>
+                                <a href="#displaySettingsDropdown" >displaySettingsDropdown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#dropdownButton" >dropdownButton</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gisToolbarService" >gisToolbarService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#googleMapGeoJsonService" >googleMapGeoJsonService</a>
+                            </li>
+                            <li>
+                                <a href="#isMarkerPlacer$" >isMarkerPlacer$</a>
+                            </li>
+                            <li>
+                                <a href="#lastButtonToolbar" >lastButtonToolbar</a>
+                            </li>
+                            <li>
+                                <a href="#pivaPrecedente" >pivaPrecedente</a>
+                            </li>
+                            <li>
+                                <a href="#rightDropdown" >rightDropdown</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#rilieviLastBtn" >rilieviLastBtn</a>
+                            </li>
+                            <li>
+                                <a href="#signal" >signal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#toolsDropdown" >toolsDropdown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#centraSuAzienda" >centraSuAzienda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeLatFocusHandler" >changeLatFocusHandler</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#changeLngFocusHandler" >changeLngFocusHandler</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#configurazioneBtnClick" >configurazioneBtnClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#findAddress" >findAddress</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLastButtonToolbar" >getLastButtonToolbar</a>
+                            </li>
+                            <li>
+                                <a href="#isCustom" >isCustom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#navigateTo" >navigateTo</a>
+                            </li>
+                            <li>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#openTools" >openTools</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#positionToggle" >positionToggle</a>
+                            </li>
+                            <li>
+                                <a href="#resetCentroAziendaleAlbero" >resetCentroAziendaleAlbero</a>
+                            </li>
+                            <li>
+                                <a href="#ricaricaAlberoCambioAzienda" >ricaricaAlberoCambioAzienda</a>
+                            </li>
+                            <li>
+                                <a href="#ricaricaFeatureCambioAzienda" >ricaricaFeatureCambioAzienda</a>
+                            </li>
+                            <li>
+                                <a href="#ricaricaFeatureSharedDataService" >ricaricaFeatureSharedDataService</a>
+                            </li>
+                            <li>
+                                <a href="#ricaricaFiltroTemporaleAvanzatoCambioAzienda" >ricaricaFiltroTemporaleAvanzatoCambioAzienda</a>
+                            </li>
+                            <li>
+                                <a href="#seRicaricaAlberoForzato" >seRicaricaAlberoForzato</a>
+                            </li>
+                            <li>
+                                <a href="#setSelectedImpresaChangedSoUpdateTree" >setSelectedImpresaChangedSoUpdateTree</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleAddMarkersModality" >toggleAddMarkersModality</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#toggleSettingsDropdown" >toggleSettingsDropdown</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#analisiTerrenoEdit" >analisiTerrenoEdit</a>
+                            </li>
+                            <li>
+                                <a href="#forRilievi" >forRilievi</a>
+                            </li>
+                            <li>
+                                <a href="#isAnalisiTerreno" >isAnalisiTerreno</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#rightPosition" >rightPosition</a>
+                                </li>
+                                <li>
+                                    <a href="#topPosition" >topPosition</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(gisToolbarService: <a href="../injectables/GisToolbarService.html" target="_self">GisToolbarService</a>, googleMapGeoJsonService: <a href="../injectables/GoogleMapGeoJsonService.html" target="_self">GoogleMapGeoJsonService</a>, positionService: <a href="../injectables/PositionService.html" target="_self">PositionService</a>, changeDetector: ChangeDetectorRef, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, treeGisService: <a href="../injectables/TreeGisService.html" target="_self">TreeGisService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:40</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>gisToolbarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisToolbarService.html" target="_self" >GisToolbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapGeoJsonService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapGeoJsonService.html" target="_self" >GoogleMapGeoJsonService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>positionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PositionService.html" target="_self" >PositionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>changeDetector</td>
+                                                  
+                                                        <td>
+                                                                    <code>ChangeDetectorRef</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>treeGisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TreeGisService.html" target="_self" >TreeGisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="analisiTerrenoEdit"></a>
+                        <b>analisiTerrenoEdit</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:24</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="forRilievi"></a>
+                        <b>forRilievi</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:22</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAnalisiTerreno"></a>
+                        <b>isAnalisiTerreno</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>boolean | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:23</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centraSuAzienda"></a>
+                    <span class="name">
+                        <span ><b>centraSuAzienda</b></span>
+                        <a href="#centraSuAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>centraSuAzienda()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLatFocusHandler"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changeLatFocusHandler</b></span>
+                        <a href="#changeLatFocusHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeLatFocusHandler(focusin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>focusin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeLngFocusHandler"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>changeLngFocusHandler</b></span>
+                        <a href="#changeLngFocusHandler"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeLngFocusHandler(focusin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="199"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:199</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>focusin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configurazioneBtnClick"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>configurazioneBtnClick</b></span>
+                        <a href="#configurazioneBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>configurazioneBtnClick()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="188"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:188</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findAddress"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>findAddress</b></span>
+                        <a href="#findAddress"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findAddress()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLastButtonToolbar"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getLastButtonToolbar</b></span>
+                        <a href="#getLastButtonToolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLastButtonToolbar()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCustom"></a>
+                    <span class="name">
+                        <span ><b>isCustom</b></span>
+                        <a href="#isCustom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>isCustom()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="175"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateTo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>navigateTo</b></span>
+                        <a href="#navigateTo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>navigateTo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="214"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:214</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="170"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openTools"></a>
+                    <span class="name">
+                        <span ><b>openTools</b></span>
+                        <a href="#openTools"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openTools()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="positionToggle"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>positionToggle</b></span>
+                        <a href="#positionToggle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>positionToggle()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetCentroAziendaleAlbero"></a>
+                    <span class="name">
+                        <span ><b>resetCentroAziendaleAlbero</b></span>
+                        <a href="#resetCentroAziendaleAlbero"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetCentroAziendaleAlbero()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="259"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricaricaAlberoCambioAzienda"></a>
+                    <span class="name">
+                        <span ><b>ricaricaAlberoCambioAzienda</b></span>
+                        <a href="#ricaricaAlberoCambioAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ricaricaAlberoCambioAzienda()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:226</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricaricaFeatureCambioAzienda"></a>
+                    <span class="name">
+                        <span ><b>ricaricaFeatureCambioAzienda</b></span>
+                        <a href="#ricaricaFeatureCambioAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ricaricaFeatureCambioAzienda()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricaricaFeatureSharedDataService"></a>
+                    <span class="name">
+                        <span ><b>ricaricaFeatureSharedDataService</b></span>
+                        <a href="#ricaricaFeatureSharedDataService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ricaricaFeatureSharedDataService()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="242"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:242</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricaricaFiltroTemporaleAvanzatoCambioAzienda"></a>
+                    <span class="name">
+                        <span ><b>ricaricaFiltroTemporaleAvanzatoCambioAzienda</b></span>
+                        <a href="#ricaricaFiltroTemporaleAvanzatoCambioAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ricaricaFiltroTemporaleAvanzatoCambioAzienda()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="seRicaricaAlberoForzato"></a>
+                    <span class="name">
+                        <span ><b>seRicaricaAlberoForzato</b></span>
+                        <a href="#seRicaricaAlberoForzato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>seRicaricaAlberoForzato()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="253"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:253</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSelectedImpresaChangedSoUpdateTree"></a>
+                    <span class="name">
+                        <span ><b>setSelectedImpresaChangedSoUpdateTree</b></span>
+                        <a href="#setSelectedImpresaChangedSoUpdateTree"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setSelectedImpresaChangedSoUpdateTree()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:266</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleAddMarkersModality"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleAddMarkersModality</b></span>
+                        <a href="#toggleAddMarkersModality"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleAddMarkersModality()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleSettingsDropdown"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>toggleSettingsDropdown</b></span>
+                        <a href="#toggleSettingsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleSettingsDropdown()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="183"
+                                    class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:183</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addingMarkers"></a>
+                    <span class="name">
+                        <span ><b>addingMarkers</b></span>
+                        <a href="#addingMarkers"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="btnCentraSuAzienda"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>btnCentraSuAzienda</b></span>
+                        <a href="#btnCentraSuAzienda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;btnCentraSuAzienda&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="displaySettingsDropdown"></a>
+                    <span class="name">
+                        <span ><b>displaySettingsDropdown</b></span>
+                        <a href="#displaySettingsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dropdownButton"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>dropdownButton</b></span>
+                        <a href="#dropdownButton"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;dropdownButton&#x27;, {static: false})<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gisToolbarService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gisToolbarService</b></span>
+                        <a href="#gisToolbarService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/GisToolbarService.html" target="_self" >GisToolbarService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="googleMapGeoJsonService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>googleMapGeoJsonService</b></span>
+                        <a href="#googleMapGeoJsonService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/GoogleMapGeoJsonService.html" target="_self" >GoogleMapGeoJsonService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMarkerPlacer$"></a>
+                    <span class="name">
+                        <span ><b>isMarkerPlacer$</b></span>
+                        <a href="#isMarkerPlacer$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.gisToolbarService.isMarkerPlacerActive$</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastButtonToolbar"></a>
+                    <span class="name">
+                        <span ><b>lastButtonToolbar</b></span>
+                        <a href="#lastButtonToolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pivaPrecedente"></a>
+                    <span class="name">
+                        <span ><b>pivaPrecedente</b></span>
+                        <a href="#pivaPrecedente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rightDropdown"></a>
+                    <span class="name">
+                        <span ><b>rightDropdown</b></span>
+                        <a href="#rightDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;80px&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rilieviLastBtn"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>rilieviLastBtn</b></span>
+                        <a href="#rilieviLastBtn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;goToPosition&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signal"></a>
+                    <span class="name">
+                        <span ><b>signal</b></span>
+                        <a href="#signal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolsDropdown"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>toolsDropdown</b></span>
+                        <a href="#toolsDropdown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>DropDownButtonComponent</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;toolsDropdown&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="rightPosition"></a>
+                        <span class="name"><b>rightPosition</b><a href="#rightPosition"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>rightPosition()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="128" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:128</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="topPosition"></a>
+                        <span class="name"><b>topPosition</b><a href="#topPosition"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>topPosition()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="139" class="link-to-prism">src/app/GIS/GIS-toolbar/gis-toolbar.component.ts:139</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, Optional, ViewChild, OnDestroy, Input } from &#x27;@angular/core&#x27;;
+import { GisToolbarService } from &#x27;./gis-toolbar.service&#x27;;
+import { GoogleMapGeoJsonService } from &#x27;app/GIS/google-map/google-map-geojson.service&#x27;;
+import { TreeGisService } from &#x27;app/Utility/Template/kendo-tree/services/tree-gis.service&#x27;;
+import { PositionService } from &#x27;../services/position.service&#x27;;
+import { SharedDataService } from &#x27;../services/shared-data.service&#x27;;
+import { ObjParametriAgendaService } from &quot;app/Service/obj-parametri-agenda.service&quot;;
+import { Subject, takeUntil } from &#x27;rxjs&#x27;;
+import { enum_OrigineChiamataLoadGeoJson } from &#x27;../GIS-enum/GIS-origine-chiamata&#x27;;
+import { consoleLogDebugParam } from &#x27;app/Service/utils&#x27;;
+import { enum_logDebugArea, enum_logDebugTipo } from &#x27;app/Model/log-debug&#x27;;
+import { GoogleMapService } from &#x27;../google-map/google-map.service&#x27;;
+import { DropDownButtonComponent } from &#x27;@progress/kendo-angular-buttons&#x27;;
+
+@Component({
+  standalone: false,
+  selector: &#x27;gis-toolbar&#x27;,
+  templateUrl: &#x27;./gis-toolbar.component.html&#x27;,
+  styleUrls: [&#x27;./gis-toolbar.component.css&#x27;]
+})
+export class GisToolbarComponent implements AfterViewInit, OnDestroy {
+  @Input() forRilievi: boolean | undefined &#x3D; false;
+  @Input() isAnalisiTerreno: boolean | undefined &#x3D; false;
+  @Input() analisiTerrenoEdit?: boolean;
+  
+  @ViewChild(&#x27;dropdownButton&#x27;, { static: false }) dropdownButton: ElementRef;
+  @ViewChild(&#x27;btnCentraSuAzienda&#x27;, { static: false }) btnCentraSuAzienda: ElementRef;
+  @ViewChild(&#x27;goToPosition&#x27;) rilieviLastBtn: ElementRef;
+  @ViewChild(&#x27;toolsDropdown&#x27;) toolsDropdown: DropDownButtonComponent;
+
+  lastButtonToolbar: ElementRef &#x3D; null;
+
+  displaySettingsDropdown &#x3D; false;
+  rightDropdown &#x3D; &#x27;80px&#x27;;
+
+  signal: Subject&lt;void&gt; &#x3D; new Subject();
+
+  pivaPrecedente &#x3D; null;
+  addingMarkers &#x3D; false;
+  isMarkerPlacer$ &#x3D; this.gisToolbarService.isMarkerPlacerActive$;
+
+  constructor(
+    public gisToolbarService: GisToolbarService,
+    public googleMapGeoJsonService: GoogleMapGeoJsonService,
+    private positionService: PositionService,
+    private changeDetector: ChangeDetectorRef,
+    private sharedDataService: SharedDataService,
+    private objParametriAgendaService: ObjParametriAgendaService,
+    private googleMapService: GoogleMapService,
+    @Optional() private treeGisService: TreeGisService
+  ) {
+    // console.log(&#x27;[gis-toolbar.component] constructor&#x27;);
+
+    this.gisToolbarService.latValueSubject
+      .pipe(takeUntil(this.signal)).subscribe(lat &#x3D;&gt; {
+      this.gisToolbarService.latValue &#x3D; lat;
+    });
+
+    this.gisToolbarService.lngValueSubject
+      .pipe(takeUntil(this.signal)).subscribe(lng &#x3D;&gt; {
+      this.gisToolbarService.lngValue &#x3D; lng;
+    });
+
+    this.sharedDataService.getCfgAlberoGisUtente$()
+      .pipe(takeUntil(this.signal)).subscribe(cfg &#x3D;&gt; {
+      let cfgAlbero &#x3D; cfg[0].CfgAlbero;
+      let ricarica &#x3D; cfg[1];
+      if (cfgAlbero !&#x3D;&#x3D; undefined &amp;&amp; ricarica) {
+        this.seRicaricaAlberoForzato();
+      }
+    });
+
+    this.sharedDataService.getRicaricaAlbero$()
+      .pipe(
+        takeUntil(this.signal)
+      ).subscribe( flagRicarica &#x3D;&gt; {
+      if (flagRicarica &#x3D;&#x3D;&#x3D; true) {
+        this.seRicaricaAlberoForzato();
+      }
+    });
+
+    this.objParametriAgendaService.currentObjParametriAgenda
+      .pipe(takeUntil(this.signal))
+      .subscribe(parametriAgenda &#x3D;&gt; {
+        if (this.pivaPrecedente &amp;&amp; this.pivaPrecedente !&#x3D;&#x3D; parametriAgenda.Piva) {
+          //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+          // CAMBIO AZIENDA
+          //&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+          consoleLogDebugParam(
+            enum_logDebugArea.App,
+            enum_logDebugTipo.CambioAzienda,
+            this.constructor.name,
+            &#x27;currentObjParametriAgenda&#x27;,
+            parametriAgenda.Piva
+          );
+
+          this.resetCentroAziendaleAlbero();
+
+          //--------------------------------------------------------------------------------
+          // Ricarico Albero
+          //--------------------------------------------------------------------------------
+          this.ricaricaAlberoCambioAzienda();
+
+          //--------------------------------------------------------------------------------
+          // Ricarico Feature
+          // 17/06/2025 Mattia: Ricarico Filtro Temporale Avanzato prima di ricaricare le feature
+          //--------------------------------------------------------------------------------
+          //this.ricaricaFeatureCambioAzienda();
+          this.ricaricaFiltroTemporaleAvanzatoCambioAzienda()
+          .then(() &#x3D;&gt; {this.ricaricaFeatureCambioAzienda()});
+
+        }
+        this.pivaPrecedente &#x3D; parametriAgenda.Piva;
+      });
+
+    this.sharedDataService.ricaricaFeatureSource.subscribe( flagRicarica &#x3D;&gt; {
+      if (flagRicarica &#x3D;&#x3D;&#x3D; true) {
+        this.ricaricaFeatureSharedDataService();
+      }
+    });
+
+  }
+
+  openTools(): void {
+    this.gisToolbarService.setCurrentToolsDropdownInstance(this.toolsDropdown);
+  }
+
+  private get rightPosition(): number {
+    this.getLastButtonToolbar();
+    const padding &#x3D; window.getComputedStyle(this.lastButtonToolbar.nativeElement, null).paddingRight;
+    const rightPositionComputed &#x3D;
+      parseInt(padding, 10) +
+      window.innerWidth -
+      (this.lastButtonToolbar.nativeElement.getBoundingClientRect().x +
+        this.lastButtonToolbar.nativeElement.getBoundingClientRect().width + 20);
+    return rightPositionComputed;
+  }
+
+  public get topPosition(): number {
+    this.getLastButtonToolbar();
+    const topPositionComputed &#x3D;
+      this.lastButtonToolbar.nativeElement.getBoundingClientRect().y +
+      this.lastButtonToolbar.nativeElement.getBoundingClientRect().height + 25;
+    return topPositionComputed;
+  }
+
+  private getLastButtonToolbar() {
+    if (this.gisToolbarService.permessoSetupVisualizzazione) {
+      this.lastButtonToolbar &#x3D; this.dropdownButton;
+    } else {
+      this.lastButtonToolbar &#x3D; this.btnCentraSuAzienda;
+    }
+    if (this.forRilievi || this.isAnalisiTerreno) {
+      this.lastButtonToolbar &#x3D; this.rilieviLastBtn;
+    }
+  }
+
+  ngAfterViewInit(): void {
+    this.positionService.createPlaceAutocomplete(&lt;HTMLInputElement&gt;document.getElementById(&#x27;searchAddressTxtBox&#x27;));
+    if(window.innerWidth &gt; 991){
+      requestAnimationFrame(() &#x3D;&gt; {
+        if (window.innerWidth &gt; 991) {
+          this.gisToolbarService.layerBtnToggle(this.rightPosition);
+          this.gisToolbarService.drawBtnToggle(this.rightPosition);
+        }
+      });
+    }
+  }
+
+  ngOnDestroy(): void {  
+    this.signal.next();
+    this.signal.complete();
+  }
+
+  isCustom(): boolean {
+    return this.isAnalisiTerreno || this.forRilievi;
+  }
+
+  public toggleAddMarkersModality(): void {
+     this.gisToolbarService.toggleMarkerPlacer()
+  }
+
+  public toggleSettingsDropdown() {
+    this.rightDropdown &#x3D; this.rightPosition + &#x27;px&#x27;;
+    this.displaySettingsDropdown &#x3D; !this.displaySettingsDropdown;
+  }
+
+  private configurazioneBtnClick() {
+    this.displaySettingsDropdown &#x3D; !this.displaySettingsDropdown;
+    this.gisToolbarService.configurazioneBtnClick();
+  }
+
+  public changeLatFocusHandler(focusin: boolean) {
+    this.gisToolbarService.changeLatFocusHandlerService(focusin);
+    this.changeDetector.detectChanges();
+    //focusin ? this.showLatMaskTyped &#x3D; true : this.showLatMaskTyped &#x3D; false;
+  }
+
+  public changeLngFocusHandler(focusin: boolean) {
+    this.gisToolbarService.changeLngFocusHandlerService(focusin);
+    this.changeDetector.detectChanges();
+    //focusin ? this.showLngMaskTyped &#x3D; true : this.showLngMaskTyped &#x3D; false;
+  }
+
+  public positionToggle() {
+    this.gisToolbarService.strumentoGpsAttivo &#x3D; !this.gisToolbarService.strumentoGpsAttivo;
+    this.googleMapGeoJsonService.gestioneStrumentoGps(this.gisToolbarService.strumentoGpsAttivo);
+  }
+
+  public findAddress() {
+    this.googleMapGeoJsonService.ricercaIndirizzo(this.gisToolbarService.searchAddressTxtBox);
+  }
+
+  public navigateTo() {
+    this.googleMapGeoJsonService.apriGoogleMaps(this.gisToolbarService.searchAddressTxtBox);
+  }
+
+  //--------------------------------------------------------------------------------
+  // Ricarica Feature e Albero
+  //--------------------------------------------------------------------------------
+  // Sono gestiti tramite observable SOLO su gis-toolbar.component e non anche
+  // gis-toolbar-mobile.component per evitare di fare 2 volte le stesse cose,
+  // visto che entrambi i componenti sono attivi.
+  //--------------------------------------------------------------------------------
+
+  ricaricaAlberoCambioAzienda() {
+    // A livello di albero il cambio azienda viene intercettato nel gis-tree-filters.component.ts;
+    // vedi riga sorgente: this.manager.caricaInteroAlberoConFiltri().
+    // L&#x27;istruzione a seguire fa in modo che la lettura avvenga effettivamente.
+    this.setSelectedImpresaChangedSoUpdateTree();
+  }
+
+  ricaricaFeatureCambioAzienda(){
+    this.sharedDataService.setOrigineChiamataLoadGeoJson(enum_OrigineChiamataLoadGeoJson.CambioAzienda);
+    this.googleMapGeoJsonService.loadGeoJsonBase(true);
+  }
+
+  ricaricaFiltroTemporaleAvanzatoCambioAzienda(){
+    return this.googleMapGeoJsonService.loadFiltroTemporale();
+  }
+
+  ricaricaFeatureSharedDataService(){
+    // Se serve verificare la provenienza, utilizzare la seguente funzione:
+    // this.sharedDataService.getOrigineChiamataLoadGeoJson();
+    this.googleMapGeoJsonService.loadGeoJsonBase(true);
+  }
+
+  centraSuAzienda(){
+    this.sharedDataService.setOrigineChiamataLoadGeoJson(enum_OrigineChiamataLoadGeoJson.CentraSuAzienda);
+    this.googleMapGeoJsonService.loadGeoJsonForzato(true);
+  }
+
+  seRicaricaAlberoForzato() {
+    if (this.treeGisService) {
+      this.treeGisService.loadDataInternalFilters(true);
+    }
+  }
+
+  resetCentroAziendaleAlbero() {
+    let cfg &#x3D; this.sharedDataService.getCfgAlberoGisUtente()[0];
+    if (cfg.CfgAlbero !&#x3D;&#x3D; undefined) {
+      cfg.CfgAlbero.Sa_Cod &#x3D; &#x27;0&#x27;;
+    }
+  }
+
+  setSelectedImpresaChangedSoUpdateTree() {
+    if (this.treeGisService) {
+      this.treeGisService.setSelectedImpresaChangedSoUpdateTree();
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">
+&lt;gis-toolbar-mobile class&#x3D;&quot;d-flex d-lg-none&quot;&gt;&lt;/gis-toolbar-mobile&gt;
+
+&lt;div class&#x3D;&quot;gis-toolbar-container d-none d-lg-flex&quot;&gt;
+    &lt;div class&#x3D;&quot;gis-toolbar&quot; id&#x3D;&quot;gis-toolbar&quot;&gt;
+        &lt;div class&#x3D;&quot;item&quot; *ngIf&#x3D;&quot;!isCustom()&quot;
+            gisTooltip title&#x3D;&quot;{{&#x27;FiltroTemporale&#x27; | transloco}}&quot;&gt;
+            &lt;button kendoButton (click)&#x3D;&quot;gisToolbarService.calendarioBtnClick()&quot;&gt;
+                &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-calendar-filter-light&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;items&quot;&gt;
+            &lt;div gisTooltip title&#x3D;&quot;{{&#x27;Posizione&#x27; | transloco}}&quot;&gt;
+                &lt;button kendoButton
+                    (click)&#x3D;&quot;positionToggle()&quot;
+                    [ngClass]&#x3D;&quot;gisToolbarService.getClasseGpsAttivo()&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-poi-base-map-light&quot;
+                        [ngClass]&#x3D;&quot;gisToolbarService.getClasseGpsAttivo()&quot;&gt;
+                    &lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div gisTooltip title&#x3D;&quot;{{&#x27;InserimentoCampione&#x27; | transloco}}&quot; *ngIf&#x3D;&quot;isAnalisiTerreno &amp;&amp; analisiTerrenoEdit&quot;&gt;
+                &lt;button kendoButton
+                    (click)&#x3D;&quot;toggleAddMarkersModality()&quot;
+                    [ngClass]&#x3D;&quot;{ &#x27;gis-toolbar-btn-attivo&#x27;: isMarkerPlacer$ | async }&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-gps-plants-white&quot;
+                        [ngClass]&#x3D;&quot;{ &#x27;gis-toolbar-btn-attivo&#x27;: isMarkerPlacer$ | async }&quot;&gt;
+                    &lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div gisTooltip title&#x3D;&quot;{{&#x27;gis.MisuraDistanze&#x27; | transloco}}&quot; *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+                &lt;button kendoButton
+                    (click)&#x3D;&quot;gisToolbarService.startStopMeasure()&quot;
+                    [ngClass]&#x3D;&quot;gisToolbarService.getClasseMisurazioneAttivo()&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-measure-light&quot;
+                        [ngClass]&#x3D;&quot;gisToolbarService.getClasseMisurazioneAttivo()&quot;&gt;&gt;
+                    &lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div gisTooltip title&#x3D;&quot;{{&#x27;Informazioni&#x27; | transloco}}&quot; *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+                &lt;button kendoButton
+                    (click)&#x3D;&quot;googleMapGeoJsonService.getProprietaFeatureSelezionata()&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-info-balloon-light&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+            &lt;div *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+                &lt;kendo-dropdownbutton #toolsDropdown (open)&#x3D;&quot;openTools()&quot;
+                    [popupSettings]&#x3D;&quot;{popupClass:&#x27;tools&#x27;}&quot;
+                    [data]&#x3D;&quot;gisToolbarService.toolsList&quot;
+                    textField&#x3D;&quot;description&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-tools-list-light&quot;&gt;&lt;/i&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-arrow-down-light&quot;&gt;&lt;/i&gt;
+                &lt;/kendo-dropdownbutton&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;items&quot;&gt;
+            &lt;div class&#x3D;&quot;merged-elements&quot;&gt;
+                &lt;span gisTooltip title&#x3D;&quot;{{&#x27;gis.CambiaFormatoCoordinate&#x27; | transloco}}&quot;&gt;
+                    &lt;button kendoButton class&#x3D;&quot;left-rounded-full&quot; (click)&#x3D;&quot;gisToolbarService.changeMask()&quot;&gt;
+                        &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-coordinates-light&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/span&gt;
+                &lt;input id&#x3D;&quot;latitude&quot;
+                    #latitude
+                    type&#x3D;&quot;text&quot;
+                    class&#x3D;&quot;border-left-0 latlng&quot;
+                    [placeholder]&#x3D;&quot;&#x27;Lat.&#x27; + gisToolbarService.latPlaceholder[gisToolbarService.maskIdx]&quot;
+                    [inputMask]&#x3D;&quot;gisToolbarService.latMask[gisToolbarService.maskIdx]&quot;
+                    (focusin)&#x3D;&quot;changeLatFocusHandler(true)&quot;
+                    (focusout)&#x3D;&quot;changeLatFocusHandler(false)&quot;
+                    [(ngModel)]&#x3D;&quot;gisToolbarService.latValue&quot;&gt;
+                &lt;input id&#x3D;&quot;longitude&quot;
+                    #longitude
+                    type&#x3D;&quot;text&quot;
+                    class&#x3D;&quot;border-left-0 border-right-0 latlng&quot;
+                    [placeholder]&#x3D;&quot;&#x27;Lng.&#x27; + gisToolbarService.lngPlaceholder[gisToolbarService.maskIdx]&quot;
+                    [inputMask]&#x3D;&quot;gisToolbarService.lngMask[gisToolbarService.maskIdx]&quot;
+                    (focusin)&#x3D;&quot;changeLngFocusHandler(true)&quot;
+                    (focusout)&#x3D;&quot;changeLngFocusHandler(false)&quot;
+                    [(ngModel)]&#x3D;&quot;gisToolbarService.lngValue&quot;&gt;
+                &lt;span gisTooltip title&#x3D;&quot;{{&#x27;gis.CercaCoordinate&#x27; | transloco}}&quot;&gt;
+                    &lt;button kendoButton #goToPosition
+                        (click)&#x3D;&quot;gisToolbarService.goToPosition(latitude.value, longitude.value)&quot;&gt;
+                            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-search-light&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;same-element-effect&quot; *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+                &lt;input
+                    [(ngModel)]&#x3D;&quot;gisToolbarService.searchAddressTxtBox&quot;
+                    type&#x3D;&quot;text&quot;
+                    class&#x3D;&quot;left-rounded-full border-right-0&quot;
+                    placeholder&#x3D;&quot;{{&#x27;Indirizzo&#x27; | transloco}}&quot;
+                    (keydown.enter)&#x3D;&quot;findAddress()&quot;&gt;
+                &lt;span gisTooltip title&#x3D;&quot;{{&#x27;gis.CercaIndirizzo&#x27; | transloco}}&quot;&gt;
+                    &lt;button kendoButton
+                        class&#x3D;&quot;border-left-0&quot;
+                        (click)&#x3D;&quot;findAddress()&quot;&gt;
+                        &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-search-light&quot;&gt;&lt;/i&gt;
+                    &lt;/button&gt;
+                &lt;/span&gt;
+            &lt;/div&gt;
+            &lt;div gisTooltip title&#x3D;&quot;{{&#x27;gis.NavigaVerso&#x27; | transloco}}&quot; *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+                &lt;button kendoButton
+                    (click)&#x3D;&quot;navigateTo()&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-gps-light&quot;&gt;&lt;/i&gt;
+                &lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;item&quot; *ngIf&#x3D;&quot;false&quot;&gt;
+            &lt;button kendoButton&gt;&lt;span class&#x3D;&quot;xo-mx-4&quot;&gt;{{ &#x27;FiltraImpianti&#x27; | transloco }}&lt;/span&gt;&lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-search-light&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;item&quot; *ngIf&#x3D;&quot;!isCustom()&quot;&gt;
+            &lt;button kendoButton #btnCentraSuAzienda (click)&#x3D;&quot;centraSuAzienda()&quot;&gt;&lt;span class&#x3D;&quot;xo-mx-4&quot;&gt;{{ &#x27;CentraSuAzienda&#x27; | transloco }}&lt;/span&gt;&lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-update-light&quot;&gt;&lt;/i&gt;&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;item&quot; *ngIf&#x3D;&quot;gisToolbarService.permessoSetupVisualizzazione &amp;&amp; !isCustom()&quot;&gt;
+             &lt;button kendoButton #dropdownButton class&#x3D;&quot;btn-transparent&quot; id&#x3D;&quot;dropdownButton&quot; (click)&#x3D;&quot;toggleSettingsDropdown()&quot;&gt;
+&lt;!--            &lt;button kendoButton #dropdownButton class&#x3D;&quot;btn-transparent&quot; id&#x3D;&quot;dropdownButton&quot; (click)&#x3D;&quot;gisToolbarService.configurazioneBtnClick()&quot;&gt;--&gt;
+                &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-arrow-down-dark&quot;&gt;&lt;/i&gt;
+                &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-display-settings-dark&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div *ngIf&#x3D;&quot;displaySettingsDropdown&#x3D;&#x3D;&#x3D;true&quot; [style.right]&#x3D;&quot;rightDropdown&quot; class&#x3D;&quot;dropdown-container&quot;&gt;
+        &lt;div class&#x3D;&quot;m-3&quot;&gt;
+            &lt;button kendoButton
+                (click)&#x3D;&quot;configurazioneBtnClick()&quot;&gt;
+                &lt;span class&#x3D;&quot;xo-mx-4&quot;&gt;{{ &#x27;ImpostazioniGeneraliVisualizzazione&#x27; | transloco }}&lt;/span&gt;
+                &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-eye-edit-light&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;hr&gt;
+        &lt;div class&#x3D;&quot;dropdown-text-container&quot; *ngIf&#x3D;&quot;false&quot;&gt;
+            &lt;h6&gt;{{ &#x27;gis.AttivaPannelli&#x27; | transloco }}&lt;/h6&gt;
+            &lt;div class&#x3D;&quot;options-row&quot;&gt;
+                &lt;p&gt;{{ &#x27;gis.SatelliteData&#x27; | transloco }}&lt;/p&gt;
+                &lt;p&gt;&lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-eye-invisible-dark&quot;&gt;&lt;/i&gt;&lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;options-row last&quot;&gt;
+                &lt;p&gt;{{ &#x27;Themes&#x27; | transloco }}&lt;/p&gt;
+                &lt;p (click)&#x3D;&quot;gisToolbarService.themeBtnToggle()&quot; class&#x3D;&quot;k-cursor-pointer&quot;&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-eye-visible-dark&quot;
+                        *ngIf&#x3D;&quot;gisToolbarService.getToggleState(windowTypes.ThemeWindow)&quot;&gt;
+                    &lt;/i&gt;
+                    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-eye-invisible-dark&quot;
+                        *ngIf&#x3D;&quot;!gisToolbarService.getToggleState(windowTypes.ThemeWindow)&quot;&gt;
+                    &lt;/i&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!--[specialCharacters]&#x3D;&quot;latlngSpecialCharacters&quot;--&gt;
+&lt;!--[dropSpecialCharacters]&#x3D;&quot;false&quot;--&gt;
+&lt;!--[allowNegativeNumbers]&#x3D;&quot;true&quot;--&gt;
+&lt;!--[showMaskTyped]&#x3D;&quot;showLatMaskTyped&quot;--&gt;
+&lt;!--[patterns]&#x3D;&quot;customPattern&quot;--&gt;
+
+&lt;!--[specialCharacters]&#x3D;&quot;latlngSpecialCharacters&quot;--&gt;
+&lt;!--[dropSpecialCharacters]&#x3D;&quot;false&quot;--&gt;
+&lt;!--[allowNegativeNumbers]&#x3D;&quot;true&quot;--&gt;
+&lt;!--[showMaskTyped]&#x3D;&quot;showLngMaskTyped&quot;--&gt;
+&lt;!--[patterns]&#x3D;&quot;customPattern&quot;--&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./gis-toolbar.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.gis-toolbar-container {
+    margin: 0 auto;
+    margin-left: -12px;
+    margin-top: 2vh;
+    padding-left: 20px;
+    padding-right: 20px;
+    position: absolute;
+    width: 100%;
+    text-align: -webkit-center;
+    text-align: -moz-center;
+    justify-content: center;
+}
+
+.gis-toolbar {
+    width: fit-content;
+    max-width: 100%;
+    border-radius: 10px;
+    background-color: rgb(255 255 255 / 90%);
+    z-index: 1001;
+}
+
+.gis-toolbar button,
+.dropdown-container button {
+    background-color: #002d5a;
+    color: white;
+    border: 0;
+    text-transform: uppercase;
+    padding: 0.2rem 0.25rem;
+}
+
+.gis-toolbar .item,
+.gis-toolbar .items {
+    padding: 1rem;
+    border-right: solid 1px #d3d3d3;
+    width: fit-content;
+    display: inline-block;
+}
+
+.gis-toolbar .item:last-child,
+.gis-toolbar .items:last-child {
+    border-right: 0;
+}
+
+.gis-toolbar .items&gt;div{
+    margin-right: 1rem;
+    display: inline-block;
+}
+.gis-toolbar .items input {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    vertical-align: bottom;
+    border-color: #d3d3d3;
+    border-style: solid;
+    background-color: #f5f5f5;
+    font-size: 10pt;
+    padding-left: 10px;
+    width: 7rem;
+}
+
+.gis-toolbar .items .same-element-effect input {
+    padding: 2.4px;
+    padding-left: 10px;
+}
+
+.gis-toolbar .items&gt;div:last-child{
+    margin-right: 0;
+}
+
+.gis-toolbar-btn-attivo {
+    background-color: red !important;
+}
+
+.left-rounded-full {
+    border-bottom-left-radius: 25px;
+    border-top-left-radius: 25px;
+}
+
+.right-rounded-full {
+    border-bottom-right-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.border-left-0 {
+    border-left: 0;
+}
+
+.border-right-0 {
+    border-right: 0;
+}
+
+/* .same-element-effect button {
+    box-sizing: border-box;
+    background-color: #f5f5f5;
+    color: #002d5a;
+    border: solid 2px #d3d3d3;
+    height: 35.4px;
+    border-left: 0;
+} */
+
+.xo-mx-4{
+    margin-right: 4px;
+}
+
+.btn-transparent {
+    background-color: transparent !important;
+    border: 0;
+}
+
+.dropdown-container {
+    top: 56px;
+    right: 74px;
+    position: absolute;
+    height: fit-content;
+    width: fit-content;
+    background: white;
+    z-index: 9500;
+    border-radius: 10px;
+    box-shadow: -4px -1px 15px -14px;
+    border: solid 1px #d3d3d3;
+}
+
+.dropdown-text-container {
+    text-align: left;
+}
+
+.dropdown-text-container h6,
+.dropdown-text-container p{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 0.9rem;
+}
+
+.dropdown-container h6 {
+    text-transform: uppercase;
+    color: #D52B1E;
+    font-size: 0.9rem;
+}
+
+.dropdown-text-container p {
+    padding-bottom: 0.2rem;
+    padding-top: 0.2rem;
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #575757;
+}
+
+.options-row {
+    border-bottom: solid 1px #EBEBEB;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+}
+
+.options-row.first {
+    border-top: solid 1px #EBEBEB;
+}
+
+.options-row.last {
+    border-bottom: none;
+}
+
+.dropdown-container hr {
+    background-color: #ebebeb;
+    height: 1px;
+    border: none;
+    opacity: 1;
+}
+
+.options-row p:last-child {
+    border-left: solid 1px #EBEBEB;
+}
+
+.gis-toolbar .item, .gis-toolbar .items, .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+    padding: 0.5rem 0.8rem;
+}
+
+.gis-toolbar button:hover {
+    -webkit-box-shadow: 0px 1px 6px 0px rgba(0, 45, 90, 0.6);
+    -moz-box-shadow: 0px 1px 6px 0px rgba(0, 45, 90, 0.6);
+    -o-box-shadow: 0px 1px 6px 0px rgba(0, 45, 90, 0.6);
+    box-shadow: 0px 1px 6px 0px rgba(0, 45, 90, 0.6);
+}
+.gis-toolbar .item:last-child button:hover, .gis-toolbar .same-element-effect button:hover {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  outline: none;
+}
+
+.gis-toolbar .items input:focus, .gis-toolbar .items input:focus-visible{
+    outline: 0px solid rgba(0, 45, 90, 0.6);
+}
+
+.right-rounded-full {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.xo-mx-4 {
+    margin-left: 4px;
+}
+
+.k-button {
+    gap: 0.1rem
+}
+
+input.latlng::placeholder {
+        font-size: 0.65em;
+}
+
+
+
+
+/* RESPONSIVE */
+@media only screen and (max-width: 1600px) {
+
+    /* toolbar padding inner */
+    .gis-toolbar .item, .gis-toolbar .items, .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+        padding: 0.5rem 0.7rem;
+    }
+    .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+        padding: 0.5rem 0.8rem 0.5rem 0.5rem;
+    }
+}
+@media only screen and (max-width: 1560px) {
+
+    /* toolbar padding inner */
+    .gis-toolbar .item, .gis-toolbar .items, .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+        padding: 0.5rem 0.5rem;
+    }
+    .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+        padding: 0.5rem 0.8rem 0.5rem 0.5rem;
+    }
+}
+@media only screen and (max-width: 1520px) {
+
+    /* toolbar padding inner */
+    .gis-toolbar .item, .gis-toolbar .items, .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+       padding: 0.5rem 0.5rem;
+    }
+    .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+       padding: 0.5rem 0.5rem 0.5rem 0rem;
+    }
+
+    /* reduce font-size */
+    .gis-toolbar .k-button-md {
+        font-size: 0.66rem;
+    }
+    .gis-toolbar .items input {
+       font-size: 9.4pt;
+    }
+
+    /* search Indirizzo */
+    .gis-toolbar .same-element-effect button {
+        height: 33.8px;
+    }
+
+    /* Icon size in button */
+    .gis-toolbar .xi-display-settings-dark, .gis-toolbar .xi-arrow-down-dark, .gis-toolbar .xi-search-dark, .gis-toolbar .xi-arrow-down-light, .gis-toolbar .xi-coordinates-light, .gis-toolbar .xi-tools-list-light, .gis-toolbar .xi-info-balloon-light, .gis-toolbar .xi-poi-base-map-light, .gis-toolbar .xi-gps-light, .gis-toolbar .xi-search-light, .gis-toolbar .xi-update-light, .gis-toolbar .xi-measure-light, .gis-toolbar .xi-draw-gps-plants-white {
+        height: 1.62rem;
+        width: 1.62rem;
+    }
+    .gis-toolbar .xi-calendar-filter-light {
+       height: 1.6rem;
+       width: 2.3rem;
+    }
+
+}
+@media only screen and (max-width: 1400px) {
+
+    /* reduce font-size */
+    .gis-toolbar .items input {
+        font-size: 8.4pt;
+        line-height: 1.45rem;
+    }
+    .gis-toolbar .items .same-element-effect input {
+        line-height: 1.55rem;
+    }
+
+    /* Icon size in button */
+    .gis-toolbar .xi-display-settings-dark, .gis-toolbar .xi-arrow-down-dark, .gis-toolbar .xi-search-dark, .gis-toolbar .xi-arrow-down-light, .gis-toolbar .xi-coordinates-light, .gis-toolbar .xi-tools-list-light, .gis-toolbar .xi-info-balloon-light, .gis-toolbar .xi-poi-base-map-light, .gis-toolbar .xi-gps-light, .gis-toolbar .xi-search-light, .gis-toolbar .xi-update-light, .gis-toolbar .xi-measure-light, .gis-toolbar .xi-draw-gps-plants-white {
+        height: 1.52rem;
+        width: 1.52rem;
+    }
+    .gis-toolbar .xi-calendar-filter-light {
+       height: 1.5rem;
+       width: 2.3rem;
+    }
+
+    /* ------ width column toolbar */
+    .gis-toolbar .items &gt; div {
+        margin-right: 0.6rem;
+    }
+
+}
+@media only screen and (max-width: 1330px) {
+
+    /* reduce font-size */
+    .gis-toolbar .items input {
+        font-size: 8.4pt;
+        line-height: 1.45rem;
+        padding-left: 6px;
+    }
+    .gis-toolbar .items .same-element-effect input {
+        line-height: 1.55rem;
+    }
+
+    /* Icon size in button */
+    .gis-toolbar .xi-display-settings-dark, .gis-toolbar .xi-arrow-down-dark, .gis-toolbar .xi-search-dark, .gis-toolbar .xi-arrow-down-light, .gis-toolbar .xi-coordinates-light, .gis-toolbar .xi-tools-list-light, .gis-toolbar .xi-info-balloon-light, .gis-toolbar .xi-poi-base-map-light, .gis-toolbar .xi-gps-light, .gis-toolbar .xi-search-light, .gis-toolbar .xi-update-light, .gis-toolbar .xi-measure-light, .gis-toolbar .xi-draw-gps-plants-white {
+        height: 1.42rem;
+        width: 1.42rem;
+    }
+    .gis-toolbar .xi-calendar-filter-light {
+       height: 1.4rem;
+       width: 2.3rem;
+    }
+
+    /* ------ width column toolbar */
+    .gis-toolbar .items &gt; div {
+        margin-right: 0.4rem;
+    }
+    .gis-toolbar .items input {
+        max-width: 120px;
+    }
+
+
+}
+@media only screen and (max-width: 1180px) {
+
+    /* reduce font-size */
+    .gis-toolbar .k-button-md {
+        font-size: 0.6rem;
+    }
+    .gis-toolbar .items input {
+       font-size: 8.4pt;
+    }
+
+    /* ------ width column toolbar */
+    .gis-toolbar .items input {
+        max-width: 100px;
+    }
+
+}
+@media only screen and (max-width: 1100px) {
+
+    /* toolbar padding inner */
+    .gis-toolbar .item, .gis-toolbar .items, .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+       padding: 0.35rem 0.35rem;
+    }
+    .gis-toolbar .item:last-child, .gis-toolbar .items:last-child {
+       padding: 0.35rem 0.35rem 0.35rem 0rem;
+    }
+
+    /* Icon size in button */
+    .gis-toolbar .xi-display-settings-dark, .gis-toolbar .xi-arrow-down-dark, .gis-toolbar .xi-search-dark, .gis-toolbar .xi-arrow-down-light, .gis-toolbar .xi-coordinates-light, .gis-toolbar .xi-tools-list-light, .gis-toolbar .xi-info-balloon-light, .gis-toolbar .xi-poi-base-map-light, .gis-toolbar .xi-gps-light, .gis-toolbar .xi-search-light, .gis-toolbar .xi-update-light, .gis-toolbar .xi-measure-light, .gis-toolbar .xi-draw-gps-plants-white {
+        height: 1.32rem;
+        width: 1.32rem;
+    }
+    .gis-toolbar .xi-calendar-filter-light {
+       height: 1.3rem;
+       width: 2.3rem;
+    }
+
+    /* reduce font-size */
+    .gis-toolbar .k-button-md {
+        font-size: 0.6rem;
+    }
+    .gis-toolbar .items input {
+       font-size: 8pt;
+    }
+    .gis-toolbar .items input {
+        line-height: 1.25rem;
+    }
+    .gis-toolbar .items .same-element-effect input {
+        line-height: 1.55rem;
+    }
+
+
+    /* ------ width column toolbar */
+    .gis-toolbar .items input {
+        max-width: 89px;
+    }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><gis-toolbar-mobile class="d-flex d-lg-none"></gis-toolbar-mobile><div class="gis-toolbar-container d-none d-lg-flex">    <div class="gis-toolbar" id="gis-toolbar">        <div class="item" *ngIf="!isCustom()"            gisTooltip title="{{\'FiltroTemporale\' | transloco}}">            <button kendoButton (click)="gisToolbarService.calendarioBtnClick()">                <i aria-hidden="true" class="xi-calendar-filter-light"></i>            </button>        </div>        <div class="items">            <div gisTooltip title="{{\'Posizione\' | transloco}}">                <button kendoButton                    (click)="positionToggle()"                    [ngClass]="gisToolbarService.getClasseGpsAttivo()">                    <i aria-hidden="true" class="xi-poi-base-map-light"                        [ngClass]="gisToolbarService.getClasseGpsAttivo()">                    </i>                </button>            </div>            <div gisTooltip title="{{\'InserimentoCampione\' | transloco}}" *ngIf="isAnalisiTerreno && analisiTerrenoEdit">                <button kendoButton                    (click)="toggleAddMarkersModality()"                    [ngClass]="{ \'gis-toolbar-btn-attivo\': isMarkerPlacer$ | async }">                    <i aria-hidden="true" class="xi-draw-gps-plants-white"                        [ngClass]="{ \'gis-toolbar-btn-attivo\': isMarkerPlacer$ | async }">                    </i>                </button>            </div>            <div gisTooltip title="{{\'gis.MisuraDistanze\' | transloco}}" *ngIf="!isCustom()">                <button kendoButton                    (click)="gisToolbarService.startStopMeasure()"                    [ngClass]="gisToolbarService.getClasseMisurazioneAttivo()">                    <i aria-hidden="true" class="xi-measure-light"                        [ngClass]="gisToolbarService.getClasseMisurazioneAttivo()">>                    </i>                </button>            </div>            <div gisTooltip title="{{\'Informazioni\' | transloco}}" *ngIf="!isCustom()">                <button kendoButton                    (click)="googleMapGeoJsonService.getProprietaFeatureSelezionata()">                    <i aria-hidden="true" class="xi-info-balloon-light"></i>                </button>            </div>            <div *ngIf="!isCustom()">                <kendo-dropdownbutton #toolsDropdown (open)="openTools()"                    [popupSettings]="{popupClass:\'tools\'}"                    [data]="gisToolbarService.toolsList"                    textField="description">                    <i aria-hidden="true" class="xi-tools-list-light"></i>                    <i aria-hidden="true" class="xi-arrow-down-light"></i>                </kendo-dropdownbutton>            </div>        </div>        <div class="items">            <div class="merged-elements">                <span gisTooltip title="{{\'gis.CambiaFormatoCoordinate\' | transloco}}">                    <button kendoButton class="left-rounded-full" (click)="gisToolbarService.changeMask()">                        <i aria-hidden="true" class="xi-coordinates-light"></i>                    </button>                </span>                <input id="latitude"                    #latitude                    type="text"                    class="border-left-0 latlng"                    [placeholder]="\'Lat.\' + gisToolbarService.latPlaceholder[gisToolbarService.maskIdx]"                    [inputMask]="gisToolbarService.latMask[gisToolbarService.maskIdx]"                    (focusin)="changeLatFocusHandler(true)"                    (focusout)="changeLatFocusHandler(false)"                    [(ngModel)]="gisToolbarService.latValue">                <input id="longitude"                    #longitude                    type="text"                    class="border-left-0 border-right-0 latlng"                    [placeholder]="\'Lng.\' + gisToolbarService.lngPlaceholder[gisToolbarService.maskIdx]"                    [inputMask]="gisToolbarService.lngMask[gisToolbarService.maskIdx]"                    (focusin)="changeLngFocusHandler(true)"                    (focusout)="changeLngFocusHandler(false)"                    [(ngModel)]="gisToolbarService.lngValue">                <span gisTooltip title="{{\'gis.CercaCoordinate\' | transloco}}">                    <button kendoButton #goToPosition                        (click)="gisToolbarService.goToPosition(latitude.value, longitude.value)">                            <i aria-hidden="true" class="xi-search-light"></i>                    </button>                </span>            </div>            <div class="same-element-effect" *ngIf="!isCustom()">                <input                    [(ngModel)]="gisToolbarService.searchAddressTxtBox"                    type="text"                    class="left-rounded-full border-right-0"                    placeholder="{{\'Indirizzo\' | transloco}}"                    (keydown.enter)="findAddress()">                <span gisTooltip title="{{\'gis.CercaIndirizzo\' | transloco}}">                    <button kendoButton                        class="border-left-0"                        (click)="findAddress()">                        <i aria-hidden="true" class="xi-search-light"></i>                    </button>                </span>            </div>            <div gisTooltip title="{{\'gis.NavigaVerso\' | transloco}}" *ngIf="!isCustom()">                <button kendoButton                    (click)="navigateTo()">                    <i aria-hidden="true" class="xi-gps-light"></i>                </button>            </div>        </div>        <div class="item" *ngIf="false">            <button kendoButton><span class="xo-mx-4">{{ \'FiltraImpianti\' | transloco }}</span><i aria-hidden="true" class="xi-search-light"></i></button>        </div>        <div class="item" *ngIf="!isCustom()">            <button kendoButton #btnCentraSuAzienda (click)="centraSuAzienda()"><span class="xo-mx-4">{{ \'CentraSuAzienda\' | transloco }}</span><i aria-hidden="true" class="xi-update-light"></i></button>        </div>        <div class="item" *ngIf="gisToolbarService.permessoSetupVisualizzazione && !isCustom()">             <button kendoButton #dropdownButton class="btn-transparent" id="dropdownButton" (click)="toggleSettingsDropdown()"><!--            <button kendoButton #dropdownButton class="btn-transparent" id="dropdownButton" (click)="gisToolbarService.configurazioneBtnClick()">-->                <i aria-hidden="true" class="xi-arrow-down-dark"></i>                <i aria-hidden="true" class="xi-display-settings-dark"></i>            </button>        </div>    </div>    <div *ngIf="displaySettingsDropdown===true" [style.right]="rightDropdown" class="dropdown-container">        <div class="m-3">            <button kendoButton                (click)="configurazioneBtnClick()">                <span class="xo-mx-4">{{ \'ImpostazioniGeneraliVisualizzazione\' | transloco }}</span>                <i aria-hidden="true" class="xi-eye-edit-light"></i>            </button>        </div>        <hr>        <div class="dropdown-text-container" *ngIf="false">            <h6>{{ \'gis.AttivaPannelli\' | transloco }}</h6>            <div class="options-row">                <p>{{ \'gis.SatelliteData\' | transloco }}</p>                <p><i aria-hidden="true" class="xi-eye-invisible-dark"></i></p>            </div>            <div class="options-row last">                <p>{{ \'Themes\' | transloco }}</p>                <p (click)="gisToolbarService.themeBtnToggle()" class="k-cursor-pointer">                    <i aria-hidden="true" class="xi-eye-visible-dark"                        *ngIf="gisToolbarService.getToggleState(windowTypes.ThemeWindow)">                    </i>                    <i aria-hidden="true" class="xi-eye-invisible-dark"                        *ngIf="!gisToolbarService.getToggleState(windowTypes.ThemeWindow)">                    </i>                </p>            </div>        </div>    </div></div><!--[specialCharacters]="latlngSpecialCharacters"--><!--[dropSpecialCharacters]="false"--><!--[allowNegativeNumbers]="true"--><!--[showMaskTyped]="showLatMaskTyped"--><!--[patterns]="customPattern"--><!--[specialCharacters]="latlngSpecialCharacters"--><!--[dropSpecialCharacters]="false"--><!--[allowNegativeNumbers]="true"--><!--[showMaskTyped]="showLngMaskTyped"--><!--[patterns]="customPattern"--></div>'
+    var COMPONENTS = [{'name': 'AbbattimentoImpiantiComponent', 'selector': 'app-abbattimento-impianti'},{'name': 'AccessoNegatoComponent', 'selector': 'app-accesso-negato'},{'name': 'AcquaComponent', 'selector': 'app-acqua'},{'name': 'AgendaFiltersComponent', 'selector': 'agenda-filters'},{'name': 'AgriculturalExerciceContributeLinkComponent', 'selector': 'app-agricultural-exercice-contribute-link'},{'name': 'AgriculturalPlotMachineLinkComponent', 'selector': 'app-agricultural-plots-machines-link'},{'name': 'AgriculturalPlotSlopeComponent', 'selector': 'app-agricultural-plot-slope'},{'name': 'AgriculturalPlotWeavingComponent', 'selector': 'app-agricultural-plot-weaving'},{'name': 'AlertDocumentiWidgetComponent', 'selector': 'app-alert-documenti-widget'},{'name': 'AllOperationsTableComponent', 'selector': 'all-operations-table'},{'name': 'AnagraficaComponent', 'selector': 'gias-anagrafica'},{'name': 'AnagraficaTreeFiltersComponent', 'selector': 'tree-filters'},{'name': 'AnagraficheIndiciMaturitaComponent', 'selector': 'app-anagrafiche-indici-maturita'},{'name': 'AnagraficheRilieviAvversitaComponent', 'selector': 'app-anagrafiche-rilievi-avversita'},{'name': 'AnalisiTerrenoComponent', 'selector': 'app-analisi-terreno'},{'name': 'AnalisiTerrenoEditComponent', 'selector': 'app-analisi-terreno-edit'},{'name': 'AnnoValutazioniEditComponent', 'selector': 'app-anno-valutazioni-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppezzamentiCampoEditComponent', 'selector': 'app-appezzamento-campo-edit'},{'name': 'AppezzamentiComponent', 'selector': 'app-appezzamenti'},{'name': 'AppezzamentoEditComponent', 'selector': 'app-appezzamento-edit'},{'name': 'AppezzamentoGlobalEditComponent', 'selector': 'app-appezzamento-global-edit'},{'name': 'AvversitaComponent', 'selector': 'app-avversita'},{'name': 'AxpMessageContentComponent', 'selector': 'app-axp-message-content'},{'name': 'AziendaComponent', 'selector': 'app-azienda'},{'name': 'AziendeMultiPieWidgetComponent', 'selector': 'app-aziende-multi-pie-widget'},{'name': 'BiologicoComponent', 'selector': 'centri-biologico'},{'name': 'BottoneAggiuntaProdottoComponent', 'selector': 'app-bottone-aggiunta-prodotto'},{'name': 'BottoneCreaProdottoComponent', 'selector': 'app-bottone-crea-prodotto'},{'name': 'BottoneRicercaProdotti', 'selector': 'app-bottone-ricerca-prodotti'},{'name': 'BottoniGestioneProdottoComponent', 'selector': 'app-bottoni-gestione-prodotto'},{'name': 'BottoniSalvataggioComponent', 'selector': 'app-bottoni-salvataggio'},{'name': 'BottoniSezioneProdottiComponent', 'selector': 'app-bottoni-sezione-prodotti'},{'name': 'BottoniTestataComponent', 'selector': 'btn-bottoni-testata'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'BrogliaccioGridComponent', 'selector': 'brogliaccio-table'},{'name': 'BudgetComponent', 'selector': 'gias-budget'},{'name': 'CacCodificheComponent', 'selector': 'app-cac-codifiche'},{'name': 'CampiComponent', 'selector': 'app-campi'},{'name': 'CampiEditComponent', 'selector': 'app-campi-edit'},{'name': 'CampiShortDescriptionComponent', 'selector': 'campi-short-description'},{'name': 'CardImpostazioneComponent', 'selector': 'app-card-impostazione'},{'name': 'CatastoCampoEditComponent', 'selector': 'app-catasto-campo-edit'},{'name': 'CatastoClassamentoEditComponent', 'selector': 'app-catasto-classamento-edit'},{'name': 'CatastoComponent', 'selector': 'app-catasto'},{'name': 'CatastoEditComponent', 'selector': 'app-catasto-edit'},{'name': 'CatastoMacrousiEditComponent', 'selector': 'app-catasto-macrousi-edit'},{'name': 'CatastoMetodoProduzioneEditComponent', 'selector': 'app-catasto-metodo-produzione-edit'},{'name': 'CatastoPossessiEditComponent', 'selector': 'app-catasto-possessi-edit'},{'name': 'CatastoZoneEditComponent', 'selector': 'app-catasto-zone-edit'},{'name': 'CentriCodiciGridComponent', 'selector': 'grid-centri-codici'},{'name': 'CentriComponent', 'selector': 'gias-anagrafica-centri'},{'name': 'CentroEditComponent', 'selector': 'app-centri-edit'},{'name': 'ChartWidgetComponent', 'selector': 'app-chart-widget'},{'name': 'ClearButtonComponent', 'selector': 'app-clear-button'},{'name': 'ClientePermessiComponent', 'selector': 'app-cliente-permessi'},{'name': 'ClientePermessiGridComponent', 'selector': 'app-cliente-permessi-grid'},{'name': 'Co2ComparisonWidgetComponent', 'selector': 'app-co2-comparison-widget'},{'name': 'CodiciComponent', 'selector': 'app-codici'},{'name': 'CodiciTemplateComponent', 'selector': 'gias-codici-template'},{'name': 'ColtureMultiAziendaWidget', 'selector': 'app-colture-multiazienda-widget'},{'name': 'ColtureWidgetComponent', 'selector': 'app-colture-widget'},{'name': 'ColumnsChartWidgetComponent', 'selector': 'app-columns-chart-widget'},{'name': 'ComparisonWidgetComponent', 'selector': 'app-comparison-widget'},{'name': 'ConfigurazioneOperazioniCulturaliComponent', 'selector': 'app-configurazione-operazioni-culturali'},{'name': 'ConformitaWidgetComponent', 'selector': 'app-conformita-widget'},{'name': 'ConfrontoPcCatastoComponent', 'selector': 'app-confronto-pc-catasto'},{'name': 'ConfrontoPcCatastoGridComponent', 'selector': 'app-confronto-pc-catasto-grid'},{'name': 'ConfrontoPianoColturaleComponent', 'selector': 'app-confronto-piano-colturale'},{'name': 'ConsultaSincroDatiAppComponent', 'selector': 'app-consulta-sincro-dati-app'},{'name': 'ContattiAssociaUtenteComponent', 'selector': 'app-contatti-associa-utente'},{'name': 'ContattiComponent', 'selector': 'app-contatti'},{'name': 'ContattiEditComponent', 'selector': 'app-contatti-edit'},{'name': 'ContoEconomicoDettaglioComponent', 'selector': 'app-conto-economico-dettaglio'},{'name': 'CooperativeComponent', 'selector': 'cooperative-edit'},{'name': 'CostiAccessoriComponent', 'selector': 'app-costi-accessori'},{'name': 'CostiMacchinaEditComponent', 'selector': 'app-macchina-edit-costi'},{'name': 'CostiRicaviAIWidgetComponent', 'selector': 'costi-ricavi-ai-widget'},{'name': 'CounterComponent', 'selector': 'app-counter-component'},{'name': 'CustomMessageComponent', 'selector': 'custom-message-component'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataOperazioneComponent', 'selector': 'app-data-operazione'},{'name': 'DatiAccessoriComponent', 'selector': 'dati-accessori'},{'name': 'DatiCatastaliComponent', 'selector': 'app-dati-catastali'},{'name': 'DatiCentroComponent', 'selector': 'dati-centro'},{'name': 'DatiGeneraliFarmersComponent', 'selector': 'app-dati-generali-farmers-widget'},{'name': 'DatiPrevisionailiColtureGridComponent', 'selector': 'app-dati-previsionaili-colture-grid'},{'name': 'DatiPrevisionaliColtureComponent', 'selector': 'app-dati-previsionali-colture'},{'name': 'DettagliFertilizzantiComponent', 'selector': 'app-dettagli-fertilizzanti'},{'name': 'DettagliFormulatiComponent', 'selector': 'app-dettagli-formulati'},{'name': 'DettagliSementiComponent', 'selector': 'app-dettagli-sementi'},{'name': 'DialogComponent', 'selector': 'app-dialog'},{'name': 'DisciplinareComponent', 'selector': 'app-disciplinare'},{'name': 'DomandaIrriguaComponent', 'selector': 'app-menu-dss'},{'name': 'DosiComponent', 'selector': 'app-dosi'},{'name': 'DraggableComponent', 'selector': 'app-draggable'},{'name': 'DrawWindowComponent', 'selector': 'draw-window'},{'name': 'EditGruppiMerceComponent', 'selector': 'app-gruppi-merce'},{'name': 'EditGruppiMerceGridComponent', 'selector': 'gruppi-merce-grid'},{'name': 'ErosioneComparisonWidgetComponent', 'selector': 'app-erosione-comparison-widget'},{'name': 'EserciziComponent', 'selector': 'app-esercizi'},{'name': 'EserciziCopiaSpostaAppezzamentiComponent', 'selector': 'app-esercizi-copia-sposta-appezzamenti'},{'name': 'EsercizioEditComponent', 'selector': 'app-esercizio-edit'},{'name': 'ExportQdCToAgeaComponent', 'selector': 'app-export-qdc-to-agea'},{'name': 'ExportQdcToAgeaFarmFilterComponent', 'selector': 'app-export-qdc-to-agea-farm-filter'},{'name': 'ExportQdcToAgeaJsonDialogComponent', 'selector': 'app-export-qdc-to-agea-json-dialog'},{'name': 'FabbricatiComponent', 'selector': 'app-fabbricati'},{'name': 'FabbricatiEditComponent', 'selector': 'app-fabbricati-edit'},{'name': 'FertilizzantiComponent', 'selector': 'app-fertilizzanti'},{'name': 'FetchDataComponent', 'selector': 'app-fetch-data'},{'name': 'FiltersRilieviComponent', 'selector': 'app-filters-rilievi'},{'name': 'FiltersVisiteComponent', 'selector': 'app-filters-visite'},{'name': 'FiltriRequisitiStabilimentoComponent', 'selector': 'app-filtri-requisiti-stabilimento'},{'name': 'FiltriTemporaliComponent', 'selector': 'app-filtri-temporali'},{'name': 'FiltriUtenteComponent', 'selector': 'app-filtri-utente'},{'name': 'FiltroRicercaComponent', 'selector': 'app-filtro-ricerca'},{'name': 'FiltroSqlMateriePrimeComponent', 'selector': 'app-filtro-sql-materie-prime'},{'name': 'FlagMagazziniAgenzieComponent', 'selector': 'app-flag-magazzini-agenzie'},{'name': 'FlagMagazziniEsterniComponent', 'selector': 'app-flag-magazzini-esterni'},{'name': 'FlagVisualizzaGiacenzeZeroComponent', 'selector': 'app-flag-visualizza-giacenze-zero'},{'name': 'FooterComponent', 'selector': 'gias-master-footer'},{'name': 'FormatiStampaComponent', 'selector': 'impostazione-formati-stampa'},{'name': 'FormImpostazioniAziendeCentriComponent', 'selector': 'app-form-impostazioni-aziende-centri'},{'name': 'FormImpostazioniComponent', 'selector': 'app-form-impostazioni'},{'name': 'FormulatiComponent', 'selector': 'app-formulati'},{'name': 'GeneralFieldComponent', 'selector': 'app-settings-general-field'},{'name': 'GeoFiltersComponent', 'selector': 'app-geo-filters'},{'name': 'GestioneNoteComponent', 'selector': 'app-gestione-note'},{'name': 'GestioneOperazioniComponent', 'selector': 'app-gestione-operazioni'},{'name': 'GestioneRichiesteComponent', 'selector': 'gias-gestione-richieste'},{'name': 'GhgColtureWidgetComponent', 'selector': 'app-ghg-colture-widget'},{'name': 'GiasAddressTemplateComponent', 'selector': 'gias-address-template'},{'name': 'GiasBreadcrumbsComponent', 'selector': 'gias-breadcrumbs'},{'name': 'GisAlgorithmConfigurationComponent', 'selector': 'gis-algorithm-configuration'},{'name': 'GisAlgorithmConfigurationLogComponent', 'selector': 'gis-algorithm-configuration-log'},{'name': 'GisAlgorithmConfigurationWindowComponent', 'selector': 'gis-algorithm-configuration-window'},{'name': 'GISAlgorithmResultComponent', 'selector': 'gis-algorithm-result'},{'name': 'GISAnalisiMappeSatellitariAnimationComponent', 'selector': 'gis-analisi-mappe-satellitari-animation'},{'name': 'GISAnalisiMappeSatellitariCalendarioComponent', 'selector': 'gis-analisi-mappe-satellitari-calendario'},{'name': 'GISAnalisiMappeSatellitariGraficiComponent', 'selector': 'gis-analisi-mappe-satellitari-grafici'},{'name': 'GISAnalisiMappeSatellitariNotificheComponent', 'selector': 'gis-analisi-mappe-satellitari-notifiche'},{'name': 'GISAnalisiMappeSatellitariOpzioniComponent', 'selector': 'gis-analisi-mappe-satellitari-opzioni'},{'name': 'GISAnalisiMappeSatellitariWindowComponent', 'selector': 'gis-analisi-mappe-satellitari-window'},{'name': 'GISAttributiAlgorithmConfigurationComponent', 'selector': 'gis-attributi-algorithm-configuration'},{'name': 'GISAttributiComponent', 'selector': 'GIS-attributi'},{'name': 'GISAttributiExportComponent', 'selector': 'gis-attributi-export'},{'name': 'GISAttributiFileUploadCatastoComponent', 'selector': 'gis-attributi-file-upload-catasto'},{'name': 'GISAttributiFileUploadComponent', 'selector': 'gis-attributi-file-upload'},{'name': 'GISAttributiFileUploadRasterComponent', 'selector': 'gis-attributi-file-upload-raster'},{'name': 'GISAttributiFileUploadStandardComponent', 'selector': 'gis-attributi-file-upload-standard'},{'name': 'GISAttributiGridComponent', 'selector': 'GIS-attributi-grid'},{'name': 'GISAttributiMuzGridComponent', 'selector': 'GIS-attributi-muz-grid'},{'name': 'GISAttributiRasterMasksComponent', 'selector': 'gis-attributi-raster-masks'},{'name': 'GISAttributiRasterMasksGroupsPermissionsComponent', 'selector': 'gis-attributi-raster-masks-groups-permissions'},{'name': 'GISAttributiRasterMasksPermissionsComponent', 'selector': 'gis-attributi-raster-masks-permissions'},{'name': 'GISAttributiRasterMasksUsersPermissionsComponent', 'selector': 'gis-attributi-raster-masks-users-permissions'},{'name': 'GISAttributiSettingsComponent', 'selector': 'gis-attributi-settings'},{'name': 'GISBookmarksWindowComponent', 'selector': 'gis-bookmarks-window'},{'name': 'GisBottomWindow', 'selector': 'gis-bottom-window'},{'name': 'GISCalendarModalComponent', 'selector': 'app-gis-calendar-modal'},{'name': 'GISCfgProiezioniComponent', 'selector': 'gis-cfg-proiezioni'},{'name': 'GISCfgProiezioniConfigComponent', 'selector': 'gis-cfg-proiezioni-config'},{'name': 'GISCfgProiezioniDialogComponent', 'selector': 'gis-cfg-proiezioni-dialog'},{'name': 'GISCfgProiezioniGroupsPermissionsComponent', 'selector': 'gis-cfg-proiezioni-groups-permissions'},{'name': 'GISCfgProiezioniUsersPermissionsComponent', 'selector': 'gis-cfg-proiezioni-users-permissions'},{'name': 'GISCfgProziezioniLayerComponent', 'selector': 'gis-cfg-proiezioni-layer'},{'name': 'GISCfgProziezioniPermissionsComponent', 'selector': 'gis-cfg-proiezioni-permissions'},{'name': 'GisCheckboxComponent', 'selector': 'gis-checkbox'},{'name': 'GISComponent', 'selector': 'GIS'},{'name': 'GISConfigurationModalComponent', 'selector': 'app-gis-configuration-modal'},{'name': 'GISDeleteFeatureWindowComponent', 'selector': 'gis-delete-feature-window'},{'name': 'GISEditMuzComponent', 'selector': 'gis-edit-muz'},{'name': 'GISEditMuzParticelleCatastaliComponent', 'selector': 'gis-edit-muz-particelle-catastali'},{'name': 'GISFixedLayerPropertyWindowComponent', 'selector': 'gis-fixed-layer-property-window'},{'name': 'GISGestionePianoRateoComponent', 'selector': 'gis-gestione-piano-rateo'},{'name': 'GISGestionePianoRateoLoaderComponent', 'selector': 'gis-gestione-piano-rateo-loader'},{'name': 'GISGestionePianoRateoPickerComponent', 'selector': 'gis-gestione-piano-rateo-picker'},{'name': 'GISInitMuzGroupComponent', 'selector': 'gis-init-muz-group'},{'name': 'GISLayerAdvancedSettingsWindowComponent', 'selector': 'gis-layer-advanced-settings-window'},{'name': 'GISLayerColorPickerWindowComponent', 'selector': 'gis-layer-color-picker-window'},{'name': 'GISLayerGroupsPermissionsComponent', 'selector': 'gis-layer-groups-permissions'},{'name': 'GISLayerListItemComponent', 'selector': 'gis-layer-list-item'},{'name': 'GISLayerListItemMappeSatellitariComponent', 'selector': 'gis-layer-list-item-mappe-satellitari'},{'name': 'GISLayerListItemRasterComponent', 'selector': 'gis-layer-list-item-raster'},{'name': 'GISLayerPermissionsWindowComponent', 'selector': 'gis-layer-permissions-window'},{'name': 'GISLayerUsersPermissionsComponent', 'selector': 'gis-layer-users-permissions'},{'name': 'GISLayerVisibilityConfigurationWindowComponent', 'selector': 'gis-layer-visibility-configuration-window'},{'name': 'GISLayerWindowComponent', 'selector': 'gis-layer-window'},{'name': 'GISLayerWindowToolbarComponent', 'selector': 'gis-layer-window-toolbar'},{'name': 'GISParticelleCatastaliComponent', 'selector': 'gis-particelle-catastali'},{'name': 'GISRasterConfigurationWindowComponent', 'selector': 'gis-raster-configuration-window'},{'name': 'GisToolbarComponent', 'selector': 'gis-toolbar'},{'name': 'GisToolbarMobileComponent', 'selector': 'gis-toolbar-mobile'},{'name': 'GisTreeFiltersComponent', 'selector': 'tree-filters-gis'},{'name': 'GISWindowComponent', 'selector': 'gis-window'},{'name': 'GoogleMapComponent', 'selector': 'gias-google-map'},{'name': 'GridAddMacchineComponent', 'selector': 'app-grid-add-macchine'},{'name': 'GridAddOperaiComponent', 'selector': 'app-grid-add-operai'},{'name': 'GridAziendeCentriComponent', 'selector': 'app-grid-aziende-centri'},{'name': 'GridAziendeCentriImpostazioniComponent', 'selector': 'app-grid-aziende-centri-impostazioni'},{'name': 'GridCapiAnimaliComponent', 'selector': 'app-capi-animali'},{'name': 'GridDosiProdottiComponent', 'selector': 'app-grid-dosi-prodotti'},{'name': 'GridGroupTransitionsComponent', 'selector': 'app-grid-group-transitions'},{'name': 'GridGruppiComponent', 'selector': 'app-grid-gruppi'},{'name': 'GridImpiantiComponent', 'selector': 'app-grid-impianti'},{'name': 'GridMacchineComponent', 'selector': 'app-grid-macchine'},{'name': 'GridNoteComponent', 'selector': 'app-grid-note'},{'name': 'GridOperatoriComponent', 'selector': 'app-grid-operatori'},{'name': 'GridPasswordComponent', 'selector': 'app-grid-password'},{'name': 'GridPermessiComponent', 'selector': 'app-grid-permessi'},{'name': 'GridPermessiEditComponent', 'selector': 'app-grid-permessi-edit'},{'name': 'GridProdottiDaTrattareComponent', 'selector': 'app-grid-prodotti-da-trattare'},{'name': 'GridProdottiSomministrazioneComponent', 'selector': 'app-prodotti-somministrazione'},{'name': 'GridProfiliComponent', 'selector': 'app-grid-profili'},{'name': 'GridProfiliPermessiComponent', 'selector': 'app-grid-profili-permessi'},{'name': 'GridRaccoltaAutoComponent', 'selector': 'app-grid-raccolta-auto'},{'name': 'GridRilieviComponent', 'selector': 'app-grid-rilievi'},{'name': 'GridRipartizioneManualeComponent', 'selector': 'app-grid-ripartizione-manuale'},{'name': 'GridUtentiPermessiComponent', 'selector': 'app-grid-utenti-permessi'},{'name': 'GridVisibilitaEditComponent', 'selector': 'app-grid-visibilita-edit'},{'name': 'GridZooComponent', 'selector': 'grid-zoo'},{'name': 'GrigliaAnalisiTerrenoComponent', 'selector': 'app-griglia-analisi-terreno'},{'name': 'GrigliaEntitaComponent', 'selector': 'app-griglia-entita'},{'name': 'GrigliaFiltroRicercaComponent', 'selector': 'app-griglia-filtro'},{'name': 'GruppiMerceGrid2Component', 'selector': 'gruppi-merce-grid2'},{'name': 'GruppiMerceMasterComponent', 'selector': 'app-gruppi-merce'},{'name': 'GruppiRaccoltaComponent', 'selector': 'app-gruppi-raccolta'},{'name': 'GruppiUtentiComponent', 'selector': 'app-gruppi-utenti'},{'name': 'GruppiUtentiGridComponent', 'selector': 'gruppi-utenti-grid'},{'name': 'GruppiUtentiPerGruppiMerce', 'selector': 'gruppi-utentix-gruppi-merce'},{'name': 'GruppiUtentixGruppiMerceGridComponent', 'selector': 'gruppi-utentix-gruppi-merce-grid'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImgBase64Component', 'selector': 'app-img64'},{'name': 'ImpiantiComponent', 'selector': 'app-impianti'},{'name': 'ImpiantoEditComponent', 'selector': 'app-impianto-edit'},{'name': 'ImpiantoShortDescriptionComponent', 'selector': 'impianto-short-description'},{'name': 'ImportUtentiComponent', 'selector': 'app-import-utenti'},{'name': 'ImpostazioniUtenteComponent', 'selector': 'app-impostazioni-utente'},{'name': 'ImpresaEditComponent', 'selector': 'gias-impresa-edit'},{'name': 'ImpreseComponent', 'selector': 'gias-anagrafica-imprese'},{'name': 'ImpreseFilterComponent', 'selector': 'gias-imprese-filter'},{'name': 'ImpreseParametriGHGComponent', 'selector': 'app-imprese-parametri-ghg'},{'name': 'IndicatoriWidgetComponent', 'selector': 'app-indicatori-widget'},{'name': 'IndicatoriWidgetDashboardComponent', 'selector': 'app-indicatori-widget-dashboard'},{'name': 'IndicatoriWidgetFullComponent', 'selector': 'app-indicatori-widget-full'},{'name': 'IndicatoriWidgetGridComponent', 'selector': 'app-indicatori-widget-grid'},{'name': 'IndicazioniComponent', 'selector': 'zoo-indicazioni'},{'name': 'IndirizziComponent', 'selector': 'app-appezzamento-edit-indirizzi'},{'name': 'InvestimentoCatastaleAppezzamentoComponent', 'selector': 'app-investimento-catastale-appezzamento'},{'name': 'InvestimentoCatastaleCampoComponent', 'selector': 'app-investimento-catastale-campo'},{'name': 'InvestimentoCatastaleComponent', 'selector': 'app-investimento-catastale'},{'name': 'KendoTreeContainerComponent', 'selector': 'app-kendo-tree'},{'name': 'LayerWindowComponent', 'selector': 'satellite-data-window'},{'name': 'LettureContatoriAziendaliGridComponent', 'selector': 'app-letture-contatori-aziendali-grid'},{'name': 'LettureContatoriComponent', 'selector': 'app-letture-contatori'},{'name': 'LineeGuidaABWindowComponent', 'selector': 'app-linee-guida-ab-window'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MacchinaEditCaratteristicheComponent', 'selector': 'app-macchine-edit-caratteristiche'},{'name': 'MacchinaShortDescriptionComponent', 'selector': 'macchina-short-description'},{'name': 'MacchineComponent', 'selector': 'app-macchine'},{'name': 'MacchineEditComponent', 'selector': 'app-macchine-edit'},{'name': 'MacchineEditGerarchiaComponent', 'selector': 'app-macchine-edit-gerarchia'},{'name': 'MacchineEditImageComponent', 'selector': 'app-macchine-edit-image'},{'name': 'MagazzinoLottoComponent', 'selector': 'app-magazzino-lotto'},{'name': 'MainValutazioniEditComponent', 'selector': 'app-main-valutazioni-edit'},{'name': 'MappaMultiAziendaComponent', 'selector': 'app-mappa-multiazienda-widget'},{'name': 'MarkerWindowComponent', 'selector': 'app-marker-window'},{'name': 'MenuAgendaComponent', 'selector': 'app-menu-agenda'},{'name': 'MenuContestualeComponent', 'selector': 'gias-menu-contestuale'},{'name': 'MenuImpostazioniAziendeCentriComponent', 'selector': 'app-menu-impostazioni-aziende-centri'},{'name': 'MenuProfilazioneComponent', 'selector': 'app-menu-profilazione'},{'name': 'MenuProfilazioneGridComponent', 'selector': 'app-grid-menu-profilazione'},{'name': 'MenuRilieviComponent', 'selector': 'app-menu-rilievi'},{'name': 'MenuUtentiComponent', 'selector': 'app-menu-utenti'},{'name': 'MenuVisibilitaComponent', 'selector': 'app-menu-visibilita'},{'name': 'MenuVisiteComponent', 'selector': 'app-menu-visite'},{'name': 'MenuZooComponent', 'selector': 'zoo-menu'},{'name': 'MeteoWidgetComponent', 'selector': 'app-meteo-widget'},{'name': 'MeteoWidgetFullComponent', 'selector': 'app-meteo-widget-full'},{'name': 'ModalitaApplicazioneComponent', 'selector': 'app-modalita-applicazione'},{'name': 'MonitoraggioWidgetComponent', 'selector': 'app-monitoraggio-widget'},{'name': 'MultiOperazioneComponent', 'selector': 'app-multi-operazione'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'NotaTestualeComponent', 'selector': 'app-nota-testuale'},{'name': 'NuovaOperazioneComponent', 'selector': 'app-esercizi-nuova-operazione'},{'name': 'OnCloseEsercizioComponent', 'selector': 'app-on-close-esercizio'},{'name': 'OperationsListComponent', 'selector': 'operations-list'},{'name': 'OperationsMassEditComponent', 'selector': 'app-operations-mass-edit'},{'name': 'OperatoreComponent', 'selector': 'app-operatore'},{'name': 'OperazioneCausaleComponent', 'selector': 'app-operazione-causale'},{'name': 'OperazioniTemplateWidgetComponent', 'selector': 'app-operazioni-template-widget'},{'name': 'OpzioniRaccoltaComponent', 'selector': 'app-opzioni-raccolta'},{'name': 'OpzioniSeminaComponent', 'selector': 'app-opzioni-semina'},{'name': 'PaeseMultiAziendaComponent', 'selector': 'app-paese-multiazienda-widget'},{'name': 'PageNotFoundComponent', 'selector': 'gias-page-not-found'},{'name': 'PaginaAziendeCentriImpostazioniComponent', 'selector': 'app-pagina-aziende-centri-impostazioni'},{'name': 'PaginaImpostazioniMassiveComponent', 'selector': 'app-pagina-impostazioni-massive'},{'name': 'ParametriAnalisiTerrenoComponent', 'selector': 'app-parametri-analisi-terreno'},{'name': 'PercentGridViewerComponent', 'selector': 'app-percent-grid-viewer'},{'name': 'PianoColturaleGridComponent', 'selector': 'app-piano-colturale-grid'},{'name': 'PianoContiComponent', 'selector': 'app-piano-conti'},{'name': 'PianoContiEditComponent', 'selector': 'app-piano-conti-edit'},{'name': 'PlvComparisonWidgetComponent', 'selector': 'app-plv-comparison-widget'},{'name': 'PolygonMergeWindowComponent', 'selector': 'gis-polygon-merge-window'},{'name': 'PolygonWindowComponent', 'selector': 'polygon-window'},{'name': 'PreferitiConfigComponent', 'selector': 'app-preferiti-config'},{'name': 'PreferitoCardComponent', 'selector': 'app-preferito-card'},{'name': 'PrintExportComponent', 'selector': 'print-export-button'},{'name': 'ProdottiComponent', 'selector': 'app-prodotti'},{'name': 'ProduttivitaComparisonWidgetComponent', 'selector': 'app-produttivita-comparison-widget'},{'name': 'ProduzioneColtureWidgetComponent', 'selector': 'app-produzione-colture-widget'},{'name': 'ProfilazioneImpreseCampoApplicativoComponent', 'selector': 'app-profilazione-imprese-campo-applicativo'},{'name': 'ProfilazioneImpreseComponent', 'selector': 'app-profilazione-imprese'},{'name': 'ProfilazioneImpreseContattiComponent', 'selector': 'app-profilazione-imprese-contatti'},{'name': 'ProfilazioneImpreseDefaultDistintaProduzioneComponent', 'selector': 'app-profilazione-imprese-default-distinta-produzione'},{'name': 'ProfilazioneImpreseDefaultPianiColturaliComponent', 'selector': 'app-profilazione-imprese-default-piani-colturali'},{'name': 'ProfilazioneImpreseDefaultSpecieComponent', 'selector': 'app-profilazione-imprese-default-specie'},{'name': 'ProfilazioneImpreseGlobalComponent', 'selector': 'app-profilazione-imprese-global'},{'name': 'ProfilazioneImpreseGruppoNoteDialogComponent', 'selector': 'app-profilazione-imprese-gruppo-note-dialog'},{'name': 'ProfilazioneImpreseGruppoOperazioneComponent', 'selector': 'app-profilazione-imprese-gruppo-operazione'},{'name': 'ProfilazioneImpreseLavorazioneComponent', 'selector': 'app-profilazione-imprese-lavorazione'},{'name': 'ProfilazioneImpreseMacchineComponent', 'selector': 'app-profilazione-imprese-macchine'},{'name': 'ProfilazioneImpreseMacchineDialogComponent', 'selector': 'app-profilazione-imprese-macchine-dialog'},{'name': 'ProfilazioneImpreseMacchineOperatoriComponent', 'selector': 'app-profilazione-imprese-macchine-operatori'},{'name': 'ProfilazioneImpreseNoteComponent', 'selector': 'app-profilazione-imprese-note'},{'name': 'ProfilazioneImpreseNoteListComponent', 'selector': 'app-profilazione-imprese-note-list'},{'name': 'ProfilazioneImpreseParametriGeneraliColturaComponent', 'selector': 'app-profilazione-imprese-parametri-generali-coltura'},{'name': 'ProfilazioneImpreseSpecieComponent', 'selector': 'app-profilazione-imprese-specie'},{'name': 'ProfilazioneImpreseVarietaComponent', 'selector': 'app-profilazione-imprese-varieta'},{'name': 'ProfiliPermessiComponent', 'selector': 'app-profili-permessi'},{'name': 'ProtocolliComponent', 'selector': 'zoo-protocolli'},{'name': 'ProtocolliInCorsoComponent', 'selector': 'zoo-protocolli-in-corso'},{'name': 'ProvinciaComuneMultiselectComponent', 'selector': 'app-provincia-comune-multiselect'},{'name': 'QuadernoDiCampagnaComponent', 'selector': 'app-quaderno-di-campagna'},{'name': 'QuantitaProdottiComponent', 'selector': 'app-quantita-prodotti'},{'name': 'RaccoltaComponent', 'selector': 'app-raccolta'},{'name': 'RedSpotComponent', 'selector': 'app-red-spot'},{'name': 'ReportAbilitazionePdCComponent', 'selector': 'app-report-abilitazione-pdc'},{'name': 'ReportImpiegoProdottiFitosanitariComponent', 'selector': 'app-report-impiego-prodotti-fitosanitari'},{'name': 'RequisitiStabilimentoComponent', 'selector': 'app-requisiti-stabilimento'},{'name': 'RequisitiStabilimentoContrattiGridComponent', 'selector': 'app-requisiti-stabilimento-contratti-grid'},{'name': 'RequisitiStabilimentoGridComponent', 'selector': 'app-requisiti-stabilimento-grid'},{'name': 'RicercaFertilizzantiComponent', 'selector': 'app-ricerca-fertilizzanti'},{'name': 'RicercaFormulatiComponent', 'selector': 'app-ricerca-formulati'},{'name': 'RicercaSementiComponent', 'selector': 'app-ricerca-sementi'},{'name': 'RicetteComponent', 'selector': 'grid-ricette'},{'name': 'RiepilogoMeteoWidgetComponent', 'selector': 'app-riepilogo-meteo-widget'},{'name': 'RilevaFaseEpocaComponent', 'selector': 'btn-rileva-fase-epoca'},{'name': 'RilieviAvversitaComponent', 'selector': 'app-rilievi-avversita'},{'name': 'RilieviComponent', 'selector': 'app-rilievi'},{'name': 'RipartizioneManualeComponent', 'selector': 'app-ripartizione-manuale'},{'name': 'RischioMeteoAggregatoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-aggregato-comparison-widget'},{'name': 'RischioMeteoAllagamentoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-allagamento-comparison-widget'},{'name': 'RischioMeteoGelataComparisonWidgetComponent', 'selector': 'app-rischio-meteo-gelata-comparison-widget'},{'name': 'RischioMeteoGrandineComparisonWidgetComponent', 'selector': 'app-rischio-meteo-grandine-comparison-widget'},{'name': 'RischioMeteoSiccitaComparisonWidgetComponent', 'selector': 'app-rischio-meteo-siccita-comparison-widget'},{'name': 'RischioMeteoVentoForteComparisonWidgetComponent', 'selector': 'app-rischio-meteo-vento-forte-comparison-widget'},{'name': 'SalvataggioAppezzamentoGISComponent', 'selector': 'salvataggio-appezzamento-GIS'},{'name': 'SelezionaCentroComponent', 'selector': 'app-seleziona-centro'},{'name': 'SementiComponent', 'selector': 'app-sementi'},{'name': 'SeminatiMultiAziendaWidgetComponent', 'selector': 'app-seminati-multiazienda-widget'},{'name': 'SettingsAnnataAgrariaComponent', 'selector': 'app-settings-annata-agraria'},{'name': 'SettingsCategorieMagazzinoComponent', 'selector': 'app-settings-categorie-magazzino'},{'name': 'SettingsGiasAppComponent', 'selector': 'app-settings-gias-app'},{'name': 'SettingsGisComponent', 'selector': 'app-settings-gis'},{'name': 'SettingsLavorazioniGridComponent', 'selector': 'app-settings-lavorazioni-grid'},{'name': 'SettingsManagerComponent', 'selector': 'app-settings-manager'},{'name': 'SettingsProxyComponent', 'selector': 'app-settings-proxy'},{'name': 'SettingsSpecieVarietaComponent', 'selector': 'app-settings-specie-varieta'},{'name': 'SezioneImpostazioniComponent', 'selector': 'app-sezione-impostazioni'},{'name': 'SezioniNoProdottoComponent', 'selector': 'app-sezioni-no-prodotto'},{'name': 'SidemenuChildComponent', 'selector': 'app-sidemenu-child'},{'name': 'SideMenuComponent', 'selector': 'gias-sidemenu'},{'name': 'SideMenuFooterComponent', 'selector': 'gias-sidemenu-footer'},{'name': 'SideMenuServicesComponent', 'selector': 'gias-sidemenu-services'},{'name': 'SpecialEditComponent', 'selector': 'app-special-edit'},{'name': 'SpecieAnimaleComponent', 'selector': 'app-specie-animale'},{'name': 'SpecieComponent', 'selector': 'app-specie'},{'name': 'StimeProduzioneColtureWidgetComponent', 'selector': 'app-stime-produzione-colture-widget'},{'name': 'SuperficiImpiantiComponent', 'selector': 'app-superfici-impianti'},{'name': 'SvgIconSpeciesComponent', 'selector': 'gias-svg-icon-species-species'},{'name': 'TargetSuperficieWidgetComponent', 'selector': 'app-target-superficie-widget'},{'name': 'TestAnagraficaCampiComponent', 'selector': 'app-test-anagrafica-campi'},{'name': 'TestAnagraficaCatastoComponent', 'selector': 'app-test-anagrafica-catasto'},{'name': 'TestAnagraficaCentriComponent', 'selector': 'app-test-anagrafica-centri'},{'name': 'TestAnagraficaComponent', 'selector': 'app-test-anagrafica'},{'name': 'TestAnagraficaImpiantiComponent', 'selector': 'app-test-anagrafica-impianti'},{'name': 'TestAnagraficaImpreseComponent', 'selector': 'app-test-anagrafica-imprese'},{'name': 'TestAnagraficaMacchineComponent', 'selector': 'app-test-anagrafica-macchine'},{'name': 'TestataComponent', 'selector': 'app-testata'},{'name': 'TestataRicettaComponent', 'selector': 'app-testata-ricetta'},{'name': 'TestataVisitaComponent', 'selector': 'app-testata-visita'},{'name': 'TestComponent', 'selector': 'app-test'},{'name': 'TestGiasGiasKendoGridComponent', 'selector': 'app-test-gias-kendo-grid'},{'name': 'TestGridComponent', 'selector': 'test-grid'},{'name': 'ThemeWindowBandSliderComponent', 'selector': 'theme-window-band-slider'},{'name': 'ThemeWindowComponent', 'selector': 'theme-window'},{'name': 'ThemeWindowSettingsComponent', 'selector': 'theme-window-settings'},{'name': 'ToolDisegnaPuntiComponent', 'selector': 'app-tool-disegna-punti'},{'name': 'ToolDisegnoAvanzatoComponent', 'selector': 'app-tool-disegno-avanzato'},{'name': 'ToolPolygonMergeComponent', 'selector': 'app-tool-polygon-merge'},{'name': 'ToolScomponiPuntiComponent', 'selector': 'app-tool-scomponi-punti'},{'name': 'TrattamentoComponent', 'selector': 'app-trattamento'},{'name': 'TrattamentoZooComponent', 'selector': 'app-trattamento-zoo'},{'name': 'TreeAziende', 'selector': 'app-tree-aziende'},{'name': 'TreeAziendeFilters', 'selector': 'app-tree-aziende-filters'},{'name': 'TreeViewComponent', 'selector': 'app-treeview'},{'name': 'TreeWindowComponent', 'selector': 'tree-window'},{'name': 'UltimeAttivitaWidgetComponent', 'selector': 'app-ultime-attivita-widget'},{'name': 'UltimeVisiteWidgetComponent', 'selector': 'app-ultime-visite-widget'},{'name': 'UltimiAcquistiWidgetComponent', 'selector': 'app-ultimi-acquisti-widget'},{'name': 'UltimiProdottiWidgetComponent', 'selector': 'app-ultimi-prodotti-widget'},{'name': 'UltimiRilieviWidgetComponent', 'selector': 'app-ultimi-rilievi-widget'},{'name': 'UniqueRatingWidgetComponent', 'selector': 'app-unique-rating-widget'},{'name': 'UnitaDiMisuraComponent', 'selector': 'app-unita-di-misura'},{'name': 'UtilizzoTerrenoComponent', 'selector': 'app-utilizzo-terreno'},{'name': 'ValutazioneEditDettaglioComponent', 'selector': 'app-valutazione-edit-dettaglio'},{'name': 'ValutazioniComponent', 'selector': 'app-valutazioni'},{'name': 'ValutazioniContoEconomicoComponent', 'selector': 'app-valutazioni-conto-economico'},{'name': 'ValutazioniEditComponent', 'selector': 'app-valutazioni-edit'},{'name': 'ValutazioniMainComponentComponent', 'selector': 'app-valutazioni-main-component'},{'name': 'ValutazioniStatoPatrimonialeComponent', 'selector': 'app-valutazioni-stato-patrimoniale'},{'name': 'ValutazioniStatoPatrimonialeDettaglioComponent', 'selector': 'app-valutazioni-stato-patrimoniale-dettaglio'},{'name': 'VDContrattiComponent', 'selector': 'app-v-d-contratti'},{'name': 'VDPianoColturaleComponent', 'selector': 'app-v-d-piano-colturale'},{'name': 'VisibilitaUtenteEditComponent', 'selector': 'app-visibilita-utente'},{'name': 'VisiteComponent', 'selector': 'app-visite'},{'name': 'VisualizzaDettagliComponent', 'selector': 'app-visualizza-dettagli'},{'name': 'WidgetConfigComponent', 'selector': 'app-widget-config'},{'name': 'WidgetConfigListComponent', 'selector': 'app-widget-config-list'},{'name': 'WidgetGridComponent', 'selector': 'app-widget-grid'},{'name': 'WidgetResizerComponent', 'selector': 'app-widget-resizer'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'},{'name': 'WidgetTemplateComponent', 'selector': 'app-widget-template'},{'name': 'WindowMessaggioErroreComponent', 'selector': 'gias-master-window-messaggio-errore'},{'name': 'WMSWindowComponent', 'selector': 'wms-window'},{'name': 'ZooComponent', 'selector': 'app-zoo'},{'name': 'ZooFavoritesEditingComponent', 'selector': 'zoo-favorites-editing'},{'name': 'ZooOperationsGridComponent', 'selector': 'zoo-operations-grid'}];
+    var DIRECTIVES = [{'name': 'AfterValueChangedDirective', 'selector': '[afterValueChanged]'},{'name': 'BackButtonDirective', 'selector': '[backButton]'},{'name': 'ClearInputButtonDirective', 'selector': '[clear-input-button]'},{'name': 'DraggableDirective', 'selector': '[draggable]'},{'name': 'GISTooltipDirective', 'selector': '[gisTooltip]'},{'name': 'HomeButtonDirective', 'selector': '[homeButton]'},{'name': 'ProjectDocumentaleDirective', 'selector': '[projectDocumentale]'}];
+    var ACTUAL_COMPONENT = {'name': 'GisToolbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GisToolbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

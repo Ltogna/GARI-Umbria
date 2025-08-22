@@ -1,0 +1,1151 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CalcoloSuperficiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Calcola_Buffer_Minima_Piu_Alta_DosiProdotti" >Calcola_Buffer_Minima_Piu_Alta_DosiProdotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calcolaSupRid" >calcolaSupRid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calcolo" >calcolo</a>
+                            </li>
+                            <li>
+                                <a href="#calcoloPercentualeAbbatimento" >calcoloPercentualeAbbatimento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ricalcoloSuperfici" >ricalcoloSuperfici</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ricalcoloSuperfici_daDosi" >ricalcoloSuperfici_daDosi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ricalcoloSuperfici_Edit_Grid_Impianti" >ricalcoloSuperfici_Edit_Grid_Impianti</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(qdCService: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, funzionicomuniservice: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:16</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>qdCService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>funzionicomuniservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Calcola_Buffer_Minima_Piu_Alta_DosiProdotti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>Calcola_Buffer_Minima_Piu_Alta_DosiProdotti</b></span>
+                        <a href="#Calcola_Buffer_Minima_Piu_Alta_DosiProdotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Calcola_Buffer_Minima_Piu_Alta_DosiProdotti()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcolaSupRid"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calcolaSupRid</b></span>
+                        <a href="#calcolaSupRid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcolaSupRid(buffer_min: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, perc_riduzione_deriva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, SupBZ_Riduzione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lunghezza: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>buffer_min</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>perc_riduzione_deriva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>SupBZ_Riduzione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>lunghezza</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcolo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calcolo</b></span>
+                        <a href="#calcolo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcolo(Sup_Imp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, perc_riduzione_deriva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, SupBZ_Riduzione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, SupBZ_Riduzione_QdC: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, lunghezza: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sup_Imp</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>perc_riduzione_deriva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>SupBZ_Riduzione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>SupBZ_Riduzione_QdC</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>lunghezza</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/SupTrattata_SupRiduzioneBuffer.html" target="_self" >SupTrattata_SupRiduzioneBuffer</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcoloPercentualeAbbatimento"></a>
+                    <span class="name">
+                        <span ><b>calcoloPercentualeAbbatimento</b></span>
+                        <a href="#calcoloPercentualeAbbatimento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>calcoloPercentualeAbbatimento(Sup_Imp: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Sup_Imp_help: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="260"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:260</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sup_Imp</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Imp_help</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricalcoloSuperfici"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ricalcoloSuperfici</b></span>
+                        <a href="#ricalcoloSuperfici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ricalcoloSuperfici(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Richiamato per aggiornare le colonne delle buffer zone e la superficie trattata</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricalcoloSuperfici_daDosi"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ricalcoloSuperfici_daDosi</b></span>
+                        <a href="#ricalcoloSuperfici_daDosi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ricalcoloSuperfici_daDosi()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricalcoloSuperfici_Edit_Grid_Impianti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ricalcoloSuperfici_Edit_Grid_Impianti</b></span>
+                        <a href="#ricalcoloSuperfici_Edit_Grid_Impianti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ricalcoloSuperfici_Edit_Grid_Impianti(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, event: CellCloseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/calcolo-superfici.service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Richiamato durante il cellclose della griglia
+Replica il onEditKendoSup_Coinvolta della OperazioneBootstrap.master</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>CellCloseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { FormArray, FormGroup } from &quot;@angular/forms&quot;;
+import { FunzioniComuniService } from &quot;app/Service/FunzioniComuni.service&quot;;
+import { QdCService } from &quot;./qdc.service&quot;;
+import {MultiColumnComboboxTrattamento} from &quot;../quaderno-di-campagna-form/quaderno-di-campagna-form.model&quot;;
+import {FORMULATI} from &quot;../../../Model/CostantiPersonalizzate&quot;;
+import {CellCloseEvent} from &quot;@progress/kendo-angular-grid&quot;;
+
+export class SupTrattata_SupRiduzioneBuffer {
+    Sup_Trattata: number;
+    SupRiduzioneBuffer: number;
+    BufferMin: number;
+}
+
+@Injectable()
+export class CalcoloSuperficiService {
+
+    constructor (private qdCService: QdCService,
+        private funzionicomuniservice: FunzioniComuniService) {  }
+
+    /**
+     * @description
+     * Richiamato per aggiornare le colonne delle buffer zone e la superficie trattata
+     */
+    public ricalcoloSuperfici(dataItem:any):boolean {
+
+        let ricalcoliEffettuati &#x3D; false;
+
+        let distBZ_complessiva &#x3D; dataItem.DistBZ_Allevamenti + dataItem.DistBZ_AreeResPub + dataItem.DistBZ_CorpiIdrici + dataItem.DistBZ_VegNatNonColt;
+
+        //Se la buffer impostata nell&#x27;anagrafica degli impianti è 0 allora non faccio nessun ricalcolo delle superfici
+         if(distBZ_complessiva &lt;&#x3D; 0)
+            return ricalcoliEffettuati;
+
+
+        let index &#x3D; this.qdCService.ImpiantiSelezionatiFormArray.getRawValue().findIndex(i &#x3D;&gt; i.APPEZZA &#x3D;&#x3D; dataItem.APPEZZA &amp;&amp;
+            i.PIVA &#x3D;&#x3D; dataItem.PIVA &amp;&amp;
+            i.ID_REG &#x3D;&#x3D; dataItem.ID_REG &amp;&amp;
+            i.SA_COD &#x3D;&#x3D; dataItem.SA_COD &amp;&amp;
+            i.Progetto_Cod &#x3D;&#x3D; dataItem.Progetto_Cod
+        );
+
+        let superfici_calcolate &#x3D; this.calcolo(dataItem.Sup_Imp, dataItem.Perc_Riduzione_Deriva, dataItem.SupBZ_Riduzione, dataItem.Sup_Riduzione_BufferZone,distBZ_complessiva);
+
+        //Se ho impostato una bufferzone più alta di quella calcolata, allora ricalcolo la supTrattata secondo la BZ più elevata
+        if(superfici_calcolate.SupRiduzioneBuffer &lt; dataItem.Sup_Riduzione_BufferZone) {
+            superfici_calcolate.SupRiduzioneBuffer &#x3D; dataItem.Sup_Riduzione_BufferZone;
+            superfici_calcolate.Sup_Trattata &#x3D; this.funzionicomuniservice.roundNumber((dataItem.Sup_Imp-dataItem.Sup_Riduzione_BufferZone),this.qdCService.Obj_Default_Numeric_Settings.decimals);
+        }
+
+        //Se la superficie di trattata è minore di quella calcolata mantengo la superficie trattata già presente
+        if(superfici_calcolate.Sup_Trattata &gt; dataItem.Sup_Imp_help){
+            superfici_calcolate.Sup_Trattata &#x3D; dataItem.Sup_Imp_help;
+        }
+
+        //Aggiorno il QdCForm
+        var val &#x3D; this.qdCService.ImpiantiSelezionatiFormArray.getRawValue()[index];
+
+        val.Sup_Imp_help &#x3D; superfici_calcolate.Sup_Trattata;
+
+        val.Sup_Riduzione_BufferZone &#x3D; superfici_calcolate.SupRiduzioneBuffer;
+
+        val.Perc_Riduzione_Deriva &#x3D; dataItem.Perc_Riduzione_Deriva;
+
+        if(dataItem.Sup_Imp_help !&#x3D;&#x3D; val.Sup_Imp_help || dataItem.Sup_Riduzione_BufferZone !&#x3D;&#x3D; val.Sup_Riduzione_BufferZone){
+            ricalcoliEffettuati &#x3D; true;
+        }
+
+        dataItem.Sup_Imp_help &#x3D; val.Sup_Imp_help;
+
+        dataItem.Sup_Riduzione_BufferZone &#x3D; val.Sup_Riduzione_BufferZone;
+
+        this.qdCService.ImpiantiSelezionatiFormArray.at(index).patchValue(val);
+
+        return ricalcoliEffettuati;
+
+    }
+
+    /**
+     * @description
+     * Richiamato durante il cellclose della griglia
+     * Replica il onEditKendoSup_Coinvolta della OperazioneBootstrap.master
+     */
+    public ricalcoloSuperfici_Edit_Grid_Impianti(dataItem:any, event: CellCloseEvent) {
+
+        let colonna_editata: string &#x3D; event.column.field;
+
+        //Se c&#x27;è la percentuale di abbattimento vince lei sulla riduzione della Superficie Trattata rispetto alla bufferzone rispetto alla
+
+        if(event){
+
+            let superfici_calcolate &#x3D; &lt;SupTrattata_SupRiduzioneBuffer&gt;{
+                SupRiduzioneBuffer: 0,
+                Sup_Trattata: dataItem.Sup_Imp,
+                BufferMin: 0
+            };
+
+            let distBZ_complessiva &#x3D; dataItem.DistBZ_Allevamenti + dataItem.DistBZ_AreeResPub + dataItem.DistBZ_CorpiIdrici + dataItem.DistBZ_VegNatNonColt;
+
+            //se c&#x27;è una buffer calcolo la sup massima trattabile e riducibile
+            if(distBZ_complessiva &gt; 0){
+
+                //Nel caso in cui l&#x27;utente ha editato di sua spontanea volontà la perc_riduzione_deriva perchè sta indicando la percentuale di quanto deve essere ridotta la Sup_Riduzione_BufferZone
+                //passo la Sup_Riduzione_BufferZone a 0 per sovrascrivere il valore presente nella colonna
+
+                let Sup_Riduzione_BufferZone: number &#x3D; 0;
+
+                if(colonna_editata !&#x3D;&#x3D; &quot;Perc_Riduzione_Deriva&quot;){
+                    Sup_Riduzione_BufferZone &#x3D; dataItem.Sup_Riduzione_BufferZone;
+                }
+
+                superfici_calcolate &#x3D; this.calcolo(dataItem.Sup_Imp, dataItem.Perc_Riduzione_Deriva, dataItem.SupBZ_Riduzione,Sup_Riduzione_BufferZone, distBZ_complessiva);
+            }
+
+            let percAbb:number &#x3D; this.qdCService.OttieniPercentualeAbbattimentoDiserboDisseccamento(null,null);
+
+            switch (colonna_editata){
+                case &quot;Sup_Imp_help&quot;:
+
+                    //Prendo la sup trattata che rispetta la buffer
+                    if(superfici_calcolate.Sup_Trattata &lt; dataItem.Sup_Imp_help || dataItem.Sup_Imp_help &#x3D;&#x3D;&#x3D; undefined || dataItem.Sup_Imp_help &#x3D;&#x3D;&#x3D; null){
+                        dataItem.Sup_Imp_help &#x3D; superfici_calcolate.Sup_Trattata;
+                    }
+
+                    //cambio la sup riduzione
+                    if(percAbb &#x3D;&#x3D;&#x3D; 0 &amp;&amp; superfici_calcolate.SupRiduzioneBuffer &gt; 0){
+                        dataItem.Sup_Riduzione_BufferZone &#x3D; superfici_calcolate.SupRiduzioneBuffer;
+                    }
+                    break;
+                case &quot;Sup_Riduzione_BufferZone&quot;:
+
+                    //Prendo la buffer più alta
+                    if(superfici_calcolate.SupRiduzioneBuffer &gt; dataItem.Sup_Riduzione_BufferZone || dataItem.Sup_Riduzione_BufferZone &#x3D;&#x3D;&#x3D; undefined || dataItem.Sup_Riduzione_BufferZone &#x3D;&#x3D;&#x3D; null){
+                        dataItem.Sup_Riduzione_BufferZone &#x3D; superfici_calcolate.SupRiduzioneBuffer;
+                    }
+
+                    //se ho la buffer verifico che stia nel range la sup ridotta
+
+                    //cambio la sup trattata
+                    if(percAbb &#x3D;&#x3D;&#x3D; 0 &amp;&amp; superfici_calcolate.SupRiduzioneBuffer &gt; 0){
+                        dataItem.Sup_Imp_help &#x3D; superfici_calcolate.Sup_Trattata;
+                    }
+                    break;
+                case &quot;Perc_Riduzione_Deriva&quot;:
+                    //sto editando la percentuale di riduzione deriva
+                    //cambio la sup riduzione
+                    dataItem.Sup_Riduzione_BufferZone &#x3D; this.funzionicomuniservice.roundNumber((dataItem.Sup_Imp-superfici_calcolate.Sup_Trattata),this.qdCService.Obj_Default_Numeric_Settings.decimals);
+
+                    //cambio la sup trattata
+                    if(percAbb &#x3D;&#x3D;&#x3D; 0 &amp;&amp; superfici_calcolate.SupRiduzioneBuffer &gt; 0){
+                        dataItem.Sup_Imp_help &#x3D; superfici_calcolate.Sup_Trattata;
+                    }
+
+                    if(dataItem.Perc_Riduzione_Deriva &#x3D;&#x3D;&#x3D; undefined || dataItem.Perc_Riduzione_Deriva &#x3D;&#x3D;&#x3D; null){
+                        dataItem.Perc_Riduzione_Deriva &#x3D; 0;
+                    }
+                    break;
+            }
+
+            let index &#x3D; this.qdCService.ImpiantiSelezionatiFormArray.getRawValue().findIndex(i &#x3D;&gt; i.APPEZZA &#x3D;&#x3D; dataItem.APPEZZA &amp;&amp;
+                i.PIVA &#x3D;&#x3D; dataItem.PIVA &amp;&amp;
+                i.ID_REG &#x3D;&#x3D; dataItem.ID_REG &amp;&amp;
+                i.SA_COD &#x3D;&#x3D; dataItem.SA_COD &amp;&amp;
+                i.Progetto_Cod &#x3D;&#x3D; dataItem.Progetto_Cod
+            );
+
+            let listerroriGias &#x3D; this.qdCService.ControllaSuperficieTrattabileXPercentualeAbbattimento(dataItem);
+
+            this.qdCService.gestisci_ErroriGias(listerroriGias,true,true).then();
+
+            //Aggiorno il QdCForm
+            var val &#x3D; this.qdCService.ImpiantiSelezionatiFormArray.getRawValue()[index];
+
+            val.Sup_Riduzione_BufferZone &#x3D; dataItem.Sup_Riduzione_BufferZone;
+
+            val.Sup_Imp_help &#x3D; dataItem.Sup_Imp_help;
+
+            val.Perc_Riduzione_Deriva &#x3D; dataItem.Perc_Riduzione_Deriva;
+
+            this.qdCService.ImpiantiSelezionatiFormArray.at(index).patchValue(val);
+
+        }
+    }
+
+    private calcolo(Sup_Imp: number, perc_riduzione_deriva: number, SupBZ_Riduzione: number,SupBZ_Riduzione_QdC: number, lunghezza: number): SupTrattata_SupRiduzioneBuffer {
+
+        let ret &#x3D; new SupTrattata_SupRiduzioneBuffer();
+        let sup_rid &#x3D; 0;
+
+        let buffer_min:number &#x3D; this.Calcola_Buffer_Minima_Piu_Alta_DosiProdotti();
+
+        if (buffer_min !&#x3D; 0) {
+            sup_rid &#x3D; this.calcolaSupRid(buffer_min, perc_riduzione_deriva, SupBZ_Riduzione, lunghezza);
+
+            //Prendo La BufferZone maggiore tra quella calcolata in anagrafica e quella che mi arriva dalla colonna editabile del QdC
+            if(SupBZ_Riduzione_QdC &gt; sup_rid){
+                sup_rid &#x3D; SupBZ_Riduzione_QdC;
+            }
+
+        }
+
+        ret.SupRiduzioneBuffer &#x3D; sup_rid;
+        ret.BufferMin &#x3D; buffer_min;
+        ret.Sup_Trattata &#x3D; this.funzionicomuniservice.roundNumber((Sup_Imp-sup_rid),this.qdCService.Obj_Default_Numeric_Settings.decimals);
+
+        return ret;
+    }
+
+    public Calcola_Buffer_Minima_Piu_Alta_DosiProdotti(){
+
+        let buffer_min &#x3D; 0;
+
+        (this.qdCService.Sezioni_ProdottoFormArray.controls.forEach( (sp_fa: FormArray) &#x3D;&gt; {
+            (&lt;FormArray&gt; sp_fa.get(&#x27;DosiProdotti&#x27;)).controls.forEach(dp &#x3D;&gt; {
+
+                let Categoria_Magazzino &#x3D;  dp.getRawValue().Categoria_Magazzino;
+
+                if(Categoria_Magazzino &#x3D;&#x3D;&#x3D; FORMULATI){
+                    let Formulato: MultiColumnComboboxTrattamento &#x3D; dp.getRawValue().Prodotto;
+
+                    if(Formulato &amp;&amp; Formulato.bufferzone &amp;&amp;  Formulato.bufferzone.minimo &gt; buffer_min){
+                        buffer_min &#x3D; Formulato.bufferzone.minimo;
+                    }
+                }
+            });
+        }));
+
+        return buffer_min;
+    }
+
+    private calcolaSupRid(buffer_min: number, perc_riduzione_deriva: number, SupBZ_Riduzione: number, lunghezza: number) {
+        let sup_rid &#x3D; ((buffer_min-SupBZ_Riduzione) - ((buffer_min-SupBZ_Riduzione) * (perc_riduzione_deriva/100))) * lunghezza;
+        sup_rid &#x3D; this.funzionicomuniservice.roundNumber((sup_rid/10000),this.qdCService.Obj_Default_Numeric_Settings.decimals);
+        return sup_rid;
+    }
+
+    public ricalcoloSuperfici_daDosi() {
+        this.qdCService.ImpiantiSelezionatiFormArray.controls.forEach(c &#x3D;&gt; {
+
+            let distBZ_complessiva &#x3D; c.value[&#x27;DistBZ_Allevamenti&#x27;] + c.value[&#x27;DistBZ_AreeResPub&#x27;] + c.value[&#x27;DistBZ_CorpiIdrici&#x27;] + c.value[&#x27;DistBZ_VegNatNonColt&#x27;];
+            let superfici_calcolate &#x3D; this.calcolo(c.value[&#x27;Sup_Imp&#x27;], c.value[&#x27;Perc_Riduzione_Deriva&#x27;], c.value[&#x27;SupBZ_Riduzione&#x27;],c.value[&#x27;Sup_Riduzione_BufferZone&#x27;], distBZ_complessiva);
+
+            var val &#x3D; c.value;
+
+            if(val.Sup_Imp_help &gt; superfici_calcolate.Sup_Trattata)
+                val.Sup_Imp_help &#x3D; superfici_calcolate.Sup_Trattata;
+
+            if(val.Sup_Riduzione_BufferZone &lt; superfici_calcolate.SupRiduzioneBuffer)
+                val.Sup_Riduzione_BufferZone &#x3D; superfici_calcolate.SupRiduzioneBuffer;
+
+            val.Sup_Imp_help &#x3D; this.calcoloPercentualeAbbatimento(c.value[&#x27;Sup_Imp&#x27;],val.Sup_Imp_help);
+
+            c.value[&#x27;Sup_Imp_help&#x27;] &#x3D; val.Sup_Imp_help;
+            c.value[&#x27;Sup_Riduzione_BufferZone&#x27;] &#x3D; val.Sup_Riduzione_BufferZone;
+        });
+
+        this.qdCService.AggiornaImpiantiSelezionatiGrid();
+    }
+
+    calcoloPercentualeAbbatimento(Sup_Imp: number,Sup_Imp_help:number){
+
+        // ******************************************************************************************************
+        // CALCOLI PER PERCENTUALE ABBATTIMENTO
+        // ******************************************************************************************************
+
+        let percAbb:number &#x3D; this.qdCService.OttieniPercentualeAbbattimentoDiserboDisseccamento(null,null);
+
+        if (percAbb &gt; 0 &amp;&amp; percAbb &lt; 100)
+        {
+            let supImpianto &#x3D; Sup_Imp;
+            let supTrattata &#x3D; Sup_Imp_help;
+            let supTrattabile &#x3D; this.funzionicomuniservice.roundNumber(supImpianto * percAbb / 100 , this.qdCService.Obj_Default_Numeric_Settings.decimals);
+
+            if (supTrattabile &lt; supTrattata){
+                Sup_Imp_help &#x3D; supTrattabile;
+            }
+        }
+
+        return Sup_Imp_help;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CalcoloSuperficiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

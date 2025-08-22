@@ -1,0 +1,29 @@
+<div [formGroup]="FormulatiForm">
+
+    <div class="gias-section-title-with-icon avversita-title-container">
+        <!--<span class="faInfestanti me-1"></span>-->
+        <h5 class="card-title" *ngIf="mostraAvversita()">
+            {{ getDescrizioneAvversita() }} *
+        </h5>
+        <div class="ricerca-gestione-prodotto" *ngIf="showComandi && qdcservice.Mostra_Btn_Gestione_Prodotto()">
+            <app-bottoni-gestione-prodotto></app-bottoni-gestione-prodotto>
+        </div>
+    </div>
+
+    <div class="row form-row" *ngIf="mostraAvversita()">
+        <div [ngClass]="!hideRileva ? 'col-10' : 'col-12'">
+            <gias-drop-down-template-s
+                #AvversitaMultiColumnCombobox
+                [name]="''"
+                [clearButton]="true"
+                [listItems]="qdcdettagliformulatiservice.Array_Avversita"
+                (open)="openControlAvversita($event)"
+                textField="Descrizione_Concatenata"
+                valueField="Codice_Concatenato"
+                [filterable]="true"
+                giasFormControlName="Avversita"
+                [valuePrimitive]="false">
+            </gias-drop-down-template-s>
+        </div>
+    </div>
+</div>

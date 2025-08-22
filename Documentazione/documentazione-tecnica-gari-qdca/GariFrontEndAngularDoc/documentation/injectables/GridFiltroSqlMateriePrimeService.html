@@ -1,0 +1,1677 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridFiltroSqlMateriePrimeService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#innerForm" >innerForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kCols" >kCols</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoRows" >kendoRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kModel" >kModel</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#onCellClose" >onCellClose</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#add" >add</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addValidators" >addValidators</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleEvents" >handleEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadGiasAreas" >loadGiasAreas</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#patchAreasDescriptions" >patchAreasDescriptions</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refresh" >refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#remove" >remove</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#uniqueInstance" >uniqueInstance</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateForm" >updateForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#valueStr" >valueStr</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, datashare: <a href="../injectables/ProfilazioneDataShareService.html" target="_self">ProfilazioneDataShareService</a>, impostazioniService: <a href="../injectables/ImpostazioniUtentiService.html" target="_self">ImpostazioniUtentiService</a>, api: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:51</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datashare</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfilazioneDataShareService.html" target="_self" >ProfilazioneDataShareService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>impostazioniService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpostazioniUtentiService.html" target="_self" >ImpostazioniUtentiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>api</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="add"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>add</b></span>
+                        <a href="#add"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>add(dataItem: <a href="../classes/BaseCodeDescrVal.html" target="_self">BaseCodeDescrVal</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="../classes/BaseCodeDescrVal.html" target="_self" >BaseCodeDescrVal</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addValidators"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addValidators</b></span>
+                        <a href="#addValidators"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addValidators()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="120"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:120</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEvents"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleEvents</b></span>
+                        <a href="#handleEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleEvents(event: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadGiasAreas"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadGiasAreas</b></span>
+                        <a href="#loadGiasAreas"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadGiasAreas()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>an <code>Observable</code> indicating that the areas have been loaded.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="patchAreasDescriptions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>patchAreasDescriptions</b></span>
+                        <a href="#patchAreasDescriptions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>patchAreasDescriptions(rows: BaseCodeDescrVal[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>BaseCodeDescrVal[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, oldRow: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="77"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:77</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/GridCategorieMagazzinoServerResult.html" target="_self" >Observable&lt;GridCategorieMagazzinoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>refresh</b></span>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refresh(newRows: BaseCodeDescrVal[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>newRows</td>
+                                            <td>
+                                                        <code>BaseCodeDescrVal[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="remove"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>remove</b></span>
+                        <a href="#remove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>remove(dataItem: <a href="../classes/BaseCodeDescrVal.html" target="_self">BaseCodeDescrVal</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="../classes/BaseCodeDescrVal.html" target="_self" >BaseCodeDescrVal</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uniqueInstance"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>uniqueInstance</b></span>
+                        <a href="#uniqueInstance"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>uniqueInstance(control: AbstractControl)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>control</td>
+                                            <td>
+                                                        <code>AbstractControl</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ValidationErrors | null</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateForm</b></span>
+                        <a href="#updateForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;gridSqlMatPrime&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="innerForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>innerForm</b></span>
+                        <a href="#innerForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>FormGroup describing the setting.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kCols"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kCols</b></span>
+                        <a href="#kCols"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn({ field:&#x27;codice&#x27;, title:this.transloco.translate(&#x27;AreaGias&#x27;)}, {editable: false}),
+    new KendoGridColumn({ field:&#x27;valore&#x27;, title:this.transloco.translate(&#x27;Filtro&#x27;)}, {editable: true}),
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoRows</b></span>
+                        <a href="#kendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kModel</b></span>
+                        <a href="#kModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    codice: new ModelEntry(CELL_TYPES.DROPDOWNLIST),
+    descrizione: new ModelEntry(CELL_TYPES.STRING),
+    valore: new ModelEntry(CELL_TYPES.STRING),
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCellClose"></a>
+                    <span class="name">
+                        <span ><b>onCellClose</b></span>
+                        <a href="#onCellClose"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;codice&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="valueStr"></a>
+                        <span class="name"><b>valueStr</b><a href="#valueStr"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>valueStr()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/profilazione/impostazioni-utente/tipi-campo-impostazioni/filtro-sql-materie-prime/grid-filtro-sql-materie-prime.service.ts:64</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, Injector} from &quot;@angular/core&quot;;
+import {
+  AbstractGridConfigService,
+  HttpAction
+} from &#x27;gias-kendo-grid&#x27;;
+import {
+  GridCategorieMagazzinoServerResult
+} from &quot;../settings-categorie-magazzino/grid-settings-categorie-magazzino.service&quot;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { DropdownListItem, DropdownListWithForm,
+  EditingMode, KendoGridColumn,
+  LoaderType,
+  ModelEntry
+} from &#x27;gias-kendo-grid&#x27;;
+import {forkJoin, map, Observable, of, take} from &quot;rxjs&quot;;
+import {
+  CommandsColumnSettings,
+  ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import {AjaxAgronicaAPIService} from &quot;../../../../Service/ajax-agronica.api.service&quot;;
+import { BaseCodeDescr } from &quot;app/Model/baseClass/baseCodeDescr&quot;;
+import {AbstractControl, FormArray, FormGroup, ValidationErrors, Validators} from &quot;@angular/forms&quot;;
+import {enum_Impostazioni_Utenti} from &quot;../../../../Model/Impostazioni_Utenti.enum&quot;;
+import {BaseCodeDescrVal} from &quot;../../../../Model/baseClass/baseCodeDescrVal&quot;;
+import {ImpostazioniUtentiService} from &quot;../../../services/impostazioni/impostazioni-utenti.service&quot;;
+import {ProfilazioneDataShareService} from &quot;../../../services/profilazione-data-share.service&quot;;
+
+/** Areas already with a filter set. Used in the validator &#x60;uniqueInstance&#x60; */
+const added: number[] &#x3D; [];
+/** Used to keep track of the grid status. Only the first value is used. Used in the validator &#x60;uniqueInstance&#x60; */
+const isEdit &#x3D; [true];
+
+@Injectable()
+export class GridFiltroSqlMateriePrimeService extends AbstractGridConfigService&lt;GridCategorieMagazzinoServerResult&gt; {
+  editingMode &#x3D; EditingMode.IN_CELL;
+  gridId &#x3D; &quot;gridSqlMatPrime&quot;;
+  loader &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &quot;codice&quot;;
+
+  /** FormGroup describing the setting. */
+  private innerForm: FormGroup;
+  private kendoRows &#x3D; [];
+  private kCols &#x3D; [
+    new KendoGridColumn({ field:&#x27;codice&#x27;, title:this.transloco.translate(&#x27;AreaGias&#x27;)}, {editable: false}),
+    new KendoGridColumn({ field:&#x27;valore&#x27;, title:this.transloco.translate(&#x27;Filtro&#x27;)}, {editable: true}),
+  ];
+  private kModel &#x3D; {
+    codice: new ModelEntry(CELL_TYPES.DROPDOWNLIST),
+    descrizione: new ModelEntry(CELL_TYPES.STRING),
+    valore: new ModelEntry(CELL_TYPES.STRING),
+  };
+
+  constructor(injector: Injector,
+    private datashare: ProfilazioneDataShareService,
+    private impostazioniService: ImpostazioniUtentiService,
+    private api: AjaxAgronicaAPIService,
+  ) {
+    super(injector);
+    this.handleCustomizations();
+    this.gridPublicService.changeDetected.GiasSubscribe((event: any) &#x3D;&gt; this.handleEvents(event));
+    this.addValidators();
+  }
+
+  private get valueStr(): string {
+    if (this.kendoRows.length) {
+      return this.kendoRows
+        .map((row: BaseCodeDescrVal) &#x3D;&gt; row.codice + &quot;♪&quot; +  row.valore)
+        .reduce((acc: string, b: string) &#x3D;&gt; acc + &quot;♫&quot; + b);
+    }
+    return &quot;&quot;;
+  }
+
+  perform(actionType: HttpAction, items: any, oldRow: any): Observable&lt;any&gt; {
+    return null;
+  }
+
+  read(options: any): Observable&lt;GridCategorieMagazzinoServerResult&gt; {
+    if (!this.innerForm) {
+      this.innerForm &#x3D; this.datashare.formsMap.get(enum_Impostazioni_Utenti.SuperUser_FiltroSQL_MateriePrime);
+    }
+    const obs: Observable&lt;any&gt;[] &#x3D; [];
+    obs.push(this.loadGiasAreas());
+    obs.push(this.impostazioniService.leggiDatiFiltroMono(
+      &#x27;&#x27;, enum_Impostazioni_Utenti.SuperUser_FiltroSQL_MateriePrime
+    ));
+    return forkJoin(obs).pipe(map(results &#x3D;&gt; {
+      if (this.innerForm.untouched) {
+        this.kendoRows &#x3D; results[1];
+        this.patchAreasDescriptions(this.kendoRows);
+        this.kendoRows.map(r &#x3D;&gt; r.codice).forEach(c &#x3D;&gt; added.push(c));
+      }
+      return new GridCategorieMagazzinoServerResult(this.kendoRows, this.kCols, this.kModel);
+    }));
+  }
+
+  onCellClose &#x3D; () &#x3D;&gt; this.updateForm();
+
+  private patchAreasDescriptions(rows: BaseCodeDescrVal[]) {
+    const col &#x3D; this.kCols.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice&#x27;);
+    this.loadGiasAreas().pipe(take(1))
+      .subscribe(() &#x3D;&gt; rows.forEach(v &#x3D;&gt;
+        v.descrizione &#x3D; col.ddl.data.find(d &#x3D;&gt; d.id &#x3D;&#x3D;&#x3D; v.codice).name ?? &quot;&quot;
+      ));
+  }
+
+  private handleCustomizations() {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      infoBtn: false,
+      removeBtn: true,
+    });
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; true;
+    this.behavior.excelSettings.enabled &#x3D; true;
+    this.columnMenu.kendoGridColumnChooser &#x3D; false;
+    this.groups.groupable.enabled &#x3D; false;
+    this.views.enabled &#x3D; false;
+  }
+
+  private addValidators() {
+    this.kCols.find(c &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &quot;codice&quot;).validators &#x3D; [
+      Validators.required,
+      this.uniqueInstance
+    ];
+  }
+
+  private uniqueInstance(control: AbstractControl): ValidationErrors | null {
+    if (!isEdit[0] &amp;&amp; control.value &amp;&amp; added.find(x &#x3D;&gt; x &#x3D;&#x3D;&#x3D; control.value))
+      return {&quot;duplicateKey&quot;: true};
+    return null;
+  }
+
+  /**
+   * @return an &#x60;Observable&#x60; indicating that the areas have been loaded.
+   * @private
+   */
+  private loadGiasAreas(): Observable&lt;boolean&gt; {
+    const col &#x3D; this.kCols.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice&#x27;);
+    if (col.ddl) {
+      return of(true);
+    }
+    return this.api.ajaxAPIGet&lt;any, BaseCodeDescr[]&gt;(&quot;/MetaschemaNG/CaricaAreeGIAS&quot;, &quot;&quot;)
+      .pipe(take(1), map(R &#x3D;&gt; {
+        let data &#x3D; R.RispostaStringa.map(tipo &#x3D;&gt; new DropdownListItem(tipo.codice, tipo.descrizione));
+        col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;codice&#x27;, &#x27;descrizione&#x27;, data);
+        col.ddl.descriptionField &#x3D; &#x27;descrizione&#x27;;
+        return true;
+      }));
+  }
+
+  private handleEvents(event: any) {
+    switch (event.action) {
+      case &#x27;add&#x27;: // pulsante nuova riga
+        this.kCols.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice&#x27;).editable &#x3D; true;
+        isEdit[0] &#x3D; false;
+        break;
+      case &#x27;save&#x27;: // salva nuova riga
+        this.add(event.dataItem);
+      case &#x27;cancel&#x27;:
+        this.kCols.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice&#x27;).editable &#x3D; false;
+        isEdit[0] &#x3D; true;
+        break;
+      case &#x27;remove&#x27;:
+        this.remove(event.dataItem);
+        break;
+      default:
+        console.log(event);
+    }
+  }
+
+  private add(dataItem: BaseCodeDescrVal) {
+    this.kendoRows.push(dataItem);
+    added.push(dataItem.codice);
+    this.updateForm();
+    this.refresh(this.kendoRows);
+  }
+
+  private remove(dataItem: BaseCodeDescrVal) {
+    let i &#x3D; this.kendoRows.findIndex(r &#x3D;&gt; r.codice &#x3D;&#x3D;&#x3D; dataItem.codice);
+    this.kendoRows.splice(i, 1);
+    i &#x3D; added.findIndex(x &#x3D;&gt; x &#x3D;&#x3D;&#x3D; dataItem.codice);
+    added.splice(i, 1);
+    this.updateForm();
+    this.refresh(this.kendoRows);
+  }
+
+  private updateForm() {
+    this.innerForm.get(&quot;valoreCorrente&quot;).patchValue(this.valueStr);
+    this.innerForm.markAsTouched();
+  }
+
+  private refresh(newRows: BaseCodeDescrVal[]) {
+    this.gridPublicService.refresh(true, new GridCategorieMagazzinoServerResult(
+      newRows, this.kCols, this.kModel
+    ));
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridFiltroSqlMateriePrimeService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

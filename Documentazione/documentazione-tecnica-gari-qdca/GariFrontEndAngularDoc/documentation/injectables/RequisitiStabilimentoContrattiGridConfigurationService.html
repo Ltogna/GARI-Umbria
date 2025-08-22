@@ -1,0 +1,998 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >RequisitiStabilimentoContrattiGridConfigurationService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aggregates" >aggregates</a>
+                            </li>
+                            <li>
+                                <a href="#columns" >columns</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                <a href="#standardModel" >standardModel</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, requisitiStabilimentoService: <a href="../injectables/RequisitiStabilimentoService.html" target="_self">RequisitiStabilimentoService</a>, requisitiStabilimentoAPIService: <a href="../injectables/RequisitiStabilimentoAPIService.html" target="_self">RequisitiStabilimentoAPIService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="116" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:116</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>requisitiStabilimentoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RequisitiStabilimentoService.html" target="_self" >RequisitiStabilimentoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>requisitiStabilimentoAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RequisitiStabilimentoAPIService.html" target="_self" >RequisitiStabilimentoAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(_: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>_</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;RequisitiStabilimentoKendoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggregates"></a>
+                    <span class="name">
+                        <span ><b>aggregates</b></span>
+                        <a href="#aggregates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AggregateSettings(
+    {
+      enabled: true,
+      descriptors: [
+        { field: &#x27;Superficie&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;QtaPrevista&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;ResaPrevista&#x27;, aggregate: &#x27;average&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;Sup_Assegnata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;Qta_Assegnata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; }
+      ]
+    }
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columns"></a>
+                    <span class="name">
+                        <span ><b>columns</b></span>
+                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      { field: &#x27;Contratto_Nome&#x27;, title: this.transloco.translate(&#x27;Contratto_Nome&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Mat_Des&#x27;, title: this.transloco.translate(&#x27;Prodotto&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Superficie&#x27;, title: this.transloco.translate(&#x27;SuperficieHaAbbr&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n2&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;QtaPrevista&#x27;, title: this.transloco.translate(&#x27;QuantitaKg&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ResaPrevista&#x27;, title: this.transloco.translate(&#x27;ResaMediaPerHa&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Sup_Assegnata&#x27;, title: this.transloco.translate(&#x27;SupAssegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n2&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Qta_Assegnata&#x27;, title: this.transloco.translate(&#x27;QtaAssegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Percentuale_Sup_Assegnata&#x27;, title: this.transloco.translate(&#x27;Percentuale_Sup_Assegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, component: PercentGridViewerComponent }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Percentuale_Qta_Assegnata&#x27;, title: this.transloco.translate(&#x27;Percentuale_Qta_Assegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, component: PercentGridViewerComponent }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL_BATCH</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;requisiti-stabilimento-contratti-grid&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Contratto_Cod&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="standardModel"></a>
+                    <span class="name">
+                        <span ><b>standardModel</b></span>
+                        <a href="#standardModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/RequisitiStabilimentoContractsGridModel.html" target="_self" >RequisitiStabilimentoContractsGridModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    Piva: new ModelEntry(CELL_TYPES.STRING),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING),
+    Contratto_Nome: new ModelEntry(CELL_TYPES.STRING),
+    Contratto_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Fase_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Mat_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Mat_Des: new ModelEntry(CELL_TYPES.STRING),
+    Superficie: new ModelEntry(CELL_TYPES.NUMBER),
+    QtaPrevista: new ModelEntry(CELL_TYPES.NUMBER),
+    ResaPrevista: new ModelEntry(CELL_TYPES.NUMBER),
+    Sup_Assegnata: new ModelEntry(CELL_TYPES.NUMBER),
+    Qta_Assegnata: new ModelEntry(CELL_TYPES.NUMBER),
+    Percentuale_Sup_Assegnata: new ModelEntry(CELL_TYPES.CUSTOM),
+    Percentuale_Qta_Assegnata: new ModelEntry(CELL_TYPES.CUSTOM)
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="101" class="link-to-prism">src/app/requisiti-stabilimento/requisiti-stabilimento-contratti-grid/requisiti-stabilimento-contratti-grid-configuration.service.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { EditingMode, KendoGridColumn, KendoGridModel, KendoGridRow, KendoServerResult, LoaderType, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { AggregateSettings, AgrSelectableSettings, CommandsColumnSettings, ResizableSettings, ToolbarSettings } from &#x27;gias-kendo-grid&#x27;;
+import { RequisitiStabilimentoService } from &#x27;../requisiti-stabilimento.service&#x27;;
+import { RequisitiStabilimentoAPIService, SaveRequisitiStabilimento } from &#x27;../../Service/RequisitiStabilimento/requisiti-stabilimento.service&#x27;;
+import { GiasMessageService } from &#x27;../../Service/gias-message.service&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { SMARTPHONE_WIDTH } from &#x27;../../Model/CostantiPersonalizzate&#x27;;
+import { map, Observable, of, startWith, tap, withLatestFrom } from &#x27;rxjs&#x27;;
+import { PercentGridViewerComponent } from &quot;../percent-grid-viewer/percent-grid-viewer.component&quot;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+
+const VALID_GROUPABLE_COLUMNS &#x3D; [&#x27;Superfice&#x27;, &#x27;Quantita&#x27;, &#x27;TipoTrasportoCod&#x27;];
+const VALID_GROUPABLE_MODEL_FIELDS &#x3D; [&#x27;Superfice&#x27;, &#x27;Quantita&#x27;, &#x27;TipoTrasportoDes&#x27;, &#x27;TipoTrasportoCod&#x27;, &#x27;ContrattoCodFiglio&#x27;, &#x27;FaseCodFiglio&#x27;];
+
+export class RequisitiStabilimentoKendoServerResult extends KendoServerResult {
+  constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+    super(model, cols, rows);
+  }
+}
+
+@Injectable()
+export class RequisitiStabilimentoContractsGridModel extends KendoGridModel {
+  Piva: ModelEntry;
+  rag_soc: ModelEntry;
+  Contratto_Nome: ModelEntry;
+  Contratto_Cod: ModelEntry;
+  Fase_Cod: ModelEntry;
+  Mat_Cod: ModelEntry;
+  Mat_Des: ModelEntry;
+  Superficie: ModelEntry;
+  QtaPrevista: ModelEntry;
+  ResaPrevista: ModelEntry;
+  Sup_Assegnata: ModelEntry;
+  Qta_Assegnata: ModelEntry;
+  Percentuale_Sup_Assegnata: ModelEntry;
+  Percentuale_Qta_Assegnata: ModelEntry;
+}
+
+@Injectable()
+export class RequisitiStabilimentoContrattiGridConfigurationService extends AbstractGridConfigService&lt;RequisitiStabilimentoKendoServerResult&gt; {
+
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL_BATCH;
+  gridId: string &#x3D; &#x27;requisiti-stabilimento-contratti-grid&#x27;;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  rowId: string &#x3D; &#x27;Contratto_Cod&#x27;;
+
+  aggregates &#x3D; new AggregateSettings(
+    {
+      enabled: true,
+      descriptors: [
+        { field: &#x27;Superficie&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;QtaPrevista&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;ResaPrevista&#x27;, aggregate: &#x27;average&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;Sup_Assegnata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; },
+        { field: &#x27;Qta_Assegnata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n0&#x27; }
+      ]
+    }
+  );
+
+  columns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      { field: &#x27;Contratto_Nome&#x27;, title: this.transloco.translate(&#x27;Contratto_Nome&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Mat_Des&#x27;, title: this.transloco.translate(&#x27;Prodotto&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Superficie&#x27;, title: this.transloco.translate(&#x27;SuperficieHaAbbr&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n2&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;QtaPrevista&#x27;, title: this.transloco.translate(&#x27;QuantitaKg&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ResaPrevista&#x27;, title: this.transloco.translate(&#x27;ResaMediaPerHa&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Sup_Assegnata&#x27;, title: this.transloco.translate(&#x27;SupAssegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n2&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Qta_Assegnata&#x27;, title: this.transloco.translate(&#x27;QtaAssegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, format: &#x27;n0&#x27; }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Percentuale_Sup_Assegnata&#x27;, title: this.transloco.translate(&#x27;Percentuale_Sup_Assegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, component: PercentGridViewerComponent }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Percentuale_Qta_Assegnata&#x27;, title: this.transloco.translate(&#x27;Percentuale_Qta_Assegnata&#x27;) },
+      { resizable: true, filterable: true, editable: false, width: 100, component: PercentGridViewerComponent }
+    )
+  ];
+
+  standardModel: RequisitiStabilimentoContractsGridModel &#x3D; {
+    Piva: new ModelEntry(CELL_TYPES.STRING),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING),
+    Contratto_Nome: new ModelEntry(CELL_TYPES.STRING),
+    Contratto_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Fase_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Mat_Cod: new ModelEntry(CELL_TYPES.NUMBER),
+    Mat_Des: new ModelEntry(CELL_TYPES.STRING),
+    Superficie: new ModelEntry(CELL_TYPES.NUMBER),
+    QtaPrevista: new ModelEntry(CELL_TYPES.NUMBER),
+    ResaPrevista: new ModelEntry(CELL_TYPES.NUMBER),
+    Sup_Assegnata: new ModelEntry(CELL_TYPES.NUMBER),
+    Qta_Assegnata: new ModelEntry(CELL_TYPES.NUMBER),
+    Percentuale_Sup_Assegnata: new ModelEntry(CELL_TYPES.CUSTOM),
+    Percentuale_Qta_Assegnata: new ModelEntry(CELL_TYPES.CUSTOM)
+  };
+
+  constructor(
+    injector: Injector,
+    private requisitiStabilimentoService: RequisitiStabilimentoService,
+    private requisitiStabilimentoAPIService: RequisitiStabilimentoAPIService,
+    private giasMessageService: GiasMessageService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.selectable &#x3D; new AgrSelectableSettings();
+    this.selectable.selectable.checkboxOnly &#x3D; false;
+    this.selectable.selectable.enabled &#x3D; false;
+    this.selectable.shouldShowCheckbox &#x3D; false;
+
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; false;
+    this.toolbar.resetChanges &#x3D; false;
+
+    this.resizable &#x3D; new ResizableSettings(true, true);
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      removeBtn: false,
+    });
+
+    this.groups.groupable.enabled &#x3D; true;
+    this.views.enabled &#x3D; true;
+
+    if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+      this.toolbar.newItem &#x3D; false;
+      this.cmdColumn.editBtn &#x3D; false;
+      this.groups.groupable.enabled &#x3D; false;
+    }
+  }
+
+  read(_: any): Observable&lt;RequisitiStabilimentoKendoServerResult&gt; {
+    this.isLoading(true);
+
+    return of(true)
+      .pipe(
+        withLatestFrom(this.requisitiStabilimentoService.contracts$.pipe(startWith([]))),
+        map(([_, contracts]: [boolean, any]) &#x3D;&gt; {
+          if (contracts &#x3D;&#x3D; null || contracts.length &#x3D;&#x3D;&#x3D; 0) {
+            return new RequisitiStabilimentoKendoServerResult([], this.columns, this.standardModel);
+          }
+
+          const validData &#x3D; contracts.kendo_rows as any[];
+          if (validData.length &#x3D;&#x3D; 0) {
+            this.giasMessageService.infoMessagge(&#x27;RdS.NessunRequisitoDiStabilimentoConQuestiDati&#x27;, false, true);
+          }
+
+          return new RequisitiStabilimentoKendoServerResult(contracts.kendo_rows, this.columns, this.standardModel);
+        }),
+        tap(() &#x3D;&gt; this.isLoading(false))
+      );
+  }
+
+  perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+    if (actionType !&#x3D; HttpAction.BATCH_SAVE) {
+      throw new Error(&#x27;Operazione non consentita&#x27;);
+    }
+
+    const payload: SaveRequisitiStabilimento &#x3D; { rows: items.updated } as SaveRequisitiStabilimento;
+    this.requisitiStabilimentoAPIService
+      .saveRequisitiStabilimento(payload)
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.giasMessageService.successMessage(&#x27;SalvataggioAvvenutoConSuccesso&#x27;, false, true);
+          this.requisitiStabilimentoService.nextReloadGrid();
+        },
+        error: () &#x3D;&gt; this.giasMessageService.errorMessage(&#x27;ErroreSalvataggio&#x27;, false, true)
+      });
+
+    return of(items);
+  }
+
+
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'RequisitiStabilimentoContrattiGridConfigurationService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

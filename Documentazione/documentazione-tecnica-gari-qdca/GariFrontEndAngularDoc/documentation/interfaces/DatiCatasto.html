@@ -1,0 +1,578 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  DatiCatasto</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/GIS-attributi/GIS-attributi-file-upload/GIS-attributi-file-upload-catasto/GIS-attributi-file-upload-catasto.component.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/DatiCatastoInput.html" target="_self" >DatiCatastoInput</a></code>
+            </p>
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#files" 
+>
+                                            files
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#origine" 
+>
+                                            origine
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#sistema" 
+>
+                                            sistema
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="files"></a>
+                                        <span class="name "><b>files</b>
+                                            <a href="#files">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>files:         <code><a href="../interfaces/FileParameter.html" target="_self" >FileParameter[]</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/FileParameter.html" target="_self" >FileParameter[]</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="origine"></a>
+                                        <span class="name "><b>origine</b>
+                                            <a href="#origine">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>origine:         <code><a href="../interfaces/OrigineDatiModel.html" target="_self" >OrigineDatiModel</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/OrigineDatiModel.html" target="_self" >OrigineDatiModel</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="sistema"></a>
+                                        <span class="name "><b>sistema</b>
+                                            <a href="#sistema">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>sistema:         <code><a href="../interfaces/SistemaRiferimentoItem.html" target="_self" >SistemaRiferimentoItem</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/SistemaRiferimentoItem.html" target="_self" >SistemaRiferimentoItem</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnChanges } from &#x27;@angular/core&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { DropDownFilterSettings } from &#x27;@progress/kendo-angular-dropdowns&#x27;;
+import { SelectEvent } from &#x27;@progress/kendo-angular-upload&#x27;;
+import { DatiCatastoInput, FormatoDatiModel, GISAttributiFileUploadService, OrigineDatiModel, SistemaRiferimentoItem, SistemaRiferimentoModel } from &#x27;app/GIS/GIS-attributi/GIS-attributi-file-upload/GIS-attributi-file-upload.service&#x27;;
+import { enum_OrigineChiamataLoadGeoJson } from &#x27;app/GIS/GIS-enum/GIS-origine-chiamata&#x27;;
+import { GoogleMapGeoJsonService } from &#x27;app/GIS/google-map/google-map-geojson.service&#x27;;
+import { LayerService } from &#x27;app/GIS/services/layer.service&#x27;;
+import { SharedDataService } from &#x27;app/GIS/services/shared-data.service&#x27;;
+import { FileParameter, GisClient, RispostaStandard, TipoFileCatasto } from &#x27;app/Service/api.service&#x27;;
+import { DEFAULT_DROPDOWN_FILTER_SETTINGS, FunzioniComuniService } from &#x27;app/Service/FunzioniComuni.service&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { BehaviorSubject, combineLatest, filter, map, Observable, of, Subject, switchMap, tap, withLatestFrom } from &#x27;rxjs&#x27;;
+
+const DEFAULT_FORMATO_DATI &#x3D; [
+  { codice: TipoFileCatasto.CatastoDXF, descrizione: &#x27;DXF in Formato Agenzia Entrate&#x27; },
+  { codice: TipoFileCatasto.CatastoSHP, descrizione: &#x27;Shapefile&#x27; },
+] as FormatoDatiModel[];
+
+const DEFAULT_LAYERS &#x3D; [
+  &quot;FABBRICATI&quot;,
+  &quot;PARTICELLE&quot;,
+  &quot;STRADA&quot;,
+  &quot;ACQUE&quot;,
+  &quot;CONFINE&quot;,
+  &quot;LINEEVARIE&quot;,
+  &quot;SIMBOLI&quot;,
+  &quot;TESTI&quot;,
+  &quot;FIDUCIALI&quot;,
+] as string[];
+
+@Component({
+  standalone: false,
+  selector: &#x27;gis-attributi-file-upload-catasto&#x27;,
+  templateUrl: &#x27;./GIS-attributi-file-upload-catasto.component.html&#x27;,
+  styleUrls: [&#x27;./GIS-attributi-file-upload-catasto.component.css&#x27;]
+})
+export class GISAttributiFileUploadCatastoComponent implements OnChanges {
+  @Input() origineDati: OrigineDatiModel;
+
+  private origineDatiSubject &#x3D; new BehaviorSubject&lt;OrigineDatiModel&gt;(null);
+  formatoDatiSubject &#x3D; new BehaviorSubject&lt;FormatoDatiModel&gt;(DEFAULT_FORMATO_DATI[0]);
+  filesSubject &#x3D; new BehaviorSubject&lt;FileParameter[]&gt;([]);
+  filtroParticelleCatastaliSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+  listaLayersSubject &#x3D; new BehaviorSubject&lt;string[]&gt;([DEFAULT_LAYERS[1], DEFAULT_LAYERS[3]]);
+  listaLayersEditables &#x3D; new BehaviorSubject&lt;string[]&gt;([DEFAULT_LAYERS[1], DEFAULT_LAYERS[3]]);
+  sovrascriviSubject &#x3D; new BehaviorSubject&lt;number&gt;(2);
+  sistemaRiferimentoSubject &#x3D; new BehaviorSubject&lt;SistemaRiferimentoItem&gt;(null);
+
+  codiceBelfioreSubject &#x3D; new BehaviorSubject&lt;string&gt;(&quot;Cod_comune&quot;);
+  provinciaSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+  comuneSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+  sezioneCatastaleSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+  foglioSubject &#x3D; new BehaviorSubject&lt;string&gt;(&quot;foglio&quot;);
+  particellaSubject &#x3D; new BehaviorSubject&lt;string&gt;(&quot;part&quot;);
+  subalternoSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+  identificativoEsternoSubject &#x3D; new BehaviorSubject&lt;string&gt;(null);
+
+  submitSubject &#x3D; new Subject&lt;void&gt;();
+
+  data$ &#x3D; combineLatest({
+    origine: this.origineDatiSubject.asObservable(),
+    sistema: this.sistemaRiferimentoSubject.asObservable(),
+    fileCatasto: this.formatoDatiSubject.asObservable().pipe(map(x &#x3D;&gt; x.codice)),
+    files: this.filesSubject.asObservable(),
+    loading: this.gisBottomWindowService.agendaLoading$,
+    filtroParticelleCatastali: this.filtroParticelleCatastaliSubject.asObservable(),
+    listaLayersDXFAgenziaEntrate: this.listaLayersSubject.asObservable().pipe(map(x &#x3D;&gt; x.join(&quot;,&quot;))),
+    creaLayerTestuale: of(false), // Sempre false perché nascosto
+
+    codBelfiore: this.codiceBelfioreSubject.asObservable(),
+    provincia: this.provinciaSubject.asObservable(),
+    comune: this.comuneSubject.asObservable(),
+    sezione: this.sezioneCatastaleSubject.asObservable(),
+    foglio: this.foglioSubject.asObservable(),
+    particella: this.particellaSubject.asObservable(),
+    subalterno: this.subalternoSubject.asObservable(),
+    identificativoEsterno: this.identificativoEsternoSubject.asObservable(),
+
+    comportamentoImportazione: this.sovrascriviSubject.asObservable().pipe(map(x &#x3D;&gt; +x)),
+  }) as Observable&lt;DatiCatasto&gt;;
+  formatoDati$ &#x3D; of(DEFAULT_FORMATO_DATI);
+  layers$ &#x3D; of(DEFAULT_LAYERS);
+  sistemaRiferimento$ &#x3D; this.origineDatiSubject.asObservable()
+    .pipe(
+      tap(() &#x3D;&gt; this.sistemaRiferimentoSubject.next(null)),
+      filter(x &#x3D;&gt; x !&#x3D; null &amp;&amp; x.codice !&#x3D; 0),
+      switchMap(x &#x3D;&gt; this.gisClient.gisLeggiSistemiRiferimento({ codice_tipologia: x.codice })),
+      map(res &#x3D;&gt; JSON.parse(res.RispostaStringa) as SistemaRiferimentoModel),
+      tap(res &#x3D;&gt; this.sistemaRiferimentoSubject.next(res.ListaSistemiRiferimento.find(x &#x3D;&gt; x.Value &#x3D;&#x3D; res.default))),
+      map(res &#x3D;&gt; res.ListaSistemiRiferimento)
+    );
+  submit$: Observable&lt;any&gt;;
+
+  tipoFileCatasto &#x3D; TipoFileCatasto;
+  filterSettings &#x3D; DEFAULT_DROPDOWN_FILTER_SETTINGS;
+
+  constructor(
+    private gisClient: GisClient,
+    private giasDialogService: GiasDialogService,
+    private layerService: LayerService,
+    private gisBottomWindowService: GISAttributiFileUploadService,
+    private sharedDataService: SharedDataService,
+    private googleMapGeoJsonService: GoogleMapGeoJsonService,
+    private translocoService: TranslocoService
+  ) {
+    this.submit$ &#x3D; this.submitSubject.asObservable()
+      .pipe(
+        withLatestFrom(this.data$),
+        tap(([_, data]: [any, DatiCatasto]) &#x3D;&gt; this.doSubmit(data, data.sistema, data.files, data.origine))
+      );
+  }
+
+  ngOnChanges(): void {
+    this.origineDatiSubject.next(this.origineDati);
+  }
+
+  onFileSelected(event: SelectEvent): void {
+    // There should be only one file
+    const files &#x3D; event.files.map(file &#x3D;&gt; ({ fileName: file.name, data: file.rawFile }));
+    this.filesSubject.next(files);
+  }
+
+  onFileRemoved(): void {
+    this.filesSubject.next([]);
+  }
+
+  changeListaLayersSubject(selected: boolean, layer: string): void {
+    const values &#x3D; this.listaLayersSubject.value;
+    const index &#x3D; values.indexOf(layer);
+
+    if (selected &amp;&amp; index &#x3D;&#x3D; -1) {
+      values.push(layer);
+    } else if (!selected &amp;&amp; index !&#x3D; -1) {
+      values.splice(index, 1);
+    }
+
+    this.listaLayersSubject.next(values);
+  }
+
+  isLayerChecked(layer: string): boolean {
+    return this.listaLayersSubject.value.find(x &#x3D;&gt; x &#x3D;&#x3D; layer) !&#x3D; null;
+  }
+  isLayerSelectable(layer: string): boolean {
+      return this.listaLayersEditables.value.find(x &#x3D;&gt; x &#x3D;&#x3D; layer) !&#x3D; null;
+  }
+
+  submit(): void {
+    this.submitSubject.next();
+  }
+
+  private doSubmit(data: DatiCatastoInput, sistema: SistemaRiferimentoItem, files: FileParameter[], origine: OrigineDatiModel): Observable&lt;RispostaStandard&gt; {
+    if (origine &#x3D;&#x3D; null) {
+      this.giasDialogService.baseError(&quot;gis.CaricamentoDati&quot;, &quot;gis.AttributiWindowOrigineNonValida&quot;);
+      return of(null);
+    }
+
+    const file &#x3D; files[0];
+    if (file?.data &#x3D;&#x3D; null || !origine.restrictions.allowedExtensions.some(ext &#x3D;&gt; file?.fileName.endsWith(ext))) {
+      const title &#x3D; this.translocoService.translate(&#x27;gis.CaricamentoDati&#x27;);
+      const translate &#x3D; this.translocoService.translate(&#x27;gis.SelezionaFileValidoConEstensioneX&#x27;, { extensions: origine.restrictions.allowedExtensions.join(&#x27;, &#x27;) });
+      this.giasDialogService.baseError(title, translate, false);
+      return of(null);
+    }
+
+    if (sistema &#x3D;&#x3D; null) {
+      this.giasDialogService.baseError(&quot;gis.CaricamentoDati&quot;, &quot;gis.AttributiWindowSistmaNonValido&quot;);
+      return of(null);
+    }
+
+    const parsedData &#x3D; data.fileCatasto &#x3D;&#x3D; TipoFileCatasto.CatastoDXF ? this.getDxfData(data) : this.getShpData(data);
+    const layer &#x3D; this.layerService.layerItemSelected[0];
+
+    this.giasDialogService.baseSuccess(&#x27;&#x27;, &#x27;gis.AttributiWindowCaricamentoDati&#x27;);
+    this.gisBottomWindowService
+      .caricaShapeFileCatasto(parsedData, sistema, file, origine, +layer.id)
+      .subscribe({
+        next: () &#x3D;&gt; this.giasDialogService.baseSuccess(&#x27;&#x27;, &#x27;gis.AttributiWindowCaricamentoOk&#x27;, true, false).then(() &#x3D;&gt; this.reloadData()),
+        error: error &#x3D;&gt; this.giasDialogService.baseError(&#x27;&#x27;, FunzioniComuniService.getResponseError(error, this.translocoService, &#x27;SiÈVerificatoUnErroreDuranteLaFaseDiSalvat&#x27;), false)
+      });
+  }
+
+  private getDxfData(data: DatiCatastoInput): DatiCatastoInput {
+    return {
+      ...data,
+      codBelfiore: null,
+      provincia: null,
+      comune: null,
+      sezione: null,
+      foglio: null,
+      particella: null,
+      subalterno: null,
+      identificativoEsterno: null
+    };
+  }
+
+  private getShpData(data: DatiCatastoInput): DatiCatastoInput {
+    return {
+      ...data,
+      filtroParticelleCatastali: null,
+      listaLayersDXFAgenziaEntrate: null,
+    };
+  }
+
+  private reloadData(): void {
+    this.sharedDataService.setOrigineChiamataLoadGeoJson(enum_OrigineChiamataLoadGeoJson.CentraSuAzienda);
+    this.googleMapGeoJsonService.loadGeoJsonForzato(true);
+  }
+}
+
+interface DatiCatasto extends DatiCatastoInput {
+  files: FileParameter[];
+  origine: OrigineDatiModel;
+  sistema: SistemaRiferimentoItem;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'DatiCatasto.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

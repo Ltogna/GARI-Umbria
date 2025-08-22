@@ -1,0 +1,2853 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  DrawWindowComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>draw-window</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./draw-window.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./draw-window.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#enableDrawingBtnsSignal$" >enableDrawingBtnsSignal$</a>
+                            </li>
+                            <li>
+                                <a href="#GISDrawingOperations" >GISDrawingOperations</a>
+                            </li>
+                            <li>
+                                <a href="#GISModality" >GISModality</a>
+                            </li>
+                            <li>
+                                <a href="#opened" >opened</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#polygonValidator" >polygonValidator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ricette$" >ricette$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectedOperation" >selectedOperation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#signal" >signal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#visualizzaBottone" >visualizzaBottone</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#window" >window</a>
+                            </li>
+                            <li>
+                                <a href="#windowArgs" >windowArgs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#abilitaDisabilitaPulsantiDisegno" >abilitaDisabilitaPulsantiDisegno</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#areSamplingNodesSelected" >areSamplingNodesSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkPolygonValidity" >checkPolygonValidity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#doSetOperation" >doSetOperation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDefaultLayer" >getDefaultLayer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSementiCase" >handleSementiCase</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isCampionamenti" >isCampionamenti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLayerAppezzamento" >isLayerAppezzamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLayerCampi" >isLayerCampi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLayerImpiantiVisibleTest" >isLayerImpiantiVisibleTest</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLayerMuz" >isLayerMuz</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isLayerOf" >isLayerOf</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isOneSamplingSelected" >isOneSamplingSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isScomponiAvailable" >isScomponiAvailable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isSementiCase" >isSementiCase</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#setOperation" >setOperation</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#modality" >modality</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(kendoWindowsService: <a href="../injectables/KendoWindowsService.html" target="_self">KendoWindowsService</a>, featureService: <a href="../injectables/FeatureService.html" target="_self">FeatureService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, translocoService: TranslocoService, drawWindowOperationService: <a href="../injectables/DrawWindowOperationService.html" target="_self">DrawWindowOperationService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, drawingManagerService: <a href="../injectables/DrawingManagerService.html" target="_self">DrawingManagerService</a>, treeGisService: <a href="../injectables/TreeGisService.html" target="_self">TreeGisService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, ricetteService: <a href="../injectables/RicetteService.html" target="_self">RicetteService</a>, gisAttributiMuzService: <a href="../injectables/GISAttributiMuzService.html" target="_self">GISAttributiMuzService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:80</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>kendoWindowsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoWindowsService.html" target="_self" >KendoWindowsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureService.html" target="_self" >FeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawWindowOperationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawWindowOperationService.html" target="_self" >DrawWindowOperationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>drawingManagerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DrawingManagerService.html" target="_self" >DrawingManagerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>treeGisService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TreeGisService.html" target="_self" >TreeGisService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ricetteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RicetteService.html" target="_self" >RicetteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisAttributiMuzService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISAttributiMuzService.html" target="_self" >GISAttributiMuzService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="modality"></a>
+                        <b>modality</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#GISModality" target="_self" >GISModality | undefined</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>GISModality.Full</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:41</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abilitaDisabilitaPulsantiDisegno"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>abilitaDisabilitaPulsantiDisegno</b></span>
+                        <a href="#abilitaDisabilitaPulsantiDisegno"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>abilitaDisabilitaPulsantiDisegno(featureSelezionate: GeoJson_Feature_New<GeoJSONAgroGisProp>[], visualizzazioneTotale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, ricetteSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="236"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:236</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureSelezionate</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visualizzazioneTotale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ricetteSelected</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="areSamplingNodesSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>areSamplingNodesSelected</b></span>
+                        <a href="#areSamplingNodesSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>areSamplingNodesSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="441"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:441</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkPolygonValidity"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>checkPolygonValidity</b></span>
+                        <a href="#checkPolygonValidity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkPolygonValidity()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:222</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doSetOperation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>doSetOperation</b></span>
+                        <a href="#doSetOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>doSetOperation(operation: <a href="../undefineds/enum_GISDrawingOperations.html" target="_self">enum_GISDrawingOperations</a>, ricetteSelected: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>operation</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_GISDrawingOperations" target="_self" >enum_GISDrawingOperations</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ricetteSelected</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDefaultLayer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getDefaultLayer</b></span>
+                        <a href="#getDefaultLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDefaultLayer()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="461"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:461</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSementiCase"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSementiCase</b></span>
+                        <a href="#handleSementiCase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSementiCase(aggiornaVisibilitaBottoni: <a href="../classes/VisualizzaBottone.html" target="_self">VisualizzaBottone</a>, featureSelezionate: GeoJson_Feature_New<GeoJSONAgroGisProp>[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="487"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:487</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>aggiornaVisibilitaBottoni</td>
+                                            <td>
+                                                            <code><a href="../classes/VisualizzaBottone.html" target="_self" >VisualizzaBottone</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>featureSelezionate</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCampionamenti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isCampionamenti</b></span>
+                        <a href="#isCampionamenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isCampionamenti()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="433"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:433</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerAppezzamento"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isLayerAppezzamento</b></span>
+                        <a href="#isLayerAppezzamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerAppezzamento(l: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="398"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:398</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>l</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerCampi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isLayerCampi</b></span>
+                        <a href="#isLayerCampi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerCampi(l: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="402"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:402</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>l</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerImpiantiVisibleTest"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isLayerImpiantiVisibleTest</b></span>
+                        <a href="#isLayerImpiantiVisibleTest"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerImpiantiVisibleTest()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="422"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:422</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerMuz"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isLayerMuz</b></span>
+                        <a href="#isLayerMuz"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerMuz(l: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="406"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:406</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>l</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isLayerOf"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isLayerOf</b></span>
+                        <a href="#isLayerOf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isLayerOf(l: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, t: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="410"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:410</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>l</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>t</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isOneSamplingSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isOneSamplingSelected</b></span>
+                        <a href="#isOneSamplingSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isOneSamplingSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="437"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:437</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isScomponiAvailable"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isScomponiAvailable</b></span>
+                        <a href="#isScomponiAvailable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isScomponiAvailable(featureSelezionate: GeoJson_Feature_New<GeoJSONAgroGisProp>[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="455"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:455</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureSelezionate</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSementiCase"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isSementiCase</b></span>
+                        <a href="#isSementiCase"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isSementiCase()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="520"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:520</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="187"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOperation"></a>
+                    <span class="name">
+                        <span ><b>setOperation</b></span>
+                        <a href="#setOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setOperation(operation: <a href="../undefineds/enum_GISDrawingOperations.html" target="_self">enum_GISDrawingOperations</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>operation</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_GISDrawingOperations" target="_self" >enum_GISDrawingOperations</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDrawingBtnsSignal$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enableDrawingBtnsSignal$</b></span>
+                        <a href="#enableDrawingBtnsSignal$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;{
+    featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[],
+    visualizzazioneTotale: boolean,
+    ricetteSelected: boolean
+  }&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GISDrawingOperations"></a>
+                    <span class="name">
+                        <span ><b>GISDrawingOperations</b></span>
+                        <a href="#GISDrawingOperations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>enum_GISDrawingOperations</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GISModality"></a>
+                    <span class="name">
+                        <span ><b>GISModality</b></span>
+                        <a href="#GISModality"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>GISModality</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="opened"></a>
+                    <span class="name">
+                        <span ><b>opened</b></span>
+                        <a href="#opened"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="polygonValidator"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>polygonValidator</b></span>
+                        <a href="#polygonValidator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricette$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>ricette$</b></span>
+                        <a href="#ricette$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.ricetteService.selected$.pipe(startWith([]))</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectedOperation"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>selectedOperation</b></span>
+                        <a href="#selectedOperation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#enum_GISDrawingOperations" target="_self" >enum_GISDrawingOperations</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signal"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>signal</b></span>
+                        <a href="#signal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;void&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visualizzaBottone"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>visualizzaBottone</b></span>
+                        <a href="#visualizzaBottone"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/VisualizzaBottone.html" target="_self" >VisualizzaBottone</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new VisualizzaBottone()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="window"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>window</b></span>
+                        <a href="#window"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/GISWindowComponent.html" target="_self" >GISWindowComponent</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;window&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="windowArgs"></a>
+                    <span class="name">
+                        <span ><b>windowArgs</b></span>
+                        <a href="#windowArgs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/WindowArgs.html" target="_self" >WindowArgs</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/GIS/GIS-kendo-window/draw-window/draw-window.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, EventEmitter, Input, OnDestroy, OnInit, Optional, Output, ViewChild } from &#x27;@angular/core&#x27;;
+import { GISWindowComponent } from &#x27;app/GIS/GIS-window/GIS-window.component&#x27;;
+import { KendoWindowsService, WindowArgs, WindowTypes } from &#x27;app/Service&#x27;;
+import { enum_GISDrawingOperations } from &#x27;../../GIS-enum/GIS-drawing-operations&#x27;;
+import {FeatureService, PermessiFeature} from &#x27;app/GIS/services/feature.service&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;../../GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { enum_FeatureGeometryType, enum_FeatureProperty, GISModality } from &#x27;app/GIS/GIS-enum/GIS-feature&#x27;;
+import { SharedDataService } from &#x27;app/GIS/services/shared-data.service&#x27;;
+import {combineLatest, debounceTime, filter, map, merge, of, startWith, Subject, takeUntil, withLatestFrom} from &#x27;rxjs&#x27;;
+import Feature &#x3D; google.maps.Data.Feature;
+import { GoogleMapService } from &#x27;../../google-map/google-map.service&#x27;;
+import { enum_TipologiaLayer } from &quot;app/GIS/GIS-enum/GIS-tipologia-layer&quot;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { TipologiaLayer } from &#x27;app/Service/api.service&#x27;;
+import { DrawWindowOperationService } from &#x27;./draw-window-operation.service&#x27;;
+import { LayerService } from &#x27;../../services/layer.service&#x27;;
+import { DrawingManagerService } from &#x27;../../services/drawing-manager.service&#x27;;
+import { TreeGisService } from &#x27;../../../Utility/Template/kendo-tree/services/tree-gis.service&#x27;;
+import { enum_TreeDataItemType } from &#x27;../../../Utility/Template/kendo-tree/enum/tree-dataitem-type&#x27;;
+import { RicetteService } from &#x27;app/menu-agenda/components/grid-ricette/ricette.service&#x27;;
+import { enum_TipoPermesso } from &#x27;../../../profilazione/models/profilazione.model&#x27;;
+import { SementieriParametrizzazione } from &#x27;../../../Model/GIS/SementieriParametrizzazione&#x27;;
+import { isLayerMergeable } from &#x27;../polygon-merge-window/tool-polygon-merge/tool-polygon-merge.component&#x27;;
+import { Plot } from &#x27;app/GIS/GIS-attributi/GIS-attributi-muz-grid/GIS-attributi-muz-grid.component&#x27;;
+import { DEFAULT_PLOT, GISAttributiMuzService } from &#x27;app/GIS/GIS-attributi/GIS-attributi-muz-grid/GIS-attributi-muz.service&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { GeoJSONAgroGisProp, GeoJson_Feature_New } from &#x27;app/Model/GIS/GisDataReadRval_New&#x27;;
+import { FeatureInformationService } from &#x27;app/GIS/services/feature-information.service&#x27;;
+import {enum_Security_Attivita} from &#x27;../../../Model/TipiEnumerativi&#x27;;
+import {PermessiUtenteService} from &#x27;../../../Service/permessi-utente.service&#x27;;
+import {faLeaf} from &#x27;@fortawesome/free-solid-svg-icons&#x27;;
+
+
+@Component({
+  standalone: false,
+  selector: &#x27;draw-window&#x27;,
+  templateUrl: &#x27;./draw-window.component.html&#x27;,
+  styleUrls: [&#x27;./draw-window.component.css&#x27;]
+})
+export class DrawWindowComponent implements OnInit, OnDestroy {
+  @Input() modality: GISModality | undefined &#x3D; GISModality.Full;
+
+  @ViewChild(&#x27;window&#x27;) window: GISWindowComponent;
+
+  // Visibilità bottoni
+
+  // visualizzaBottone: VisualizzaBottone &#x3D; {
+  //   pulisciSelezione: true,
+  //   disegnaPoligono: true,
+  //   strumentiDisegnoPunti: true,
+  //   scomponiModificaPunti: true,
+  //   strumentoDisegnoAvanzato: true,
+  //   strumentoUnisci: true,
+  //   modificaImpianto: true,
+  //   nuovoImpiantoAppezzamentoSelezionato: true,
+  //   copiaFeature: true,
+  //   incollaFeature: true,
+  //   eliminaPoligono: true,
+  //   lineeGuidaAB: true,
+  //   datiAgricolturaPrecisone: true
+  // };
+  protected  visualizzaBottone: VisualizzaBottone &#x3D; new VisualizzaBottone();
+  GISModality &#x3D; GISModality;
+
+  //---
+
+  private polygonValidator: any;
+
+  opened: boolean &#x3D; true;
+  windowArgs: WindowArgs;
+  GISDrawingOperations &#x3D; enum_GISDrawingOperations
+
+  private signal &#x3D; new Subject&lt;void&gt;();
+  private enableDrawingBtnsSignal$: Subject&lt;any&gt; &#x3D; new Subject&lt;{
+    featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[],
+    visualizzazioneTotale: boolean,
+    ricetteSelected: boolean
+  }&gt;();
+  private selectedOperation: enum_GISDrawingOperations;
+  private ricette$ &#x3D; this.ricetteService.selected$.pipe(startWith([]));
+
+  constructor(
+    private kendoWindowsService: KendoWindowsService,
+    private featureService: FeatureService,
+    private sharedDataService: SharedDataService,
+    private googleMapService: GoogleMapService,
+    private translocoService: TranslocoService,
+    private drawWindowOperationService: DrawWindowOperationService,
+    private layerService: LayerService,
+    private drawingManagerService: DrawingManagerService,
+    private treeGisService: TreeGisService,
+    private giasDialogService: GiasDialogService,
+    private featureInformationService: FeatureInformationService,
+    private permessiUtenteService: PermessiUtenteService,
+    @Optional() private ricetteService: RicetteService,
+    @Optional() private gisAttributiMuzService: GISAttributiMuzService
+  ) {
+    this.kendoWindowsService.windowToggle$
+      .pipe(takeUntil(this.signal)).subscribe(([windowTypes, args]) &#x3D;&gt; {
+      if (windowTypes &#x3D;&#x3D;&#x3D; WindowTypes.DrawWindow) {
+        this.windowArgs &#x3D; args;
+      }
+
+      if (windowTypes &#x3D;&#x3D;&#x3D; WindowTypes.MarkerWindow
+        &amp;&amp; args.openState &#x3D;&#x3D; true
+        &amp;&amp; this.selectedOperation &#x3D;&#x3D; enum_GISDrawingOperations.marker) {
+        this.setOperation(enum_GISDrawingOperations.none);
+      }
+    });
+
+    this.featureService.getFeatureSelezionate$()
+      .pipe(
+        withLatestFrom(this.ricette$),
+        takeUntil(this.signal)
+      ).subscribe(([featureSelezionate, ricette]) &#x3D;&gt; {
+      this.enableDrawingBtnsSignal$.next({
+        featureSelezionate: featureSelezionate,
+        visualizzazioneTotale: null,
+        ricetteSelected: ricette.length &gt; 0
+      });
+    });
+
+    this.sharedDataService.getVisualizzazioneTotale$()
+      .pipe(takeUntil(this.signal)).subscribe(visualizzazioneTotale &#x3D;&gt; {
+      this.enableDrawingBtnsSignal$.next({
+        featureSelezionate: null,
+        visualizzazioneTotale: visualizzazioneTotale,
+        ricetteSelected: true
+      });
+    });
+
+    this.sharedDataService.TipoLayerSelezionatoSource
+      .pipe(takeUntil(this.signal)).subscribe(TipoLayerSelezionato &#x3D;&gt; {
+      if (TipoLayerSelezionato !&#x3D; &#x27;&#x27;) {
+        this.enableDrawingBtnsSignal$.next({
+          featureSelezionate: null,
+          visualizzazioneTotale: null,
+          ricetteSelected: true
+        });
+      }
+    });
+
+    this.sharedDataService.getLayerSelezionatoSourceAsObs()
+      .pipe(
+        withLatestFrom(this.ricette$),
+        takeUntil(this.signal)
+      ).subscribe(([LayerSelezionato, ricette]) &#x3D;&gt; {
+      if (LayerSelezionato !&#x3D;&#x3D; null) {
+        this.drawingManagerService.stopDrawingMode();
+        this.enableDrawingBtnsSignal$.next({
+          featureSelezionate: null,
+          visualizzazioneTotale: null,
+          ricetteSelected: ricette.length &gt; 0
+        });
+      }
+    });
+
+    combineLatest([
+      this.drawWindowOperationService.operation$,
+      this.ricette$
+    ])
+      .pipe(takeUntil(this.signal))
+      .subscribe(([operation, ricette]) &#x3D;&gt; this.doSetOperation(operation, ricette.length &gt; 0));
+
+    this.enableDrawingBtnsSignal$.pipe(
+      takeUntil(this.signal),
+      debounceTime(500)
+    ).subscribe(p &#x3D;&gt; {
+      this.abilitaDisabilitaPulsantiDisegno(p.featureSelezionate, p.visualizzazioneTotale, p.ricetteSelected);
+    })
+
+    if (this.kendoWindowsService.getOpenState(WindowTypes.DrawWindow)) {
+      this.windowArgs &#x3D; this.kendoWindowsService.getWindowArgs(WindowTypes.DrawWindow);
+    }
+  }
+
+  ngOnInit(): void {
+    if (this.windowArgs) {
+      if (this.modality &#x3D;&#x3D;&#x3D; GISModality.Trattamento) {
+        this.windowArgs.title &#x3D; this.translocoService.translate(&quot;Deseleziona&quot;);
+      } else {
+        this.windowArgs.title &#x3D; this.translocoService.translate(&quot;gis.Disegna&quot;);
+      }
+    }
+  }
+
+  ngOnDestroy() {
+    this.signal.next();
+    this.signal.complete();
+  }
+
+  setOperation(operation: enum_GISDrawingOperations): void {
+    const isMuzLayer &#x3D; this.layerService.layerItemSelected[0]?.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.Muz
+    const defaultPlot &#x3D; this.gisAttributiMuzService?.isDefaultPlot() ?? false;
+    if (isMuzLayer &amp;&amp; defaultPlot &amp;&amp; (
+      operation &#x3D;&#x3D; enum_GISDrawingOperations.marker ||
+      operation &#x3D;&#x3D; enum_GISDrawingOperations.strumentoDisegnoAvanzato ||
+      operation &#x3D;&#x3D; enum_GISDrawingOperations.polygon
+    )) {
+      this.giasDialogService.baseInfo(&#x27;&#x27;, &#x27;gis.SelezionaUnAppezzamentoDallaSchedaDati&#x27;, true);
+      return;
+    }
+
+    this.drawWindowOperationService.setOperation(operation)
+  }
+
+  private doSetOperation(operation: enum_GISDrawingOperations, ricetteSelected: boolean) {
+    if (operation &#x3D;&#x3D;&#x3D; enum_GISDrawingOperations.save) {
+      let f &#x3D; this.featureService.getUltimaFeatureSelezionata();
+      if (f?.geometry.type &#x3D;&#x3D; enum_FeatureGeometryType.Polygon &amp;&amp; !this.checkPolygonValidity())
+        return;
+    }
+
+    this.selectedOperation &#x3D; operation;
+    this.enableDrawingBtnsSignal$.next({
+      featureSelezionate: null,
+      visualizzazioneTotale: null,
+      ricetteSelected: ricetteSelected
+    });
+  }
+
+  private checkPolygonValidity(): boolean {
+    const DrawingManager &#x3D; require(&#x27;../../../GiasJSLibraries/GIS-js-libraries/DrawingManager&#x27;);
+    let f &#x3D; this.featureService.getUltimaFeatureSelezionata();
+    const path: google.maps.MVCArray&lt;google.maps.LatLng&gt; &#x3D; new google.maps.MVCArray&lt;google.maps.LatLng&gt;((&lt;google.maps.Data.LinearRing&gt;(&lt;google.maps.Data.Polygon&gt;this.featureInformationService.getGeometry(f.properties.id)).getArray()[0]).getArray());
+    this.polygonValidator &#x3D; new DrawingManager.PolygonValidator(path);
+
+    if (this.polygonValidator.isValid) {
+      return true;
+    } else {
+      DrawingManager.DisplayErrorPolyLines(this.polygonValidator.intersection, this.googleMapService.googleMapWrapper.googleMap);
+      return false;
+    }
+  }
+
+  private abilitaDisabilitaPulsantiDisegno(
+    featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[],
+    visualizzazioneTotale: boolean,
+    ricetteSelected: boolean
+  ) {
+
+    if (featureSelezionate &#x3D;&#x3D;&#x3D; null) {
+      featureSelezionate &#x3D; this.featureService.getFeatureSelezionate();
+    }
+
+    if (visualizzazioneTotale &#x3D;&#x3D;&#x3D; null) {
+      visualizzazioneTotale &#x3D; this.sharedDataService.getVisualizzazioneTotale();
+    }
+
+    let aggiornaVisibilitaBottoni &#x3D; new VisualizzaBottone(true, true, true, true, true, true, true, true, true, true, true, true, true);
+
+    const bPermessiPrecision: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Precision_Farming, 2);
+    const bPermessiAnagraficaImpianto: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_Impianto, 2);
+    const bPermessiAnagraficaAppezzamento: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_Appezzamento, 2);
+
+    const bPermessiAnagrafica: boolean &#x3D; bPermessiAnagraficaImpianto &amp;&amp; bPermessiAnagraficaAppezzamento;
+    const bTipologiaLayerStandard: boolean &#x3D; this.layerService.LayerSelected.getValue()?.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.Entita;
+
+    switch (true) {
+
+      case visualizzazioneTotale:
+        //--------------------------------------------------------------------------------
+        // Visualizzazione totale attiva
+        //--------------------------------------------------------------------------------
+        if (this.isSementiCase()) {
+          this.handleSementiCase(aggiornaVisibilitaBottoni, featureSelezionate);
+        } else {
+          aggiornaVisibilitaBottoni.disegnaPoligono &#x3D; false;
+          aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D; false;
+          aggiornaVisibilitaBottoni.scomponiModificaPunti &#x3D; false;
+          aggiornaVisibilitaBottoni.strumentoDisegnoAvanzato &#x3D; false;
+          aggiornaVisibilitaBottoni.strumentoUnisci &#x3D; false;
+          aggiornaVisibilitaBottoni.modificaImpianto &#x3D; false;
+          aggiornaVisibilitaBottoni.nuovoImpiantoAppezzamentoSelezionato &#x3D; false;
+          aggiornaVisibilitaBottoni.copiaFeature &#x3D; false;
+          aggiornaVisibilitaBottoni.incollaFeature &#x3D; false;
+          aggiornaVisibilitaBottoni.eliminaPoligono &#x3D; false;
+          aggiornaVisibilitaBottoni.lineeGuidaAB &#x3D; false;
+          aggiornaVisibilitaBottoni.datiAgricolturaPrecisone &#x3D; false;
+        }
+        break;
+
+      case featureSelezionate.length &gt; 0:
+        //--------------------------------------------------------------------------------
+        // Esistono feature selezionate
+        //--------------------------------------------------------------------------------
+        const ultimaFeatureSelezionata &#x3D; this.featureService.getUltimaFeatureSelezionata();
+        const permessiFeature &#x3D; this.featureService.getPermessiFeature(ultimaFeatureSelezionata);
+        const layerAppartenenza &#x3D; ultimaFeatureSelezionata.properties.layer;
+
+        // Salvo 24-02-2023: il layer CAMPIONAMENTI autorizza il dispaly del btn-disegna se e solo se vi è una feature selezionata
+        aggiornaVisibilitaBottoni.disegnaPoligono &#x3D;
+          permessiFeature.inserimento &amp;&amp;
+          this.isCampionamenti() &amp;&amp;
+          this.isOneSamplingSelected();
+        aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D;
+          permessiFeature.inserimento &amp;&amp;
+          this.isCampionamenti() &amp;&amp;
+          this.isOneSamplingSelected() &amp;&amp;
+          !this.drawingManagerService.isDrawingModeRunning();
+
+        aggiornaVisibilitaBottoni.strumentoDisegnoAvanzato &#x3D; aggiornaVisibilitaBottoni.strumentiDisegnoPunti;
+        aggiornaVisibilitaBottoni.copiaFeature &#x3D; bTipologiaLayerStandard;
+        aggiornaVisibilitaBottoni.incollaFeature &#x3D; bTipologiaLayerStandard;
+
+        aggiornaVisibilitaBottoni.scomponiModificaPunti &#x3D; this.isScomponiAvailable(featureSelezionate);
+        aggiornaVisibilitaBottoni.lineeGuidaAB &#x3D; bPermessiPrecision &amp;&amp; layerAppartenenza &#x3D;&#x3D;&#x3D; enum_LayerElementiGraficiStd.IMPIANTI;
+        aggiornaVisibilitaBottoni.datiAgricolturaPrecisone &#x3D; bPermessiPrecision &amp;&amp; layerAppartenenza &#x3D;&#x3D;&#x3D; enum_LayerElementiGraficiStd.IMPIANTI &amp;&amp; ricetteSelected;
+        aggiornaVisibilitaBottoni.strumentoUnisci &#x3D; isLayerMergeable(layerAppartenenza);
+
+        // Modifica
+        if (permessiFeature.modifica) {
+          aggiornaVisibilitaBottoni.modificaImpianto &#x3D; true;
+          aggiornaVisibilitaBottoni.nuovoImpiantoAppezzamentoSelezionato &#x3D; (layerAppartenenza &#x3D;&#x3D;&#x3D; enum_LayerElementiGraficiStd.APPEZZAMENTI);
+        } else {
+          aggiornaVisibilitaBottoni.modificaImpianto &#x3D; false;
+          aggiornaVisibilitaBottoni.nuovoImpiantoAppezzamentoSelezionato &#x3D; false;
+        }
+        // Cancellazione
+        aggiornaVisibilitaBottoni.eliminaPoligono &#x3D; permessiFeature.cancellazione &amp;&amp; featureSelezionate.length &#x3D;&#x3D;&#x3D; 1;
+        // Informazioni
+
+        if (this.selectedOperation &#x3D;&#x3D; enum_GISDrawingOperations.scomponiModificaPunti) {
+          this.kendoWindowsService.close(WindowTypes.DrawWindow);
+        }
+
+        break;
+
+      default:
+        //--------------------------------------------------------------------------------
+        // Nessuna feature selezionata
+        //--------------------------------------------------------------------------------
+        aggiornaVisibilitaBottoni.scomponiModificaPunti &#x3D; false;
+        aggiornaVisibilitaBottoni.lineeGuidaAB &#x3D; false;
+        aggiornaVisibilitaBottoni.datiAgricolturaPrecisone &#x3D; false;
+        aggiornaVisibilitaBottoni.strumentoDisegnoAvanzato &#x3D; false;
+        aggiornaVisibilitaBottoni.copiaFeature &#x3D; false;
+        aggiornaVisibilitaBottoni.incollaFeature &#x3D; false;
+        aggiornaVisibilitaBottoni.eliminaPoligono &#x3D; false;
+        aggiornaVisibilitaBottoni.nuovoImpiantoAppezzamentoSelezionato &#x3D; false;
+        aggiornaVisibilitaBottoni.modificaImpianto &#x3D; false;
+
+        let layerSelezionato: TipologiaLayer &#x3D; this.sharedDataService.getLayerSelezionato();
+        let isThereALayerSelected: boolean &#x3D; true;
+
+        const isLayerImpiantiVisible: boolean &#x3D;  this.isLayerImpiantiVisibleTest();
+        if (layerSelezionato &#x3D;&#x3D;&#x3D; null) {
+          aggiornaVisibilitaBottoni.strumentoDisegnoAvanzato &#x3D; false;
+          layerSelezionato &#x3D; this.getDefaultLayer();
+          isThereALayerSelected &#x3D; false;
+        }
+
+        aggiornaVisibilitaBottoni.strumentoUnisci &#x3D; isThereALayerSelected &amp;&amp; layerSelezionato !&#x3D; null &amp;&amp; isLayerMergeable(layerSelezionato.id);
+
+        const permessiLayer &#x3D; this.sharedDataService.getPermessiLayer(layerSelezionato);
+        // Inserimento
+        if ( (permessiLayer.inserimento || this.isLayerMuz(layerSelezionato)) &amp;&amp; isThereALayerSelected) {
+          aggiornaVisibilitaBottoni.disegnaPoligono &#x3D; true;
+          aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D; true;
+          aggiornaVisibilitaBottoni.strumentoDisegnoAvanzato &#x3D; false;
+        } else {
+          // Salvo 24-02-2023: il layer CAMPIONAMENTI autorizza il dispaly del btn-disegna se e solo se vi è un campionamento selezionato
+          const visibileSuLayerNonCampioni: boolean &#x3D; !isThereALayerSelected &amp;&amp; isLayerImpiantiVisible &amp;&amp; bPermessiAnagrafica;
+          aggiornaVisibilitaBottoni.disegnaPoligono &#x3D; this.isCampionamenti() ? this.isOneSamplingSelected() : visibileSuLayerNonCampioni;
+          aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D; this.isCampionamenti() ? this.isOneSamplingSelected() : visibileSuLayerNonCampioni;
+        }
+
+        // Le operazioni marker e polygon sono mutualmente esclusive
+        if (this.selectedOperation &#x3D;&#x3D; enum_GISDrawingOperations.marker) {
+          this.kendoWindowsService.close(WindowTypes.DrawWindow);
+        }
+
+        // if (this.selectedOperation &#x3D;&#x3D; enum_GISDrawingOperations.polygon) {
+        if (this.drawingManagerService.isDrawingModeRunning()) {
+          aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D; true;
+        }
+
+        break;
+
+    }
+
+    let tipologiaLayerSelezionato &#x3D; this.sharedDataService.getTipoLayerSelezionato();
+
+    // Salvatore Zammataro 31-01-2023: modifiche aggiunte per permettere di copia-incollare feature quando si tratta di layer standard (Entita)
+    if (this.featureService.getFeatureDaCopiare() !&#x3D; undefined &amp;&amp; tipologiaLayerSelezionato &#x3D;&#x3D;&#x3D; enum_TipologiaLayer.Entita) {
+      aggiornaVisibilitaBottoni.copiaFeature &#x3D; true;
+      aggiornaVisibilitaBottoni.incollaFeature &#x3D; true;
+    }
+
+    this.visualizzaBottone &#x3D; aggiornaVisibilitaBottoni;
+
+    if (this.window) {
+      this.window.setFocus();
+    }
+
+  }
+
+  private isLayerAppezzamento(l: TipologiaLayer): boolean {
+    return this.isLayerOf(l, enum_LayerElementiGraficiStd.APPEZZAMENTI);
+  }
+
+  private isLayerCampi(l: TipologiaLayer): boolean {
+    return  this.isLayerOf(l, enum_LayerElementiGraficiStd.CAMPI);
+  }
+
+  private isLayerMuz(l: TipologiaLayer): boolean {
+    return this.isLayerOf(l, enum_LayerElementiGraficiStd.Muz);
+  }
+
+  private isLayerOf(l: TipologiaLayer, t: string): boolean {
+    if (l &#x3D;&#x3D;&#x3D; undefined) {
+      return false;
+    }
+    if (l &#x3D;&#x3D;&#x3D; null) {
+      return false;
+    }
+    const rval: boolean &#x3D; (l.id &#x3D;&#x3D;&#x3D; t);
+    return rval;
+
+  }
+
+  private isLayerImpiantiVisibleTest(): boolean {
+    const  ll: TipologiaLayer[] &#x3D; this.sharedDataService.getTipologiaLayer();
+    let found: boolean &#x3D; false;
+    for (const l of ll) {
+      if (l.id &#x3D;&#x3D;&#x3D; &#x27;19&#x27; &amp;&amp; l.flagvisibile.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;1&#x27;) {
+        found &#x3D; true;
+      }
+    }
+    return found;
+  }
+
+  private isCampionamenti() {
+    return this.layerService.layerItemSelected[0]?.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.CAMPIONAMENTI;
+  }
+
+  private isOneSamplingSelected(): boolean {
+    return this.areSamplingNodesSelected() &amp;&amp; this.sharedDataService.getTreeViewCheckedKeys().length &#x3D;&#x3D; 1;
+  }
+
+  private areSamplingNodesSelected(): boolean {
+    let checkedKeys &#x3D; this.sharedDataService.getTreeViewCheckedKeys();
+
+    if (checkedKeys.length) {
+      for (let key of checkedKeys) {
+        let node &#x3D; this.treeGisService.getTreeNodeFromCheckedKey(key)
+        if (node.type &#x3D;&#x3D; enum_TreeDataItemType.Campionamenti) return true;
+      }
+      return false;
+    }
+
+    return false;
+  }
+
+  private isScomponiAvailable(featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]): boolean {
+    return featureSelezionate.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp;                                                           // Only one feature selected
+      featureSelezionate[0].properties.TipologiaGML &#x3D;&#x3D; enum_FeatureGeometryType.Polygon &amp;&amp;        // The selected feature must be a Polygon
+      this.sharedDataService.getTipologiaLayerById(enum_LayerElementiGraficiStd.IMPIANTI) !&#x3D; null; // We must have the impianti layer
+  }
+
+  private getDefaultLayer(): TipologiaLayer {
+
+    let layerSelezionato &#x3D; null;
+
+    const tipoLayerSelezionato &#x3D; this.sharedDataService.getTipoLayerSelezionato();
+
+    if (tipoLayerSelezionato !&#x3D;&#x3D; &#x27;&#x27;) {
+
+      if (tipoLayerSelezionato &#x3D;&#x3D;&#x3D; enum_TipologiaLayer.Entita) {
+
+        // Se tipo layer standard, assumo che il layer selezionato sia un impianto
+        layerSelezionato &#x3D; this.sharedDataService.getTipologiaLayerById(enum_LayerElementiGraficiStd.IMPIANTI);
+
+      } else {
+
+        // In caso contrario, prendo il primo layer non fisso
+        layerSelezionato &#x3D; this.sharedDataService.getTipologiaLayerFiltered(true, true)[0];
+
+      }
+
+    }
+
+    return layerSelezionato;
+
+  }
+
+  private handleSementiCase(aggiornaVisibilitaBottoni: VisualizzaBottone, featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]) {
+    let cfgS: SementieriParametrizzazione &#x3D; this.sharedDataService.getCfgSementiAsValue();
+    // TODO Salvo: suppongo l&#x27;indice della stringa sia 4, vedi mail Vanni del 24-04-2023
+    let auth: boolean &#x3D; cfgS.DatiPassaggio.split(&#x27;|&#x27;)[4] &#x3D;&#x3D; &#x27;2&#x27; ||
+      cfgS.SementiMappaturaLibera &#x3D;&#x3D; &#x27;True&#x27;;
+
+    let deleteAuth: boolean &#x3D; false;
+    let modifyAuth: boolean &#x3D; false;
+    let permessiFeature: PermessiFeature &#x3D; new PermessiFeature();
+
+    if (featureSelezionate.length &#x3D;&#x3D;&#x3D; 1) {
+      permessiFeature &#x3D; this.featureService.getPermessiFeature(featureSelezionate[0]);
+      deleteAuth &#x3D; permessiFeature.cancellazione;
+      modifyAuth &#x3D; permessiFeature.modifica;
+    }
+
+    if (featureSelezionate.length &gt; 1) {
+      deleteAuth &#x3D; false;
+      modifyAuth &#x3D; false;
+    }
+
+    aggiornaVisibilitaBottoni.disegnaPoligono &#x3D; auth;
+    aggiornaVisibilitaBottoni.strumentiDisegnoPunti &#x3D; auth;
+    aggiornaVisibilitaBottoni.scomponiModificaPunti &#x3D; auth;
+    aggiornaVisibilitaBottoni.modificaImpianto &#x3D; (auth &amp;&amp; modifyAuth);
+    aggiornaVisibilitaBottoni.nuovoImpiantoAppezzamentoSelezionato &#x3D; auth;
+    aggiornaVisibilitaBottoni.copiaFeature &#x3D; auth;
+    aggiornaVisibilitaBottoni.incollaFeature &#x3D; auth;
+    aggiornaVisibilitaBottoni.eliminaPoligono &#x3D; (auth &amp;&amp; deleteAuth);
+    aggiornaVisibilitaBottoni.lineeGuidaAB &#x3D; auth;
+    aggiornaVisibilitaBottoni.datiAgricolturaPrecisone &#x3D; auth;
+  }
+
+  private isSementiCase(): boolean {
+    return this.sharedDataService.getCfgSementiAsValue() !&#x3D; undefined &amp;&amp;
+      (
+        this.layerService.LayerSelected.getValue()?.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.OrganizzazioneAppartenenza ||
+        this.layerService.LayerSelected.getValue()?.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.GruppoColturale ||
+        this.layerService.LayerSelected.getValue()?.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.Cultivar ||
+        this.layerService.layerItemSelected[0]?.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.IMPIANTI ||
+        this.layerService.layerItemSelected[0]?.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.APPEZZAMENTI ||
+        (
+          this.layerService.LayerSelected.getValue()?.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.Entita &amp;&amp;
+          this.layerService.layerItemSelected[0] &#x3D;&#x3D; undefined
+        )
+      );
+  }
+}
+
+export class VisualizzaBottone {
+  constructor(
+    public pulisciSelezione: boolean &#x3D;  true,
+    public disegnaPoligono: boolean &#x3D;  true,
+    public strumentiDisegnoPunti: boolean &#x3D;  true,
+    public scomponiModificaPunti: boolean &#x3D;  true,
+    public strumentoDisegnoAvanzato: boolean &#x3D;  true,
+    public strumentoUnisci: boolean &#x3D;  true,
+    public modificaImpianto: boolean &#x3D;  true,
+    public nuovoImpiantoAppezzamentoSelezionato: boolean &#x3D;  true,
+    public copiaFeature: boolean &#x3D;  true,
+    public incollaFeature: boolean &#x3D;  true,
+    public eliminaPoligono: boolean &#x3D;  true,
+    public lineeGuidaAB: boolean &#x3D;  true,
+    public datiAgricolturaPrecisone: boolean &#x3D; true
+  ) { }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">﻿&lt;gis-window #window [windowArgs]&#x3D;&quot;windowArgs&quot; class&#x3D;&quot;pb-3&quot;&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;PulisciSelezione&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.pulisciSelezione &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.erase)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-deselect-map-area&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.Disegna&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.disegnaPoligono &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.polygon)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-edit-poly&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.StrumentoDisegnoPunti&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.strumentiDisegnoPunti &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.marker)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-gps-plants&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.StrumentoScomponiModificaPunti&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.scomponiModificaPunti &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.scomponiModificaPunti)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;k-i-xi-tools-break-edit-points&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.StrumentoDisegnoAvanzato&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.strumentoDisegnoAvanzato &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.strumentoDisegnoAvanzato)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-advanced-tool&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.StrumentoUnisciPoligoni&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.strumentoUnisci &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.strumentoUnisci)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-polygon-merge&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;Modifica&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.modificaImpianto &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.save)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-edit-plants&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div
+        class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.NuovoImpiantoAppezzamentoSelezionato&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.nuovoImpiantoAppezzamentoSelezionato &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.new)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-add&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;Copia&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.copiaFeature &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.copy)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-copy-object&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;Incolla&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.incollaFeature &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.paste)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-paste-object&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.EliminaPoligono&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.eliminaPoligono &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.delete)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-delete-poly&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.DatiAgricolturaPrecisoneCarica&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.datiAgricolturaPrecisone &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.datiAgricolturaPrecisone)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-draw-upload-datas&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class&#x3D;&quot;row&quot;
+        gisTooltip
+        title&#x3D;&quot;{{&#x27;gis.StrumentoLineeGuidaABAggiungi&#x27; | transloco}}&quot;
+        *ngIf&#x3D;&quot;visualizzaBottone.lineeGuidaAB &amp;&amp; modality &#x3D;&#x3D; GISModality.Full&quot;
+    &gt;
+        &lt;button
+            kendoButton
+            fillMode&#x3D;&quot;outline&quot;
+            [primary]&#x3D;&quot;false&quot;
+            (click)&#x3D;&quot;setOperation(GISDrawingOperations.lineeGuidaAB)&quot;
+        &gt;
+            &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;k-i-xi-tools-insert-guideline&quot;&gt;&lt;/i&gt;
+        &lt;/button&gt;
+    &lt;/div&gt;
+
+&lt;/gis-window&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./draw-window.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.k-content.k-window-content {
+    background-color: #F6F6F6!important;
+}
+
+/* .row.ng-star-inserted {
+    margin: 0;
+    margin-bottom: 0.3rem;
+    border: 0;
+} */
+
+button.k-button.k-button-md.k-rounded-md.k-button-outline-base.k-button-outline {
+    border: 0;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.row {
+    margin-top: 0.3rem;
+}
+
+@media only screen and (max-width: 991px) {
+    .row {
+        display: block;
+        margin-right: 0;
+        margin-left: 0;
+        width: 23%;
+        float: left;
+    }
+}
+
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div>﻿<gis-window #window [windowArgs]="windowArgs" class="pb-3">    <div class="row"        gisTooltip        title="{{\'PulisciSelezione\' | transloco}}"        *ngIf="visualizzaBottone.pulisciSelezione && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.erase)"        >            <i aria-hidden="true" class="xi-draw-deselect-map-area"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.Disegna\' | transloco}}"        *ngIf="visualizzaBottone.disegnaPoligono && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.polygon)"        >            <i aria-hidden="true" class="xi-draw-edit-poly"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.StrumentoDisegnoPunti\' | transloco}}"        *ngIf="visualizzaBottone.strumentiDisegnoPunti && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.marker)"        >            <i aria-hidden="true" class="xi-draw-gps-plants"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.StrumentoScomponiModificaPunti\' | transloco}}"        *ngIf="visualizzaBottone.scomponiModificaPunti && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.scomponiModificaPunti)"        >            <i aria-hidden="true" class="k-i-xi-tools-break-edit-points"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.StrumentoDisegnoAvanzato\' | transloco}}"        *ngIf="visualizzaBottone.strumentoDisegnoAvanzato && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.strumentoDisegnoAvanzato)"        >            <i aria-hidden="true" class="xi-draw-advanced-tool"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.StrumentoUnisciPoligoni\' | transloco}}"        *ngIf="visualizzaBottone.strumentoUnisci && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.strumentoUnisci)"        >            <i aria-hidden="true" class="xi-polygon-merge"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'Modifica\' | transloco}}"        *ngIf="visualizzaBottone.modificaImpianto && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.save)"        >            <i aria-hidden="true" class="xi-draw-edit-plants"></i>        </button>    </div>    <div        class="row"        gisTooltip        title="{{\'gis.NuovoImpiantoAppezzamentoSelezionato\' | transloco}}"        *ngIf="visualizzaBottone.nuovoImpiantoAppezzamentoSelezionato && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.new)"        >            <i aria-hidden="true" class="xi-draw-add"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'Copia\' | transloco}}"        *ngIf="visualizzaBottone.copiaFeature && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.copy)"        >            <i aria-hidden="true" class="xi-draw-copy-object"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'Incolla\' | transloco}}"        *ngIf="visualizzaBottone.incollaFeature && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.paste)"        >            <i aria-hidden="true" class="xi-draw-paste-object"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.EliminaPoligono\' | transloco}}"        *ngIf="visualizzaBottone.eliminaPoligono && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.delete)"        >            <i aria-hidden="true" class="xi-draw-delete-poly"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.DatiAgricolturaPrecisoneCarica\' | transloco}}"        *ngIf="visualizzaBottone.datiAgricolturaPrecisone && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.datiAgricolturaPrecisone)"        >            <i aria-hidden="true" class="xi-draw-upload-datas"></i>        </button>    </div>    <div class="row"        gisTooltip        title="{{\'gis.StrumentoLineeGuidaABAggiungi\' | transloco}}"        *ngIf="visualizzaBottone.lineeGuidaAB && modality == GISModality.Full"    >        <button            kendoButton            fillMode="outline"            [primary]="false"            (click)="setOperation(GISDrawingOperations.lineeGuidaAB)"        >            <i aria-hidden="true" class="k-i-xi-tools-insert-guideline"></i>        </button>    </div></gis-window></div>'
+    var COMPONENTS = [{'name': 'AbbattimentoImpiantiComponent', 'selector': 'app-abbattimento-impianti'},{'name': 'AccessoNegatoComponent', 'selector': 'app-accesso-negato'},{'name': 'AcquaComponent', 'selector': 'app-acqua'},{'name': 'AgendaFiltersComponent', 'selector': 'agenda-filters'},{'name': 'AgriculturalExerciceContributeLinkComponent', 'selector': 'app-agricultural-exercice-contribute-link'},{'name': 'AgriculturalPlotMachineLinkComponent', 'selector': 'app-agricultural-plots-machines-link'},{'name': 'AgriculturalPlotSlopeComponent', 'selector': 'app-agricultural-plot-slope'},{'name': 'AgriculturalPlotWeavingComponent', 'selector': 'app-agricultural-plot-weaving'},{'name': 'AlertDocumentiWidgetComponent', 'selector': 'app-alert-documenti-widget'},{'name': 'AllOperationsTableComponent', 'selector': 'all-operations-table'},{'name': 'AnagraficaComponent', 'selector': 'gias-anagrafica'},{'name': 'AnagraficaTreeFiltersComponent', 'selector': 'tree-filters'},{'name': 'AnagraficheIndiciMaturitaComponent', 'selector': 'app-anagrafiche-indici-maturita'},{'name': 'AnagraficheRilieviAvversitaComponent', 'selector': 'app-anagrafiche-rilievi-avversita'},{'name': 'AnalisiTerrenoComponent', 'selector': 'app-analisi-terreno'},{'name': 'AnalisiTerrenoEditComponent', 'selector': 'app-analisi-terreno-edit'},{'name': 'AnnoValutazioniEditComponent', 'selector': 'app-anno-valutazioni-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppezzamentiCampoEditComponent', 'selector': 'app-appezzamento-campo-edit'},{'name': 'AppezzamentiComponent', 'selector': 'app-appezzamenti'},{'name': 'AppezzamentoEditComponent', 'selector': 'app-appezzamento-edit'},{'name': 'AppezzamentoGlobalEditComponent', 'selector': 'app-appezzamento-global-edit'},{'name': 'AvversitaComponent', 'selector': 'app-avversita'},{'name': 'AxpMessageContentComponent', 'selector': 'app-axp-message-content'},{'name': 'AziendaComponent', 'selector': 'app-azienda'},{'name': 'AziendeMultiPieWidgetComponent', 'selector': 'app-aziende-multi-pie-widget'},{'name': 'BiologicoComponent', 'selector': 'centri-biologico'},{'name': 'BottoneAggiuntaProdottoComponent', 'selector': 'app-bottone-aggiunta-prodotto'},{'name': 'BottoneCreaProdottoComponent', 'selector': 'app-bottone-crea-prodotto'},{'name': 'BottoneRicercaProdotti', 'selector': 'app-bottone-ricerca-prodotti'},{'name': 'BottoniGestioneProdottoComponent', 'selector': 'app-bottoni-gestione-prodotto'},{'name': 'BottoniSalvataggioComponent', 'selector': 'app-bottoni-salvataggio'},{'name': 'BottoniSezioneProdottiComponent', 'selector': 'app-bottoni-sezione-prodotti'},{'name': 'BottoniTestataComponent', 'selector': 'btn-bottoni-testata'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'BrogliaccioGridComponent', 'selector': 'brogliaccio-table'},{'name': 'BudgetComponent', 'selector': 'gias-budget'},{'name': 'CacCodificheComponent', 'selector': 'app-cac-codifiche'},{'name': 'CampiComponent', 'selector': 'app-campi'},{'name': 'CampiEditComponent', 'selector': 'app-campi-edit'},{'name': 'CampiShortDescriptionComponent', 'selector': 'campi-short-description'},{'name': 'CardImpostazioneComponent', 'selector': 'app-card-impostazione'},{'name': 'CatastoCampoEditComponent', 'selector': 'app-catasto-campo-edit'},{'name': 'CatastoClassamentoEditComponent', 'selector': 'app-catasto-classamento-edit'},{'name': 'CatastoComponent', 'selector': 'app-catasto'},{'name': 'CatastoEditComponent', 'selector': 'app-catasto-edit'},{'name': 'CatastoMacrousiEditComponent', 'selector': 'app-catasto-macrousi-edit'},{'name': 'CatastoMetodoProduzioneEditComponent', 'selector': 'app-catasto-metodo-produzione-edit'},{'name': 'CatastoPossessiEditComponent', 'selector': 'app-catasto-possessi-edit'},{'name': 'CatastoZoneEditComponent', 'selector': 'app-catasto-zone-edit'},{'name': 'CentriCodiciGridComponent', 'selector': 'grid-centri-codici'},{'name': 'CentriComponent', 'selector': 'gias-anagrafica-centri'},{'name': 'CentroEditComponent', 'selector': 'app-centri-edit'},{'name': 'ChartWidgetComponent', 'selector': 'app-chart-widget'},{'name': 'ClearButtonComponent', 'selector': 'app-clear-button'},{'name': 'ClientePermessiComponent', 'selector': 'app-cliente-permessi'},{'name': 'ClientePermessiGridComponent', 'selector': 'app-cliente-permessi-grid'},{'name': 'Co2ComparisonWidgetComponent', 'selector': 'app-co2-comparison-widget'},{'name': 'CodiciComponent', 'selector': 'app-codici'},{'name': 'CodiciTemplateComponent', 'selector': 'gias-codici-template'},{'name': 'ColtureMultiAziendaWidget', 'selector': 'app-colture-multiazienda-widget'},{'name': 'ColtureWidgetComponent', 'selector': 'app-colture-widget'},{'name': 'ColumnsChartWidgetComponent', 'selector': 'app-columns-chart-widget'},{'name': 'ComparisonWidgetComponent', 'selector': 'app-comparison-widget'},{'name': 'ConfigurazioneOperazioniCulturaliComponent', 'selector': 'app-configurazione-operazioni-culturali'},{'name': 'ConformitaWidgetComponent', 'selector': 'app-conformita-widget'},{'name': 'ConfrontoPcCatastoComponent', 'selector': 'app-confronto-pc-catasto'},{'name': 'ConfrontoPcCatastoGridComponent', 'selector': 'app-confronto-pc-catasto-grid'},{'name': 'ConfrontoPianoColturaleComponent', 'selector': 'app-confronto-piano-colturale'},{'name': 'ConsultaSincroDatiAppComponent', 'selector': 'app-consulta-sincro-dati-app'},{'name': 'ContattiAssociaUtenteComponent', 'selector': 'app-contatti-associa-utente'},{'name': 'ContattiComponent', 'selector': 'app-contatti'},{'name': 'ContattiEditComponent', 'selector': 'app-contatti-edit'},{'name': 'ContoEconomicoDettaglioComponent', 'selector': 'app-conto-economico-dettaglio'},{'name': 'CooperativeComponent', 'selector': 'cooperative-edit'},{'name': 'CostiAccessoriComponent', 'selector': 'app-costi-accessori'},{'name': 'CostiMacchinaEditComponent', 'selector': 'app-macchina-edit-costi'},{'name': 'CostiRicaviAIWidgetComponent', 'selector': 'costi-ricavi-ai-widget'},{'name': 'CounterComponent', 'selector': 'app-counter-component'},{'name': 'CustomMessageComponent', 'selector': 'custom-message-component'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataOperazioneComponent', 'selector': 'app-data-operazione'},{'name': 'DatiAccessoriComponent', 'selector': 'dati-accessori'},{'name': 'DatiCatastaliComponent', 'selector': 'app-dati-catastali'},{'name': 'DatiCentroComponent', 'selector': 'dati-centro'},{'name': 'DatiGeneraliFarmersComponent', 'selector': 'app-dati-generali-farmers-widget'},{'name': 'DatiPrevisionailiColtureGridComponent', 'selector': 'app-dati-previsionaili-colture-grid'},{'name': 'DatiPrevisionaliColtureComponent', 'selector': 'app-dati-previsionali-colture'},{'name': 'DettagliFertilizzantiComponent', 'selector': 'app-dettagli-fertilizzanti'},{'name': 'DettagliFormulatiComponent', 'selector': 'app-dettagli-formulati'},{'name': 'DettagliSementiComponent', 'selector': 'app-dettagli-sementi'},{'name': 'DialogComponent', 'selector': 'app-dialog'},{'name': 'DisciplinareComponent', 'selector': 'app-disciplinare'},{'name': 'DomandaIrriguaComponent', 'selector': 'app-menu-dss'},{'name': 'DosiComponent', 'selector': 'app-dosi'},{'name': 'DraggableComponent', 'selector': 'app-draggable'},{'name': 'DrawWindowComponent', 'selector': 'draw-window'},{'name': 'EditGruppiMerceComponent', 'selector': 'app-gruppi-merce'},{'name': 'EditGruppiMerceGridComponent', 'selector': 'gruppi-merce-grid'},{'name': 'ErosioneComparisonWidgetComponent', 'selector': 'app-erosione-comparison-widget'},{'name': 'EserciziComponent', 'selector': 'app-esercizi'},{'name': 'EserciziCopiaSpostaAppezzamentiComponent', 'selector': 'app-esercizi-copia-sposta-appezzamenti'},{'name': 'EsercizioEditComponent', 'selector': 'app-esercizio-edit'},{'name': 'ExportQdCToAgeaComponent', 'selector': 'app-export-qdc-to-agea'},{'name': 'ExportQdcToAgeaFarmFilterComponent', 'selector': 'app-export-qdc-to-agea-farm-filter'},{'name': 'ExportQdcToAgeaJsonDialogComponent', 'selector': 'app-export-qdc-to-agea-json-dialog'},{'name': 'FabbricatiComponent', 'selector': 'app-fabbricati'},{'name': 'FabbricatiEditComponent', 'selector': 'app-fabbricati-edit'},{'name': 'FertilizzantiComponent', 'selector': 'app-fertilizzanti'},{'name': 'FetchDataComponent', 'selector': 'app-fetch-data'},{'name': 'FiltersRilieviComponent', 'selector': 'app-filters-rilievi'},{'name': 'FiltersVisiteComponent', 'selector': 'app-filters-visite'},{'name': 'FiltriRequisitiStabilimentoComponent', 'selector': 'app-filtri-requisiti-stabilimento'},{'name': 'FiltriTemporaliComponent', 'selector': 'app-filtri-temporali'},{'name': 'FiltriUtenteComponent', 'selector': 'app-filtri-utente'},{'name': 'FiltroRicercaComponent', 'selector': 'app-filtro-ricerca'},{'name': 'FiltroSqlMateriePrimeComponent', 'selector': 'app-filtro-sql-materie-prime'},{'name': 'FlagMagazziniAgenzieComponent', 'selector': 'app-flag-magazzini-agenzie'},{'name': 'FlagMagazziniEsterniComponent', 'selector': 'app-flag-magazzini-esterni'},{'name': 'FlagVisualizzaGiacenzeZeroComponent', 'selector': 'app-flag-visualizza-giacenze-zero'},{'name': 'FooterComponent', 'selector': 'gias-master-footer'},{'name': 'FormatiStampaComponent', 'selector': 'impostazione-formati-stampa'},{'name': 'FormImpostazioniAziendeCentriComponent', 'selector': 'app-form-impostazioni-aziende-centri'},{'name': 'FormImpostazioniComponent', 'selector': 'app-form-impostazioni'},{'name': 'FormulatiComponent', 'selector': 'app-formulati'},{'name': 'GeneralFieldComponent', 'selector': 'app-settings-general-field'},{'name': 'GeoFiltersComponent', 'selector': 'app-geo-filters'},{'name': 'GestioneNoteComponent', 'selector': 'app-gestione-note'},{'name': 'GestioneOperazioniComponent', 'selector': 'app-gestione-operazioni'},{'name': 'GestioneRichiesteComponent', 'selector': 'gias-gestione-richieste'},{'name': 'GhgColtureWidgetComponent', 'selector': 'app-ghg-colture-widget'},{'name': 'GiasAddressTemplateComponent', 'selector': 'gias-address-template'},{'name': 'GiasBreadcrumbsComponent', 'selector': 'gias-breadcrumbs'},{'name': 'GisAlgorithmConfigurationComponent', 'selector': 'gis-algorithm-configuration'},{'name': 'GisAlgorithmConfigurationLogComponent', 'selector': 'gis-algorithm-configuration-log'},{'name': 'GisAlgorithmConfigurationWindowComponent', 'selector': 'gis-algorithm-configuration-window'},{'name': 'GISAlgorithmResultComponent', 'selector': 'gis-algorithm-result'},{'name': 'GISAnalisiMappeSatellitariAnimationComponent', 'selector': 'gis-analisi-mappe-satellitari-animation'},{'name': 'GISAnalisiMappeSatellitariCalendarioComponent', 'selector': 'gis-analisi-mappe-satellitari-calendario'},{'name': 'GISAnalisiMappeSatellitariGraficiComponent', 'selector': 'gis-analisi-mappe-satellitari-grafici'},{'name': 'GISAnalisiMappeSatellitariNotificheComponent', 'selector': 'gis-analisi-mappe-satellitari-notifiche'},{'name': 'GISAnalisiMappeSatellitariOpzioniComponent', 'selector': 'gis-analisi-mappe-satellitari-opzioni'},{'name': 'GISAnalisiMappeSatellitariWindowComponent', 'selector': 'gis-analisi-mappe-satellitari-window'},{'name': 'GISAttributiAlgorithmConfigurationComponent', 'selector': 'gis-attributi-algorithm-configuration'},{'name': 'GISAttributiComponent', 'selector': 'GIS-attributi'},{'name': 'GISAttributiExportComponent', 'selector': 'gis-attributi-export'},{'name': 'GISAttributiFileUploadCatastoComponent', 'selector': 'gis-attributi-file-upload-catasto'},{'name': 'GISAttributiFileUploadComponent', 'selector': 'gis-attributi-file-upload'},{'name': 'GISAttributiFileUploadRasterComponent', 'selector': 'gis-attributi-file-upload-raster'},{'name': 'GISAttributiFileUploadStandardComponent', 'selector': 'gis-attributi-file-upload-standard'},{'name': 'GISAttributiGridComponent', 'selector': 'GIS-attributi-grid'},{'name': 'GISAttributiMuzGridComponent', 'selector': 'GIS-attributi-muz-grid'},{'name': 'GISAttributiRasterMasksComponent', 'selector': 'gis-attributi-raster-masks'},{'name': 'GISAttributiRasterMasksGroupsPermissionsComponent', 'selector': 'gis-attributi-raster-masks-groups-permissions'},{'name': 'GISAttributiRasterMasksPermissionsComponent', 'selector': 'gis-attributi-raster-masks-permissions'},{'name': 'GISAttributiRasterMasksUsersPermissionsComponent', 'selector': 'gis-attributi-raster-masks-users-permissions'},{'name': 'GISAttributiSettingsComponent', 'selector': 'gis-attributi-settings'},{'name': 'GISBookmarksWindowComponent', 'selector': 'gis-bookmarks-window'},{'name': 'GisBottomWindow', 'selector': 'gis-bottom-window'},{'name': 'GISCalendarModalComponent', 'selector': 'app-gis-calendar-modal'},{'name': 'GISCfgProiezioniComponent', 'selector': 'gis-cfg-proiezioni'},{'name': 'GISCfgProiezioniConfigComponent', 'selector': 'gis-cfg-proiezioni-config'},{'name': 'GISCfgProiezioniDialogComponent', 'selector': 'gis-cfg-proiezioni-dialog'},{'name': 'GISCfgProiezioniGroupsPermissionsComponent', 'selector': 'gis-cfg-proiezioni-groups-permissions'},{'name': 'GISCfgProiezioniUsersPermissionsComponent', 'selector': 'gis-cfg-proiezioni-users-permissions'},{'name': 'GISCfgProziezioniLayerComponent', 'selector': 'gis-cfg-proiezioni-layer'},{'name': 'GISCfgProziezioniPermissionsComponent', 'selector': 'gis-cfg-proiezioni-permissions'},{'name': 'GisCheckboxComponent', 'selector': 'gis-checkbox'},{'name': 'GISComponent', 'selector': 'GIS'},{'name': 'GISConfigurationModalComponent', 'selector': 'app-gis-configuration-modal'},{'name': 'GISDeleteFeatureWindowComponent', 'selector': 'gis-delete-feature-window'},{'name': 'GISEditMuzComponent', 'selector': 'gis-edit-muz'},{'name': 'GISEditMuzParticelleCatastaliComponent', 'selector': 'gis-edit-muz-particelle-catastali'},{'name': 'GISFixedLayerPropertyWindowComponent', 'selector': 'gis-fixed-layer-property-window'},{'name': 'GISGestionePianoRateoComponent', 'selector': 'gis-gestione-piano-rateo'},{'name': 'GISGestionePianoRateoLoaderComponent', 'selector': 'gis-gestione-piano-rateo-loader'},{'name': 'GISGestionePianoRateoPickerComponent', 'selector': 'gis-gestione-piano-rateo-picker'},{'name': 'GISInitMuzGroupComponent', 'selector': 'gis-init-muz-group'},{'name': 'GISLayerAdvancedSettingsWindowComponent', 'selector': 'gis-layer-advanced-settings-window'},{'name': 'GISLayerColorPickerWindowComponent', 'selector': 'gis-layer-color-picker-window'},{'name': 'GISLayerGroupsPermissionsComponent', 'selector': 'gis-layer-groups-permissions'},{'name': 'GISLayerListItemComponent', 'selector': 'gis-layer-list-item'},{'name': 'GISLayerListItemMappeSatellitariComponent', 'selector': 'gis-layer-list-item-mappe-satellitari'},{'name': 'GISLayerListItemRasterComponent', 'selector': 'gis-layer-list-item-raster'},{'name': 'GISLayerPermissionsWindowComponent', 'selector': 'gis-layer-permissions-window'},{'name': 'GISLayerUsersPermissionsComponent', 'selector': 'gis-layer-users-permissions'},{'name': 'GISLayerVisibilityConfigurationWindowComponent', 'selector': 'gis-layer-visibility-configuration-window'},{'name': 'GISLayerWindowComponent', 'selector': 'gis-layer-window'},{'name': 'GISLayerWindowToolbarComponent', 'selector': 'gis-layer-window-toolbar'},{'name': 'GISParticelleCatastaliComponent', 'selector': 'gis-particelle-catastali'},{'name': 'GISRasterConfigurationWindowComponent', 'selector': 'gis-raster-configuration-window'},{'name': 'GisToolbarComponent', 'selector': 'gis-toolbar'},{'name': 'GisToolbarMobileComponent', 'selector': 'gis-toolbar-mobile'},{'name': 'GisTreeFiltersComponent', 'selector': 'tree-filters-gis'},{'name': 'GISWindowComponent', 'selector': 'gis-window'},{'name': 'GoogleMapComponent', 'selector': 'gias-google-map'},{'name': 'GridAddMacchineComponent', 'selector': 'app-grid-add-macchine'},{'name': 'GridAddOperaiComponent', 'selector': 'app-grid-add-operai'},{'name': 'GridAziendeCentriComponent', 'selector': 'app-grid-aziende-centri'},{'name': 'GridAziendeCentriImpostazioniComponent', 'selector': 'app-grid-aziende-centri-impostazioni'},{'name': 'GridCapiAnimaliComponent', 'selector': 'app-capi-animali'},{'name': 'GridDosiProdottiComponent', 'selector': 'app-grid-dosi-prodotti'},{'name': 'GridGroupTransitionsComponent', 'selector': 'app-grid-group-transitions'},{'name': 'GridGruppiComponent', 'selector': 'app-grid-gruppi'},{'name': 'GridImpiantiComponent', 'selector': 'app-grid-impianti'},{'name': 'GridMacchineComponent', 'selector': 'app-grid-macchine'},{'name': 'GridNoteComponent', 'selector': 'app-grid-note'},{'name': 'GridOperatoriComponent', 'selector': 'app-grid-operatori'},{'name': 'GridPasswordComponent', 'selector': 'app-grid-password'},{'name': 'GridPermessiComponent', 'selector': 'app-grid-permessi'},{'name': 'GridPermessiEditComponent', 'selector': 'app-grid-permessi-edit'},{'name': 'GridProdottiDaTrattareComponent', 'selector': 'app-grid-prodotti-da-trattare'},{'name': 'GridProdottiSomministrazioneComponent', 'selector': 'app-prodotti-somministrazione'},{'name': 'GridProfiliComponent', 'selector': 'app-grid-profili'},{'name': 'GridProfiliPermessiComponent', 'selector': 'app-grid-profili-permessi'},{'name': 'GridRaccoltaAutoComponent', 'selector': 'app-grid-raccolta-auto'},{'name': 'GridRilieviComponent', 'selector': 'app-grid-rilievi'},{'name': 'GridRipartizioneManualeComponent', 'selector': 'app-grid-ripartizione-manuale'},{'name': 'GridUtentiPermessiComponent', 'selector': 'app-grid-utenti-permessi'},{'name': 'GridVisibilitaEditComponent', 'selector': 'app-grid-visibilita-edit'},{'name': 'GridZooComponent', 'selector': 'grid-zoo'},{'name': 'GrigliaAnalisiTerrenoComponent', 'selector': 'app-griglia-analisi-terreno'},{'name': 'GrigliaEntitaComponent', 'selector': 'app-griglia-entita'},{'name': 'GrigliaFiltroRicercaComponent', 'selector': 'app-griglia-filtro'},{'name': 'GruppiMerceGrid2Component', 'selector': 'gruppi-merce-grid2'},{'name': 'GruppiMerceMasterComponent', 'selector': 'app-gruppi-merce'},{'name': 'GruppiRaccoltaComponent', 'selector': 'app-gruppi-raccolta'},{'name': 'GruppiUtentiComponent', 'selector': 'app-gruppi-utenti'},{'name': 'GruppiUtentiGridComponent', 'selector': 'gruppi-utenti-grid'},{'name': 'GruppiUtentiPerGruppiMerce', 'selector': 'gruppi-utentix-gruppi-merce'},{'name': 'GruppiUtentixGruppiMerceGridComponent', 'selector': 'gruppi-utentix-gruppi-merce-grid'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImgBase64Component', 'selector': 'app-img64'},{'name': 'ImpiantiComponent', 'selector': 'app-impianti'},{'name': 'ImpiantoEditComponent', 'selector': 'app-impianto-edit'},{'name': 'ImpiantoShortDescriptionComponent', 'selector': 'impianto-short-description'},{'name': 'ImportUtentiComponent', 'selector': 'app-import-utenti'},{'name': 'ImpostazioniUtenteComponent', 'selector': 'app-impostazioni-utente'},{'name': 'ImpresaEditComponent', 'selector': 'gias-impresa-edit'},{'name': 'ImpreseComponent', 'selector': 'gias-anagrafica-imprese'},{'name': 'ImpreseFilterComponent', 'selector': 'gias-imprese-filter'},{'name': 'ImpreseParametriGHGComponent', 'selector': 'app-imprese-parametri-ghg'},{'name': 'IndicatoriWidgetComponent', 'selector': 'app-indicatori-widget'},{'name': 'IndicatoriWidgetDashboardComponent', 'selector': 'app-indicatori-widget-dashboard'},{'name': 'IndicatoriWidgetFullComponent', 'selector': 'app-indicatori-widget-full'},{'name': 'IndicatoriWidgetGridComponent', 'selector': 'app-indicatori-widget-grid'},{'name': 'IndicazioniComponent', 'selector': 'zoo-indicazioni'},{'name': 'IndirizziComponent', 'selector': 'app-appezzamento-edit-indirizzi'},{'name': 'InvestimentoCatastaleAppezzamentoComponent', 'selector': 'app-investimento-catastale-appezzamento'},{'name': 'InvestimentoCatastaleCampoComponent', 'selector': 'app-investimento-catastale-campo'},{'name': 'InvestimentoCatastaleComponent', 'selector': 'app-investimento-catastale'},{'name': 'KendoTreeContainerComponent', 'selector': 'app-kendo-tree'},{'name': 'LayerWindowComponent', 'selector': 'satellite-data-window'},{'name': 'LettureContatoriAziendaliGridComponent', 'selector': 'app-letture-contatori-aziendali-grid'},{'name': 'LettureContatoriComponent', 'selector': 'app-letture-contatori'},{'name': 'LineeGuidaABWindowComponent', 'selector': 'app-linee-guida-ab-window'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MacchinaEditCaratteristicheComponent', 'selector': 'app-macchine-edit-caratteristiche'},{'name': 'MacchinaShortDescriptionComponent', 'selector': 'macchina-short-description'},{'name': 'MacchineComponent', 'selector': 'app-macchine'},{'name': 'MacchineEditComponent', 'selector': 'app-macchine-edit'},{'name': 'MacchineEditGerarchiaComponent', 'selector': 'app-macchine-edit-gerarchia'},{'name': 'MacchineEditImageComponent', 'selector': 'app-macchine-edit-image'},{'name': 'MagazzinoLottoComponent', 'selector': 'app-magazzino-lotto'},{'name': 'MainValutazioniEditComponent', 'selector': 'app-main-valutazioni-edit'},{'name': 'MappaMultiAziendaComponent', 'selector': 'app-mappa-multiazienda-widget'},{'name': 'MarkerWindowComponent', 'selector': 'app-marker-window'},{'name': 'MenuAgendaComponent', 'selector': 'app-menu-agenda'},{'name': 'MenuContestualeComponent', 'selector': 'gias-menu-contestuale'},{'name': 'MenuImpostazioniAziendeCentriComponent', 'selector': 'app-menu-impostazioni-aziende-centri'},{'name': 'MenuProfilazioneComponent', 'selector': 'app-menu-profilazione'},{'name': 'MenuProfilazioneGridComponent', 'selector': 'app-grid-menu-profilazione'},{'name': 'MenuRilieviComponent', 'selector': 'app-menu-rilievi'},{'name': 'MenuUtentiComponent', 'selector': 'app-menu-utenti'},{'name': 'MenuVisibilitaComponent', 'selector': 'app-menu-visibilita'},{'name': 'MenuVisiteComponent', 'selector': 'app-menu-visite'},{'name': 'MenuZooComponent', 'selector': 'zoo-menu'},{'name': 'MeteoWidgetComponent', 'selector': 'app-meteo-widget'},{'name': 'MeteoWidgetFullComponent', 'selector': 'app-meteo-widget-full'},{'name': 'ModalitaApplicazioneComponent', 'selector': 'app-modalita-applicazione'},{'name': 'MonitoraggioWidgetComponent', 'selector': 'app-monitoraggio-widget'},{'name': 'MultiOperazioneComponent', 'selector': 'app-multi-operazione'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'NotaTestualeComponent', 'selector': 'app-nota-testuale'},{'name': 'NuovaOperazioneComponent', 'selector': 'app-esercizi-nuova-operazione'},{'name': 'OnCloseEsercizioComponent', 'selector': 'app-on-close-esercizio'},{'name': 'OperationsListComponent', 'selector': 'operations-list'},{'name': 'OperationsMassEditComponent', 'selector': 'app-operations-mass-edit'},{'name': 'OperatoreComponent', 'selector': 'app-operatore'},{'name': 'OperazioneCausaleComponent', 'selector': 'app-operazione-causale'},{'name': 'OperazioniTemplateWidgetComponent', 'selector': 'app-operazioni-template-widget'},{'name': 'OpzioniRaccoltaComponent', 'selector': 'app-opzioni-raccolta'},{'name': 'OpzioniSeminaComponent', 'selector': 'app-opzioni-semina'},{'name': 'PaeseMultiAziendaComponent', 'selector': 'app-paese-multiazienda-widget'},{'name': 'PageNotFoundComponent', 'selector': 'gias-page-not-found'},{'name': 'PaginaAziendeCentriImpostazioniComponent', 'selector': 'app-pagina-aziende-centri-impostazioni'},{'name': 'PaginaImpostazioniMassiveComponent', 'selector': 'app-pagina-impostazioni-massive'},{'name': 'ParametriAnalisiTerrenoComponent', 'selector': 'app-parametri-analisi-terreno'},{'name': 'PercentGridViewerComponent', 'selector': 'app-percent-grid-viewer'},{'name': 'PianoColturaleGridComponent', 'selector': 'app-piano-colturale-grid'},{'name': 'PianoContiComponent', 'selector': 'app-piano-conti'},{'name': 'PianoContiEditComponent', 'selector': 'app-piano-conti-edit'},{'name': 'PlvComparisonWidgetComponent', 'selector': 'app-plv-comparison-widget'},{'name': 'PolygonMergeWindowComponent', 'selector': 'gis-polygon-merge-window'},{'name': 'PolygonWindowComponent', 'selector': 'polygon-window'},{'name': 'PreferitiConfigComponent', 'selector': 'app-preferiti-config'},{'name': 'PreferitoCardComponent', 'selector': 'app-preferito-card'},{'name': 'PrintExportComponent', 'selector': 'print-export-button'},{'name': 'ProdottiComponent', 'selector': 'app-prodotti'},{'name': 'ProduttivitaComparisonWidgetComponent', 'selector': 'app-produttivita-comparison-widget'},{'name': 'ProduzioneColtureWidgetComponent', 'selector': 'app-produzione-colture-widget'},{'name': 'ProfilazioneImpreseCampoApplicativoComponent', 'selector': 'app-profilazione-imprese-campo-applicativo'},{'name': 'ProfilazioneImpreseComponent', 'selector': 'app-profilazione-imprese'},{'name': 'ProfilazioneImpreseContattiComponent', 'selector': 'app-profilazione-imprese-contatti'},{'name': 'ProfilazioneImpreseDefaultDistintaProduzioneComponent', 'selector': 'app-profilazione-imprese-default-distinta-produzione'},{'name': 'ProfilazioneImpreseDefaultPianiColturaliComponent', 'selector': 'app-profilazione-imprese-default-piani-colturali'},{'name': 'ProfilazioneImpreseDefaultSpecieComponent', 'selector': 'app-profilazione-imprese-default-specie'},{'name': 'ProfilazioneImpreseGlobalComponent', 'selector': 'app-profilazione-imprese-global'},{'name': 'ProfilazioneImpreseGruppoNoteDialogComponent', 'selector': 'app-profilazione-imprese-gruppo-note-dialog'},{'name': 'ProfilazioneImpreseGruppoOperazioneComponent', 'selector': 'app-profilazione-imprese-gruppo-operazione'},{'name': 'ProfilazioneImpreseLavorazioneComponent', 'selector': 'app-profilazione-imprese-lavorazione'},{'name': 'ProfilazioneImpreseMacchineComponent', 'selector': 'app-profilazione-imprese-macchine'},{'name': 'ProfilazioneImpreseMacchineDialogComponent', 'selector': 'app-profilazione-imprese-macchine-dialog'},{'name': 'ProfilazioneImpreseMacchineOperatoriComponent', 'selector': 'app-profilazione-imprese-macchine-operatori'},{'name': 'ProfilazioneImpreseNoteComponent', 'selector': 'app-profilazione-imprese-note'},{'name': 'ProfilazioneImpreseNoteListComponent', 'selector': 'app-profilazione-imprese-note-list'},{'name': 'ProfilazioneImpreseParametriGeneraliColturaComponent', 'selector': 'app-profilazione-imprese-parametri-generali-coltura'},{'name': 'ProfilazioneImpreseSpecieComponent', 'selector': 'app-profilazione-imprese-specie'},{'name': 'ProfilazioneImpreseVarietaComponent', 'selector': 'app-profilazione-imprese-varieta'},{'name': 'ProfiliPermessiComponent', 'selector': 'app-profili-permessi'},{'name': 'ProtocolliComponent', 'selector': 'zoo-protocolli'},{'name': 'ProtocolliInCorsoComponent', 'selector': 'zoo-protocolli-in-corso'},{'name': 'ProvinciaComuneMultiselectComponent', 'selector': 'app-provincia-comune-multiselect'},{'name': 'QuadernoDiCampagnaComponent', 'selector': 'app-quaderno-di-campagna'},{'name': 'QuantitaProdottiComponent', 'selector': 'app-quantita-prodotti'},{'name': 'RaccoltaComponent', 'selector': 'app-raccolta'},{'name': 'RedSpotComponent', 'selector': 'app-red-spot'},{'name': 'ReportAbilitazionePdCComponent', 'selector': 'app-report-abilitazione-pdc'},{'name': 'ReportImpiegoProdottiFitosanitariComponent', 'selector': 'app-report-impiego-prodotti-fitosanitari'},{'name': 'RequisitiStabilimentoComponent', 'selector': 'app-requisiti-stabilimento'},{'name': 'RequisitiStabilimentoContrattiGridComponent', 'selector': 'app-requisiti-stabilimento-contratti-grid'},{'name': 'RequisitiStabilimentoGridComponent', 'selector': 'app-requisiti-stabilimento-grid'},{'name': 'RicercaFertilizzantiComponent', 'selector': 'app-ricerca-fertilizzanti'},{'name': 'RicercaFormulatiComponent', 'selector': 'app-ricerca-formulati'},{'name': 'RicercaSementiComponent', 'selector': 'app-ricerca-sementi'},{'name': 'RicetteComponent', 'selector': 'grid-ricette'},{'name': 'RiepilogoMeteoWidgetComponent', 'selector': 'app-riepilogo-meteo-widget'},{'name': 'RilevaFaseEpocaComponent', 'selector': 'btn-rileva-fase-epoca'},{'name': 'RilieviAvversitaComponent', 'selector': 'app-rilievi-avversita'},{'name': 'RilieviComponent', 'selector': 'app-rilievi'},{'name': 'RipartizioneManualeComponent', 'selector': 'app-ripartizione-manuale'},{'name': 'RischioMeteoAggregatoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-aggregato-comparison-widget'},{'name': 'RischioMeteoAllagamentoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-allagamento-comparison-widget'},{'name': 'RischioMeteoGelataComparisonWidgetComponent', 'selector': 'app-rischio-meteo-gelata-comparison-widget'},{'name': 'RischioMeteoGrandineComparisonWidgetComponent', 'selector': 'app-rischio-meteo-grandine-comparison-widget'},{'name': 'RischioMeteoSiccitaComparisonWidgetComponent', 'selector': 'app-rischio-meteo-siccita-comparison-widget'},{'name': 'RischioMeteoVentoForteComparisonWidgetComponent', 'selector': 'app-rischio-meteo-vento-forte-comparison-widget'},{'name': 'SalvataggioAppezzamentoGISComponent', 'selector': 'salvataggio-appezzamento-GIS'},{'name': 'SelezionaCentroComponent', 'selector': 'app-seleziona-centro'},{'name': 'SementiComponent', 'selector': 'app-sementi'},{'name': 'SeminatiMultiAziendaWidgetComponent', 'selector': 'app-seminati-multiazienda-widget'},{'name': 'SettingsAnnataAgrariaComponent', 'selector': 'app-settings-annata-agraria'},{'name': 'SettingsCategorieMagazzinoComponent', 'selector': 'app-settings-categorie-magazzino'},{'name': 'SettingsGiasAppComponent', 'selector': 'app-settings-gias-app'},{'name': 'SettingsGisComponent', 'selector': 'app-settings-gis'},{'name': 'SettingsLavorazioniGridComponent', 'selector': 'app-settings-lavorazioni-grid'},{'name': 'SettingsManagerComponent', 'selector': 'app-settings-manager'},{'name': 'SettingsProxyComponent', 'selector': 'app-settings-proxy'},{'name': 'SettingsSpecieVarietaComponent', 'selector': 'app-settings-specie-varieta'},{'name': 'SezioneImpostazioniComponent', 'selector': 'app-sezione-impostazioni'},{'name': 'SezioniNoProdottoComponent', 'selector': 'app-sezioni-no-prodotto'},{'name': 'SidemenuChildComponent', 'selector': 'app-sidemenu-child'},{'name': 'SideMenuComponent', 'selector': 'gias-sidemenu'},{'name': 'SideMenuFooterComponent', 'selector': 'gias-sidemenu-footer'},{'name': 'SideMenuServicesComponent', 'selector': 'gias-sidemenu-services'},{'name': 'SpecialEditComponent', 'selector': 'app-special-edit'},{'name': 'SpecieAnimaleComponent', 'selector': 'app-specie-animale'},{'name': 'SpecieComponent', 'selector': 'app-specie'},{'name': 'StimeProduzioneColtureWidgetComponent', 'selector': 'app-stime-produzione-colture-widget'},{'name': 'SuperficiImpiantiComponent', 'selector': 'app-superfici-impianti'},{'name': 'SvgIconSpeciesComponent', 'selector': 'gias-svg-icon-species-species'},{'name': 'TargetSuperficieWidgetComponent', 'selector': 'app-target-superficie-widget'},{'name': 'TestAnagraficaCampiComponent', 'selector': 'app-test-anagrafica-campi'},{'name': 'TestAnagraficaCatastoComponent', 'selector': 'app-test-anagrafica-catasto'},{'name': 'TestAnagraficaCentriComponent', 'selector': 'app-test-anagrafica-centri'},{'name': 'TestAnagraficaComponent', 'selector': 'app-test-anagrafica'},{'name': 'TestAnagraficaImpiantiComponent', 'selector': 'app-test-anagrafica-impianti'},{'name': 'TestAnagraficaImpreseComponent', 'selector': 'app-test-anagrafica-imprese'},{'name': 'TestAnagraficaMacchineComponent', 'selector': 'app-test-anagrafica-macchine'},{'name': 'TestataComponent', 'selector': 'app-testata'},{'name': 'TestataRicettaComponent', 'selector': 'app-testata-ricetta'},{'name': 'TestataVisitaComponent', 'selector': 'app-testata-visita'},{'name': 'TestComponent', 'selector': 'app-test'},{'name': 'TestGiasGiasKendoGridComponent', 'selector': 'app-test-gias-kendo-grid'},{'name': 'TestGridComponent', 'selector': 'test-grid'},{'name': 'ThemeWindowBandSliderComponent', 'selector': 'theme-window-band-slider'},{'name': 'ThemeWindowComponent', 'selector': 'theme-window'},{'name': 'ThemeWindowSettingsComponent', 'selector': 'theme-window-settings'},{'name': 'ToolDisegnaPuntiComponent', 'selector': 'app-tool-disegna-punti'},{'name': 'ToolDisegnoAvanzatoComponent', 'selector': 'app-tool-disegno-avanzato'},{'name': 'ToolPolygonMergeComponent', 'selector': 'app-tool-polygon-merge'},{'name': 'ToolScomponiPuntiComponent', 'selector': 'app-tool-scomponi-punti'},{'name': 'TrattamentoComponent', 'selector': 'app-trattamento'},{'name': 'TrattamentoZooComponent', 'selector': 'app-trattamento-zoo'},{'name': 'TreeAziende', 'selector': 'app-tree-aziende'},{'name': 'TreeAziendeFilters', 'selector': 'app-tree-aziende-filters'},{'name': 'TreeViewComponent', 'selector': 'app-treeview'},{'name': 'TreeWindowComponent', 'selector': 'tree-window'},{'name': 'UltimeAttivitaWidgetComponent', 'selector': 'app-ultime-attivita-widget'},{'name': 'UltimeVisiteWidgetComponent', 'selector': 'app-ultime-visite-widget'},{'name': 'UltimiAcquistiWidgetComponent', 'selector': 'app-ultimi-acquisti-widget'},{'name': 'UltimiProdottiWidgetComponent', 'selector': 'app-ultimi-prodotti-widget'},{'name': 'UltimiRilieviWidgetComponent', 'selector': 'app-ultimi-rilievi-widget'},{'name': 'UniqueRatingWidgetComponent', 'selector': 'app-unique-rating-widget'},{'name': 'UnitaDiMisuraComponent', 'selector': 'app-unita-di-misura'},{'name': 'UtilizzoTerrenoComponent', 'selector': 'app-utilizzo-terreno'},{'name': 'ValutazioneEditDettaglioComponent', 'selector': 'app-valutazione-edit-dettaglio'},{'name': 'ValutazioniComponent', 'selector': 'app-valutazioni'},{'name': 'ValutazioniContoEconomicoComponent', 'selector': 'app-valutazioni-conto-economico'},{'name': 'ValutazioniEditComponent', 'selector': 'app-valutazioni-edit'},{'name': 'ValutazioniMainComponentComponent', 'selector': 'app-valutazioni-main-component'},{'name': 'ValutazioniStatoPatrimonialeComponent', 'selector': 'app-valutazioni-stato-patrimoniale'},{'name': 'ValutazioniStatoPatrimonialeDettaglioComponent', 'selector': 'app-valutazioni-stato-patrimoniale-dettaglio'},{'name': 'VDContrattiComponent', 'selector': 'app-v-d-contratti'},{'name': 'VDPianoColturaleComponent', 'selector': 'app-v-d-piano-colturale'},{'name': 'VisibilitaUtenteEditComponent', 'selector': 'app-visibilita-utente'},{'name': 'VisiteComponent', 'selector': 'app-visite'},{'name': 'VisualizzaDettagliComponent', 'selector': 'app-visualizza-dettagli'},{'name': 'WidgetConfigComponent', 'selector': 'app-widget-config'},{'name': 'WidgetConfigListComponent', 'selector': 'app-widget-config-list'},{'name': 'WidgetGridComponent', 'selector': 'app-widget-grid'},{'name': 'WidgetResizerComponent', 'selector': 'app-widget-resizer'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'},{'name': 'WidgetTemplateComponent', 'selector': 'app-widget-template'},{'name': 'WindowMessaggioErroreComponent', 'selector': 'gias-master-window-messaggio-errore'},{'name': 'WMSWindowComponent', 'selector': 'wms-window'},{'name': 'ZooComponent', 'selector': 'app-zoo'},{'name': 'ZooFavoritesEditingComponent', 'selector': 'zoo-favorites-editing'},{'name': 'ZooOperationsGridComponent', 'selector': 'zoo-operations-grid'}];
+    var DIRECTIVES = [{'name': 'AfterValueChangedDirective', 'selector': '[afterValueChanged]'},{'name': 'BackButtonDirective', 'selector': '[backButton]'},{'name': 'ClearInputButtonDirective', 'selector': '[clear-input-button]'},{'name': 'DraggableDirective', 'selector': '[draggable]'},{'name': 'GISTooltipDirective', 'selector': '[gisTooltip]'},{'name': 'HomeButtonDirective', 'selector': '[homeButton]'},{'name': 'ProjectDocumentaleDirective', 'selector': '[projectDocumentale]'}];
+    var ACTUAL_COMPONENT = {'name': 'DrawWindowComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'DrawWindowComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

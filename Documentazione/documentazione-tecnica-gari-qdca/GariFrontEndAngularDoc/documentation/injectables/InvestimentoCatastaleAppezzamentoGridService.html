@@ -1,0 +1,1063 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >InvestimentoCatastaleAppezzamentoGridService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomization" >handleCustomization</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, renderer: Renderer2, appezzamentiService: <a href="../injectables/ImpiantiFactoryService.html" target="_self">ImpiantiFactoryService</a>, investimentoCatastaleAppezzamentoDataService: <a href="../injectables/InvestimentoCatastaleAppezzamentoDataService.html" target="_self">InvestimentoCatastaleAppezzamentoDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:103</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appezzamentiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpiantiFactoryService.html" target="_self" >ImpiantiFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>investimentoCatastaleAppezzamentoDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/InvestimentoCatastaleAppezzamentoDataService.html" target="_self" >InvestimentoCatastaleAppezzamentoDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomization"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomization</b></span>
+                        <a href="#handleCustomization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomization()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, oldRow?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="124"
+                                    class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:124</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:115</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;InvestimentoCatastaleAppezzamentoKendoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;investimentoCatastaleAppezzamento&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      { field: &#x27;PROV&#x27;, title: this.transloco.translate(&#x27;ProvinciaAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;COMUNI_PROV&#x27;, title: this.transloco.translate(&#x27;ProvinciaAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;COM&#x27;, title: this.transloco.translate(&#x27;ComuneAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;LOCALITA&#x27;, title: this.transloco.translate(&#x27;Comune&#x27;) },
+      { resizable: true, editable: true, width: 120 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SEZIONE&#x27;, title: this.transloco.translate(&#x27;Sezione&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;FOGLIO&#x27;, title: this.transloco.translate(&#x27;Foglio&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: { multiCheckFiltering: true } }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;NUMERO&#x27;, title: this.transloco.translate(&#x27;Numero&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: { multiCheckFiltering: true } }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SUBALTERNO&#x27;, title: this.transloco.translate(&#x27;Subalterno&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ZVN&#x27;, title: this.transloco.translate(&#x27;ZVN&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SUP_APP&#x27;, title: this.transloco.translate(&#x27;SuperficieAppezzamentoAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: {} }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;AREA&#x27;, title: this.transloco.translate(&#x27;SuperficieIntersecataAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: {} }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/InvestomentoCatastaleAppezzamentoKendoModel.html" target="_self" >InvestomentoCatastaleAppezzamentoKendoModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING, false),
+    sa_nome: new ModelEntry(CELL_TYPES.STRING, false),
+    Piva: new ModelEntry(CELL_TYPES.STRING, false),
+    SA_COD: new ModelEntry(CELL_TYPES.NUMBER, false),
+    PROV: new ModelEntry(CELL_TYPES.STRING, false),
+    COMUNI_PROV: new ModelEntry(CELL_TYPES.STRING, false),
+    COM: new ModelEntry(CELL_TYPES.STRING, false),
+    LOCALITA: new ModelEntry(CELL_TYPES.STRING, false),
+    SEZIONE: new ModelEntry(CELL_TYPES.STRING, false),
+    FOGLIO: new ModelEntry(CELL_TYPES.NUMBER, false),
+    NUMERO: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SUBALTERNO: new ModelEntry(CELL_TYPES.STRING, false),
+    ZVN: new ModelEntry(CELL_TYPES.STRING, false),
+    Campo_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    APP_NOME: new ModelEntry(CELL_TYPES.STRING, false),
+    SUP_APP: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Validita_Inizio: new ModelEntry(CELL_TYPES.DATE, false),
+    Validita_Fine: new ModelEntry(CELL_TYPES.DATE, false),
+    AREA: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Utilizzo: new ModelEntry(CELL_TYPES.STRING, false),
+    Attivo: new ModelEntry(CELL_TYPES.NUMBER, false),
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/esercizi/investimento-catastale-appezzamento/investimento-catastale-appezzamento-grid.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable, Injector, Renderer2} from &#x27;@angular/core&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import {
+  EditingMode, GridCustomizations,
+  KendoGridColumn,
+  LoaderType,
+  ModelEntry,
+  RendererGridEvent
+} from &#x27;gias-kendo-grid&#x27;;
+import {map, Observable} from &#x27;rxjs&#x27;;
+import {AbstractGridConfigService, HttpAction} from &#x27;gias-kendo-grid&#x27;;
+import {
+  InvestimentoCatastaleAppezzamentoKendoServerResult,
+  InvestomentoCatastaleAppezzamentoKendoModel
+} from &#x27;./investimento-catastale-appezzamento.model&#x27;;
+import {ConfigTemplate} from &#x27;gias-kendo-grid&#x27;;
+import {
+  IMPIANTI_SERVICE_TOKEN,
+  ImpiantiFactoryService,
+  CaricaDatiCatastali
+} from &#x27;../../../Service/ServiceFactory/impianti.factory.service&#x27;;
+import {InvestimentoCatastaleAppezzamentoDataService} from &#x27;./investimento-catastale-appezzamento-data.service&#x27;;
+import {LeggiInvestimentoCatastale} from &#x27;../../../Service/ServiceFactory/investimento-catastale.factory.service&#x27;;
+import {CommandsColumnSettings, ToolbarSettings} from &#x27;gias-kendo-grid&#x27;;
+
+@Injectable()
+export class InvestimentoCatastaleAppezzamentoGridService extends AbstractGridConfigService&lt;InvestimentoCatastaleAppezzamentoKendoServerResult&gt; {
+  editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  rowId: string &#x3D; &#x27;chiave&#x27;;
+  gridId: string &#x3D; &#x27;investimentoCatastaleAppezzamento&#x27;;
+
+  private kendoModel: InvestomentoCatastaleAppezzamentoKendoModel &#x3D; {
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING, false),
+    sa_nome: new ModelEntry(CELL_TYPES.STRING, false),
+    Piva: new ModelEntry(CELL_TYPES.STRING, false),
+    SA_COD: new ModelEntry(CELL_TYPES.NUMBER, false),
+    PROV: new ModelEntry(CELL_TYPES.STRING, false),
+    COMUNI_PROV: new ModelEntry(CELL_TYPES.STRING, false),
+    COM: new ModelEntry(CELL_TYPES.STRING, false),
+    LOCALITA: new ModelEntry(CELL_TYPES.STRING, false),
+    SEZIONE: new ModelEntry(CELL_TYPES.STRING, false),
+    FOGLIO: new ModelEntry(CELL_TYPES.NUMBER, false),
+    NUMERO: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SUBALTERNO: new ModelEntry(CELL_TYPES.STRING, false),
+    ZVN: new ModelEntry(CELL_TYPES.STRING, false),
+    Campo_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    APP_NOME: new ModelEntry(CELL_TYPES.STRING, false),
+    SUP_APP: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Validita_Inizio: new ModelEntry(CELL_TYPES.DATE, false),
+    Validita_Fine: new ModelEntry(CELL_TYPES.DATE, false),
+    AREA: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Utilizzo: new ModelEntry(CELL_TYPES.STRING, false),
+    Attivo: new ModelEntry(CELL_TYPES.NUMBER, false),
+  };
+
+  private kendoColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      { field: &#x27;PROV&#x27;, title: this.transloco.translate(&#x27;ProvinciaAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;COMUNI_PROV&#x27;, title: this.transloco.translate(&#x27;ProvinciaAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;COM&#x27;, title: this.transloco.translate(&#x27;ComuneAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;LOCALITA&#x27;, title: this.transloco.translate(&#x27;Comune&#x27;) },
+      { resizable: true, editable: true, width: 120 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SEZIONE&#x27;, title: this.transloco.translate(&#x27;Sezione&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;FOGLIO&#x27;, title: this.transloco.translate(&#x27;Foglio&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: { multiCheckFiltering: true } }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;NUMERO&#x27;, title: this.transloco.translate(&#x27;Numero&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: { multiCheckFiltering: true } }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SUBALTERNO&#x27;, title: this.transloco.translate(&#x27;Subalterno&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ZVN&#x27;, title: this.transloco.translate(&#x27;ZVN&#x27;) },
+      { resizable: true, editable: true, width: 50 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SUP_APP&#x27;, title: this.transloco.translate(&#x27;SuperficieAppezzamentoAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: {} }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;AREA&#x27;, title: this.transloco.translate(&#x27;SuperficieIntersecataAbbr&#x27;) },
+      { resizable: true, editable: true, width: 50, numeric: {} }
+    )
+  ];
+
+  constructor(
+    injector: Injector,
+    private renderer: Renderer2,
+    @Inject(IMPIANTI_SERVICE_TOKEN) private appezzamentiService: ImpiantiFactoryService,
+    private investimentoCatastaleAppezzamentoDataService: InvestimentoCatastaleAppezzamentoDataService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+    this.handleCustomization();
+  }
+
+  read(options?: any): Observable&lt;InvestimentoCatastaleAppezzamentoKendoServerResult&gt; {
+    let params: LeggiInvestimentoCatastale &#x3D; this.investimentoCatastaleAppezzamentoDataService.leggiInvestimentoCatastale
+    return this.appezzamentiService.leggiInvestimentoCatastale(params).pipe(
+      map(r &#x3D;&gt; {
+        return new InvestimentoCatastaleAppezzamentoKendoServerResult(this.kendoModel, this.kendoColumns, r);
+      })
+    );
+  }
+
+  perform(actionType: HttpAction, items: any, oldRow?: any): Observable&lt;any&gt; {
+    throw new Error(&#x27;Method not implemented.&#x27;);
+  }
+
+  override applyRendererRules(opts: RendererGridEvent): void {
+    const { grid, gridElRef } &#x3D; { ...opts };
+    let visibleRows: [] &#x3D; gridElRef.nativeElement.querySelectorAll(&#x27;tbody tr&#x27;);
+    grid.view.forEach((el, index) &#x3D;&gt; {
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 0) {
+        this.renderer.addClass(visibleRows[index], &#x27;nonAttivo&#x27;);
+      }
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 1) {
+        this.renderer.removeClass(visibleRows[index], &#x27;nonAttivo&#x27;);
+      }
+    })
+  }
+
+  private handleCustomization(): void {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      infoBtn: false,
+      removeBtn: false
+    });
+
+    this.toolbar &#x3D; new ToolbarSettings(false, false);
+    this.views &#x3D; new GridCustomizations({enabled: false});
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'InvestimentoCatastaleAppezzamentoGridService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

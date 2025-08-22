@@ -1,0 +1,2582 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >EditCentroStore</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>BehaviorSubject</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#centroAziendaleEsternoCollegato" >centroAziendaleEsternoCollegato</a>
+                            </li>
+                            <li>
+                                <a href="#centroPK" >centroPK</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#codici" >codici</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#codiciDataReady" >codiciDataReady</a>
+                            </li>
+                            <li>
+                                <a href="#codiciNewElementIndex" >codiciNewElementIndex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#codiciPubService" >codiciPubService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#comune" >comune</a>
+                            </li>
+                            <li>
+                                <a href="#mainForm" >mainForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#organismiControllo" >organismiControllo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#otes" >otes</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#provincie" >provincie</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rubricaDataReady" >rubricaDataReady</a>
+                            </li>
+                            <li>
+                                <a href="#rubricaNewElementIndex" >rubricaNewElementIndex</a>
+                            </li>
+                            <li>
+                                <a href="#rubricaPubService" >rubricaPubService</a>
+                            </li>
+                            <li>
+                                <a href="#rubriche" >rubriche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stati" >stati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#tipoAttivita" >tipoAttivita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#tipologia" >tipologia</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#titolo_Di_Possesso" >titolo_Di_Possesso</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_leggiDatiModificaCentro" >_leggiDatiModificaCentro</a>
+                            </li>
+                            <li>
+                                <a href="#creaCentroInizializzaDatiAccessori" >creaCentroInizializzaDatiAccessori</a>
+                            </li>
+                            <li>
+                                <a href="#createFormGroup" >createFormGroup</a>
+                            </li>
+                            <li>
+                                <a href="#getForm" >getForm</a>
+                            </li>
+                            <li>
+                                <a href="#getFormGroupIndirizzo" >getFormGroupIndirizzo</a>
+                            </li>
+                            <li>
+                                <a href="#getPrimitiveValue" >getPrimitiveValue</a>
+                            </li>
+                            <li>
+                                <a href="#initializeGridsAndForms" >initializeGridsAndForms</a>
+                            </li>
+                            <li>
+                                <a href="#leggiDati" >leggiDati</a>
+                            </li>
+                            <li>
+                                <a href="#leggiDatiCreaNuovoCentro" >leggiDatiCreaNuovoCentro</a>
+                            </li>
+                            <li>
+                                <a href="#manageDropdowns" >manageDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#parseOrientamentoEconomico" >parseOrientamentoEconomico</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#pushCodiceOperatore" >pushCodiceOperatore</a>
+                            </li>
+                            <li>
+                                <a href="#resetForm" >resetForm</a>
+                            </li>
+                            <li>
+                                <a href="#saveCentroAziendale" >saveCentroAziendale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setCodiceOperatore" >setCodiceOperatore</a>
+                            </li>
+                            <li>
+                                <a href="#setCodiciGridPubService" >setCodiciGridPubService</a>
+                            </li>
+                            <li>
+                                <a href="#setCodiciPerScrittura" >setCodiciPerScrittura</a>
+                            </li>
+                            <li>
+                                <a href="#setRubrichePerScrittura" >setRubrichePerScrittura</a>
+                            </li>
+                            <li>
+                                <a href="#setSelected" >setSelected</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#inModifica" >inModifica</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(objParams: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, ajaxAgronicaAPIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, agenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, centriService: <a href="../injectables/CentriAziendaliService.html" target="_self">CentriAziendaliService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:49</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>objParams</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>centriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriAziendaliService.html" target="_self" >CentriAziendaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_leggiDatiModificaCentro"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_leggiDatiModificaCentro</b></span>
+                        <a href="#_leggiDatiModificaCentro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>_leggiDatiModificaCentro(partitaIva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>partitaIva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creaCentroInizializzaDatiAccessori"></a>
+                    <span class="name">
+                        <span ><b>creaCentroInizializzaDatiAccessori</b></span>
+                        <a href="#creaCentroInizializzaDatiAccessori"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>creaCentroInizializzaDatiAccessori()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createFormGroup"></a>
+                    <span class="name">
+                        <span ><b>createFormGroup</b></span>
+                        <a href="#createFormGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>createFormGroup(fb: FormBuilder)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fb</td>
+                                            <td>
+                                                        <code>FormBuilder</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getForm"></a>
+                    <span class="name">
+                        <span ><b>getForm</b></span>
+                        <a href="#getForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getForm(fb: FormBuilder)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="345"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:345</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fb</td>
+                                            <td>
+                                                        <code>FormBuilder</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFormGroupIndirizzo"></a>
+                    <span class="name">
+                        <span ><b>getFormGroupIndirizzo</b></span>
+                        <a href="#getFormGroupIndirizzo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getFormGroupIndirizzo(fb: FormBuilder)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fb</td>
+                                            <td>
+                                                        <code>FormBuilder</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPrimitiveValue"></a>
+                    <span class="name">
+                        <span ><b>getPrimitiveValue</b></span>
+                        <a href="#getPrimitiveValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getPrimitiveValue(codice: <a href="../interfaces/List.html" target="_self">DropdownListItem | string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="233"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="../interfaces/List.html" target="_self" >DropdownListItem | string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeGridsAndForms"></a>
+                    <span class="name">
+                        <span ><b>initializeGridsAndForms</b></span>
+                        <a href="#initializeGridsAndForms"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeGridsAndForms(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiDati"></a>
+                    <span class="name">
+                        <span ><b>leggiDati</b></span>
+                        <a href="#leggiDati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiDati()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="274"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiDatiCreaNuovoCentro"></a>
+                    <span class="name">
+                        <span ><b>leggiDatiCreaNuovoCentro</b></span>
+                        <a href="#leggiDatiCreaNuovoCentro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiDatiCreaNuovoCentro(partitaIva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>partitaIva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageDropdowns"></a>
+                    <span class="name">
+                        <span ><b>manageDropdowns</b></span>
+                        <a href="#manageDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>manageDropdowns(httpRisp: <a href="../classes/CentroAziendaleNG.html" target="_self">CentroAziendaleNG</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="150"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:150</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>httpRisp</td>
+                                            <td>
+                                                            <code><a href="../classes/CentroAziendaleNG.html" target="_self" >CentroAziendaleNG</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseOrientamentoEconomico"></a>
+                    <span class="name">
+                        <span ><b>parseOrientamentoEconomico</b></span>
+                        <a href="#parseOrientamentoEconomico"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>parseOrientamentoEconomico(s: <a href="../undefineds/AspxDropdownItem.html" target="_self">AspxDropdownItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>s</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/typealiases.html#AspxDropdownItem" target="_self" >AspxDropdownItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ codice: string; descrizione: any; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pushCodiceOperatore"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>pushCodiceOperatore</b></span>
+                        <a href="#pushCodiceOperatore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>pushCodiceOperatore(codici: KendoGridRow[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="219"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:219</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codici</td>
+                                            <td>
+                                                        <code>KendoGridRow[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetForm"></a>
+                    <span class="name">
+                        <span ><b>resetForm</b></span>
+                        <a href="#resetForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>resetForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="351"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:351</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saveCentroAziendale"></a>
+                    <span class="name">
+                        <span ><b>saveCentroAziendale</b></span>
+                        <a href="#saveCentroAziendale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>saveCentroAziendale(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCodiceOperatore"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setCodiceOperatore</b></span>
+                        <a href="#setCodiceOperatore"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setCodiceOperatore(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCodiciGridPubService"></a>
+                    <span class="name">
+                        <span ><b>setCodiciGridPubService</b></span>
+                        <a href="#setCodiciGridPubService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCodiciGridPubService(codiciPubService: GridPublicService)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="355"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:355</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codiciPubService</td>
+                                            <td>
+                                                        <code>GridPublicService</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setCodiciPerScrittura"></a>
+                    <span class="name">
+                        <span ><b>setCodiciPerScrittura</b></span>
+                        <a href="#setCodiciPerScrittura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setCodiciPerScrittura()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CodiciAnagrafeValori.html" target="_self" >CodiciAnagrafeValori[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRubrichePerScrittura"></a>
+                    <span class="name">
+                        <span ><b>setRubrichePerScrittura</b></span>
+                        <a href="#setRubrichePerScrittura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setRubrichePerScrittura()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="191"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>RubricaVoci[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSelected"></a>
+                    <span class="name">
+                        <span ><b>setSelected</b></span>
+                        <a href="#setSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setSelected(data: <a href="../classes/CentroDropdownLists.html" target="_self">CentroDropdownLists</a>, centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../classes/CentroDropdownLists.html" target="_self" >CentroDropdownLists</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centroAziendaleEsternoCollegato"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>centroAziendaleEsternoCollegato</b></span>
+                        <a href="#centroAziendaleEsternoCollegato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centroPK"></a>
+                    <span class="name">
+                        <span ><b>centroPK</b></span>
+                        <a href="#centroPK"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#PKCentroAziendale" target="_self" >PKCentroAziendale</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codici"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>codici</b></span>
+                        <a href="#codici"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/List.html" target="_self" >DropdownListItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codiciDataReady"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>codiciDataReady</b></span>
+                        <a href="#codiciDataReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codiciNewElementIndex"></a>
+                    <span class="name">
+                        <span ><b>codiciNewElementIndex</b></span>
+                        <a href="#codiciNewElementIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="codiciPubService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>codiciPubService</b></span>
+                        <a href="#codiciPubService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comune"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>comune</b></span>
+                        <a href="#comune"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mainForm"></a>
+                    <span class="name">
+                        <span ><b>mainForm</b></span>
+                        <a href="#mainForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="organismiControllo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>organismiControllo</b></span>
+                        <a href="#organismiControllo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="otes"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>otes</b></span>
+                        <a href="#otes"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="provincie"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>provincie</b></span>
+                        <a href="#provincie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rubricaDataReady"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rubricaDataReady</b></span>
+                        <a href="#rubricaDataReady"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rubricaNewElementIndex"></a>
+                    <span class="name">
+                        <span ><b>rubricaNewElementIndex</b></span>
+                        <a href="#rubricaNewElementIndex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rubricaPubService"></a>
+                    <span class="name">
+                        <span ><b>rubricaPubService</b></span>
+                        <a href="#rubricaPubService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rubriche"></a>
+                    <span class="name">
+                        <span ><b>rubriche</b></span>
+                        <a href="#rubriche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>RubricaVoci[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stati"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>stati</b></span>
+                        <a href="#stati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipoAttivita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>tipoAttivita</b></span>
+                        <a href="#tipoAttivita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipologia"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>tipologia</b></span>
+                        <a href="#tipologia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="titolo_Di_Possesso"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>titolo_Di_Possesso</b></span>
+                        <a href="#titolo_Di_Possesso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/GiasCentriDDLItem.html" target="_self" >GiasCentriDDLItem[]</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="inModifica"></a>
+                        <span class="name"><b>inModifica</b><a href="#inModifica"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>inModifica()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="269" class="link-to-prism">src/app/anagrafica/centri/centri-edit/services/centri-store.service.ts:269</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { FormArray, FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { AspxDropdownItem, CentroAziendale, CentroAziendaleNG, CentroDropdownLists, PKCentroAziendale } from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import { CodiceAnagrafe } from &#x27;app/Model/anagrafiche/CodiceAnagrafe&#x27;;
+import { CodiciAnagrafeValori } from &#x27;app/Model/anagrafiche/CodiciAnagrafeValori&#x27;;
+import { RubricaVoci, RubricaVociConChiave } from &#x27;app/Model/anagrafiche/RubricaVoci&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { DropdownListItem, KendoGridRow } from &#x27;gias-kendo-grid&#x27;;
+import { BehaviorSubject, forkJoin, Subject, take } from &#x27;rxjs&#x27;;
+import { GiasCentriDDLItem } from &#x27;../utils&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { IntervalloTemporale } from &#x27;app/Model/anagrafiche/IntervalloTemporale&#x27;;
+import { Rubrica } from &#x27;app/Model/anagrafiche/Rubrica&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { AjaxAgronicaAPIService } from &quot;../../../../Service/ajax-agronica.api.service&quot;;
+import { CentriAziendaliService } from &quot;../../../../Service/Anagrafica/centri.service&quot;;
+import { enum_CodiciAnagrafe } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { capValidatorCentriEdit, ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+@Injectable({providedIn: &#x27;root&#x27; })
+export class EditCentroStore extends BehaviorSubject&lt;CentroAziendaleNG&gt;  {
+  rubricaPubService: GridPublicService;
+
+  codiciNewElementIndex: number;
+  rubricaNewElementIndex: number;
+
+  mainForm: FormGroup;
+  centroPK: PKCentroAziendale;
+  rubriche: RubricaVoci[];
+
+  public tipologia: GiasCentriDDLItem[];
+  public titolo_Di_Possesso: GiasCentriDDLItem[];
+  // public ddls: BehaviorSubject&lt;CentroAziendaleAltriDati&gt;;
+  public codici: DropdownListItem[];
+  public tipoAttivita: GiasCentriDDLItem[];
+  public organismiControllo: GiasCentriDDLItem[];
+  public otes: GiasCentriDDLItem[];
+  public centroAziendaleEsternoCollegato: GiasCentriDDLItem[];
+
+  // Used from the view.
+  public stati: GiasCentriDDLItem[];
+  public comune: GiasCentriDDLItem[];
+  public provincie: GiasCentriDDLItem[];
+
+  public codiciDataReady: Subject&lt;{ codici: CodiciAnagrafeValori[], ddl: DropdownListItem[] }&gt; &#x3D; new Subject();
+  public rubricaDataReady: Subject&lt;{ rubrica: RubricaVociConChiave[] }&gt; &#x3D; new Subject();
+
+  public codiciPubService: GridPublicService;
+
+  constructor(
+    private objParams: ObjParametriAgendaService,
+    private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+    private agenda: ObjParametriAgendaService,
+    private masterService: MasterService,
+    private centriService: CentriAziendaliService
+  ) {
+    super(null);
+  }
+
+  leggiDatiCreaNuovoCentro(partitaIva: string) {
+    const objPAgenda &#x3D; new ObjParametriAgenda();
+    objPAgenda.Piva &#x3D; partitaIva;
+
+    const linkDdls &#x3D; &#x27;AnagraficaNG/Leggi_Centro_Dropdowns&#x27;;
+    const letturaDdls &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;ObjParametriAgenda, CentroDropdownLists&gt;(linkDdls, objPAgenda)
+      .pipe(take(1)).subscribe((data) &#x3D;&gt; {
+        let centroAziendale &#x3D; CentroAziendale.getEmptyCentroAziendale(partitaIva);
+        let dropdownlists &#x3D; data.RispostaStringa;
+        centroAziendale[&#x27;codiceOperatore&#x27;] &#x3D; dropdownlists.CodiceOperatore;
+
+        this.codiciNewElementIndex &#x3D; centroAziendale.codici.length;
+        this.rubricaNewElementIndex &#x3D; centroAziendale.rubricaVoci?.length ?? 0;
+
+        this.initializeGridsAndForms(centroAziendale);
+        this.creaCentroInizializzaDatiAccessori();
+
+        let tuttiIdati: CentroAziendaleNG &#x3D; {
+          DatiVisibili: dropdownlists,
+          Centro: centroAziendale
+        }
+
+        this.manageDropdowns(tuttiIdati);
+        this.next(tuttiIdati);
+
+        this.codiciDataReady.next( { codici: this.value.Centro.codici, ddl: this.codici })
+        this.rubricaDataReady.next( { rubrica: this.value.Centro.rubricaVoci as RubricaVociConChiave[] });
+      });
+  }
+
+  private _leggiDatiModificaCentro(partitaIva: string, codice: number) {
+    //const letturaCentro &#x3D; this.centriService.leggiCentroAziendale(partitaIva, codice);
+    const letturaDdls &#x3D; this.centriService.leggiCentroDropDownLists(partitaIva, codice);
+    //const letturaCentro &#x3D; this.ajaxAPI.ajaxAPIPost&lt;ObjParametriAgenda, CentroAziendale&gt;(&#x27;AnagraficaNG/LeggiCentro&#x27;, objPAgenda);
+    const objPAgenda &#x3D; this.objParams.getObjParamValue();
+    const letturaCentro &#x3D; this.centriService.leggiCentro(objPAgenda);
+
+    forkJoin([letturaCentro, letturaDdls]).pipe(take(1)).subscribe((data) &#x3D;&gt; {
+      let centroAziendale &#x3D; data[0];
+      let dropdownlists &#x3D; data[1].RispostaStringa;
+      let form &#x3D; data[0] as CentroAziendale;
+      form[&#x27;codiceOperatore&#x27;] &#x3D; dropdownlists.CodiceOperatore;
+
+      this.codiciNewElementIndex &#x3D; centroAziendale.codici.length;
+      this.rubricaNewElementIndex &#x3D; centroAziendale.rubricaVoci?.length ?? 0;
+
+      this.initializeGridsAndForms(form);
+
+      let tuttiIdati: CentroAziendaleNG &#x3D; {
+        DatiVisibili: dropdownlists,
+        Centro: centroAziendale
+      }
+
+      this.manageDropdowns(tuttiIdati);
+      this.next(tuttiIdati);
+
+      this.codiciDataReady.next( { codici: this.value.Centro.codici, ddl: this.codici })
+      this.rubricaDataReady.next( { rubrica: this.value.Centro.rubricaVoci as RubricaVociConChiave[] });
+    });
+  }
+
+  initializeGridsAndForms(centro: CentroAziendale) {
+    if (this.mainForm) {
+      this.setCodiceOperatore(centro);
+      centro.codici?.forEach((s, index) &#x3D;&gt; s[&#x27;chiave&#x27;] &#x3D; index);
+      centro.rubricaVoci?.forEach((s, index) &#x3D;&gt; s[&#x27;chiave&#x27;] &#x3D; index);
+      this.mainForm.patchValue(centro);
+      this.rubriche &#x3D; centro.rubricaVoci;
+    }
+  }
+
+  private setCodiceOperatore(centro: CentroAziendale) {
+    let codiceOperatore &#x3D; centro.codici.filter(s &#x3D;&gt; s[&#x27;codiceAnagrafe&#x27;].codice &#x3D;&#x3D; 1003);
+    centro[&#x27;codiceOperatore&#x27;] &#x3D; codiceOperatore[0] &#x3D;&#x3D; undefined ? &#x27;&#x27; : codiceOperatore[0].valore;
+    let idx &#x3D; centro.codici.findIndex(s &#x3D;&gt; s[&#x27;codiceAnagrafe&#x27;].codice &#x3D;&#x3D; 1003);
+    if (idx &gt; -1) {
+      centro.codici.splice(idx,1);
+    }
+  }
+
+  creaCentroInizializzaDatiAccessori() {
+    if (this.mainForm) {
+      this.mainForm.controls[&#x27;validita&#x27;].setValue({
+        inizio: AGRODATAINIZIO,
+        fine: AGRODATAFINE
+      });
+    }
+  }
+
+  manageDropdowns(httpRisp: CentroAziendaleNG) {
+    let ddls &#x3D; httpRisp.DatiVisibili;
+    this.tipologia &#x3D; ddls.Tipologia.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text, &#x27;&#x27;, true));
+    this.titolo_Di_Possesso &#x3D; ddls.TitoloPossesso.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text, &#x27;&#x27;, true));
+
+    this.otes &#x3D; ddls.Otes.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text));
+    this.centroAziendaleEsternoCollegato &#x3D; ddls.CentroAziendaleEsternoCollegato.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text));
+
+    this.codici &#x3D; ddls.Codici.Items.map(s &#x3D;&gt; {
+      let code &#x3D; new DropdownListItem(+s.Value, s.Text);
+      return code;
+    })
+    this.tipoAttivita &#x3D; ddls.TipoAttivita.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text));
+    this.organismiControllo &#x3D; ddls.OrganismiControllo.Items.map(s &#x3D;&gt; new GiasCentriDDLItem(s.Value, s.Text));
+
+    this.setSelected(ddls, httpRisp.Centro);
+  }
+
+  saveCentroAziendale(centro: CentroAziendale) {
+    let istat &#x3D; centro.indirizzi[0].indirizzo.istatComune;
+    if(typeof(istat.prov) &#x3D;&#x3D;&#x3D; &quot;object&quot;)
+    {
+      let comProv &#x3D; istat.prov as GiasCentriDDLItem;
+      istat.prov &#x3D; comProv.codice as any;
+      istat.comuni_prov &#x3D; comProv.dati as any;
+    }
+
+    if(typeof(istat.com) &#x3D;&#x3D;&#x3D; &quot;object&quot;)
+    {
+      let com &#x3D; istat.com as GiasCentriDDLItem;
+      istat.com &#x3D; com.codice as any;
+      istat.localita &#x3D; com.descrizione;
+    }
+
+    centro.codici &#x3D; this.setCodiciPerScrittura();
+    centro.rubricaVoci &#x3D; this.setRubrichePerScrittura();
+
+    this.masterService.set_isLoading({ message: &#x27;&#x27;, isLoading: true });
+    return this.centriService.scriviCentro(centro);
+  }
+
+  setRubrichePerScrittura(): RubricaVoci[] {
+    let rubriche &#x3D; this.rubricaPubService.value.data.rows;
+    return rubriche.map(s &#x3D;&gt; {
+      let rubrica: RubricaVoci &#x3D; {
+        valore: s[&#x27;valore&#x27;],
+        rubrica: new Rubrica(this.getPrimitiveValue(s[&#x27;codice&#x27;])),
+        flag_cancellazione: s[&#x27;flag_cancellazione&#x27;]
+      }
+      rubrica.rubrica.tipologia &#x3D; this.getPrimitiveValue(s[&#x27;tipologia&#x27;]) as any as string;
+      return rubrica;
+    });
+  }
+
+  setCodiciPerScrittura(): CodiciAnagrafeValori[] {
+    let codici &#x3D; this.codiciPubService.value.data.rows;
+    this.pushCodiceOperatore(codici);
+    return codici.map(s &#x3D;&gt; {
+      let mappedVal: CodiciAnagrafeValori &#x3D; {
+        codiceAnagrafe: new CodiceAnagrafe(this.getPrimitiveValue(s[&#x27;codice&#x27;])),
+        valore: s[&#x27;valore&#x27;],
+        validita: new IntervalloTemporale(s[&#x27;dal&#x27;], s[&#x27;al&#x27;])
+      };
+      mappedVal.codiceAnagrafe.descrizione &#x3D; s[&#x27;descrizione&#x27;]
+
+      return mappedVal;
+    });
+  }
+
+  private pushCodiceOperatore(codici: KendoGridRow[]) {
+    let codiceOperatore: KendoGridRow;
+
+    codiceOperatore &#x3D; {
+      codice: enum_CodiciAnagrafe.CodiceCentro_Attuale,
+      valore: this.mainForm.get(&#x27;codiceOperatore&#x27;).value,
+      dal: AGRODATAINIZIO,
+      al: AGRODATAFINE,
+      descrizione: &#x27;&#x27;
+    }
+
+    codici.push(codiceOperatore);
+  }
+
+  getPrimitiveValue(codice: DropdownListItem | string) {
+    if(typeof(codice) &#x3D;&#x3D;&#x3D; &#x27;object&#x27;)
+      return codice.id as any as number;
+    return codice as any as number;
+  }
+
+  setSelected(data: CentroDropdownLists, centro: CentroAziendale) {
+    centro.orientamentoTecnicoEconomico &#x3D; data.Otes.Items.filter(s &#x3D;&gt; s.Selected)
+      .map(s &#x3D;&gt; this.parseOrientamentoEconomico(s));
+
+    let comuneSelezionata &#x3D; data.Comune.Items.find(s &#x3D;&gt; s.Selected);
+    let com &#x3D; getComuneForm(this.mainForm);
+    if(comuneSelezionata)
+      centro.indirizzi.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; com?.setValue(centro.indirizzi[0].indirizzo?.istatComune?.com);
+    // com.setValue(comuneSelezionata.Value.substring(3,6));
+
+    let provincieSelezionata &#x3D; data.Provincie.Items.find(s &#x3D;&gt; s.Selected);
+    let prov &#x3D; getComuniProvForm(this.mainForm);
+    if(provincieSelezionata)
+      centro.indirizzi.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; prov?.setValue(centro.indirizzi[0].indirizzo?.istatComune?.prov)
+    //prov.setValue(provincieSelezionata.Value);
+
+
+    let attivitaSelezionata &#x3D; data.TipoAttivita.Items.find(s &#x3D;&gt; s.Selected);
+    let att &#x3D; getAttivitaForm(this.mainForm);
+    if(attivitaSelezionata)
+      att?.setValue(centro.bioTipoAttivita);
+    //att.setValue({ codice: attivitaSelezionata.Value, descrizione: attivitaSelezionata.Text });
+
+    let odcSelezionato &#x3D; data.OrganismiControllo.Items.find(s &#x3D;&gt; s.Selected);
+    let odc &#x3D; getODC(this.mainForm);
+    if(odcSelezionato)
+      odc?.setValue(centro.bioOrganismoDiControllo);
+    //odc.setValue({ codice: odcSelezionato.Value, descrizione: odcSelezionato.Text });
+  }
+
+  get inModifica() {
+    const agenda &#x3D; this.objParams.getObjParamValue();
+    return !!agenda.Sa_Cod;
+  }
+
+  leggiDati() {
+    const agenda &#x3D; this.objParams.getObjParamValue();
+    if(agenda.Sa_Cod)
+      this._leggiDatiModificaCentro(agenda.Piva, agenda.Sa_Cod);
+    else
+      this.leggiDatiCreaNuovoCentro(agenda.Piva);
+    return agenda;
+  }
+
+  getFormGroupIndirizzo(fb: FormBuilder) {
+    return fb.group(
+      {
+        indirizzo: fb.group({
+          cap: [&#x27;&#x27;, [Validators.required, capValidatorCentriEdit()]],
+          codice: [&#x27;&#x27;],
+          flag_cancellazione: [&#x27;&#x27;],
+          frazione: [&#x27;&#x27;],
+          istatComune: fb.group({
+            cap: [&#x27;&#x27;],
+            codiceBelfiore: [&#x27;&#x27;],
+            com: [&#x27;&#x27;, Validators.required],
+            comuni_prov: [&#x27;&#x27;],
+            localita: [&#x27;&#x27;],
+            prov: [&#x27;&#x27;, Validators.required],
+            validita: [&#x27;&#x27;]
+          }),
+          note: [&#x27;&#x27;],
+          stato: [&#x27;&#x27;],
+          via: [&#x27;&#x27;],
+        }),
+        flag_cancellazione: [&#x27;&#x27;],
+        tipo_Indirizzo: [&#x27;&#x27;]
+      });
+  }
+
+  createFormGroup (fb: FormBuilder) {
+    const indirizzi &#x3D; fb.array([]);
+    indirizzi.push(&lt;any&gt;this.getFormGroupIndirizzo(&lt;any&gt;fb));
+
+    let ote: GiasCentriDDLItem[] &#x3D; [];
+    return fb.group({
+      bioOrganismoDiControllo: [&#x27;&#x27;],
+      centroAziendaleEsternoCollegato: [&#x27;&#x27;],
+      bioTipoAttivita: [&#x27;&#x27;],
+      catastoCentroAziendale: [&#x27;&#x27;],
+      flag_cancellazione: [&#x27;&#x27;],
+      indirizzi: indirizzi,
+      lat: fb.control(0),
+      lng: fb.control(0),
+      nome: [&#x27;&#x27;, Validators.required],
+      orientamentoTecnicoEconomico: ote,
+      primaryKey: fb.group({
+        codice: [&#x27;&#x27;],
+        partitaIva: [&#x27;&#x27;]
+      }),
+      tipologia: new GiasCentriDDLItem(&#x27;102&#x27;, &#x27;Sede Aziendale&#x27;),
+      titolo_Di_Possesso: new GiasCentriDDLItem(&#x27;0&#x27;, &#x27;Altro&#x27;),
+      validita: fb.group({
+        fine: [AGRODATAFINE],
+        inizio: [AGRODATAINIZIO]
+      }),
+
+      codiceOperatore: fb.control(&#x27;&#x27;),
+    });
+  }
+
+  parseOrientamentoEconomico(s: AspxDropdownItem) {
+    let result &#x3D; { codice: s.Value as string, descrizione: s.Text }
+    return result;
+  }
+
+  getForm(fb: FormBuilder): FormGroup {
+    if(!this.mainForm)
+      this.mainForm &#x3D; this.createFormGroup(fb);
+    return this.mainForm;
+  }
+
+  resetForm() {
+    this.mainForm &#x3D; null;
+  }
+
+  setCodiciGridPubService(codiciPubService: GridPublicService) {
+    this.codiciPubService &#x3D; codiciPubService;
+  }
+}
+function getComuneForm(mainForm: FormGroup) {
+  return (mainForm?.get(&#x27;indirizzi&#x27;) as FormArray)?.at(0)?.get(&#x27;indirizzo&#x27;)?.get(&#x27;istatComune&#x27;)?.get(&#x27;com&#x27;);
+}
+
+function getComuniProvForm(mainForm: FormGroup) {
+  return (mainForm?.get(&#x27;indirizzi&#x27;) as FormArray)?.at(0)?.get(&#x27;indirizzo&#x27;)?.get(&#x27;istatComune&#x27;)?.get(&#x27;prov&#x27;);
+}
+
+function getAttivitaForm(mainForm: FormGroup) {
+  return mainForm?.get(&#x27;bioTipoAttivita&#x27;);
+}
+
+function getODC(mainForm: FormGroup) {
+  return mainForm?.get(&#x27;bioOrganismoDiControllo&#x27;);
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'EditCentroStore.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

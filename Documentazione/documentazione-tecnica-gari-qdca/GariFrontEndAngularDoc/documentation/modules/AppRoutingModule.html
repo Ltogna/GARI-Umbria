@@ -1,0 +1,529 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content module">
+                   <div class="content-data">
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Modules</li>
+    <li class="breadcrumb-item" >AppRoutingModule</li>
+</ol>
+
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+        <a href="#info" 
+            class="nav-link"
+            class="nav-link active"
+            role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+    </li>
+    <li class="nav-item">
+        <a href="#source" 
+            class="nav-link"
+            
+            role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/app-routing.module.ts</code>
+        </p>
+
+
+
+
+
+        <div class="container-fluid module">
+            <div class="row">
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {NgModule} from &#x27;@angular/core&#x27;;
+import {PreloadAllModules, RouterModule, Routes} from &#x27;@angular/router&#x27;;
+import {AccessoNegatoComponent} from &#x27;./accesso-negato/accesso-negato.component&#x27;;
+import {CounterComponent} from &#x27;./counter/counter.component&#x27;;
+import {GestioneRichiesteComponent} from &#x27;./gestione-richieste/gestione-richieste.component&#x27;;
+import {CurrentPageGuard} from &#x27;./Guard/current-page-guard.service&#x27;;
+import {DatiGeneraliGuard} from &#x27;./Guard/datiGenerali-guard.service&#x27;;
+import {ModuliAttiviGuard} from &#x27;./Guard/moduli-attivi-guard.service&#x27;;
+import {PermessiUtenteGuard} from &#x27;./Guard/permessi-utente.guard.service&#x27;;
+import {TranslocoLoadedGuard} from &#x27;./Guard/transloco-guard.service&#x27;;
+import {LoginComponent} from &#x27;./login/login.component&#x27;;
+import {enum_PagineGiasNG, enum_Security_Attivita} from &#x27;./Model/TipiEnumerativi&#x27;;
+import {PageNotFoundComponent} from &#x27;./page-not-found/page-not-found.component&#x27;;
+import {PreferitiConfigComponent} from &#x27;./preferiti-config/preferiti-config.component&#x27;;
+import {TestComponent} from &#x27;./test/test.component&#x27;;
+import {PROFILAZIONE_IMPRESE_BASE_URL} from &#x27;./profilazione-imprese/profilazione-imprese-routing.module&#x27;;
+import { CacCodificheComponent } from &#x27;app/cac-codifiche/cac-codifiche.component&#x27;;
+
+export const DASHBOARD_URL &#x3D; &quot;dashboard&quot;;
+export const FAVORITES_URL &#x3D; &quot;preferiti-config&quot;;
+export const MENU_ZOO_URL &#x3D; &quot;operazioni-zootecniche&quot;;
+
+const routes: Routes &#x3D; [
+  {path: &#x27;&#x27;, component: PageNotFoundComponent},
+  {path: &#x27;counter&#x27;, component: CounterComponent},
+  {
+    path: &#x27;CodificheSistemiEsterni&#x27;, component: CacCodificheComponent,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [587],
+      writePermissions: [],
+      page: 324
+    }
+  },
+  {
+    path: DASHBOARD_URL, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./dashboard/dashboard.module&#x27;).then(m &#x3D;&gt; m.DashboardModule)&quot;,
+    canActivate: [DatiGeneraliGuard, CurrentPageGuard, TranslocoLoadedGuard],
+    data: {page: 999}
+  },
+  {path: &#x27;preferiti-config&#x27;, component: PreferitiConfigComponent, canActivate: [DatiGeneraliGuard]},
+  {
+    path: &#x27;Test&#x27;,
+    component: TestComponent,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard]
+  },
+  {path: &#x27;AccessoNegato&#x27;, component: AccessoNegatoComponent, pathMatch: &#x27;full&#x27;},
+  {
+    path: &#x27;Anagrafica&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./anagrafica/anagrafica.module&#x27;).then(m &#x3D;&gt; m.AnagraficaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 1
+    }
+  },
+  {
+    path: &#x27;Budget&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./budget/budget.module&#x27;).then(m &#x3D;&gt; m.BudgetModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 1
+    }
+  },
+  {
+    path: &#x27;QdC&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./quaderno-di-campagna/quaderno-di-campagna.module&#x27;).then(m &#x3D;&gt; m.QuadernoDiCampagnaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 21
+    }
+  },
+  {
+    path: &#x27;Visite&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./visite/visite.module&#x27;).then(m &#x3D;&gt; m.VisiteModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 60
+    }
+  },
+  {
+    path: &#x27;QdC/ConfigurazioneOperazioniCulturali&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./quaderno-di-campagna/quaderno-di-campagna.module&#x27;).then(m &#x3D;&gt; m.QuadernoDiCampagnaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [312],
+      writePermissions: [],
+      page: 22
+    }
+  },
+  {
+    path: &#x27;Profilazione&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./profilazione/profilazione.module&#x27;).then(m &#x3D;&gt; m.ProfilazioneModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 30
+    }
+  },
+  {
+    path: MENU_ZOO_URL, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./zoo/zoo.module&#x27;).then(m &#x3D;&gt; m.ZooModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 90
+    }
+  },
+  {
+    path: PROFILAZIONE_IMPRESE_BASE_URL,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./profilazione-imprese/profilazione-imprese.module&#x27;).then(m &#x3D;&gt; m.ProfilazioneImpreseModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [561],
+      writePermissions: [561],
+      page: 311
+    }
+  },
+  {
+    path: &#x27;Amministrazione-Sistema&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./amministrazione-sistema/amministrazione-sistema.module&#x27;).then(m &#x3D;&gt; m.AmministrazioneSistemaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [822],
+      writePermissions: [],
+      page: 50
+    }
+  },
+  {
+    path: &#x27;GruppiMerce&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./gruppi-merce/gruppi-merce.module&#x27;).then(m &#x3D;&gt; m.GruppiMerceModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [487],
+      writePermissions: [],
+      page: 40
+    }
+  },
+  {
+    path: &#x27;GIS&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./GIS/GIS.module&#x27;).then(m &#x3D;&gt; m.GISModule)&quot;,
+    // DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 200
+    }
+  },
+  {
+    path: &#x27;./GIS/cfg-proiezioni&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./GIS/GIS.module&#x27;).then(m &#x3D;&gt; m.GISModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [512],
+      writePermissions: [],
+      page: 201
+    }
+  },
+  {
+    path: &#x27;Valutazioni-Main&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./valutazioni/valutazioni-main-component/valutazioni-main-component.module&#x27;).then(m &#x3D;&gt; m.ValutazioniMainComponentModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [523],
+      writePermissions: [],
+      page: 70
+    }
+  },
+  {path: &#x27;Login&#x27;, component: LoginComponent},
+  {
+    path: &#x27;gruppi-raccolta&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./gruppi-raccolta/gruppi-raccolta/gruppi-raccolta.module&#x27;).then(m &#x3D;&gt; m.GruppiRaccoltaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [524],
+      writePermissions: [],
+      page: 300
+    }
+  },
+  {
+    path: &#x27;requisiti-stabilimento&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./requisiti-stabilimento/requisisti-stabilimento.module&#x27;).then(m &#x3D;&gt; m.RequisistiStabilimentoModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [526],
+      writePermissions: [],
+      page: 301
+    }
+  },
+  {
+    path: &#x27;dati-previsionali-colture&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./dati-previsionali-colture/dati-previsionali-colture.module&#x27;).then(m &#x3D;&gt; m.DatiPrevisionaliColtureModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [535],
+      writePermissions: [],
+      page: 305
+    }
+  },
+  {
+    path: &#x27;domanda-irrigua&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./domanda-irrigua/domanda-irrigua.module&#x27;).then(m &#x3D;&gt; m.DomandaIrriguaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 320
+    }
+  },
+  {
+    path: &#x27;confronto-piano-colturale&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./confronto-pc/confronto-piano-colturale/confronto-piano-colturale.module&#x27;).then(m &#x3D;&gt; m.ConfrontoPianoColturaleModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [545],
+      writePermissions: [],
+      page: 308
+    }
+  },
+  {
+    path: &#x27;Export/ExportQdCToAgea&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./export/export-qdc-to-agea/export-qdc-to-agea.module&#x27;).then(m &#x3D;&gt; m.ExportQdCToAgeaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, CurrentPageGuard, TranslocoLoadedGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [554],
+      writePermissions: [554],
+      page: 310
+    }
+  },
+  {
+    path: &#x27;FiltroDiRicerca&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./filtro-ricerca/filtro-ricerca.module&#x27;).then(m &#x3D;&gt; m.FiltroRicercaModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 309
+    }
+  },
+  {
+    path: &#x27;MenuAnalisiTerreno&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./analisi-terreno/analisi-terreno.module&#x27;).then(m &#x3D;&gt; m.AnalisiTerrenoModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 312
+    }
+  },
+  {
+    path: &#x27;ReportImpiegoProdottiFitosanitari&#x27;,
+    loadChildren: () &#x3D;&gt; &quot;import(&#x27;./report-impiego-prodotti-fitosanitari/report-impiego-prodotti-fitosanitari.module&#x27;).then(m &#x3D;&gt; m.ReportImpiegoProdottiFitosanitariModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 314
+    }
+  },
+  {
+    path: &#x27;Rilievi&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./rilievi/rilievi.module&#x27;).then(m &#x3D;&gt; m.RilieviModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 322
+    }
+  },
+  {
+    path: &#x27;TrattamentoZoo&#x27;,  loadChildren: () &#x3D;&gt; &quot;import(&#x27;./zoo/components/trattamento-zoo/trattamento-zoo.module&#x27;).then(m &#x3D;&gt; m.TrattamentoZooModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [],
+      writePermissions: [],
+      page: 323
+    }
+  },
+  { path: &#x27;GestioneRichieste&#x27;, component: GestioneRichiesteComponent, canActivate: [TranslocoLoadedGuard] },
+  {  
+  path: &#x27;ReportAbilitazionePdC&#x27;, loadChildren: () &#x3D;&gt; &quot;import(&#x27;./report-abilitazione-pdc/report-abilitazione-pdc.module&#x27;).then(m &#x3D;&gt; m.ReportAbilitazionePdCModule)&quot;,
+    canActivate: [DatiGeneraliGuard, PermessiUtenteGuard, CurrentPageGuard, ModuliAttiviGuard],
+    data: {
+      readPermissions: [588],
+      writePermissions: [],
+      page: 316
+    }
+  },
+  {
+    path: &#x27;**&#x27;,
+    //redirectTo: &#x27;&#x27;,
+    component: PageNotFoundComponent
+  }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes, {
+    preloadingStrategy: PreloadAllModules, anchorScrolling: &#x27;enabled&#x27;
+  })],
+  exports: [RouterModule]
+})
+
+export class AppRoutingModule {
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'module';
+            var COMPODOC_CURRENT_PAGE_URL = 'AppRoutingModule.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,3044 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CentriHttpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/centri/services/centri-grid-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aggregates" >aggregates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#centriSelezionati" >centriSelezionati</a>
+                            </li>
+                            <li>
+                                <a href="#columns" >columns</a>
+                            </li>
+                            <li>
+                                <a href="#comuneColumn" >comuneColumn</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#model" >model</a>
+                            </li>
+                            <li>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoEdit" >permessoEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoInfo" >permessoInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoRemove" >permessoRemove</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                <a href="#toolbar" >toolbar</a>
+                            </li>
+                            <li>
+                                <a href="#views" >views</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addCentroSelezionato" >addCentroSelezionato</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                <a href="#caricaComuni" >caricaComuni</a>
+                            </li>
+                            <li>
+                                <a href="#caricaProvincie" >caricaProvincie</a>
+                            </li>
+                            <li>
+                                <a href="#caricaStati" >caricaStati</a>
+                            </li>
+                            <li>
+                                <a href="#clearSelezionati" >clearSelezionati</a>
+                            </li>
+                            <li>
+                                <a href="#getCentriSelezionati" >getCentriSelezionati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRemoveMultipleRowsMessage" >getRemoveMultipleRowsMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDropdowns" >handleDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#initializeFields" >initializeFields</a>
+                            </li>
+                            <li>
+                                <a href="#insertNonDefinedItemIfNotExists" >insertNonDefinedItemIfNotExists</a>
+                            </li>
+                            <li>
+                                <a href="#msgWarningDelete" >msgWarningDelete</a>
+                            </li>
+                            <li>
+                                <a href="#onInfoBtnClick" >onInfoBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#onStateChangeUpdateComune" >onStateChangeUpdateComune</a>
+                            </li>
+                            <li>
+                                <a href="#onStateChangeUpdateFields" >onStateChangeUpdateFields</a>
+                            </li>
+                            <li>
+                                <a href="#onTemplateBtnClick" >onTemplateBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#removeCentroSelezionato" >removeCentroSelezionato</a>
+                            </li>
+                            <li>
+                                <a href="#setProvComFromCompany" >setProvComFromCompany</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#transform" >transform</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, _centri: <a href="../injectables/CentriService.html" target="_self">CentriService</a>, centriService: <a href="../injectables/CentriAziendaliService.html" target="_self">CentriAziendaliService</a>, objParametriService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, istatService: <a href="../injectables/GiasIstatService.html" target="_self">GiasIstatService</a>, impreseService: <a href="../classes/ImpreseFactoryService.html" target="_self">ImpreseFactoryService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, router: Router, renderer: Renderer2, route: ActivatedRoute, anagraficaService: <a href="../injectables/AnagraficaService.html" target="_self">AnagraficaService</a>, gridPublicSerivce: GridPublicService, translocoService: TranslocoService, treeContainer: <a href="../injectables/TreeContainerService.html" target="_self">TreeContainerService</a>, budgetService: <a href="../injectables/BudgetService.html" target="_self">BudgetService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>_centri</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriService.html" target="_self" >CentriService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>centriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriAziendaliService.html" target="_self" >CentriAziendaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>istatService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasIstatService.html" target="_self" >GiasIstatService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>impreseService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/ImpreseFactoryService.html" target="_self" >ImpreseFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>anagraficaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnagraficaService.html" target="_self" >AnagraficaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridPublicSerivce</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>treeContainer</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TreeContainerService.html" target="_self" >TreeContainerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>budgetService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BudgetService.html" target="_self" >BudgetService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addCentroSelezionato"></a>
+                    <span class="name">
+                        <span ><b>addCentroSelezionato</b></span>
+                        <a href="#addCentroSelezionato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addCentroSelezionato(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>, error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="627"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:627</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="534"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:534</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaComuni"></a>
+                    <span class="name">
+                        <span ><b>caricaComuni</b></span>
+                        <a href="#caricaComuni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaComuni(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="603"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:603</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaProvincie"></a>
+                    <span class="name">
+                        <span ><b>caricaProvincie</b></span>
+                        <a href="#caricaProvincie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaProvincie(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="607"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:607</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaStati"></a>
+                    <span class="name">
+                        <span ><b>caricaStati</b></span>
+                        <a href="#caricaStati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaStati(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="611"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:611</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSelezionati"></a>
+                    <span class="name">
+                        <span ><b>clearSelezionati</b></span>
+                        <a href="#clearSelezionati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSelezionati()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="639"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:639</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCentriSelezionati"></a>
+                    <span class="name">
+                        <span ><b>getCentriSelezionati</b></span>
+                        <a href="#getCentriSelezionati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCentriSelezionati()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="635"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:635</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CentroAziendale.html" target="_self" >Map&lt;CentroAziendale, string&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRemoveMultipleRowsMessage"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getRemoveMultipleRowsMessage</b></span>
+                        <a href="#getRemoveMultipleRowsMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="616"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:616</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RemoveMultipleRowsParams</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDropdowns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDropdowns</b></span>
+                        <a href="#handleDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDropdowns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="550"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:550</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initializeFields"></a>
+                    <span class="name">
+                        <span ><b>initializeFields</b></span>
+                        <a href="#initializeFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>initializeFields(fg: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="350"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:350</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fg</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="insertNonDefinedItemIfNotExists"></a>
+                    <span class="name">
+                        <span ><b>insertNonDefinedItemIfNotExists</b></span>
+                        <a href="#insertNonDefinedItemIfNotExists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>insertNonDefinedItemIfNotExists(fg: FormGroup, formCtrlName: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, formCtrlValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fg</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formCtrlName</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>formCtrlValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="msgWarningDelete"></a>
+                    <span class="name">
+                        <span ><b>msgWarningDelete</b></span>
+                        <a href="#msgWarningDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>msgWarningDelete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="643"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:643</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInfoBtnClick"></a>
+                    <span class="name">
+                        <span ><b>onInfoBtnClick</b></span>
+                        <a href="#onInfoBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onInfoBtnClick(dataItem)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="591"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:591</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStateChangeUpdateComune"></a>
+                    <span class="name">
+                        <span ><b>onStateChangeUpdateComune</b></span>
+                        <a href="#onStateChangeUpdateComune"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStateChangeUpdateComune(comuni, fg: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="433"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:433</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>comuni</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fg</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStateChangeUpdateFields"></a>
+                    <span class="name">
+                        <span ><b>onStateChangeUpdateFields</b></span>
+                        <a href="#onStateChangeUpdateFields"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onStateChangeUpdateFields(fg: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="364"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fg</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;number&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTemplateBtnClick"></a>
+                    <span class="name">
+                        <span ><b>onTemplateBtnClick</b></span>
+                        <a href="#onTemplateBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTemplateBtnClick(dataItem)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="579"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:579</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="489"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:489</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="447"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:447</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;CentroKendoServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeCentroSelezionato"></a>
+                    <span class="name">
+                        <span ><b>removeCentroSelezionato</b></span>
+                        <a href="#removeCentroSelezionato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>removeCentroSelezionato(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="631"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:631</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setProvComFromCompany"></a>
+                    <span class="name">
+                        <span ><b>setProvComFromCompany</b></span>
+                        <a href="#setProvComFromCompany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setProvComFromCompany(fg: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="397"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:397</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fg</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transform"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>transform</b></span>
+                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transform(data: <a href="../classes/CentriWrapper.html" target="_self">CentriWrapper</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="470"
+                                    class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:470</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                            <code><a href="../classes/CentriWrapper.html" target="_self" >CentriWrapper</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CentroKendoServerResult.html" target="_self" >CentroKendoServerResult</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggregates"></a>
+                    <span class="name">
+                        <span ><b>aggregates</b></span>
+                        <a href="#aggregates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      { field: &#x27;Superficie_Catastale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Convenzionale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Conversione&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Biologico&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Totale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; }
+    ]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centriSelezionati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>centriSelezionati</b></span>
+                        <a href="#centriSelezionati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CentroAziendale.html" target="_self" >Map&lt;CentroAziendale | string&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;CentroAziendale, string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columns"></a>
+                    <span class="name">
+                        <span ><b>columns</b></span>
+                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comuneColumn"></a>
+                    <span class="name">
+                        <span ><b>comuneColumn</b></span>
+                        <a href="#comuneColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;CentriHttpService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="model"></a>
+                    <span class="name">
+                        <span ><b>model</b></span>
+                        <a href="#model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/KendoCentroModel.html" target="_self" >KendoCentroModel</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoEdit</b></span>
+                        <a href="#permessoEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoInfo</b></span>
+                        <a href="#permessoInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoRemove"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoRemove</b></span>
+                        <a href="#permessoRemove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolbar"></a>
+                    <span class="name">
+                        <span ><b>toolbar</b></span>
+                        <a href="#toolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ToolbarSettings(true, false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Optional parameters</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="views"></a>
+                    <span class="name">
+                        <span ><b>views</b></span>
+                        <a href="#views"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GridCustomizations({ enabled: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/anagrafica/centri/services/centri-grid-config.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, Injector, Renderer2 } from &#x27;@angular/core&#x27;;
+import {
+  AggregateSettings,
+  CommandsColumnSettings,
+  CommandsDropDownEvents,
+  CommandsDropDownSettings,
+  RemoveMultipleRowsParams,
+  ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { DropdownListItem, DropdownListWithForm, EditingMode,
+  GridCustomizations, KendoGridColumn, LoaderType, ModelEntry, RendererGridEvent
+} from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { from, Observable, of } from &#x27;rxjs&#x27;;
+import { CentriWrapper, CentroKendoServerResult, KendoCentroModel } from &#x27;../centri.models&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { catchError, map, switchMap, take, takeUntil, tap } from &#x27;rxjs/operators&#x27;;
+import { CentriService } from &#x27;./centri.service&#x27;;
+import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { ActivatedRoute, Router } from &#x27;@angular/router&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO, SMARTPHONE_WIDTH } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { AnagraficaService } from &#x27;app/anagrafica/anagrafica.service&#x27;;
+import { TreeContainerService } from &#x27;app/Utility/Template/kendo-tree/services/tree-container.service&#x27;;
+import { ImpreseFactoryService, IMPRESE_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/imprese.factory.service&#x27;;
+import { BudgetService } from &#x27;app/Service/Budget/budget.service&#x27;;
+import { CentroAziendale } from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import { CentriAziendaliService } from &#x27;app/Service/Anagrafica/centri.service&#x27;;
+import { GiasDialogService } from &quot;../../../Service/gias-dialog.service&quot;;
+import { capValidatorCentriGrid } from &#x27;gias-ui-kit&#x27;;
+import {GiasIstatService} from &#x27;../../../Service/istat/gias-istat.service&#x27;;
+
+@Injectable()
+export class CentriHttpService extends AbstractGridConfigService&lt;CentroKendoServerResult&gt; {
+  gridId &#x3D; &#x27;CentriHttpService&#x27;;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+  rowId &#x3D; &#x27;chiave&#x27;;
+  objParametriAgenda: ObjParametriAgenda;
+
+  /** Optional parameters */
+  toolbar &#x3D; new ToolbarSettings(true, false);
+  views &#x3D; new GridCustomizations({ enabled: true });
+
+  public permessoEdit: boolean;
+  public permessoRemove: boolean;
+  public permessoInfo: boolean;
+
+  private centriSelezionati: Map&lt;CentroAziendale, string&gt; &#x3D; new Map&lt;CentroAziendale, string&gt;();
+
+  columns: KendoGridColumn[];
+  model: KendoCentroModel;
+  comuneColumn: KendoGridColumn;
+
+  aggregates &#x3D; new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      { field: &#x27;Superficie_Catastale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Convenzionale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Conversione&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Biologico&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; },
+      { field: &#x27;Superficie_Totale&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27; }
+    ]
+  });
+
+  constructor(injector: Injector,
+    private _centri: CentriService,
+    private centriService: CentriAziendaliService,
+    private objParametriService: ObjParametriAgendaService,
+    private permessiUtenteService: PermessiUtenteService,
+    private istatService: GiasIstatService,
+    @Inject(IMPRESE_SERVICE_TOKEN) private impreseService: ImpreseFactoryService,
+    private giasMessageService: GiasMessageService,
+    private giasDialogService: GiasDialogService,
+    private router: Router,
+    private renderer: Renderer2,
+    private route: ActivatedRoute,
+    private anagraficaService: AnagraficaService,
+    private gridPublicSerivce: GridPublicService,
+    private translocoService: TranslocoService,
+    private treeContainer: TreeContainerService,
+    private budgetService: BudgetService) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.permessoEdit &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_CentroAziendale, 2) &amp;&amp; this.budgetService.getBudget().activeBudget &#x3D;&#x3D; false;
+    this.permessoRemove &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_CentroAziendale, 2) &amp;&amp; this.budgetService.getBudget().activeBudget &#x3D;&#x3D; false;
+    this.permessoInfo &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_CentroAziendale, 0);
+
+    this.gridPublicSerivce.changeDetected.pipe(
+      takeUntil(this.signal)
+    ).subscribe((event: any) &#x3D;&gt; {
+      if (event.action &#x3D;&#x3D; &#x27;add&#x27;) {
+        this.gridPublicSerivce.formGroup.pipe(take(1)).subscribe((fg) &#x3D;&gt; {
+          fg.controls[&#x27;sa_cod&#x27;].setValue(0);
+        })
+      }
+    })
+
+    this.gridPublicSerivce.formGroup.pipe(
+      tap((fg: FormGroup) &#x3D;&gt; {
+        if (!fg)
+          return;
+
+        this.initializeFields(fg);
+
+        fg.controls[&#x27;Stato_Cod&#x27;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+          this.onStateChangeUpdateFields(fg).pipe(take(1), map(gestioneGerarchia &#x3D;&gt; {
+            if (gestioneGerarchia &#x3D;&#x3D; 1) {
+              let prov &#x3D; fg.controls[&quot;pro_cod_istat&quot;].value;
+              this.istatService.leggiComuni(prov).then((comuni) &#x3D;&gt; {
+                this.onStateChangeUpdateComune(comuni, fg);
+              });
+            } else {
+              fg.controls[&quot;com_cod_istat&quot;].setValue(&#x27;000&#x27;);
+              fg.controls[&quot;com_des&quot;].setValue(&#x27;000&#x27;);
+            }
+
+            fg.controls[&#x27;CAP&#x27;].updateValueAndValidity({ onlySelf: true, emitEvent: false });
+          })).subscribe();
+
+
+        });
+
+        fg.controls[&#x27;pro_cod_istat&#x27;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+
+          let prov &#x3D; fg.controls[&quot;pro_cod_istat&quot;].value;
+          let stato &#x3D; fg.controls[&quot;Stato_Cod&quot;].value;
+          from(this.istatService.leggiProvincie(stato)).pipe(take(1), map(p &#x3D;&gt; {
+            //let comDef &#x3D; p.filter(t &#x3D;&gt; t.Istat_Prov &#x3D;&#x3D; prov)[0].comuneDefault;
+            //fg.controls[&#x27;com_cod_istat&#x27;].setValue(comDef);
+            from(this.istatService.leggiStati()).pipe(take(1), map(s &#x3D;&gt; {
+              let gestioneGerarchia &#x3D; s.find(t &#x3D;&gt; t.codice &#x3D;&#x3D; stato).gestioneGerarchia;
+              if (prov !&#x3D; null &amp;&amp; prov !&#x3D; &quot;&quot; &amp;&amp; (gestioneGerarchia &#x3D;&#x3D; 1 || stato &#x3D;&#x3D; &#x27;&#x27;)) {
+                if (prov !&#x3D; &#x27;000&#x27;) {
+                  fg.controls[&quot;com_cod_istat&quot;].enable();
+                }
+                this.istatService.leggiComuni(prov).then((comuni) &#x3D;&gt; {
+                  this.onStateChangeUpdateComune(comuni, fg);
+                });
+              }
+            })).subscribe();
+          })).subscribe();
+        });
+
+        fg.controls[&quot;com_cod_istat&quot;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+          let com &#x3D; fg.controls[&quot;com_cod_istat&quot;].value;
+          let prov &#x3D; fg.controls[&quot;pro_cod_istat&quot;].value;
+          let stato &#x3D; fg.controls[&quot;Stato_Cod&quot;].value;
+          if (com !&#x3D; &#x27;&#x27; &amp;&amp; com !&#x3D; &#x27;000&#x27; &amp;&amp; prov !&#x3D; &#x27;&#x27; &amp;&amp; prov !&#x3D; &#x27;000&#x27; &amp;&amp; (stato &#x3D;&#x3D; &#x27;IT&#x27; || stato &#x3D;&#x3D; &#x27;&#x27;)) {
+            this.istatService.leggiCAP(fg.controls[&quot;pro_cod_istat&quot;].value, fg.controls[&quot;com_cod_istat&quot;].value,).then((cap) &#x3D;&gt; {
+              fg.controls[&#x27;CAP&#x27;].setValue(cap);
+            })
+          } else {
+            fg.controls[&#x27;CAP&#x27;].setValue(&#x27;00000&#x27;);
+          }
+        });
+
+
+        let statoCodValue &#x3D; fg.controls[&#x27;Stato_Cod&#x27;].value;
+        if (statoCodValue &#x3D;&#x3D; null) {
+          fg.controls[&#x27;Stato_Cod&#x27;].setValue(&#x27;IT&#x27;);
+
+          this.insertNonDefinedItemIfNotExists(fg, &#x27;com_cod_istat&#x27;, &#x27;com_des&#x27;);
+          this.insertNonDefinedItemIfNotExists(fg, &#x27;pro_cod_istat&#x27;, &#x27;pro_cod&#x27;);
+        }
+      })
+    ).GiasSubscribe((fb: any) &#x3D;&gt; {
+      let a &#x3D; 0; //Commento per funzione vuota SonarQube
+    });
+
+    this.columns &#x3D; [
+      new KendoGridColumn(
+        { field: &#x27;sa_nome&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;) },
+        { resizable: true, editable: this.permessoEdit, validators: [Validators.required], width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;pro_cod_istat&#x27;, title: this.translocoService.translate(&#x27;Provincia&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;com_cod_istat&#x27;, title: this.translocoService.translate(&#x27;Comune&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;ind_des&#x27;, title: this.translocoService.translate(&#x27;Indirizzo&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;frz_des&#x27;, title: this.translocoService.translate(&#x27;Frazione&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;CAP&#x27;, title: this.translocoService.translate(&#x27;CAP&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135, validators: [capValidatorCentriGrid()] }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Stato_Cod&#x27;, title: this.translocoService.translate(&#x27;Stato&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;note&#x27;, title: this.translocoService.translate(&#x27;Note&#x27;) },
+        { resizable: true, editable: this.permessoEdit, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie_Catastale&#x27;, title: this.translocoService.translate(&#x27;SuperficieCatastaleAbbr&#x27;) },
+        { resizable: true, editable: false, width: 135, format: &#x27;n4&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; } }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie_Convenzionale&#x27;, title: this.translocoService.translate(&#x27;SuperficieConvenzionaleAbbr&#x27;) },
+        { resizable: true, editable: false, width: 135, format: &#x27;n4&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie_Conversione&#x27;, title: this.translocoService.translate(&#x27;SuperficieConversioneAbbr&#x27;) },
+        { resizable: true, editable: false, width: 135, format: &#x27;n4&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie_Biologico&#x27;, title: this.translocoService.translate(&#x27;SuperficieBiologicoAbbr&#x27;) },
+        { resizable: true, editable: false, width: 135, format: &#x27;n4&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie_Totale&#x27;, title: this.translocoService.translate(&#x27;SuperficieTotaleAbbr&#x27;) },
+        { resizable: true, editable: false, width: 135, format: &#x27;n4&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Validita_Inizio&#x27;, title: this.translocoService.translate(&#x27;Validita_Inizio&#x27;) },
+        { resizable: true, editable: this.permessoEdit, date: { defaultValue: AGRODATAINIZIO }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Validita_Fine&#x27;, title: this.translocoService.translate(&#x27;Validita_Fine&#x27;) },
+        { resizable: true, editable: this.permessoEdit, date: { defaultValue: AGRODATAFINE }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Data_Creazione&#x27;, title: this.translocoService.translate(&#x27;DataCreazione&#x27;) },
+        { resizable: true, editable: false, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Utente_Creazione&#x27;, title: this.translocoService.translate(&#x27;UtenteCreazione&#x27;) },
+        { resizable: true, editable: false, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Data_Modifica&#x27;, title: this.translocoService.translate(&#x27;DataModifica&#x27;) },
+        { resizable: true, editable: false, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Utente_Modifica&#x27;, title: this.translocoService.translate(&#x27;UtenteModifica&#x27;) },
+        { resizable: true, editable: false, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;IndirizzoCompleto&#x27;, title: this.translocoService.translate(&#x27;Indirizzo&#x27;) },
+        { resizable: true, editable: false, media: &#x27;(max-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, width: 135 }
+      ),
+    ]
+
+    this.model &#x3D; {
+      chiave: new ModelEntry(CELL_TYPES.STRING, false),
+      sa_cod: new ModelEntry(CELL_TYPES.STRING, false),
+      sa_nome: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      Piva: new ModelEntry(CELL_TYPES.STRING, false),
+      Rag_Soc: new ModelEntry(CELL_TYPES.STRING, false),
+      cod_indirizzo: new ModelEntry(CELL_TYPES.STRING, false),
+      ind_des: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      frz_des: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      CAP: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      Stato2: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      Stato_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, this.permessoEdit),
+      note: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      com_des: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      pro_cod: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      pro_cod_istat: new ModelEntry(CELL_TYPES.DROPDOWNLIST, this.permessoEdit),
+      com_cod_istat: new ModelEntry(CELL_TYPES.DROPDOWNLIST, this.permessoEdit),
+      CodiceOperatoreBio: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      tipoAttivitaCod: new ModelEntry(CELL_TYPES.STRING, this.permessoEdit),
+      Superficie_Catastale: new ModelEntry(CELL_TYPES.NUMBER, false),
+      Superficie_Convenzionale: new ModelEntry(CELL_TYPES.NUMBER, false),
+      Superficie_Conversione: new ModelEntry(CELL_TYPES.NUMBER, false),
+      Superficie_Biologico: new ModelEntry(CELL_TYPES.NUMBER, false),
+      Superficie_Totale: new ModelEntry(CELL_TYPES.NUMBER, false),
+      Validita_Inizio: new ModelEntry(CELL_TYPES.DATE, this.permessoEdit),
+      Validita_Fine: new ModelEntry(CELL_TYPES.DATE, this.permessoEdit),
+      Data_Creazione: new ModelEntry(CELL_TYPES.DATETIME, false),
+      Data_Modifica: new ModelEntry(CELL_TYPES.DATETIME, false),
+      Utente_Creazione: new ModelEntry(CELL_TYPES.STRING, false),
+      Utente_Modifica: new ModelEntry(CELL_TYPES.STRING, false),
+      IndirizzoCompleto: new ModelEntry(CELL_TYPES.STRING, false),
+    }
+
+    this.selectable.selectable.checkboxOnly &#x3D; false;
+    this.selectable.selectable.enabled &#x3D; this.permessoEdit;
+
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; this.permessoEdit;
+    this.toolbar.resetChanges &#x3D; false;
+
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: this.permessoEdit,
+      removeBtn: this.permessoRemove,
+    });
+
+    /*this.dettagliColumn &#x3D; new DettagliColumnSettings({
+        editBtn: this.permessoEdit,
+        edit: this.onTemplateBtnClick.bind(this),
+    })*/
+
+    this.cmdDropDown &#x3D; new CommandsDropDownSettings({
+      fullEditBtn: this.permessoEdit,
+      infoBtn: this.permessoInfo,
+    });
+    this.gridPublicSerivce.commandEvent.GiasSubscribe(ev &#x3D;&gt; {
+      if (!ev) return;
+      switch (ev.command.action) {
+        case CommandsDropDownEvents.FULL_EDIT:
+          this.onTemplateBtnClick(ev.dataItem);
+          break;
+      }
+    })
+
+    this.resizable.autoFitColumns &#x3D; false;
+    this.selectable.columnSettings.showSelectAll &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; true;
+    this.selectable.columnSettings.title &#x3D; &#x27; &#x27;;
+    this.resizable.isResizable &#x3D; true;
+    this.selectable.selectable.enabled &#x3D; true;
+    this.groups.groupable.enabled &#x3D; false;
+    if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+      this.groups.groupable.enabled &#x3D; false;
+      this.views.enabled &#x3D; false;
+      this.cmdColumn.editBtn &#x3D; false;
+      this.toolbar.newItem &#x3D; false;
+    }
+  }
+
+  insertNonDefinedItemIfNotExists(fg: FormGroup, formCtrlName: string, formCtrlValue: string) {
+    let col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; formCtrlName);
+    let itemNotDefined &#x3D; col.ddl.data.find(s &#x3D;&gt; s.id &#x3D;&#x3D;&#x3D; &#x27;000&#x27;);
+    if (itemNotDefined &#x3D;&#x3D; null)
+      col.ddl.data &#x3D; [new DropdownListItem(&#x27;000&#x27;, &#x27;Non Definita&#x27;)];
+
+    fg.controls[formCtrlName].setValue(&#x27;000&#x27;);
+    fg.controls[formCtrlValue].setValue(&#x27;Non Definita&#x27;);
+  }
+
+  initializeFields(fg: FormGroup) {
+    from(this.istatService.leggiStati()).pipe(take(1), map(s &#x3D;&gt; {
+      let stato &#x3D; fg.controls[&quot;Stato_Cod&quot;].value;
+      let gestioneGerarchia &#x3D; s.filter(t &#x3D;&gt; t.codice &#x3D;&#x3D; stato)[0].gestioneGerarchia;
+      if (gestioneGerarchia !&#x3D; 1 &amp;&amp; stato !&#x3D; &#x27;&#x27;) {
+        fg.controls[&quot;com_cod_istat&quot;].disable();
+        fg.controls[&quot;pro_cod_istat&quot;].disable();
+        fg.controls[&quot;pro_cod_istat&quot;].setValue(&#x27;000&#x27;);
+        fg.controls[&quot;com_cod_istat&quot;].setValue(&#x27;000&#x27;);
+        fg.controls[&#x27;CAP&#x27;].setValue(&#x27;00000&#x27;);
+        fg.controls[&quot;com_des&quot;].setValue(&#x27;&#x27;);
+      }
+    })).subscribe();
+  }
+  onStateChangeUpdateFields(fg: FormGroup): Observable&lt;number&gt; {
+    let stato &#x3D; fg.controls[&quot;Stato_Cod&quot;].value;
+    return from(this.istatService.leggiStati()).pipe(take(1), map(s &#x3D;&gt; {
+      let gestioneGerarchia &#x3D; s.find(t &#x3D;&gt; t.codice &#x3D;&#x3D;&#x3D; stato).gestioneGerarchia;
+      if (gestioneGerarchia !&#x3D; 1 &amp;&amp; stato !&#x3D; &#x27;&#x27;) {
+        let col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;pro_cod_istat&#x27;);
+        //col.ddl.reload.next(true);
+        fg.controls[&quot;com_cod_istat&quot;].disable({ emitEvent: false });
+        fg.controls[&quot;pro_cod_istat&quot;].disable({ emitEvent: false });
+        fg.controls[&quot;pro_cod_istat&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+        fg.controls[&quot;com_cod_istat&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+        fg.controls[&#x27;CAP&#x27;].setValue(&#x27;00000&#x27;);
+        fg.controls[&quot;com_des&quot;].setValue(&#x27;&#x27;);
+      } else {
+        fg.controls[&quot;com_cod_istat&quot;].enable({ emitEvent: false });
+        fg.controls[&quot;pro_cod_istat&quot;].enable({ emitEvent: false });
+        fg.controls[&quot;pro_cod_istat&quot;].setValue(stato &#x3D;&#x3D; &#x27;IT&#x27; ? &#x27;000&#x27; : stato + &#x27;000&#x27;, { emitEvent: false });
+        fg.controls[&quot;com_cod_istat&quot;].setValue(stato &#x3D;&#x3D; &#x27;IT&#x27; ? &#x27;000&#x27; : stato + &#x27;000&#x27;, { emitEvent: false });
+
+        this.setProvComFromCompany(fg);
+
+        // fg.controls[&quot;pro_cod_istat&quot;].setValue(&#x27;000&#x27;);
+        // fg.controls[&quot;com_cod_istat&quot;].setValue(&#x27;000&#x27;);
+
+        // fg.controls[&#x27;CAP&#x27;].setValue(&#x27;00000&#x27;);
+        // fg.controls[&quot;com_des&quot;].setValue(&#x27;&#x27;);
+        // let col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;pro_cod_istat&#x27;);
+        // col.ddl.reload.next(true);
+      }
+      return gestioneGerarchia;
+    }))
+  }
+
+  setProvComFromCompany(fg: FormGroup) {
+    const objP &#x3D; this.objParametriService.getObjParamValue();
+    from(this.impreseService.leggiImpresa(objP)).pipe(
+      take(1),
+      map((val) &#x3D;&gt; {
+        return val.RispostaStringa;
+      }),
+      tap((impresa) &#x3D;&gt; {
+        let i &#x3D; impresa;
+        const indirizzo &#x3D; impresa.indirizzi[0].indirizzo;
+        const prov &#x3D; indirizzo.istatComune.prov;
+        const com &#x3D; indirizzo.istatComune.com;
+
+        let colProv &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;pro_cod_istat&#x27;);
+        let colCom &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com_cod_istat&#x27;);
+        if (fg.controls[&#x27;Stato_Cod&#x27;].value &#x3D;&#x3D; indirizzo.stato.codice) {
+          fg.controls[&quot;pro_cod_istat&quot;].setValue(prov);
+        }
+        colProv.ddl.reload.next(true);
+
+        this.istatService.leggiComuni(prov).then((comuni) &#x3D;&gt; {
+          setTimeout(() &#x3D;&gt; {
+            let comS &#x3D; comuni.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; com);
+            let colCom &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com_cod_istat&#x27;);
+            if (fg.controls[&#x27;Stato_Cod&#x27;].value &#x3D;&#x3D; indirizzo.stato.codice) {
+              fg.controls[&quot;com_cod_istat&quot;].setValue(comS.codice);
+              fg.controls[&quot;com_des&quot;].setValue(comS.descrizione);
+            }
+            colCom.ddl.reload.next(true);
+          }, 250);
+        });
+
+      })
+    ).subscribe();
+  }
+
+  onStateChangeUpdateComune(comuni, fg: FormGroup) {
+    let stato &#x3D; fg.controls[&quot;Stato_Cod&quot;].value;
+    from(this.istatService.leggiProvincie(stato)).pipe(take(1), map(p &#x3D;&gt; {
+      let prov &#x3D; p.filter(t &#x3D;&gt; t.Istat_Prov &#x3D;&#x3D; fg.controls[&quot;pro_cod_istat&quot;].value)[0];
+      from(this.istatService.leggiComuni(prov.Istat_Prov)).pipe(take(1), map(c &#x3D;&gt; {
+        let com &#x3D; c.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; (prov.comuneDefault));
+        let col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com_cod_istat&#x27;);
+        fg.controls[&quot;com_cod_istat&quot;].setValue(com.codice);
+        fg.controls[&quot;com_des&quot;].setValue(com.descrizione);
+        col.ddl.reload.next(true);
+      })).subscribe();
+    })).subscribe();
+  }
+
+  read(): Observable&lt;CentroKendoServerResult&gt; {
+    this.msgWarningDelete();
+    // azzero Sa_Cod, altrimenti non vengono caricati tutti i centri dell&#x27;azienda
+    let objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+    objParametriAgenda.Sa_Cod &#x3D; 0
+    objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Read;
+    let data &#x3D; this.anagraficaService.filterData.getValue()
+    let DataFiltro &#x3D; AGRODATAINIZIO;
+    if (data.filter) {
+      objParametriAgenda.Data &#x3D; data.data;
+    }
+    this.objParametriService.changeObjParametriAgenda(objParametriAgenda);
+
+    this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef })
+    return this._centri.leggiCentri(objParametriAgenda.Piva).pipe(
+      catchError((err) &#x3D;&gt; {
+        this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+        return of()
+      }),
+      map((data: CentriWrapper) &#x3D;&gt; this.transform(data))
+    );
+  }
+
+  private transform(data: CentriWrapper): CentroKendoServerResult {
+    this.handleDropdowns();
+    this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+    data?.centri?.forEach(val &#x3D;&gt; {
+      if (val.Stato_Cod &#x3D;&#x3D; &#x27;IT&#x27;) {
+        val.IndirizzoCompleto &#x3D; val.ind_des + &#x27; - &#x27; + val.com_des + &#x27; (&#x27; + val.pro_cod + &#x27;)&#x27; + &#x27; CAP:&#x27; + val.CAP;
+      } else {
+        val.IndirizzoCompleto &#x3D; val.ind_des + &#x27; (&#x27; + val.frz_des + &#x27;) ZIP: &#x27; + val.CAP;
+      }
+
+    })
+
+    return {
+      model: this.model,
+      rows: data.centri,
+      columns: this.columns
+    };
+  }
+
+  perform(actionType: HttpAction, item: any): Observable&lt;any[]&gt; {
+    let flag_cancellazione;
+    let httpRisp: Observable&lt;any&gt;;
+    if (actionType &#x3D;&#x3D;&#x3D; HttpAction.UPDATE) {
+      let objPAgenda &#x3D; new ObjParametriAgenda
+      objPAgenda.Piva &#x3D; item[&#x27;Piva&#x27;];
+      objPAgenda.Sa_Cod &#x3D; item[&#x27;sa_cod&#x27;];
+      httpRisp &#x3D; this.centriService.leggiCentro(objPAgenda).pipe(
+        take(1),
+        switchMap((objCentro, index) &#x3D;&gt; {
+          return this._centri.modificaCancellaCentroAziendale(item, flag_cancellazione &#x3D; false, this.loadingService, this.gridPublicSerivce.gridElRef, objCentro)
+        })
+      )
+      //this._centri.modificaCancellaCentroAziendale(item, flag_cancellazione &#x3D; false, this.loadingService, this.gridPublicSerivce.gridElRef);
+    } else if (actionType &#x3D;&#x3D;&#x3D; HttpAction.CREATE) {
+      httpRisp &#x3D; this._centri.modificaCancellaCentroAziendale(item, flag_cancellazione &#x3D; false, this.loadingService, this.gridPublicSerivce.gridElRef, null)
+    } else if (actionType &#x3D;&#x3D;&#x3D; HttpAction.REMOVE) {
+      httpRisp &#x3D; this._centri.modificaCancellaCentroAziendale(item, flag_cancellazione &#x3D; true, this.loadingService, this.gridPublicSerivce.gridElRef, null);
+    }
+
+    return httpRisp.pipe(map((risposta) &#x3D;&gt; {
+      this.treeContainer.selectedImpresaChangedSoUpdateTree &#x3D; true;
+
+      if (!risposta.RispostaOK) {
+        //let messaggio &#x3D; this.transloco.translate(&#x27;centro.CentroAziendaleFailedDelete&#x27;, { });
+        //this.giasMessageService.errorMessage(&#x27;Non è stato possibile eliminare il centro aziendale selezionato&#x27;);
+        if (flag_cancellazione) {
+          this.addCentroSelezionato(item, &quot;Non è stato possibile eliminare il centro&quot;);
+        }
+        return of([]);
+      }
+      if (!flag_cancellazione) {
+        //let messaggio &#x3D; this.transloco.translate(&#x27;centro.CentroAziendaleModifiedSuccessfully&#x27;, { });
+        this.giasMessageService.successMessage(this.translocoService.translate(&#x27;CentroAziendaleCorrettamenteModificato&#x27;));
+      }
+      else {
+        //let messaggio &#x3D; this.transloco.translate(&#x27;centro.CentroAziendaleRemovedSuccessfully&#x27;, { });
+        //this.giasMessageService.successMessage(this.translocoService.translate(&#x27;CentroAziendaleCorrettamenteCancellato&#x27;));
+        this.addCentroSelezionato(item, &quot;&quot;);
+      }
+      return of([]);
+    }), switchMap((e) &#x3D;&gt; { return of([]) }));
+
+  }
+
+  override applyRendererRules(opts: RendererGridEvent): void {
+    const { grid, gridElRef } &#x3D; { ...opts };
+    let a &#x3D; gridElRef;
+    let visibleRows: [] &#x3D; gridElRef.nativeElement.querySelectorAll(&#x27;tbody tr&#x27;);
+    grid.view.forEach((el, index) &#x3D;&gt; {
+      const row &#x3D; visibleRows[index] as HTMLElement;
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 0) {
+        this.renderer.addClass(row, &#x27;nonAttivo&#x27;);
+      }
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 1) {
+        this.renderer.removeClass(row, &#x27;nonAttivo&#x27;);
+      }
+    });
+    this.anagraficaService.applicaFiltri();
+  }
+
+  private handleDropdowns() {
+    let col;
+    let data;
+    col &#x3D; this.columns.find((c) &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &#x27;pro_cod_istat&#x27;)
+    data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;Istat_Prov&#x27;, &#x27;pro_cod_istat&#x27;, &#x27;Provincia_Des&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;pro_cod&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaProvincie.bind(this);
+
+    col &#x3D; this.columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Stato_Cod&#x27;);
+    data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;Stato_Cod&#x27;, &#x27;descrizione&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;Stato2&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaStati.bind(this);
+
+    col &#x3D; this.columns.find((c) &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &#x27;com_cod_istat&#x27;)
+    this.comuneColumn &#x3D; col;
+    const newLocal &#x3D; data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;com_cod_istat&#x27;, &#x27;descrizione&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;com_des&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaComuni.bind(this);
+  }
+
+  onTemplateBtnClick(dataItem) {
+    this.objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+    const piva &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[0];
+    const sa_cod &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[1];
+    this.objParametriAgenda.Piva &#x3D; piva;
+    this.objParametriAgenda.Sa_Cod &#x3D; parseInt(sa_cod);
+    this.objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Update;
+    this.objParametriService.changeObjParametriAgenda(this.objParametriAgenda);
+    //this.router.navigate([&#x27;/Anagrafica/Centri/Centri-Edit&#x27;]);
+    this.router.navigate([&#x27;Centri-Edit&#x27;], { relativeTo: this.route });
+  }
+
+  onInfoBtnClick(dataItem) {
+    this.objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+    const piva &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[0];
+    const sa_cod &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[1];
+    this.objParametriAgenda.Piva &#x3D; piva;
+    this.objParametriAgenda.Sa_Cod &#x3D; parseInt(sa_cod);
+    this.objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Read;
+    this.objParametriService.changeObjParametriAgenda(this.objParametriAgenda);
+    // this.router.navigate([&#x27;/Anagrafica/Centri/Centri-Edit&#x27;]);
+    this.router.navigate([&#x27;Centri-Edit&#x27;], { relativeTo: this.route });
+  }
+
+  caricaComuni(dataItem: any) {
+    return from(this.istatService.leggiComuni(dataItem.pro_cod_istat));
+  }
+
+  caricaProvincie(dataItem: any) {
+    return from(this.istatService.leggiProvincie(dataItem.Stato_Cod));
+  }
+
+  caricaStati(dataItem: any) {
+    return from(this.istatService.leggiStati());
+  }
+
+
+  override async getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams) {
+    let msg: string;
+
+    msg &#x3D; this.translocoService.translate(&#x27;anagrafica.Delete_Msg&#x27;)
+    opts.data.forEach(r &#x3D;&gt; {
+      msg &#x3D; msg.concat(&#x27;\n&#x27; + r[&#x27;sa_nome&#x27;]);
+    })
+
+    return msg;
+  }
+
+  addCentroSelezionato(centro: CentroAziendale, error: string) {
+    this.centriSelezionati.set(centro, error);
+  }
+
+  removeCentroSelezionato(centro: CentroAziendale) {
+    this.centriSelezionati.delete(centro);
+  }
+
+  getCentriSelezionati() {
+    return this.centriSelezionati;
+  }
+
+  clearSelezionati(): void {
+    this.centriSelezionati &#x3D; new Map&lt;CentroAziendale, string&gt;();
+  }
+
+  msgWarningDelete() {
+    let msgFailure &#x3D; this.translocoService.translate(&#x27;ErroreCancellazioneCentri&#x27;)
+    let msgSuccess &#x3D; this.translocoService.translate(&#x27;SuccessoCancellazioneCentri&#x27;)
+    let displaySuccess &#x3D; false;
+    let displayFailure &#x3D; false;
+    this.getCentriSelezionati().forEach((error, cen) &#x3D;&gt; {
+      if (error &#x3D;&#x3D; &quot;&quot;) {
+        msgSuccess &#x3D; msgSuccess.concat(&#x27;\n&#x27; + cen[&#x27;sa_nome&#x27;]);
+        displaySuccess &#x3D; true;
+      } else {
+        msgFailure &#x3D; msgFailure.concat(&#x27;\n&#x27; + cen[&#x27;sa_nome&#x27;] + &#x27;:&#x27; + error);
+        displayFailure &#x3D; true;
+      }
+    })
+    if (displaySuccess) {
+      this.giasMessageService.successMessage(msgSuccess);
+    }
+    if (displayFailure) {
+      //this.giasMessageService.warningMessage(msgFailure);
+      this.giasDialogService.baseError(&quot;&quot;, msgFailure);
+    }
+    this.clearSelezionati();
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CentriHttpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

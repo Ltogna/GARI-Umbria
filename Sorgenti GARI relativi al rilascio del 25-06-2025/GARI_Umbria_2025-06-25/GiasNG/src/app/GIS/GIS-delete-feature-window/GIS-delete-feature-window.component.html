@@ -1,0 +1,37 @@
+<gis-window #window [windowArgs]="windowArgs" class="pb-3">
+    <form *ngIf="form != null" [formGroup]="form" class="form-group" (ngSubmit)="submit()">
+        <div class="column">
+            <!-- Opzioni attivabili -->
+            <mat-slide-toggle
+                formControlName="Elimina_Grafica"
+                color="primary">
+                {{'gis.EliminaEntitaGeografiche' | transloco}}
+            </mat-slide-toggle>
+            <mat-slide-toggle
+                *ngIf="permessoPrecisionFarming"
+                formControlName="Elimina_PrecisionFarming"
+                color="primary">
+                {{'gis.EliminaDatiPrecisionFarming' | transloco}}
+            </mat-slide-toggle>
+            <mat-slide-toggle
+                *ngIf="permessoPrecisionFarming"
+                formControlName="Elimina_PrecisionFarmingABLine"
+                color="primary">
+                {{'gis.EliminaLineeGuidaABPrecisionFarming' | transloco}}
+            </mat-slide-toggle>
+            <!-- <mat-slide-toggle formControlName="Elimina_DatoGiasPalm" color="primary">{{'gis.EliminaDatoGiasPALM' | transloco}}</mat-slide-toggle> -->
+            <!-- <mat-slide-toggle formControlName="Elimina_Impianto" color="primary">{{'gis.EliminaEntitaGias' | transloco}}</mat-slide-toggle> -->
+            <mat-slide-toggle
+                formControlName="confirmDelete"
+                color="warn">
+                {{'gis.ConfermaEliminazione' | transloco}}
+            </mat-slide-toggle>
+            <!-- Bottone salvataggio -->
+            <div class="save-button">
+                <button type="submit" [disabled]="!form.valid">
+                    {{'Conferma' | transloco}}
+                </button>
+            </div>
+        </div>
+    </form>
+</gis-window>

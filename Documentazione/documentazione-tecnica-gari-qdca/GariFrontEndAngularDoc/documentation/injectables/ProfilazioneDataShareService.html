@@ -1,0 +1,1219 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ProfilazioneDataShareService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/services/profilazione-data-share.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aziendaCentriChangeDetector" >aziendaCentriChangeDetector</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#cardInfo" >cardInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#currentPage" >currentPage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#exitProfilazione" >exitProfilazione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#filterService" >filterService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#formsMap" >formsMap</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isAddingNew" >isAddingNew</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadUsersFilters" >loadUsersFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nImpreseInEdit" >nImpreseInEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#reloadSetting$" >reloadSetting$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#settingsLoaded" >settingsLoaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#specie" >specie</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#userPermissions" >userPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#usersGrid" >usersGrid</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#utentiEditVisibilita" >utentiEditVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visibilitaImprese" >visibilitaImprese</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visibilitaRichiesta" >visibilitaRichiesta</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#visibilitaUtenti" >visibilitaUtenti</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUserFiltersJson" >getUserFiltersJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#initPermissions" >initPermissions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeUserDateFilter" >removeUserDateFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setChangeDetector" >setChangeDetector</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUserFiltersJson"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getUserFiltersJson</b></span>
+                        <a href="#getUserFiltersJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUserFiltersJson()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="76"
+                                    class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initPermissions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>initPermissions</b></span>
+                        <a href="#initPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initPermissions(service: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>service</td>
+                                            <td>
+                                                            <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeUserDateFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeUserDateFilter</b></span>
+                        <a href="#removeUserDateFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeUserDateFilter()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="81"
+                                    class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:81</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setChangeDetector"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setChangeDetector</b></span>
+                        <a href="#setChangeDetector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setChangeDetector(changeDetector: ChangeDetectorRef)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>changeDetector</td>
+                                            <td>
+                                                        <code>ChangeDetectorRef</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aziendaCentriChangeDetector"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aziendaCentriChangeDetector</b></span>
+                        <a href="#aziendaCentriChangeDetector"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ChangeDetectorRef</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cardInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>cardInfo</b></span>
+                        <a href="#cardInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;Impostazione&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:93</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentPage"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>currentPage</b></span>
+                        <a href="#currentPage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;enum_PagineProfilazione&gt;(enum_PagineProfilazione.UTENTI)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="exitProfilazione"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>exitProfilazione</b></span>
+                        <a href="#exitProfilazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;boolean&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Emette un valore quando si esce dalla pafina della profilazione.
+ Usato come riferimento per terminare l&#39;iscrizione agli <code>Observable</code>.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>filterService</b></span>
+                        <a href="#filterService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/FiltriUtenteComponent.html" target="_self" >FiltriUtenteComponent</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formsMap"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>formsMap</b></span>
+                        <a href="#formsMap"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;number | FormGroup&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, FormGroup&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Mappa contenente i formgroup di alcune impostazioni gestite in modalità speciale.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isAddingNew"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isAddingNew</b></span>
+                        <a href="#isAddingNew"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUsersFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadUsersFilters</b></span>
+                        <a href="#loadUsersFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nImpreseInEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nImpreseInEdit</b></span>
+                        <a href="#nImpreseInEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>0</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reloadSetting$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>reloadSetting$</b></span>
+                        <a href="#reloadSetting$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;{setting: number; component: string}&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:102</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Usato in <a href="../components/GeneralFieldComponent.html">GeneralFieldComponent</a> per avviare l&#39;aggiornamento di del componente sottostante.
+<code>component</code> specifica il nome del componente da aggiornare. (es.: &#39;SettingsCategorieMagazzinoComponent&#39;),
+mentre <code>setting</code> specifica l&#39;impostazione da considerare.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="settingsLoaded"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>settingsLoaded</b></span>
+                        <a href="#settingsLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="specie"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>specie</b></span>
+                        <a href="#specie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/BaseCodeDescr.html" target="_self" >BehaviorSubject&lt;BaseCodeDescr[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="94" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:94</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userPermissions"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>userPermissions</b></span>
+                        <a href="#userPermissions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    canReadAllUsers: false,
+    canEditAllUsers: false,
+    canEditSelf: false,
+    canReadGroups: false,
+    canEditGroups: false,
+    canReadProfiles: false,
+    canEditProfiles: false,
+    canViewBusinessSettings: false,
+    canEditBusinessSettings: false,
+    canViewBaseUserSettings: false,
+    canEditBaseUserSettings: false,
+    canViewAdvancedUserSettings: false,
+    canEditAdvancedUserSettings: false,
+    canViewAgendaBlocksUserSettings: false,
+    canEditAgendaBlocksUserSettings: false,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="usersGrid"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>usersGrid</b></span>
+                        <a href="#usersGrid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GiasKendoGridComponent</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="utentiEditVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>utentiEditVisibilita</b></span>
+                        <a href="#utentiEditVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IUtenteDTO[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibilitaImprese"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>visibilitaImprese</b></span>
+                        <a href="#visibilitaImprese"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;IUtenteImpresa[]&gt;([])</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibilitaRichiesta"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>visibilitaRichiesta</b></span>
+                        <a href="#visibilitaRichiesta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibilitaUtenti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>visibilitaUtenti</b></span>
+                        <a href="#visibilitaUtenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;IUtenteImpresa[]&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/profilazione/services/profilazione-data-share.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {ChangeDetectorRef, Injectable} from &#x27;@angular/core&#x27;;
+import {BaseCodeDescr} from &#x27;app/Model/baseClass/baseCodeDescr&#x27;;
+import {BehaviorSubject, Subject} from &#x27;rxjs&#x27;;
+import {enum_PagineProfilazione} from &quot;../models/PaginaProfilazione.model&quot;;
+import {IUtenteImpresa} from &quot;./visibilita.service&quot;;
+import {FormArray, FormGroup} from &quot;@angular/forms&quot;;
+import { Impostazione } from &#x27;gias-ui-kit&#x27;;
+import {GiasKendoGridComponent} from &#x27;gias-kendo-grid&#x27;;
+import {IUtenteDTO} from &quot;../models/utente-dto.model&quot;;
+import {PermessiUtenteService} from &quot;../../Service/permessi-utente.service&quot;;
+import {enum_Security_Attivita} from &quot;../../Model/TipiEnumerativi&quot;;
+import {FiltriUtenteComponent} from &quot;../gestione-utenti/utenti/filtri-utente/filtri-utente.component&quot;;
+
+@Injectable()
+export class ProfilazioneDataShareService {
+  // GENERALE
+
+  public userPermissions &#x3D; {
+    canReadAllUsers: false,
+    canEditAllUsers: false,
+    canEditSelf: false,
+    canReadGroups: false,
+    canEditGroups: false,
+    canReadProfiles: false,
+    canEditProfiles: false,
+    canViewBusinessSettings: false,
+    canEditBusinessSettings: false,
+    canViewBaseUserSettings: false,
+    canEditBaseUserSettings: false,
+    canViewAdvancedUserSettings: false,
+    canEditAdvancedUserSettings: false,
+    canViewAgendaBlocksUserSettings: false,
+    canEditAgendaBlocksUserSettings: false,
+  };
+  public initPermissions(service: PermessiUtenteService) {
+    this.userPermissions.canEditSelf &#x3D; service.canWritePermesso(enum_Security_Attivita.Profilazione_NG);
+    this.userPermissions.canReadAllUsers &#x3D; service.canReadPermesso(enum_Security_Attivita.AmministrazioneUtenti);
+    this.userPermissions.canEditAllUsers &#x3D; service.canWritePermesso(enum_Security_Attivita.AmministrazioneUtenti);
+    this.userPermissions.canReadGroups &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiGruppi);
+    this.userPermissions.canEditGroups &#x3D; service.canWritePermesso(enum_Security_Attivita.Gest_UtentiGruppi);
+    this.userPermissions.canReadProfiles &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiProfili);
+    this.userPermissions.canEditProfiles &#x3D; service.canWritePermesso(enum_Security_Attivita.Gest_UtentiProfili);
+    this.userPermissions.canViewBusinessSettings &#x3D; service.canReadPermesso(enum_Security_Attivita.ImpostazioniImprese_NG);
+    this.userPermissions.canEditBusinessSettings &#x3D; service.canWritePermesso(enum_Security_Attivita.ImpostazioniImprese_NG);
+    this.userPermissions.canViewBaseUserSettings &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiImpostazioni);
+    this.userPermissions.canEditBaseUserSettings &#x3D; service.canWritePermesso(enum_Security_Attivita.Gest_UtentiImpostazioni);
+    this.userPermissions.canViewAdvancedUserSettings &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiImpostazioni_Avanzate);
+    this.userPermissions.canEditAdvancedUserSettings &#x3D; service.canWritePermesso(enum_Security_Attivita.Gest_UtentiImpostazioni_Avanzate);
+    this.userPermissions.canViewAgendaBlocksUserSettings &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiAgendaBlocchi);
+    this.userPermissions.canEditAgendaBlocksUserSettings &#x3D; service.canReadPermesso(enum_Security_Attivita.Gest_UtentiAgendaBlocchi);
+  }
+
+  /** Mappa contenente i formgroup di alcune impostazioni gestite in modalità speciale. */
+  public formsMap: Map&lt;number, FormGroup&gt; &#x3D; new Map&lt;number, FormGroup&gt;([]);
+
+  /** Emette un valore quando si esce dalla pafina della profilazione.
+   *  Usato come riferimento per terminare l&#x27;iscrizione agli &#x60;Observable&#x60;. */
+  public exitProfilazione: Subject&lt;boolean&gt;;
+  public readonly currentPage &#x3D; new BehaviorSubject&lt;enum_PagineProfilazione&gt;(enum_PagineProfilazione.UTENTI);
+  //---------------------------------------------------------------------------
+  // VISIBILITA&#x27;
+
+  public visibilitaRichiesta &#x3D; false;
+  public utentiEditVisibilita: IUtenteDTO[] &#x3D; [];
+  public visibilitaImprese &#x3D; new BehaviorSubject&lt;IUtenteImpresa[]&gt;([]);
+  public visibilitaUtenti &#x3D; new BehaviorSubject&lt;IUtenteImpresa[]&gt;(null);
+  public nImpreseInEdit &#x3D; 0;
+  //---------------------------------------------------------------------------
+  // UTENTI
+
+  //public loadAllUtenti &#x3D; false;
+  public isAddingNew &#x3D; false;
+  public usersGrid: GiasKendoGridComponent;
+  public filterService: FiltriUtenteComponent;
+  public loadUsersFilters: FormGroup;
+  public getUserFiltersJson(): string {
+    if (this.loadUsersFilters)
+      return JSON.stringify(this.loadUsersFilters.value.ctrls);
+    return &quot;[]&quot;;
+  }
+  public removeUserDateFilter() {
+    const fArray &#x3D; (this.loadUsersFilters.get(&#x27;ctrls&#x27;) as FormArray);
+    const dateCtrl &#x3D; fArray.controls.find(ctrl &#x3D;&gt; ctrl.get(&#x27;field&#x27;).value &#x3D;&#x3D;&#x3D; &#x27;Data_Creazione&#x27;);
+    if (dateCtrl) {
+      dateCtrl.get(&#x27;value&#x27;).patchValue(&#x27;&#x27;);
+    }
+  }
+
+  //---------------------------------------------------------------------------
+  // IMPOSTAZIONI
+
+  public settingsLoaded &#x3D; false;
+  public cardInfo &#x3D; new BehaviorSubject&lt;Impostazione&gt;(null);
+  public specie: BehaviorSubject&lt;BaseCodeDescr[]&gt; &#x3D; new BehaviorSubject([]);
+  public aziendaCentriChangeDetector: ChangeDetectorRef;
+  /**
+   * Usato in {@link GeneralFieldComponent} per avviare l&#x27;aggiornamento di del componente sottostante.
+   * @values oggetti di tipo &#x60;{setting: number, component: string}&#x60;, in cui il campo
+   * &#x60;component&#x60; specifica il nome del componente da aggiornare. (es.: &#x27;SettingsCategorieMagazzinoComponent&#x27;),
+   * mentre &#x60;setting&#x60; specifica l&#x27;impostazione da considerare.
+   */
+  public reloadSetting$ &#x3D; new Subject&lt;{setting: number; component: string}&gt;();
+  public setChangeDetector(changeDetector: ChangeDetectorRef) {
+    this.aziendaCentriChangeDetector &#x3D; changeDetector;
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProfilazioneDataShareService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

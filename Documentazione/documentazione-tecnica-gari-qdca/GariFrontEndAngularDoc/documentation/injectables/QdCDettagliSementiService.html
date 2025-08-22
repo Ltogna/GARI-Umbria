@@ -1,0 +1,1228 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >QdCDettagliSementiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#Array_Sementi" >Array_Sementi</a>
+                            </li>
+                            <li>
+                                <a href="#Operazione" >Operazione</a>
+                            </li>
+                            <li>
+                                <a href="#Prima_Apertura_MultiColumn_Semente" >Prima_Apertura_MultiColumn_Semente</a>
+                            </li>
+                            <li>
+                                <a href="#SementiForm" >SementiForm</a>
+                            </li>
+                            <li>
+                                <a href="#Subs" >Subs</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#changeSemente" >changeSemente</a>
+                            </li>
+                            <li>
+                                <a href="#clearSezioneProdottiSementiForm" >clearSezioneProdottiSementiForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#getArray_Sementi" >getArray_Sementi</a>
+                            </li>
+                            <li>
+                                <a href="#Mostra_Sup_Calcolata" >Mostra_Sup_Calcolata</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                <a href="#RicercaSementi" >RicercaSementi</a>
+                            </li>
+                            <li>
+                                <a href="#setArrayDDLSezioneProdottiSementiForm" >setArrayDDLSezioneProdottiSementiForm</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(qdcprodottiservice: <a href="../injectables/QdCProdottiService.html" target="_self">QdCProdottiService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, prodottiservice: <a href="../injectables/ProdottiService.html" target="_self">ProdottiService</a>, funzionicomuniservice: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>qdcprodottiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCProdottiService.html" target="_self" >QdCProdottiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>prodottiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProdottiService.html" target="_self" >ProdottiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>funzionicomuniservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeSemente"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>changeSemente</b></span>
+                        <a href="#changeSemente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeSemente(Prodotto_Selezionato: <a href="../interfaces/MultiColumnComboboxSemina.html" target="_self">MultiColumnComboboxSemina</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Prodotto_Selezionato</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MultiColumnComboboxSemina.html" target="_self" >MultiColumnComboboxSemina</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSezioneProdottiSementiForm"></a>
+                    <span class="name">
+                        <span ><b>clearSezioneProdottiSementiForm</b></span>
+                        <a href="#clearSezioneProdottiSementiForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>clearSezioneProdottiSementiForm(clearFormArrayDosiProdotti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, clearProdotto: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>clearFormArrayDosiProdotti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>clearProdotto</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArray_Sementi"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>getArray_Sementi</b></span>
+                        <a href="#getArray_Sementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getArray_Sementi(filtrodescr: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>filtrodescr</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Mostra_Sup_Calcolata"></a>
+                    <span class="name">
+                        <span ><b>Mostra_Sup_Calcolata</b></span>
+                        <a href="#Mostra_Sup_Calcolata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Mostra_Sup_Calcolata()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="136"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:136</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RicercaSementi"></a>
+                    <span class="name">
+                        <span ><b>RicercaSementi</b></span>
+                        <a href="#RicercaSementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>RicercaSementi()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setArrayDDLSezioneProdottiSementiForm"></a>
+                    <span class="name">
+                        <span ><b>setArrayDDLSezioneProdottiSementiForm</b></span>
+                        <a href="#setArrayDDLSezioneProdottiSementiForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setArrayDDLSezioneProdottiSementiForm(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Array_Sementi"></a>
+                    <span class="name">
+                        <span ><b>Array_Sementi</b></span>
+                        <a href="#Array_Sementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MultiColumnComboboxSemina.html" target="_self" >Array&lt;MultiColumnComboboxSemina&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Operazione"></a>
+                    <span class="name">
+                        <span ><b>Operazione</b></span>
+                        <a href="#Operazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Lavorazione.html" target="_self" >Lavorazione</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Prima_Apertura_MultiColumn_Semente"></a>
+                    <span class="name">
+                        <span ><b>Prima_Apertura_MultiColumn_Semente</b></span>
+                        <a href="#Prima_Apertura_MultiColumn_Semente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SementiForm"></a>
+                    <span class="name">
+                        <span ><b>SementiForm</b></span>
+                        <a href="#SementiForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Subs"></a>
+                    <span class="name">
+                        <span ><b>Subs</b></span>
+                        <a href="#Subs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/prodotti/dettagli-sementi.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, OnDestroy } from &quot;@angular/core&quot;;
+import { FormGroup } from &quot;@angular/forms&quot;;
+import { Lavorazione } from &quot;app/Model/attivita/Lavorazione&quot;;
+import { Subscription } from &quot;rxjs&quot;;
+import { QdCProdottiService } from &quot;../prodotti.service&quot;;
+import { QdCService } from &quot;../qdc.service&quot;;
+import {enum_doseQuantitaTotale, enum_SEMINA_TIPO, enum_TipoMezzo} from &quot;../../../../Model/TipiEnumerativi&quot;;
+import {Enum_DBTypeOperation} from &#x27;gias-ui-kit&#x27;;
+import {ObjParametriAgendaService} from &quot;../../../../Service/obj-parametri-agenda.service&quot;;
+import {
+    MultiColumnComboboxSemina
+} from &quot;../../quaderno-di-campagna-form/quaderno-di-campagna-form.model&quot;;
+import {SEMENTI} from &quot;../../../../Model/CostantiPersonalizzate&quot;;
+import {BaseCodeDescr} from &quot;../../../../Model/baseClass/baseCodeDescr&quot;;
+import {LeggiProdotti, ProdottiService} from &quot;../../../../Service/Anagrafica/prodotti.service&quot;;
+import {FunzioniComuniService} from &quot;../../../../Service/FunzioniComuni.service&quot;;
+import {UtilityFunctions} from &quot;../../../../Utility/UtilityFunctions&quot;;
+
+@Injectable()
+
+export class QdCDettagliSementiService implements OnDestroy{
+
+
+    Subs: Subscription &#x3D; new Subscription();
+
+    Array_Sementi: Array&lt;MultiColumnComboboxSemina&gt; &#x3D; [];
+
+    SementiForm: FormGroup;
+
+    Operazione: Lavorazione;
+
+    Prima_Apertura_MultiColumn_Semente &#x3D; false;
+
+    constructor(private qdcprodottiservice: QdCProdottiService,
+                private objParametriAgendaService: ObjParametriAgendaService,
+                private qdcservice: QdCService,
+                private prodottiservice: ProdottiService,
+                private funzionicomuniservice: FunzioniComuniService){
+
+        this.Subs.add(this.qdcprodottiservice.ObsProdottiForm.subscribe(form&#x3D;&gt;{
+            this.SementiForm &#x3D; form;
+
+            this.Operazione &#x3D; this.SementiForm?.get(&quot;Operazione&quot;).value;
+        }));
+
+    }
+
+
+    ngOnDestroy(): void {
+        this.Subs.unsubscribe();
+    }
+
+    //Letture Lato Server
+
+    async getArray_Sementi(filtrodescr: string) {
+
+        if(this.qdcprodottiservice.Msg_Seleziona_Impianti().length &#x3D;&#x3D;&#x3D; 0){
+
+            let LeggiProdotti &#x3D; &lt;LeggiProdotti&gt;{
+                lavorazione: this.Operazione,
+                specie: this.qdcservice.GetSpeciefromUtilizzoTerreno(),
+                filtroPerDescrizione: filtrodescr,
+                data: this.qdcservice.TestataForm.get(&quot;Data&quot;).value,
+                escludiGiacenzeZero: this.SementiForm.get(&quot;Visualizza_Solo_Prodotti_in_Giacenza&quot;).value,
+                impianti: this.qdcservice.GetImpiantiSelezionatiModel(),
+                tipoAttivita: this.qdcservice.TestataForm.get(&quot;Tipo&quot;).value,
+                statoAttivita: this.qdcservice.TestataForm.get(&quot;Stato&quot;).value,
+                magazziniAgenzie: this.SementiForm.get(&quot;Visualizza_Magazzini_Agenzie&quot;).value,
+                magazziniEsterni: this.SementiForm.get(&quot;Visualizza_Magazzini_Esterni&quot;).value,
+            };
+
+            this.Array_Sementi &#x3D; (await this.prodottiservice.Leggi_Sementi(LeggiProdotti)) as MultiColumnComboboxSemina[];
+
+            //Descrizione Concatenata
+            let Array_SementiMapped &#x3D; this.Array_Sementi.map(p&#x3D;&gt;{
+                p &#x3D; this.qdcservice.setCodDescrMultiColumnComboboxProdotto(SEMENTI,p) as MultiColumnComboboxSemina;
+            });
+
+            // Se c&#x27;è solo un Prodotto (diversa da quella già impostata nella combo altrimenti scatta la funzione di change)
+            // lo imposto come default
+            if (this.Array_Sementi.length &#x3D;&#x3D;&#x3D; 1) {
+
+                let Semente_Selezionata: MultiColumnComboboxSemina &#x3D; this.SementiForm.get(&quot;Prodotto&quot;).value;
+
+                if(Semente_Selezionata?.Codice_Concatenato !&#x3D;&#x3D; this.Array_Sementi[0].Codice_Concatenato){
+
+                    this.SementiForm.patchValue({
+                        Prodotto: this.Array_Sementi[0],
+                    });
+
+                    await this.changeSemente(this.Array_Sementi[0]);
+                }
+
+            }
+
+        }else{
+            this.Array_Sementi &#x3D; [];
+        }
+
+        return this.Array_Sementi;
+    }
+
+    //Fine Letture Lato Server
+
+
+    //Oltre ai valori reimposto vuoti gli array dei controlli per la visibilità
+    clearSezioneProdottiSementiForm(clearFormArrayDosiProdotti: boolean, clearProdotto: boolean){
+
+        //Non resetto il form se sono in inserimento prodotti e ho già salvato la riga di prodotto
+        let clear &#x3D; true;
+
+        if(!this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi() &amp;&amp; this.SementiForm.get(&quot;Riga_Salvata&quot;).value)
+            clear &#x3D; false;
+
+        if(clear){
+            this.SementiForm.patchValue({
+                Sup_Calcolata: 0
+            });
+
+            if(clearProdotto){
+                this.Array_Sementi &#x3D; [];
+
+                this.SementiForm.patchValue({
+                    Prodotto:null
+                });
+
+                this.Prima_Apertura_MultiColumn_Semente &#x3D; false;
+            }
+
+
+            this.qdcprodottiservice.clearSezioneProdottiForm(clearFormArrayDosiProdotti);
+        }
+
+    }
+
+    Mostra_Sup_Calcolata(){
+
+        let mostra &#x3D; false;
+
+        let Opzione_Semina &#x3D; this.SementiForm.get(&quot;Opzioni_Semina&quot;).value;
+
+        if(Opzione_Semina?.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default &amp;&amp;
+            this.objParametriAgendaService.getObjParamValue().TipoOperazioneDB &#x3D;&#x3D;&#x3D; Enum_DBTypeOperation.Write){
+            mostra &#x3D; true;
+        }
+
+        return mostra;
+
+    }
+
+    async changeSemente(Prodotto_Selezionato: MultiColumnComboboxSemina){
+
+        let obj_errore_gias_qdc &#x3D; await this.qdcprodottiservice.Controllo_Compatibilita_Impostazioni_Tra_Azienda_QdC_Esterna(Prodotto_Selezionato);
+
+        if(obj_errore_gias_qdc &amp;&amp; obj_errore_gias_qdc.list_errori_filtrati &amp;&amp; obj_errore_gias_qdc.list_errori_filtrati.length &gt; 0){
+          this.SementiForm.patchValue({
+            Prodotto: null,
+          },{emitEvent: false});
+          return;
+        }
+
+        this.qdcprodottiservice.Gestisci_Controlli_Lotti_Giacenze();
+
+        this.clearSezioneProdottiSementiForm(false,false);
+
+        if(Prodotto_Selezionato){
+
+            if(Prodotto_Selezionato.prodotto.codice !&#x3D;&#x3D; 0){
+
+                await this.qdcprodottiservice.Imposta_Magazzino_Lotto_dal_Prodotto_Selezionato(Prodotto_Selezionato);
+
+                if(Prodotto_Selezionato.MagazziniMovimentazioni &amp;&amp;
+                    Prodotto_Selezionato.MagazziniMovimentazioni.length &#x3D;&#x3D;&#x3D; 1){
+
+                    let GiacenzaAllaData &#x3D; Prodotto_Selezionato.MagazziniMovimentazioni[0].Qta;
+                    let GiacenzaTotale &#x3D; Prodotto_Selezionato.MagazziniMovimentazioni[0].QtaTot;
+
+                    if(this.objParametriAgendaService.getObjParamValue().TipoOperazioneDB &#x3D;&#x3D;&#x3D; Enum_DBTypeOperation.Write){
+
+                        let DoseTot_Ha &#x3D; 0;
+
+                        let Dose_Ha &#x3D; 0;
+
+                        let Sup_Calcolata_Per_Frazionamento &#x3D; 0;
+
+                        let Sup_Trattata &#x3D; this.qdcservice.SuperficiForm.get(&quot;Sup_Trattata&quot;).value;
+
+                        switch((this.SementiForm.get(&quot;Opzioni_Semina&quot;).value as BaseCodeDescr).codice){
+                            case enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default:
+                                //suggerisco la sup_calcolata (&#x3D; sup_totale - quella già inserita)
+
+                                let dosiProdotti: Array&lt;any&gt; &#x3D; [];
+
+                                if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+                                    dosiProdotti &#x3D; this.SementiForm.get(&quot;DosiProdotti&quot;).getRawValue();
+                                }else{
+                                    dosiProdotti &#x3D; this.qdcservice.DosiProdotticonRigheSalvate(null,this.Operazione);
+                                }
+
+                                let Sup_Gia_Seminata: number &#x3D; 0;
+
+                                dosiProdotti.forEach(d&#x3D;&gt;{
+                                    Sup_Gia_Seminata +&#x3D; d.Sup_Calcolata;
+                                });
+
+                                Sup_Calcolata_Per_Frazionamento &#x3D; Sup_Trattata - Sup_Gia_Seminata;
+
+                                if(GiacenzaAllaData &gt;&#x3D; 0){
+                                    DoseTot_Ha &#x3D; GiacenzaAllaData;
+
+                                    if(GiacenzaAllaData &gt; 0 &amp;&amp; Sup_Calcolata_Per_Frazionamento &gt; 0){
+                                        Dose_Ha &#x3D; this.funzionicomuniservice.roundNumber(GiacenzaAllaData/Sup_Calcolata_Per_Frazionamento,this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+                                    }
+                                }
+
+                                break;
+                            default:
+
+                                if(GiacenzaAllaData &gt;&#x3D; 0){
+
+                                    DoseTot_Ha &#x3D; GiacenzaAllaData;
+
+                                    if(GiacenzaAllaData &gt; 0 &amp;&amp; Sup_Trattata &gt; 0){
+                                        Dose_Ha &#x3D; this.funzionicomuniservice.roundNumber(GiacenzaAllaData/Sup_Trattata,this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+                                    }
+
+                                }
+
+
+                                break;
+                        }
+
+                        this.SementiForm.patchValue({
+                            Dose_Ha: Dose_Ha,
+                            DoseTot_Ha: DoseTot_Ha,
+                            Sup_Calcolata: Sup_Calcolata_Per_Frazionamento,
+                            flagDoseQuantitaTotale: enum_doseQuantitaTotale.Qta_Totale,
+                            flagTipoDose: enum_TipoMezzo.Ettaro
+                        });
+                    }
+
+                    this.qdcprodottiservice.Aggiorna_UdM(Prodotto_Selezionato.MagazziniMovimentazioni[0].udm);
+
+                }
+            }
+
+        }
+    }
+
+    setArrayDDLSezioneProdottiSementiForm(dataItem: any){
+
+        //Aggiorno anche gli Array che sono nel prodotti service così scattano gli ngIf che permettono
+        //la visualizzazione di alcune ddl solo se hanno degli elemeneti
+
+        this.qdcprodottiservice.setArrayDDLSezioneProdottiForm(dataItem);
+
+        this.Array_Sementi &#x3D; [];
+
+        if(dataItem.Prodotto &amp;&amp; dataItem.Prodotto.prodotto.codice &gt; 0)
+            this.Array_Sementi &#x3D; [dataItem.Prodotto];
+
+    }
+
+    RicercaSementi(){
+        let Prodotto &#x3D; this.SementiForm.get(&quot;Prodotto&quot;).value;
+
+        let descrizione &#x3D; &quot;&quot;;
+
+        if(Prodotto){
+
+            if(Prodotto.prodotto.codice &#x3D;&#x3D;&#x3D; this.qdcservice.Obj_Empty_MultiColumnComboboxSemina.prodotto.codice){
+                descrizione &#x3D; Prodotto.Descrizione_Concatenata;
+            }else{
+                descrizione &#x3D; Prodotto.prodotto.descrizione;
+            }
+
+        }
+
+        let listerroriGias &#x3D; this.qdcprodottiservice.RicercaProdotti(descrizione);
+
+        if(listerroriGias &amp;&amp; listerroriGias.length &gt; 0){
+            this.Array_Sementi &#x3D; [];
+        }else{
+
+            UtilityFunctions.loadDropDownItems(this.qdcprodottiservice.MultiColumnComboboxProdotti,this.getArray_Sementi(descrizione));
+
+            if(!this.qdcprodottiservice.MultiColumnComboboxProdotti.Multicolumncombobox.isOpen){
+                this.qdcprodottiservice.MultiColumnComboboxProdotti.Multicolumncombobox.focus();
+                this.qdcprodottiservice.MultiColumnComboboxProdotti.Multicolumncombobox.toggle(true);
+            }
+        }
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'QdCDettagliSementiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

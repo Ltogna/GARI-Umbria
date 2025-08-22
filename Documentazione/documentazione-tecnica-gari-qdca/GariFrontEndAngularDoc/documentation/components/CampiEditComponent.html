@@ -1,0 +1,2880 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CampiEditComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/anagrafica/campi/campi-edit/campi-edit.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                            <code>GiasDropDownTemplateService</code>
+                                <code><a href="../injectables/CampiEditService.html" target="_self" >{ provide: CODICI_TOKEN, useClass: CampiEditService }</a></code>
+                                <code><a href="../injectables/AppezzamentoCampoService.html" target="_self" >AppezzamentoCampoService</a></code>
+                                <code><a href="../injectables/CampiEditService.html" target="_self" >CampiEditService</a></code>
+                                <code><a href="../injectables/CampiEditDataService.html" target="_self" >CampiEditDataService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-campi-edit</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./campi-edit.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./campi-edit.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#Array_Esposizione" >Array_Esposizione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#Array_Ubicazione" >Array_Ubicazione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#binaryButtonName" >binaryButtonName</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#binaryButtonValue" >binaryButtonValue</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#campiEditForm" >campiEditForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#campo" >campo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#campoSelezionato" >campoSelezionato</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#cartografia" >cartografia</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#datiCaricati" >datiCaricati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#formCaricaDati" >formCaricaDati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#inFrame" >inFrame</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#lista_Centri" >lista_Centri</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#OrientamentoColturale" >OrientamentoColturale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#salvaNuovo" >salvaNuovo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#saving" >saving</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#signal$" >signal$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#SpecieVegetali" >SpecieVegetali</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#valueChangesSub" >valueChangesSub</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#abilitaDisabilitaForm" >abilitaDisabilitaForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#creaCampoVuoto" >creaCampoVuoto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createCampo_perSalvataggio" >createCampo_perSalvataggio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Protected</span>
+                                <a href="#enableSpecieDdl" >enableSpecieDdl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleQueryParams" >handleQueryParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleRedirect" >handleRedirect</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initDati" >initDati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initForm" >initForm</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onChangeChkConCatasto" >onChangeChkConCatasto</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#openDdl" >openDdl</a>
+                            </li>
+                            <li>
+                                <a href="#SalvaCampo" >SalvaCampo</a>
+                            </li>
+                            <li>
+                                <a href="#SalvaNuovoCampo" >SalvaNuovoCampo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setPrimaryKey" >setPrimaryKey</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setSwitch" >setSwitch</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(campiService: <a href="../injectables/CampiFactoryService.html" target="_self">CampiFactoryService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, campiEditService: <a href="../injectables/CampiEditService.html" target="_self">CampiEditService</a>, formCampiEditService: <a href="../injectables/Form_CampiEdit_Service.html" target="_self">Form_CampiEdit_Service</a>, funzioniComuniService: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>, fb: FormBuilder, router: Router, location: Location, appezzamentiService: <a href="../injectables/ImpiantiFactoryService.html" target="_self">ImpiantiFactoryService</a>, specievegetaliservice: <a href="../injectables/SpecieVegetaliService.html" target="_self">SpecieVegetaliService</a>, bio_Dati_OrientamentoProduttivoService: <a href="../injectables/BIO_Dati_OrientamentoProduttivoService.html" target="_self">BIO_Dati_OrientamentoProduttivoService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, centriService: <a href="../injectables/CentriAziendaliService.html" target="_self">CentriAziendaliService</a>, translocoService: TranslocoService, route: ActivatedRoute, menuContestualeService: <a href="../injectables/MenuContestualeService.html" target="_self">MenuContestualeService</a>, campiEditDataService: <a href="../injectables/CampiEditDataService.html" target="_self">CampiEditDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:118</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>campiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CampiFactoryService.html" target="_self" >CampiFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>campiEditService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CampiEditService.html" target="_self" >CampiEditService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>formCampiEditService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Form_CampiEdit_Service.html" target="_self" >Form_CampiEdit_Service</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>funzioniComuniService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>location</td>
+                                                  
+                                                        <td>
+                                                                    <code>Location</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appezzamentiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpiantiFactoryService.html" target="_self" >ImpiantiFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>specievegetaliservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SpecieVegetaliService.html" target="_self" >SpecieVegetaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bio_Dati_OrientamentoProduttivoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BIO_Dati_OrientamentoProduttivoService.html" target="_self" >BIO_Dati_OrientamentoProduttivoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>centriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriAziendaliService.html" target="_self" >CentriAziendaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>menuContestualeService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuContestualeService.html" target="_self" >MenuContestualeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>campiEditDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CampiEditDataService.html" target="_self" >CampiEditDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="abilitaDisabilitaForm"></a>
+                    <span class="name">
+                        <span ><b>abilitaDisabilitaForm</b></span>
+                        <a href="#abilitaDisabilitaForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>abilitaDisabilitaForm()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="creaCampoVuoto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>creaCampoVuoto</b></span>
+                        <a href="#creaCampoVuoto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>creaCampoVuoto(agenda: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>agenda</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Campo.html" target="_self" >Campo</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createCampo_perSalvataggio"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createCampo_perSalvataggio</b></span>
+                        <a href="#createCampo_perSalvataggio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createCampo_perSalvataggio(campoEditForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="417"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:417</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campoEditForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Campo.html" target="_self" >Campo</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableSpecieDdl"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>enableSpecieDdl</b></span>
+                        <a href="#enableSpecieDdl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enableSpecieDdl()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleQueryParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleQueryParams</b></span>
+                        <a href="#handleQueryParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleQueryParams()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="480"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:480</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRedirect"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleRedirect</b></span>
+                        <a href="#handleRedirect"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleRedirect(campo: <a href="../interfaces/Campo.html" target="_self">Campo</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="505"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:505</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campo</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Campo.html" target="_self" >Campo</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initDati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initDati</b></span>
+                        <a href="#initDati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initDati()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initForm</b></span>
+                        <a href="#initForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initForm(campo: <a href="../interfaces/Campo.html" target="_self">Campo</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="271"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:271</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campo</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Campo.html" target="_self" >Campo</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="433"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:433</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onChangeChkConCatasto"></a>
+                    <span class="name">
+                        <span ><b>onChangeChkConCatasto</b></span>
+                        <a href="#onChangeChkConCatasto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onChangeChkConCatasto(event: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="308"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:308</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Promise&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openDdl"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>openDdl</b></span>
+                        <a href="#openDdl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>openDdl(ddlEl: GiasDropDownTemplateSComponent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="445"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:445</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ddlEl</td>
+                                            <td>
+                                                        <code>GiasDropDownTemplateSComponent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SalvaCampo"></a>
+                    <span class="name">
+                        <span ><b>SalvaCampo</b></span>
+                        <a href="#SalvaCampo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SalvaCampo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="334"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:334</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SalvaNuovoCampo"></a>
+                    <span class="name">
+                        <span ><b>SalvaNuovoCampo</b></span>
+                        <a href="#SalvaNuovoCampo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>SalvaNuovoCampo()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setPrimaryKey"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setPrimaryKey</b></span>
+                        <a href="#setPrimaryKey"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setPrimaryKey()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="409"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setSwitch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setSwitch</b></span>
+                        <a href="#setSwitch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setSwitch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:266</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Array_Esposizione"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>Array_Esposizione</b></span>
+                        <a href="#Array_Esposizione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {descrizione:&#x27;nord&#x27;,codice:&#x27;nord&#x27;},
+    {descrizione:&#x27;nord-est&#x27;,codice:&#x27;nord-est&#x27;},
+    {descrizione:&#x27;est&#x27;,codice:&#x27;est&#x27;},
+    {descrizione:&#x27;sud-est&#x27;,codice:&#x27;sud-est&#x27;},
+    {descrizione:&#x27;sud-ovest&#x27;,codice:&#x27;sud-ovest&#x27;},
+    {descrizione:&#x27;ovest&#x27;,codice:&#x27;ovest&#x27;},
+    {descrizione:&#x27;nord-ovest&#x27;,codice:&#x27;nord-ovest&#x27;}
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Array_Ubicazione"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>Array_Ubicazione</b></span>
+                        <a href="#Array_Ubicazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    {descrizione:&#x27;Pianura&#x27;,codice:&#x27;pianura&#x27;},
+    {descrizione:&#x27;Mezza Costa&#x27;,codice:&#x27;mezza costa&#x27;},
+    {descrizione:&#x27;Collina&#x27;,codice:&#x27;collina&#x27;},
+    {descrizione:&#x27;Montagna&#x27;,codice:&#x27;montagna&#x27;}
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="113" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="binaryButtonName"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>binaryButtonName</b></span>
+                        <a href="#binaryButtonName"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="binaryButtonValue"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>binaryButtonValue</b></span>
+                        <a href="#binaryButtonValue"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campiEditForm"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>campiEditForm</b></span>
+                        <a href="#campiEditForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({
+    primaryKey: this.fb.group({
+      codice: 0,
+      centroAziendalePK: this.fb.group({
+        codice: 0,
+        partitaIva: &#x27;&#x27;
+      })
+    }),
+    codice: [0],
+    campo_Codice: [0],
+    descrizione: [&#x27;&#x27;],
+    orientamento_Colturale: [0],
+    specie: [{
+      codice: -1,
+      descrizione: &#x27;&#x27;
+    }],
+    serra: [false],
+    catastoCampo: this.fb.array([]),
+    appezzamentoCampo: this.fb.array([]),
+    codici: this.fb.array([]),
+    validita: this.fb.group({
+      inizio: [AGRODATAINIZIO],
+      fine: [AGRODATAFINE]
+    }),
+    cartografia: [&#x27;&#x27;]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="70" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>campo</b></span>
+                        <a href="#campo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Campo.html" target="_self" >Campo</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="campoSelezionato"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>campoSelezionato</b></span>
+                        <a href="#campoSelezionato"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cartografia"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>cartografia</b></span>
+                        <a href="#cartografia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="datiCaricati"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>datiCaricati</b></span>
+                        <a href="#datiCaricati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formCaricaDati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>formCaricaDati</b></span>
+                        <a href="#formCaricaDati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inFrame"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>inFrame</b></span>
+                        <a href="#inFrame"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lista_Centri"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>lista_Centri</b></span>
+                        <a href="#lista_Centri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;literal type&gt;</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="OrientamentoColturale"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>OrientamentoColturale</b></span>
+                        <a href="#OrientamentoColturale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Array&lt;RadioButtonValue&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    { name: &#x27;Non Impostato&#x27;, value: 0, enable:true },
+    { name: &#x27;Mono-Specie&#x27;, value: 3, enable: true },
+    { name: &#x27;Multi-Specie&#x27;, value: 1, enable: true }
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaNuovo"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>salvaNuovo</b></span>
+                        <a href="#salvaNuovo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="63" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saving"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>saving</b></span>
+                        <a href="#saving"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="signal$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>signal$</b></span>
+                        <a href="#signal$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;void&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:68</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SpecieVegetali"></a>
+                    <span class="name">
+                            <span class="modifier">Protected</span>
+                        <span ><b>SpecieVegetali</b></span>
+                        <a href="#SpecieVegetali"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Specie.html" target="_self" >Array&lt;Specie&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valueChangesSub"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>valueChangesSub</b></span>
+                        <a href="#valueChangesSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/anagrafica/campi/campi-edit/campi-edit.component.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Inject, OnDestroy, OnInit } from &#x27;@angular/core&#x27;;
+import { FormArray, FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;;
+import {ActivatedRoute, Router} from &#x27;@angular/router&#x27;;
+import { Campo } from &#x27;app/Model/anagrafiche/Campo&#x27;;
+import { CentroAziendale } from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import { Impresa } from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import { Location } from &#x27;@angular/common&#x27;;
+import { Specie } from &#x27;app/Model/metaschema/utilizzi/Specie&#x27;;
+import { enum_TipoOperazioneDB } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import {CentriAziendaliService, LeggiCentriAziendali} from &#x27;app/Service/Anagrafica/centri.service&#x27;;
+import { FunzioniComuniService } from &#x27;app/Service/FunzioniComuni.service&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { BIO_Dati_OrientamentoProduttivoService } from &#x27;app/Service/Metaschema/BIO_Dati_OrientamentoProduttivo.service&#x27;;
+import { SpecieVegetaliService } from &#x27;app/Service/Metaschema/specie-vegetali.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { CODICI_TOKEN } from &#x27;app/Utility/Template/codici-template/models/codici.model&#x27;;
+import { GiasDropDownTemplateSComponent, ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import { GiasDropDownTemplateService } from &#x27;gias-ui-kit&#x27;;
+import { from, lastValueFrom, Subject, Subscription, take, takeUntil, tap } from &#x27;rxjs&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &#x27;../../../Model/CostantiPersonalizzate&#x27;;
+import { MasterService, RispostaStandard } from &#x27;../../../Service/master.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;../../../Service/obj-parametri-agenda.service&#x27;;
+import { CampiEditService } from &#x27;./campi-edit.service&#x27;;
+import { Form_CampiEdit_Service } from &#x27;./form-campi-edit.service&#x27;;
+import { CampiFactoryService, CAMPI_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/campi.factory.service&#x27;;
+import { ImpiantiFactoryService, IMPIANTI_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/impianti.factory.service&#x27;;
+import { AppezzamentoCampoService } from &#x27;./appezzamento-campo-edit/appezzamento-campo.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import {MenuContestualeService} from &#x27;../../../Master/menu-contestuale/menu-contestuale.service&#x27;;
+import { contestoPostMessage, messaggioPostMessage, PostMessageStrutturata} from &#x27;gias-ui-kit&#x27;;
+import { CampiEditDataService } from &#x27;./campi-edit-data.service&#x27;;
+import {IntervalloTemporale} from &#x27;../../../Model/anagrafiche/IntervalloTemporale&#x27;;
+import { RadioButtonValue } from &#x27;gias-ui-kit&#x27;;
+
+@Component({
+  standalone: false,
+  selector: &#x27;app-campi-edit&#x27;,
+  templateUrl: &#x27;./campi-edit.component.html&#x27;,
+  styleUrls: [&#x27;./campi-edit.component.css&#x27;],
+  providers: [
+    GiasDropDownTemplateService,
+    { provide: CODICI_TOKEN, useClass: CampiEditService },
+    AppezzamentoCampoService,
+    CampiEditService,
+    CampiEditDataService
+  ],
+})
+export class CampiEditComponent implements OnInit, OnDestroy {
+  protected saving &#x3D; false;
+  protected campoSelezionato: boolean;
+  protected datiCaricati: boolean &#x3D; false;
+  protected objParametriAgenda: ObjParametriAgenda;
+
+  protected binaryButtonValue: boolean;
+  protected binaryButtonName: string;
+
+  protected lista_Centri: Array&lt;{ codice: number; descrizione: string }&gt;;
+  protected SpecieVegetali: Array&lt;Specie&gt;;
+  private campo: Campo;
+  private cartografia: string &#x3D; &#x27;&#x27;;
+  private inFrame: boolean;
+  protected salvaNuovo: boolean &#x3D; true;
+
+  private formCaricaDati: Subscription;
+  private valueChangesSub: Subscription;
+
+  public signal$: Subject&lt;void&gt; &#x3D; new Subject();
+
+  protected campiEditForm: FormGroup &#x3D; this.fb.group({
+    primaryKey: this.fb.group({
+      codice: 0,
+      centroAziendalePK: this.fb.group({
+        codice: 0,
+        partitaIva: &#x27;&#x27;
+      })
+    }),
+    codice: [0],
+    campo_Codice: [0],
+    descrizione: [&#x27;&#x27;],
+    orientamento_Colturale: [0],
+    specie: [{
+      codice: -1,
+      descrizione: &#x27;&#x27;
+    }],
+    serra: [false],
+    catastoCampo: this.fb.array([]),
+    appezzamentoCampo: this.fb.array([]),
+    codici: this.fb.array([]),
+    validita: this.fb.group({
+      inizio: [AGRODATAINIZIO],
+      fine: [AGRODATAFINE]
+    }),
+    cartografia: [&#x27;&#x27;]
+  });
+
+  protected OrientamentoColturale: Array&lt;RadioButtonValue&gt; &#x3D; [
+    { name: &#x27;Non Impostato&#x27;, value: 0, enable:true },
+    { name: &#x27;Mono-Specie&#x27;, value: 3, enable: true },
+    { name: &#x27;Multi-Specie&#x27;, value: 1, enable: true }
+  ];
+
+  protected Array_Esposizione: Array&lt;{descrizione: string;codice: string}&gt;&#x3D;[
+    {descrizione:&#x27;nord&#x27;,codice:&#x27;nord&#x27;},
+    {descrizione:&#x27;nord-est&#x27;,codice:&#x27;nord-est&#x27;},
+    {descrizione:&#x27;est&#x27;,codice:&#x27;est&#x27;},
+    {descrizione:&#x27;sud-est&#x27;,codice:&#x27;sud-est&#x27;},
+    {descrizione:&#x27;sud-ovest&#x27;,codice:&#x27;sud-ovest&#x27;},
+    {descrizione:&#x27;ovest&#x27;,codice:&#x27;ovest&#x27;},
+    {descrizione:&#x27;nord-ovest&#x27;,codice:&#x27;nord-ovest&#x27;}
+  ];
+
+  protected Array_Ubicazione: Array&lt;{descrizione: string;codice: string}&gt;&#x3D;[
+    {descrizione:&#x27;Pianura&#x27;,codice:&#x27;pianura&#x27;},
+    {descrizione:&#x27;Mezza Costa&#x27;,codice:&#x27;mezza costa&#x27;},
+    {descrizione:&#x27;Collina&#x27;,codice:&#x27;collina&#x27;},
+    {descrizione:&#x27;Montagna&#x27;,codice:&#x27;montagna&#x27;}
+  ];
+
+  constructor(
+    @Inject(CAMPI_SERVICE_TOKEN) private campiService: CampiFactoryService,
+    private masterService: MasterService,
+    private objParametriAgendaService: ObjParametriAgendaService,
+    @Inject(CODICI_TOKEN) private campiEditService: CampiEditService,
+    private formCampiEditService: Form_CampiEdit_Service,
+    private funzioniComuniService: FunzioniComuniService,
+    private fb: FormBuilder,
+    private router: Router,
+    private location: Location,
+    @Inject(IMPIANTI_SERVICE_TOKEN) private appezzamentiService: ImpiantiFactoryService,
+    private specievegetaliservice: SpecieVegetaliService,
+    private bio_Dati_OrientamentoProduttivoService: BIO_Dati_OrientamentoProduttivoService,
+    private giasMessageService: GiasMessageService,
+    private giasDialogService: GiasDialogService,
+    private centriService: CentriAziendaliService,
+    private translocoService: TranslocoService,
+    private route: ActivatedRoute,
+    private menuContestualeService: MenuContestualeService,
+    private campiEditDataService: CampiEditDataService
+  ) {
+    this.campiEditForm.get(&#x27;primaryKey.centroAziendalePK&#x27;).valueChanges.pipe(takeUntil(this.signal$)).subscribe(v &#x3D;&gt; {
+      this.objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+      this.objParametriAgenda.Sa_Cod &#x3D; v.codice;
+      this.objParametriAgendaService.changeObjParametriAgenda(this.objParametriAgenda);
+    });
+
+    this.campiEditForm.controls[&#x27;catastoCampo&#x27;].valueChanges.pipe(
+      takeUntil(this.signal$)
+    ).subscribe(c &#x3D;&gt; {
+      this.campiEditDataService.catastoCampo &#x3D; c;
+    });
+
+    this.campiEditDataService.catastoCampo$.pipe(
+      takeUntil(this.signal$)
+    ).subscribe(cc &#x3D;&gt; {
+      this.campiEditForm.value.catastoCampo &#x3D; [];
+      this.campiEditForm.value.catastoCampo &#x3D; cc;
+    });
+  }
+
+  async ngOnInit() {
+    this.saving &#x3D; false;
+    this.objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+
+    this.valueChangesSub &#x3D; this.campiEditForm.valueChanges.subscribe(form &#x3D;&gt; {
+      this.campiEditService.updateForm(form);
+    });
+
+    const PromisesResp &#x3D; await Promise.all([
+      this.campiService.leggi_SpecieVegetali()
+    ]);
+    this.SpecieVegetali &#x3D; PromisesResp[0];
+
+    this.handleQueryParams();
+    this.initDati();
+
+    if (this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Write) {
+      let impresa &#x3D; new Impresa();
+      impresa.partitaIva &#x3D; this.objParametriAgenda.Piva;
+
+      this.centriService.leggiCentriAziendaliModelloQdC(
+        &lt;LeggiCentriAziendali&gt; {
+          impresa: impresa,
+          data: (&lt;FormGroup&gt;this.campiEditForm.controls[&quot;validita&quot;]).value.inizio
+        }, false
+      ).then(vals &#x3D;&gt; {
+        this.lista_Centri &#x3D; vals.map(el &#x3D;&gt; { return { codice: el.primaryKey.codice, descrizione: el.nome } });
+        this.campiEditForm.get(&#x27;primaryKey&#x27;).get(&#x27;centroAziendalePK&#x27;).get(&quot;codice&quot;).setValue(this.lista_Centri[0].codice);
+      });
+    }
+  }
+
+  private initDati() {
+    const agenda: ObjParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+
+    if (&lt;number&gt;agenda.TipoOperazioneDB !&#x3D; &lt;number&gt;enum_TipoOperazioneDB.Scrittura) {
+      this.formCaricaDati &#x3D; this.campiEditService.caricaDati().subscribe((data) &#x3D;&gt; {
+        this.objParametriAgenda &#x3D; data.ObjParamAgenda;
+        this.campo &#x3D; data.Campo;
+
+        // la cartografia se presente arriva in query string dalla pagina del GIS
+        if(this.cartografia !&#x3D; &#x27;&#x27;) {
+          this.campo.cartografia &#x3D; this.cartografia;
+        }
+
+        this.initForm(this.campo);
+        this.abilitaDisabilitaForm();
+        this.setSwitch();
+        this.enableSpecieDdl();
+        this.datiCaricati &#x3D; true;
+      });
+    } else {
+      this.objParametriAgenda &#x3D; agenda;
+      this.campo &#x3D; this.creaCampoVuoto(agenda);
+
+      // la cartografia se presente arriva in query string dalla pagina del GIS
+      if(this.cartografia !&#x3D; &#x27;&#x27;) {
+        this.campo.cartografia &#x3D; this.cartografia;
+      }
+
+      this.initForm(this.campo);
+      this.abilitaDisabilitaForm();
+      this.setSwitch();
+      this.enableSpecieDdl();
+      this.datiCaricati &#x3D; true;
+    }
+
+    this.campoSelezionato &#x3D; true;
+  }
+
+  private creaCampoVuoto(agenda: ObjParametriAgenda): Campo {
+    let primaryKeyCentro &#x3D; new CentroAziendale.PK(agenda.Sa_Cod, agenda.Piva);
+    let primaryKeyCampo &#x3D; new Campo.PK(
+      0,
+      primaryKeyCentro
+    );
+
+    let c &#x3D; new Campo(primaryKeyCampo);
+    c.campo_Codice &#x3D; &#x27;&#x27;;
+    c.descrizione &#x3D; &#x27;&#x27;;
+    c.orientamento_Colturale &#x3D; 0;
+    c.specie &#x3D; {
+      codice: -1,
+      descrizione: &#x27;SELEZIONARE&#x27;
+    };
+    c.serra &#x3D; false;
+    c.catastoCampo &#x3D; [];
+    c.appezzamentoCampo &#x3D; [];
+    c.codici &#x3D; [];
+    c.validita &#x3D; new IntervalloTemporale();
+
+    return c;
+  }
+
+  abilitaDisabilitaForm() {
+    const operazione &#x3D; this.objParametriAgenda.TipoOperazioneDB;
+    if (operazione &#x3D;&#x3D; Enum_DBTypeOperation.Read) {
+      this.campiEditForm.disable();
+    } else if (operazione &#x3D;&#x3D; Enum_DBTypeOperation.Update) {
+      this.campiEditForm.enable();
+    } else if (operazione &#x3D;&#x3D; Enum_DBTypeOperation.Write) {
+      this.campiEditForm.enable();
+    }
+  }
+
+  private setSwitch(): void {
+    this.binaryButtonName &#x3D; &#x27;KendoBinaryButtonName&#x27;;
+    this.binaryButtonValue &#x3D; (this.campo.catastoCampo !&#x3D; undefined &amp;&amp; this.campo.catastoCampo.length &gt; 0);
+  }
+
+  private initForm(campo: Campo) {
+    this.campiEditForm.patchValue(campo);
+
+    if (campo.codici !&#x3D; undefined) {
+      for (const codice of campo.codici) {
+        const codiceForm &#x3D; this.formCampiEditService.getFormCodiciCampo();
+        codiceForm.patchValue(&lt;any&gt;codice, {emitEvent: false});
+        const faCodiciCampo &#x3D; &lt;FormArray&gt;this.campiEditForm.controls[&#x27;codici&#x27;];
+        faCodiciCampo.push(codiceForm);
+      }
+      this.campiEditForm.value.codici &#x3D; campo.codici;
+    }
+
+    if (campo.appezzamentoCampo !&#x3D; undefined) {
+      for (const appezzamento of campo.appezzamentoCampo) {
+        const appezzamentoForm &#x3D; this.formCampiEditService.getFormAppezzamentoCampo();
+        appezzamentoForm.patchValue(&lt;any&gt;appezzamento, {emitEvent: false});
+        const faAppezzamentiCampo &#x3D; &lt;FormArray&gt;this.campiEditForm.controls[&#x27;appezzamentoCampo&#x27;];
+        faAppezzamentiCampo.push(appezzamentoForm);
+      }
+
+      this.campiEditForm.value.appezzamentoCampo &#x3D; campo.appezzamentoCampo;
+    }
+
+    if(campo.catastoCampo !&#x3D; undefined) {
+      for (const particella of campo.catastoCampo) {
+        const particellaForm &#x3D; this.formCampiEditService.getFormCatastoCampo();
+        particellaForm.patchValue(particella, {emitEvent: false});
+        const faCatastoCampo &#x3D; &lt;FormArray&gt;this.campiEditForm.controls[&#x27;catastoCampo&#x27;];
+        faCatastoCampo.push(particellaForm);
+      }
+
+      this.campiEditForm.value.catastoCampo &#x3D; campo.catastoCampo;
+    }
+
+  }
+
+  onChangeChkConCatasto(event: boolean) {
+    this.binaryButtonValue &#x3D; event;
+
+    if (!event) {
+      this.campiEditForm.controls[&#x27;catastoCampo&#x27;] &#x3D; new FormArray([]);
+    }
+  }
+
+  protected enableSpecieDdl() {
+    if (!this.campiEditForm.enabled) {
+      return;
+    }
+    let orientamentoValue &#x3D; this.campiEditForm.controls[&#x27;orientamento_Colturale&#x27;].value;
+    let nessunaColt &#x3D; this.SpecieVegetali.find(s &#x3D;&gt; s.codice &#x3D;&#x3D; 0);
+    if (orientamentoValue &#x3D;&#x3D; undefined || orientamentoValue &#x3D;&#x3D; 0 || orientamentoValue &#x3D;&#x3D; 1) {
+      this.campiEditForm.controls[&#x27;specie&#x27;].setValue({
+        codice: nessunaColt.codice,
+        descrizione: nessunaColt.descrizione
+      })
+      this.campiEditForm.controls[&#x27;specie&#x27;].updateValueAndValidity();
+      this.campiEditForm.controls[&#x27;specie&#x27;].disable();
+    } else {
+      this.campiEditForm.controls[&#x27;specie&#x27;].enable();
+    }
+  }
+
+  SalvaCampo() {
+    this.saving &#x3D; true;
+    from(this.onSubmit()).pipe(
+      take(1),
+      tap((resp: RispostaStandard) &#x3D;&gt; {
+        this.saving &#x3D; false;
+        if (resp.RispostaOK) {
+          this.giasMessageService.successMessage(this.translocoService.translate(&#x27;CampoCorrettamenteModificato&#x27;));
+          this.masterService.set_isLoading({ message: &#x27;&#x27;, isLoading: false });
+          this.handleRedirect(resp.RispostaStringa as any as Campo);
+        } else {
+          if (resp.ErroriGias.length &gt; 0) {
+            resp.ErroriGias.forEach((el) &#x3D;&gt; {
+              this.giasDialogService.baseError(&#x27;Errore&#x27;, el.messaggio, false);
+            })
+          } else {
+            this.giasDialogService.baseError(&#x27;Errore&#x27;, resp.Errore, false);
+          }
+        }
+      })
+    ).subscribe();
+  }
+
+  SalvaNuovoCampo() {
+    this.saving &#x3D; true;
+    from(this.onSubmit()).pipe(take(1)).subscribe(resp &#x3D;&gt; {
+      this.saving &#x3D; false;
+      this.masterService.set_isLoading({ isLoading: false, message: &#x27;&#x27; });
+      if (resp.RispostaOK) {
+        this.giasMessageService.successMessage(this.translocoService.translate(&#x27;CampoCorrettamenteCreato&#x27;));
+        let objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue()
+        objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Write;
+        objParametriAgenda.Campo_Cod &#x3D; 0;
+        let currentUrl &#x3D; this.router.url;
+        this.router.routeReuseStrategy.shouldReuseRoute &#x3D; () &#x3D;&gt; false;
+        this.router.onSameUrlNavigation &#x3D; &#x27;reload&#x27;;
+        this.objParametriAgendaService.changeObjParametriAgenda(objParametriAgenda);
+        this.router.navigate([currentUrl]);
+      } else {
+        this.giasMessageService.errorMessage(this.translocoService.translate(&#x27;ErroreSalvataggio&#x27;) + resp);
+      }
+    });
+  }
+
+  onSubmit(): Promise&lt;RispostaStandard&gt; {
+    console.log(&#x27;onSubmit:&#x27;)
+    console.log(this.campiEditForm.value)
+    if (!this.funzioniComuniService.codiciSovrapposti(this.campiEditService.codici)) {
+      if (this.campiEditForm.valid &amp;&amp; (this.funzioniComuniService.codiciValidi(this.campiEditService.codici).length &#x3D;&#x3D; 0)) {
+        this.campiEditService.updateForm(this.campiEditForm.getRawValue());
+        this.campiEditForm.value.codici &#x3D; this.campiEditService.codici;
+
+        this.campiEditService.postForm();
+      }
+
+      if (this.campiEditForm.valid) {
+
+        this.masterService.set_isLoading({ isLoading: true, message: this.translocoService.translate(&#x27;Caricamento&#x27;) });
+
+        let campo: Campo &#x3D; this.createCampo_perSalvataggio(this.campiEditForm);
+
+        if (this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Write){
+          this.setPrimaryKey();
+          return (this.campiService.aggiornaCampo(campo, enum_TipoOperazioneDB.Scrittura));
+        } else {
+          return (this.campiService.aggiornaCampo(campo, enum_TipoOperazioneDB.Modifica));
+        }
+
+      } else {
+        this.campiEditForm.markAllAsTouched();
+        let els &#x3D; document.getElementsByClassName(&#x27;ng-invalid&#x27;)
+      }
+    }
+  }
+
+  private setPrimaryKey() {
+    this.campiEditForm.value.primaryKey &#x3D; {codice: 0,
+      impresaPK: { codice: 0,
+        partitaIva: this.objParametriAgenda.Piva
+      }
+    };
+  }
+
+  private createCampo_perSalvataggio(campoEditForm: FormGroup): Campo {
+    let campo: Campo &#x3D; new Campo(campoEditForm.controls[&#x27;primaryKey&#x27;].value);
+    campo.appezzamentoCampo &#x3D; campoEditForm.value.appezzamentoCampo;
+    campo.catastoCampo &#x3D; campoEditForm.value.catastoCampo;
+    campo.campo_Codice &#x3D; campoEditForm.controls[&#x27;campo_Codice&#x27;].value;
+    campo.codici &#x3D; campoEditForm.value.codici;
+    campo.descrizione &#x3D; campoEditForm.value.descrizione;
+    campo.orientamento_Colturale &#x3D; campoEditForm.controls[&#x27;orientamento_Colturale&#x27;].value;
+    campo.serra &#x3D; campoEditForm.controls[&#x27;serra&#x27;].value;
+    campo.specie &#x3D; campoEditForm.controls[&#x27;specie&#x27;].value;
+    campo.validita &#x3D; campoEditForm.controls[&#x27;validita&#x27;].value;
+    campo.cartografia &#x3D; campoEditForm.controls[&#x27;cartografia&#x27;].value;
+
+    return campo;
+  }
+
+  ngOnDestroy(): void {
+    if (this.formCaricaDati !&#x3D; undefined) {
+      this.formCaricaDati.unsubscribe();
+    }
+    if(this.valueChangesSub !&#x3D; undefined) {
+      this.valueChangesSub.unsubscribe();
+    }
+
+    this.signal$.next();
+    this.signal$.complete();
+  }
+
+  async openDdl(ddlEl: GiasDropDownTemplateSComponent) {
+    switch (ddlEl.giasFormControlName) {
+      case &#x27;metodo_Produzione&#x27;:
+        ddlEl.listItems &#x3D; this.appezzamentiService.getArray_Metodo_Produzione();
+        break;
+      case &#x27;coltura_Precedente_1_Anno&#x27;:
+      case &#x27;coltura_Precedente_2_Anno&#x27;:
+      case &#x27;coltura_Precedente_3_Anno&#x27;:
+      case &#x27;coltura_Precedente_4_Anno&#x27;:
+        ddlEl.listItems &#x3D; await this.specievegetaliservice.leggi();
+        break;
+      case &#x27;esposizione&#x27;:
+        ddlEl.listItems &#x3D; this.Array_Esposizione;
+        break;
+      case &#x27;ubicazione&#x27;:
+        ddlEl.listItems &#x3D; this.Array_Ubicazione;
+        break;
+      case &#x27;utilizzo_Terreno&#x27;:
+        ddlEl.listItems &#x3D; await lastValueFrom(this.bio_Dati_OrientamentoProduttivoService.leggi().pipe(take(1)));
+        break;
+      case &#x27;codice&#x27;:
+        switch (ddlEl.name) {
+          case &#x27;centro&#x27;:
+            let impresa &#x3D; new Impresa();
+            impresa.partitaIva &#x3D; this.objParametriAgenda.Piva;
+            ddlEl.listItems &#x3D; (await this.centriService.leggiCentriAziendaliModelloQdC(&lt;LeggiCentriAziendali&gt;{ impresa: impresa, data: AGRODATAINIZIO }, false)).map(el &#x3D;&gt; {
+              return { codice: el.primaryKey.codice, descrizione: el.nome };
+            });
+            break;
+          case &#x27;campo&#x27;:
+            break;
+        }
+    }
+  }
+
+  private handleQueryParams(): void {
+    this.route.queryParams.pipe(takeUntil(this.signal$))
+      .subscribe(params &#x3D;&gt; {
+        if (params.seFrame &#x3D;&#x3D; 1) {
+          let header &#x3D; this.masterService.getHeader();
+          header.visible &#x3D; false;
+          this.masterService.changeHeader(header);
+
+          let footer &#x3D; this.masterService.getFooter();
+          footer.visible &#x3D; false;
+          this.masterService.changeFooter(footer);
+
+          let menuContestuale &#x3D; this.menuContestualeService.getMenuContestualeSettings();
+          menuContestuale.show &#x3D; false;
+          this.menuContestualeService.changeMenuContestualeSettings(menuContestuale);
+
+          this.inFrame &#x3D; true;
+          this.salvaNuovo &#x3D; false;
+        }
+        if(params.wkt !&#x3D; undefined &amp;&amp; params.wkt !&#x3D; &#x27;&#x27;) {
+          this.cartografia &#x3D; params.wkt;
+        }
+      });
+  }
+
+  private handleRedirect(campo: Campo): void{
+    if (this.inFrame) {
+      let objPostMessage: PostMessageStrutturata&lt;Campo&gt; &#x3D; new PostMessageStrutturata&lt;Campo&gt;(
+        messaggioPostMessage.chiudiWindowGiasNG,
+        contestoPostMessage.SalvaCampo,
+        campo
+      );
+      window.parent.postMessage(objPostMessage);
+      // console.log(&#x27;postMessage effettuato&#x27;,objPostMessage);
+    } else {
+      this.location.back();
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div *ngIf&#x3D;&quot;campoSelezionato &amp;&amp; datiCaricati&quot; class&#x3D;&quot;container&quot;&gt;
+    &lt;form [formGroup]&#x3D;&quot;campiEditForm&quot; (keydown.enter)&#x3D;&quot;$event.preventDefault()&quot;&gt;
+        &lt;gias-update-toolbar [TipoOperazioneDB]&#x3D;&quot;objParametriAgenda.TipoOperazioneDB&quot; [formGroup]&#x3D;&quot;campiEditForm&quot;
+                            [disabled]&#x3D;&quot;saving&quot;
+                            [submit]&#x3D;&quot;false&quot; [salvaNuovo]&#x3D;&quot;salvaNuovo&quot; (clickEvent)&#x3D;&quot;SalvaCampo()&quot;
+            (clickSalvaNuovoEvent)&#x3D;&quot;SalvaNuovoCampo()&quot;&gt;
+        &lt;/gias-update-toolbar&gt;
+
+
+
+        &lt;div class&#x3D;&quot;jumbotron&quot;&gt;
+            &lt;div class&#x3D;&quot;container&quot;&gt;
+                &lt;div class&#x3D;&quot;editPageContent&quot;&gt;
+                    &lt;div class&#x3D;&quot;row&quot;&gt;
+                        &lt;h4 class&#x3D;&quot;card-title mb-2 mt-2&quot; style&#x3D;&quot;text-align: center;&quot;&gt;{{&#x27;campo.DatiCampo&#x27; | transloco}}&lt;/h4&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;row form-row&quot; *ngIf&#x3D;&quot;objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; 1&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-12 col-md-6&quot; [formGroup]&#x3D;&quot;campiEditForm.get(&#x27;primaryKey&#x27;).get(&#x27;centroAziendalePK&#x27;)&quot;&gt;
+                            &lt;gias-drop-down-template-s [name]&#x3D;&quot;&#x27;Centro&#x27; | transloco&quot; [obligatory]&#x3D;&quot;true&quot; [clearButton]&#x3D;&quot;true&quot;
+                                textField&#x3D;&quot;descrizione&quot; (open)&#x3D;&quot;openDdl($event)&quot; valueField&#x3D;&quot;codice&quot; [filterable]&#x3D;&quot;true&quot;
+                                giasFormControlName&#x3D;&quot;codice&quot; [listItems]&#x3D;&quot;lista_Centri&quot; [defaultItem]&#x3D;&quot;defaultItem&quot;
+                                [valuePrimitive]&#x3D;&quot;true&quot;&gt;
+                            &lt;/gias-drop-down-template-s&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                        &lt;div class&#x3D;&quot;col-12 col-md-3&quot;&gt;
+                            &lt;gias-text-template [name]&#x3D;&quot;&#x27;campo.descrizione&#x27; | transloco&quot; [obligatory]&#x3D;&quot;true&quot;
+                                                [clearButton]&#x3D;&quot;true&quot;
+                                                [placeholder]&#x3D;&quot;&#x27;campo.descrizione_Placeholder&#x27; | transloco&quot;
+                                                giasFormControlName&#x3D;&quot;descrizione&quot;&gt;
+                            &lt;/gias-text-template&gt;
+                        &lt;/div&gt;
+                        &lt;gias-validita formGroupName&#x3D;&quot;validita&quot;&gt;&lt;/gias-validita&gt;
+                        &lt;div class&#x3D;&quot;col-12 col-md-3&quot;&gt;
+                            &lt;gias-text-template [name]&#x3D;&quot;&#x27;RifAlfanumerico&#x27; | transloco&quot; [obligatory]&#x3D;&quot;true&quot;
+                                                [clearButton]&#x3D;&quot;false&quot;
+                                                [placeholder]&#x3D;&quot;&#x27;campo.codice_Placeholder&#x27; | transloco&quot;
+                                                giasFormControlName&#x3D;&quot;campo_Codice&quot;&gt;
+                            &lt;/gias-text-template&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+
+                    &lt;gias-expansionpanel [id]&#x3D;&quot;&#x27;Dati_Aggiuntivi&#x27;&quot;&gt;
+                        &lt;div class&#x3D;&quot;header-content&quot; headerContent&gt;
+                            &lt;kendo-icon name&#x3D;&quot;plus&quot; [style.marginRight.px]&#x3D;&quot;10&quot;&gt;&lt;/kendo-icon&gt;
+                            &lt;span&gt;&lt;em&gt;{{ &#x27;campo.Ulteriori_Dati_Campo&#x27; | transloco }}&lt;/em&gt;&lt;/span&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                            &lt;div class&#x3D;&quot;content&quot;&gt;
+                                &lt;span class&#x3D;&quot;content-text&quot;&gt;
+                                    &lt;div class&#x3D;&quot;row &quot;&gt;
+                                        &lt;div class&#x3D;&quot;card&quot;&gt;
+                                            &lt;div class&#x3D;&quot;col-lg-12 text-center&quot;&gt;
+                                                &lt;h5 class&#x3D;&quot;card-title&quot;&gt;
+                                                    {{ &#x27;campo.Orientamento_Colturale&#x27; | transloco }}
+                                                &lt;/h5&gt;
+                                            &lt;/div&gt;
+                                            &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                                                &lt;div class&#x3D;&quot;col-12 col-sm-5&quot;&gt;
+                                                    &lt;gias-drop-down-template
+                                                        [name]&#x3D;&quot;&#x27;campo.orientamento_colturale&#x27; | transloco&quot;
+                                                        [id]&#x3D;&quot;&#x27;orientamento_colturale&#x27;&quot; [obligatory]&#x3D;&quot;true&quot;
+                                                        [listItems]&#x3D;&quot;OrientamentoColturale&quot;
+                                                        (valueChange)&#x3D;&quot;enableSpecieDdl()&quot; textField&#x3D;&quot;name&quot;
+                                                        valueField&#x3D;&quot;value&quot; giasFormControlName&#x3D;&quot;orientamento_Colturale&quot;
+                                                        [valuePrimitive]&#x3D;&quot;true&quot;&gt;
+                                                    &lt;/gias-drop-down-template&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class&#x3D;&quot;col-12 col-sm-5&quot;&gt;
+                                                    &lt;gias-drop-down-template
+                                                        [name]&#x3D;&quot;&#x27;campo.specie_vegetale&#x27; | transloco&quot;
+                                                        [id]&#x3D;&quot;&#x27;specie_vegetale&#x27;&quot; [obligatory]&#x3D;&quot;true&quot;
+                                                        [listItems]&#x3D;&quot;SpecieVegetali&quot; textField&#x3D;&quot;descrizione&quot;
+                                                        valueField&#x3D;&quot;codice&quot; giasFormControlName&#x3D;&quot;specie&quot;
+                                                        [valuePrimitive]&#x3D;false&gt;
+                                                    &lt;/gias-drop-down-template&gt;
+                                                &lt;/div&gt;
+                                                &lt;div class&#x3D;&quot;col-12 col-sm-2&quot;&gt;
+                                                    &lt;div [formGroup]&#x3D;&quot;campiEditForm&quot;&gt;
+                                                        &lt;gias-switch-template [name]&#x3D;&quot;&#x27;Serra&#x27;&quot; giasFormControlName&#x3D;&quot;serra&quot;&gt;
+                                                        &lt;/gias-switch-template&gt;
+                                                    &lt;/div&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;row&quot;&gt;
+                            &lt;div class&#x3D;&quot;content&quot;&gt;
+                                &lt;span class&#x3D;&quot;content-text&quot;&gt;
+                                    &lt;div class&#x3D;&quot;row &quot;&gt;
+                                        &lt;div class&#x3D;&quot;col-lg-12 text-center&quot;&gt;
+                                            &lt;h5 class&#x3D;&quot;card-title&quot;&gt;
+                                                {{ &#x27;campo.Codici&#x27; | transloco }}
+                                            &lt;/h5&gt;
+                                            &lt;div class&#x3D;&quot;card-text&quot;&gt;
+                                                &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                                                    &lt;gias-codici-template&gt;&lt;/gias-codici-template&gt;
+                                                &lt;/div&gt;
+                                            &lt;/div&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Parte relativa agli Appezzamenti--&gt;
+                        &lt;!-- credo dia errore se non ho alcun record --&gt;
+                        &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-12 col-sm-12&quot;&gt;
+                                &lt;div [formGroup]&#x3D;&quot;campiEditForm&quot;&gt;
+                                    &lt;app-appezzamento-campo-edit formGroupName&#x3D;&quot;appezzamentoCampo&quot;&gt;
+                                    &lt;/app-appezzamento-campo-edit&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;div class&#x3D;&quot;row form-row&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-12 col-sm-12&quot;&gt;
+                                &lt;gias-binary-button-group-template [name]&#x3D;&quot;binaryButtonName&quot; [value]&#x3D;&quot;binaryButtonValue&quot;
+                                    [disablednobutton]&#x3D;&quot;this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; 0&quot;
+                                    [disabledsibutton]&#x3D;&quot;this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; 0&quot;
+                                    [silabel]&#x3D;&quot;&#x27;campo.conCatasto&#x27; | transloco&quot;
+                                    [nolabel]&#x3D;&quot;&#x27;campo.senzaCatasto&#x27; | transloco&quot;
+                                    (valueChange)&#x3D;&quot;onChangeChkConCatasto($event)&quot;&gt;
+                                &lt;/gias-binary-button-group-template&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                        &lt;!-- Parte relativa al Catasto--&gt;
+                        &lt;div class&#x3D;&quot;row form-row&quot; *ngIf&#x3D;&quot;binaryButtonValue&quot;&gt;
+                            &lt;div class&#x3D;&quot;col-12 col-sm-12&quot;&gt;
+                                &lt;div [formGroup]&#x3D;&quot;campiEditForm&quot;&gt;
+                                    &lt;app-catasto-campo-edit formGroupName&#x3D;&quot;catastoCampo&quot;&gt;
+
+                                    &lt;/app-catasto-campo-edit&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+
+                    &lt;/gias-expansionpanel&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./campi-edit.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div *ngIf="campoSelezionato && datiCaricati" class="container">    <form [formGroup]="campiEditForm" (keydown.enter)="$event.preventDefault()">        <gias-update-toolbar [TipoOperazioneDB]="objParametriAgenda.TipoOperazioneDB" [formGroup]="campiEditForm"                            [disabled]="saving"                            [submit]="false" [salvaNuovo]="salvaNuovo" (clickEvent)="SalvaCampo()"            (clickSalvaNuovoEvent)="SalvaNuovoCampo()">        </gias-update-toolbar>        <div class="jumbotron">            <div class="container">                <div class="editPageContent">                    <div class="row">                        <h4 class="card-title mb-2 mt-2" style="text-align: center;">{{\'campo.DatiCampo\' | transloco}}</h4>                    </div>                    <div class="row form-row" *ngIf="objParametriAgenda.TipoOperazioneDB == 1">                        <div class="col-12 col-md-6" [formGroup]="campiEditForm.get(\'primaryKey\').get(\'centroAziendalePK\')">                            <gias-drop-down-template-s [name]="\'Centro\' | transloco" [obligatory]="true" [clearButton]="true"                                textField="descrizione" (open)="openDdl($event)" valueField="codice" [filterable]="true"                                giasFormControlName="codice" [listItems]="lista_Centri" [defaultItem]="defaultItem"                                [valuePrimitive]="true">                            </gias-drop-down-template-s>                        </div>                    </div>                    <div class="row form-row">                        <div class="col-12 col-md-3">                            <gias-text-template [name]="\'campo.descrizione\' | transloco" [obligatory]="true"                                                [clearButton]="true"                                                [placeholder]="\'campo.descrizione_Placeholder\' | transloco"                                                giasFormControlName="descrizione">                            </gias-text-template>                        </div>                        <gias-validita formGroupName="validita"></gias-validita>                        <div class="col-12 col-md-3">                            <gias-text-template [name]="\'RifAlfanumerico\' | transloco" [obligatory]="true"                                                [clearButton]="false"                                                [placeholder]="\'campo.codice_Placeholder\' | transloco"                                                giasFormControlName="campo_Codice">                            </gias-text-template>                        </div>                    </div>                    <gias-expansionpanel [id]="\'Dati_Aggiuntivi\'">                        <div class="header-content" headerContent>                            <kendo-icon name="plus" [style.marginRight.px]="10"></kendo-icon>                            <span><em>{{ \'campo.Ulteriori_Dati_Campo\' | transloco }}</em></span>                        </div>                        <div class="row form-row">                            <div class="content">                                <span class="content-text">                                    <div class="row ">                                        <div class="card">                                            <div class="col-lg-12 text-center">                                                <h5 class="card-title">                                                    {{ \'campo.Orientamento_Colturale\' | transloco }}                                                </h5>                                            </div>                                            <div class="row form-row">                                                <div class="col-12 col-sm-5">                                                    <gias-drop-down-template                                                        [name]="\'campo.orientamento_colturale\' | transloco"                                                        [id]="\'orientamento_colturale\'" [obligatory]="true"                                                        [listItems]="OrientamentoColturale"                                                        (valueChange)="enableSpecieDdl()" textField="name"                                                        valueField="value" giasFormControlName="orientamento_Colturale"                                                        [valuePrimitive]="true">                                                    </gias-drop-down-template>                                                </div>                                                <div class="col-12 col-sm-5">                                                    <gias-drop-down-template                                                        [name]="\'campo.specie_vegetale\' | transloco"                                                        [id]="\'specie_vegetale\'" [obligatory]="true"                                                        [listItems]="SpecieVegetali" textField="descrizione"                                                        valueField="codice" giasFormControlName="specie"                                                        [valuePrimitive]=false>                                                    </gias-drop-down-template>                                                </div>                                                <div class="col-12 col-sm-2">                                                    <div [formGroup]="campiEditForm">                                                        <gias-switch-template [name]="\'Serra\'" giasFormControlName="serra">                                                        </gias-switch-template>                                                    </div>                                                </div>                                            </div>                                        </div>                                    </div>                                </span>                            </div>                        </div>                        <div class="row">                            <div class="content">                                <span class="content-text">                                    <div class="row ">                                        <div class="col-lg-12 text-center">                                            <h5 class="card-title">                                                {{ \'campo.Codici\' | transloco }}                                            </h5>                                            <div class="card-text">                                                <div class="row form-row">                                                    <gias-codici-template></gias-codici-template>                                                </div>                                            </div>                                        </div>                                    </div>                                </span>                            </div>                        </div>                        <!-- Parte relativa agli Appezzamenti-->                        <!-- credo dia errore se non ho alcun record -->                        <div class="row form-row">                            <div class="col-12 col-sm-12">                                <div [formGroup]="campiEditForm">                                    <app-appezzamento-campo-edit formGroupName="appezzamentoCampo">                                    </app-appezzamento-campo-edit>                                </div>                            </div>                        </div>                        <div class="row form-row">                            <div class="col-12 col-sm-12">                                <gias-binary-button-group-template [name]="binaryButtonName" [value]="binaryButtonValue"                                    [disablednobutton]="this.objParametriAgenda.TipoOperazioneDB == 0"                                    [disabledsibutton]="this.objParametriAgenda.TipoOperazioneDB == 0"                                    [silabel]="\'campo.conCatasto\' | transloco"                                    [nolabel]="\'campo.senzaCatasto\' | transloco"                                    (valueChange)="onChangeChkConCatasto($event)">                                </gias-binary-button-group-template>                            </div>                        </div>                        <!-- Parte relativa al Catasto-->                        <div class="row form-row" *ngIf="binaryButtonValue">                            <div class="col-12 col-sm-12">                                <div [formGroup]="campiEditForm">                                    <app-catasto-campo-edit formGroupName="catastoCampo">                                    </app-catasto-campo-edit>                                </div>                            </div>                        </div>                    </gias-expansionpanel>                </div>            </div>        </div>    </form></div></div>'
+    var COMPONENTS = [{'name': 'AbbattimentoImpiantiComponent', 'selector': 'app-abbattimento-impianti'},{'name': 'AccessoNegatoComponent', 'selector': 'app-accesso-negato'},{'name': 'AcquaComponent', 'selector': 'app-acqua'},{'name': 'AgendaFiltersComponent', 'selector': 'agenda-filters'},{'name': 'AgriculturalExerciceContributeLinkComponent', 'selector': 'app-agricultural-exercice-contribute-link'},{'name': 'AgriculturalPlotMachineLinkComponent', 'selector': 'app-agricultural-plots-machines-link'},{'name': 'AgriculturalPlotSlopeComponent', 'selector': 'app-agricultural-plot-slope'},{'name': 'AgriculturalPlotWeavingComponent', 'selector': 'app-agricultural-plot-weaving'},{'name': 'AlertDocumentiWidgetComponent', 'selector': 'app-alert-documenti-widget'},{'name': 'AllOperationsTableComponent', 'selector': 'all-operations-table'},{'name': 'AnagraficaComponent', 'selector': 'gias-anagrafica'},{'name': 'AnagraficaTreeFiltersComponent', 'selector': 'tree-filters'},{'name': 'AnagraficheIndiciMaturitaComponent', 'selector': 'app-anagrafiche-indici-maturita'},{'name': 'AnagraficheRilieviAvversitaComponent', 'selector': 'app-anagrafiche-rilievi-avversita'},{'name': 'AnalisiTerrenoComponent', 'selector': 'app-analisi-terreno'},{'name': 'AnalisiTerrenoEditComponent', 'selector': 'app-analisi-terreno-edit'},{'name': 'AnnoValutazioniEditComponent', 'selector': 'app-anno-valutazioni-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppezzamentiCampoEditComponent', 'selector': 'app-appezzamento-campo-edit'},{'name': 'AppezzamentiComponent', 'selector': 'app-appezzamenti'},{'name': 'AppezzamentoEditComponent', 'selector': 'app-appezzamento-edit'},{'name': 'AppezzamentoGlobalEditComponent', 'selector': 'app-appezzamento-global-edit'},{'name': 'AvversitaComponent', 'selector': 'app-avversita'},{'name': 'AxpMessageContentComponent', 'selector': 'app-axp-message-content'},{'name': 'AziendaComponent', 'selector': 'app-azienda'},{'name': 'AziendeMultiPieWidgetComponent', 'selector': 'app-aziende-multi-pie-widget'},{'name': 'BiologicoComponent', 'selector': 'centri-biologico'},{'name': 'BottoneAggiuntaProdottoComponent', 'selector': 'app-bottone-aggiunta-prodotto'},{'name': 'BottoneCreaProdottoComponent', 'selector': 'app-bottone-crea-prodotto'},{'name': 'BottoneRicercaProdotti', 'selector': 'app-bottone-ricerca-prodotti'},{'name': 'BottoniGestioneProdottoComponent', 'selector': 'app-bottoni-gestione-prodotto'},{'name': 'BottoniSalvataggioComponent', 'selector': 'app-bottoni-salvataggio'},{'name': 'BottoniSezioneProdottiComponent', 'selector': 'app-bottoni-sezione-prodotti'},{'name': 'BottoniTestataComponent', 'selector': 'btn-bottoni-testata'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'BrogliaccioGridComponent', 'selector': 'brogliaccio-table'},{'name': 'BudgetComponent', 'selector': 'gias-budget'},{'name': 'CacCodificheComponent', 'selector': 'app-cac-codifiche'},{'name': 'CampiComponent', 'selector': 'app-campi'},{'name': 'CampiEditComponent', 'selector': 'app-campi-edit'},{'name': 'CampiShortDescriptionComponent', 'selector': 'campi-short-description'},{'name': 'CardImpostazioneComponent', 'selector': 'app-card-impostazione'},{'name': 'CatastoCampoEditComponent', 'selector': 'app-catasto-campo-edit'},{'name': 'CatastoClassamentoEditComponent', 'selector': 'app-catasto-classamento-edit'},{'name': 'CatastoComponent', 'selector': 'app-catasto'},{'name': 'CatastoEditComponent', 'selector': 'app-catasto-edit'},{'name': 'CatastoMacrousiEditComponent', 'selector': 'app-catasto-macrousi-edit'},{'name': 'CatastoMetodoProduzioneEditComponent', 'selector': 'app-catasto-metodo-produzione-edit'},{'name': 'CatastoPossessiEditComponent', 'selector': 'app-catasto-possessi-edit'},{'name': 'CatastoZoneEditComponent', 'selector': 'app-catasto-zone-edit'},{'name': 'CentriCodiciGridComponent', 'selector': 'grid-centri-codici'},{'name': 'CentriComponent', 'selector': 'gias-anagrafica-centri'},{'name': 'CentroEditComponent', 'selector': 'app-centri-edit'},{'name': 'ChartWidgetComponent', 'selector': 'app-chart-widget'},{'name': 'ClearButtonComponent', 'selector': 'app-clear-button'},{'name': 'ClientePermessiComponent', 'selector': 'app-cliente-permessi'},{'name': 'ClientePermessiGridComponent', 'selector': 'app-cliente-permessi-grid'},{'name': 'Co2ComparisonWidgetComponent', 'selector': 'app-co2-comparison-widget'},{'name': 'CodiciComponent', 'selector': 'app-codici'},{'name': 'CodiciTemplateComponent', 'selector': 'gias-codici-template'},{'name': 'ColtureMultiAziendaWidget', 'selector': 'app-colture-multiazienda-widget'},{'name': 'ColtureWidgetComponent', 'selector': 'app-colture-widget'},{'name': 'ColumnsChartWidgetComponent', 'selector': 'app-columns-chart-widget'},{'name': 'ComparisonWidgetComponent', 'selector': 'app-comparison-widget'},{'name': 'ConfigurazioneOperazioniCulturaliComponent', 'selector': 'app-configurazione-operazioni-culturali'},{'name': 'ConformitaWidgetComponent', 'selector': 'app-conformita-widget'},{'name': 'ConfrontoPcCatastoComponent', 'selector': 'app-confronto-pc-catasto'},{'name': 'ConfrontoPcCatastoGridComponent', 'selector': 'app-confronto-pc-catasto-grid'},{'name': 'ConfrontoPianoColturaleComponent', 'selector': 'app-confronto-piano-colturale'},{'name': 'ConsultaSincroDatiAppComponent', 'selector': 'app-consulta-sincro-dati-app'},{'name': 'ContattiAssociaUtenteComponent', 'selector': 'app-contatti-associa-utente'},{'name': 'ContattiComponent', 'selector': 'app-contatti'},{'name': 'ContattiEditComponent', 'selector': 'app-contatti-edit'},{'name': 'ContoEconomicoDettaglioComponent', 'selector': 'app-conto-economico-dettaglio'},{'name': 'CooperativeComponent', 'selector': 'cooperative-edit'},{'name': 'CostiAccessoriComponent', 'selector': 'app-costi-accessori'},{'name': 'CostiMacchinaEditComponent', 'selector': 'app-macchina-edit-costi'},{'name': 'CostiRicaviAIWidgetComponent', 'selector': 'costi-ricavi-ai-widget'},{'name': 'CounterComponent', 'selector': 'app-counter-component'},{'name': 'CustomMessageComponent', 'selector': 'custom-message-component'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataOperazioneComponent', 'selector': 'app-data-operazione'},{'name': 'DatiAccessoriComponent', 'selector': 'dati-accessori'},{'name': 'DatiCatastaliComponent', 'selector': 'app-dati-catastali'},{'name': 'DatiCentroComponent', 'selector': 'dati-centro'},{'name': 'DatiGeneraliFarmersComponent', 'selector': 'app-dati-generali-farmers-widget'},{'name': 'DatiPrevisionailiColtureGridComponent', 'selector': 'app-dati-previsionaili-colture-grid'},{'name': 'DatiPrevisionaliColtureComponent', 'selector': 'app-dati-previsionali-colture'},{'name': 'DettagliFertilizzantiComponent', 'selector': 'app-dettagli-fertilizzanti'},{'name': 'DettagliFormulatiComponent', 'selector': 'app-dettagli-formulati'},{'name': 'DettagliSementiComponent', 'selector': 'app-dettagli-sementi'},{'name': 'DialogComponent', 'selector': 'app-dialog'},{'name': 'DisciplinareComponent', 'selector': 'app-disciplinare'},{'name': 'DomandaIrriguaComponent', 'selector': 'app-menu-dss'},{'name': 'DosiComponent', 'selector': 'app-dosi'},{'name': 'DraggableComponent', 'selector': 'app-draggable'},{'name': 'DrawWindowComponent', 'selector': 'draw-window'},{'name': 'EditGruppiMerceComponent', 'selector': 'app-gruppi-merce'},{'name': 'EditGruppiMerceGridComponent', 'selector': 'gruppi-merce-grid'},{'name': 'ErosioneComparisonWidgetComponent', 'selector': 'app-erosione-comparison-widget'},{'name': 'EserciziComponent', 'selector': 'app-esercizi'},{'name': 'EserciziCopiaSpostaAppezzamentiComponent', 'selector': 'app-esercizi-copia-sposta-appezzamenti'},{'name': 'EsercizioEditComponent', 'selector': 'app-esercizio-edit'},{'name': 'ExportQdCToAgeaComponent', 'selector': 'app-export-qdc-to-agea'},{'name': 'ExportQdcToAgeaFarmFilterComponent', 'selector': 'app-export-qdc-to-agea-farm-filter'},{'name': 'ExportQdcToAgeaJsonDialogComponent', 'selector': 'app-export-qdc-to-agea-json-dialog'},{'name': 'FabbricatiComponent', 'selector': 'app-fabbricati'},{'name': 'FabbricatiEditComponent', 'selector': 'app-fabbricati-edit'},{'name': 'FertilizzantiComponent', 'selector': 'app-fertilizzanti'},{'name': 'FetchDataComponent', 'selector': 'app-fetch-data'},{'name': 'FiltersRilieviComponent', 'selector': 'app-filters-rilievi'},{'name': 'FiltersVisiteComponent', 'selector': 'app-filters-visite'},{'name': 'FiltriRequisitiStabilimentoComponent', 'selector': 'app-filtri-requisiti-stabilimento'},{'name': 'FiltriTemporaliComponent', 'selector': 'app-filtri-temporali'},{'name': 'FiltriUtenteComponent', 'selector': 'app-filtri-utente'},{'name': 'FiltroRicercaComponent', 'selector': 'app-filtro-ricerca'},{'name': 'FiltroSqlMateriePrimeComponent', 'selector': 'app-filtro-sql-materie-prime'},{'name': 'FlagMagazziniAgenzieComponent', 'selector': 'app-flag-magazzini-agenzie'},{'name': 'FlagMagazziniEsterniComponent', 'selector': 'app-flag-magazzini-esterni'},{'name': 'FlagVisualizzaGiacenzeZeroComponent', 'selector': 'app-flag-visualizza-giacenze-zero'},{'name': 'FooterComponent', 'selector': 'gias-master-footer'},{'name': 'FormatiStampaComponent', 'selector': 'impostazione-formati-stampa'},{'name': 'FormImpostazioniAziendeCentriComponent', 'selector': 'app-form-impostazioni-aziende-centri'},{'name': 'FormImpostazioniComponent', 'selector': 'app-form-impostazioni'},{'name': 'FormulatiComponent', 'selector': 'app-formulati'},{'name': 'GeneralFieldComponent', 'selector': 'app-settings-general-field'},{'name': 'GeoFiltersComponent', 'selector': 'app-geo-filters'},{'name': 'GestioneNoteComponent', 'selector': 'app-gestione-note'},{'name': 'GestioneOperazioniComponent', 'selector': 'app-gestione-operazioni'},{'name': 'GestioneRichiesteComponent', 'selector': 'gias-gestione-richieste'},{'name': 'GhgColtureWidgetComponent', 'selector': 'app-ghg-colture-widget'},{'name': 'GiasAddressTemplateComponent', 'selector': 'gias-address-template'},{'name': 'GiasBreadcrumbsComponent', 'selector': 'gias-breadcrumbs'},{'name': 'GisAlgorithmConfigurationComponent', 'selector': 'gis-algorithm-configuration'},{'name': 'GisAlgorithmConfigurationLogComponent', 'selector': 'gis-algorithm-configuration-log'},{'name': 'GisAlgorithmConfigurationWindowComponent', 'selector': 'gis-algorithm-configuration-window'},{'name': 'GISAlgorithmResultComponent', 'selector': 'gis-algorithm-result'},{'name': 'GISAnalisiMappeSatellitariAnimationComponent', 'selector': 'gis-analisi-mappe-satellitari-animation'},{'name': 'GISAnalisiMappeSatellitariCalendarioComponent', 'selector': 'gis-analisi-mappe-satellitari-calendario'},{'name': 'GISAnalisiMappeSatellitariGraficiComponent', 'selector': 'gis-analisi-mappe-satellitari-grafici'},{'name': 'GISAnalisiMappeSatellitariNotificheComponent', 'selector': 'gis-analisi-mappe-satellitari-notifiche'},{'name': 'GISAnalisiMappeSatellitariOpzioniComponent', 'selector': 'gis-analisi-mappe-satellitari-opzioni'},{'name': 'GISAnalisiMappeSatellitariWindowComponent', 'selector': 'gis-analisi-mappe-satellitari-window'},{'name': 'GISAttributiAlgorithmConfigurationComponent', 'selector': 'gis-attributi-algorithm-configuration'},{'name': 'GISAttributiComponent', 'selector': 'GIS-attributi'},{'name': 'GISAttributiExportComponent', 'selector': 'gis-attributi-export'},{'name': 'GISAttributiFileUploadCatastoComponent', 'selector': 'gis-attributi-file-upload-catasto'},{'name': 'GISAttributiFileUploadComponent', 'selector': 'gis-attributi-file-upload'},{'name': 'GISAttributiFileUploadRasterComponent', 'selector': 'gis-attributi-file-upload-raster'},{'name': 'GISAttributiFileUploadStandardComponent', 'selector': 'gis-attributi-file-upload-standard'},{'name': 'GISAttributiGridComponent', 'selector': 'GIS-attributi-grid'},{'name': 'GISAttributiMuzGridComponent', 'selector': 'GIS-attributi-muz-grid'},{'name': 'GISAttributiRasterMasksComponent', 'selector': 'gis-attributi-raster-masks'},{'name': 'GISAttributiRasterMasksGroupsPermissionsComponent', 'selector': 'gis-attributi-raster-masks-groups-permissions'},{'name': 'GISAttributiRasterMasksPermissionsComponent', 'selector': 'gis-attributi-raster-masks-permissions'},{'name': 'GISAttributiRasterMasksUsersPermissionsComponent', 'selector': 'gis-attributi-raster-masks-users-permissions'},{'name': 'GISAttributiSettingsComponent', 'selector': 'gis-attributi-settings'},{'name': 'GISBookmarksWindowComponent', 'selector': 'gis-bookmarks-window'},{'name': 'GisBottomWindow', 'selector': 'gis-bottom-window'},{'name': 'GISCalendarModalComponent', 'selector': 'app-gis-calendar-modal'},{'name': 'GISCfgProiezioniComponent', 'selector': 'gis-cfg-proiezioni'},{'name': 'GISCfgProiezioniConfigComponent', 'selector': 'gis-cfg-proiezioni-config'},{'name': 'GISCfgProiezioniDialogComponent', 'selector': 'gis-cfg-proiezioni-dialog'},{'name': 'GISCfgProiezioniGroupsPermissionsComponent', 'selector': 'gis-cfg-proiezioni-groups-permissions'},{'name': 'GISCfgProiezioniUsersPermissionsComponent', 'selector': 'gis-cfg-proiezioni-users-permissions'},{'name': 'GISCfgProziezioniLayerComponent', 'selector': 'gis-cfg-proiezioni-layer'},{'name': 'GISCfgProziezioniPermissionsComponent', 'selector': 'gis-cfg-proiezioni-permissions'},{'name': 'GisCheckboxComponent', 'selector': 'gis-checkbox'},{'name': 'GISComponent', 'selector': 'GIS'},{'name': 'GISConfigurationModalComponent', 'selector': 'app-gis-configuration-modal'},{'name': 'GISDeleteFeatureWindowComponent', 'selector': 'gis-delete-feature-window'},{'name': 'GISEditMuzComponent', 'selector': 'gis-edit-muz'},{'name': 'GISEditMuzParticelleCatastaliComponent', 'selector': 'gis-edit-muz-particelle-catastali'},{'name': 'GISFixedLayerPropertyWindowComponent', 'selector': 'gis-fixed-layer-property-window'},{'name': 'GISGestionePianoRateoComponent', 'selector': 'gis-gestione-piano-rateo'},{'name': 'GISGestionePianoRateoLoaderComponent', 'selector': 'gis-gestione-piano-rateo-loader'},{'name': 'GISGestionePianoRateoPickerComponent', 'selector': 'gis-gestione-piano-rateo-picker'},{'name': 'GISInitMuzGroupComponent', 'selector': 'gis-init-muz-group'},{'name': 'GISLayerAdvancedSettingsWindowComponent', 'selector': 'gis-layer-advanced-settings-window'},{'name': 'GISLayerColorPickerWindowComponent', 'selector': 'gis-layer-color-picker-window'},{'name': 'GISLayerGroupsPermissionsComponent', 'selector': 'gis-layer-groups-permissions'},{'name': 'GISLayerListItemComponent', 'selector': 'gis-layer-list-item'},{'name': 'GISLayerListItemMappeSatellitariComponent', 'selector': 'gis-layer-list-item-mappe-satellitari'},{'name': 'GISLayerListItemRasterComponent', 'selector': 'gis-layer-list-item-raster'},{'name': 'GISLayerPermissionsWindowComponent', 'selector': 'gis-layer-permissions-window'},{'name': 'GISLayerUsersPermissionsComponent', 'selector': 'gis-layer-users-permissions'},{'name': 'GISLayerVisibilityConfigurationWindowComponent', 'selector': 'gis-layer-visibility-configuration-window'},{'name': 'GISLayerWindowComponent', 'selector': 'gis-layer-window'},{'name': 'GISLayerWindowToolbarComponent', 'selector': 'gis-layer-window-toolbar'},{'name': 'GISParticelleCatastaliComponent', 'selector': 'gis-particelle-catastali'},{'name': 'GISRasterConfigurationWindowComponent', 'selector': 'gis-raster-configuration-window'},{'name': 'GisToolbarComponent', 'selector': 'gis-toolbar'},{'name': 'GisToolbarMobileComponent', 'selector': 'gis-toolbar-mobile'},{'name': 'GisTreeFiltersComponent', 'selector': 'tree-filters-gis'},{'name': 'GISWindowComponent', 'selector': 'gis-window'},{'name': 'GoogleMapComponent', 'selector': 'gias-google-map'},{'name': 'GridAddMacchineComponent', 'selector': 'app-grid-add-macchine'},{'name': 'GridAddOperaiComponent', 'selector': 'app-grid-add-operai'},{'name': 'GridAziendeCentriComponent', 'selector': 'app-grid-aziende-centri'},{'name': 'GridAziendeCentriImpostazioniComponent', 'selector': 'app-grid-aziende-centri-impostazioni'},{'name': 'GridCapiAnimaliComponent', 'selector': 'app-capi-animali'},{'name': 'GridDosiProdottiComponent', 'selector': 'app-grid-dosi-prodotti'},{'name': 'GridGroupTransitionsComponent', 'selector': 'app-grid-group-transitions'},{'name': 'GridGruppiComponent', 'selector': 'app-grid-gruppi'},{'name': 'GridImpiantiComponent', 'selector': 'app-grid-impianti'},{'name': 'GridMacchineComponent', 'selector': 'app-grid-macchine'},{'name': 'GridNoteComponent', 'selector': 'app-grid-note'},{'name': 'GridOperatoriComponent', 'selector': 'app-grid-operatori'},{'name': 'GridPasswordComponent', 'selector': 'app-grid-password'},{'name': 'GridPermessiComponent', 'selector': 'app-grid-permessi'},{'name': 'GridPermessiEditComponent', 'selector': 'app-grid-permessi-edit'},{'name': 'GridProdottiDaTrattareComponent', 'selector': 'app-grid-prodotti-da-trattare'},{'name': 'GridProdottiSomministrazioneComponent', 'selector': 'app-prodotti-somministrazione'},{'name': 'GridProfiliComponent', 'selector': 'app-grid-profili'},{'name': 'GridProfiliPermessiComponent', 'selector': 'app-grid-profili-permessi'},{'name': 'GridRaccoltaAutoComponent', 'selector': 'app-grid-raccolta-auto'},{'name': 'GridRilieviComponent', 'selector': 'app-grid-rilievi'},{'name': 'GridRipartizioneManualeComponent', 'selector': 'app-grid-ripartizione-manuale'},{'name': 'GridUtentiPermessiComponent', 'selector': 'app-grid-utenti-permessi'},{'name': 'GridVisibilitaEditComponent', 'selector': 'app-grid-visibilita-edit'},{'name': 'GridZooComponent', 'selector': 'grid-zoo'},{'name': 'GrigliaAnalisiTerrenoComponent', 'selector': 'app-griglia-analisi-terreno'},{'name': 'GrigliaEntitaComponent', 'selector': 'app-griglia-entita'},{'name': 'GrigliaFiltroRicercaComponent', 'selector': 'app-griglia-filtro'},{'name': 'GruppiMerceGrid2Component', 'selector': 'gruppi-merce-grid2'},{'name': 'GruppiMerceMasterComponent', 'selector': 'app-gruppi-merce'},{'name': 'GruppiRaccoltaComponent', 'selector': 'app-gruppi-raccolta'},{'name': 'GruppiUtentiComponent', 'selector': 'app-gruppi-utenti'},{'name': 'GruppiUtentiGridComponent', 'selector': 'gruppi-utenti-grid'},{'name': 'GruppiUtentiPerGruppiMerce', 'selector': 'gruppi-utentix-gruppi-merce'},{'name': 'GruppiUtentixGruppiMerceGridComponent', 'selector': 'gruppi-utentix-gruppi-merce-grid'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImgBase64Component', 'selector': 'app-img64'},{'name': 'ImpiantiComponent', 'selector': 'app-impianti'},{'name': 'ImpiantoEditComponent', 'selector': 'app-impianto-edit'},{'name': 'ImpiantoShortDescriptionComponent', 'selector': 'impianto-short-description'},{'name': 'ImportUtentiComponent', 'selector': 'app-import-utenti'},{'name': 'ImpostazioniUtenteComponent', 'selector': 'app-impostazioni-utente'},{'name': 'ImpresaEditComponent', 'selector': 'gias-impresa-edit'},{'name': 'ImpreseComponent', 'selector': 'gias-anagrafica-imprese'},{'name': 'ImpreseFilterComponent', 'selector': 'gias-imprese-filter'},{'name': 'ImpreseParametriGHGComponent', 'selector': 'app-imprese-parametri-ghg'},{'name': 'IndicatoriWidgetComponent', 'selector': 'app-indicatori-widget'},{'name': 'IndicatoriWidgetDashboardComponent', 'selector': 'app-indicatori-widget-dashboard'},{'name': 'IndicatoriWidgetFullComponent', 'selector': 'app-indicatori-widget-full'},{'name': 'IndicatoriWidgetGridComponent', 'selector': 'app-indicatori-widget-grid'},{'name': 'IndicazioniComponent', 'selector': 'zoo-indicazioni'},{'name': 'IndirizziComponent', 'selector': 'app-appezzamento-edit-indirizzi'},{'name': 'InvestimentoCatastaleAppezzamentoComponent', 'selector': 'app-investimento-catastale-appezzamento'},{'name': 'InvestimentoCatastaleCampoComponent', 'selector': 'app-investimento-catastale-campo'},{'name': 'InvestimentoCatastaleComponent', 'selector': 'app-investimento-catastale'},{'name': 'KendoTreeContainerComponent', 'selector': 'app-kendo-tree'},{'name': 'LayerWindowComponent', 'selector': 'satellite-data-window'},{'name': 'LettureContatoriAziendaliGridComponent', 'selector': 'app-letture-contatori-aziendali-grid'},{'name': 'LettureContatoriComponent', 'selector': 'app-letture-contatori'},{'name': 'LineeGuidaABWindowComponent', 'selector': 'app-linee-guida-ab-window'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MacchinaEditCaratteristicheComponent', 'selector': 'app-macchine-edit-caratteristiche'},{'name': 'MacchinaShortDescriptionComponent', 'selector': 'macchina-short-description'},{'name': 'MacchineComponent', 'selector': 'app-macchine'},{'name': 'MacchineEditComponent', 'selector': 'app-macchine-edit'},{'name': 'MacchineEditGerarchiaComponent', 'selector': 'app-macchine-edit-gerarchia'},{'name': 'MacchineEditImageComponent', 'selector': 'app-macchine-edit-image'},{'name': 'MagazzinoLottoComponent', 'selector': 'app-magazzino-lotto'},{'name': 'MainValutazioniEditComponent', 'selector': 'app-main-valutazioni-edit'},{'name': 'MappaMultiAziendaComponent', 'selector': 'app-mappa-multiazienda-widget'},{'name': 'MarkerWindowComponent', 'selector': 'app-marker-window'},{'name': 'MenuAgendaComponent', 'selector': 'app-menu-agenda'},{'name': 'MenuContestualeComponent', 'selector': 'gias-menu-contestuale'},{'name': 'MenuImpostazioniAziendeCentriComponent', 'selector': 'app-menu-impostazioni-aziende-centri'},{'name': 'MenuProfilazioneComponent', 'selector': 'app-menu-profilazione'},{'name': 'MenuProfilazioneGridComponent', 'selector': 'app-grid-menu-profilazione'},{'name': 'MenuRilieviComponent', 'selector': 'app-menu-rilievi'},{'name': 'MenuUtentiComponent', 'selector': 'app-menu-utenti'},{'name': 'MenuVisibilitaComponent', 'selector': 'app-menu-visibilita'},{'name': 'MenuVisiteComponent', 'selector': 'app-menu-visite'},{'name': 'MenuZooComponent', 'selector': 'zoo-menu'},{'name': 'MeteoWidgetComponent', 'selector': 'app-meteo-widget'},{'name': 'MeteoWidgetFullComponent', 'selector': 'app-meteo-widget-full'},{'name': 'ModalitaApplicazioneComponent', 'selector': 'app-modalita-applicazione'},{'name': 'MonitoraggioWidgetComponent', 'selector': 'app-monitoraggio-widget'},{'name': 'MultiOperazioneComponent', 'selector': 'app-multi-operazione'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'NotaTestualeComponent', 'selector': 'app-nota-testuale'},{'name': 'NuovaOperazioneComponent', 'selector': 'app-esercizi-nuova-operazione'},{'name': 'OnCloseEsercizioComponent', 'selector': 'app-on-close-esercizio'},{'name': 'OperationsListComponent', 'selector': 'operations-list'},{'name': 'OperationsMassEditComponent', 'selector': 'app-operations-mass-edit'},{'name': 'OperatoreComponent', 'selector': 'app-operatore'},{'name': 'OperazioneCausaleComponent', 'selector': 'app-operazione-causale'},{'name': 'OperazioniTemplateWidgetComponent', 'selector': 'app-operazioni-template-widget'},{'name': 'OpzioniRaccoltaComponent', 'selector': 'app-opzioni-raccolta'},{'name': 'OpzioniSeminaComponent', 'selector': 'app-opzioni-semina'},{'name': 'PaeseMultiAziendaComponent', 'selector': 'app-paese-multiazienda-widget'},{'name': 'PageNotFoundComponent', 'selector': 'gias-page-not-found'},{'name': 'PaginaAziendeCentriImpostazioniComponent', 'selector': 'app-pagina-aziende-centri-impostazioni'},{'name': 'PaginaImpostazioniMassiveComponent', 'selector': 'app-pagina-impostazioni-massive'},{'name': 'ParametriAnalisiTerrenoComponent', 'selector': 'app-parametri-analisi-terreno'},{'name': 'PercentGridViewerComponent', 'selector': 'app-percent-grid-viewer'},{'name': 'PianoColturaleGridComponent', 'selector': 'app-piano-colturale-grid'},{'name': 'PianoContiComponent', 'selector': 'app-piano-conti'},{'name': 'PianoContiEditComponent', 'selector': 'app-piano-conti-edit'},{'name': 'PlvComparisonWidgetComponent', 'selector': 'app-plv-comparison-widget'},{'name': 'PolygonMergeWindowComponent', 'selector': 'gis-polygon-merge-window'},{'name': 'PolygonWindowComponent', 'selector': 'polygon-window'},{'name': 'PreferitiConfigComponent', 'selector': 'app-preferiti-config'},{'name': 'PreferitoCardComponent', 'selector': 'app-preferito-card'},{'name': 'PrintExportComponent', 'selector': 'print-export-button'},{'name': 'ProdottiComponent', 'selector': 'app-prodotti'},{'name': 'ProduttivitaComparisonWidgetComponent', 'selector': 'app-produttivita-comparison-widget'},{'name': 'ProduzioneColtureWidgetComponent', 'selector': 'app-produzione-colture-widget'},{'name': 'ProfilazioneImpreseCampoApplicativoComponent', 'selector': 'app-profilazione-imprese-campo-applicativo'},{'name': 'ProfilazioneImpreseComponent', 'selector': 'app-profilazione-imprese'},{'name': 'ProfilazioneImpreseContattiComponent', 'selector': 'app-profilazione-imprese-contatti'},{'name': 'ProfilazioneImpreseDefaultDistintaProduzioneComponent', 'selector': 'app-profilazione-imprese-default-distinta-produzione'},{'name': 'ProfilazioneImpreseDefaultPianiColturaliComponent', 'selector': 'app-profilazione-imprese-default-piani-colturali'},{'name': 'ProfilazioneImpreseDefaultSpecieComponent', 'selector': 'app-profilazione-imprese-default-specie'},{'name': 'ProfilazioneImpreseGlobalComponent', 'selector': 'app-profilazione-imprese-global'},{'name': 'ProfilazioneImpreseGruppoNoteDialogComponent', 'selector': 'app-profilazione-imprese-gruppo-note-dialog'},{'name': 'ProfilazioneImpreseGruppoOperazioneComponent', 'selector': 'app-profilazione-imprese-gruppo-operazione'},{'name': 'ProfilazioneImpreseLavorazioneComponent', 'selector': 'app-profilazione-imprese-lavorazione'},{'name': 'ProfilazioneImpreseMacchineComponent', 'selector': 'app-profilazione-imprese-macchine'},{'name': 'ProfilazioneImpreseMacchineDialogComponent', 'selector': 'app-profilazione-imprese-macchine-dialog'},{'name': 'ProfilazioneImpreseMacchineOperatoriComponent', 'selector': 'app-profilazione-imprese-macchine-operatori'},{'name': 'ProfilazioneImpreseNoteComponent', 'selector': 'app-profilazione-imprese-note'},{'name': 'ProfilazioneImpreseNoteListComponent', 'selector': 'app-profilazione-imprese-note-list'},{'name': 'ProfilazioneImpreseParametriGeneraliColturaComponent', 'selector': 'app-profilazione-imprese-parametri-generali-coltura'},{'name': 'ProfilazioneImpreseSpecieComponent', 'selector': 'app-profilazione-imprese-specie'},{'name': 'ProfilazioneImpreseVarietaComponent', 'selector': 'app-profilazione-imprese-varieta'},{'name': 'ProfiliPermessiComponent', 'selector': 'app-profili-permessi'},{'name': 'ProtocolliComponent', 'selector': 'zoo-protocolli'},{'name': 'ProtocolliInCorsoComponent', 'selector': 'zoo-protocolli-in-corso'},{'name': 'ProvinciaComuneMultiselectComponent', 'selector': 'app-provincia-comune-multiselect'},{'name': 'QuadernoDiCampagnaComponent', 'selector': 'app-quaderno-di-campagna'},{'name': 'QuantitaProdottiComponent', 'selector': 'app-quantita-prodotti'},{'name': 'RaccoltaComponent', 'selector': 'app-raccolta'},{'name': 'RedSpotComponent', 'selector': 'app-red-spot'},{'name': 'ReportAbilitazionePdCComponent', 'selector': 'app-report-abilitazione-pdc'},{'name': 'ReportImpiegoProdottiFitosanitariComponent', 'selector': 'app-report-impiego-prodotti-fitosanitari'},{'name': 'RequisitiStabilimentoComponent', 'selector': 'app-requisiti-stabilimento'},{'name': 'RequisitiStabilimentoContrattiGridComponent', 'selector': 'app-requisiti-stabilimento-contratti-grid'},{'name': 'RequisitiStabilimentoGridComponent', 'selector': 'app-requisiti-stabilimento-grid'},{'name': 'RicercaFertilizzantiComponent', 'selector': 'app-ricerca-fertilizzanti'},{'name': 'RicercaFormulatiComponent', 'selector': 'app-ricerca-formulati'},{'name': 'RicercaSementiComponent', 'selector': 'app-ricerca-sementi'},{'name': 'RicetteComponent', 'selector': 'grid-ricette'},{'name': 'RiepilogoMeteoWidgetComponent', 'selector': 'app-riepilogo-meteo-widget'},{'name': 'RilevaFaseEpocaComponent', 'selector': 'btn-rileva-fase-epoca'},{'name': 'RilieviAvversitaComponent', 'selector': 'app-rilievi-avversita'},{'name': 'RilieviComponent', 'selector': 'app-rilievi'},{'name': 'RipartizioneManualeComponent', 'selector': 'app-ripartizione-manuale'},{'name': 'RischioMeteoAggregatoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-aggregato-comparison-widget'},{'name': 'RischioMeteoAllagamentoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-allagamento-comparison-widget'},{'name': 'RischioMeteoGelataComparisonWidgetComponent', 'selector': 'app-rischio-meteo-gelata-comparison-widget'},{'name': 'RischioMeteoGrandineComparisonWidgetComponent', 'selector': 'app-rischio-meteo-grandine-comparison-widget'},{'name': 'RischioMeteoSiccitaComparisonWidgetComponent', 'selector': 'app-rischio-meteo-siccita-comparison-widget'},{'name': 'RischioMeteoVentoForteComparisonWidgetComponent', 'selector': 'app-rischio-meteo-vento-forte-comparison-widget'},{'name': 'SalvataggioAppezzamentoGISComponent', 'selector': 'salvataggio-appezzamento-GIS'},{'name': 'SelezionaCentroComponent', 'selector': 'app-seleziona-centro'},{'name': 'SementiComponent', 'selector': 'app-sementi'},{'name': 'SeminatiMultiAziendaWidgetComponent', 'selector': 'app-seminati-multiazienda-widget'},{'name': 'SettingsAnnataAgrariaComponent', 'selector': 'app-settings-annata-agraria'},{'name': 'SettingsCategorieMagazzinoComponent', 'selector': 'app-settings-categorie-magazzino'},{'name': 'SettingsGiasAppComponent', 'selector': 'app-settings-gias-app'},{'name': 'SettingsGisComponent', 'selector': 'app-settings-gis'},{'name': 'SettingsLavorazioniGridComponent', 'selector': 'app-settings-lavorazioni-grid'},{'name': 'SettingsManagerComponent', 'selector': 'app-settings-manager'},{'name': 'SettingsProxyComponent', 'selector': 'app-settings-proxy'},{'name': 'SettingsSpecieVarietaComponent', 'selector': 'app-settings-specie-varieta'},{'name': 'SezioneImpostazioniComponent', 'selector': 'app-sezione-impostazioni'},{'name': 'SezioniNoProdottoComponent', 'selector': 'app-sezioni-no-prodotto'},{'name': 'SidemenuChildComponent', 'selector': 'app-sidemenu-child'},{'name': 'SideMenuComponent', 'selector': 'gias-sidemenu'},{'name': 'SideMenuFooterComponent', 'selector': 'gias-sidemenu-footer'},{'name': 'SideMenuServicesComponent', 'selector': 'gias-sidemenu-services'},{'name': 'SpecialEditComponent', 'selector': 'app-special-edit'},{'name': 'SpecieAnimaleComponent', 'selector': 'app-specie-animale'},{'name': 'SpecieComponent', 'selector': 'app-specie'},{'name': 'StimeProduzioneColtureWidgetComponent', 'selector': 'app-stime-produzione-colture-widget'},{'name': 'SuperficiImpiantiComponent', 'selector': 'app-superfici-impianti'},{'name': 'SvgIconSpeciesComponent', 'selector': 'gias-svg-icon-species-species'},{'name': 'TargetSuperficieWidgetComponent', 'selector': 'app-target-superficie-widget'},{'name': 'TestAnagraficaCampiComponent', 'selector': 'app-test-anagrafica-campi'},{'name': 'TestAnagraficaCatastoComponent', 'selector': 'app-test-anagrafica-catasto'},{'name': 'TestAnagraficaCentriComponent', 'selector': 'app-test-anagrafica-centri'},{'name': 'TestAnagraficaComponent', 'selector': 'app-test-anagrafica'},{'name': 'TestAnagraficaImpiantiComponent', 'selector': 'app-test-anagrafica-impianti'},{'name': 'TestAnagraficaImpreseComponent', 'selector': 'app-test-anagrafica-imprese'},{'name': 'TestAnagraficaMacchineComponent', 'selector': 'app-test-anagrafica-macchine'},{'name': 'TestataComponent', 'selector': 'app-testata'},{'name': 'TestataRicettaComponent', 'selector': 'app-testata-ricetta'},{'name': 'TestataVisitaComponent', 'selector': 'app-testata-visita'},{'name': 'TestComponent', 'selector': 'app-test'},{'name': 'TestGiasGiasKendoGridComponent', 'selector': 'app-test-gias-kendo-grid'},{'name': 'TestGridComponent', 'selector': 'test-grid'},{'name': 'ThemeWindowBandSliderComponent', 'selector': 'theme-window-band-slider'},{'name': 'ThemeWindowComponent', 'selector': 'theme-window'},{'name': 'ThemeWindowSettingsComponent', 'selector': 'theme-window-settings'},{'name': 'ToolDisegnaPuntiComponent', 'selector': 'app-tool-disegna-punti'},{'name': 'ToolDisegnoAvanzatoComponent', 'selector': 'app-tool-disegno-avanzato'},{'name': 'ToolPolygonMergeComponent', 'selector': 'app-tool-polygon-merge'},{'name': 'ToolScomponiPuntiComponent', 'selector': 'app-tool-scomponi-punti'},{'name': 'TrattamentoComponent', 'selector': 'app-trattamento'},{'name': 'TrattamentoZooComponent', 'selector': 'app-trattamento-zoo'},{'name': 'TreeAziende', 'selector': 'app-tree-aziende'},{'name': 'TreeAziendeFilters', 'selector': 'app-tree-aziende-filters'},{'name': 'TreeViewComponent', 'selector': 'app-treeview'},{'name': 'TreeWindowComponent', 'selector': 'tree-window'},{'name': 'UltimeAttivitaWidgetComponent', 'selector': 'app-ultime-attivita-widget'},{'name': 'UltimeVisiteWidgetComponent', 'selector': 'app-ultime-visite-widget'},{'name': 'UltimiAcquistiWidgetComponent', 'selector': 'app-ultimi-acquisti-widget'},{'name': 'UltimiProdottiWidgetComponent', 'selector': 'app-ultimi-prodotti-widget'},{'name': 'UltimiRilieviWidgetComponent', 'selector': 'app-ultimi-rilievi-widget'},{'name': 'UniqueRatingWidgetComponent', 'selector': 'app-unique-rating-widget'},{'name': 'UnitaDiMisuraComponent', 'selector': 'app-unita-di-misura'},{'name': 'UtilizzoTerrenoComponent', 'selector': 'app-utilizzo-terreno'},{'name': 'ValutazioneEditDettaglioComponent', 'selector': 'app-valutazione-edit-dettaglio'},{'name': 'ValutazioniComponent', 'selector': 'app-valutazioni'},{'name': 'ValutazioniContoEconomicoComponent', 'selector': 'app-valutazioni-conto-economico'},{'name': 'ValutazioniEditComponent', 'selector': 'app-valutazioni-edit'},{'name': 'ValutazioniMainComponentComponent', 'selector': 'app-valutazioni-main-component'},{'name': 'ValutazioniStatoPatrimonialeComponent', 'selector': 'app-valutazioni-stato-patrimoniale'},{'name': 'ValutazioniStatoPatrimonialeDettaglioComponent', 'selector': 'app-valutazioni-stato-patrimoniale-dettaglio'},{'name': 'VDContrattiComponent', 'selector': 'app-v-d-contratti'},{'name': 'VDPianoColturaleComponent', 'selector': 'app-v-d-piano-colturale'},{'name': 'VisibilitaUtenteEditComponent', 'selector': 'app-visibilita-utente'},{'name': 'VisiteComponent', 'selector': 'app-visite'},{'name': 'VisualizzaDettagliComponent', 'selector': 'app-visualizza-dettagli'},{'name': 'WidgetConfigComponent', 'selector': 'app-widget-config'},{'name': 'WidgetConfigListComponent', 'selector': 'app-widget-config-list'},{'name': 'WidgetGridComponent', 'selector': 'app-widget-grid'},{'name': 'WidgetResizerComponent', 'selector': 'app-widget-resizer'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'},{'name': 'WidgetTemplateComponent', 'selector': 'app-widget-template'},{'name': 'WindowMessaggioErroreComponent', 'selector': 'gias-master-window-messaggio-errore'},{'name': 'WMSWindowComponent', 'selector': 'wms-window'},{'name': 'ZooComponent', 'selector': 'app-zoo'},{'name': 'ZooFavoritesEditingComponent', 'selector': 'zoo-favorites-editing'},{'name': 'ZooOperationsGridComponent', 'selector': 'zoo-operations-grid'}];
+    var DIRECTIVES = [{'name': 'AfterValueChangedDirective', 'selector': '[afterValueChanged]'},{'name': 'BackButtonDirective', 'selector': '[backButton]'},{'name': 'ClearInputButtonDirective', 'selector': '[clear-input-button]'},{'name': 'DraggableDirective', 'selector': '[draggable]'},{'name': 'GISTooltipDirective', 'selector': '[gisTooltip]'},{'name': 'HomeButtonDirective', 'selector': '[homeButton]'},{'name': 'ProjectDocumentaleDirective', 'selector': '[projectDocumentale]'}];
+    var ACTUAL_COMPONENT = {'name': 'CampiEditComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CampiEditComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,719 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  AttributiExportData</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/GIS-attributi/GIS-attributi-export/GIS-attributi-export.component.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#description" 
+>
+                                            description
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#exportDataType" 
+>
+                                            exportDataType
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#exportOnlyVisibleElementsMapArea" 
+>
+                                            exportOnlyVisibleElementsMapArea
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#layer" 
+>
+                                            layer
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#layerType" 
+>
+                                            layerType
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#readCartographicData" 
+>
+                                            readCartographicData
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#totalFeatures" 
+>
+                                            totalFeatures
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="description"></a>
+                                        <span class="name "><b>description</b>
+                                            <a href="#description">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>description:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="exportDataType"></a>
+                                        <span class="name "><b>exportDataType</b>
+                                            <a href="#exportDataType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>exportDataType:         <code><a href="../interfaces/ExportDataType.html" target="_self" >ExportDataType</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ExportDataType.html" target="_self" >ExportDataType</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="exportOnlyVisibleElementsMapArea"></a>
+                                        <span class="name "><b>exportOnlyVisibleElementsMapArea</b>
+                                            <a href="#exportOnlyVisibleElementsMapArea">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>exportOnlyVisibleElementsMapArea:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="layer"></a>
+                                        <span class="name "><b>layer</b>
+                                            <a href="#layer">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>layer:         <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="layerType"></a>
+                                        <span class="name "><b>layerType</b>
+                                            <a href="#layerType">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>layerType:         <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="readCartographicData"></a>
+                                        <span class="name "><b>readCartographicData</b>
+                                            <a href="#readCartographicData">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>readCartographicData:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="totalFeatures"></a>
+                                        <span class="name "><b>totalFeatures</b>
+                                            <a href="#totalFeatures">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>totalFeatures:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, ViewChild } from &#x27;@angular/core&#x27;;
+import { DEFAULT_DROPDOWN_FILTER_SETTINGS, FunzioniComuniService } from &#x27;app/Service/FunzioniComuni.service&#x27;;
+import { generateGridProviders } from &#x27;gias-kendo-grid&#x27;;
+import { Subject, catchError, combineLatest, finalize, forkJoin, map, of, startWith, tap, withLatestFrom } from &#x27;rxjs&#x27;;
+import { GISAttributiExportGridConfig } from &#x27;./GIS-attributi-export.component-grid-config.service&#x27;;
+import { EsportaShapeEntita_In, GisClient, ObjOptionHTML_Out, TipologiaLayer } from &#x27;app/Service/api.service&#x27;;
+import { LayerService } from &#x27;app/GIS/services/layer.service&#x27;;
+import { GoogleMapService } from &#x27;app/GIS/google-map/google-map.service&#x27;;
+import { enum_FeatureProperty } from &#x27;app/GIS/GIS-enum/GIS-feature&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;app/GIS/GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GiasKendoGridComponent } from &#x27;gias-kendo-grid&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { FormBuilder } from &#x27;@angular/forms&#x27;;
+import { DialogRef } from &#x27;@progress/kendo-angular-dialog&#x27;;
+import { FeatureInformationService } from &#x27;app/GIS/services/feature-information.service&#x27;;
+
+const DEFAULT_EXPORT_DATA &#x3D; [{ id: 1, name: &#x27;Shapefile Esri&#x27; } as ExportDataType];
+
+@Component({
+  standalone: false,
+  selector: &#x27;gis-attributi-export&#x27;,
+  templateUrl: &#x27;./GIS-attributi-export.component.html&#x27;,
+  styleUrls: [&#x27;./GIS-attributi-export.component.css&#x27;],
+  providers: [...generateGridProviders(GISAttributiExportGridConfig, GISAttributiExportComponent)]
+})
+export class GISAttributiExportComponent {
+  @ViewChild(&#x27;kendoGrid&#x27;) kendoGrid: GiasKendoGridComponent;
+
+  filterSettings &#x3D; DEFAULT_DROPDOWN_FILTER_SETTINGS;
+  enum_LayerElementiGraficiStd &#x3D; enum_LayerElementiGraficiStd;
+  exportDataTypes &#x3D; DEFAULT_EXPORT_DATA;
+  loading &#x3D; false;
+  gridLoading &#x3D; false;
+  submitSubject &#x3D; new Subject&lt;void&gt;();
+
+  layer$ &#x3D; this.layerService.layerItemSelected$.pipe(map(x &#x3D;&gt; x[1] ? x[0] : null));
+  bounds$ &#x3D; this.googleMapService.idle$
+    .pipe(
+      map(() &#x3D;&gt; this.googleMapService.googleMapWrapper.getBounds()),
+      startWith(this.googleMapService.googleMapWrapper.getBounds()));
+  featureUpdater$ &#x3D; combineLatest([this.bounds$, this.layer$]).pipe(
+    tap(([bounds, layer]) &#x3D;&gt; this.countFeatures(bounds, layer)),
+    map(() &#x3D;&gt; true)
+  );
+  submit$ &#x3D; this.submitSubject
+    .asObservable()
+    .pipe(
+      withLatestFrom(this.bounds$),
+      tap(([_, bounds]) &#x3D;&gt; this.doSubmit(this.form.getRawValue(), bounds)),
+      map(() &#x3D;&gt; true)
+    );
+
+  form &#x3D; this.formBuilder.group&lt;AttributiExportData&gt;({
+    layer: this.layerService.layerItemSelected[0],
+    layerType: this.layerService.LayerSelected.value,
+    exportDataType: DEFAULT_EXPORT_DATA[0],
+    description: null,
+    readCartographicData: false,
+    exportOnlyVisibleElementsMapArea: true,
+    totalFeatures: 0
+  });
+
+  constructor(
+    private layerService: LayerService,
+    private googleMapService: GoogleMapService,
+    private gisClient: GisClient,
+    private giasDialogService: GiasDialogService,
+    private translocoService: TranslocoService,
+    private permessiUtenteService: PermessiUtenteService,
+    private formBuilder: FormBuilder,
+    private featureInformationService: FeatureInformationService
+  ) {
+    this.form.controls.description.markAsDirty();
+  }
+
+  get hasTotalExportPermissions(): boolean {
+    return this.permessiUtenteService.getPermesso(enum_Security_Attivita.GisBulkExportSuLayer, 0);
+  }
+
+  isImpiantiLayer(layer: TipologiaLayer | null): boolean {
+    return layer?.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.IMPIANTI;
+  }
+
+  download(id: number): void {
+    this.gisClient
+      .gisLeggiAllegatoDocumento(id)
+      .pipe(catchError(error &#x3D;&gt; {
+        this.giasDialogService.baseError(&quot;&quot;, FunzioniComuniService.getResponseError(error, this.translocoService, &#x27;SiÈVerificatoUnErroreDuranteLaFaseDiSalvat&#x27;), false);
+        return of(null);
+      }))
+      .subscribe(res &#x3D;&gt; {
+        if (res &#x3D;&#x3D; null) {
+          return;
+        }
+
+        let data &#x3D; res.RispostaStringa.file_Allegato_DB;
+        let filename &#x3D; res.RispostaStringa.fileName;
+        this.saveAndOpenFileByteArray(filename, data);
+      });
+  }
+
+  reloadData(): void {
+    this.gridLoading &#x3D; true;
+    this.kendoGrid.forceReload();
+    setTimeout(() &#x3D;&gt; this.gridLoading &#x3D; false, 1000);
+  }
+
+  private countFeatures(bounds: google.maps.LatLngBounds, layer: TipologiaLayer): void {
+    if (bounds &#x3D;&#x3D; null || layer &#x3D;&#x3D; null) {
+      this.form.controls.totalFeatures.setValue(0);
+      return;
+    }
+
+    let totalCounter: number &#x3D; this.featureInformationService.getByLayer(layer.id).length;
+    this.form.controls.totalFeatures.setValue(totalCounter);
+  }
+
+  private doSubmit(data: AttributiExportData, bounds: google.maps.LatLngBounds): void {
+    if (data.description &#x3D;&#x3D; null || data.description &#x3D;&#x3D; &#x27;&#x27;) {
+      this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.SpecificareUnaDescrizione&#x27;, true);
+      return;
+    }
+
+    const features &#x3D; this.featureInformationService.getByLayer(data.layer.id).map(f &#x3D;&gt; +f.properties.Entita_Cod);
+    if (features.length &#x3D;&#x3D; 0) {
+      this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.NessunaFeatureDaEsportare&#x27;, true);
+      return;
+    }
+
+    const payload: EsportaShapeEntita_In &#x3D; {
+      applicaFiltroTabellaUtentiVisibilitaAppoggio: !data.exportOnlyVisibleElementsMapArea,
+      fullLayerExport: !data.exportOnlyVisibleElementsMapArea,
+      descrizioneEsportazione: data.description,
+      layerElementiGrafici_Cod: +data.layer.id,
+      tipologiaLayer_Cod: +data.layerType.Option_Value,
+      elencoEntita: data.exportOnlyVisibleElementsMapArea ? features : [],
+      idEsp: 0,
+      inizioValidita: AGRODATAINIZIO,
+      fineValidita: AGRODATAFINE
+    };
+
+    let dialog: DialogRef | null &#x3D; null;
+    if (!payload.fullLayerExport) {
+      // const title &#x3D; this.translocoService.translate(&#x27;gis.ExportEntitaIniziatoXNome&#x27;, { nome: data.description });
+      // dialog &#x3D; this.giasDialogService.baseInfo(&#x27;&#x27;, title, false);
+    }
+
+    this.loading &#x3D; true;
+    forkJoin([
+      this.gisClient.gisEsportaShapeEntita(payload),
+      dialog &#x3D;&#x3D; null ? of(null) : dialog.result
+    ])
+      .pipe(finalize(() &#x3D;&gt; this.loading &#x3D; false))
+      .subscribe({
+        next: res &#x3D;&gt; {
+          dialog?.close();
+          this.giasDialogService.baseSuccess(&#x27;&#x27;, res[0].RispostaStringa, false, false);
+        },
+        error: err &#x3D;&gt; {
+          dialog?.close();
+          this.giasDialogService.baseError(&#x27;&#x27;, FunzioniComuniService.getResponseError(err, this.translocoService), false);
+        },
+        complete: () &#x3D;&gt; this.reloadData()
+      })
+  }
+
+  private saveAndOpenFileByteArray(filename: string, data: string): void {
+    const buffer &#x3D; require(&#x27;buffer&#x27;).Buffer.from(data, &#x27;base64&#x27;);
+    const byteArray &#x3D; new Uint8Array(buffer);
+    const url &#x3D; window.URL || window.webkitURL;
+    const blob &#x3D; new Blob([byteArray], { type: &#x27;application/zip&#x27; });
+
+    const downloadLink &#x3D; document.createElement(&#x27;a&#x27;);
+    downloadLink.target &#x3D; &#x27;_blank&#x27;;
+    downloadLink.href &#x3D; url.createObjectURL(blob);
+    downloadLink.download &#x3D; filename;
+    document.body.append(downloadLink);
+    downloadLink.click();
+
+    // cleanup: remove element and revoke object URL
+    document.body.removeChild(downloadLink);
+    url.revokeObjectURL(url.toString());
+  };
+}
+
+interface ExportDataType {
+  id: number;
+  name: string;
+}
+
+interface AttributiExportData {
+  layer: TipologiaLayer;
+  layerType: ObjOptionHTML_Out;
+  exportDataType: ExportDataType;
+  description: string;
+  readCartographicData: boolean;
+  exportOnlyVisibleElementsMapArea: boolean;
+  totalFeatures: number;
+}
+
+
+
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'AttributiExportData.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

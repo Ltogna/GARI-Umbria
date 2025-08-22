@@ -1,0 +1,1165 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridAddOperaiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoRows" >kendoRows</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#onRowClass" >onRowClass</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#coloraRigheOperazioni" >coloraRigheOperazioni</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#customize" >customize</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#manageColumns" >manageColumns</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, translocoService: TranslocoService, master: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, datashare: <a href="../injectables/OperationEditService.html" target="_self">OperationEditService</a>, agenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, contattiService: <a href="../injectables/ContattiService.html" target="_self">ContattiService</a>, opEditService: <a href="../injectables/OperationEditService.html" target="_self">OperationEditService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:74</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>master</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datashare</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OperationEditService.html" target="_self" >OperationEditService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contattiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContattiService.html" target="_self" >ContattiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>opEditService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OperationEditService.html" target="_self" >OperationEditService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coloraRigheOperazioni"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>coloraRigheOperazioni</b></span>
+                        <a href="#coloraRigheOperazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>coloraRigheOperazioni(row: KendoGridRow)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="151"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:151</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                        <code>KendoGridRow</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ [k: string]: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customize"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>customize</b></span>
+                        <a href="#customize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>customize()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>manageColumns</b></span>
+                        <a href="#manageColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageColumns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GridAddOperaiServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_PAGE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;gridAddOp&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+        new KendoGridColumn({field: &#x27;Rag_Soc_Nome_Cognome&#x27;, title: this.transloco.translate(&#x27;RagioneSocialeNomeCognome&#x27;)}),
+        new KendoGridColumn({field: &#x27;Rapporto_Des&#x27;, title: this.transloco.translate(&#x27;RapportoContabile&#x27;)}),
+        new KendoGridColumn({field: &#x27;Prezzo_Unitario&#x27;, title: this.transloco.translate(&#x27;PrezzoUnitario&#x27;)}),
+        new KendoGridColumn({field: &#x27;Unita_Misura&#x27;, title: this.transloco.translate(&#x27;Unita_Misura&#x27;)}),
+        new KendoGridColumn({field: &#x27;Costo_Inizio&#x27;, title: this.transloco.translate(&#x27;ValiditàInizio&#x27;)}),
+        new KendoGridColumn({field: &#x27;Costo_Fine&#x27;, title: this.transloco.translate(&#x27;ValiditàFine&#x27;)}),
+        new KendoGridColumn({field: &#x27;Impresa&#x27;, title: this.transloco.translate(&#x27;Impresa&#x27;)}),
+    ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+        Piva: new ModelEntry(CELL_TYPES.STRING),
+        sa_cod: new ModelEntry(CELL_TYPES.STRING),
+        Cod_Contatto: new ModelEntry(CELL_TYPES.STRING),
+        Rag_Soc_Nome_Cognome: new ModelEntry(CELL_TYPES.STRING),
+        Cod_Rapporto: new ModelEntry(CELL_TYPES.STRING),
+        Rapporto_Des: new ModelEntry(CELL_TYPES.STRING),
+        Prezzo_Unitario: new ModelEntry(CELL_TYPES.STRING),
+        Unita_Misura: new ModelEntry(CELL_TYPES.STRING),
+        Mezzo: new ModelEntry(CELL_TYPES.STRING),
+        Cod_RisUm: new ModelEntry(CELL_TYPES.STRING),
+        Impresa: new ModelEntry(CELL_TYPES.STRING),
+        Dipendente: new ModelEntry(CELL_TYPES.STRING),
+        Terzista: new ModelEntry(CELL_TYPES.STRING),
+        Costo_Inizio: new ModelEntry(CELL_TYPES.STRING),
+        Costo_Fine: new ModelEntry(CELL_TYPES.STRING),
+        visibilita: new ModelEntry(CELL_TYPES.STRING),
+    }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoRows</b></span>
+                        <a href="#kendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRowClass"></a>
+                    <span class="name">
+                        <span ><b>onRowClass</b></span>
+                        <a href="#onRowClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="88" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;id&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/menu-agenda/components/operations-mass-edit/grid-add-operai/grid-add-operai.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &quot;@angular/core&quot;;
+import { TranslocoService } from &quot;@jsverse/transloco&quot;;
+import { RowClassArgs } from &quot;@progress/kendo-angular-grid&quot;;
+import { ContattiService } from &quot;app/Service/Anagrafica/contatti.service&quot;;
+import { MasterService } from &quot;app/Service/master.service&quot;;
+import { ObjParametriAgendaService } from &quot;app/Service/obj-parametri-agenda.service&quot;;
+import { CommandsColumnSettings } from &#x27;gias-kendo-grid&#x27;;
+import { KendoServerResult, KendoGridRow, KendoGridColumn, KendoGridModel, EditingMode, LoaderType, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { from, map, Observable, of } from &quot;rxjs&quot;;
+import { OperationEditService } from &quot;../operation-edit.service&quot;;
+import {Contatto} from &#x27;../../../../Model/anagrafiche/Contatto&#x27;;
+
+export class GridAddOperaiServerResult extends KendoServerResult {
+    constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+        super(model, cols, rows);
+    }
+}
+
+export class MassEditOperaioRowModel {
+    Piva: string;
+    sa_cod: string;
+    Cod_Contatto: string;
+    Rag_Soc_Nome_Cognome: string;
+    Cod_Rapporto: string;
+    Rapporto_Des: string;
+    Prezzo_Unitario: string;
+    Unita_Misura: string;
+    Mezzo: string;
+    Cod_RisUm: string;
+    Impresa: string;
+    Dipendente: string;
+    Terzista: string;
+    Costo_Inizio: string;
+    Costo_Fine: string;
+    visibilita: string;
+}
+
+@Injectable()
+export class GridAddOperaiService extends AbstractGridConfigService&lt;GridAddOperaiServerResult&gt; {
+    editingMode: EditingMode &#x3D; EditingMode.IN_PAGE;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    rowId &#x3D; &#x27;id&#x27;;
+    gridId &#x3D; &#x27;gridAddOp&#x27;;
+
+    private kendoColumns &#x3D; [
+        new KendoGridColumn({field: &#x27;Rag_Soc_Nome_Cognome&#x27;, title: this.transloco.translate(&#x27;RagioneSocialeNomeCognome&#x27;)}),
+        new KendoGridColumn({field: &#x27;Rapporto_Des&#x27;, title: this.transloco.translate(&#x27;RapportoContabile&#x27;)}),
+        new KendoGridColumn({field: &#x27;Prezzo_Unitario&#x27;, title: this.transloco.translate(&#x27;PrezzoUnitario&#x27;)}),
+        new KendoGridColumn({field: &#x27;Unita_Misura&#x27;, title: this.transloco.translate(&#x27;Unita_Misura&#x27;)}),
+        new KendoGridColumn({field: &#x27;Costo_Inizio&#x27;, title: this.transloco.translate(&#x27;ValiditàInizio&#x27;)}),
+        new KendoGridColumn({field: &#x27;Costo_Fine&#x27;, title: this.transloco.translate(&#x27;ValiditàFine&#x27;)}),
+        new KendoGridColumn({field: &#x27;Impresa&#x27;, title: this.transloco.translate(&#x27;Impresa&#x27;)}),
+    ];
+    private kendoRows &#x3D; [];
+    private kendoModel &#x3D; {
+        Piva: new ModelEntry(CELL_TYPES.STRING),
+        sa_cod: new ModelEntry(CELL_TYPES.STRING),
+        Cod_Contatto: new ModelEntry(CELL_TYPES.STRING),
+        Rag_Soc_Nome_Cognome: new ModelEntry(CELL_TYPES.STRING),
+        Cod_Rapporto: new ModelEntry(CELL_TYPES.STRING),
+        Rapporto_Des: new ModelEntry(CELL_TYPES.STRING),
+        Prezzo_Unitario: new ModelEntry(CELL_TYPES.STRING),
+        Unita_Misura: new ModelEntry(CELL_TYPES.STRING),
+        Mezzo: new ModelEntry(CELL_TYPES.STRING),
+        Cod_RisUm: new ModelEntry(CELL_TYPES.STRING),
+        Impresa: new ModelEntry(CELL_TYPES.STRING),
+        Dipendente: new ModelEntry(CELL_TYPES.STRING),
+        Terzista: new ModelEntry(CELL_TYPES.STRING),
+        Costo_Inizio: new ModelEntry(CELL_TYPES.STRING),
+        Costo_Fine: new ModelEntry(CELL_TYPES.STRING),
+        visibilita: new ModelEntry(CELL_TYPES.STRING),
+    };
+
+    constructor(injector: Injector,
+        private translocoService: TranslocoService,
+        private master: MasterService,
+        private datashare: OperationEditService,
+        private agenda: ObjParametriAgendaService,
+        private contattiService: ContattiService,
+        private opEditService: OperationEditService
+    ) {
+        super(injector);
+        this.customize();
+    }
+
+    onRowClass &#x3D; (event: RowClassArgs) &#x3D;&gt; this.coloraRigheOperazioni(event.dataItem);
+
+    read(options?: any): Observable&lt;GridAddOperaiServerResult&gt; {
+        this.master.set_isLoading({isLoading: true});
+
+        return from(this.opEditService.LeggiListaPersone().then(res &#x3D;&gt; {
+            this.kendoRows &#x3D; res;
+            this.datashare.editForm
+                .get(&#x27;manodopera&#x27;)
+                .get(&#x27;contatti&#x27;).patchValue(this.kendoRows);
+            const grid &#x3D; new GridAddOperaiServerResult(
+                this.kendoRows, this.kendoColumns, this.kendoModel
+            );
+            this.master.set_isLoading({isLoading: false});
+            return grid;
+        }));
+    }
+
+    perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+        return of([]);
+    }
+
+    private customize() {
+        this.cmdColumn &#x3D; new CommandsColumnSettings({
+            editBtn: false,
+            infoBtn: false,
+            removeBtn: false,
+        });
+        this.behavior.excelSettings.enabled&#x3D;false;
+        this.behavior.pdfSettings.enabled&#x3D;false;
+        this.columnMenu.kendoGridColumnChooser &#x3D; true;
+        this.views.enabled &#x3D; false;
+        this.groups.groupable.enabled &#x3D; false;
+        this.selectable.selectable.enabled &#x3D; true;
+        this.selectable.shouldShowCheckbox &#x3D; true;
+        this.selectable.columnSettings.showSelectAll &#x3D; true;
+        this.selectable.columnSettings.width &#x3D; 35;
+    }
+
+    private manageColumns() {
+        let visible &#x3D; [&#x27;Contatto_Des&#x27;, &#x27;Rapporto_Des&#x27;, &#x27;Validita_Inizio&#x27;, &#x27;Validita_Fine&#x27;, &#x27;Impresa&#x27;];
+        this.kendoColumns.forEach(c &#x3D;&gt; c.hidden &#x3D; !visible.includes(c.field));
+
+        this.kendoColumns.push(
+            new KendoGridColumn({ field:&#x27;prezzo&#x27;, title:this.translocoService.translate(&#x27;Prezzo&#x27;)}),
+            new KendoGridColumn({ field:&#x27;um&#x27;, title:this.translocoService.translate(&#x27;UnitaMisura&#x27;)}),
+            new KendoGridColumn({ field:&#x27;visibilita&#x27;, title:this.translocoService.translate(&#x27;Visibilità&#x27;)},{hidden: true})
+        );
+
+        this.kendoRows.forEach(row &#x3D;&gt; {
+            switch(parseInt(row[&#x27;sa_cod&#x27;], 10)) {
+                case 0:
+                    row[&#x27;visibilita&#x27;] &#x3D; this.translocoService.translate(&#x27;Aziendale&#x27;);
+                    break;
+                case -1:
+                    row[&#x27;visibilita&#x27;] &#x3D; this.translocoService.translate(&#x27;Pubblico&#x27;);
+                    break;
+                default:
+                    row[&#x27;visibilita&#x27;] &#x3D; this.translocoService.translate(&#x27;Centro_Aziendale&#x27;);
+            }
+        });
+    }
+
+    private coloraRigheOperazioni(row: KendoGridRow) {
+        let result: {[k: string]: boolean} &#x3D; {};
+
+        switch(parseInt(row[&#x27;sa_cod&#x27;], 10)) {
+            case 0:
+                result.visibilitaAziendale &#x3D; true;
+                break;
+            case -1:
+                result.visibilitaPubblica &#x3D; true;
+                break;
+        }
+        return result;
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridAddOperaiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

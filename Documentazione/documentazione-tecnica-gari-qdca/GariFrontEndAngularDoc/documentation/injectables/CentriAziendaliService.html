@@ -1,0 +1,1370 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CentriAziendaliService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/Anagrafica/centri.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#AggiungiRigaVuotaCentri" >AggiungiRigaVuotaCentri</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Centri_Aziendali_perSpecieImpianti" >Leggi_Centri_Aziendali_perSpecieImpianti</a>
+                            </li>
+                            <li>
+                                <a href="#leggiCentri" >leggiCentri</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiCentriAziendaliModelloQdC" >leggiCentriAziendaliModelloQdC</a>
+                            </li>
+                            <li>
+                                <a href="#leggiCentro" >leggiCentro</a>
+                            </li>
+                            <li>
+                                <a href="#leggiCentroAziendale" >leggiCentroAziendale</a>
+                            </li>
+                            <li>
+                                <a href="#leggiCentroDropDownLists" >leggiCentroDropDownLists</a>
+                            </li>
+                            <li>
+                                <a href="#manageAgenda" >manageAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#readCentreAddresses" >readCentreAddresses</a>
+                            </li>
+                            <li>
+                                <a href="#scriviCentro" >scriviCentro</a>
+                            </li>
+                            <li>
+                                <a href="#testLettura" >testLettura</a>
+                            </li>
+                            <li>
+                                <a href="#testScrittura" >testScrittura</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ajaxAgronicaApiService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ajaxAgronicaApiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AggiungiRigaVuotaCentri"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>AggiungiRigaVuotaCentri</b></span>
+                        <a href="#AggiungiRigaVuotaCentri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AggiungiRigaVuotaCentri(flagPrimaRiga: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, centri: <a href="../classes/CentroAziendale.html" target="_self">CentroAziendale[]</a>, piva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="43"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>flagPrimaRiga</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>centri</td>
+                                            <td>
+                                                            <code><a href="../classes/CentroAziendale.html" target="_self" >CentroAziendale[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>piva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Centri_Aziendali_perSpecieImpianti"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Centri_Aziendali_perSpecieImpianti</b></span>
+                        <a href="#Leggi_Centri_Aziendali_perSpecieImpianti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Centri_Aziendali_perSpecieImpianti(p: <a href="../interfaces/LeggiCentriAziendali.html" target="_self">LeggiCentriAziendali</a>, flagPrimaRiga: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiCentriAziendali.html" target="_self" >LeggiCentriAziendali</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flagPrimaRiga</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiCentri"></a>
+                    <span class="name">
+                        <span ><b>leggiCentri</b></span>
+                        <a href="#leggiCentri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiCentri(objParametri: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="104"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:104</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objParametri</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiCentriAziendaliModelloQdC"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiCentriAziendaliModelloQdC</b></span>
+                        <a href="#leggiCentriAziendaliModelloQdC"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiCentriAziendaliModelloQdC(p: <a href="../interfaces/LeggiCentriAziendali.html" target="_self">LeggiCentriAziendali</a>, flagPrimaRiga: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiCentriAziendali.html" target="_self" >LeggiCentriAziendali</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flagPrimaRiga</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiCentro"></a>
+                    <span class="name">
+                        <span ><b>leggiCentro</b></span>
+                        <a href="#leggiCentro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiCentro(objParametri: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objParametri</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CentroAziendale.html" target="_self" >Observable&lt;CentroAziendale&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiCentroAziendale"></a>
+                    <span class="name">
+                        <span ><b>leggiCentroAziendale</b></span>
+                        <a href="#leggiCentroAziendale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiCentroAziendale(partitaIva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>partitaIva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiCentroDropDownLists"></a>
+                    <span class="name">
+                        <span ><b>leggiCentroDropDownLists</b></span>
+                        <a href="#leggiCentroDropDownLists"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiCentroDropDownLists(partitaIva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="83"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:83</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>partitaIva</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageAgenda"></a>
+                    <span class="name">
+                        <span ><b>manageAgenda</b></span>
+                        <a href="#manageAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>manageAgenda(agenda: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>agenda</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="readCentreAddresses"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>readCentreAddresses</b></span>
+                        <a href="#readCentreAddresses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>readCentreAddresses(params: <a href="../interfaces/LeggiIndirizziCentro.html" target="_self">LeggiIndirizziCentro</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>params</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiIndirizziCentro.html" target="_self" >LeggiIndirizziCentro</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;rispostaStandard&lt;IndirizzoAssociato[]&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="scriviCentro"></a>
+                    <span class="name">
+                        <span ><b>scriviCentro</b></span>
+                        <a href="#scriviCentro"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>scriviCentro(centro: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>centro</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CentroAziendale.html" target="_self" >Observable&lt;CentroAziendale&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testLettura"></a>
+                    <span class="name">
+                        <span ><b>testLettura</b></span>
+                        <a href="#testLettura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testLettura(objParametriAgenda: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objParametriAgenda</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="testScrittura"></a>
+                    <span class="name">
+                        <span ><b>testScrittura</b></span>
+                        <a href="#testScrittura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>testScrittura(objParametriAgenda: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/Service/Anagrafica/centri.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>objParametriAgenda</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;boolean&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {TranslocoService} from &#x27;@jsverse/transloco&#x27;;
+import {CentroAziendale, CentroDropdownLists} from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import {Impresa} from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import {AGRODATAFINE, AGRODATAINIZIO} from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import {map} from &#x27;rxjs&#x27;;
+import {Observable} from &#x27;rxjs/internal/Observable&#x27;;
+import {AjaxAgronicaAPIService} from &#x27;../ajax-agronica.api.service&#x27;;
+import {AjaxAgronicaService} from &#x27;../ajax-agronica.service&#x27;;
+import {AnagraficaClient} from &#x27;../api.service&#x27;;
+import {MasterService, rispostaStandard} from &#x27;../master.service&#x27;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import {UtilizzoTerreno} from &#x27;../../Model/metaschema/utilizzi/UtilizzoTerreno&#x27;;
+import {IndirizzoAssociato} from &#x27;../../Model/anagrafiche/addresses/IndirizzoAssociato&#x27;;
+
+export class  LeggiCentriAziendali {
+  impresa: Impresa;
+  utilizzoTerreno: UtilizzoTerreno;
+  data: Date;
+  filtra_validita_esercizi?:boolean;
+}
+
+export class LeggiIndirizziCentro {
+  piva: string;
+  sa_cod: number;
+
+  constructor(p: string, cod: number) {
+    this.piva &#x3D; p;
+    this.sa_cod &#x3D; cod;
+  }
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class CentriAziendaliService {
+
+  constructor(
+    private ajaxAgronicaApiService: AjaxAgronicaAPIService,
+    private translocoService: TranslocoService
+  ) { }
+
+  private AggiungiRigaVuotaCentri(flagPrimaRiga: boolean, centri: CentroAziendale[],piva: string){
+    if(flagPrimaRiga &amp;&amp; centri) {
+      const centroPrimaRiga &#x3D; new CentroAziendale({codice: 0, partitaIva: piva} as any);
+      centroPrimaRiga.nome &#x3D; this.translocoService.translate(&#x27;TuttiICentriAziendali&#x27;);
+      centri.unshift(centroPrimaRiga);
+    }
+  }
+
+  public leggiCentriAziendaliModelloQdC(p: LeggiCentriAziendali, flagPrimaRiga: boolean){
+    return new Promise&lt;CentroAziendale[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+      this.ajaxAgronicaApiService.ajaxAPIPost&lt;LeggiCentriAziendali, CentroAziendale[]&gt;(&#x27;AnagraficaNG/LeggiCentriAziendaliModello&#x27;, p, false).pipe(map(R &#x3D;&gt; {
+        const centri: CentroAziendale[] &#x3D; R.RispostaStringa;
+
+        this.AggiungiRigaVuotaCentri(flagPrimaRiga, centri, p.impresa.partitaIva);
+
+        resolve(R.RispostaStringa);
+      })).subscribe();
+    });
+  }
+
+  Leggi_Centri_Aziendali_perSpecieImpianti(p: LeggiCentriAziendali, flagPrimaRiga: boolean){
+    return new Promise&lt;CentroAziendale[]&gt;(async (resolve, reject) &#x3D;&gt; {
+      this.ajaxAgronicaApiService.ajaxAPIPost&lt;LeggiCentriAziendali, CentroAziendale[]&gt;(&#x27;AnagraficaNG/Leggi_Centri_Aziendali_perSpecieImpianti&#x27;, p, false).pipe(map(R &#x3D;&gt; {
+        const centri&#x3D;R.RispostaStringa;
+        this.AggiungiRigaVuotaCentri(flagPrimaRiga,centri,p.impresa.partitaIva);
+        resolve(R.RispostaStringa);
+      })).subscribe();
+    });
+  }
+
+  leggiCentroAziendale(partitaIva: string, codice: number) {
+    const objPAgenda &#x3D; new ObjParametriAgenda();
+    objPAgenda.Piva &#x3D; partitaIva;
+    objPAgenda.Sa_Cod &#x3D; codice;
+
+    const linkCentro &#x3D; &#x27;AnagraficaNG/LeggiCentro&#x27;;
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, CentroAziendale&gt;(linkCentro, objPAgenda);
+  }
+
+  leggiCentroDropDownLists(partitaIva: string, codice: number) {
+    const objPAgenda &#x3D; new ObjParametriAgenda();
+    objPAgenda.Piva &#x3D; partitaIva;
+    objPAgenda.Sa_Cod &#x3D; codice;
+
+    const linkDdls &#x3D; &#x27;AnagraficaNG/Leggi_Centro_Dropdowns&#x27;;
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, CentroDropdownLists&gt;(linkDdls, objPAgenda);
+  }
+
+  testLettura(objParametriAgenda: ObjParametriAgenda): Observable&lt;rispostaStandard&lt;boolean&gt;&gt; {
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, boolean&gt;(
+      &#x27;AnagraficaNG/Test_Centri_Archivio_Lettura&#x27;,
+      objParametriAgenda);
+  }
+
+  testScrittura(objParametriAgenda: ObjParametriAgenda): Observable&lt;rispostaStandard&lt;boolean&gt;&gt;  {
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, boolean&gt;(
+      &#x27;AnagraficaNG/Test_Centri_Archivio_Scrittura&#x27;,
+      objParametriAgenda)
+  }
+
+  leggiCentri(objParametri: ObjParametriAgenda): Observable&lt;any[]&gt; {
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, any[]&gt;(&#x27;AnagraficaNG/Centri&#x27;, objParametri).pipe(
+      map(r &#x3D;&gt; r.RispostaStringa)
+    )
+  }
+
+  leggiCentro(objParametri: ObjParametriAgenda): Observable&lt;CentroAziendale&gt;{
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;ObjParametriAgenda, CentroAziendale&gt;(&#x27;AnagraficaNG/LeggiCentro&#x27;, objParametri).pipe(
+      map(r &#x3D;&gt;
+        r.RispostaStringa)
+    )
+  }
+
+  scriviCentro(centro: CentroAziendale): Observable&lt;CentroAziendale&gt;{
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;CentroAziendale, CentroAziendale&gt;(&#x27;AnagraficaNG/ScriviCentro&#x27;, centro).pipe(
+      map(r &#x3D;&gt; r.RispostaStringa)
+    );
+  }
+
+  manageAgenda(agenda: ObjParametriAgenda): ObjParametriAgenda {
+    if(agenda?.Piva &#x3D;&#x3D; null || agenda?.Piva &#x3D;&#x3D; &#x27;&#x27;) {
+      return null;
+    }
+
+    agenda.Validita_Inizio &#x3D; AGRODATAINIZIO;
+    agenda.Validita_Fine &#x3D; AGRODATAFINE;
+    return agenda;
+  }
+
+  public readCentreAddresses(params: LeggiIndirizziCentro): Observable&lt;rispostaStandard&lt;IndirizzoAssociato[]&gt;&gt; {
+    return this.ajaxAgronicaApiService.ajaxAPIPost&lt;LeggiIndirizziCentro, IndirizzoAssociato[]&gt;(
+      &#x27;AnagraficaNG/readCentreAddresses&#x27;,
+      params,
+      false
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CentriAziendaliService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

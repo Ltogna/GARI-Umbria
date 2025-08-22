@@ -1,0 +1,1289 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CodiciTemplate</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Utility/Template/codici-template/models/codici-config-template.model.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aggregates" >aggregates</a>
+                            </li>
+                            <li>
+                                <a href="#behavior" >behavior</a>
+                            </li>
+                            <li>
+                                <a href="#cmdColumn" >cmdColumn</a>
+                            </li>
+                            <li>
+                                <a href="#cmdDropDown" >cmdDropDown</a>
+                            </li>
+                            <li>
+                                <a href="#columnMenu" >columnMenu</a>
+                            </li>
+                            <li>
+                                <a href="#customColumn" >customColumn</a>
+                            </li>
+                            <li>
+                                <a href="#dettagliColumn" >dettagliColumn</a>
+                            </li>
+                            <li>
+                                <a href="#generalSettings" >generalSettings</a>
+                            </li>
+                            <li>
+                                <a href="#groups" >groups</a>
+                            </li>
+                            <li>
+                                <a href="#masterdetail" >masterdetail</a>
+                            </li>
+                            <li>
+                                <a href="#pagination" >pagination</a>
+                            </li>
+                            <li>
+                                <a href="#resizable" >resizable</a>
+                            </li>
+                            <li>
+                                <a href="#selectable" >selectable</a>
+                            </li>
+                            <li>
+                                <a href="#sort" >sort</a>
+                            </li>
+                            <li>
+                                <a href="#toolbar" >toolbar</a>
+                            </li>
+                            <li>
+                                <a href="#views" >views</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#handleCmdColumn" >handleCmdColumn</a>
+                            </li>
+                            <li>
+                                <a href="#handleCmdDropDown" >handleCmdDropDown</a>
+                            </li>
+                            <li>
+                                <a href="#handleColumnMenu" >handleColumnMenu</a>
+                            </li>
+                            <li>
+                                <a href="#handleGeneralSettings" >handleGeneralSettings</a>
+                            </li>
+                            <li>
+                                <a href="#handlePagination" >handlePagination</a>
+                            </li>
+                            <li>
+                                <a href="#handleResizable" >handleResizable</a>
+                            </li>
+                            <li>
+                                <a href="#handleSelectable" >handleSelectable</a>
+                            </li>
+                            <li>
+                                <a href="#handleSort" >handleSort</a>
+                            </li>
+                            <li>
+                                <a href="#handleToolbarSettings" >handleToolbarSettings</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCmdColumn"></a>
+                    <span class="name">
+                        <span ><b>handleCmdColumn</b></span>
+                        <a href="#handleCmdColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCmdColumn()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Command.html" target="_self" >CommandsColumnSettings</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCmdDropDown"></a>
+                    <span class="name">
+                        <span ><b>handleCmdDropDown</b></span>
+                        <a href="#handleCmdDropDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCmdDropDown()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Command.html" target="_self" >CommandsDropDownSettings</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleColumnMenu"></a>
+                    <span class="name">
+                        <span ><b>handleColumnMenu</b></span>
+                        <a href="#handleColumnMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleColumnMenu()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="125"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:125</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ColumnMenuSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleGeneralSettings"></a>
+                    <span class="name">
+                        <span ><b>handleGeneralSettings</b></span>
+                        <a href="#handleGeneralSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleGeneralSettings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>GeneralSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePagination"></a>
+                    <span class="name">
+                        <span ><b>handlePagination</b></span>
+                        <a href="#handlePagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handlePagination()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:143</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>PaginationSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleResizable"></a>
+                    <span class="name">
+                        <span ><b>handleResizable</b></span>
+                        <a href="#handleResizable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleResizable()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="106"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:106</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectable"></a>
+                    <span class="name">
+                        <span ><b>handleSelectable</b></span>
+                        <a href="#handleSelectable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSelectable()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>AgrSelectableSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSort"></a>
+                    <span class="name">
+                        <span ><b>handleSort</b></span>
+                        <a href="#handleSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleSort()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>SortSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleToolbarSettings"></a>
+                    <span class="name">
+                        <span ><b>handleToolbarSettings</b></span>
+                        <a href="#handleToolbarSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleToolbarSettings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="70"
+                                    class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:70</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>ToolbarSettings</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggregates"></a>
+                    <span class="name">
+                        <span ><b>aggregates</b></span>
+                        <a href="#aggregates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AggregateSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="behavior"></a>
+                    <span class="name">
+                        <span ><b>behavior</b></span>
+                        <a href="#behavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cmdColumn"></a>
+                    <span class="name">
+                        <span ><b>cmdColumn</b></span>
+                        <a href="#cmdColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >CommandsColumnSettings</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cmdDropDown"></a>
+                    <span class="name">
+                        <span ><b>cmdDropDown</b></span>
+                        <a href="#cmdDropDown"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >CommandsDropDownSettings</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columnMenu"></a>
+                    <span class="name">
+                        <span ><b>columnMenu</b></span>
+                        <a href="#columnMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ColumnMenuSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="customColumn"></a>
+                    <span class="name">
+                        <span ><b>customColumn</b></span>
+                        <a href="#customColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CustomColumnSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dettagliColumn"></a>
+                    <span class="name">
+                        <span ><b>dettagliColumn</b></span>
+                        <a href="#dettagliColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>DettagliColumnSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generalSettings"></a>
+                    <span class="name">
+                        <span ><b>generalSettings</b></span>
+                        <a href="#generalSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GeneralSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="groups"></a>
+                    <span class="name">
+                        <span ><b>groups</b></span>
+                        <a href="#groups"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GroupSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterdetail"></a>
+                    <span class="name">
+                        <span ><b>masterdetail</b></span>
+                        <a href="#masterdetail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>MasterDetailSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pagination"></a>
+                    <span class="name">
+                        <span ><b>pagination</b></span>
+                        <a href="#pagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>PaginationSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resizable"></a>
+                    <span class="name">
+                        <span ><b>resizable</b></span>
+                        <a href="#resizable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ResizableSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectable"></a>
+                    <span class="name">
+                        <span ><b>selectable</b></span>
+                        <a href="#selectable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AgrSelectableSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sort"></a>
+                    <span class="name">
+                        <span ><b>sort</b></span>
+                        <a href="#sort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>SortSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolbar"></a>
+                    <span class="name">
+                        <span ><b>toolbar</b></span>
+                        <a href="#toolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ToolbarSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="views"></a>
+                    <span class="name">
+                        <span ><b>views</b></span>
+                        <a href="#views"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridCustomizations</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/Utility/Template/codici-template/models/codici-config-template.model.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { TranslocoScope, TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+
+import {
+    AggregateSettings,
+    AgrSelectableSettings,
+    BehaviorSettings,
+    ColumnMenuSettings,
+    CommandsColumnSettings,
+    CommandsDropDownSettings, CustomColumnSettings,
+    DettagliColumnSettings,
+    GeneralSettings,
+    GroupSettings, MasterDetailSettings,
+    PaginationSettings,
+    ResizableSettings,
+    SelectableColumnSettings,
+    SortMode,
+    SortSettings,
+    ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import { GridCustomizations } from &#x27;gias-kendo-grid&#x27;;
+import { IOptionalConfigParameters } from &#x27;gias-kendo-grid&#x27;;
+
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class CodiciTemplate implements IOptionalConfigParameters {
+    selectable: AgrSelectableSettings;
+    toolbar: ToolbarSettings;
+    cmdColumn: CommandsColumnSettings;
+    cmdDropDown: CommandsDropDownSettings;
+    resizable: ResizableSettings;
+    generalSettings: GeneralSettings;
+    sort: SortSettings;
+    pagination: PaginationSettings;
+    columnMenu: ColumnMenuSettings;
+    behavior: BehaviorSettings;
+    views: GridCustomizations;
+    aggregates: AggregateSettings;
+    groups: GroupSettings;
+    dettagliColumn: DettagliColumnSettings;
+    masterdetail: MasterDetailSettings;
+    customColumn: CustomColumnSettings;
+
+    constructor(private translocoService: TranslocoService) {
+        this.selectable &#x3D; this.handleSelectable();
+        this.toolbar &#x3D; this.handleToolbarSettings();
+        this.cmdColumn &#x3D; this.handleCmdColumn();
+        this.cmdDropDown &#x3D; this.handleCmdDropDown();
+        this.resizable &#x3D; this.handleResizable();
+        this.generalSettings &#x3D; this.handleGeneralSettings();
+        this.sort &#x3D; this.handleSort();
+        this.pagination &#x3D; this.handlePagination();
+
+        this.columnMenu &#x3D; this.handleColumnMenu();
+
+        this.masterdetail &#x3D; new MasterDetailSettings(false);
+
+        this.behavior &#x3D; new BehaviorSettings({ createFormGroupFromOutside: false });
+
+        this.aggregates &#x3D; new AggregateSettings({enabled: false});
+
+        this.views &#x3D; new GridCustomizations({ enabled: false });
+        this.groups &#x3D; new GroupSettings({groupable: {enabled: false, showFooter: false}}, this.translocoService);
+        this.dettagliColumn &#x3D; new DettagliColumnSettings({ sticky: true, title: this.translocoService.translate(&#x27;Dettagli&#x27;), width: 100 });
+        this.customColumn &#x3D; new CustomColumnSettings({ sticky: true, title: &#x27;&#x27;, width: 100 });
+    }
+
+
+
+
+    handleToolbarSettings(): ToolbarSettings {
+        const result &#x3D; new ToolbarSettings();
+        result.newItem &#x3D; false;
+        result.resetChanges &#x3D; false;
+        result.title &#x3D; &#x27;Azioni&#x27;;
+        result.width &#x3D; 150;
+
+        return result;
+    }
+
+    handleGeneralSettings(): GeneralSettings {
+        const result &#x3D; new GeneralSettings();
+        result.height &#x3D; 600;
+
+        return result;
+    }
+
+    handleCmdColumn(): CommandsColumnSettings {
+        const result &#x3D; new CommandsColumnSettings({
+            editBtn: false,
+            infoBtn: false,
+            removeBtn: false
+        });
+
+        return result;
+    }
+
+    handleCmdDropDown(): CommandsDropDownSettings {
+        const result &#x3D; new CommandsDropDownSettings();
+        result.inlineEditBtn &#x3D; true;
+        result.infoBtn &#x3D; true;
+        result.removeBtn &#x3D; true;
+        result.title &#x3D; &#x27;Comandi&#x27;;
+        return result;
+    }
+
+    handleResizable() {
+        const result &#x3D; new ResizableSettings();
+        result.isResizable &#x3D; true;
+        result.autoFitColumns &#x3D; false;
+
+        return result;
+    }
+
+    handleSelectable(): AgrSelectableSettings {
+        const result &#x3D; new AgrSelectableSettings();
+        result.selectable.enabled&#x3D;false;
+        result.selectable.checkboxOnly&#x3D;true;
+        result.columnSettings &#x3D; new SelectableColumnSettings();
+        result.columnSettings.showSelectAll &#x3D; false;
+        result.columnSettings.title &#x3D; &#x27;Checkbox&#x27;;
+        result.columnSettings.width &#x3D; 30;
+
+        return result;
+    }
+    handleColumnMenu(): ColumnMenuSettings {
+        const columnMenu &#x3D; new ColumnMenuSettings();
+        columnMenu.columnMenu &#x3D; true;
+        columnMenu.filterable &#x3D; true;
+        columnMenu.disabledColumns &#x3D; [];
+        columnMenu.kendoGridColumnChooser &#x3D; true;
+
+        return columnMenu;
+    }
+
+    handleSort(): SortSettings {
+        const result &#x3D; new SortSettings();
+        result.sortable &#x3D; { allowUnsort: true, mode: SortMode.SINGLE };
+        result.sort &#x3D; [];
+
+        return result;
+    }
+
+    handlePagination(): PaginationSettings {
+        const result &#x3D; new PaginationSettings();
+        result.gridState &#x3D; { sort: [], skip: 0, take: 5 };
+        result.pageable &#x3D; true;
+        result.navigable &#x3D; false;
+
+        return result;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CodiciTemplate.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

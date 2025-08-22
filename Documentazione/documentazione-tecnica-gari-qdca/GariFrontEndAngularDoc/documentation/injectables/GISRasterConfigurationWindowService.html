@@ -1,0 +1,2311 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GISRasterConfigurationWindowService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clickInfoSubject" >clickInfoSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#created" >created</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#currentVisibleSubject" >currentVisibleSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loaderSubscritions" >loaderSubscritions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#mapClickEventSubject" >mapClickEventSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#masksSubject" >masksSubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#opacitySubject" >opacitySubject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rasterActiveTitleBarRef" >rasterActiveTitleBarRef</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#visibilitySubject" >visibilitySubject</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#createDefaultSubjects" >createDefaultSubjects</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#fetchMasks" >fetchMasks</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getClickInfo$" >getClickInfo$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getCurrentVisible" >getCurrentVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLayerParams" >getLayerParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getMapClickEvent$" >getMapClickEvent$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getMasks$" >getMasks$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getOpacity$" >getOpacity$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getVisibility$" >getVisibility$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isFeatureMaskerable" >isFeatureMaskerable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isSomeVisible" >isSomeVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nextMapClickEvent" >nextMapClickEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nextMapClickInfo" >nextMapClickInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nextOpacity" >nextOpacity</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nextVisibility" >nextVisibility</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#runLoader" >runLoader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#stopAllLoders" >stopAllLoders</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#stopLoader" >stopLoader</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#isAnyMapInfoActive" >isAnyMapInfoActive</a>
+                                </li>
+                                <li>
+                                    <a href="#currentVisible$" >currentVisible$</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(gisClient: <a href="../injectables/GisClient.html" target="_self">GisClient</a>, googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, rasterOverlayService: <a href="../injectables/RasterOverlayService.html" target="_self">RasterOverlayService</a>, featureService: <a href="../injectables/FeatureService.html" target="_self">FeatureService</a>, translocoService: TranslocoService, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, featureInformationService: <a href="../injectables/FeatureInformationService.html" target="_self">FeatureInformationService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:31</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>gisClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisClient.html" target="_self" >GisClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rasterOverlayService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RasterOverlayService.html" target="_self" >RasterOverlayService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureService.html" target="_self" >FeatureService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>featureInformationService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FeatureInformationService.html" target="_self" >FeatureInformationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createDefaultSubjects"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>createDefaultSubjects</b></span>
+                        <a href="#createDefaultSubjects"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createDefaultSubjects(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="200"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchMasks"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>fetchMasks</b></span>
+                        <a href="#fetchMasks"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchMasks(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Observable&lt;RispostaStandard_1OfElencoMaschereLayerRaster&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getClickInfo$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getClickInfo$</b></span>
+                        <a href="#getClickInfo$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getClickInfo$(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCurrentVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getCurrentVisible</b></span>
+                        <a href="#getCurrentVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCurrentVisible()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="92"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>number | null</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLayerParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getLayerParams</b></span>
+                        <a href="#getLayerParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLayerParams(gmap: google.maps.Map, rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="235"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:235</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>gmap</td>
+                                            <td>
+                                                        <code>google.maps.Map</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/RasterParameterVisualizationLayer.html" target="_self" >RasterParameterVisualizationLayer[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMapClickEvent$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getMapClickEvent$</b></span>
+                        <a href="#getMapClickEvent$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMapClickEvent$(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;google.maps.Data.MouseEvent&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMasks$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getMasks$</b></span>
+                        <a href="#getMasks$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMasks$(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/MascheraLayerRaster.html" target="_self" >Observable&lt;MascheraLayerRaster[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOpacity$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getOpacity$</b></span>
+                        <a href="#getOpacity$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOpacity$(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="107"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;number&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getVisibility$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getVisibility$</b></span>
+                        <a href="#getVisibility$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getVisibility$(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="56"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFeatureMaskerable"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isFeatureMaskerable</b></span>
+                        <a href="#isFeatureMaskerable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isFeatureMaskerable(layerId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="141"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:141</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>layerId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSomeVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isSomeVisible</b></span>
+                        <a href="#isSomeVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isSomeVisible()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="96"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:96</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextMapClickEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nextMapClickEvent</b></span>
+                        <a href="#nextMapClickEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nextMapClickEvent(event: google.maps.Data.MouseEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>google.maps.Data.MouseEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextMapClickInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nextMapClickInfo</b></span>
+                        <a href="#nextMapClickInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nextMapClickInfo(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextOpacity"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nextOpacity</b></span>
+                        <a href="#nextOpacity"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nextOpacity(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="112"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nextVisibility"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nextVisibility</b></span>
+                        <a href="#nextVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nextVisibility(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="runLoader"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>runLoader</b></span>
+                        <a href="#runLoader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>runLoader(rasterId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="213"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:213</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rasterId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Subscription</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopAllLoders"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>stopAllLoders</b></span>
+                        <a href="#stopAllLoders"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopAllLoders()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopLoader"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>stopLoader</b></span>
+                        <a href="#stopLoader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopLoader(subscription: Subscription)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>subscription</td>
+                                            <td>
+                                                        <code>Subscription</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clickInfoSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clickInfoSubject</b></span>
+                        <a href="#clickInfoSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, BehaviorSubject&lt;boolean&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="created"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>created</b></span>
+                        <a href="#created"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set&lt;number&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:22</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="currentVisibleSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>currentVisibleSubject</b></span>
+                        <a href="#currentVisibleSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;number | null&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loaderSubscritions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loaderSubscritions</b></span>
+                        <a href="#loaderSubscritions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, Subscription&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="mapClickEventSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>mapClickEventSubject</b></span>
+                        <a href="#mapClickEventSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, Subject&lt;google.maps.Data.MouseEvent&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masksSubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>masksSubject</b></span>
+                        <a href="#masksSubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, BehaviorSubject&lt;MascheraLayerRaster[]&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="opacitySubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>opacitySubject</b></span>
+                        <a href="#opacitySubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, BehaviorSubject&lt;number&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rasterActiveTitleBarRef"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>rasterActiveTitleBarRef</b></span>
+                        <a href="#rasterActiveTitleBarRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>NotificationRef | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visibilitySubject"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>visibilitySubject</b></span>
+                        <a href="#visibilitySubject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;number, BehaviorSubject&lt;boolean&gt;&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="isAnyMapInfoActive"></a>
+                        <span class="name"><b>isAnyMapInfoActive</b><a href="#isAnyMapInfoActive"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>isAnyMapInfoActive()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:46</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentVisible$"></a>
+                        <span class="name"><b>currentVisible$</b><a href="#currentVisible$"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>currentVisible$()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="189" class="link-to-prism">src/app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service.ts:189</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { GisClient, MascheraLayerRaster, RispostaStandard_1OfElencoMaschereLayerRaster } from &#x27;app/Service/api.service&#x27;;
+import { BehaviorSubject, Observable, Subject, Subscription, combineLatest, filter, map, startWith, tap, withLatestFrom } from &#x27;rxjs&#x27;;
+import { enum_TipologiaLayer } from &#x27;../GIS-enum/GIS-tipologia-layer&#x27;;
+import { GoogleMapService } from &#x27;../google-map/google-map.service&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { RasterOverlayService, RasterParameterVisualizationLayer, RasterParameterVisualizationType } from &#x27;../services/raster-overlay.service&#x27;;
+import { FeatureService } from &#x27;../services/feature.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { NotificationRef } from &#x27;@progress/kendo-angular-notification&#x27;;
+import { GoogleMapUtils } from &#x27;../utils/google-map.utils&#x27;;
+import { FeatureInformationService } from &#x27;../services/feature-information.service&#x27;;
+import { LayerService } from &#x27;../services/layer.service&#x27;;
+import { SharedDataService } from &#x27;../services/shared-data.service&#x27;;
+
+const DEFAULT_VIEW &#x3D; &#x27;DefaultView&#x27;;
+
+@Injectable()
+export class GISRasterConfigurationWindowService {
+  private created &#x3D; new Set&lt;number&gt;();
+  private visibilitySubject &#x3D; new Map&lt;number, BehaviorSubject&lt;boolean&gt;&gt;();
+  private opacitySubject &#x3D; new Map&lt;number, BehaviorSubject&lt;number&gt;&gt;();
+  private clickInfoSubject &#x3D; new Map&lt;number, BehaviorSubject&lt;boolean&gt;&gt;();
+  private masksSubject &#x3D; new Map&lt;number, BehaviorSubject&lt;MascheraLayerRaster[]&gt;&gt;();
+  private loaderSubscritions &#x3D; new Map&lt;number, Subscription&gt;();
+  private mapClickEventSubject &#x3D; new Map&lt;number, Subject&lt;google.maps.Data.MouseEvent&gt;&gt;();
+  private currentVisibleSubject &#x3D; new BehaviorSubject&lt;number | null&gt;(null);
+
+  private rasterActiveTitleBarRef: NotificationRef | null &#x3D; null;
+
+  constructor(
+    private gisClient: GisClient,
+    private googleMapService: GoogleMapService,
+    private permessiUtenteService: PermessiUtenteService,
+    private rasterOverlayService: RasterOverlayService,
+    private featureService: FeatureService,
+    private translocoService: TranslocoService,
+    private giasMessageService: GiasMessageService,
+    private featureInformationService: FeatureInformationService,
+    private layerService: LayerService,
+    private sharedDataService: SharedDataService
+  ) { }
+
+  public get isAnyMapInfoActive(): boolean {
+    for (const rasterId of this.created) {
+      if (this.visibilitySubject.get(rasterId).value &amp;&amp; this.clickInfoSubject.get(rasterId).value) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public getVisibility$(rasterId: number): Observable&lt;boolean&gt; {
+    this.createDefaultSubjects(rasterId);
+    return this.visibilitySubject.get(rasterId).asObservable();
+  }
+
+  public nextVisibility(rasterId: number, value: boolean): void {
+    this.createDefaultSubjects(rasterId);
+    this.visibilitySubject.get(rasterId).next(value);
+
+    if (!value) {
+      this.currentVisibleSubject.next(null);
+      if (!this.loaderSubscritions.has(rasterId)) {
+        return;
+      }
+
+      RasterOverlayService.clearRasterOverlays(rasterId, this.googleMapService.googleMapWrapper.data.getMap());
+      const subscription &#x3D; this.loaderSubscritions.get(rasterId);
+      this.stopLoader(subscription);
+      this.loaderSubscritions.delete(rasterId);
+
+      return;
+    }
+
+    const title &#x3D; this.translocoService.translate(&#x27;gis.VisualizzazioneDeiDatiRasterAttiva&#x27;);
+    const body &#x3D; this.translocoService.translate(&#x27;gis.ChiudiVisualizzazione&#x27;);
+    this.rasterActiveTitleBarRef &#x3D; this.giasMessageService.customMessage(title, body, &#x27;&#x27;, () &#x3D;&gt; {
+      this.nextVisibility(rasterId, false);
+      const layer &#x3D; this.sharedDataService.getTipologiaLayerById(rasterId.toString());
+      this.layerService.toggleLayerItemVisible(layer, false);
+    }, false);
+
+    const subscription &#x3D; this.runLoader(rasterId);
+    this.loaderSubscritions.set(rasterId, subscription);
+    this.currentVisibleSubject.next(rasterId);
+  }
+
+  public getCurrentVisible(): number | null {
+    return this.currentVisibleSubject.value;
+  }
+
+  public isSomeVisible(): boolean {
+    const visibles &#x3D; this.visibilitySubject.values();
+    for (const visible of visibles) {
+      if (visible.value) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  public getOpacity$(rasterId: number): Observable&lt;number&gt; {
+    this.createDefaultSubjects(rasterId);
+    return this.opacitySubject.get(rasterId).asObservable();
+  }
+
+  public nextOpacity(rasterId: number, value: number): void {
+    this.createDefaultSubjects(rasterId);
+    this.opacitySubject.get(rasterId).next(value);
+  }
+
+  public getClickInfo$(rasterId: number): Observable&lt;boolean&gt; {
+    this.createDefaultSubjects(rasterId);
+    return this.clickInfoSubject.get(rasterId).asObservable();
+  }
+
+  public nextMapClickInfo(rasterId: number, value: boolean) {
+    this.createDefaultSubjects(rasterId);
+    this.clickInfoSubject.get(rasterId).next(value);
+  }
+
+  public getMasks$(rasterId: number): Observable&lt;MascheraLayerRaster[]&gt; {
+    this.createDefaultSubjects(rasterId);
+    return this.masksSubject.get(rasterId).asObservable();
+  }
+
+  public fetchMasks(rasterId: number): Observable&lt;RispostaStandard_1OfElencoMaschereLayerRaster&gt; {
+    return this.gisClient
+      .gisLeggiMaschereLayerRaster({ TipologiaLayer_Raster_Cod: +enum_TipologiaLayer.Entita, LayerElementiGrafici_Raster_Cod: rasterId })
+      .pipe(tap(res &#x3D;&gt; {
+        this.createDefaultSubjects(rasterId);
+        this.masksSubject.get(rasterId).next(res.RispostaStringa.elencoMaschere);
+      }));
+  }
+
+  public isFeatureMaskerable(layerId: number): boolean {
+    // For all masks in rasters
+    const allMasks &#x3D; this.masksSubject.entries();
+    for (const [rasterId, masks] of allMasks) {
+
+      // Check only visible rasters
+      if (!this.visibilitySubject.get(rasterId).value) {
+        continue;
+      }
+
+      for (const mask of masks.value) {
+
+        // Return true if features is in maskerable layer
+        if (mask.LayerElementiGrafici_cod &#x3D;&#x3D; layerId &amp;&amp; mask.isAttivaPerUtenteCorrente) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
+
+  public stopAllLoders(): void {
+    for (const [rasterId, subscription] of this.loaderSubscritions.entries()) {
+      RasterOverlayService.clearRasterOverlays(rasterId, this.googleMapService.googleMapWrapper.data.getMap());
+      this.stopLoader(subscription);
+    }
+
+    this.loaderSubscritions.clear();
+  }
+
+  public nextMapClickEvent(event: google.maps.Data.MouseEvent): void {
+    const rasterId &#x3D; this.getCurrentVisible();
+    if (rasterId !&#x3D; null) {
+      this.mapClickEventSubject.get(rasterId).next(event);
+    }
+  }
+
+  public getMapClickEvent$(rasterId: number): Observable&lt;google.maps.Data.MouseEvent&gt; {
+    return this.mapClickEventSubject.get(rasterId).asObservable()
+      .pipe(
+        withLatestFrom(this.getVisibility$(rasterId)),
+        filter(([_, visible]) &#x3D;&gt; visible),
+        withLatestFrom(this.getClickInfo$(rasterId)),
+        filter(([_, enabled]) &#x3D;&gt; enabled),
+        map(([[event, _1], _2]) &#x3D;&gt; event)
+      );
+  }
+
+  public get currentVisible$(): Observable&lt;number | null&gt; {
+    return this.currentVisibleSubject.asObservable();
+  }
+
+  private stopLoader(subscription: Subscription): void {
+    subscription.unsubscribe();
+    if (this.rasterActiveTitleBarRef !&#x3D; null) {
+      this.rasterActiveTitleBarRef.hide();
+    }
+  }
+
+  private createDefaultSubjects(rasterId: number): void {
+    if (!this.created.has(rasterId)) {
+      this.visibilitySubject.set(rasterId, new BehaviorSubject&lt;boolean&gt;(false));
+      this.opacitySubject.set(rasterId, new BehaviorSubject&lt;number&gt;(1));
+      this.clickInfoSubject.set(rasterId, new BehaviorSubject&lt;boolean&gt;(false));
+      this.masksSubject.set(rasterId, new BehaviorSubject&lt;MascheraLayerRaster[]&gt;([]));
+      this.mapClickEventSubject.set(rasterId, new Subject&lt;google.maps.Data.MouseEvent&gt;());
+      this.created.add(rasterId);
+
+      this.fetchMasks(rasterId).subscribe();
+    }
+  }
+
+  private runLoader(rasterId: number): Subscription {
+    const features$ &#x3D; this.featureService.getFeatureSelezionate$();
+    const opacity$ &#x3D; this.getOpacity$(rasterId).pipe(tap(opacity &#x3D;&gt; this.rasterOverlayService.setOpacity(rasterId, opacity)));
+
+    return combineLatest([
+      this.googleMapService.googleMapWrapper.idle.pipe(startWith(null)),
+      features$
+    ])
+      .pipe(
+        map(([_1, features]) &#x3D;&gt; [features]),
+        withLatestFrom(this.getMasks$(rasterId), opacity$)
+      )
+      .subscribe({
+        next: ([[features], masks, opacity]) &#x3D;&gt; {
+          const hasPermissions &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.GIS_Gestione_Parametri_Maschere_Raster, 0);
+          const gmap &#x3D; this.googleMapService.googleMapWrapper.data.getMap();
+          const layerParams &#x3D; this.getLayerParams(gmap, rasterId);
+          this.rasterOverlayService.load(rasterId, masks, layerParams, features, hasPermissions, opacity);
+        }
+      });
+  }
+
+  private getLayerParams(gmap: google.maps.Map, rasterId: number): RasterParameterVisualizationLayer[] {
+    const layerParams: RasterParameterVisualizationLayer[] &#x3D; [];
+
+    this.featureInformationService.getByLayer(rasterId.toString()).forEach(feature &#x3D;&gt; {
+      const geometry &#x3D; this.featureInformationService.getGeometry(feature.properties.id);
+
+      if (!GoogleMapUtils.isPolygonInViewport(gmap, geometry as google.maps.Data.Polygon)) {
+        return;
+      }
+
+      const params &#x3D; feature.properties.ParametriVisualizzazioneLayer;
+      if (params &#x3D;&#x3D; null || params &#x3D;&#x3D; &quot;&quot;) {
+        return;
+      }
+
+      // ParametriVisualizzazioneLayer example
+      // const params &#x3D; &#x27;{ &quot;type&quot; : 5 , &quot;baseUrl&quot; : &quot;https://geoproxy-qvrusott6a-ew.a.run.app/t/xyz/services/srv-cog-3857&quot;, &quot;bucket&quot;: &quot;hub-cloud-staging_test_bucket&quot;, &quot;obj&quot;: &quot;mapTilesForEE&quot;,&quot;views&quot;:[&quot;DefaultView&quot;],&quot;gsUriFile&quot;:&quot;gs://gee_objects_private/mapTilesForEE/7419ac39-b881-4105-9f3b-e7290fbf9e32/7419ac39-b881-4105-9f3b-e7290fbf9e32.tif&quot;}&#x27;;
+
+      const guid &#x3D; feature.properties.Entita_GUID;
+      if (guid &#x3D;&#x3D; null || guid &#x3D;&#x3D; &#x27;&#x27;) {
+        return;
+      }
+
+      const param &#x3D; JSON.parse(params) as RasterParameterVisualizationLayer;
+      const view &#x3D; param.views &#x3D;&#x3D; null || param.views.length &#x3D;&#x3D; 0 ? DEFAULT_VIEW : param.views[0]; // NDVI, NDWI...
+      if (param.type &#x3D;&#x3D; RasterParameterVisualizationType.PRIVATE) {
+        layerParams.push({ type: param.type, baseUrl: null, bucket: param.bucket, obj: &#x60;${param.obj}/${guid}/${view}&#x60; } as RasterParameterVisualizationLayer);
+      } else if (param.type &#x3D;&#x3D; RasterParameterVisualizationType.SATELLITE) {
+        layerParams.push({ type: param.type, baseUrl: &#x60;${param.baseUrl.replace(/\/$/, &#x27;&#x27;)}/${param.bucket}/${param.obj}/${guid}/${view}&#x60;, bucket: null, obj: null } as RasterParameterVisualizationLayer);
+      } else if (param.type &#x3D;&#x3D; RasterParameterVisualizationType.PUBLIC) {
+        layerParams.push({ type: param.type, baseUrl: &#x60;${param.baseUrl.replace(/\/$/, &#x27;&#x27;)}/${param.bucket}/${param.obj}/${guid}/${view}&#x60;, bucket: null, obj: null } as RasterParameterVisualizationLayer);
+      } else if (param.type &#x3D;&#x3D; RasterParameterVisualizationType.ABACO_PRIVATE) {
+        layerParams.push({ type: param.type, baseUrl: null, bucket: param.bucket, obj: &#x60;${param.obj}/${guid}/3857/${guid}&#x60;, views: param.views, guid: guid } as RasterParameterVisualizationLayer);
+      } else if (param.type &#x3D;&#x3D; RasterParameterVisualizationType.ABACO_PUBLIC) {
+        layerParams.push({ type: param.type, baseUrl: &#x60;${param.baseUrl.replace(/\/$/, &#x27;&#x27;)}/${param.bucket}/${param.obj}/${guid}/3857/${guid}.tif&#x60;, bucket: null, obj: null, views: param.views, guid: guid } as RasterParameterVisualizationLayer);
+      }
+    });
+
+    return layerParams;
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GISRasterConfigurationWindowService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

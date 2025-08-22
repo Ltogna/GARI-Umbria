@@ -1,0 +1,2824 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridDosiProdottiControlliService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#change_lista_MostraWarning" >change_lista_MostraWarning</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#Componi_Obj_Controllo_Inserimento_Dose_Prodotto" >Componi_Obj_Controllo_Inserimento_Dose_Prodotto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Acqua_Dose_HL" >Controlla_Acqua_Dose_HL</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_Dosi" >Controlla_Dosi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlla_EpocaFertilizzazione" >Controlla_EpocaFertilizzazione</a>
+                            </li>
+                            <li>
+                                <a href="#ControllaSeInserireDoseProdotto" >ControllaSeInserireDoseProdotto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ControllaSelezioneProdotto" >ControllaSelezioneProdotto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlli_Fertilizzanti" >Controlli_Fertilizzanti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlli_Formulati" >Controlli_Formulati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlli_Per_Categoria_Magazzino" >Controlli_Per_Categoria_Magazzino</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Controlli_Sementi" >Controlli_Sementi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#ControlliDoseProdotto_Lato_Server" >ControlliDoseProdotto_Lato_Server</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#gestisciTipoErrore_Warning" >gestisciTipoErrore_Warning</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#parseProdottiDaTrattare" >parseProdottiDaTrattare</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#set_lista_MostraWarning" >set_lista_MostraWarning</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setParametriAggiuntivi_Controlla_Dosi" >setParametriAggiuntivi_Controlla_Dosi</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(prodottiservice: <a href="../injectables/QdCProdottiService.html" target="_self">QdCProdottiService</a>, qdcdettagliformulatiservice: <a href="../injectables/QdCDettagliFormulatiService.html" target="_self">QdCDettagliFormulatiService</a>, qdcfertilizzantiservice: <a href="../injectables/QdCFertilizzantiService.html" target="_self">QdCFertilizzantiService</a>, qdcformulatiservice: <a href="../injectables/QdCFormulatiService.html" target="_self">QdCFormulatiService</a>, qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, translocoService: TranslocoService, gridimpiantiservice: <a href="../injectables/GridImpiantiService.html" target="_self">GridImpiantiService</a>, qdcformtoattivitaservice: <a href="../injectables/QdCFormToAttivitaService.html" target="_self">QdCFormToAttivitaService</a>, agendaservice: <a href="../injectables/AgendaService.html" target="_self">AgendaService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>prodottiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCProdottiService.html" target="_self" >QdCProdottiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcdettagliformulatiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCDettagliFormulatiService.html" target="_self" >QdCDettagliFormulatiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcfertilizzantiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCFertilizzantiService.html" target="_self" >QdCFertilizzantiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcformulatiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCFormulatiService.html" target="_self" >QdCFormulatiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridimpiantiservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GridImpiantiService.html" target="_self" >GridImpiantiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcformtoattivitaservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCFormToAttivitaService.html" target="_self" >QdCFormToAttivitaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agendaservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AgendaService.html" target="_self" >AgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="change_lista_MostraWarning"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>change_lista_MostraWarning</b></span>
+                        <a href="#change_lista_MostraWarning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>change_lista_MostraWarning(list_warning: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>, listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="811"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:811</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>list_warning</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listParametri_Aggiuntivi_ControllaDosi</td>
+                                            <td>
+                                                        <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Componi_Obj_Controllo_Inserimento_Dose_Prodotto"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>Componi_Obj_Controllo_Inserimento_Dose_Prodotto</b></span>
+                        <a href="#Componi_Obj_Controllo_Inserimento_Dose_Prodotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Componi_Obj_Controllo_Inserimento_Dose_Prodotto(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, rowsInserite: Array<any>, FormProdotto: FormGroup, Tipo_Operazione_DB: <a href="../undefineds/enum_TipoOperazioneDB.html" target="_self">enum_TipoOperazioneDB</a>, DosiProdottiGridrowId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rowsInserite</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>FormProdotto</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Tipo_Operazione_DB</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_TipoOperazioneDB" target="_self" >enum_TipoOperazioneDB</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DosiProdottiGridrowId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listParametri_Aggiuntivi_ControllaDosi</td>
+                                            <td>
+                                                        <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Controllo_Inserimento_Dose_Prodotto.html" target="_self" >Controllo_Inserimento_Dose_Prodotto</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Acqua_Dose_HL"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Acqua_Dose_HL</b></span>
+                        <a href="#Controlla_Acqua_Dose_HL"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Acqua_Dose_HL(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, flag_acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, flag_dose_hl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="481"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:481</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flag_acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flag_dose_hl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_Dosi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_Dosi</b></span>
+                        <a href="#Controlla_Dosi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_Dosi(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="447"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:447</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlla_EpocaFertilizzazione"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlla_EpocaFertilizzazione</b></span>
+                        <a href="#Controlla_EpocaFertilizzazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlla_EpocaFertilizzazione(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="675"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:675</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ControllaSeInserireDoseProdotto"></a>
+                    <span class="name">
+                        <span ><b>ControllaSeInserireDoseProdotto</b></span>
+                        <a href="#ControllaSeInserireDoseProdotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ControllaSeInserireDoseProdotto(gridDosiProdottiRows: Array<any>, RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, FormProdotto: FormGroup, Tipo_Operazione_DB: <a href="../undefineds/enum_TipoOperazioneDB.html" target="_self">enum_TipoOperazioneDB</a>, DosiProdottiGridrowId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>gridDosiProdottiRows</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>FormProdotto</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Tipo_Operazione_DB</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_TipoOperazioneDB" target="_self" >enum_TipoOperazioneDB</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DosiProdottiGridrowId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ErroreGias.html" target="_self" >Promise&lt;ErroreGias[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ControllaSelezioneProdotto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>ControllaSelezioneProdotto</b></span>
+                        <a href="#ControllaSelezioneProdotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ControllaSelezioneProdotto(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="387"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:387</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlli_Fertilizzanti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlli_Fertilizzanti</b></span>
+                        <a href="#Controlli_Fertilizzanti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlli_Fertilizzanti(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="587"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:587</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlli_Formulati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlli_Formulati</b></span>
+                        <a href="#Controlli_Formulati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlli_Formulati(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="850"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:850</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlli_Per_Categoria_Magazzino"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlli_Per_Categoria_Magazzino</b></span>
+                        <a href="#Controlli_Per_Categoria_Magazzino"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlli_Per_Categoria_Magazzino(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, RigheGiaInserite: Array<any>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="567"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:567</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>RigheGiaInserite</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Controlli_Sementi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Controlli_Sementi</b></span>
+                        <a href="#Controlli_Sementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Controlli_Sementi(RigaDaInserire: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, RigheGiaInserite: Array<any>, listerroriGias: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="667"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:667</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>RigaDaInserire</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>RigheGiaInserite</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listerroriGias</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ControlliDoseProdotto_Lato_Server"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>ControlliDoseProdotto_Lato_Server</b></span>
+                        <a href="#ControlliDoseProdotto_Lato_Server"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ControlliDoseProdotto_Lato_Server(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, rowsInserite: Array<any>, FormProdotto: FormGroup, Tipo_Operazione_DB: <a href="../undefineds/enum_TipoOperazioneDB.html" target="_self">enum_TipoOperazioneDB</a>, DosiProdottiGridrowId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="209"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:209</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rowsInserite</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>FormProdotto</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Tipo_Operazione_DB</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_TipoOperazioneDB" target="_self" >enum_TipoOperazioneDB</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DosiProdottiGridrowId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listParametri_Aggiuntivi_ControllaDosi</td>
+                                            <td>
+                                                        <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gestisciTipoErrore_Warning"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>gestisciTipoErrore_Warning</b></span>
+                        <a href="#gestisciTipoErrore_Warning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>gestisciTipoErrore_Warning(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, rowsInserite: Array<any>, FormProdotto: FormGroup, Tipo_Operazione_DB: <a href="../undefineds/enum_TipoOperazioneDB.html" target="_self">enum_TipoOperazioneDB</a>, DosiProdottiGridrowId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[], rispostaStandard: <a href="../interfaces/RispostaStandard.html" target="_self">RispostaStandard</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="698"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:698</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rowsInserite</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>FormProdotto</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Tipo_Operazione_DB</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_TipoOperazioneDB" target="_self" >enum_TipoOperazioneDB</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DosiProdottiGridrowId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>listParametri_Aggiuntivi_ControllaDosi</td>
+                                            <td>
+                                                        <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rispostaStandard</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RispostaStandard.html" target="_self" >RispostaStandard</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ErroreGias.html" target="_self" >Promise&lt;ErroreGias[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseProdottiDaTrattare"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>parseProdottiDaTrattare</b></span>
+                        <a href="#parseProdottiDaTrattare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parseProdottiDaTrattare(prodotti: ProdottoDaTrattareCDC[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="828"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:828</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>prodotti</td>
+                                            <td>
+                                                        <code>ProdottoDaTrattareCDC[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ProdottiDaTrattare.html" target="_self" >RowGridProdottiDaTrattare[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="set_lista_MostraWarning"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>set_lista_MostraWarning</b></span>
+                        <a href="#set_lista_MostraWarning"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>set_lista_MostraWarning(listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="778"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:778</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>listParametri_Aggiuntivi_ControllaDosi</td>
+                                            <td>
+                                                        <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setParametriAggiuntivi_Controlla_Dosi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setParametriAggiuntivi_Controlla_Dosi</b></span>
+                        <a href="#setParametriAggiuntivi_Controlla_Dosi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setParametriAggiuntivi_Controlla_Dosi(Operazione: <a href="../interfaces/Lavorazione.html" target="_self">Lavorazione</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="735"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti-controlli.service.ts:735</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Operazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Lavorazione.html" target="_self" >Lavorazione</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Parametri_Aggiuntivi_ControllaDosi[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, Optional} from &quot;@angular/core&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import {FERTILIZZANTI, FORMULATI, INSETTI, SEMENTI} from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import {AgendaService, Controllo_Inserimento_Dose_Prodotto} from &quot;app/Service/Agenda/Agenda.service&quot;;
+import {enum_ErroreGias_Tipo, ErroreGias, ErroreGias_Severity, RispostaStandard} from &quot;app/Service/master.service&quot;;
+import {GridImpiantiService} from &quot;../grid-impianti/grid-impianti.service&quot;;
+import {QdCProdottiService} from &quot;../prodotti.service&quot;;
+import {QdCService} from &quot;../qdc.service&quot;;
+import {QdCFormToAttivitaService} from &quot;../quaderno-di-campagna-form/quaderno-di-campagna-form-to-attivita.service&quot;;
+import {Lavorazione} from &quot;../../../../Model/attivita/Lavorazione&quot;;
+import {enum_LAVCOD, enum_PUARegolamenti_Tipo, enum_TipoOperazioneDB} from &quot;../../../../Model/TipiEnumerativi&quot;;
+import {FormGroup} from &quot;@angular/forms&quot;;
+import {
+  Acqua,
+  CodiciXOperazione,
+  Key_Parametri_Aggiuntivi,
+  Key_Parametri_Aggiuntivi_Attivita,
+  Key_Parametri_Aggiuntivi_ControlloDosi,
+  Parametri_Aggiuntivi_ControllaDosi,
+  Sezione_Prodotto_Sementi
+} from &#x27;../../quaderno-di-campagna-form/quaderno-di-campagna-form.model&#x27;;
+import {Fabbricato} from &quot;../../../../Model/anagrafiche/Fabbricato&quot;;
+import {AvversitaGruppo} from &quot;../../../../Model/metaschema/avversita/AvversitaGruppo&quot;;
+import {QdCDettagliFormulatiService} from &quot;../prodotti/dettagli-formulati.service&quot;;
+import {QdCFertilizzantiService} from &quot;../prodotti/fertilizzanti.service&quot;;
+import {RowGridProdottiDaTrattare} from &quot;app/Service/api.service&quot;;
+import {ProdottoDaTrattareCDC} from &quot;app/Model/attivita/centri_di_costo/ProdottoDaTrattareCDC&quot;;
+import {cloneDeep} from &quot;lodash&quot;;
+import {RibaltamentoTypes} from &quot;../../../../menu-agenda/components/utils&quot;;
+import {Attivita} from &quot;../../../../Model/attivita/Attivita&quot;;
+import {QdCFormulatiService} from &quot;../prodotti/formulati.service&quot;;
+
+
+@Injectable()
+
+export class GridDosiProdottiControlliService{
+    constructor(private prodottiservice: QdCProdottiService,
+                @Optional() private qdcdettagliformulatiservice: QdCDettagliFormulatiService,
+                @Optional() private qdcfertilizzantiservice: QdCFertilizzantiService,
+                @Optional() private qdcformulatiservice: QdCFormulatiService,
+                private qdcservice: QdCService,
+                private translocoService: TranslocoService,
+                private gridimpiantiservice: GridImpiantiService,
+                private qdcformtoattivitaservice: QdCFormToAttivitaService,
+                private agendaservice: AgendaService){}
+
+    ControllaSeInserireDoseProdotto(gridDosiProdottiRows: Array&lt;any&gt;, RigaDaInserire: any,FormProdotto: FormGroup,Tipo_Operazione_DB: enum_TipoOperazioneDB,DosiProdottiGridrowId: number): Promise&lt;ErroreGias[]&gt;{
+
+        //TODO qui aggiungere controllo che ci deve essere il prodotto selezionato e le dosi valorizzate
+        // TODO Ricontrolla tutti i valori:
+        // in  nella trattamenti_2.Dosi_Inserisci
+        return new Promise&lt;ErroreGias[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            let listerroriGias: ErroreGias[] &#x3D; [];
+
+            if(RigaDaInserire){
+
+                this.ControllaSelezioneProdotto(RigaDaInserire,listerroriGias);
+
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0)
+                    this.Controlli_Per_Categoria_Magazzino(RigaDaInserire,gridDosiProdottiRows,listerroriGias);
+
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+                    let acqua: Acqua &#x3D; this.qdcservice.AcquaForm.getRawValue();
+
+                    this.Controlla_Acqua_Dose_HL(acqua.Acqua_Ha,RigaDaInserire,true,false,listerroriGias);
+
+                    if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+                        this.Controlla_Acqua_Dose_HL(acqua.Acqua_Tot,RigaDaInserire,true,false,listerroriGias);
+                    }
+                }
+
+
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0)
+                    this.Controlla_Dosi(RigaDaInserire,listerroriGias);
+
+                //Controlli in base all&#x27;impostazione utente o imprese impostazioni
+
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+                    if(this.prodottiservice.controlli_Giacenze_Lotti.txt_Lotto.obbligatorio &amp;&amp;
+                        (!RigaDaInserire.Lotto || RigaDaInserire.Lotto &#x3D;&#x3D;&#x3D; &quot;&quot;)){
+
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&#x27;qdc.LottoObbligatorioSecondoImpostazione&#x27;)
+                        });
+                    }
+
+                    if(this.prodottiservice.controlli_Giacenze_Lotti.ddl_UdM.obbligatorio &amp;&amp;
+                        (!RigaDaInserire.UdM_Indicata || RigaDaInserire.UdM_Indicata.codice &#x3D;&#x3D;&#x3D; 0)){
+
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&#x27;qdc.SelezionareUdM&#x27;)
+                        });
+                    }
+
+                    if(this.prodottiservice.controlli_Giacenze_Lotti.ddl_Magazzino.obbligatorio &amp;&amp;
+                        (!RigaDaInserire.Magazzino_del_Prodotto_Selezionato || RigaDaInserire.Magazzino_del_Prodotto_Selezionato.primaryKey.codice &#x3D;&#x3D;&#x3D; 0)){
+
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&#x27;qdc.MagazzinobbligatoriaSecondoImpostazione&#x27;)
+                        });
+                    }
+                }
+
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+                    if(!this.qdcservice.Controlla_Magazzino(RigaDaInserire)){
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&quot;qdc.SelezionareUnMagazzinoAzienda&quot;,{nomeAzienda: this.qdcservice.objParametriAgenda.RagSoc})
+                        });
+                    }
+                }
+
+                //TODO per ora qui non c&#x27;è il vincolo del prodotto con magazzino e lotto diverso
+                //ma dovrà essere implementato un nuovo controllo
+                /*if(gridDosiProdottiRows &amp;&amp; listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+                    for(const r of gridDosiProdottiRows){
+                        if(r.Fr_Cod &#x3D;&#x3D;&#x3D; RigaDaInserire.Fr_Cod &amp;&amp;
+                            r.Piva &#x3D;&#x3D;&#x3D; RigaDaInserire.Piva &amp;&amp;
+                            r.Sa_Cod &#x3D;&#x3D;&#x3D;  RigaDaInserire.Sa_Cod &amp;&amp;
+                            r.Fabbricato_Cod &#x3D;&#x3D;&#x3D; RigaDaInserire.Fabbricato_Cod &amp;&amp;
+                            r.Piva_Rif &#x3D;&#x3D;&#x3D; RigaDaInserire.Piva_Rif &amp;&amp;
+                            r.Sa_Cod_Rif &#x3D;&#x3D;&#x3D; RigaDaInserire.Sa_Cod_Rif &amp;&amp;
+                            r.Id_Agenda_Rif &#x3D;&#x3D;&#x3D; RigaDaInserire.Id_Agenda_Rif &amp;&amp;
+                            r.Id_Mov_Rif &#x3D;&#x3D;&#x3D; RigaDaInserire.Id_Mov_Rif &amp;&amp;
+                            r.Id_Mov_Det_Rif &#x3D;&#x3D;&#x3D; RigaDaInserire.Id_Mov_Det_Rif &amp;&amp;
+                            r.Lotto &#x3D;&#x3D;&#x3D; RigaDaInserire.Lotto &amp;&amp;
+                            r.DosiProdottiGridrowId !&#x3D;&#x3D; RigaDaInserire.DosiProdottiGridrowId){
+
+                            if(r.Categoria_Magazzino &#x3D;&#x3D;&#x3D; FORMULATI){
+                                listerroriGias.push(&lt;ErroreGias&gt;{
+                                    severity: ErroreGias_Severity.Bloccante,
+                                    tipo:  enum_ErroreGias_Tipo.Generico,
+                                    messaggio: this.translocoService.translate(&#x27;NonEConsentitoInserireUnFormulatoGiaPresen&#x27;)
+                                });
+
+                                break;
+                            }else if(r.Categoria_Magazzino &#x3D;&#x3D;&#x3D; FERTILIZZANTI){
+                                listerroriGias.push(&lt;ErroreGias&gt;{
+                                    severity: ErroreGias_Severity.Bloccante,
+                                    tipo:  enum_ErroreGias_Tipo.Generico,
+                                    messaggio: this.translocoService.translate(&#x27;NonEConsentitoInserireUnFertilizzanteGiaPr&#x27;)
+                                });
+
+                                break;
+                            }else if(r.Categoria_Magazzino &#x3D;&#x3D;&#x3D; SEMENTI){
+                                listerroriGias.push(&lt;ErroreGias&gt;{
+                                    severity: ErroreGias_Severity.Bloccante,
+                                    tipo:  enum_ErroreGias_Tipo.Generico,
+                                    messaggio: this.translocoService.translate(&#x27;NonEConsentitoInserireUnaSementePiantinaGiaPresen&#x27;)
+                                });
+
+                                break;
+                            }
+
+
+                        }
+
+                    }
+                }*/
+
+
+                //Controlli lato server
+                if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+
+                    let listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[] &#x3D; this.setParametriAggiuntivi_Controlla_Dosi(FormProdotto.get(&quot;Operazione&quot;).getRawValue());
+
+                    listerroriGias &#x3D; await this.ControlliDoseProdotto_Lato_Server(RigaDaInserire,gridDosiProdottiRows,FormProdotto,Tipo_Operazione_DB,DosiProdottiGridrowId,listParametri_Aggiuntivi_ControllaDosi);
+
+                    resolve(listerroriGias);
+                }else{
+                    this.qdcservice.gestisci_ErroriGias(listerroriGias,true,true).then((res:any)&#x3D;&gt;{
+                        if(res){
+                            switch(res.severity){
+                                case ErroreGias_Severity.Bloccante:
+                                    resolve(res.list_errori_filtrati);
+                                    break;
+                                case ErroreGias_Severity.WarningBloccante:
+                                    resolve(res.list_errori_filtrati);
+                                    break;
+                                case ErroreGias_Severity.Warning:
+                                    if (res.result.returnObj &#x3D;&#x3D;&#x3D; true) {
+                                        resolve([]);
+                                    }else{
+                                        resolve(res.list_errori_filtrati);
+                                    }
+                                    break;
+                            }
+                        }else{
+                            resolve([]);
+                        }
+                    });
+                }
+            }
+
+        });
+
+    }
+
+    private  async ControlliDoseProdotto_Lato_Server(row:any,rowsInserite: Array&lt;any&gt;,FormProdotto: FormGroup, Tipo_Operazione_DB: enum_TipoOperazioneDB,DosiProdottiGridrowId: number,listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[]){
+
+        let listerroriGias : ErroreGias[] &#x3D; [];
+
+        let Controllo_Inserimento_Dose_Lato_Server: Controllo_Inserimento_Dose_Prodotto &#x3D; this.Componi_Obj_Controllo_Inserimento_Dose_Prodotto(
+            row,rowsInserite, FormProdotto, Tipo_Operazione_DB, DosiProdottiGridrowId, listParametri_Aggiuntivi_ControllaDosi
+        );
+
+        let risp: RispostaStandard &#x3D; await this.agendaservice.Controllo_Inserimento_Dose_Prodotto(Controllo_Inserimento_Dose_Lato_Server);
+
+        if(!risp.RispostaOK &amp;&amp; risp.ErroriGias.length &gt; 0){
+            listerroriGias &#x3D; await this.gestisciTipoErrore_Warning(
+                row, rowsInserite, FormProdotto, Tipo_Operazione_DB, DosiProdottiGridrowId, Controllo_Inserimento_Dose_Lato_Server.parametri_aggiuntivi_list, risp
+            );
+        }
+
+        return listerroriGias;
+
+    }
+
+    public Componi_Obj_Controllo_Inserimento_Dose_Prodotto(row:any,rowsInserite: Array&lt;any&gt;,FormProdotto: FormGroup, Tipo_Operazione_DB: enum_TipoOperazioneDB,DosiProdottiGridrowId: number,listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[]):Controllo_Inserimento_Dose_Prodotto{
+
+        let Controllo_Inserimento_Dose_Lato_Server &#x3D; new Controllo_Inserimento_Dose_Prodotto();
+
+        Controllo_Inserimento_Dose_Lato_Server.tipoAttivita &#x3D; this.qdcservice.TestataForm.get(&quot;Tipo&quot;).value;
+        Controllo_Inserimento_Dose_Lato_Server.statoAttivita &#x3D; this.qdcservice.TestataForm.get(&quot;Stato&quot;).value;
+
+        if(Tipo_Operazione_DB &#x3D;&#x3D;&#x3D; enum_TipoOperazioneDB.Scrittura){
+            Controllo_Inserimento_Dose_Lato_Server.DosiProdottiGridrowId &#x3D; -1;
+        }else{
+            Controllo_Inserimento_Dose_Lato_Server.DosiProdottiGridrowId &#x3D; DosiProdottiGridrowId;
+        }
+
+        let raccoglitore_cod: number &#x3D; this.qdcservice.TestataForm.get(&quot;Raccoglitore&quot;).value;
+
+        //Per il multicentro va bene che prenda il primo id_agenda perchè tanto c&#x27;è la lista codici_x_centri
+        if(raccoglitore_cod &amp;&amp; raccoglitore_cod &gt; 0){
+            Controllo_Inserimento_Dose_Lato_Server.id_agenda &#x3D; 0;
+            Controllo_Inserimento_Dose_Lato_Server.raccoglitore_cod &#x3D; this.qdcservice.TestataForm.get(&quot;Raccoglitore&quot;).value;
+        } else {
+            Controllo_Inserimento_Dose_Lato_Server.id_agenda &#x3D; + (this.qdcservice.TestataForm.get(&quot;Codici_Attivita&quot;).getRawValue() as Array&lt;CodiciXOperazione&gt;)[0].CodiceAttivita;
+            Controllo_Inserimento_Dose_Lato_Server.raccoglitore_cod &#x3D; 0;
+        }
+
+        Controllo_Inserimento_Dose_Lato_Server.DoseConsentitaDiserbo &#x3D; 0;
+
+        if(row.Categoria_Magazzino &#x3D;&#x3D;&#x3D; FORMULATI &amp;&amp; this.qdcdettagliformulatiservice.doseConsentitaDiserbo &amp;&amp; this.qdcdettagliformulatiservice.doseConsentitaDiserbo.D_HA_Max_Diserbo)
+            Controllo_Inserimento_Dose_Lato_Server.DoseConsentitaDiserbo &#x3D; this.qdcdettagliformulatiservice.doseConsentitaDiserbo.D_HA_Max_Diserbo;
+
+        Controllo_Inserimento_Dose_Lato_Server.risorsaAcqua &#x3D; this.qdcformtoattivitaservice.getRisorsaAcqua(row.Operazione);
+
+        //Scarto le proprietà delle righe impianti che possono avere dell&#x27;Html all&#x27;interno (showHTMLAsString &#x3D; true) per evitare che ci siano problemi con la security
+        Controllo_Inserimento_Dose_Lato_Server.row_grid_impianti &#x3D; [];
+
+        if (this.qdcservice.GridImpiantiPublicService !&#x3D; null) {
+            let row_grid_Impianti &#x3D; this.gridimpiantiservice.kGetElementiSelezionati(cloneDeep(this.qdcservice.GridImpiantiPublicService.getValue().data.rows));
+
+            if(row_grid_Impianti &amp;&amp; row_grid_Impianti.length &gt; 0)
+                Controllo_Inserimento_Dose_Lato_Server.row_grid_impianti &#x3D; row_grid_Impianti;
+        }
+
+        Controllo_Inserimento_Dose_Lato_Server.row_grid_prodottiDaTrattare &#x3D; [];
+        let row_grid_prodottiDaTrattare &#x3D; this.qdcservice.ProdottiDaTrattareSelezionatiFormArray.value;
+        if(row_grid_prodottiDaTrattare &amp;&amp; row_grid_prodottiDaTrattare.length &gt; 0){
+            Controllo_Inserimento_Dose_Lato_Server.row_grid_prodottiDaTrattare &#x3D; this.parseProdottiDaTrattare(row_grid_prodottiDaTrattare);
+        }
+
+        Controllo_Inserimento_Dose_Lato_Server.row_grid_dosi &#x3D; rowsInserite;
+        Controllo_Inserimento_Dose_Lato_Server.lavorazione &#x3D;  row.Operazione;
+        Controllo_Inserimento_Dose_Lato_Server.row_grid_dosi_altre_operazioni &#x3D; [];
+
+        //Compongo un &#x27;array con tutte le righe di prodotti salvate nelle altre operazioni
+        if(this.qdcservice.Sezioni_ProdottoFormArray.getRawValue().length &gt; 0){
+            this.qdcservice.Sezioni_ProdottoFormArray.getRawValue().forEach(s&#x3D;&gt;{
+               if((s.Operazione as Lavorazione).primaryKey.codice !&#x3D;&#x3D; Controllo_Inserimento_Dose_Lato_Server.lavorazione.primaryKey.codice) {
+                   let DosiProdotticonRigheSalvate &#x3D; this.qdcservice.DosiProdotticonRigheSalvate(null,s.Operazione);
+
+                   if(DosiProdotticonRigheSalvate &amp;&amp; DosiProdotticonRigheSalvate.length &gt; 0){
+                       DosiProdotticonRigheSalvate.forEach(d&#x3D;&gt;{
+                           Controllo_Inserimento_Dose_Lato_Server.row_grid_dosi_altre_operazioni.push(d);
+                       });
+                   }
+               }
+            });
+        }
+
+        Controllo_Inserimento_Dose_Lato_Server.unitadiMisura &#x3D; row.UdM;
+        Controllo_Inserimento_Dose_Lato_Server.doseHa &#x3D; row.Dose_Ha;
+        Controllo_Inserimento_Dose_Lato_Server.doseHl &#x3D; row.Dose_Hl;
+        Controllo_Inserimento_Dose_Lato_Server.doseQ &#x3D; row.Dose_Ha; // WIP post raccolta, bisogna implementare un campo specifico per la sola quantità ettaro
+        Controllo_Inserimento_Dose_Lato_Server.quantitaTotale &#x3D; row.DoseTot_Ha;
+        Controllo_Inserimento_Dose_Lato_Server.flagTipoDose &#x3D; row.flagTipoDose;
+        Controllo_Inserimento_Dose_Lato_Server.flagDoseQuantitaTotale &#x3D; row.flagDoseQuantitaTotale;
+        Controllo_Inserimento_Dose_Lato_Server.Magazzino &#x3D;  (row.Magazzino_del_Prodotto_Selezionato as Fabbricato);
+        Controllo_Inserimento_Dose_Lato_Server.Lotto &#x3D;  row.Lotto;
+
+        Controllo_Inserimento_Dose_Lato_Server.data &#x3D;  this.qdcservice.TestataForm.get(&quot;Data&quot;).value;
+        Controllo_Inserimento_Dose_Lato_Server.disciplinare &#x3D; this.qdcservice.getDisciplinareModelValue(+ (row.Operazione as Lavorazione).primaryKey.codice);
+
+        Controllo_Inserimento_Dose_Lato_Server.utilizzoTerreno &#x3D; this.qdcservice.getUtilizzoTerrenoModel();
+        Controllo_Inserimento_Dose_Lato_Server.tipoRicetta &#x3D; this.qdcservice.TestataForm.get(&quot;TipoRicetta&quot;).value;
+        Controllo_Inserimento_Dose_Lato_Server.sup_Trattata &#x3D; this.qdcservice.SuperficiForm.get(&quot;Sup_Trattata&quot;).value;
+        Controllo_Inserimento_Dose_Lato_Server.qtaProdotto_Trattata &#x3D; this.qdcservice.QuantitaForm.get(&quot;Qta_Trattata&quot;).value;
+
+        //TODO Multicentro capire come fare
+        Controllo_Inserimento_Dose_Lato_Server.ricetta_cod &#x3D; + this.qdcservice.TestataForm.get(&quot;Codici_Attivita&quot;).getRawValue().find(c&#x3D;&gt;c.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; row.Operazione.primaryKey.codice).CodiceRicetta;
+
+        //TODO Multicentro capire come fare
+        Controllo_Inserimento_Dose_Lato_Server.ricetta_operazione_cod &#x3D; + this.qdcservice.TestataForm.get(&quot;Codici_Attivita&quot;).getRawValue().find(c&#x3D;&gt;c.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; row.Operazione.primaryKey.codice).CodiceOperazioneRicetta;
+
+        Controllo_Inserimento_Dose_Lato_Server.Piva_Rif &#x3D; row.Piva_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.Sa_Cod_Rif &#x3D; row.Sa_Cod_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.ID_Agenda_Rif &#x3D; row.ID_Agenda_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.ID_Mov_Rif &#x3D; row.ID_Mov_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.ID_Mov_Det_Rif &#x3D; row.ID_Mov_Det_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.Lav_Cod_Rif &#x3D; row.Lav_Cod_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.Cau_Mov_Rif &#x3D; row.Cau_Mov_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.Des_Rif &#x3D; row.Des_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.Qta_Rif &#x3D; row.Qta_Rif;
+
+        Controllo_Inserimento_Dose_Lato_Server.pua &#x3D;  this.qdcservice.TestataForm.get(&quot;Codici_Attivita&quot;).getRawValue().find(c&#x3D;&gt;c.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; row.Operazione.primaryKey.codice).pua;
+
+        Controllo_Inserimento_Dose_Lato_Server.Magazzino_Esterno &#x3D; row.Magazzino_Esterno;
+
+        switch(row.Categoria_Magazzino){
+            case FORMULATI:
+                Controllo_Inserimento_Dose_Lato_Server.dettaglioTrattamento &#x3D; row.Prodotto;
+                Controllo_Inserimento_Dose_Lato_Server.avversitaGruppo &#x3D; (row.Avversita as AvversitaGruppo);
+                Controllo_Inserimento_Dose_Lato_Server.soglia_Avversita &#x3D; row.Soglia_Avversita;
+                Controllo_Inserimento_Dose_Lato_Server.dosi_Etichetta &#x3D; row.Dosi_Etichetta;
+                break;
+            case FERTILIZZANTI:
+                Controllo_Inserimento_Dose_Lato_Server.dettaglioFertilizzazione &#x3D; row.Prodotto;
+                Controllo_Inserimento_Dose_Lato_Server.N &#x3D; row.N;
+                Controllo_Inserimento_Dose_Lato_Server.N_Utile &#x3D; row.N_Utile;
+                Controllo_Inserimento_Dose_Lato_Server.P &#x3D; row.P;
+                Controllo_Inserimento_Dose_Lato_Server.K &#x3D; row.K;
+                Controllo_Inserimento_Dose_Lato_Server.Cu &#x3D; row.Cu;
+                Controllo_Inserimento_Dose_Lato_Server.epocaFertilizzazione &#x3D; FormProdotto.get(&quot;EpocaFertilizzazione&quot;).value;
+                Controllo_Inserimento_Dose_Lato_Server.efficienza &#x3D; FormProdotto.get(&quot;Efficienza&quot;).value;
+                break;
+            case SEMENTI:
+                Controllo_Inserimento_Dose_Lato_Server.dettaglioSemina &#x3D; row.Prodotto;
+                Controllo_Inserimento_Dose_Lato_Server.sup_Calcolata &#x3D; row.Sup_Calcolata;
+                Controllo_Inserimento_Dose_Lato_Server.tipo_Semina &#x3D; this.qdcservice.getOpzione_Semina_Model(row.Operazione);
+                break;
+            case INSETTI:
+                Controllo_Inserimento_Dose_Lato_Server.dettaglioTrattamento &#x3D; row.Prodotto;
+                Controllo_Inserimento_Dose_Lato_Server.avversitaGruppo &#x3D; (row.Avversita as AvversitaGruppo);
+                break;
+        }
+
+        Controllo_Inserimento_Dose_Lato_Server.parametri_aggiuntivi_list &#x3D; listParametri_Aggiuntivi_ControllaDosi;
+
+        Controllo_Inserimento_Dose_Lato_Server.Categoria_Magazzino &#x3D; row.Categoria_Magazzino;
+
+        Controllo_Inserimento_Dose_Lato_Server.impresa &#x3D; this.qdcservice.getImpresa_Model();
+
+        Controllo_Inserimento_Dose_Lato_Server.Visualizza_Magazzini_Esterni &#x3D; row.Visualizza_Magazzini_Esterni;
+
+        //Original_Row_Value: Oggetto utilizzato per controllare le differenze tra il prodotto in ribaltamento e quello iniziale del brogliaccio
+        if(this.qdcservice.TipoRibaltamento &#x3D;&#x3D;&#x3D; RibaltamentoTypes.Da_Brogliaccio_ad_Agenda || this.qdcservice.TipoRibaltamento &#x3D;&#x3D;&#x3D; RibaltamentoTypes.Da_Ricetta_ad_Agenda){
+          Controllo_Inserimento_Dose_Lato_Server.Original_Row_Value &#x3D; row.Original_Row_Value;
+        }else{
+          Controllo_Inserimento_Dose_Lato_Server.Original_Row_Value &#x3D; null;
+        }
+
+        return Controllo_Inserimento_Dose_Lato_Server;
+    }
+
+    private ControllaSelezioneProdotto(RigaDaInserire: any,listerroriGias: ErroreGias[]){
+
+        //Replica il ControllaSelezioneFormulato(), il Resources.AgronicaAgenda_2010.SelezionareUnFertilizzante e il Resources.AgronicaAgenda_2010.SelezionareUnaSementePiantina della Trattamenti_2
+        if(!RigaDaInserire.Prodotto || RigaDaInserire.Prodotto.prodotto.codice &#x3D;&#x3D;&#x3D; 0 || (RigaDaInserire.Fr_Cod &#x3D;&#x3D;&#x3D; 0 &amp;&amp; RigaDaInserire.Fr_Des &#x3D;&#x3D;&#x3D; &quot;&quot;)){
+
+            switch(RigaDaInserire.Categoria_Magazzino){
+                case FORMULATI:
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&#x27;SelezionareUnFormulato&#x27;)
+                    });
+                    break;
+                case FERTILIZZANTI:
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&#x27;SelezionareUnFertilizzante&#x27;)
+                    });
+                    break;
+                case SEMENTI:
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&#x27;SelezionareUnaSementePiantina&#x27;)
+                    });
+                    break;
+                case INSETTI:
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: this.translocoService.translate(&#x27;SelezionareUnInsetto&#x27;)
+                    });
+                    break;
+
+            }
+        }
+
+
+        if(listerroriGias.length &#x3D;&#x3D;&#x3D; 0){
+            for(let s of this.qdcservice.Sezioni_ProdottoFormArray.getRawValue()){
+                if(s.Operazione.primaryKey.codice !&#x3D;&#x3D; RigaDaInserire.Operazione.primaryKey.codice){
+                    for(let d of s.DosiProdotti){
+                        if(d.Fr_Cod &#x3D;&#x3D;&#x3D; RigaDaInserire.Fr_Cod &amp;&amp; d.Categoria_Magazzino &#x3D;&#x3D;&#x3D; RigaDaInserire.Categoria_Magazzino){
+                            listerroriGias.push(&lt;ErroreGias&gt;{
+                                severity: ErroreGias_Severity.Bloccante,
+                                tipo:  enum_ErroreGias_Tipo.Generico,
+                                messaggio: this.translocoService.translate(&#x27;NonePossibileInserireloStessoProdottoinSezDiverse&#x27;)
+                            });
+                            return listerroriGias;
+                        }
+                    }
+                }
+            }
+        }
+
+        return listerroriGias;
+
+    }
+
+    private Controlla_Dosi(RigaDaInserire: any,listerroriGias: ErroreGias[]){
+
+        this.Controlla_Acqua_Dose_HL(RigaDaInserire.Dose_Hl,RigaDaInserire,false,true,listerroriGias);
+
+        if(listerroriGias.length &gt; 0){
+            return;
+        }
+
+        //controllo dose
+        if(RigaDaInserire.Dose_Ha &lt;&#x3D; 0){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaDoseNullaONegativa&#x27;)
+            });
+
+            return;
+        }
+
+
+
+        //controlli generici sulla dose totale
+        if(RigaDaInserire.DoseTot_Ha &lt;&#x3D; 0){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaDoseTotaleNullaO&#x27;)
+            });
+
+            return;
+        }
+
+    }
+
+    private Controlla_Acqua_Dose_HL(value: number,RigaDaInserire: any,flag_acqua: boolean,flag_dose_hl: boolean,listerroriGias: ErroreGias[]){
+
+        let messaggio: string &#x3D; &quot;&quot;;
+
+        let lav_cod &#x3D; + RigaDaInserire.Operazione.primaryKey.codice;
+
+        //CONTROLLO OBBLIGO ACQUA
+        switch(lav_cod){
+            case enum_LAVCOD.CONCIMAZIONE_FOGLIARE:
+            case enum_LAVCOD.FERTIRRIGAZIONE:
+            case enum_LAVCOD.TRATTAMENTO_ANTIBUTTERATURA:
+                if(value &lt;&#x3D; 0){
+
+                    if(flag_acqua){
+                        messaggio &#x3D; this.translocoService.translate(&#x27;InserireUnValoreNumericoPerIndicareLaBQuan&#x27;);
+                    }else if(flag_dose_hl){
+                        messaggio &#x3D; this.translocoService.translate(&#x27;NonEPossibileInserireUnaDoseNullaONegativa&#x27;);
+                    }
+
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: messaggio
+                    });
+
+                    return;
+                }
+                break;
+            case enum_LAVCOD.TRATTAMENTO_ANTIPARASSITARIO:
+            case enum_LAVCOD.DISERBO:
+            case enum_LAVCOD.DISSECCAMENTO:
+            case enum_LAVCOD.TRATTAMENTO_FITOREGOLATORE:
+                //Per ora il flag polverulento viene gestito solamente lato server
+
+                /*if((RigaDaInserire.Prodotto as MultiColumnComboboxTrattamento).polverulento){
+                    if(value !&#x3D;&#x3D; 0){
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: this.translocoService.translate(&#x27;ImpossibileAcquaPolverulenti&#x27;)
+                        });
+
+                        return;
+                    }
+                }else{
+                    if(value &lt;&#x3D; 0){
+
+                        if(flag_acqua){
+                            messaggio &#x3D; this.translocoService.translate(&#x27;InserireUnValoreNumericoPerIndicareLaBQuan&#x27;);
+                        }else if(flag_dose_hl){
+                            messaggio &#x3D; this.translocoService.translate(&#x27;NonEPossibileInserireUnaDoseNullaONegativa&#x27;);
+                        }
+
+                        listerroriGias.push(&lt;ErroreGias&gt;{
+                            severity: ErroreGias_Severity.Bloccante,
+                            tipo:  enum_ErroreGias_Tipo.Generico,
+                            messaggio: messaggio
+                        });
+
+                        return;
+                    }
+
+                    return;
+                }
+                break;*/
+            default:
+                if(value &lt; 0){
+
+                    if(flag_acqua){
+                        messaggio &#x3D; this.translocoService.translate(&#x27;InserireUnValoreNumericoPerIndicareLaBQuan&#x27;);
+                    }else if(flag_dose_hl){
+                        messaggio &#x3D; this.translocoService.translate(&#x27;NonEPossibileInserireUnaDoseNullaONegativa&#x27;);
+                    }
+
+                    listerroriGias.push(&lt;ErroreGias&gt;{
+                        severity: ErroreGias_Severity.Bloccante,
+                        tipo:  enum_ErroreGias_Tipo.Generico,
+                        messaggio: messaggio
+                    });
+
+                    return;
+                }
+                break;
+        }
+    }
+
+    private Controlli_Per_Categoria_Magazzino(RigaDaInserire: any, RigheGiaInserite: Array&lt;any&gt;,listerroriGias: ErroreGias[]){
+
+        let elem_cod &#x3D; RigaDaInserire.Categoria_Magazzino;
+
+        let lav_cod &#x3D; + RigaDaInserire.Operazione.primaryKey.codice;
+
+        switch(elem_cod){
+            case FORMULATI:
+                this.Controlli_Formulati(RigaDaInserire,listerroriGias);
+                break;
+            case FERTILIZZANTI:
+                this.Controlli_Fertilizzanti(RigaDaInserire,listerroriGias);
+                break;
+            case SEMENTI:
+                this.Controlli_Sementi(RigaDaInserire,RigheGiaInserite,listerroriGias);
+                break;
+        }
+
+    }
+
+    private Controlli_Fertilizzanti(RigaDaInserire: any,listerroriGias: ErroreGias[]){
+
+        if(RigaDaInserire.Efficienza &lt; 0 || RigaDaInserire.Efficienza &gt; 1){
+
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;InserireUnValoreDiEfficienzaIncluso01&#x27;)
+            });
+
+            return;
+
+        }
+
+        //---------------
+        //N - P - K - Cu
+        //---------------
+        if(RigaDaInserire.N &lt; 0 ){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaQuantitaDiNNegativ&#x27;)
+            });
+
+            return;
+
+        }
+
+        if(RigaDaInserire.N_Utile &lt; 0 ){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaQuantitaDiNUtileNe&#x27;)
+            });
+
+            return;
+
+        }
+
+        if(RigaDaInserire.P &lt; 0 ){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaQuantitaDiP2O5Nega&#x27;)
+            });
+
+            return;
+
+        }
+
+        if(RigaDaInserire.K &lt; 0 ){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaQuantitaDiK2ONegat&#x27;)
+            });
+
+            return;
+
+        }
+
+        if(RigaDaInserire.Cu &lt; 0 ){
+            listerroriGias.push(&lt;ErroreGias&gt;{
+                severity: ErroreGias_Severity.Bloccante,
+                tipo:  enum_ErroreGias_Tipo.Generico,
+                messaggio: this.translocoService.translate(&#x27;NonEPossibileInserireUnaQuantitaDiCuNegat&#x27;)
+            });
+
+            return;
+
+        }
+
+        this.Controlla_EpocaFertilizzazione(RigaDaInserire,listerroriGias);
+
+        if(listerroriGias.length &gt; 0)
+            return;
+
+    }
+
+
+    private Controlli_Sementi(RigaDaInserire: any,RigheGiaInserite: Array&lt;any&gt;,listerroriGias: ErroreGias[]){
+
+        let Opzione_Semina &#x3D; this.qdcservice.getOpzione_Semina_Model(RigaDaInserire.Operazione);
+
+        this.qdcservice.Controllo_Sup_Calcolata(Opzione_Semina,RigaDaInserire,RigheGiaInserite,listerroriGias);
+
+    }
+
+    private Controlla_EpocaFertilizzazione(RigaDaInserire: any,listerroriGias: ErroreGias[]){
+
+        //Non Aggiungere riga vuota solo per DISTRIBUZIONE_AMMENDANTI e se il disciplinare scelto ha una direttiva nitrati
+        //(RegolamentoConcimazione.tipo &#x3D; 2) perchè l&#x27;Epoca è obbligatoria.
+        //Negli altri casi la Epoca di Fertlizzazione non è obbligatoria e aggiungo la riga vuota nella ddl.
+
+      if(this.qdcfertilizzantiservice.ObbligatoryEpocaFertilizzazione(RigaDaInserire.Operazione)){
+        if(!RigaDaInserire.EpocaFertilizzazione ||
+          RigaDaInserire.EpocaFertilizzazione.codice &#x3D;&#x3D;&#x3D; 0){
+
+          listerroriGias.push(&lt;ErroreGias&gt;{
+            severity: ErroreGias_Severity.Bloccante,
+            tipo:  enum_ErroreGias_Tipo.Generico,
+            messaggio: this.translocoService.translate(&quot;qdc.SelezionareUnEpoca&quot;)
+          });
+        }
+
+      }
+
+    }
+
+
+
+    private gestisciTipoErrore_Warning(row:any,rowsInserite: Array&lt;any&gt;,FormProdotto: FormGroup, Tipo_Operazione_DB: enum_TipoOperazioneDB,
+                                             DosiProdottiGridrowId: number,listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[], rispostaStandard: RispostaStandard): Promise&lt;ErroreGias[]&gt;{
+
+        return new Promise &lt;ErroreGias[]&gt;(async (resolve,reject)&#x3D;&gt;{
+            let listErroriGias_filtrati: ErroreGias[] &#x3D; [];
+
+            let res &#x3D; await this.qdcservice.gestisci_ErroriGias(rispostaStandard.ErroriGias,true,false);
+
+            if(res){
+                switch(res.severity){
+                    case ErroreGias_Severity.WarningBloccante:
+                        listErroriGias_filtrati &#x3D; res.list_errori_filtrati;
+                        break;
+                    case ErroreGias_Severity.Bloccante:
+                        listErroriGias_filtrati &#x3D; res.list_errori_filtrati;
+                        break;
+                    case ErroreGias_Severity.Warning:
+                        //Se l&#x27;utente ha cliccato su Sì allora eseguo il salvataggio saltando il warning a cui ha detto sì
+                        if (res.result.returnObj &#x3D;&#x3D;&#x3D; true) {
+
+                            this.change_lista_MostraWarning(res.list_errori_filtrati,listParametri_Aggiuntivi_ControllaDosi);
+
+                            listErroriGias_filtrati &#x3D; await this.ControlliDoseProdotto_Lato_Server(row,rowsInserite,FormProdotto,Tipo_Operazione_DB,DosiProdottiGridrowId,listParametri_Aggiuntivi_ControllaDosi);
+
+                        }else{
+                            listErroriGias_filtrati &#x3D; res.list_errori_filtrati;
+                        }
+                        break;
+                }
+            }
+
+            resolve(listErroriGias_filtrati);
+        });
+
+
+    }
+
+    private setParametriAggiuntivi_Controlla_Dosi(Operazione: Lavorazione): Parametri_Aggiuntivi_ControllaDosi[]{
+
+        let listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[] &#x3D; [];
+
+        let codici_Attivita_x_CentriAziendali &#x3D; this.qdcformtoattivitaservice.setParametriAggiuntivi_X_MultiCentro();
+
+        if(codici_Attivita_x_CentriAziendali &amp;&amp; codici_Attivita_x_CentriAziendali.length &gt; 0){
+            listParametri_Aggiuntivi_ControllaDosi.push({
+                key: Key_Parametri_Aggiuntivi.lista_Codici_Attivita_x_CentriAziendali,
+                value: JSON.stringify(codici_Attivita_x_CentriAziendali)
+            });
+        }
+
+        let SezioneProdottoForm &#x3D; this.qdcservice.Sezione_ProdottoFormGroup(Operazione);
+
+        if(SezioneProdottoForm){
+
+            let SezioneProdottoFormValue &#x3D; SezioneProdottoForm.getRawValue();
+
+            switch(SezioneProdottoFormValue.Categoria_Magazzino) {
+                case FORMULATI:
+                    break;
+                case FERTILIZZANTI:
+                    break;
+                case SEMENTI:
+
+                    SezioneProdottoFormValue &#x3D; SezioneProdottoFormValue as Sezione_Prodotto_Sementi;
+
+                    if (SezioneProdottoFormValue.Opzioni_Semina) {
+
+                        listParametri_Aggiuntivi_ControllaDosi.push({
+                            key: Key_Parametri_Aggiuntivi_Attivita.Opzione_Semina,
+                            value: !SezioneProdottoFormValue.Opzioni_Semina ? &quot;0&quot; : SezioneProdottoFormValue.Opzioni_Semina.codice.toString()
+                        });
+                    }
+            }
+        }
+
+        this.set_lista_MostraWarning(listParametri_Aggiuntivi_ControllaDosi);
+
+        return listParametri_Aggiuntivi_ControllaDosi;
+    }
+
+    private set_lista_MostraWarning(listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[]){
+
+        let mostraWarning_CheckGiacenza: string &#x3D;  &quot;true&quot;;
+
+        if(this.qdcservice.Is_Ribaltamento_Ricetta_Da_PUA())
+          mostraWarning_CheckGiacenza &#x3D; &quot;false&quot;;
+
+
+        listParametri_Aggiuntivi_ControllaDosi.push({
+            key: Key_Parametri_Aggiuntivi_ControlloDosi.mostraWarning_CheckGiacenza,
+            value: mostraWarning_CheckGiacenza
+        });
+
+        listParametri_Aggiuntivi_ControllaDosi.push({
+            key: Key_Parametri_Aggiuntivi_ControlloDosi.mostraWarning_CheckMassimali,
+            value: &quot;true&quot;
+        });
+
+        listParametri_Aggiuntivi_ControllaDosi.push({
+            key: Key_Parametri_Aggiuntivi_ControlloDosi.mostraWarning_CheckEtichetta,
+            value: &quot;true&quot;
+        });
+
+        listParametri_Aggiuntivi_ControllaDosi.push({
+          key: Key_Parametri_Aggiuntivi_ControlloDosi.mostraWarning_CheckProdottoInRibaltamento,
+          value: &quot;true&quot;
+        });
+
+
+      return listParametri_Aggiuntivi_ControllaDosi;
+
+    }
+
+    private change_lista_MostraWarning(list_warning: ErroreGias[],listParametri_Aggiuntivi_ControllaDosi: Parametri_Aggiuntivi_ControllaDosi[]){
+
+        let distinct_warning: ErroreGias[] &#x3D; [...new Map(list_warning.map(item &#x3D;&gt; [item[&quot;ex&quot;], item])).values()];
+
+        if(distinct_warning &amp;&amp; listParametri_Aggiuntivi_ControllaDosi &amp;&amp; listParametri_Aggiuntivi_ControllaDosi.length &gt; 0){
+
+            for(let v of listParametri_Aggiuntivi_ControllaDosi){
+                for(let w of distinct_warning){
+                    if(v.key &#x3D;&#x3D;&#x3D; w.ex){
+                        v.value &#x3D; &quot;false&quot;;
+                    }
+                }
+            }
+        }
+
+    }
+
+    private parseProdottiDaTrattare(prodotti: ProdottoDaTrattareCDC[]): RowGridProdottiDaTrattare[] {
+        const result: RowGridProdottiDaTrattare[] &#x3D; [];
+        for (const prodotto of prodotti) {
+            const mag &#x3D; prodotto.giacenzaMagazzino.Magazzino;
+            const prod &#x3D; prodotto.giacenzaMagazzino.Prodotto;
+            result.push({
+                PIVA: mag.primaryKey.centroAziendalePK.partitaIva,
+                SA_COD: mag.primaryKey.centroAziendalePK.codice,
+                FABBRICATO_COD: mag.primaryKey.codice,
+                Mat_Cod: prod.codice,
+                Elem_Cod: prod.elemCod,
+                Codice_Alfanumerico: prod.codice_alfanumerico,
+                Prodotto: prod.descrizione,
+                Progetto_Cod: prodotto.giacenzaMagazzino.codice_progetto,
+                Lotto: prodotto.giacenzaMagazzino.Lotto,
+                QtaProdotto: prodotto.giacenzaMagazzino.Qta
+            });
+        }
+
+        return result;
+    }
+
+    private Controlli_Formulati(RigaDaInserire: any,listerroriGias: ErroreGias[]){
+      this.qdcformulatiservice.Controlla_EpocaDPI(RigaDaInserire.EpocaDPI,RigaDaInserire.Operazione,listerroriGias);
+
+      if(listerroriGias.length &gt; 0)
+        return;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridDosiProdottiControlliService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

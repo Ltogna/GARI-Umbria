@@ -1,0 +1,1129 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >BloccaAttivitaAgendaImpl</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/shared_services/bussiness-logic.service.ts</code>
+        </p>
+
+
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/BloccaAttivitaAgenda.html" target="_self" >BloccaAttivitaAgenda</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#id_agenda" >id_agenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#lav_cod" >lav_cod</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#piva" >piva</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sa_cod" >sa_cod</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(piva: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sa_cod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, id_agenda: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, lav_cod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/menu-agenda/shared_services/bussiness-logic.service.ts:46</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piva</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sa_cod</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>id_agenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>lav_cod</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id_agenda"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>id_agenda</b></span>
+                        <a href="#id_agenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/menu-agenda/shared_services/bussiness-logic.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lav_cod"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>lav_cod</b></span>
+                        <a href="#lav_cod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/menu-agenda/shared_services/bussiness-logic.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="piva"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>piva</b></span>
+                        <a href="#piva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/menu-agenda/shared_services/bussiness-logic.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sa_cod"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sa_cod</b></span>
+                        <a href="#sa_cod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/menu-agenda/shared_services/bussiness-logic.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { ElementRef, Injectable, OnDestroy, Renderer2 } from &#x27;@angular/core&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { IntlService } from &#x27;@progress/kendo-angular-intl&#x27;;
+import { Tipo_Ricetta } from &#x27;app/Model/attivita/Attivita&#x27;;
+import { enum_PagineAgenda_2010, enum_PaginePianoConcimazione_2017, Enum_SiteRedirector } from &#x27;app/Model/siti.enum&#x27;;
+import {
+  GestioneRichiesteService,
+  KeyValuePair,
+  ParametriAggiuntivi_QueryString
+} from &#x27;app/Service/gestione-richieste.service&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { GiasKendoGridComponent, KendoGridRow } from &#x27;gias-kendo-grid&#x27;;
+import { FiltersService } from &#x27;../components/filters/filters.service&#x27;;
+import { Gias2010Redirector } from &#x27;../components/grid-qdc/Gias2010Redirector.service&#x27;;
+import { PulsanteGestioneCostiService } from &#x27;../components/grid-qdc/pulsanteGestioneCosti.service&#x27;;
+import {
+  BloccaAttivitaAgendaLink,
+  BrogliaccioRow,
+  CopiaOperazioneSingola as CopiaOperazioneSingolaLink,
+  CreateRecipeData,
+  CreateRicettaLink,
+  lav_cod_non_editabili,
+  QdCRow,
+  RibaltamentoTypes,
+  RicettaRow,
+  SbloccaAttivitaAgendaLink,
+  TabTypes,
+  ZooRow
+} from &#x27;../components/utils&#x27;;
+import { CopiaOperazioneResult } from &#x27;../dtos/dtos&#x27;;
+import { MenuAgendaDataStore } from &#x27;./menu-agenda-datastore.service&#x27;;
+import { GiasIFrameWindowService } from &#x27;gias-ui-kit&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { AgendaService, AggiungiRicettaAlPUA } from &quot;../../Service/Agenda/Agenda.service&quot;;
+import { AjaxAgronicaAPIService } from &#x27;app/Service/ajax-agronica.api.service&#x27;;
+import { enum_ID_Area_Alert, enum_LAVCOD, enum_PagineGiasNG } from &quot;../../Model/TipiEnumerativi&quot;;
+import { ZooOperationGridFlatItem } from &quot;../../zoo/models/zoo-operation-grid-item.model&quot;;
+import { from, map, Observable, of, Subscription, take } from &#x27;rxjs&#x27;;
+import { BloccaAttivitaAgenda } from &quot;../../Service/api.service&quot;;
+import { ObjParametriAgenda, Tipo_Attivita } from &#x27;gias-ui-kit&#x27;;
+
+export class BloccaAttivitaAgendaImpl implements BloccaAttivitaAgenda {
+  constructor(
+    public piva: string,
+    public sa_cod: number,
+    public id_agenda: string,
+    public lav_cod: number
+  ) {
+  }
+}
+
+@Injectable()
+export class BussinessMenuAgendaService implements OnDestroy {
+  /**
+   * Use cases in the qdc grid.
+   */
+  gestioneCosti: PulsanteGestioneCostiService;
+  masterService: any;
+  Subs &#x3D; new Subscription();
+
+  private readonly _docContabili &#x3D; [
+    enum_LAVCOD.FATTURA_RICEVUTA, enum_LAVCOD.FATTURA_EMESSA,
+    enum_LAVCOD.BOLLA_RICEVUTA, enum_LAVCOD.BOLLA_EMESSA,
+    enum_LAVCOD.ACCETTAZIONE_DIVERSI, enum_LAVCOD.DISTINTA_CARICO_ACCETTAZIONE,
+    enum_LAVCOD.AUTO_DDT_EMESSO_ACCETTAZIONE,
+    enum_LAVCOD.ORDINE_VENDITA, enum_LAVCOD.ORDINE_ACQUISTO
+  ];
+  private readonly _carichiScarichi &#x3D; [enum_LAVCOD.CARICO, enum_LAVCOD.SCARICO];
+
+  constructor(
+    private dataStore: MenuAgendaDataStore,
+    private transloco: TranslocoService,
+    private IntlService: IntlService,
+    private master: MasterService,
+    private filters$: FiltersService,
+    private router: Router,
+    private agenda: ObjParametriAgendaService,
+    public notifications: GiasMessageService,
+    private dialogService: GiasDialogService,
+    private gestioneRichieste: GestioneRichiesteService,
+    private windowService: GiasIFrameWindowService,
+    private redirector: Gias2010Redirector,
+    renderer: Renderer2,
+    private AgendaService: AgendaService,
+    private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+    private objParametriAgendaService: ObjParametriAgendaService
+  ) {
+    this.gestioneCosti &#x3D; new PulsanteGestioneCostiService(
+      {
+        dataStore: dataStore,
+        agenda: agenda,
+        notifications: notifications,
+        gestioneRichieste: gestioneRichieste,
+        renderer: renderer,
+        ajaxAgronicaAPIService: ajaxAgronicaAPIService,
+        objParametriAgendaService: objParametriAgendaService
+      }
+    );
+  }
+
+  /** Gestione costi */
+  public applicaStiliGestioneCosti(domElems: any, rows: QdCRow[], qdcGridRef: ElementRef) {
+    this.gestioneCosti.applyStyle({
+      rows: rows,
+      domElems: domElems,
+      qdcGridRef: qdcGridRef
+    });
+  }
+
+  // Gestione stile singolo pulsante
+  public applicaStilePulsanteCosti(dataItem: QdCRow) {
+    return this.gestioneCosti.getCostiStyleClass(dataItem);
+  }
+
+  public vaiAiCosti(row: QdCRow) {
+    this.gestioneCosti.vaiAiCosti(row);
+  }
+
+  /****/
+
+  public OperazioneBloccata(dataItem: ZooRow) {
+    return dataItem.blocco_flag &#x3D;&#x3D;&#x3D; &quot;1&quot;;
+  }
+
+  public lavcodNonEditabile(dataItem: ZooRow) {
+    return lav_cod_non_editabili.indexOf(parseInt(dataItem.Lav_cod)) &gt;&#x3D; 0;
+  }
+
+  public SenzaPermessoDiModifica(dataItem: ZooRow) {
+    return dataItem.PermessoModifica &#x3D;&#x3D;&#x3D; &quot;False&quot;;
+  }
+
+  preparaModalRicetta(selezionata: KendoGridRow, righe: KendoGridRow[]) {
+    let result: CreateRecipeData &#x3D; new CreateRecipeData();
+    result.lblHtmlRicettaDaCreare &#x3D; &#x27;&#x27;;
+    result.piva_ricetta &#x3D; selezionata[&#x27;Piva&#x27;];
+    result.sa_cod &#x3D; selezionata[&#x27;sa_cod&#x27;];
+    result.id_agenda &#x3D; selezionata[&#x27;id_agenda&#x27;];
+    result.ricettaForm.descrizione &#x3D; selezionata[&#x27;Specie_Varieta&#x27;];
+    result.ricettaForm.nota &#x3D; &#x27;&#x27;;
+    let singolaSpecie &#x3D; this.transloco.translate(&#x27;ErroreSingolaSpecie&#x27;, {});
+    result.ErroreSingolaSpecie &#x3D; singolaSpecie;
+    let sacod_ricetta &#x3D; result.sa_cod;
+    let veg_cod &#x3D; selezionata[&#x27;Veg_cod&#x27;];
+    let stesso_vegcod &#x3D; true;
+    let data: Date &#x3D; selezionata[&#x27;Data2&#x27;] as Date;
+    let data_inizio &#x3D; new Date(data);
+    let data_fine &#x3D; new Date(data);
+    // Estraggo gli elementi selezionati
+    //let arraySelected &#x3D; this.elementiGrigliaSelezionati(righe);
+    let arraySelected &#x3D; righe as any[];
+    // concateno gli elementi selezionati
+    let id_agenda_checked &#x3D; &quot;&quot;;
+    let riassunto_op &#x3D; &quot;&quot;;
+
+    for (let iRow in arraySelected) {
+      let ricettabile &#x3D; this.dataStore.lav_cod_ricettabili.indexOf(arraySelected[iRow].Lav_cod) &gt;&#x3D; 0;
+      if (!ricettabile || arraySelected[iRow].Ricetta_Cod !&#x3D;&#x3D; &quot;0&quot;)
+        continue;
+
+      if (arraySelected[iRow].Veg_cod !&#x3D;&#x3D; veg_cod) stesso_vegcod &#x3D; false;
+      id_agenda_checked +&#x3D; arraySelected[iRow].id_agenda + &#x27;,&#x27;;
+      let datatmp &#x3D; new Date(arraySelected[iRow].Data2);
+      if (datatmp &lt; data_inizio) data_inizio &#x3D; datatmp;
+      if (datatmp &gt; data_fine) data_fine &#x3D; datatmp;
+
+      riassunto_op +&#x3D;
+        &#x27;&lt;div class&#x3D;&quot;row&quot;&gt;&lt;div class&#x3D;&quot;col-lg-12&quot;&gt;&#x27; + arraySelected[iRow].Data +
+        &#x27; - &#x27; + arraySelected[iRow].Lav_Des + &#x27; - &#x27; + arraySelected[iRow].Specie_Varieta + &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;;
+      if (arraySelected[iRow].sa_cod !&#x3D;&#x3D; 0 &amp;&amp; arraySelected[iRow].sa_cod !&#x3D;&#x3D; sacod_ricetta) {
+        sacod_ricetta &#x3D; 0;
+      }
+    }
+    if (id_agenda_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+      riassunto_op &#x3D; &#x27;&lt;div class&#x3D;&quot;row&quot;&gt;&lt;div class&#x3D;&quot;col-lg-12&quot;&gt;&#x27; + selezionata[&#x27;Data&#x27;]
+        + &#x27; - &#x27; + selezionata[&#x27;Lav_Des&#x27;] + &#x27; - &#x27; + selezionata[&#x27;Specie_Varieta&#x27;] + &#x27;&lt;/div&gt;&lt;/div&gt;&#x27;;
+    }
+
+    result.ricettaForm.dataInizio &#x3D; data_inizio;
+    result.ricettaForm.dataFine &#x3D; data_fine;
+    result.data_operazione &#x3D; data_fine.toLocaleString();
+    let ricettaInfo &#x3D; this.transloco.translate(&#x27;RicettaConterraOperazioni&#x27;, {});
+    if (riassunto_op !&#x3D;&#x3D; &#x27;&#x27;) {
+      riassunto_op &#x3D; &#x27;&lt;div class&#x3D;&quot;row&quot;&gt;&lt;div class&#x3D;&quot;col-lg-12&quot;&gt;&#x27; + ricettaInfo + &#x27;&lt;/div&gt;&lt;/div&gt;&#x27; + riassunto_op;
+    }
+
+    result.lblHtmlRicettaDaCreare &#x3D; riassunto_op;
+    result.stesso_vag_cod &#x3D; stesso_vegcod;
+    this.Subs.add(from(this.AgendaService.Ricetta_Numero_Default(result.piva_ricetta, result.data_operazione)).pipe(take(1)).subscribe(r &#x3D;&gt; {
+      result.ricettaForm.numero &#x3D; r;
+      this.dataStore.recipeModalData.next(result);
+    }));
+  }
+
+  elementiGrigliaSelezionati(righe: KendoGridRow[]) {
+    //Estraggo gli elementi selezionati
+    //let dati &#x3D; datiGriglia.dataSource.data();
+    let arraySelected &#x3D; [];
+    for (let i &#x3D; 0; i &lt; righe.length; i++) {
+      if (righe[i][&#x27;Selected&#x27;]) {
+        arraySelected.push(righe[i]);
+      }
+    }
+    return arraySelected;
+  }
+
+  inviaRicettaApp(ricetteList: RicettaRow[]): Promise&lt;any&gt; {
+    return this.dataStore.InviaRicettaApp(ricetteList);
+  }
+
+  CreaRicetta(righe: KendoGridRow[]) {
+    let form &#x3D; this.dataStore.recipeModalData.getValue().ricettaForm;
+    let ricetta_des &#x3D; form.descrizione;
+    let ricetta_numero &#x3D; form.numero;
+    let data_inizio &#x3D; form.dataInizio;
+    let data_fine &#x3D; form.dataFine;
+    let nota_des &#x3D; form.nota;
+    let id_agenda_checked &#x3D; &quot;&quot;;
+    let veg_cod &#x3D; 0;
+
+    if (ricetta_des &#x3D;&#x3D;&#x3D; &#x27;&#x27; || ricetta_numero &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+      let descrizioneNumObbl &#x3D; this.transloco.translate(&#x27;jsMsgInserireDescrizioneNum&#x27;, {});
+      this.dialogService.baseError(&#x27;&#x27;, descrizioneNumObbl, false)
+    } else {
+      ////Estraggo gli elementi selezionati
+      let arraySelected &#x3D; this.elementiGrigliaSelezionati(righe);
+      //concateno gli elementi selezionati
+      let modal &#x3D; this.dataStore.recipeModalData.getValue();
+      let id_agenda &#x3D; modal.id_agenda;
+
+      for (let iRow in arraySelected) {
+        let found &#x3D; this.dataStore.lav_cod_ricettabili.indexOf(arraySelected[iRow].Lav_cod) &gt; 0;
+        if (arraySelected[iRow].Ricetta_Cod &#x3D;&#x3D;&#x3D; &quot;0&quot; &amp;&amp; found) {
+
+          id_agenda_checked +&#x3D; arraySelected[iRow].id_agenda + &#x27;,&#x27;;
+          veg_cod &#x3D; arraySelected[iRow].Veg_cod;
+        }
+      }
+      if (id_agenda_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+        id_agenda_checked &#x3D; id_agenda + &quot;,&quot;;
+      }
+      id_agenda_checked +&#x3D; &quot;-1&quot;;
+
+      let ricetta &#x3D; this.dataStore.recipeModalData.getValue();
+      const params &#x3D; getParams(data_inizio, data_fine,
+        id_agenda_checked, ricetta.id_agenda, ricetta.piva_ricetta,
+        ricetta.sa_cod, veg_cod, ricetta_des,
+        ricetta_numero, nota_des
+      );
+      this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(CreateRicettaLink, params)
+        .pipe(take(1)).subscribe(risp &#x3D;&gt; {
+          if (risp.RispostaOK &#x3D;&#x3D;&#x3D; true) {
+            this.dialogService.baseSuccess(&#x27;&#x27;, risp.RispostaStringa);
+            this.dataStore.recipeModalData.next(null);
+            this.filters$.applyFilters();
+          } else {
+            this.master.changeErrorMsgType({ show: true, msg: risp.Errore, errorNumber: 0 });
+          }
+        });
+    }
+  }
+
+  public copiaOperazione(datiRiga: KendoGridRow, righe: KendoGridRow[]) {
+    let chiave &#x3D; datiRiga[&#x27;chiave_composita&#x27;];
+    let data &#x3D; chiave.split(&quot;_&quot;)[0];
+    let id_agenda &#x3D; chiave.split(&quot;_&quot;)[1];
+    let lav_cod &#x3D; chiave.split(&quot;_&quot;)[2];
+    let piva &#x3D; chiave.split(&quot;_&quot;)[3];
+    let sa_cod &#x3D; chiave.split(&quot;_&quot;)[4];
+    //Estraggo gli elementi selezionati
+    let arraySelected &#x3D; this.elementiGrigliaSelezionati(righe);
+    //concateno gli elementi selezionati
+    let id_agenda_checked &#x3D; &quot;&quot;;
+    let lav_cod_checked &#x3D; &quot;&quot;;
+    for (let iRow in arraySelected) {
+      id_agenda_checked +&#x3D; arraySelected[iRow].id_agenda + &#x27;,&#x27;;
+      lav_cod_checked +&#x3D; arraySelected[iRow].Lav_cod + &#x27;,&#x27;;
+    }
+    if (id_agenda_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+      id_agenda_checked &#x3D; id_agenda + &quot;,&quot;;
+    }
+    if (lav_cod_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+      lav_cod_checked &#x3D; lav_cod + &quot;,&quot;;
+    }
+    id_agenda_checked +&#x3D; &quot;-1&quot;;
+    lav_cod_checked +&#x3D; &quot;-1&quot;;
+    let params &#x3D; {
+      data: data,
+      id_agenda_checked: id_agenda_checked,
+      id_agenda: id_agenda,
+      lav_cod_checked: lav_cod_checked,
+      lav_cod: lav_cod,
+      piva: piva,
+      sa_cod: sa_cod
+    }
+    // TODO Razvan. Questa parte non è ancora stata testata.
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(CopiaOperazioneSingolaLink, params);
+  }
+
+  copiaCambiaSito(copiaOpRisp: CopiaOperazioneResult) {
+    let objAgenda: ObjParametriAgenda &#x3D; JSON.parse(JSON.stringify(this.agenda.getObjParamValue()));
+    objAgenda.Data &#x3D; this.IntlService.parseDate(copiaOpRisp.data);
+    objAgenda.Id_Agenda &#x3D; +copiaOpRisp.Id_Agenda;
+    objAgenda.Lav_Cod &#x3D; +copiaOpRisp.Lav_Cod;
+    objAgenda.Piva &#x3D; copiaOpRisp.Piva;
+    objAgenda.Sa_Cod &#x3D; +copiaOpRisp.Sa_Cod;
+    objAgenda.RagSoc &#x3D; copiaOpRisp.RagSoc;
+    objAgenda.SaNome &#x3D; copiaOpRisp.SaNome;
+    const parametri: ParametriAggiuntivi_QueryString[] &#x3D; [
+      {
+        key: &quot;id&quot;,
+        value: copiaOpRisp.QueryStringIdAgendaChecked,
+        codifica: false
+      }
+    ]
+    this.gestioneRichieste.gestionePassaggioAltroSito(
+      Enum_SiteRedirector.Sito_AgronicaAgenda_2010,
+      enum_PagineAgenda_2010.Pagina_DuplicaOperazione,
+      parametri,
+      objAgenda
+    ).then(resp &#x3D;&gt; window.location.href &#x3D; resp);
+  }
+
+  creaNuovaOperazione(ricetta: Tipo_Ricetta) {
+    const agenda &#x3D; this.agenda.getObjParamValue();
+    this.redirector.redirectToQdCfromMenuAgenda(0, 0,
+      agenda.Piva, agenda.RagSoc,
+      0, &quot;&quot;, ricetta,
+      Enum_DBTypeOperation.Write, this.dataStore.currentTab, new Date(), RibaltamentoTypes.Nessuno, agenda.IdSezione
+    );
+  }
+
+  public bloccaAttivitaAgenda(attivita: QdCRow[]): Observable&lt;boolean&gt; {
+    const params &#x3D; attivita.map(att &#x3D;&gt; new BloccaAttivitaAgendaImpl(
+      att.Piva, +att.sa_cod, att.id_agenda, +att.Lav_cod
+    ));
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(BloccaAttivitaAgendaLink, params)
+      .pipe(map(R &#x3D;&gt; {
+        if (R.RispostaOK)
+          this.dialogService.baseSuccess(&#x27;&#x27;, &#x27;OperazioneBloccata&#x27;);
+        return R.RispostaOK
+      }))
+  }
+
+  public bloccaAttivitaZoo(activities: ZooOperationGridFlatItem[]): Observable&lt;boolean&gt; {
+    const res &#x3D; activities.map(att &#x3D;&gt; new BloccaAttivitaAgendaImpl(
+      att.Piva, att.Sa_Cod, att.Id_Agenda.toString(), att.Lav_Cod
+    ));
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(BloccaAttivitaAgendaLink, res, true)
+      .pipe(map(R &#x3D;&gt; {
+        if (R.RispostaOK)
+          this.dialogService.baseSuccess(&#x27;&#x27;, &#x27;OperazioneBloccata&#x27;);
+        return R.RispostaOK
+      }))
+  }
+
+  public sbloccaAttivitaAgenda(attivita: QdCRow[]): Observable&lt;boolean&gt; {
+    const params &#x3D; attivita.map(att &#x3D;&gt; new BloccaAttivitaAgendaImpl(
+      att.Piva, +att.sa_cod, att.id_agenda, +att.Lav_cod
+    ));
+    return this.ajaxAgronicaAPIService.ajaxAPIPost(SbloccaAttivitaAgendaLink, params, true)
+      .pipe(map(R &#x3D;&gt; {
+        if (R.RispostaOK)
+          this.dialogService.baseSuccess(&#x27;&#x27;, &#x27;qdc.OperazioneSbloccata&#x27;)
+        return R.RispostaOK
+      }))
+  }
+
+  public sbloccaAttivitaZoo(activities: ZooOperationGridFlatItem[]): Observable&lt;boolean&gt; {
+    const res &#x3D; activities.map(att &#x3D;&gt; new BloccaAttivitaAgendaImpl(
+      att.Piva, att.Sa_Cod, att.Id_Agenda.toString(), att.Lav_Cod
+    ));
+    return this.ajaxAgronicaAPIService.ajaxAPIPost(SbloccaAttivitaAgendaLink, res, true)
+      .pipe(map(R &#x3D;&gt; {
+        if (R.RispostaOK)
+          this.dialogService.baseSuccess(&#x27;&#x27;, &#x27;qdc.OperazioneSbloccata&#x27;)
+        return R.RispostaOK
+      }));
+  }
+
+  public async Cancella(gridComponent: GiasKendoGridComponent, row: KendoGridRow) {
+    await gridComponent.gridDialogService.showDialog(
+      gridComponent.privateService.remove.bind(gridComponent.privateService), row
+    )
+  }
+
+  /* Pulsanti Documentale */
+
+  public CheckAttachedDocumentsOperationsAndVisits(piva: string, idAgenda: number): Observable&lt;boolean&gt; {
+    return this.ajaxAgronicaAPIService.ajaxAPIPost(&#x27;Documenti/EsistonoDocumentiAllegati&#x27;, {
+      Piva: piva, IdAgenda: idAgenda
+    }).pipe(map(R &#x3D;&gt; R.RispostaOK ? R.RispostaStringa &#x3D;&#x3D;&#x3D; &quot;True&quot; : false));
+  }
+
+  public CheckAttachedDocumentsRecipes(piva: string, recipeCode: number): Observable&lt;boolean&gt; {
+    return this.ajaxAgronicaAPIService.ajaxAPIPost(&#x27;Documenti/EsistonoDocumentiAllegati&#x27;, {
+      Piva: piva, RicettaCod: recipeCode
+    }).pipe(map(R &#x3D;&gt; R.RispostaOK ? R.RispostaStringa &#x3D;&#x3D;&#x3D; &quot;True&quot; : false));
+  }
+
+  public ApriKendoWindowRicercaDocumenti(dataItem: any) {
+    const params &#x3D; parseGridRowForDocumentale(dataItem, this.dataStore.currentTab);
+    const Id_Area &#x3D; this.getIdArea(+params.Lav_cod);
+    const parametri: ParametriAggiuntivi_QueryString[] &#x3D; [
+      KeyValuePair.Create(&quot;type&quot;, &quot;doc&quot;),
+      KeyValuePair.Create(&quot;p&quot;, params.Piva),
+      KeyValuePair.Create(&quot;id_agenda&quot;, params.Id_Agenda),
+      KeyValuePair.Create(&quot;Ricetta_Operazione_Cod&quot;, params.Ricetta_Operazione_Cod.toString()),
+      KeyValuePair.Create(&quot;area_provenienza&quot;, Id_Area.toString())
+    ];
+    this.gestioneRichieste.gestionePassaggioAltroSito(
+      Enum_SiteRedirector.Sito_AgronicaAgenda_2010,
+      enum_PagineAgenda_2010.Pagina_Scadenzario_Lista,
+      parametri
+    ).then(link &#x3D;&gt; this.windowService.open({
+      title: this.transloco.translate(&quot;RicercaDocumenti&quot;),
+      content: link,
+      height: window.innerHeight * 0.9,
+      width: window.innerWidth * 0.9
+    }));
+  }
+
+  public ApriKendoWindowAggiungiNuovoAllegato(dataItem: any) {
+    const params &#x3D; parseGridRowForDocumentale(dataItem, this.dataStore.currentTab);
+    const ID_Alert_Entita &#x3D; -1;
+    const ID_Elenco &#x3D; -1;
+    const Modalita &#x3D; &quot;doc&quot;;
+    const Id_Area &#x3D; this.getIdArea(+params.Lav_cod);
+    const Tipologia &#x3D; 0; //this.getTipologia(+params.Lav_cod);
+
+    const scadstr &#x3D; JSON.stringify({
+      &#x27;Piva&#x27;: params.Piva, &#x27;ID_Elenco&#x27;: ID_Elenco, &#x27;ID_Alert_Entita&#x27;: ID_Alert_Entita,
+      &#x27;Id_Area&#x27;: Id_Area, &#x27;Tipologia&#x27;: Tipologia, &#x27;area_provenienza&#x27;: Id_Area,
+      &#x27;Id_Agenda&#x27;: params.Id_Agenda, &#x27;Ricetta_Operazione_Cod&#x27;: params.Ricetta_Operazione_Cod
+    });
+    const parametri: ParametriAggiuntivi_QueryString[] &#x3D; [
+      KeyValuePair.Create(&quot;scadstr&quot;, scadstr),
+      KeyValuePair.Create(&quot;type&quot;, Modalita),
+      KeyValuePair.Create(&quot;p&quot;, params.Piva)
+    ];
+
+    this.gestioneRichieste.gestionePassaggioAltroSito(
+      Enum_SiteRedirector.Sito_AgronicaAgenda_2010,
+      enum_PagineAgenda_2010.Pagina_Scadenzario_CreaModifica,
+      parametri
+    ).then(link &#x3D;&gt; this.windowService.open({
+      title: this.transloco.translate(&quot;NuovoDocumento&quot;),
+      content: link,
+      height: window.innerHeight * 0.9,
+      width: window.innerWidth * 0.9
+    }));
+  }
+
+  public getDialogEliminaRicettaBrogliaccio(row: BrogliaccioRow | RicettaRow, showDialog: boolean &#x3D; true) {
+    let msg &#x3D; &quot;&quot;;
+    if (!showDialog) {
+      return of({ text: &quot;&quot;, primary: false, returnObj: this.haveOnlySingleRecipes(row) });
+    }
+    if (this.dataStore.currentTab &#x3D;&#x3D;&#x3D; TabTypes.Ricette) {
+      msg &#x3D; this.getMessaggioRicetteCollegate(row as RicettaRow);
+      if (row[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; &amp;&amp;
+        this.dataStore.gridDataRicette.rows.filter(r &#x3D;&gt; r[&#x27;Selected&#x27;]).some(r &#x3D;&gt; r[&#x27;Raccoglitore_Cod&#x27;] !&#x3D;&#x3D; &#x27;0&#x27;)) {
+        msg &#x3D; this.transloco.translate(&#x27;ConfermaRimozioneRicetteMisteSingole&#x27;)
+      } else if (row[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27;) {
+        msg &#x3D; this.transloco.translate(&#x27;ConfermaRimozioneRicetta&#x27;)
+      }
+    } else if (this.dataStore.currentTab &#x3D;&#x3D;&#x3D; TabTypes.Brogliaccio) {
+      msg &#x3D; this.transloco.translate(&#x27;qdc.ConfermaRimozioneBrogliaccio&#x27;, {});
+      if (row[&#x27;Raccoglitore_Cod&#x27;] !&#x3D;&#x3D; &#x27;0&#x27;) {
+        msg +&#x3D; this.getMessaggioBrogliacciCollegati(row as BrogliaccioRow);
+      }
+    }
+    return from(this.dialogService.baseWarning(
+      &#x27;&#x27;, msg, false
+    ));
+  }
+
+  public getMessaggioRicetteCollegate(row: RicettaRow) {
+    let msg &#x3D; &#x27;&#x27;;
+    if (row[&#x27;Raccoglitore_Cod&#x27;] !&#x3D;&#x3D; &#x27;0&#x27;) {
+      let siblings &#x3D; this.dataStore.gridDataRicette.rows.filter(r &#x3D;&gt; r[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; row[&#x27;Raccoglitore_Cod&#x27;]);
+      msg +&#x3D; this.transloco.translate(&#x27;ConfermaRimozioneRicetta&#x27;, {});
+      msg +&#x3D; &#x27;&lt;BR/&gt;&#x27; + this.transloco.translate(&#x27;AttenzioneRicetteCollegate&#x27;, [siblings.length]) + &#x27;&lt;BR/&gt;&#x27;;
+      msg +&#x3D; siblings.map(r &#x3D;&gt; &#x27;- &#x27; + r[&#x27;Descrizione_Unica&#x27;])
+        .reduce((a, b) &#x3D;&gt; a + &#x27;&lt;BR/&gt;&#x27; + b)
+      msg +&#x3D; &#x27;&lt;BR/&gt;&lt;BR/&gt;&#x27; + this.transloco.translate(&#x27;EliminazioneRicettaMultiWarning&#x27;);
+      console.log(siblings)
+    }
+    return msg
+  }
+
+  public getMessaggioBrogliacciCollegati(row: BrogliaccioRow) {
+    let msg &#x3D; &#x27;&#x27;;
+    if (row[&#x27;Raccoglitore_Cod&#x27;] !&#x3D;&#x3D; &#x27;0&#x27;) {
+      let siblings &#x3D; this.dataStore.gridDataBrogliaccio.rows.filter(r &#x3D;&gt; r[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; row[&#x27;Raccoglitore_Cod&#x27;]);
+      msg +&#x3D; &#x27;&lt;BR/&gt;&#x27; + this.transloco.translate(&#x27;qdc.AttenzioneBrogliacciCollegati&#x27;, [siblings.length]) + &#x27;&lt;BR/&gt;&#x27;;
+      msg +&#x3D; siblings.map(r &#x3D;&gt; &#x27;- &#x27; + r[&#x27;Descrizione_Unica&#x27;])
+        .reduce((a, b) &#x3D;&gt; a + &#x27;&lt;BR/&gt;&#x27; + b)
+      msg +&#x3D; &#x27;&lt;BR/&gt;&lt;BR/&gt;&#x27; + this.transloco.translate(&#x27;qdc.EliminazioneBrogliaccioMultiWarning&#x27;);
+      console.log(siblings)
+    }
+    return msg;
+  }
+
+  private haveOnlySingleRecipes(row: BrogliaccioRow | RicettaRow): boolean {
+    if (row instanceof RicettaRow)
+      return row[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27; &amp;&amp;
+        this.dataStore.gridDataRicette.rows.filter(r &#x3D;&gt; r[&#x27;Selected&#x27;])
+          .every(r &#x3D;&gt; r[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27;)
+    return row[&#x27;Raccoglitore_Cod&#x27;] &#x3D;&#x3D;&#x3D; &#x27;0&#x27;
+  }
+
+  Importa_nel_PUA(row: any) {
+    let Ricetta_Cod &#x3D; this.agenda.getObjParamValue().Ricetta_Cod;
+    if (Ricetta_Cod &gt; 0 &amp;&amp; row) {
+      let list_chiave_composita: Array&lt;string&gt; &#x3D; row.chiave_composita.split(&quot;_&quot;);
+      let data &#x3D; list_chiave_composita[0];
+      let id_agenda &#x3D; list_chiave_composita[1];
+      let lav_cod &#x3D; list_chiave_composita[2];
+      let piva &#x3D; list_chiave_composita[3];
+      let sa_cod &#x3D; list_chiave_composita[4];
+      //Aggiungo le eventuali altre righe da Importare nel PUA
+      //concateno gli elementi selezionati
+      let id_agenda_checked &#x3D; &quot;&quot;;
+      let lav_cod_checked &#x3D; &quot;&quot;;
+      let arraySelected &#x3D; this.elementiGrigliaSelezionati(this.dataStore.gridDataQdc.rows);
+      if (arraySelected &amp;&amp; arraySelected.length &gt; 0) {
+        arraySelected.forEach(r &#x3D;&gt; {
+          id_agenda_checked +&#x3D; r.id_agenda + &#x27;,&#x27;;
+          lav_cod_checked +&#x3D; r.Lav_cod + &#x27;,&#x27;;
+        });
+      }
+      if (id_agenda_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+        id_agenda_checked &#x3D; id_agenda + &quot;,&quot;;
+      }
+      if (lav_cod_checked &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+        lav_cod_checked &#x3D; lav_cod + &quot;,&quot;;
+      }
+      id_agenda_checked +&#x3D; &quot;-1&quot;;
+      lav_cod_checked +&#x3D; &quot;-1&quot;;
+
+      const Aggiungi: AggiungiRicettaAlPUA &#x3D; {
+        data: data,
+        id_agenda: id_agenda,
+        id_agenda_checked: id_agenda_checked,
+        lav_cod_checked: lav_cod_checked,
+        lav_cod: lav_cod,
+        piva: piva,
+        sa_cod: sa_cod,
+        ricetta_cod: Ricetta_Cod.toString()
+      }
+
+      this.Subs.add(this.AgendaService.Aggiungi_Ricetta_Al_PUA_MenuAgenda(Aggiungi).subscribe(async r &#x3D;&gt; {
+        //Redirect al PUA
+        if (r.RispostaOK) {
+          let msg: string &#x3D; this.transloco.translate(&quot;qdc.FertilizzazioneImportataNelPUA&quot;);
+          if (arraySelected.length &gt; 1) {
+            msg &#x3D; this.transloco.translate(&quot;qdc.FertilizzazioniImportateNelPUA&quot;, { NumFertilizzazioni: arraySelected.length });
+          }
+          await this.dialogService.baseSuccess(&#x27;&#x27;, msg);
+          const objAgenda &#x3D; this.agenda.getObjParamValue();
+          objAgenda.Piva &#x3D; Aggiungi.piva;
+          objAgenda.Pagina_Provenienza &#x3D; enum_PagineGiasNG.Pagina_Menu_Agenda;
+          window.location.href &#x3D; await this.gestioneRichieste.gestionePassaggioAltroSito(
+            Enum_SiteRedirector.Sito_PianoConcimazione_2017,
+            enum_PaginePianoConcimazione_2017.PUA_Dichiarazione_Effluenti,
+            [], objAgenda
+          );
+        }
+      }));
+    }
+  }
+
+  Vai_Alla_Visita(row: any) {
+    let objParam &#x3D; this.objParametriAgendaService.resettaObjAgenda(this.objParametriAgendaService.getObjParamValue());
+    objParam.Piva &#x3D; this.objParametriAgendaService.getObjParamValue().Piva;
+    objParam.RagSoc &#x3D; this.objParametriAgendaService.getObjParamValue().RagSoc;
+    objParam.Lav_Cod &#x3D; enum_LAVCOD.VISITA;
+    objParam.Id_Agenda &#x3D; row.Id_Agenda_Visita;
+    objParam.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Update;
+    objParam.TipoOperazioneAgenda &#x3D; Tipo_Attivita.QuadernoDiCampagna;
+    objParam.Pagina_Provenienza &#x3D; enum_PagineGiasNG.Pagina_Menu_Agenda;
+    this.redirector.gestisciRedirectToQdC(objParam).then();
+  }
+
+  ngOnDestroy() {
+    this.Subs.unsubscribe();
+  }
+
+  private getIdArea(lavCod: enum_LAVCOD): enum_ID_Area_Alert {
+    if (this._docContabili.includes(lavCod)) {
+      return enum_ID_Area_Alert.Documenti_Contabili;
+    } else if (this._carichiScarichi.includes(lavCod)) {
+      return enum_ID_Area_Alert.Carichi_Scarichi
+    }
+    return enum_ID_Area_Alert.Operazioni_Campagna_QDC;
+    ;
+  }
+
+}
+
+function getParams(
+  data_inizio: Date, data_fine: Date, id_agenda_checked: string, id_agenda: string,
+  piva_ricetta: string, sa_cod: number, veg_cod: number, ricetta_des: string, ricetta_numero: string,
+  nota_des: string
+) {
+  return {
+    data_inizio: data_inizio,
+    data_fine: data_fine,
+    id_agenda_checked: id_agenda_checked,
+    id_agenda: id_agenda,
+    piva: piva_ricetta,
+    sa_cod: sa_cod,
+    veg_cod: veg_cod,
+    ricetta_des: ricetta_des,
+    ricetta_numero: ricetta_numero,
+    nota_des: nota_des
+  };
+}
+
+function parseGridRowForDocumentale(row, currTab: TabTypes): ApriDocumentaleParams {
+  let Ricetta_Operazione_Cod: number;
+  let Id_Agenda: string;
+  let Piva: string;
+  let lav_cod: string | number;
+  if (currTab &#x3D;&#x3D;&#x3D; TabTypes.QuadernoDiCampagna) {
+    Piva &#x3D; row.Piva;
+    Id_Agenda &#x3D; row.id_agenda ?? &quot;0&quot;;
+    Ricetta_Operazione_Cod &#x3D; 0;
+    lav_cod &#x3D; row.Lav_cod;
+  } else if (currTab &#x3D;&#x3D;&#x3D; TabTypes.Brogliaccio) {
+    Piva &#x3D; row.piva;
+    Id_Agenda &#x3D; &quot;0&quot;;
+    Ricetta_Operazione_Cod &#x3D; row.Ricetta_Operazione_Cod ?? 0;
+    lav_cod &#x3D; row.lav_cod;
+  } else { // ricetta per forza
+    let ricetta &#x3D; row as RicettaRow;
+    Piva &#x3D; ricetta.piva;
+    Id_Agenda &#x3D; &quot;0&quot;;
+    Ricetta_Operazione_Cod &#x3D; ricetta.Ricetta_Operazione_Cod ?? 0;
+    lav_cod &#x3D; ricetta.lav_cod;
+  }
+  return {
+    Lav_cod: lav_cod,
+    Piva: Piva,
+    Id_Agenda: Id_Agenda,
+    Ricetta_Operazione_Cod: Ricetta_Operazione_Cod
+  };
+}
+
+interface ApriDocumentaleParams {
+  Lav_cod: string | number; // todo
+  Piva: string;
+  Ricetta_Operazione_Cod: number;
+  Id_Agenda: string; // todo
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'BloccaAttivitaAgendaImpl.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,816 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content interface">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Interfaces</li>
+  <li class="breadcrumb-item"
+  >
+  Tabs</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/GIS-attributi/GIS-attributi.component.ts</code>
+        </p>
+
+
+
+
+        <section data-compodoc="block-index">
+            <h3 id="index">Index</h3>
+            <table class="table table-sm table-bordered index-table">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Properties</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                        <a href="#agenda" 
+>
+                                            agenda
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#algorithms" 
+>
+                                            algorithms
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#data" 
+>
+                                            data
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#export" 
+>
+                                            export
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#rasterMasks" 
+>
+                                            rasterMasks
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#settings" 
+>
+                                            settings
+                                        </a>
+                                </li>
+                                <li>
+                                        <a href="#upload" 
+>
+                                            upload
+                                        </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+
+
+            <section data-compodoc="block-properties">
+                <h3 id="inputs">Properties</h3>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="agenda"></a>
+                                        <span class="name "><b>agenda</b>
+                                            <a href="#agenda">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>agenda:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="algorithms"></a>
+                                        <span class="name "><b>algorithms</b>
+                                            <a href="#algorithms">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>algorithms:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="data"></a>
+                                        <span class="name "><b>data</b>
+                                            <a href="#data">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>data:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="export"></a>
+                                        <span class="name "><b>export</b>
+                                            <a href="#export">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>export:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="rasterMasks"></a>
+                                        <span class="name "><b>rasterMasks</b>
+                                            <a href="#rasterMasks">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>rasterMasks:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="settings"></a>
+                                        <span class="name "><b>settings</b>
+                                            <a href="#settings">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>settings:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+                    <table class="table table-sm table-bordered">
+                        <tbody>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <a name="upload"></a>
+                                        <span class="name "><b>upload</b>
+                                            <a href="#upload">
+                                                <span class="icon ion-ios-link"></span>
+                                            </a>
+                                        </span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-4">
+                                        <code>upload:         <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+</code>
+                                    </td>
+                                </tr>
+
+
+                                    <tr>
+                                        <td class="col-md-4">
+                                            <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                                        </td>
+                                    </tr>
+
+
+
+
+
+                        </tbody>
+                    </table>
+            </section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnChanges } from &#x27;@angular/core&#x27;;
+import { FeatureType, GeoJson_Feature_New, GeoJSONAgroGisProp } from &#x27;app/Model/GIS/GisDataReadRval_New&#x27;;
+import {
+  ChiaveAlbero,
+  ConfigurazioneSuLayer,
+  GisClient,
+  LeggiElencoConfigurazioni_In,
+  ObjOptionHTML_Out,
+  ScriviConfigurazioneGisUtente,
+  TipologiaLayer
+} from &#x27;app/Service/api.service&#x27;;
+import {
+  BehaviorSubject,
+  combineLatest,
+  debounceTime,
+  filter,
+  map,
+  Observable,
+  share,
+  startWith,
+  switchMap,
+  withLatestFrom
+} from &#x27;rxjs&#x27;;
+import { enum_LayerElementiGraficiStd } from &#x27;../GIS-enum/GIS-layer-elementi-grafici&#x27;;
+import { LayerService } from &#x27;../services/layer.service&#x27;;
+import {
+  AlgorithmConfigurationWindowService
+} from &#x27;../GIS-kendo-window/GIS-algorithm-configuration-window/GIS-algorithm-configuration-window.service&#x27;;
+import { FeatureService } from &#x27;../services/feature.service&#x27;;
+import { FunzioniComuniService } from &#x27;app/Service/FunzioniComuni.service&#x27;;
+import { SharedDataService } from &#x27;../services/shared-data.service&#x27;;
+import { MasterService } from &#x27;app/Service/master.service&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import { SelectEvent } from &#x27;@progress/kendo-angular-layout&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_TipologiaLayer } from &#x27;../GIS-enum/GIS-tipologia-layer&#x27;;
+import { OpzioniAgenda } from &#x27;app/menu-agenda/dtos/opzioni-agenda.model&#x27;;
+
+interface Tabs {
+  agenda: number;
+  data: number;
+  settings: number;
+  upload: number;
+  algorithms: number;
+  export: number;
+  rasterMasks: number;
+}
+
+@Component({
+  standalone: false,
+  selector: &#x27;GIS-attributi&#x27;,
+  templateUrl: &#x27;./GIS-attributi.component.html&#x27;,
+  styleUrls: [&#x27;./GIS-attributi.component.css&#x27;]
+})
+export class GISAttributiComponent implements OnChanges {
+  @Input() open: boolean &#x3D; false;
+
+  featureType &#x3D; FeatureType;
+  agendaOptionDialog &#x3D; false;
+  opzioniAgendaGis: OpzioniAgenda &#x3D; new OpzioniAgenda({ nascondiFiltri: true, source: &#x27;GIS&#x27; });
+  tabSelectedSubject &#x3D; new BehaviorSubject&lt;number&gt;(0);
+  tabSelected$ &#x3D; this.tabSelectedSubject.asObservable();
+  openSubject &#x3D; new BehaviorSubject&lt;boolean&gt;(this.open);
+
+  layerSelected$ &#x3D; this.layerService
+    .layerItemSelected$
+    .pipe(map(x &#x3D;&gt; x[1] ? x[0] : null));
+
+  tipoLayer$ &#x3D; this.layerService.LayerSelected;
+
+  forceReload$ &#x3D; this.algorithmConfigurationWindowService
+    .forceReload$
+    .pipe(startWith(null));
+
+  features$ &#x3D; this.featureService.getFeatureSelezionate$();
+
+  agendaVisible$ &#x3D; this.sharedDataService
+    .getCfgAlberoGisUtente$()
+    .pipe(map(cfgAlbero &#x3D;&gt; cfgAlbero[0]?.CfgGisUtente?.ckMostraOperazioniAgenda ?? false));
+
+  configurations$ &#x3D; combineLatest([this.layerSelected$, this.forceReload$, this.openSubject.asObservable()])
+    .pipe(
+      filter(([_1, _2, opened]) &#x3D;&gt; opened),
+      debounceTime(100),
+      map(([layer, _1, _2]) &#x3D;&gt; layer),
+      filter(layer &#x3D;&gt; layer !&#x3D; null),
+      withLatestFrom(this.tipoLayer$),
+      map(([layer, tipoLayer]) &#x3D;&gt; ({
+        LayerElementiGrafici_Cod: +layer.id,
+        Entita_Cod: 0,
+        TipologiaLayer_cod: +tipoLayer.Option_Value
+      } as LeggiElencoConfigurazioni_In)),
+      switchMap(payload &#x3D;&gt; this.gisClient.gisLeggiConfigurazioniProiezioneSuLayer(payload)),
+      map(x &#x3D;&gt; x.RispostaStringa.elencoConfigurazioni),
+      share()
+    );
+
+  tabs$: Observable&lt;Tabs&gt; &#x3D; combineLatest([this.layerSelected$, this.configurations$.pipe(startWith([])), this.features$, this.agendaVisible$])
+    .pipe(map(([layer, configurations, features, agendaVisible]) &#x3D;&gt; this.populateTabs(layer, configurations, features, agendaVisible)));
+
+  data &#x3D; combineLatest([
+    this.tabSelected$,
+    this.tipoLayer$,
+    this.layerSelected$,
+    this.tabs$,
+    this.configurations$.pipe(startWith([])),
+    this.agendaVisible$
+  ]).pipe(map(([tab, tipoLayer, layer, tabs, configurations, agendaVisible]) &#x3D;&gt; ({
+    tab: tab,
+    tipoLayer: tipoLayer,
+    layer: layer,
+    tabs: tabs,
+    configurations: configurations,
+    agendaVisible: agendaVisible
+  })));
+
+  constructor(
+    private layerService: LayerService,
+    private gisClient: GisClient,
+    private algorithmConfigurationWindowService: AlgorithmConfigurationWindowService,
+    private featureService: FeatureService,
+    private funzioniComuniService: FunzioniComuniService,
+    private sharedDataService: SharedDataService,
+    private masterService: MasterService,
+    private giasMessageService: GiasMessageService,
+    private permessiUtenteService: PermessiUtenteService
+  ) {
+  }
+
+  ngOnChanges(): void {
+    this.openSubject.next(this.open);
+  }
+
+  isAnyVisible(tabs: Tabs | null): boolean {
+    if (tabs &#x3D;&#x3D; null) {
+      return false;
+    }
+
+    for (const key in tabs) {
+      if (Object.prototype.hasOwnProperty.call(tabs, key) &amp;&amp; tabs[key] !&#x3D; -1) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  changeTab($event: SelectEvent, tabs: Tabs, agendaVisible: boolean): void {
+    if (tabs.agenda !&#x3D; $event.index || agendaVisible) {
+      this.tabSelectedSubject.next($event.index);
+      return;
+    }
+
+    this.agendaOptionDialog &#x3D; true;
+    $event.preventDefault();
+  }
+
+  setAgendaVisible(): void {
+    const config &#x3D; this.sharedDataService.getCfgAlberoGisUtente()[0];
+    if (config?.CfgAlbero &#x3D;&#x3D; null || config?.CfgGisUtente &#x3D;&#x3D; null) {
+      // Non dovrebbe mai succedere
+      this.giasMessageService.errorMessage(&#x27;SiEVerificatoUnErrore&#x27;, false, true);
+      return;
+    }
+
+    config.CfgGisUtente.ckMostraOperazioniAgenda &#x3D; true;
+    const payload &#x3D; {
+      MemorizzaSistemaDiRiferimentoPredefinito: false,
+      MemorizzaOperazioneColturale: false,
+      CfgGisUtente: FunzioniComuniService.getStandardConfigurazioneGisUtente(config.CfgGisUtente)
+    } as ScriviConfigurazioneGisUtente;
+
+    this.masterService.set_isLoading({ isLoading: true })
+    this.gisClient
+      .gisCfgGISSalva(payload)
+      .subscribe({
+        next: () &#x3D;&gt; {
+          this.giasMessageService.successMessage(&#x27;SalvataggioAvvenutoConSuccesso&#x27;, false, true);
+          config.CfgAlbero.Flag_Agenda &#x3D; true;
+          this.sharedDataService.setCfgAlberoGisUtente(config, true);
+        },
+        error: () &#x3D;&gt; this.giasMessageService.errorMessage(&#x27;SiEVerificatoUnErrore&#x27;, false, true),
+        complete: () &#x3D;&gt; {
+          this.masterService.set_isLoading({ isLoading: false })
+          this.agendaOptionDialog &#x3D; false;
+        }
+      });
+  }
+
+  isMuz(layer: TipologiaLayer, tipoLayer: ObjOptionHTML_Out): boolean {
+    return layer.id &#x3D;&#x3D; enum_LayerElementiGraficiStd.Muz &amp;&amp; tipoLayer.Option_Value &#x3D;&#x3D; enum_TipologiaLayer.Entita
+  }
+
+  private isAgendaVisible(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]): boolean {
+    const isImpianto &#x3D; this.isFeatureImpianto(features);
+    return isImpianto;
+  }
+
+  private isDatiVisible(layer: TipologiaLayer): boolean {
+    return layer?.id !&#x3D; enum_LayerElementiGraficiStd.CATASTO &amp;&amp; layer?.id !&#x3D; enum_LayerElementiGraficiStd.IMPIANTI;
+  }
+
+  private isSettingsVisible(_: TipologiaLayer): boolean {
+    return false;
+  }
+
+  private isUploadVisible(layer: TipologiaLayer): boolean {
+    return layer?.id !&#x3D; enum_LayerElementiGraficiStd.IMPIANTI;
+  }
+
+  private isAlgorithmConfigurationVisible(_: TipologiaLayer, configurations: ConfigurazioneSuLayer[]): boolean {
+    return configurations.length &gt; 0;
+  }
+
+  private isExportVisible(_: TipologiaLayer): boolean {
+    return this.permessiUtenteService.getPermesso(enum_Security_Attivita.Cartografia_Esporta_Dati, 2);
+  }
+
+  private isRasterMasksVisible(layer: TipologiaLayer): boolean {
+    const hasPermission &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.GIS_Gestione_Parametri_Maschere_Raster, 2);
+    return +layer.FeatureTypeId &#x3D;&#x3D; FeatureType.Raster &amp;&amp; hasPermission;
+  }
+
+  private populateTabs(layer: TipologiaLayer, configurations: ConfigurazioneSuLayer[], features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[], agendaVisible: boolean): Tabs {
+    if (layer &#x3D;&#x3D; null) {
+      return;
+    }
+
+    let tabsCounter &#x3D; 0;
+    const result &#x3D; {
+      agenda: -1,
+      data: -1,
+      settings: -1,
+      upload: -1,
+      algorithms: -1,
+      export: -1,
+      rasterMasks: -1
+    } as Tabs;
+
+    if (this.isAgendaVisible(features)) {
+      result.agenda &#x3D; tabsCounter++;
+      this.opzioniAgendaGis.impianti &#x3D; this.getImpiantiForOpzioniAgenda(features);
+    }
+
+    if (this.isDatiVisible(layer)) {
+      result.data &#x3D; tabsCounter++;
+    }
+
+    if (this.isSettingsVisible(layer)) {
+      result.settings &#x3D; tabsCounter++;
+    }
+
+    if (this.isUploadVisible(layer)) {
+      result.upload &#x3D; tabsCounter++;
+    }
+
+    if (this.isAlgorithmConfigurationVisible(layer, configurations)) {
+      result.algorithms &#x3D; tabsCounter++;
+    }
+
+    if (this.isExportVisible(layer)) {
+      result.export &#x3D; tabsCounter++;
+    }
+
+    if (this.isRasterMasksVisible(layer)) {
+      result.rasterMasks &#x3D; tabsCounter++;
+    }
+
+    // if agenda visible
+    if (result.agenda &#x3D;&#x3D; 0) {
+      // if only agenda is visible but i don&#x27;t have permissions, ask the user
+      if (tabsCounter &#x3D;&#x3D; 1 &amp;&amp; !agendaVisible) {
+        this.agendaOptionDialog &#x3D; true;
+      }
+      // if only agenda is visible but there are more tabs, select 2nd one
+      else if (tabsCounter &gt; 1 &amp;&amp; !agendaVisible) {
+        this.tabSelectedSubject.next(1);
+      }
+    }
+
+    return result;
+  }
+
+  private isFeatureImpianto(features: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]): boolean {
+    if (features.length &#x3D;&#x3D;&#x3D; 0) {
+      return false;
+    }
+
+    const indiceUltimaFeature &#x3D; features.length - 1;
+    const chiaveAlbero &#x3D; this.featureService.getChiaveAlberoCompletaByFeature(features[indiceUltimaFeature]);
+    const objChiaveAlbero &#x3D; FunzioniComuniService.scomponiChiaveAlbero(chiaveAlbero);
+    return this.funzioniComuniService.isTipoNodoImpianto(objChiaveAlbero.TipoNodo);
+  }
+
+  private getImpiantiForOpzioniAgenda(features) {
+    return features.map(f &#x3D;&gt; f.properties.chiavealbero)
+      .map(chiaveAlbero &#x3D;&gt; FunzioniComuniService.chiaveAlberoRidottaToBig(chiaveAlbero))
+      .map(k &#x3D;&gt; FunzioniComuniService.scomponiChiaveAlbero(k))
+      .map((k: ChiaveAlbero) &#x3D;&gt; [k.Piva, k.Sa_Cod ?? 0, k.Appezza ?? 0, k.Id_Imp ?? 0].join(&#x27;_&#x27;))
+      .map(k &#x3D;&gt; ({ chiave: k, des: &#x27;&#x27; }));
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'interface';
+            var COMPODOC_CURRENT_PAGE_URL = 'Tabs.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

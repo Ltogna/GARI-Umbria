@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script type='text/javascript'>
+        let elements = document.getElementsByTagName("base");
+        let base = "";
+        let found = false;
+        let paths = window.location.pathname.split("/");
+        for (let i = 0; i < paths.length; i++){
+            if (paths[i] != '') {
+                base += '/' + paths[i];
+                if (paths[i].indexOf('GiasNG') >= 0) {
+                    found = true;
+                    break;
+                }
+            }
+        }
+        base += '/';
+        if (found){
+            document.write('<base href="' + base + '" />');
+            elements[0].href = base;
+        }
+    </script>
+    <base href="/" />
+
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+      <link id="appFavicon" rel="icon" type="image/x-icon" href="data:image/x-icon;base64"/>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+  <body>
+    <app-root>Loading...</app-root>
+  </body>
+</html>

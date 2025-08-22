@@ -1,0 +1,1851 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ZooGridService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#applicaFiltri" >applicaFiltri</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#component" >component</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoZoo_W" >permessoZoo_W</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#applyGridSettings" >applyGridSettings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteItem" >deleteItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteZoo" >deleteZoo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#editBtnIsHidden" >editBtnIsHidden</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getArrayFrom" >getArrayFrom</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleFilters" >handleFilters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#nascondiPulsantiZoo" >nascondiPulsantiZoo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#SetComponentRef" >SetComponentRef</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#warningDialogRef" >warningDialogRef</a>
+                                </li>
+                                <li>
+                                    <a href="#warningDialogMsg" >warningDialogMsg</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, filters: <a href="../injectables/FiltersService.html" target="_self">FiltersService</a>, dialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, menu: <a href="../injectables/MenuContestualeService.html" target="_self">MenuContestualeService</a>, dataStore: <a href="../injectables/MenuAgendaDataStore.html" target="_self">MenuAgendaDataStore</a>, redirector: <a href="../injectables/Gias2010Redirector.html" target="_self">Gias2010Redirector</a>, renderer: Renderer2, bizz: <a href="../injectables/BussinessMenuAgendaService.html" target="_self">BussinessMenuAgendaService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, ajaxAgronicaAPIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filters</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FiltersService.html" target="_self" >FiltersService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>menu</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuContestualeService.html" target="_self" >MenuContestualeService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataStore</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MenuAgendaDataStore.html" target="_self" >MenuAgendaDataStore</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>redirector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Gias2010Redirector.html" target="_self" >Gias2010Redirector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>bizz</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BussinessMenuAgendaService.html" target="_self" >BussinessMenuAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyGridSettings"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>applyGridSettings</b></span>
+                        <a href="#applyGridSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyGridSettings()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="266"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:266</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="79"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteItem"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteItem</b></span>
+                        <a href="#deleteItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteItem(items: <a href="../classes/ZooRow.html" target="_self">ZooRow[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooRow.html" target="_self" >ZooRow[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteZoo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteZoo</b></span>
+                        <a href="#deleteZoo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteZoo(items: <a href="../classes/ZooRow.html" target="_self">ZooRow[]</a>, proseguiInCasoDiAlert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="189"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:189</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooRow.html" target="_self" >ZooRow[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>proseguiInCasoDiAlert</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editBtnIsHidden"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>editBtnIsHidden</b></span>
+                        <a href="#editBtnIsHidden"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editBtnIsHidden(dataItem: <a href="../classes/ZooRow.html" target="_self">ZooRow</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="261"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:261</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooRow.html" target="_self" >ZooRow</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getArrayFrom"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getArrayFrom</b></span>
+                        <a href="#getArrayFrom"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getArrayFrom(items: <a href="../classes/ZooRow.html" target="_self">ZooRow | ZooRow[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="270"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:270</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooRow.html" target="_self" >ZooRow | ZooRow[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/ZooRow.html" target="_self" >ZooRow[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleFilters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleFilters</b></span>
+                        <a href="#handleFilters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleFilters()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="240"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:240</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nascondiPulsantiZoo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>nascondiPulsantiZoo</b></span>
+                        <a href="#nascondiPulsantiZoo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nascondiPulsantiZoo(renderer: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, domElems: any[], elems: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>renderer</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>domElems</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>elems</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>perform(actionType: HttpAction, items: <a href="../classes/ZooRow.html" target="_self">ZooRow[] | ZooRow</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="147"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooRow.html" target="_self" >ZooRow[] | ZooRow</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="87"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GridZooResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SetComponentRef"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>SetComponentRef</b></span>
+                        <a href="#SetComponentRef"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>SetComponentRef(component: <a href="../components/GridZooComponent.html" target="_self">GridZooComponent</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="75"
+                                    class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:75</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>component</td>
+                                            <td>
+                                                            <code><a href="../components/GridZooComponent.html" target="_self" >GridZooComponent</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applicaFiltri"></a>
+                    <span class="name">
+                        <span ><b>applicaFiltri</b></span>
+                        <a href="#applicaFiltri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="component"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>component</b></span>
+                        <a href="#component"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../components/GridZooComponent.html" target="_self" >GridZooComponent</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_PAGE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;RicetteGridConfig&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoZoo_W"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoZoo_W</b></span>
+                        <a href="#permessoZoo_W"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;chiave&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="warningDialogRef"></a>
+                        <span class="name"><b>warningDialogRef</b><a href="#warningDialogRef"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>warningDialogRef()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:68</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="warningDialogMsg"></a>
+                        <span class="name"><b>warningDialogMsg</b><a href="#warningDialogMsg"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>warningDialogMsg(val: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/menu-agenda/components/grid-zoo/zoo-grid.service.ts:71</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>val</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector, Renderer2 } from &#x27;@angular/core&#x27;;
+import { MenuContestualeService } from &#x27;app/Master/menu-contestuale/menu-contestuale.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import {MasterService, RispostaStandard} from &#x27;app/Service/master.service&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { isNullOrUndefined } from &#x27;app/Service/utils&#x27;;
+import { EditingMode, GridInfoCommandEvent, LoaderType, RendererGridEvent } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { UtilityFunctions } from &#x27;app/Utility/UtilityFunctions&#x27;;
+import { map, Observable, skip, takeUntil, switchMap, throwError, take, of } from &#x27;rxjs&#x27;;
+import { BussinessMenuAgendaService } from &#x27;../../shared_services/bussiness-logic.service&#x27;;
+import { MenuAgendaDataStore } from &#x27;../../shared_services/menu-agenda-datastore.service&#x27;;
+import { FiltersService } from &#x27;../filters/filters.service&#x27;;
+import { Gias2010Redirector } from &#x27;../grid-qdc/Gias2010Redirector.service&#x27;;
+import {construisciChiaviComposite, GridZooResult, lav_cod_copiabili, Link_ElimOpMultipla, ZooRow} from &#x27;../utils&#x27;;
+import { GridZooComponent } from &#x27;./zoo.component&#x27;;
+import { AjaxAgronicaAPIService } from &#x27;app/Service/ajax-agronica.api.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import {CaricaZoo} from &quot;../models&quot;;
+import { CustomColumnSettings } from &#x27;gias-kendo-grid&#x27;;
+
+const zooLink &#x3D; &#x27;Agenda/CaricaZoo&#x27;;
+
+function operationIsBlocked(riga: ZooRow[]) {
+    let anyOpBlocked &#x3D; riga.some((row) &#x3D;&gt; row.chiave_composita.split(&quot;_&quot;)[5] &#x3D;&#x3D;&#x3D; &#x27;1&#x27;);
+    return anyOpBlocked;
+}
+
+
+@Injectable()
+export class ZooGridService extends AbstractGridConfigService&lt;GridZooResult&gt;  {
+    editingMode: EditingMode &#x3D; EditingMode.IN_PAGE;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    rowId &#x3D; &quot;chiave&quot;;
+    gridId &#x3D; &quot;RicetteGridConfig&quot;;
+    applicaFiltri: boolean;
+
+    private component: GridZooComponent;
+
+    private permessoZoo_W: boolean;
+
+    constructor(
+        injector: Injector,
+        private filters: FiltersService,
+        private dialogService: GiasDialogService,
+        private menu: MenuContestualeService,
+        private dataStore: MenuAgendaDataStore,
+        private redirector: Gias2010Redirector,
+        private renderer: Renderer2,
+        private bizz: BussinessMenuAgendaService,
+        private permessiUtenteService: PermessiUtenteService,
+        private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+        private objParametriAgendaService: ObjParametriAgendaService,
+        private masterService: MasterService
+    ) {
+        super(injector);
+
+        this.customColumn &#x3D; new CustomColumnSettings({showColumn: true,title: this.transloco.translate(&quot;Comandi&quot;),useCustomColumnCellTemplate: true});
+
+        this.applyGridSettings();
+
+        this.handleFilters();
+
+        this.permessoZoo_W &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Gest_Stalle, 2);
+    }
+
+    get warningDialogRef() {
+        return this.component.warningDialogRef;
+    }
+    set warningDialogMsg(val: string) {
+        this.component.warningDialogMsg &#x3D; val;
+    }
+
+    public SetComponentRef(component: GridZooComponent) {
+        this.component &#x3D; component;
+    }
+
+    override applyRendererRules(opts: RendererGridEvent): void {
+        const { grid, gridElRef } &#x3D; { ...opts };
+        let rows: [] &#x3D; grid.data[&#x27;data&#x27;];
+        let domElems &#x3D; gridElRef.nativeElement.querySelectorAll(&#x27;tbody tr&#x27;);
+
+        this.nascondiPulsantiZoo(this.renderer, domElems, rows);
+    }
+
+    public read(options?: any): Observable&lt;GridZooResult&gt; {
+        const data &#x3D; this.dataStore.gridDataZoo;
+        if(!isNullOrUndefined(data) &amp;&amp; !this.applicaFiltri &amp;&amp; !this.menu.pendingWorkDone) {
+            return of(data);
+        }
+        this.applicaFiltri &#x3D; false;
+
+
+        const params &#x3D; (...args) &#x3D;&gt; {
+            const filters &#x3D; this.filters.getFiltriZoo();
+            let agendaService &#x3D; args[0];
+            const master &#x3D; args[1];
+
+            let agenda &#x3D; agendaService.getObjParamValue();
+            return {
+                filtro: JSON.stringify({
+                    TipoGriglia: &#x27;2&#x27;,
+                    ...filters
+                }),
+                piva: agenda.Piva,
+                objParam_server: master.ObjParametri_Server,
+                objParam_utenti: master.ObjParametri_Utenti
+            };
+        };
+
+        const params_NG &#x3D; (...args): CaricaZoo &#x3D;&gt; {
+            const filters &#x3D; this.filters.getFiltriZoo();
+            let agendaService &#x3D; args[0];
+            const master &#x3D; args[1];
+
+            let agenda &#x3D; agendaService.getObjParamValue();
+
+            const obj &#x3D; &lt;CaricaZoo&gt;{
+              filtro: JSON.stringify({
+                TipoGriglia: &#x27;2&#x27;,
+                ...filters
+              }),
+              piva: agenda.Piva,
+              variabiliInSessione_NG: this.masterService.variabiliInSessione
+            };
+
+            return obj;
+        };
+
+        this.isLoading(true);
+        return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(zooLink, params_NG(this.objParametriAgendaService, this.masterService))
+            .pipe(map(r &#x3D;&gt; {
+                let result &#x3D; r.RispostaStringa;
+                this.dataStore.gridDataZoo &#x3D;  {
+                    model: result.kendo_model,
+                    columns: result.kendo_columns,
+                    rows: result.kendo_rows
+                };
+                this.isLoading(false);
+
+                this.menu.markPendingWorkAsDone();
+                return this.dataStore.gridDataZoo;
+            }));
+    }
+
+    public perform(actionType: HttpAction, items: ZooRow[] | ZooRow): Observable&lt;any[]&gt; {
+        let daCancellare &#x3D; this.getArrayFrom(items);
+
+        if(actionType &#x3D;&#x3D;&#x3D; HttpAction.REMOVE) {
+            return this.deleteItem(daCancellare);
+        }
+    }
+
+    public nascondiPulsantiZoo(renderer: any, domElems: any[], elems: any[]) {
+        elems.forEach((dataItem: ZooRow, index: number) &#x3D;&gt; {
+            let currDomRow &#x3D; domElems[index];
+
+            UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.editBtn&#x27;, &#x27;display&#x27;, (this.permessoZoo_W ? &#x27;block&#x27; : &#x27;none&#x27;));
+            UtilityFunctions.setStyle(renderer, currDomRow, &#x27;#btnDelete&#x27;, &#x27;display&#x27;, (this.permessoZoo_W ? &#x27;block&#x27; : &#x27;none&#x27;));
+            UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.btnCopia&#x27;, &#x27;display&#x27;, (this.permessoZoo_W ? &#x27;block&#x27; : &#x27;none&#x27;));
+
+            if (this.bizz.SenzaPermessoDiModifica(dataItem) || this.bizz.OperazioneBloccata(dataItem)) {
+                UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.editBtn&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+                UtilityFunctions.setStyle(renderer, currDomRow, &#x27;#btnDelete&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+            }
+
+            //Se il tipo di operazione non è tra le editabili, nascondo il modifica
+            if (this.bizz.lavcodNonEditabile(dataItem)) {
+                UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.editBtn&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+            }
+
+            //Se il tipo di operazione non è tra le copiabili, nascondo il copia
+            if (lav_cod_copiabili.indexOf(parseInt(dataItem.Lav_cod)) &lt; 0) {
+                UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.btnCopia&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+            }
+        });
+    }
+
+    private deleteItem(items: ZooRow[]): Observable&lt;any[]&gt; {
+        if (operationIsBlocked(items)) {
+            this.dialogService.baseError(&#x27;&#x27;, &quot;OpBloccata&quot;);
+            return throwError(() &#x3D;&gt; new Error());
+        }
+
+        return this.deleteZoo(items, false);
+    }
+
+    private deleteZoo(items: ZooRow[], proseguiInCasoDiAlert: boolean): Observable&lt;any[]&gt; {
+
+        const params &#x3D; (...args) &#x3D;&gt; {
+            const master &#x3D; args[1];
+
+            let chiavi &#x3D; construisciChiaviComposite(items);
+            return {
+                strChiaviComposite: &#x27;del_elem|&#x27; + chiavi,
+                proseguiInCasoDiAlert: proseguiInCasoDiAlert
+            };
+        };
+
+        return this.ajaxAgronicaAPIService.ajaxAPIPost(Link_ElimOpMultipla, params).pipe(switchMap((risposta: RispostaStandard) &#x3D;&gt; {
+            if (risposta.RispostaOK) {
+                this.dialogService.baseSuccess(&#x27;&#x27;, risposta.RispostaStringa, false);
+                this.dataStore.resetGridData();
+                this.gridPublicService.refresh(true);
+            } else {
+                if(risposta.RispostaConferma) {
+                    this.warningDialogMsg &#x3D; risposta.Errore;
+                    return this.dialogService.baseWarning(&#x27;&#x27;, risposta.Errore, false);
+                }
+            }
+
+            return [];
+        }), switchMap((result) &#x3D;&gt; {
+            if(result[&#x27;returnObj&#x27;])
+                return this.deleteZoo(items, true);
+            return of([]);
+        }));
+
+        /*return this.http.post2(Link_ElimOpMultipla, params, true).pipe(switchMap((risposta: RispostaStandard) &#x3D;&gt; {
+            if (risposta.RispostaOK) {
+                this.dialogService.baseSuccess(&#x27;&#x27;, risposta.RispostaStringa, false);
+                this.dataStore.resetGridData();
+                this.gridPublicService.refresh(true);
+            } else {
+                if(risposta.RispostaConferma) {
+                    this.warningDialogMsg &#x3D; risposta.Errore;
+                    return this.dialogService.baseWarning(&#x27;&#x27;, risposta.Errore, false);
+                }
+            }
+
+            return [];
+        }), switchMap((result) &#x3D;&gt; {
+            if(result[&#x27;returnObj&#x27;])
+                return this.deleteZoo(items, true);
+            return of([]);
+        }));*/
+    }
+
+    private handleFilters() {
+
+        this.gridPublicService.changeDetected.pipe(takeUntil(this.signal))
+            .subscribe((event: GridInfoCommandEvent) &#x3D;&gt; {
+                if(this.editBtnIsHidden(event.dataItem) &amp;&amp; event.action &#x3D;&#x3D;&#x3D; &#x27;edit&#x27;)
+                    return;
+
+                switch(event.action) {
+                    case &#x27;info&#x27;:
+                    case &#x27;edit&#x27;:
+                        this.redirector.reindirizzaAiDettagli(event.action,event.dataItem);
+                    break;
+                }
+            });
+
+        this.filters.subscribeToFiltersChange().pipe(takeUntil(this.signal), skip(1)).subscribe(() &#x3D;&gt; {
+            this.applicaFiltri &#x3D; true;
+            this.gridPublicService.refresh(true);
+        });
+    }
+
+    private editBtnIsHidden(dataItem: ZooRow) {
+        return this.bizz.lavcodNonEditabile(dataItem)
+            || this.bizz.SenzaPermessoDiModifica(dataItem);
+    }
+
+    private applyGridSettings() {
+        this.behavior.showDeletionConfirmation &#x3D; true;
+    }
+
+    private getArrayFrom(items: ZooRow | ZooRow[]): ZooRow[] {
+        if(!Array.isArray(items)) {
+            return [items];
+        }
+        return items;
+    }
+
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ZooGridService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2379 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >AjaxAgronicaService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/ajax-agronica.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#pako" >pako</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#ajaxAgronica" >ajaxAgronica</a>
+                            </li>
+                            <li>
+                                <a href="#ajaxAgronicaCoreWS_GenericsObs" >ajaxAgronicaCoreWS_GenericsObs</a>
+                            </li>
+                            <li>
+                                <a href="#ajaxAgronicaCoreWS_Promise" >ajaxAgronicaCoreWS_Promise</a>
+                            </li>
+                            <li>
+                                <a href="#ajaxAgronicaG" >ajaxAgronicaG</a>
+                            </li>
+                            <li>
+                                <a href="#ajaxAgronicaObs" >ajaxAgronicaObs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ajaxCoreWSGet" >ajaxCoreWSGet</a>
+                            </li>
+                            <li>
+                                <a href="#ajaxCoreWSPost" >ajaxCoreWSPost</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#ajaxPost" >ajaxPost</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#decomprimi" >decomprimi</a>
+                            </li>
+                            <li>
+                                <a href="#errorHandling" >errorHandling</a>
+                            </li>
+                            <li>
+                                <a href="#handleErrori_Gestiti" >handleErrori_Gestiti</a>
+                            </li>
+                            <li>
+                                <a href="#handleErrori_NonGestiti" >handleErrori_NonGestiti</a>
+                            </li>
+                            <li>
+                                <a href="#legacy_get" >legacy_get</a>
+                            </li>
+                            <li>
+                                <a href="#post" >post</a>
+                            </li>
+                            <li>
+                                <a href="#rispostaOK_FalseHandling" >rispostaOK_FalseHandling</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(http: HttpClient, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, conversionService: <a href="../injectables/ConversionService.html" target="_self">ConversionService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/Service/ajax-agronica.service.ts:13</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>http</td>
+                                                  
+                                                        <td>
+                                                                    <code>HttpClient</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>conversionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConversionService.html" target="_self" >ConversionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxAgronica"></a>
+                    <span class="name">
+                        <span ><b>ajaxAgronica</b></span>
+                        <a href="#ajaxAgronica"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxAgronica(url, parametri, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Promise&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxAgronicaCoreWS_GenericsObs"></a>
+                    <span class="name">
+                        <span ><b>ajaxAgronicaCoreWS_GenericsObs</b></span>
+                        <a href="#ajaxAgronicaCoreWS_GenericsObs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxAgronicaCoreWS_GenericsObs(url, parametri: <a href="../classes/CoreWS_Generic.html" target="_self">CoreWS_Generic&lt;T2&gt;</a>, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:206</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T1</li>
+                                    <li>T2</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                                            <code><a href="../classes/CoreWS_Generic.html" target="_self" >CoreWS_Generic&lt;T2&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;T1&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxAgronicaCoreWS_Promise"></a>
+                    <span class="name">
+                        <span ><b>ajaxAgronicaCoreWS_Promise</b></span>
+                        <a href="#ajaxAgronicaCoreWS_Promise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxAgronicaCoreWS_Promise(url, parametri: <a href="../classes/CoreWS_Generic.html" target="_self">CoreWS_Generic&lt;OutType&gt;</a>, setLoading: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="21"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:21</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>InType</li>
+                                    <li>OutType</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                                            <code><a href="../classes/CoreWS_Generic.html" target="_self" >CoreWS_Generic&lt;OutType&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>setLoading</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Promise&lt;rispostaStandard&lt;InType&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxAgronicaG"></a>
+                    <span class="name">
+                        <span ><b>ajaxAgronicaG</b></span>
+                        <a href="#ajaxAgronicaG"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxAgronicaG(url, parametri, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Promise&lt;rispostaStandard&lt;T&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxAgronicaObs"></a>
+                    <span class="name">
+                        <span ><b>ajaxAgronicaObs</b></span>
+                        <a href="#ajaxAgronicaObs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxAgronicaObs(url, parametri, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="69"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Observable&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxCoreWSGet"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ajaxCoreWSGet</b></span>
+                        <a href="#ajaxCoreWSGet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ajaxCoreWSGet(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="218"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:218</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>OutType</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;OutType&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxCoreWSPost"></a>
+                    <span class="name">
+                        <span ><b>ajaxCoreWSPost</b></span>
+                        <a href="#ajaxCoreWSPost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ajaxCoreWSPost(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, parametri: <a href="../classes/CoreWS_Generic.html" target="_self">CoreWS_Generic&lt;InType&gt;</a>, setLoading: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="30"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>InType</li>
+                                    <li>OutType</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                                            <code><a href="../classes/CoreWS_Generic.html" target="_self" >CoreWS_Generic&lt;InType&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>setLoading</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;OutType&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ajaxPost"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>ajaxPost</b></span>
+                        <a href="#ajaxPost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ajaxPost(url, parametri: <a href="../classes/CoreWS_Generic.html" target="_self">CoreWS_Generic&lt;OutType&gt;</a>, returnPromise: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, setLoading: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="243"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:243</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>InType</li>
+                                    <li>OutType</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                                            <code><a href="../classes/CoreWS_Generic.html" target="_self" >CoreWS_Generic&lt;OutType&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>returnPromise</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>setLoading</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/variables.html#is" target="_self" >Promise | Observable</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="decomprimi"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>decomprimi</b></span>
+                        <a href="#decomprimi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>decomprimi(r: <a href="../classes/rispostaStandard.html" target="_self">rispostaStandard&lt;any&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="359"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:359</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../classes/rispostaStandard.html" target="_self" >rispostaStandard&lt;any&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >rispostaStandard&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="errorHandling"></a>
+                    <span class="name">
+                        <span ><b>errorHandling</b></span>
+                        <a href="#errorHandling"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>errorHandling(error: HttpResponseBase)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="314"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:314</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                        <code>HttpResponseBase</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleErrori_Gestiti"></a>
+                    <span class="name">
+                        <span ><b>handleErrori_Gestiti</b></span>
+                        <a href="#handleErrori_Gestiti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleErrori_Gestiti(errori: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="350"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:350</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>errori</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleErrori_NonGestiti"></a>
+                    <span class="name">
+                        <span ><b>handleErrori_NonGestiti</b></span>
+                        <a href="#handleErrori_NonGestiti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleErrori_NonGestiti(errori: <a href="../classes/ErroreGias.html" target="_self">ErroreGias[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="344"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:344</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>errori</td>
+                                            <td>
+                                                            <code><a href="../classes/ErroreGias.html" target="_self" >ErroreGias[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="legacy_get"></a>
+                    <span class="name">
+                        <span ><b>legacy_get</b></span>
+                        <a href="#legacy_get"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>legacy_get(url, parametri, displayErrorMessage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="140"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:140</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Per le chiamate utilizzando codice vecchio non ancora adattato alla
+nuova modalità di caricare i dati (tramite RispostaStandard generic).</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>Endpoint.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>I parametri che compaiono nella testata della chiamata.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>displayErrorMessage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Observable&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>il risultato della chiamata http.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="post"></a>
+                    <span class="name">
+                        <span ><b>post</b></span>
+                        <a href="#post"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>post(url, parametri, compressione: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, gestisciErrore, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:173</a></div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <b>Type parameters :</b>
+                            <ul class="type-parameters">
+                                    <li>T</li>
+                            </ul>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>url</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>parametri</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>compressione</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>gestisciErrore</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;T&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rispostaOK_FalseHandling"></a>
+                    <span class="name">
+                        <span ><b>rispostaOK_FalseHandling</b></span>
+                        <a href="#rispostaOK_FalseHandling"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>rispostaOK_FalseHandling(r: <a href="../classes/rispostaStandard.html" target="_self">rispostaStandard&lt;any&gt;</a>, showErroriGestiti: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="323"
+                                    class="link-to-prism">src/app/Service/ajax-agronica.service.ts:323</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>r</td>
+                                            <td>
+                                                            <code><a href="../classes/rispostaStandard.html" target="_self" >rispostaStandard&lt;any&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>showErroriGestiti</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="pako"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>pako</b></span>
+                        <a href="#pako"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/Service/ajax-agronica.service.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { HttpClient, HttpHeaders, HttpResponseBase } from &#x27;@angular/common/http&#x27;;
+import { catchError, map, take } from &#x27;rxjs/operators&#x27;;
+import { enum_ErroreGias_Tipo, ErroreGias, ErroreGias_Severity, MasterService, rispostaStandard, RispostaStandard } from &#x27;./master.service&#x27;;
+import { ConversionService } from &#x27;./conversion.service&#x27;;
+import { lastValueFrom, Observable, of, throwError } from &#x27;rxjs&#x27;;
+import { CoreWS_Generic } from &#x27;app/Model/CoreWS/CoreWS_Generic&#x27;;
+import { GiasDialogService } from &#x27;./gias-dialog.service&#x27;;
+import { isJSON } from &#x27;gias-ui-kit&#x27;;
+
+@Injectable({ providedIn: &#x27;root&#x27; })
+export class AjaxAgronicaService {
+    private pako;
+    constructor(private http: HttpClient,
+        private masterService: MasterService,
+        private conversionService: ConversionService,
+        private giasDialogService: GiasDialogService) {
+        this.pako &#x3D; require(&#x27;pako&#x27;);
+    }
+
+    ajaxAgronicaCoreWS_Promise&lt;InType,OutType&gt;(
+        url,
+        parametri: CoreWS_Generic&lt;OutType&gt;,
+        setLoading: boolean &#x3D; true,
+        showErroriGestiti: boolean &#x3D; true): Promise&lt;rispostaStandard&lt;InType&gt;&gt; {
+        console.error(&#x27;La funzione ha chiamato direttamente i CoreWS (&#x27; + url + &#x27;), ritornando una Promise. Da cambiare in una chiamata WebAPI!&#x27; )
+        return this.ajaxPost(url, parametri, true, setLoading,showErroriGestiti) as Promise&lt;rispostaStandard&lt;InType&gt;&gt;;
+    }
+
+    ajaxCoreWSPost&lt;InType,OutType&gt;(url: string,
+        parametri: CoreWS_Generic&lt;InType&gt;,
+        setLoading: boolean &#x3D; true,
+        compressione: boolean &#x3D; true,
+        showErroriGestiti: boolean &#x3D; true): Observable&lt;rispostaStandard&lt;OutType&gt;&gt; {
+        console.error(&#x27;La funzione ha eseguito una chiamata Post sui CoreWS (&#x27; + url + &#x27;). Da cambiare in una chiamata WebAPI!&#x27; )
+        return this.ajaxPost(url, parametri, false, setLoading, compressione,showErroriGestiti) as Observable&lt;rispostaStandard&lt;OutType&gt;&gt;;
+    }
+
+    ajaxAgronica(url, parametri, compressione: boolean &#x3D; true,showErroriGestiti: boolean &#x3D; true): Promise&lt;RispostaStandard&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        return lastValueFrom(this.http.post&lt;any&gt;(url, JSON.stringify(parametri), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return this.decomprimi(val)
+                }),
+                map(resp &#x3D;&gt; {
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false){
+                        this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                        return resp;
+                    }
+                    return resp;
+                })
+            )
+        );
+    }
+
+    ajaxAgronicaObs(url, parametri, compressione: boolean &#x3D; true,showErroriGestiti: boolean &#x3D; true): Observable&lt;RispostaStandard&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        return this.http.post&lt;any&gt;(url, JSON.stringify(parametri), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return (&lt;any&gt;this.decomprimi(val));
+                }),
+                map(r &#x3D;&gt; {
+                    const resp &#x3D; (&lt;any&gt;r);
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false) {
+                        return this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                    }
+                    return resp;
+                })
+            );
+    }
+
+    ajaxAgronicaG&lt;T&gt;(url, parametri, compressione: boolean &#x3D; true,showErroriGestiti: boolean &#x3D; true): Promise&lt;rispostaStandard&lt;T&gt;&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        return lastValueFrom(this.http.post&lt;any&gt;(url, JSON.stringify(parametri), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return (&lt;any&gt;this.decomprimi(val));
+                }),
+                map(r &#x3D;&gt; {
+                    const resp &#x3D; (&lt;rispostaStandard&lt;T&gt;&gt; r);
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false){
+                        return this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                    }
+                    return r;
+                }),
+                map((r: rispostaStandard&lt;T&gt;) &#x3D;&gt; {
+                    const obj &#x3D; r.RispostaStringa;
+
+                    this.conversionService.ConversionDateInObject(obj);
+                    this.conversionService.remove__type(obj);
+                return r;
+            })))
+    }
+
+    /**
+   * Per le chiamate utilizzando codice vecchio non ancora adattato alla
+   * nuova modalità di caricare i dati (tramite RispostaStandard generic).
+   * @param url Endpoint.
+   * @param parametri I parametri che compaiono nella testata della chiamata.
+   * @returns il risultato della chiamata http.
+   */
+    legacy_get(url, parametri, displayErrorMessage: boolean &#x3D; true, compressione: boolean &#x3D; true): Observable&lt;RispostaStandard&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        return this.http.post&lt;any&gt;(url, JSON.stringify(parametri), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return (&lt;any&gt;this.decomprimi(val));
+                }),
+                map(r &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r);
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false &amp;&amp; displayErrorMessage){
+                        return this.rispostaOK_FalseHandling(resp,displayErrorMessage).pipe(
+                            take(1),
+                            map((val) &#x3D;&gt; {
+                                return val;
+                            })
+                        );
+                    }
+                    return r;
+                }));
+    }
+
+    post&lt;T&gt;(url, parametri, compressione: boolean &#x3D; true, gestisciErrore &#x3D; true,showErroriGestiti: boolean &#x3D; true): Observable&lt;rispostaStandard&lt;T&gt;&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        return this.http.post&lt;any&gt;(url, JSON.stringify(parametri), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;RispostaStandard&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return (&lt;any&gt;this.decomprimi(val));
+                }),
+                map(r &#x3D;&gt; {
+                    const resp &#x3D; (&lt;rispostaStandard&lt;T&gt;&gt;r);
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false &amp;&amp; !resp.RispostaConferma &amp;&amp; gestisciErrore){
+                        return this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                    }
+                    return r;
+                })).pipe(map((r: rispostaStandard&lt;T&gt;) &#x3D;&gt; {
+                    const obj &#x3D; r.RispostaStringa;
+                    this.conversionService.ConversionDateInObject(obj);
+                    this.conversionService.remove__type(obj);
+                    return r;
+                }));
+    }
+
+    ajaxAgronicaCoreWS_GenericsObs&lt;T1, T2&gt;(url, parametri: CoreWS_Generic&lt;T2&gt;, compressione: boolean &#x3D; true,showErroriGestiti: boolean &#x3D; true): Observable&lt;rispostaStandard&lt;T1&gt;&gt; {
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+        console.error(&#x27;La funzione ha chiamato direttamente i CoreWS (&#x27; + url + &#x27;), ritornando un Observable. Da cambiare in una chiamata WebAPI!&#x27; )
+        const p1 &#x3D; { InData: parametri };
+        return this.ajaxCoreWSPost(url, parametri, false, compressione,showErroriGestiti);
+    }
+
+    public ajaxCoreWSGet&lt;OutType&gt;(url: string,showErroriGestiti: boolean &#x3D; true): Observable&lt;rispostaStandard&lt;OutType&gt;&gt; {
+        this.masterService.set_isLoading({
+            isLoading: true,
+            message: &#x27;Caricamento in corso&#x27;
+        });
+
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+            })};
+
+        return this.http.get&lt;any&gt;(url, httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map(r &#x3D;&gt; {
+                    const resp &#x3D; (&lt;rispostaStandard&lt;OutType&gt;&gt; r.d);
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false){
+                        return this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                    }
+                    return r.d;
+                }));
+    }
+
+    private ajaxPost&lt;InType, OutType&gt;(url,
+        parametri: CoreWS_Generic&lt;OutType&gt;,
+        returnPromise: boolean &#x3D; true,
+        setLoading: boolean &#x3D; true,
+        compressione: boolean &#x3D; true,
+        showErroriGestiti: boolean &#x3D; true): Promise&lt;rispostaStandard&lt;InType&gt;&gt; | Observable&lt;rispostaStandard&lt;InType&gt;&gt; {
+
+        if (setLoading) {
+            this.masterService.set_isLoading({
+                isLoading: true,
+                message: &#x27;Caricamento in corso&#x27;
+            });
+        }
+
+        // let headers &#x3D; new Headers();
+        // headers.append(&#x27;Content-Type&#x27;, &#x27;application/json&#x27;);
+        // headers.append(&#x27;x-compressione&#x27;, compressione.toString());
+
+        const httpOptions &#x3D; {
+            headers: new HttpHeaders({
+                &#x27;Content-Type&#x27;: &#x27;application/json&#x27;,
+                &#x27;x-compressione&#x27;: compressione.toString()
+            })
+        };
+
+        const p1 &#x3D; { InData: parametri };
+
+        // this.conversionService.remove__type(p1);
+        const risposta &#x3D; this.http.post&lt;any&gt;(url, JSON.stringify(p1), httpOptions)
+            .pipe(
+                catchError((err) &#x3D;&gt; {
+                    return this.errorHandling(err);
+                }),
+                map((r) &#x3D;&gt; {
+                    const resp &#x3D; (&lt;rispostaStandard&lt;InType&gt;&gt;r.d);
+                    return resp;
+                }),
+                map((val) &#x3D;&gt; {
+                    return this.decomprimi(val)
+                }),
+                map(resp &#x3D;&gt; {
+                    if (resp.RispostaOK &#x3D;&#x3D;&#x3D; false){
+                        this.rispostaOK_FalseHandling(resp,showErroriGestiti);
+                        return resp;
+                    }
+                    return resp;
+                })).pipe(map((r: rispostaStandard&lt;InType&gt;) &#x3D;&gt; {
+                    if (r.RispostaOK &#x3D;&#x3D;&#x3D; true || r.RispostaStringa) {
+                        let obj &#x3D; r.RispostaStringa;
+                        if (typeof r.RispostaStringa &#x3D;&#x3D; &#x27;string&#x27; &amp;&amp; r.RispostaStringa !&#x3D; &quot;&quot; &amp;&amp; isJSON(r.RispostaStringa)) {
+                            obj &#x3D; JSON.parse(r.RispostaStringa);
+                        }
+                        this.conversionService.ConversionDateInObject(obj);
+                        this.conversionService.remove__type(obj);
+                        r.RispostaStringa &#x3D; obj;
+                        if (setLoading) {
+                            this.masterService.set_isLoading({ isLoading: false, message: &#x27;&#x27; });
+                        }
+                        return r;
+                    } else {
+                        return r;
+                    }
+                }));
+        if(returnPromise) {
+            return risposta.toPromise();
+        } else {
+            return risposta;
+        }
+    }
+
+
+    errorHandling(error: HttpResponseBase): Observable&lt;any&gt; {
+        let messaggio &#x3D; &quot;statusText:&quot; + error.statusText + &quot; - url:&quot; + error.url;
+        if ((&lt;any&gt;error).error) {
+            messaggio +&#x3D; &quot; error: &quot; + JSON.stringify((&lt;any&gt;error).error)
+        }
+        this.masterService.changeErrorMsgType({ show: true, msg: error.statusText, errorNumber: error.status });
+        return of(new Error(messaggio));
+    }
+
+    rispostaOK_FalseHandling(r: rispostaStandard&lt;any&gt;,showErroriGestiti: boolean): Observable&lt;any&gt; {
+        this.masterService.set_isLoading({ isLoading: false, message: &#x27;&#x27; });
+        if (r.ErroriGias &amp;&amp; r.ErroriGias.length &gt; 0) {
+
+            const erroriNonGestiti &#x3D; r.ErroriGias.filter((e) &#x3D;&gt; e.tipo &#x3D;&#x3D; enum_ErroreGias_Tipo.NonGestito);
+            this.handleErrori_NonGestiti(erroriNonGestiti);
+
+            if(showErroriGestiti){
+                const erroriGestiti &#x3D; r.ErroriGias.filter((e) &#x3D;&gt; e.tipo !&#x3D; enum_ErroreGias_Tipo.NonGestito);
+                this.handleErrori_Gestiti(erroriGestiti);
+            }
+
+
+        } else {
+
+            this.masterService.changeErrorMsgType({ show: true, msg: r.Errore, errorNumber: 500 });
+
+        }
+        return of(new Error(JSON.stringify(r)));
+    }
+
+    handleErrori_NonGestiti(errori: ErroreGias[]) {
+        errori.forEach((e) &#x3D;&gt; {
+            this.masterService.changeErrorMsgType({ show: true, msg: e.messaggio, errorNumber: 500 });
+        })
+    }
+
+    handleErrori_Gestiti(errori: ErroreGias[]) {
+        const bloccanti &#x3D; errori.filter((e) &#x3D;&gt; e.severity &#x3D;&#x3D; ErroreGias_Severity.Bloccante);
+        bloccanti.forEach((e) &#x3D;&gt; {
+            this.giasDialogService.baseError(&#x27;&#x27;,e.messaggio);
+        });
+       const warning &#x3D; errori.filter((e) &#x3D;&gt; e.severity &#x3D;&#x3D; ErroreGias_Severity.Bloccante);
+       const info &#x3D; errori.filter((e) &#x3D;&gt; e.severity &#x3D;&#x3D; ErroreGias_Severity.Bloccante);
+    }
+
+    private decomprimi(r: rispostaStandard&lt;any&gt;): rispostaStandard&lt;any&gt; {
+        if (r &amp;&amp;  r?.Compressa &amp;&amp; this.pako) {
+            if (r.RispostaCompressa !&#x3D;&#x3D; undefined &amp;&amp; r.RispostaCompressa !&#x3D;&#x3D; null &amp;&amp; r.RispostaCompressa.length &gt; 0) {
+                r.RispostaStringa &#x3D; this.pako.inflate(r.RispostaCompressa, { to: &#x27;string&#x27; });
+                r.RispostaCompressa &#x3D; null;
+            }
+        }
+        return r;
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'AjaxAgronicaService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

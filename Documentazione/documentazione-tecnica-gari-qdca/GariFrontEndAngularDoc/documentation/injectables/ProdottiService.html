@@ -1,0 +1,1237 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ProdottiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/Anagrafica/prodotti.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#Crea_Prodotti" >Crea_Prodotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Static</span>
+                                <a href="#getDistinctTrasformati" >getDistinctTrasformati</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Fertilizzanti" >Leggi_Fertilizzanti</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Formulati" >Leggi_Formulati</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Sementi" >Leggi_Sementi</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Trasformati_Vegetali_Anagrafica" >Leggi_Trasformati_Vegetali_Anagrafica</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Trasformati_Vegetali_Anagrafica_With_Default" >Leggi_Trasformati_Vegetali_Anagrafica_With_Default</a>
+                            </li>
+                            <li>
+                                <a href="#Leggi_Trasformati_Vegetali_Qdc" >Leggi_Trasformati_Vegetali_Qdc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#LeggiInsetti" >LeggiInsetti</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, ajaxAgronicaService: <a href="../injectables/AjaxAgronicaService.html" target="_self">AjaxAgronicaService</a>, APIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:76</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaService.html" target="_self" >AjaxAgronicaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>APIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Crea_Prodotti"></a>
+                    <span class="name">
+                        <span ><b>Crea_Prodotti</b></span>
+                        <a href="#Crea_Prodotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Crea_Prodotti(p: <a href="../classes/Crea_Prodotti.html" target="_self">Crea_Prodotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="251"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:251</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../classes/Crea_Prodotti.html" target="_self" >Crea_Prodotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDistinctTrasformati"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Static</span>
+                        <span ><b>getDistinctTrasformati</b></span>
+                        <a href="#getDistinctTrasformati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDistinctTrasformati(trasformati: <a href="../classes/Prodotto.html" target="_self">Prodotto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>trasformati</td>
+                                            <td>
+                                                            <code><a href="../classes/Prodotto.html" target="_self" >Prodotto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Prodotto.html" target="_self" >Prodotto[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Fertilizzanti"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Fertilizzanti</b></span>
+                        <a href="#Leggi_Fertilizzanti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Fertilizzanti(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Formulati"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Formulati</b></span>
+                        <a href="#Leggi_Formulati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Formulati(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Sementi"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Sementi</b></span>
+                        <a href="#Leggi_Sementi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Sementi(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Trasformati_Vegetali_Anagrafica"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Trasformati_Vegetali_Anagrafica</b></span>
+                        <a href="#Leggi_Trasformati_Vegetali_Anagrafica"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Trasformati_Vegetali_Anagrafica(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/DettaglioRaccolta.html" target="_self" >Observable&lt;DettaglioRaccolta[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Trasformati_Vegetali_Anagrafica_With_Default"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Trasformati_Vegetali_Anagrafica_With_Default</b></span>
+                        <a href="#Leggi_Trasformati_Vegetali_Anagrafica_With_Default"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Trasformati_Vegetali_Anagrafica_With_Default(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="205"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:205</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Prodotto.html" target="_self" >Observable&lt;Prodotto[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Leggi_Trasformati_Vegetali_Qdc"></a>
+                    <span class="name">
+                        <span ><b>Leggi_Trasformati_Vegetali_Qdc</b></span>
+                        <a href="#Leggi_Trasformati_Vegetali_Qdc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>Leggi_Trasformati_Vegetali_Qdc(p: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="184"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:184</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>p</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="LeggiInsetti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>LeggiInsetti</b></span>
+                        <a href="#LeggiInsetti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>LeggiInsetti(i: <a href="../interfaces/LeggiProdotti.html" target="_self">LeggiProdotti</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="256"
+                                    class="link-to-prism">src/app/Service/Anagrafica/prodotti.service.ts:256</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>i</td>
+                                            <td>
+                                                            <code><a href="../interfaces/LeggiProdotti.html" target="_self" >LeggiProdotti</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { Impianto } from &#x27;app/Model/anagrafiche/Impianto&#x27;;
+import { DettaglioFertilizzazione } from &#x27;app/Model/attivita/dettagli/DettaglioFertilizzazione&#x27;;
+import { DettaglioRaccolta } from &#x27;app/Model/attivita/dettagli/DettaglioRaccolta&#x27;;
+import { DettaglioSemina } from &#x27;app/Model/attivita/dettagli/DettaglioSemina&#x27;;
+import { DettaglioTrattamento } from &#x27;app/Model/attivita/dettagli/DettaglioTrattamento&#x27;;
+import { Lavorazione } from &#x27;app/Model/attivita/Lavorazione&#x27;;
+import { AvversitaGruppo } from &#x27;app/Model/metaschema/avversita/AvversitaGruppo&#x27;;
+import { Disciplinare } from &#x27;app/Model/metaschema/Disciplinari&#x27;;
+import { Epoca } from &#x27;app/Model/metaschema/Epoca&#x27;;
+import { Regolamenti } from &#x27;app/Model/metaschema/Regolamenti&#x27;;
+import { Specie } from &#x27;app/Model/metaschema/utilizzi/Specie&#x27;;
+import { Varieta } from &#x27;app/Model/metaschema/utilizzi/Varieta&#x27;;
+import {forkJoin, lastValueFrom, map} from &#x27;rxjs&#x27;;
+import { AjaxAgronicaAPIService } from &#x27;../ajax-agronica.api.service&#x27;;
+import { AjaxAgronicaService } from &#x27;../ajax-agronica.service&#x27;;
+import { MasterService } from &#x27;../master.service&#x27;;
+import { GruppoFinalita } from &#x27;app/Model/metaschema/utilizzi/GruppoFinalita&#x27;;
+import {Impresa} from &quot;../../Model/anagrafiche/Impresa&quot;;
+import {Observable} from &quot;rxjs&quot;;
+import {take} from &quot;rxjs/operators&quot;;
+import {Prodotto} from &quot;../../Model/attivita/risorse/Prodotto&quot;;
+import {Pua} from &quot;../../Model/metaschema/Pua&quot;;
+import { MovimentoDiMagazzino } from &#x27;../api.service&#x27;;
+import { Tipo_Attivita, Stati } from &#x27;gias-ui-kit&#x27;;
+
+export class LeggiProdotti{
+    impresa?: Impresa;
+    tipoAttivita: Tipo_Attivita;
+
+    statoAttivita: Stati;
+
+    lavorazione: Lavorazione;
+
+    impianti: Array&lt;Impianto&gt;;
+    prodottiDaTrattare: Array&lt;MovimentoDiMagazzino&gt;;
+
+    specie: Specie;
+
+    varieta?: Varieta;
+    regolamento?: Regolamenti;
+    finalita?: GruppoFinalita;
+    disciplinare: Disciplinare;
+
+    epocaDPI: Epoca;
+
+    avversitaGruppo: AvversitaGruppo;
+
+    filtroPerDescrizione: string;
+
+    data: Date;
+
+    escludiGiacenzeZero: boolean;
+
+    magazziniAgenzie: boolean;
+
+    magazziniEsterni: boolean;
+
+    pua?: Pua;
+}
+
+export class Crea_Prodotti {
+    varieta: Varieta;
+
+    regolamento: Regolamenti;
+
+    creaSemente: boolean;
+
+    creaTrasformatoVegetale: boolean;
+}
+
+@Injectable({
+    providedIn: &#x27;root&#x27;
+})
+
+export class ProdottiService{
+
+    constructor(private masterService: MasterService,
+                private ajaxAgronicaService: AjaxAgronicaService,
+                private APIService: AjaxAgronicaAPIService) {}
+
+
+    /*Leggi_Formulati_Old(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioTrattamento[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiProdotti&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;DettaglioTrattamento[], LeggiProdotti&gt;(this.masterService.link_CoreWS + &#x27;/Anagrafica/Prodotti.asmx/Leggi_Formulati_QdC&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Leggi_Formulati(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioTrattamento[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, DettaglioTrattamento[]&gt;(&#x27;AnagraficaNG/LeggiFormulatiQdC&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            })).subscribe();
+
+        });
+    }
+
+
+    /*Leggi_Fertilizzanti_Old(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioFertilizzazione[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiProdotti&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;DettaglioFertilizzazione[], LeggiProdotti&gt;(this.masterService.link_CoreWS + &#x27;/Anagrafica/Prodotti.asmx/Leggi_Fertilizzanti_QdC&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Leggi_Fertilizzanti(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioFertilizzazione[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, DettaglioFertilizzazione[]&gt;(&#x27;AnagraficaNG/LeggiFertilizzantiQdC&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            })).subscribe();
+
+        });
+    }
+
+    /*Leggi_Sementi_Old(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioSemina[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiProdotti&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;DettaglioSemina[], LeggiProdotti&gt;(this.masterService.link_CoreWS + &#x27;/Anagrafica/Prodotti.asmx/Leggi_Sementi_QdC&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Leggi_Sementi(p: LeggiProdotti) {
+
+        return new Promise&lt;DettaglioSemina[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, DettaglioSemina[]&gt;(&#x27;AnagraficaNG/LeggiSementiQdC&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            })).subscribe();
+
+        });
+    }
+
+    /*Leggi_Trasformati_Vegetali_Old(p: LeggiProdotti) {
+        const linkProdotti &#x3D; &#x27;/Anagrafica/Prodotti.asmx/&#x27;;
+
+        return new Promise&lt;DettaglioSemina[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiProdotti&gt; &#x3D; new CoreWS_Generic(
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;DettaglioRaccolta[], LeggiProdotti&gt;(
+                this.masterService.link_CoreWS + linkProdotti + &#x27;Leggi_TrasformatiVegetali_QdC&#x27;,
+                parametri
+            );
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Leggi_Trasformati_Vegetali_Qdc(p: LeggiProdotti) {
+        return new Promise&lt;DettaglioRaccolta[]&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, DettaglioRaccolta[]&gt;(
+                &#x27;AnagraficaNG/LeggiTrasformatiVegetaliQdC&#x27;,
+                p
+            ).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            })).subscribe();
+        });
+    }
+
+    Leggi_Trasformati_Vegetali_Anagrafica(p: LeggiProdotti): Observable&lt;DettaglioRaccolta[]&gt; {
+        const linkProdotti &#x3D; &#x27;AnagraficaNG/LeggiTrasformatiVegetaliAnagrafica&#x27;;
+        return this.APIService
+        .ajaxAPIPost&lt;LeggiProdotti, DettaglioRaccolta[]&gt;(linkProdotti, p)
+        .pipe(
+            take(1),
+            map(r &#x3D;&gt; r.RispostaStringa)
+        );
+    }
+
+    Leggi_Trasformati_Vegetali_Anagrafica_With_Default(p: LeggiProdotti): Observable&lt;Prodotto[]&gt; {
+        const defaultVarietaPayload &#x3D; {...p, finalita: { codice: 0 }} as LeggiProdotti;
+
+        const linkProdotti &#x3D; &#x27;AnagraficaNG/LeggiTrasformatiVegetaliAnagrafica&#x27;;
+        return forkJoin([
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, Prodotto[]&gt;(linkProdotti, p),
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, Prodotto[]&gt;(linkProdotti, defaultVarietaPayload),
+        ])
+        .pipe(
+            take(1),
+            map(([r1, r2]) &#x3D;&gt;
+             {
+                 let a &#x3D; ProdottiService.getDistinctTrasformati(r1.RispostaStringa.concat(r2.RispostaStringa))
+                 a.unshift({
+                     &quot;codice&quot;: 0,
+                     &quot;descrizione&quot;: &quot;Nessuno&quot;,
+                     &quot;codice_alfanumerico&quot;: &quot;&quot;,
+                     &quot;elemCod&quot;: 210,
+                     &quot;finalita&quot;: {
+                         &quot;specieCod&quot;: 0,
+                         &quot;codice&quot;: 0,
+                         &quot;descrizione&quot;: &quot;&quot;
+                     },
+                     &quot;regolamento&quot;: {
+                         &quot;codice&quot;: 1,
+                         &quot;descrizione&quot;: &quot;&quot;
+                     },
+                     &quot;specie&quot;: null,
+                     &quot;tipo&quot;: null,
+                     &quot;unitaDiMisura&quot;: null,
+                     &quot;varieta&quot;: {
+                         &quot;specie&quot;: {
+                             &quot;codice&quot;: 52,
+                             &quot;descrizione&quot;: &quot;Pomodoro&quot;
+                         },
+                         &quot;classType&quot;: &quot;Varieta&quot;,
+                         &quot;codice&quot;: 0,
+                         &quot;descrizione&quot;: &quot;&quot;
+                     }
+                 })
+                 return a;
+             }
+            )
+        );
+    }
+
+    Crea_Prodotti(p: Crea_Prodotti) {
+        const url &#x3D; &#x27;AnagraficaNG/CreaProdotti&#x27;;
+        return lastValueFrom(this.APIService.ajaxAPIPost&lt;Crea_Prodotti, any&gt;(url, p, true))
+    }
+
+    public LeggiInsetti(i: LeggiProdotti) {
+        const url &#x3D; &#x27;Anagrafica/Insetti&#x27;;
+
+        return new Promise((resolve, reject) &#x3D;&gt; {
+            this.APIService.ajaxAPIPost&lt;LeggiProdotti, DettaglioTrattamento[]&gt;(url, i, true)
+                .GiasSubscribe(R &#x3D;&gt; {
+                    console.log(R);
+                    resolve(R.RispostaStringa);
+                });
+        })
+    }
+
+    private static getDistinctTrasformati(trasformati: Prodotto[]): Prodotto[] {
+        const result: Prodotto[] &#x3D; [];
+        for (const trasformato of trasformati) {
+            if (result.find(t &#x3D;&gt; t.codice &#x3D;&#x3D; trasformato.codice) &#x3D;&#x3D; null) {
+                result.push(trasformato);
+            }
+        }
+
+        return result;
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProdottiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

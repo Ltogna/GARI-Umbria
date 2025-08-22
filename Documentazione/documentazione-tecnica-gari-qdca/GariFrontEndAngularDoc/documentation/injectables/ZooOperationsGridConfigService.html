@@ -1,0 +1,2189 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ZooOperationsGridConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filters" >_filters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridColumns" >_gridColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#_gridModel" >_gridModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_gridRows" >_gridRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#canEdit" >canEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#canEditModel4" >canEditModel4</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#faGenerateModel" >faGenerateModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#faRegisterModel" >faRegisterModel</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridpublicService" >gridpublicService</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#onRowClass" >onRowClass</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#asRowArray" >asRowArray</a>
+                            </li>
+                            <li>
+                                <a href="#coloraRigheOperazioni" >coloraRigheOperazioni</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteItem" >deleteItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#findRowWithId" >findRowWithId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getCompositeKeys" >getCompositeKeys</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDeletionParams" >getDeletionParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getLoaderParams" >getLoaderParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCommandEvent" >handleCommandEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#reuseLoadedData" >reuseLoadedData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setButtonsVisibility" >setButtonsVisibility</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setupCommands" >setupCommands</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#currentPiva" >currentPiva</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, gridpublicService: GridPublicService, master: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, dialog: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, agenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, zooRedirector: <a href="../injectables/ZooRedirectorService.html" target="_self">ZooRedirectorService</a>, zooClient: <a href="../injectables/OperazioniZooClient.html" target="_self">OperazioniZooClient</a>, ajaxAgronicaAPIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, permissions: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, cookies: <a href="../injectables/CookieService.html" target="_self">CookieService</a>, conversionService: <a href="../injectables/ConversionService.html" target="_self">ConversionService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:75</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridpublicService</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>master</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>zooRedirector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ZooRedirectorService.html" target="_self" >ZooRedirectorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>zooClient</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/OperazioniZooClient.html" target="_self" >OperazioniZooClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permissions</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>cookies</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CookieService.html" target="_self" >CookieService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>conversionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConversionService.html" target="_self" >ConversionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="asRowArray"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>asRowArray</b></span>
+                        <a href="#asRowArray"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>asRowArray(rowsIn: <a href="../interfaces/Operation.html" target="_self">ZooOperationGridFlatItem[] | ZooOperationGridFlatItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="272"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:272</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rowsIn</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationGridFlatItem[] | ZooOperationGridFlatItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="coloraRigheOperazioni"></a>
+                    <span class="name">
+                        <span ><b>coloraRigheOperazioni</b></span>
+                        <a href="#coloraRigheOperazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>coloraRigheOperazioni(row: KendoGridRow)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="135"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:135</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                        <code>KendoGridRow</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{ [k: string]: boolean; }</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteItem"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteItem</b></span>
+                        <a href="#deleteItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteItem(rowsIn: <a href="../interfaces/Operation.html" target="_self">ZooOperationGridFlatItem[] | ZooOperationGridFlatItem</a>, proseguiInCasoDiAlert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="287"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:287</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rowsIn</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationGridFlatItem[] | ZooOperationGridFlatItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>rows to delete</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>proseguiInCasoDiAlert</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>Richiede all&#39;utente la conferma prima di cancellare operazioni che hanno altri vincoli.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>true if the delete was successful and a refresh is needed, false otherwise</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRowWithId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>findRowWithId</b></span>
+                        <a href="#findRowWithId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findRowWithId(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="229"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:229</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ZooActivityForRedirect.html" target="_self" >ZooActivityForRedirect</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCompositeKeys"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getCompositeKeys</b></span>
+                        <a href="#getCompositeKeys"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCompositeKeys(rows: <a href="../interfaces/Operation.html" target="_self">ZooOperationGridFlatItem[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationGridFlatItem[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDeletionParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getDeletionParams</b></span>
+                        <a href="#getDeletionParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDeletionParams(rows: <a href="../interfaces/Operation.html" target="_self">ZooOperationGridFlatItem[]</a>, proseguiInCasoDiAlert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationGridFlatItem[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>proseguiInCasoDiAlert</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/elimina_operazione_multipla.html" target="_self" >elimina_operazione_multipla</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getLoaderParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getLoaderParams</b></span>
+                        <a href="#getLoaderParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getLoaderParams()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="143"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:143</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/OperazioniAgendaInput.html" target="_self" >OperazioniAgendaInput</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCommandEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCommandEvent</b></span>
+                        <a href="#handleCommandEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCommandEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="181"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="153"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:153</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, oldRow?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="../classes/ZooOperationsFilters.html" target="_self">ZooOperationsFilters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooOperationsFilters.html" target="_self" >ZooOperationsFilters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;KendoServerResultImpl&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="reuseLoadedData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>reuseLoadedData</b></span>
+                        <a href="#reuseLoadedData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>reuseLoadedData(options: <a href="../classes/ZooOperationsFilters.html" target="_self">ZooOperationsFilters</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="239"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>if the new reading options are the same as the filters. <code>false</code> otherwise.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="../classes/ZooOperationsFilters.html" target="_self" >ZooOperationsFilters</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the filters passed to the <a href="read">read</a> function</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank" >Boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p><code>true</code> if the filters are not set and there are no specified options or,
+if the new reading options are the same as the filters. <code>false</code> otherwise.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setButtonsVisibility"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setButtonsVisibility</b></span>
+                        <a href="#setButtonsVisibility"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setButtonsVisibility()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupCommands"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setupCommands</b></span>
+                        <a href="#setupCommands"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setupCommands()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_filters</b></span>
+                        <a href="#_filters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationsFilters | null</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridColumns</b></span>
+                        <a href="#_gridColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn({ field: &#x27;Id_Agenda&#x27;, title: &#x27;ID&#x27; }, { editable: false, width: 80 }),
+    new KendoGridColumn({ field: &#x27;Data&#x27;, title: this.transloco.translate(&#x27;Data&#x27;) }, { editable: false, width: 120 }),
+    new KendoGridColumn({ field: &#x27;lav_des&#x27;, title: this.transloco.translate(&#x27;Operazione&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;Lav_Cod&#x27;, title: this.transloco.translate(&#x27;Codice&#x27;) }, {
+      hidden: true,
+      editable: false
+    }),
+    new KendoGridColumn({ field: &#x27;sa_nome&#x27;, title: this.transloco.translate(&#x27;CentroAziendale&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;STA_DES&#x27;, title: this.transloco.translate(&#x27;Stalla&#x27;) }, { editable: false, width: 160 }),
+    // new KendoGridColumn({field: &#x27;stables&#x27;, title: this.transloco.translate(&#x27;Stalla&#x27;)}, {editable: false}),
+    // new KendoGridColumn({field: &#x27;groups&#x27;, title: this.transloco.translate(&#x27;Gruppi&#x27;)}, {editable: false}),
+    new KendoGridColumn({ field: &#x27;Dettaglio_Tecnico&#x27;, title: this.transloco.translate(&#x27;DettaglioTecnico&#x27;) }, { editable: false, width: 800 }),
+    new KendoGridColumn({ field: &#x27;Prodotti&#x27;, title: this.transloco.translate(&#x27;Prodotti&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;Segnalazioni&#x27;, title: this.transloco.translate(&#x27;Segnalazioni&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({
+      field: &#x27;Creatore_Intervento&#x27;,
+      title: this.transloco.translate(&#x27;UtenteCreazione&#x27;)
+    }, { editable: false, width: 120 })
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>_gridModel</b></span>
+                        <a href="#_gridModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ZooOperationGridModel</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_gridRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_gridRows</b></span>
+                        <a href="#_gridRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Operation.html" target="_self" >ZooOperationGridFlatItem[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>canEdit</b></span>
+                        <a href="#canEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="canEditModel4"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>canEditModel4</b></span>
+                        <a href="#canEditModel4"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>true</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_PAGE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faGenerateModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>faGenerateModel</b></span>
+                        <a href="#faGenerateModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faFileCirclePlus</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="faRegisterModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>faRegisterModel</b></span>
+                        <a href="#faRegisterModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>faFileCircleExclamation</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;zooOpGrid&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridpublicService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridpublicService</b></span>
+                        <a href="#gridpublicService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GridPublicService</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onRowClass"></a>
+                    <span class="name">
+                        <span ><b>onRowClass</b></span>
+                        <a href="#onRowClass"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;TODO&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentPiva"></a>
+                        <span class="name"><b>currentPiva</b><a href="#currentPiva"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>currentPiva()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="96" class="link-to-prism">src/app/zoo/components/zoo-operations-grid/zoo-operations-grid.service.ts:96</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &quot;@angular/core&quot;;
+import {
+  AbstractGridConfigService,
+  CommandsColumnSettings,
+  CommandsDropDownEvents,
+  CommandsDropDownSettings,
+  EditingMode,
+  GridCommandItem,
+  GridPublicService,
+  HttpAction,
+  KendoGridColumn,
+  KendoGridRow,
+  KendoServerResultImpl,
+  LoaderType,
+  ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import { catchError, filter, map, Observable, of, switchMap, takeUntil, tap, throwError } from &quot;rxjs&quot;;
+import { MasterService } from &quot;../../../Service/master.service&quot;;
+import { ObjParametriAgendaService } from &quot;../../../Service/obj-parametri-agenda.service&quot;;
+import { Link_ElimOpMultipla } from &quot;../../../menu-agenda/components/utils&quot;;
+import { OPERATIONS_MODEL_4, ZooActivityForRedirect, ZooRedirectorService } from &quot;../../services/zoo-redirector.service&quot;;
+import { OperazioniAgendaInput, OperazioniZooClient } from &quot;../../../Service/net-core6-api.service&quot;;
+import { ZooOperationsFilters } from &quot;../../models/zoo-operations-filters.model&quot;;
+import { ZooOperationGridFlatItem, ZooOperationGridModel } from &quot;../../models/zoo-operation-grid-item.model&quot;;
+import { cloneDeep } from &quot;lodash&quot;;
+import { elimina_operazione_multipla } from &quot;app/menu-agenda/components/grid-qdc/qdc-config.service&quot;;
+import { AjaxAgronicaAPIService } from &quot;../../../Service/ajax-agronica.api.service&quot;;
+import { GiasDialogService } from &quot;../../../Service/gias-dialog.service&quot;;
+import { enum_Security_Attivita } from &quot;app/Model/TipiEnumerativi&quot;;
+import { PermessiUtenteService } from &quot;app/Service/permessi-utente.service&quot;;
+import { RowClassArgs } from &quot;@progress/kendo-angular-grid&quot;;
+import { faFileCircleExclamation, faFileCirclePlus } from &quot;@fortawesome/free-solid-svg-icons&quot;;
+import { CookieService } from &quot;ngx-cookie-service&quot;;
+import { ConversionService } from &quot;gias-ui-kit&quot;;
+
+enum ZooGridCommands {
+  GENERETE_MODEL_4,
+  REGISTER_MODEL
+}
+
+@Injectable()
+export class ZooOperationsGridConfigService extends AbstractGridConfigService&lt;KendoServerResultImpl&gt; {
+  editingMode &#x3D; EditingMode.IN_PAGE;
+  loader &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &quot;TODO&quot;;
+  gridId &#x3D; &quot;zooOpGrid&quot;;
+
+  private canEdit &#x3D; true;
+  private canEditModel4 &#x3D; true;
+
+  private faGenerateModel &#x3D; faFileCirclePlus;
+  private faRegisterModel &#x3D; faFileCircleExclamation;
+  private _filters: ZooOperationsFilters | null &#x3D; null;
+  private _gridRows: ZooOperationGridFlatItem[] &#x3D; [];
+  private readonly _gridModel &#x3D; ZooOperationGridModel;
+  private _gridColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn({ field: &#x27;Id_Agenda&#x27;, title: &#x27;ID&#x27; }, { editable: false, width: 80 }),
+    new KendoGridColumn({ field: &#x27;Data&#x27;, title: this.transloco.translate(&#x27;Data&#x27;) }, { editable: false, width: 120 }),
+    new KendoGridColumn({ field: &#x27;lav_des&#x27;, title: this.transloco.translate(&#x27;Operazione&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;Lav_Cod&#x27;, title: this.transloco.translate(&#x27;Codice&#x27;) }, {
+      hidden: true,
+      editable: false
+    }),
+    new KendoGridColumn({ field: &#x27;sa_nome&#x27;, title: this.transloco.translate(&#x27;CentroAziendale&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;STA_DES&#x27;, title: this.transloco.translate(&#x27;Stalla&#x27;) }, { editable: false, width: 160 }),
+    // new KendoGridColumn({field: &#x27;stables&#x27;, title: this.transloco.translate(&#x27;Stalla&#x27;)}, {editable: false}),
+    // new KendoGridColumn({field: &#x27;groups&#x27;, title: this.transloco.translate(&#x27;Gruppi&#x27;)}, {editable: false}),
+    new KendoGridColumn({ field: &#x27;Dettaglio_Tecnico&#x27;, title: this.transloco.translate(&#x27;DettaglioTecnico&#x27;) }, { editable: false, width: 800 }),
+    new KendoGridColumn({ field: &#x27;Prodotti&#x27;, title: this.transloco.translate(&#x27;Prodotti&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({ field: &#x27;Segnalazioni&#x27;, title: this.transloco.translate(&#x27;Segnalazioni&#x27;) }, { editable: false, width: 160 }),
+    new KendoGridColumn({
+      field: &#x27;Creatore_Intervento&#x27;,
+      title: this.transloco.translate(&#x27;UtenteCreazione&#x27;)
+    }, { editable: false, width: 120 })
+  ];
+
+  constructor(
+    injector: Injector,
+    public gridpublicService: GridPublicService,
+    private master: MasterService,
+    private dialog: GiasDialogService,
+    private agenda: ObjParametriAgendaService,
+    private zooRedirector: ZooRedirectorService,
+    private zooClient: OperazioniZooClient,
+    private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+    private permissions: PermessiUtenteService,
+    private cookies: CookieService,
+    private conversionService: ConversionService
+  ) {
+    super(injector);
+    this.canEdit &#x3D; this.permissions.canWritePermesso(enum_Security_Attivita.MenuZooNG);
+    this.canEditModel4 &#x3D; this.permissions.canWritePermesso(enum_Security_Attivita.ManutenzioneArchivi_ImportaAnagraficheAnimali_XLS2GIAS);
+    this.handleCustomizations();
+  }
+
+  private get currentPiva(): string {
+    const agenda &#x3D; this.agenda.getObjParamValue();
+    return agenda.Piva ?? &#x27;&#x27;;
+  }
+
+  read(options?: ZooOperationsFilters): Observable&lt;KendoServerResultImpl&gt; {
+    if (this.reuseLoadedData(options) || this.cookies.get(&#x27;zooTab&#x27;) !&#x3D; &quot;0&quot;) {
+      return of(new KendoServerResultImpl(this._gridModel, this._gridColumns, this._gridRows));
+    }
+    this._filters &#x3D; cloneDeep(options);
+    this.master.set_isLoading({ isLoading: true });
+    return this.zooClient.operazioniZooGetOperazioniAgenda(this.getLoaderParams()).pipe(
+      map(r &#x3D;&gt; r.RispostaOK ? JSON.parse(r.RispostaStringa) : []),
+      map(r &#x3D;&gt; this.conversionService.ConversionDateInObject(r)),
+      map((items: ZooOperationGridFlatItem[]) &#x3D;&gt; {
+        const opFiltered &#x3D; this._filters?.operations.map(x &#x3D;&gt; +x) ?? [];
+        if (opFiltered.length &gt; 0) return items.filter(x &#x3D;&gt; opFiltered.includes(x.Lav_Cod));
+        else return items;
+      }),
+      map(items &#x3D;&gt; items.sort((a, b) &#x3D;&gt; new Date(a.Data) &gt; new Date(b.Data) ? -1 : 1)),
+      tap((items: ZooOperationGridFlatItem[]) &#x3D;&gt; this._gridRows &#x3D; items),
+      tap(() &#x3D;&gt; this.master.set_isLoading({ isLoading: false })),
+      map(() &#x3D;&gt; new KendoServerResultImpl(this._gridModel, this._gridColumns, this._gridRows)),
+      catchError(() &#x3D;&gt; {
+        this.master.set_isLoading({ isLoading: false });
+        return of(new KendoServerResultImpl(this._gridModel, this._gridColumns, this._gridRows));
+      })
+    );
+  }
+
+  perform(actionType: HttpAction, items: any, oldRow?: any) {
+    if (actionType &#x3D;&#x3D;&#x3D; HttpAction.REMOVE) {
+      return this.deleteItem(items, false).pipe(map(() &#x3D;&gt; []));
+    }
+    return of(null);
+  }
+
+  onRowClass &#x3D; (event: RowClassArgs) &#x3D;&gt; this.coloraRigheOperazioni(event.dataItem);
+
+  coloraRigheOperazioni(row: KendoGridRow) {
+    const result: { [k: string]: boolean } &#x3D; {};
+    result.agendaOperazPianificata &#x3D; row[&#x27;contabilizzato&#x27;] &lt; 0;
+    result.agendaOperazBloccata &#x3D; row[&#x27;Blocco_Flag&#x27;] &#x3D;&#x3D;&#x3D; 1;
+    result.agendaOperazDaRevisionare &#x3D; row[&#x27;Blocco_Flag&#x27;] &#x3D;&#x3D;&#x3D; 2;
+    return result;
+  }
+
+  private getLoaderParams(): OperazioniAgendaInput {
+    return {
+      Piva: this.currentPiva,
+      Sa_Cod: this._filters?.center ? +this._filters.center : 0,
+      Sta_Num: this._filters?.stable ? +this._filters.stable : 0,
+      ValiditaInizio: this._filters?.from,
+      ValiditaFine: this._filters?.to
+    } as OperazioniAgendaInput;
+  }
+
+  private handleCustomizations(): void {
+    this.selectable.selectable.enabled &#x3D; true;
+    this.selectable.selectable.checkboxOnly &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; true;
+    this.selectable.columnSettings.showSelectAll &#x3D; true;
+    this.columnMenu.kendoGridColumnChooser &#x3D; true;
+    this.views.enabled &#x3D; true;
+    this.resizable.autoFitColumns &#x3D; true;
+    this.groups.groupable.enabled &#x3D; false;
+    this.resizable.isResizable &#x3D; true;
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; false;
+    this.gridIsEditable &#x3D; true;
+    this.setupCommands();
+  }
+
+  private setupCommands() {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({ editBtn: false, infoBtn: false, removeBtn: false });
+    this.cmdDropDown &#x3D; new CommandsDropDownSettings({ fullEditBtn: true, infoBtn: true });
+    this.cmdDropDown.addCommand(new GridCommandItem(
+      &#x27;GeneraModello4&#x27;, ZooGridCommands.GENERETE_MODEL_4, &#x27;&#x27;, this.faGenerateModel
+    ));
+    this.cmdDropDown.width &#x3D; 30;
+    // Pulsante &quot;Registra Uscita&quot; aggiunto dinamicamente nella funzione setButtonVisibility
+    this.handleCommandEvent();
+    this.setButtonsVisibility();
+  }
+
+  private handleCommandEvent() {
+    this.gridPublicService.commandEvent.pipe(
+      takeUntil(this.signal),
+      filter(cmdEvent &#x3D;&gt; !!cmdEvent)
+    ).subscribe(cmd &#x3D;&gt; {
+      console.debug(cmd);
+      switch (cmd.command.action) {
+        case CommandsDropDownEvents.INFO:
+          this.zooRedirector.redirectOpenOperationInfo(cmd.dataItem, this.gridPublicService.gridElRef);
+          break;
+        case CommandsDropDownEvents.FULL_EDIT:
+          this.zooRedirector.redirectOpenOperationEdit(cmd.dataItem, this.gridPublicService.gridElRef);
+          break;
+        case ZooGridCommands.GENERETE_MODEL_4:
+          this.zooRedirector.redirectToModel4Generation(cmd.dataItem);
+          break;
+        case ZooGridCommands.REGISTER_MODEL:
+          this.zooRedirector.redirectToModel4Registration(cmd.dataItem);
+          break;
+      }
+    });
+  }
+
+  private setButtonsVisibility() {
+    this.gridPublicService.openCommands.pipe(
+      takeUntil(this.signal),
+      filter(activity &#x3D;&gt; !!activity)
+    ).subscribe(activity &#x3D;&gt; {
+      //Se l&#x27;operazione è bloccata nascondo modifica, genera modello e mostro registrazione
+      if (!this.canEdit || activity.Blocco_Flag &#x3D;&#x3D;&#x3D; 1) {
+        this.cmdDropDown.removeCommand(CommandsDropDownEvents.FULL_EDIT);
+        this.cmdDropDown.removeCommand(ZooGridCommands.GENERETE_MODEL_4);
+        this.cmdDropDown.addCommand(new GridCommandItem(
+          &#x27;RegistraUscita&#x27;, ZooGridCommands.REGISTER_MODEL, &#x27;&#x27;, this.faRegisterModel, false
+        ));
+      }
+      // Se il modello è già stato registrato, nascondo registra
+      if (activity.Tipo_Accettazione &#x3D;&#x3D;&#x3D; 1) {
+        this.cmdDropDown.removeCommand(ZooGridCommands.REGISTER_MODEL);
+      }
+
+      if (!OPERATIONS_MODEL_4.includes(activity.Lav_Cod) || !this.canEditModel4) {
+        this.cmdDropDown.removeCommand(ZooGridCommands.GENERETE_MODEL_4);
+        this.cmdDropDown.removeCommand(ZooGridCommands.REGISTER_MODEL);
+      }
+    });
+  }
+
+  private findRowWithId(id: number): ZooActivityForRedirect {
+    return this._gridRows.find(r &#x3D;&gt; r.Id_Agenda &#x3D;&#x3D;&#x3D; id);
+  }
+
+  /**
+   * @param options the filters passed to the {@link read} function
+   * @private
+   * @returns &#x60;true&#x60; if the filters are not set and there are no specified options or,
+   * if the new reading options are the same as the filters. &#x60;false&#x60; otherwise.
+   */
+  private reuseLoadedData(options: ZooOperationsFilters): Boolean {
+    return (!this._filters &amp;&amp; !options) || (!options &amp;&amp; !!this._filters) || !options.forceReload &amp;&amp; (
+      !!this._filters &amp;&amp; !!options
+      &amp;&amp; options.center &#x3D;&#x3D;&#x3D; this._filters.center
+      &amp;&amp; options.stable &#x3D;&#x3D;&#x3D; this._filters.stable
+      &amp;&amp; options.from &#x3D;&#x3D;&#x3D; this._filters.from
+      &amp;&amp; options.to &#x3D;&#x3D;&#x3D; this._filters.to
+      &amp;&amp; options.operations.reduce((x1, x2) &#x3D;&gt; x1 + &quot;|&quot; + x2) &#x3D;&#x3D;&#x3D; this._filters.operations.reduce((x1, x2) &#x3D;&gt; x1 + &quot;|&quot; + x2)
+    );
+  }
+
+  private getDeletionParams(
+    rows: ZooOperationGridFlatItem[],
+    proseguiInCasoDiAlert: boolean
+  ): elimina_operazione_multipla {
+    const chiavi &#x3D; this.getCompositeKeys(rows);
+    return {
+      strChiaviComposite: &quot;del_elem|&quot; + chiavi,
+      proseguiInCasoDiAlert: proseguiInCasoDiAlert,
+      variabiliInSessione_NG: this.master.variabiliInSessione
+    };
+  }
+
+  private getCompositeKeys(rows: ZooOperationGridFlatItem[]) {
+    return rows.map(r &#x3D;&gt; {
+      const opDate &#x3D; new Date(r.Data);
+      const dateStr &#x3D; opDate.getDate() + &#x27;/&#x27; + (opDate.getMonth() + 1).toString().padStart(2, &#x27;0&#x27;) + &#x27;/&#x27;
+        + opDate.getFullYear();
+      return dateStr + &quot;_&quot; + r.Id_Agenda + &quot;_&quot; + r.Lav_Cod + &quot;_&quot; + r.Piva + &quot;_&quot; + r.Sa_Cod + &quot;_&quot; + r.Blocco_Flag
+        + &quot;_&quot; + r.Veg_Cod + &quot;_&quot; + r.Piva;
+    }).join(&quot;,&quot;);
+  }
+
+  private asRowArray(rowsIn: ZooOperationGridFlatItem[] | ZooOperationGridFlatItem) {
+    if (!rowsIn[&#x27;length&#x27;]) {
+      const rows: ZooOperationGridFlatItem[] &#x3D; [];
+      rows.push(rowsIn as ZooOperationGridFlatItem);
+      return rows;
+    } else {
+      return rowsIn as ZooOperationGridFlatItem[];
+    }
+  }
+
+  /**
+   * @param rowsIn rows to delete
+   * @param proseguiInCasoDiAlert Richiede all&#x27;utente la conferma prima di cancellare operazioni che hanno altri vincoli.
+   * @returns {Observable&lt;boolean&gt;} true if the delete was successful and a refresh is needed, false otherwise
+   */
+  private deleteItem(rowsIn: ZooOperationGridFlatItem[] | ZooOperationGridFlatItem, proseguiInCasoDiAlert: boolean): Observable&lt;boolean&gt; {
+    let rows: ZooOperationGridFlatItem[] &#x3D; this.asRowArray(rowsIn);
+    let params &#x3D; this.getDeletionParams(rows, proseguiInCasoDiAlert);
+    if (rows.some(r &#x3D;&gt; r.Blocco_Flag &#x3D;&#x3D;&#x3D; 1)) {
+      this.dialog.baseError(&#x27;Errore_&#x27;, &#x27;LockedActivityError&#x27;);
+      return throwError(() &#x3D;&gt; new Error());
+    }
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;elimina_operazione_multipla, string&gt;(Link_ElimOpMultipla, params, true, false, false, false)
+      .pipe(
+        switchMap((risposta) &#x3D;&gt; {
+          if (risposta.RispostaOK) {
+            this.dialog.baseSuccess(&#x27;&#x27;, risposta.RispostaStringa, false);
+            return of({ refresh: true });
+          } else if (risposta.RispostaConferma) {
+            return this.dialog.warningObs(&#x27;&#x27;, risposta.Errore, false);
+          } else {
+            const errMsg &#x3D; risposta.Errore ? risposta.Errore : this.transloco.translate(&quot;ImpossibileEliminareOperazione&quot;);
+            this.dialog.baseError(&#x27;&#x27;, errMsg, false);
+            return of({ refresh: false });
+          }
+        }),
+        switchMap((result: boolean | { refresh: boolean }) &#x3D;&gt; {
+          if (result &#x3D;&#x3D;&#x3D; true) return this.deleteItem(rows, true);
+          else if (result &#x3D;&#x3D;&#x3D; false) return of(false);
+          else return of((result as { refresh: boolean }).refresh);
+        })
+      );
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ZooOperationsGridConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

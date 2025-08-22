@@ -1,0 +1,1826 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ContoEconomicoDettaglioConfigHttpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#columns" >columns</a>
+                            </li>
+                            <li>
+                                <a href="#comuneColumn" >comuneColumn</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#initialize" >initialize</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#model" >model</a>
+                            </li>
+                            <li>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoEdit" >permessoEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoInfo" >permessoInfo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#permessoRemove" >permessoRemove</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                <a href="#rows" >rows</a>
+                            </li>
+                            <li>
+                                <a href="#Subs" >Subs</a>
+                            </li>
+                            <li>
+                                <a href="#toolbar" >toolbar</a>
+                            </li>
+                            <li>
+                                <a href="#views" >views</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRemoveMultipleRowsMessage" >getRemoveMultipleRowsMessage</a>
+                            </li>
+                            <li>
+                                <a href="#getTitleField" >getTitleField</a>
+                            </li>
+                            <li>
+                                <a href="#onInfoBtnClick" >onInfoBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#onTemplateBtnClick" >onTemplateBtnClick</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#swapDataObject" >swapDataObject</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#transform" >transform</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, objParametriService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, gridPublicSerivce: GridPublicService, translocoService: TranslocoService, valutazioniService: <a href="../injectables/ValutazioniService.html" target="_self">ValutazioniService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, kendoGridMasterservice: <a href="../injectables/KendoGridMasterDetailService.html" target="_self">KendoGridMasterDetailService</a>, gridpublicService: GridPublicService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridPublicSerivce</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>valutazioniService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ValutazioniService.html" target="_self" >ValutazioniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kendoGridMasterservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoGridMasterDetailService.html" target="_self" >KendoGridMasterDetailService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridpublicService</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRemoveMultipleRowsMessage"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getRemoveMultipleRowsMessage</b></span>
+                        <a href="#getRemoveMultipleRowsMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="316"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:316</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RemoveMultipleRowsParams</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTitleField"></a>
+                    <span class="name">
+                        <span ><b>getTitleField</b></span>
+                        <a href="#getTitleField"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getTitleField(value: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onInfoBtnClick"></a>
+                    <span class="name">
+                        <span ><b>onInfoBtnClick</b></span>
+                        <a href="#onInfoBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onInfoBtnClick(dataItem)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="303"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:303</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onTemplateBtnClick"></a>
+                    <span class="name">
+                        <span ><b>onTemplateBtnClick</b></span>
+                        <a href="#onTemplateBtnClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onTemplateBtnClick(dataItem)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="248"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:248</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="130"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:130</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;DettaglioSpecificoServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="swapDataObject"></a>
+                    <span class="name">
+                        <span ><b>swapDataObject</b></span>
+                        <a href="#swapDataObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>swapDataObject(dataObject: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="178"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:178</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataObject</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="transform"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>transform</b></span>
+                        <a href="#transform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>transform(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, data: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="137"
+                                    class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>data</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/DettaglioSpecificoServerResult.html" target="_self" >DettaglioSpecificoServerResult</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="columns"></a>
+                    <span class="name">
+                        <span ><b>columns</b></span>
+                        <a href="#columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comuneColumn"></a>
+                    <span class="name">
+                        <span ><b>comuneColumn</b></span>
+                        <a href="#comuneColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;ContoEconomicoDettaglioHttpService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="23" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:23</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initialize"></a>
+                    <span class="name">
+                        <span ><b>initialize</b></span>
+                        <a href="#initialize"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="model"></a>
+                    <span class="name">
+                        <span ><b>model</b></span>
+                        <a href="#model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/DettaglioSpecificoModel.html" target="_self" >DettaglioSpecificoModel</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoEdit</b></span>
+                        <a href="#permessoEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoInfo"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoInfo</b></span>
+                        <a href="#permessoInfo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoRemove"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>permessoRemove</b></span>
+                        <a href="#permessoRemove"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;Dettaglio_Key&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rows"></a>
+                    <span class="name">
+                        <span ><b>rows</b></span>
+                        <a href="#rows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Subs"></a>
+                    <span class="name">
+                        <span ><b>Subs</b></span>
+                        <a href="#Subs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subscription()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolbar"></a>
+                    <span class="name">
+                        <span ><b>toolbar</b></span>
+                        <a href="#toolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ToolbarSettings(true, false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Optional parameters</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="views"></a>
+                    <span class="name">
+                        <span ><b>views</b></span>
+                        <a href="#views"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GridCustomizations({ enabled: true })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/valutazioni/valutazioni/main-valutazioni-edit/valutazione-edit-dettaglio/valutazioni-conto-economico/conto-economico-dettaglio/conto-economico-dettaglio-config.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &quot;@angular/core&quot;;
+import { FormGroup } from &quot;@angular/forms&quot;;
+import { TranslocoService } from &quot;@jsverse/transloco&quot;;
+import { SMARTPHONE_WIDTH } from &quot;app/Model/CostantiPersonalizzate&quot;;
+import { GiasMessageService } from &quot;app/Service/gias-message.service&quot;;
+import { ObjParametriAgendaService } from &quot;app/Service/obj-parametri-agenda.service&quot;;
+import { ToolbarSettings, CommandsColumnSettings, CommandsDropDownSettings, CommandsDropDownEvents, RemoveMultipleRowsParams, MasterDetailSettings } from &#x27;gias-kendo-grid&#x27;;
+import { EditingMode, GridCustomizations, KendoGridColumn, ModelEntry,  LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { KendoGridMasterDetailService } from &#x27;gias-kendo-grid&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { ValutazioniService } from &quot;app/valutazioni/valutazioni/service/valutazioni.service&quot;;
+import { DettaglioSpecificoModel, DettaglioSpecificoServerResult } from &quot;app/valutazioni/valutazioni/valutazioni.models&quot;;
+import { takeUntil, take, Observable, of, switchMap, Subscription } from &quot;rxjs&quot;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+
+@Injectable()
+export class ContoEconomicoDettaglioConfigHttpService extends AbstractGridConfigService&lt;any&gt; {
+    gridId &#x3D; &#x27;ContoEconomicoDettaglioHttpService&#x27;;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+    editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+    rowId &#x3D; &#x27;Dettaglio_Key&#x27;;
+    objParametriAgenda: ObjParametriAgenda;
+
+    /** Optional parameters */
+    toolbar &#x3D; new ToolbarSettings(true, false);
+    views &#x3D; new GridCustomizations({ enabled: true });
+    initialize: boolean &#x3D; false;
+
+    public permessoEdit: boolean;
+    public permessoRemove: boolean;
+    public permessoInfo: boolean;
+
+
+    columns: KendoGridColumn[];
+    model: DettaglioSpecificoModel;
+    comuneColumn: KendoGridColumn;
+
+    rows &#x3D; [];
+
+    Subs: Subscription &#x3D; new Subscription();
+
+
+    constructor(injector: Injector,
+        private objParametriService: ObjParametriAgendaService,
+        private gridPublicSerivce: GridPublicService,
+        private translocoService: TranslocoService,
+        private valutazioniService: ValutazioniService,
+        private giasMessageService: GiasMessageService,
+        private kendoGridMasterservice: KendoGridMasterDetailService,
+        private gridpublicService: GridPublicService
+    ) {
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        this.permessoEdit &#x3D; false;
+        this.permessoRemove &#x3D; false;
+        this.permessoInfo &#x3D; false;
+
+        this.gridPublicSerivce.changeDetected.pipe(
+            takeUntil(this.signal)
+        ).subscribe((event: any) &#x3D;&gt; {
+            if (event.action &#x3D;&#x3D; &#x27;add&#x27;) {
+                this.gridPublicSerivce.formGroup.pipe(take(1)).subscribe((fg) &#x3D;&gt; {
+                    fg.controls[&#x27;Rag_Soc&#x27;].setValue(0);
+                })
+            }
+        })
+
+        this.columns &#x3D; [
+            new KendoGridColumn({ field: &#x27;Dettaglio_Key&#x27;, title: this.translocoService.translate(&#x27;ChiaveRiga&#x27;) }, { resizable: true, hidden: true, editable: false, width: 135 }),
+            new KendoGridColumn({ field: &#x27;Descrizione&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;) }, { resizable: true, editable: false, width: 135 }),
+        ]
+
+        this.model &#x3D; {
+            Dettaglio_Key: new ModelEntry(CELL_TYPES.STRING, false),
+            Descrizione: new ModelEntry(CELL_TYPES.STRING, false),
+            Valutazione_Conto_Cod: new ModelEntry(CELL_TYPES.NUMBER, false),
+        }
+
+        this.selectable.selectable.checkboxOnly &#x3D; false;
+        this.selectable.selectable.enabled &#x3D; this.permessoEdit;
+
+        this.toolbar &#x3D; new ToolbarSettings();
+        this.toolbar.newItem &#x3D; false;
+        this.toolbar.resetChanges &#x3D; false;
+        this.pagination.gridState.take &#x3D; 100;
+
+        let objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+
+        this.cmdColumn &#x3D; new CommandsColumnSettings({
+            editBtn: (objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Update),
+            removeBtn: this.permessoRemove,
+        });
+
+        this.cmdDropDown &#x3D; new CommandsDropDownSettings({
+            fullEditBtn: this.permessoEdit,
+            infoBtn: this.permessoInfo,
+        });
+        this.gridPublicSerivce.commandEvent.GiasSubscribe(ev &#x3D;&gt; {
+            if (!ev) return;
+            switch (ev.command.action) {
+                case CommandsDropDownEvents.FULL_EDIT:
+                    this.onTemplateBtnClick(ev.dataItem);
+                    break;
+            }
+        })
+
+        this.resizable.autoFitColumns &#x3D; false;
+        this.selectable.columnSettings.showSelectAll &#x3D; true;
+        this.selectable.shouldShowCheckbox &#x3D; false;
+        this.selectable.columnSettings.title &#x3D; &#x27; &#x27;;
+        this.resizable.isResizable &#x3D; true;
+        this.selectable.selectable.enabled &#x3D; true;
+        this.groups.groupable.enabled &#x3D; false;
+        this.masterdetailSettings &#x3D; new MasterDetailSettings(true, { flag_grid_detail: true, flag_grid_master: false });
+
+        if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+            this.cmdColumn.editBtn &#x3D; false;
+            this.toolbar.newItem &#x3D; false;
+        }
+
+
+
+    }
+
+    read(dataItem: any): Observable&lt;DettaglioSpecificoServerResult&gt; {
+        console.log(dataItem);
+        let dettaglioSpecifico: any &#x3D; JSON.parse(dataItem.Dettaglio_Specifico)
+
+        return of(this.transform(dataItem, dettaglioSpecifico));
+    }
+
+    private transform(dataItem: any, data: any[]): DettaglioSpecificoServerResult {
+        this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+
+
+        if (!this.initialize) {
+            let dataObject: string[] &#x3D; Object.keys(data[0]).sort((a, b) &#x3D;&gt; a.localeCompare(b));
+
+            dataObject &#x3D; this.swapDataObject(dataObject);
+
+            for (i &#x3D; 0; i &lt;&#x3D; 11; i++) {
+                if (dataObject[i] !&#x3D;&#x3D; undefined) {
+
+                    if (dataObject[i].includes(&quot;_Valore_Ha&quot;) ||
+                        dataObject[i].includes(&quot;_Valore_Peso&quot;) ||
+                        dataObject[i].includes(&quot;_Valore_Totale&quot;) ||
+                        dataObject[i].includes(&quot;_Valore_Unitario&quot;)) {
+                        this.model[dataObject[i]] &#x3D; new ModelEntry(CELL_TYPES.NUMBER, false);
+                        this.getTitleField(dataObject[i]);
+                    }
+                }
+
+            };
+
+            this.initialize &#x3D; true;
+        }
+
+
+        let index &#x3D; this.kendoGridMasterservice?.GridDataDetail?.findIndex(x &#x3D;&gt; x.GridMasterRowId &#x3D;&#x3D;&#x3D; dataItem[this.kendoGridMasterservice.RowIdGridMaster]);
+        this.rows &#x3D; data;
+        if (index &gt; -1 &amp;&amp; this.kendoGridMasterservice.GridDataDetail[index]?.GridData?.data) {
+            this.rows &#x3D; this.kendoGridMasterservice.GridDataDetail[index].GridData.data.rows;
+        }
+
+
+        return {
+            model: this.model,
+            rows: this.rows,
+            columns: this.columns
+        };
+    }
+
+    swapDataObject(dataObject: string[]): string[] {
+        for (i &#x3D; 2; i &lt;&#x3D; 10; i &#x3D; i + 4) {
+            if (dataObject[i] !&#x3D;&#x3D; undefined) {
+                if (dataObject[i].includes(&quot;_Valore_Totale&quot;)) {
+                    const tmp: string &#x3D; dataObject[i + 1];
+                    dataObject[i + 1] &#x3D; dataObject[i];
+                    dataObject[i] &#x3D; tmp;
+                }
+            }
+        }
+
+        return dataObject
+    }
+
+
+    getTitleField(value: string): void {
+
+        let limit: number &#x3D; 4;
+
+        const substring: string &#x3D; value.substring(0, limit);
+        if (!isNaN(+substring)) {
+
+            if (value.includes(&quot;_Valore_Ha&quot;)) {
+                this.columns.push(new KendoGridColumn({ field: value, title: this.translocoService.translate(&#x27;Ha&#x27;) + &quot; &quot; + substring }, { resizable: true, editable: false, format: &#x27;{0:n4}&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, style: { &quot;text-align&quot;: &quot;right&quot; }, width: 115 }));
+            }
+
+            if (value.includes(&quot;_Valore_Peso&quot;)) {
+                this.columns.push(new KendoGridColumn({ field: value, title: this.translocoService.translate(&#x27;Resa_Kg_Ha&#x27;) + &quot; &quot; + substring }, { resizable: true, editable: false, format: &#x27;{0:n2}&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n2&#x27; }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, style: { &quot;text-align&quot;: &quot;right&quot; }, width: 150 }));
+            }
+
+
+            if (value.includes(&quot;_Valore_Totale&quot;)) {
+                this.columns.push(new KendoGridColumn({ field: value, title: this.translocoService.translate(&#x27;Euro_Totali&#x27;) + &quot; &quot; + substring }, { resizable: true, editable: true, format: &#x27;{0:n2}&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n2&#x27; }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, style: { &quot;text-align&quot;: &quot;right&quot; }, width: 135 }));
+            }
+
+
+            if (value.includes(&quot;_Valore_Unitario&quot;)) {
+                this.columns.push(new KendoGridColumn({ field: value, title: this.translocoService.translate(&#x27;Euro_Kg&#x27;) + &quot; &quot; + substring }, { resizable: true, editable: true, format: &#x27;{0:n2}&#x27;, numeric: { defaultValue: 0, min: 0, format: &#x27;n2&#x27; }, media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;, style: { &quot;text-align&quot;: &quot;right&quot; }, width: 135 }));
+
+                /*subscription per il cambio di valori*/
+                this.Subs.add(this.gridPublicService.formGroup.subscribe(async (formGroup: FormGroup) &#x3D;&gt; {
+
+                    if (formGroup) {
+
+                        formGroup.patchValue({
+                            Riga_Salvata: false
+                        }, { emitEvent: false });
+
+                        const valUnitario &#x3D; (formGroup.get(substring+&#x27;_Valore_Unitario&#x27;) as FormGroup);
+                        const valPeso &#x3D; (formGroup.get(substring+&#x27;_Valore_Peso&#x27;) as FormGroup);
+                        const valHa &#x3D; (formGroup.get(substring+&#x27;_Valore_Ha&#x27;) as FormGroup);
+
+
+                        this.Subs.add(valUnitario.valueChanges.subscribe((value: string) &#x3D;&gt; {
+
+                            let numUnitario: number &#x3D; valUnitario.value;
+                            let numPeso: number &#x3D; valPeso.value;
+                            let numHa: number &#x3D; valHa.value;
+
+                            formGroup.controls[substring+&#x27;_Valore_Totale&#x27;].setValue(numUnitario * numPeso * numHa, { emitEvent: false });
+
+                        }));
+                    }
+
+                }));
+            }
+        }
+    }
+
+
+    perform(actionType: HttpAction, items: any): Observable&lt;any&gt; {
+        const item &#x3D; items as any;
+
+        switch (actionType) {
+
+            case HttpAction.UPDATE:
+                this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+
+                let testata_lettura &#x3D; this.valutazioniService.getLeggiTestataValue();
+                item.Id_Testata &#x3D; testata_lettura.idTestata;
+                item.Piva &#x3D; testata_lettura.piva;
+
+                console.log(item);
+                let items: any[] &#x3D; new Array();
+                items.push(item)
+
+                return this.valutazioniService.scriviDettaglioGrigliaFiglia(JSON.stringify(items)).pipe(
+                    switchMap((resp) &#x3D;&gt; {
+                        if (resp.RispostaOK) {
+                            this.giasMessageService.successMessage(this.translocoService.translate(&#x27;ContoEconomicoFiglioSalvatoCorettamente&#x27;));
+                            this.rows[this.rows.findIndex(x &#x3D;&gt; x[this.rowId] &#x3D;&#x3D;&#x3D; item[this.rowId])] &#x3D; item;
+
+                            console.log(&quot;recupera chiave master&quot;);
+                            //Recupero la chiave della master
+                            let key &#x3D; this.gridpublicService.Current_Grid_Master_RowExpanded[this.kendoGridMasterservice.RowIdGridMaster];
+
+                            let GridData &#x3D; this.kendoGridMasterservice?.GridDataDetail?.find(x &#x3D;&gt; x.GridMasterRowId &#x3D;&#x3D;&#x3D; key).GridData;
+
+                            GridData.data.rows &#x3D; this.rows;
+
+                            this.kendoGridMasterservice?.get_GridDetailService(key).pubService.refresh(false, GridData.data);
+                        }
+                        this.loadingService.set_isLoading({ isLoading: false, component: this.gridPublicService.gridElRef });
+                        return of([]);
+                    })
+                );
+
+        }
+    }
+
+    onTemplateBtnClick(dataItem) {
+        this.objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+        const piva &#x3D; this.objParametriAgenda.Piva;
+        this.objParametriAgenda.Piva &#x3D; piva;
+        this.objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Update;
+        this.objParametriService.changeObjParametriAgenda(this.objParametriAgenda);
+        let leggi_Testata &#x3D; {
+            piva: dataItem.Piva,
+            idTestata: dataItem.Id_Testata,
+            includiAnno: true
+        }
+        // this._valutazioni.changeLeggiTestata(leggi_Testata);
+        //this.router.navigate([&#x27;Valutazioni-Edit&#x27;], { relativeTo: this.route });
+    }
+
+    onInfoBtnClick(dataItem) {
+        this.objParametriAgenda &#x3D; this.objParametriService.getObjParamValue();
+        const piva &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[0];
+        const sa_cod &#x3D; (&lt;string&gt;dataItem.chiave).split(&#x27;_&#x27;)[1];
+        this.objParametriAgenda.Piva &#x3D; piva;
+        this.objParametriAgenda.Sa_Cod &#x3D; parseInt(sa_cod);
+        this.objParametriAgenda.TipoOperazioneDB &#x3D; Enum_DBTypeOperation.Read;
+        this.objParametriService.changeObjParametriAgenda(this.objParametriAgenda);
+
+        //this.router.navigate([&#x27;Valutazioni-Edit&#x27;], { relativeTo: this.route });
+    }
+
+
+    override async getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams) {
+        let msg: string;
+
+        msg &#x3D; this.translocoService.translate(&#x27;Conto_Economico.Delete_Msg&#x27;)
+        opts.data.forEach(r &#x3D;&gt; {
+            msg &#x3D; msg.concat(&#x27;\n&#x27; + r[&#x27;Rag_Soc&#x27;]);
+        })
+
+        return msg;
+    }
+
+
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ContoEconomicoDettaglioConfigHttpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

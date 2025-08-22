@@ -1,0 +1,2823 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  GISLayerListItemRasterComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Extends</h3>
+    </p>
+    <p class="comment">
+                    <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+    </p>
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>gis-layer-list-item-raster</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./GIS-layer-list-item-raster.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./GIS-layer-list-item-raster.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#masks$" >masks$</a>
+                            </li>
+                            <li>
+                                <a href="#tileLoader$" >tileLoader$</a>
+                            </li>
+                            <li>
+                                <a href="#tipologiaLayerEntita" >tipologiaLayerEntita</a>
+                            </li>
+                            <li>
+                                <a href="#visible$" >visible$</a>
+                            </li>
+                            <li>
+                                <a href="#enumFeatureType" >enumFeatureType</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#doSetVisible" >doSetVisible</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#openRasterConfig" >openRasterConfig</a>
+                            </li>
+                            <li>
+                                <a href="#toggleRasterVisible" >toggleRasterVisible</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#apriColorPicker" >apriColorPicker</a>
+                            </li>
+                            <li>
+                                <a href="#centraMappaLayer" >centraMappaLayer</a>
+                            </li>
+                            <li>
+                                <a href="#getImageUrl" >getImageUrl</a>
+                            </li>
+                            <li>
+                                <a href="#getMessagesText" >getMessagesText</a>
+                            </li>
+                            <li>
+                                <a href="#inputColor" >inputColor</a>
+                            </li>
+                            <li>
+                                <a href="#onColorChange" >onColorChange</a>
+                            </li>
+                            <li>
+                                <a href="#submit" >submit</a>
+                            </li>
+                            <li>
+                                <a href="#tilesPresenti" >tilesPresenti</a>
+                            </li>
+                            <li>
+                                <a href="#toggleAnalisiMappeSatellitari" >toggleAnalisiMappeSatellitari</a>
+                            </li>
+                            <li>
+                                <a href="#toggleDesc" >toggleDesc</a>
+                            </li>
+                            <li>
+                                <a href="#toggleFixedLayerEntita" >toggleFixedLayerEntita</a>
+                            </li>
+                            <li>
+                                <a href="#toggleGrouping" >toggleGrouping</a>
+                            </li>
+                            <li>
+                                <a href="#togglePicker" >togglePicker</a>
+                            </li>
+                            <li>
+                                <a href="#toggleTheme" >toggleTheme</a>
+                            </li>
+                            <li>
+                                <a href="#toggleVisible" >toggleVisible</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#borderTop" >borderTop</a>
+                            </li>
+                            <li>
+                                <a href="#dataItem" >dataItem</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfFeatures" >numberOfFeatures</a>
+                            </li>
+                            <li>
+                                <a href="#numberOfVisibleFeatures" >numberOfVisibleFeatures</a>
+                            </li>
+                            <li>
+                                <a href="#type" >type</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>, gisRasterConfigurationWindowService: <a href="../injectables/GISRasterConfigurationWindowService.html" target="_self">GISRasterConfigurationWindowService</a>, googleMapService: <a href="../injectables/GoogleMapService.html" target="_self">GoogleMapService</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, gisAnalisiMappeSatellitariWindowService: <a href="../injectables/GISAnalisiMappeSatellitariWindowService.html" target="_self">GISAnalisiMappeSatellitariWindowService</a>, pickerService: <a href="../injectables/GisLayerColorPickerService.html" target="_self">GisLayerColorPickerService</a>, fixedLayerService: <a href="../injectables/GisFixedLayerPropertyService.html" target="_self">GisFixedLayerPropertyService</a>, layerService: <a href="../injectables/LayerService.html" target="_self">LayerService</a>, gisToolbarService: <a href="../injectables/GisToolbarService.html" target="_self">GisToolbarService</a>, kendoWindowsService: <a href="../injectables/KendoWindowsService.html" target="_self">KendoWindowsService</a>, translocoService: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:36</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisRasterConfigurationWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISRasterConfigurationWindowService.html" target="_self" >GISRasterConfigurationWindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>googleMapService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GoogleMapService.html" target="_self" >GoogleMapService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisAnalisiMappeSatellitariWindowService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GISAnalisiMappeSatellitariWindowService.html" target="_self" >GISAnalisiMappeSatellitariWindowService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>pickerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisLayerColorPickerService.html" target="_self" >GisLayerColorPickerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fixedLayerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisFixedLayerPropertyService.html" target="_self" >GisFixedLayerPropertyService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>layerService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LayerService.html" target="_self" >LayerService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gisToolbarService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GisToolbarService.html" target="_self" >GisToolbarService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>kendoWindowsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/KendoWindowsService.html" target="_self" >KendoWindowsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="borderTop"></a>
+                        <b>borderTop</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:28</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="dataItem"></a>
+                        <b>dataItem</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:27</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberOfFeatures"></a>
+                        <b>numberOfFeatures</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:30</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="numberOfVisibleFeatures"></a>
+                        <b>numberOfVisibleFeatures</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:31</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="type"></a>
+                        <b>type</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:29</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="doSetVisible"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>doSetVisible</b></span>
+                        <a href="#doSetVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>doSetVisible(item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, masks: <a href="../interfaces/MascheraLayerRaster.html" target="_self">MascheraLayerRaster[]</a>, visible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="121"
+                                    class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:121</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>masks</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MascheraLayerRaster.html" target="_self" >MascheraLayerRaster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visible</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="openRasterConfig"></a>
+                    <span class="name">
+                        <span ><b>openRasterConfig</b></span>
+                        <a href="#openRasterConfig"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>openRasterConfig($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:112</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleRasterVisible"></a>
+                    <span class="name">
+                        <span ><b>toggleRasterVisible</b></span>
+                        <a href="#toggleRasterVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleRasterVisible($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>, masks: <a href="../interfaces/MascheraLayerRaster.html" target="_self">MascheraLayerRaster[]</a>, visible: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="65"
+                                    class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>masks</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MascheraLayerRaster.html" target="_self" >MascheraLayerRaster[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>visible</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="apriColorPicker"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>apriColorPicker</b></span>
+                        <a href="#apriColorPicker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>apriColorPicker(item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>, type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:73</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centraMappaLayer"></a>
+                    <span class="name">
+                        <span ><b>centraMappaLayer</b></span>
+                        <a href="#centraMappaLayer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>centraMappaLayer($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:120</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getImageUrl"></a>
+                    <span class="name">
+                        <span ><b>getImageUrl</b></span>
+                        <a href="#getImageUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getImageUrl(contactId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:24</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>contactId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMessagesText"></a>
+                    <span class="name">
+                        <span ><b>getMessagesText</b></span>
+                        <a href="#getMessagesText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getMessagesText(messagesCount: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:28</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>messagesCount</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inputColor"></a>
+                    <span class="name">
+                        <span ><b>inputColor</b></span>
+                        <a href="#inputColor"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inputColor(item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:146</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onColorChange"></a>
+                    <span class="name">
+                        <span ><b>onColorChange</b></span>
+                        <a href="#onColorChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onColorChange(color: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:32</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>color</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="submit"></a>
+                    <span class="name">
+                        <span ><b>submit</b></span>
+                        <a href="#submit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>submit(item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>, type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:44</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/RispostaStandard.html" target="_self" >Observable&lt;RispostaStandard&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tilesPresenti"></a>
+                    <span class="name">
+                        <span ><b>tilesPresenti</b></span>
+                        <a href="#tilesPresenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>tilesPresenti(item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:125</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleAnalisiMappeSatellitari"></a>
+                    <span class="name">
+                        <span ><b>toggleAnalisiMappeSatellitari</b></span>
+                        <a href="#toggleAnalisiMappeSatellitari"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleAnalisiMappeSatellitari($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:129</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleDesc"></a>
+                    <span class="name">
+                        <span ><b>toggleDesc</b></span>
+                        <a href="#toggleDesc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleDesc($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>, type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:107</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleFixedLayerEntita"></a>
+                    <span class="name">
+                        <span ><b>toggleFixedLayerEntita</b></span>
+                        <a href="#toggleFixedLayerEntita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleFixedLayerEntita($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>, type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:84</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleGrouping"></a>
+                    <span class="name">
+                        <span ><b>toggleGrouping</b></span>
+                        <a href="#toggleGrouping"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleGrouping($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:113</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="togglePicker"></a>
+                    <span class="name">
+                        <span ><b>togglePicker</b></span>
+                        <a href="#togglePicker"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>togglePicker($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>, type: <a href="../interfaces/ObjOptionHTML_Out.html" target="_self">ObjOptionHTML_Out</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:60</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>type</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ObjOptionHTML_Out.html" target="_self" >ObjOptionHTML_Out</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTheme"></a>
+                    <span class="name">
+                        <span ><b>toggleTheme</b></span>
+                        <a href="#toggleTheme"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleTheme($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:96</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleVisible"></a>
+                    <span class="name">
+                        <span ><b>toggleVisible</b></span>
+                        <a href="#toggleVisible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleVisible($event: Event, item: <a href="../interfaces/TipologiaLayer.html" target="_self">TipologiaLayer | null</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:102</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>$event</td>
+                                            <td>
+                                                        <code>Event</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="../interfaces/TipologiaLayer.html" target="_self" >TipologiaLayer | null</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masks$"></a>
+                    <span class="name">
+                        <span ><b>masks$</b></span>
+                        <a href="#masks$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/MascheraLayerRaster.html" target="_self" >Observable&lt;MascheraLayerRaster[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tileLoader$"></a>
+                    <span class="name">
+                        <span ><b>tileLoader$</b></span>
+                        <a href="#tileLoader$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipologiaLayerEntita"></a>
+                    <span class="name">
+                        <span ><b>tipologiaLayerEntita</b></span>
+                        <a href="#tipologiaLayerEntita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible$"></a>
+                    <span class="name">
+                        <span ><b>visible$</b></span>
+                        <a href="#visible$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/GIS/GIS-layer-window/GIS-layer-list-item-raster/GIS-layer-list-item-raster.component.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enumFeatureType"></a>
+                    <span class="name">
+                        <span ><b>enumFeatureType</b></span>
+                        <a href="#enumFeatureType"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>FeatureType</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Inherited from         <code><a href="../classes/BaseLayerListItemComponent.html" target="_self" >BaseLayerListItemComponent</a></code>
+</div>
+                            </td>
+                        </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in         <code><a href="../classes/BaseLayerListItemComponent.html#source" target="_self" >BaseLayerListItemComponent:13</a></code>
+</div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { GisLayerColorPickerService } from &#x27;app/GIS/GIS-layer-color-picker-window/GIS-layer-color-picker-window.service&#x27;;
+import { GisFixedLayerPropertyService } from &#x27;app/GIS/GIS-fixed-layer-property-window/GIS-fixed-layer-property-window.service&#x27;;
+import { LayerService } from &#x27;app/GIS/services/layer.service&#x27;;
+import { TipologiaLayer, ObjOptionHTML_Out, MascheraLayerRaster } from &#x27;app/Service/api.service&#x27;;
+import { Observable } from &#x27;rxjs&#x27;;
+import { SharedDataService } from &#x27;app/GIS/services/shared-data.service&#x27;;
+import { GisToolbarService } from &#x27;app/GIS/GIS-toolbar/gis-toolbar.service&#x27;;
+import { KendoWindowsService, WindowArgs, WindowTypes } from &#x27;app/Service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GISRasterConfigurationWindowService } from &#x27;app/GIS/GIS-raster-configuration-window/GIS-raster-configuration-window.service&#x27;;
+import { GoogleMapService } from &#x27;app/GIS/google-map/google-map.service&#x27;;
+import { enum_FeatureProperty } from &#x27;app/GIS/GIS-enum/GIS-feature&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { BaseLayerListItemComponent } from &#x27;../base-layer-list-item.component&#x27;;
+import { GISAnalisiMappeSatellitariWindowService } from &#x27;app/GIS/GIS-analisi-mappe-satellitari-window/GIS-analisi-mappe-satellitari-window.service&#x27;;
+
+@Component({
+  standalone: false,
+  selector: &#x27;gis-layer-list-item-raster&#x27;,
+  templateUrl: &#x27;./GIS-layer-list-item-raster.component.html&#x27;,
+  styleUrls: [&#x27;./GIS-layer-list-item-raster.component.css&#x27;]
+})
+export class GISLayerListItemRasterComponent extends BaseLayerListItemComponent implements OnInit {
+  @Input() public dataItem: TipologiaLayer &#x3D; null;
+  @Input() public borderTop: boolean;
+  @Input() public type: ObjOptionHTML_Out;
+  @Input() public numberOfFeatures: number;
+  @Input() public numberOfVisibleFeatures: number;
+
+  tipologiaLayerEntita &#x3D; false;
+  masks$: Observable&lt;MascheraLayerRaster[]&gt;;
+  visible$: Observable&lt;boolean&gt;;
+  tileLoader$: Observable&lt;boolean&gt;;
+
+  constructor(
+    private sharedDataService: SharedDataService,
+    private gisRasterConfigurationWindowService: GISRasterConfigurationWindowService,
+    private googleMapService: GoogleMapService,
+    private permessiUtenteService: PermessiUtenteService,
+    private giasDialogService: GiasDialogService,
+    private gisAnalisiMappeSatellitariWindowService: GISAnalisiMappeSatellitariWindowService,
+    pickerService: GisLayerColorPickerService,
+    fixedLayerService: GisFixedLayerPropertyService,
+    layerService: LayerService,
+    gisToolbarService: GisToolbarService,
+    kendoWindowsService: KendoWindowsService,
+    translocoService: TranslocoService,
+  ) {
+    super(pickerService, fixedLayerService, layerService, gisToolbarService, kendoWindowsService, translocoService);
+  }
+
+  ngOnInit(): void {
+    const item &#x3D; this.dataItem;
+
+    this.tipologiaLayerEntita &#x3D; this.sharedDataService.selezionatoTipoLayerEntita();
+    this.visible$ &#x3D; this.gisRasterConfigurationWindowService.getVisibility$(+item.id);
+    this.masks$ &#x3D; this.gisRasterConfigurationWindowService.getMasks$(+item?.id);
+
+    this.layerService.toggleLayerItemVisible(item, false); // Always hidden
+  }
+
+  toggleRasterVisible($event: Event, item: TipologiaLayer, masks: MascheraLayerRaster[], visible: boolean): void {
+    $event.stopPropagation();
+
+    if (!visible) {
+      this.doSetVisible(item, masks, visible);
+      return;
+    }
+
+    const animationActive &#x3D; this.gisAnalisiMappeSatellitariWindowService.isActive;
+    if (animationActive) {
+      this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.DisattivaAnimazioneDatiSatellitariPrimaDiAttivareCaricamentoRaster&#x27;, true);
+      return;
+    }
+
+    const rasterAlreadyOpen &#x3D; this.gisRasterConfigurationWindowService.isSomeVisible();
+    if (rasterAlreadyOpen) {
+      this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.DisattivaIlCaricamentoRasterPrimaDiAttivarneUnAltro&#x27;, true);
+      return;
+    }
+
+    const hasPermissions &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.GIS_Gestione_Parametri_Maschere_Raster, 0);
+    if (!hasPermissions) {
+      // If we have no masks throw error
+      if (masks.length &#x3D;&#x3D; 0) {
+        this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.NonHaiIPermessiPerVisualizzareQuestoRaster&#x27;, true);
+        return;
+      }
+
+      // If all masks have no feature throw error
+      let hasFeature &#x3D; false;
+      const layers &#x3D; masks.map(mask &#x3D;&gt; mask.LayerElementiGrafici_cod);
+
+      this.googleMapService.googleMapWrapper.data.forEach(feature &#x3D;&gt; {
+        if (layers.includes(+feature.getProperty(enum_FeatureProperty.layer))) {
+          hasFeature &#x3D; true;
+        }
+      });
+
+      if (!hasFeature) {
+        this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.NonHaiIPermessiPerVisualizzareQuestoRaster&#x27;, true);
+        return;
+      }
+    }
+
+    this.doSetVisible(item, masks, visible)
+  }
+
+  openRasterConfig($event: Event, item: TipologiaLayer): void {
+    $event.stopPropagation();
+
+    const title &#x3D; &#x60;${this.translocoService.translate(&#x27;gis.ImpostazioniLayers&#x27;)} ${item.nome}&#x60;;
+    const args &#x3D; new WindowArgs(WindowTypes.RasterConfigurationWindow, true, title, null, 600, 340, undefined, undefined, true, true, true, false, false, false, true);
+    args.additionalArgs &#x3D; { raster: item };
+    this.kendoWindowsService.open(WindowTypes.RasterConfigurationWindow, args, false);
+  }
+
+  private doSetVisible(item: TipologiaLayer, masks: MascheraLayerRaster[], visible: boolean): void {
+    if (!visible) {
+      this.gisRasterConfigurationWindowService.nextVisibility(+item.id, visible);
+      super.toggleVisible(new Event(&#x27;click&#x27;), item);
+      return;
+    }
+
+    super.toggleVisible(new Event(&#x27;click&#x27;), item);
+    const hasMasks &#x3D; masks.filter(x &#x3D;&gt; x.isAttivaPerUtenteCorrente).length &gt; 0;
+    const hasPermissions &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.GIS_Gestione_Parametri_Maschere_Raster, 0);
+    if (hasMasks) {
+      this.giasDialogService.baseInfo(&#x27;&#x27;, &#x27;gis.SelezionaDeiPoligoniPerCaricareIlDatiRaster&#x27;, true);
+    } else if (hasPermissions) {
+      this.giasDialogService.baseInfo(&#x27;&#x27;, &#x27;gis.VerrannoCaricatiGliOverlayCompleti&#x27;, true);
+    } else {
+      this.giasDialogService.baseError(&#x27;&#x27;, &#x27;gis.NonSiHannoIPermessiPerCaricareIDatiRaster&#x27;, true);
+      return;
+    }
+
+    this.gisRasterConfigurationWindowService.nextVisibility(+item.id, visible);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ng-container *ngIf&#x3D;&quot;tileLoader$ | async&quot;&gt;&lt;/ng-container&gt;
+
+&lt;div class&#x3D;&quot;info-box&quot;&gt;
+
+  &lt;ng-content&gt;&lt;/ng-content&gt;
+
+  &lt;!-- Tipologia Layer Entità --&gt;
+  &lt;div (click)&#x3D;&quot;centraMappaLayer($event, dataItem)&quot;&gt;
+    &lt;tr&gt;&lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-layer-legend-raster&quot;&gt;&lt;/i&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-layer-search-small&quot;&gt;&lt;/i&gt;&lt;/tr&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Icona colore --&gt;
+  &lt;div class&#x3D;&quot;color-icon&quot; [ngStyle]&#x3D;&quot;{ &#x27;background-color&#x27;: &#x27;#&#x27; + dataItem.colore_1 }&quot;
+    (click)&#x3D;&quot;togglePicker($event, dataItem, type)&quot;&gt;
+  &lt;/div&gt;
+
+  &lt;div (click)&#x3D;&quot;openRasterConfig($event, dataItem)&quot;&gt;
+    &lt;i aria-hidden&#x3D;&quot;true&quot; class&#x3D;&quot;xi-theme-layer-dark&quot;&gt;&lt;/i&gt;
+  &lt;/div&gt;
+
+  &lt;!-- Nome layer --&gt;
+  &lt;div class&#x3D;&quot;layer-info&quot;&gt;
+    &lt;span class&#x3D;&quot;layer-name&quot;&gt;{{ dataItem.nome }}&lt;/span&gt;
+    &lt;span class&#x3D;&quot;layer-feature-data&quot;&gt;Totale: {{ numberOfFeatures }}, Visibili ora: {{ dataItem.flagvisibile &#x3D;&#x3D;&#x3D;
+      &#x27;1&#x27; ? numberOfVisibleFeatures : 0 }}&lt;/span&gt;
+  &lt;/div&gt;
+
+&lt;/div&gt;
+
+&lt;span (click)&#x3D;&quot;toggleDesc($event, dataItem, type)&quot; class&#x3D;&quot;info-icon&quot;&gt;
+  &lt;i aria-hidden&#x3D;&quot;true&quot;
+     [class]&#x3D;&quot;dataItem.MostraDescrizioneAssociata&#x3D;&#x3D;&#x27;1&#x27; ? &#x27;xi-layer-callout-ab-visible&#x27; : &#x27;xi-layer-callout-ab-invisible&#x27;&quot;&gt;
+  &lt;/i&gt;
+&lt;/span&gt;
+
+&lt;span (click)&#x3D;&quot;toggleGrouping($event, dataItem)&quot; class&#x3D;&quot;info-icon&quot;&gt;
+  &lt;i aria-hidden&#x3D;&quot;true&quot;
+     [class]&#x3D;&quot;dataItem.RaggruppaDescrizioneAssociata &#x3D;&#x3D; &#x27;1&#x27; ? &#x27;xi-layer-callout-46-visible&#x27; : &#x27;xi-layer-callout-46-invisible&#x27;&quot;&gt;
+  &lt;/i&gt;
+&lt;/span&gt;
+
+&lt;ng-container *ngIf&#x3D;&quot;{ visible: visible$ | async, masks: masks$ | async } as data&quot;&gt;
+  &lt;span (click)&#x3D;&quot;toggleRasterVisible($event, dataItem, data.masks, !data.visible)&quot; class&#x3D;&quot;info-icon&quot;&gt;
+    &lt;i aria-hidden&#x3D;&quot;true&quot; [class]&#x3D;&quot;data.visible ? &#x27;xi-eye-visible-dark&#x27; : &#x27;xi-eye-invisible-dark&#x27;&quot;&gt;
+    &lt;/i&gt;
+  &lt;/span&gt;
+&lt;/ng-container&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./GIS-layer-list-item-raster.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">.contact {
+    display: flex;
+    height: 55px;
+    padding: 10px;
+    align-items: center;
+}
+.contact.border-top {
+    border-top: solid;
+    border-color: #ecebeb;
+    border-width: thin;
+}
+.contact-details {
+    flex: 1;
+    margin-left: 10px;
+}
+.contact-name {
+    color: #656565;
+    font-weight: bolder;
+}
+.contact-email {
+    font-size: 0.7rem;
+    color: #bebebe;
+}
+.messages-label {
+    height: 20px;
+    width: 95px;
+    font-size: 11px;
+    line-height: 11px;
+    text-transform: none;
+}
+
+.k-picker-solid {
+    border-color: #ffffff !important;
+    background-color: #ffffff !important;
+}
+
+.k-color-preview {
+    width: 50% !important;
+    height: 150% !important;
+}
+
+.mr-1 {
+    margin-right: 1rem;
+}
+
+.color-icon {
+    width: 0.5rem;
+    height: 2.7rem;
+    min-width: 0.5rem;
+    border-radius: 25px;
+    display: inline-block;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.drop-list-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.info-box{
+    width: 100%;
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    padding-right: 1rem;
+    display: flex;
+    align-items: center;
+    font-size: 12pt;
+    overflow-x: hidden;
+}
+
+.drag-and-drop-margin {
+    margin-right: 0.2rem;
+}
+
+.info-icon {
+    border-left: solid 1px #e4eef3;
+    /*padding-bottom: 0.2rem;*/
+    /*padding-top: 0.2rem;*/
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-color: white;
+    cursor: pointer;
+}
+
+.menu-icon {
+    cursor: pointer;
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+}
+
+kendo-colorpicker {
+    width: 1px;
+    height: 1px;
+}
+
+.layer-icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1.8rem;
+    width: 1.8rem;
+    color: transparent;
+    position: relative;
+}
+
+.add-margin-right{
+    margin-right: 0.5rem !important;
+}
+
+tr {
+    text-align: center;
+    line-height: 0 !important;
+}
+
+.layer-info {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: 45px;
+}
+
+.layer-name {
+    font-size: 12pt;
+    overflow: hidden;
+    white-space: nowrap; /* Don&#x27;t forget this one */
+    text-overflow: ellipsis;
+}
+
+.layer-feature-data {
+    font-size: 12px;
+    position: fixed;
+    margin-top: 26px;
+    margin-left: 7px;
+    overflow: hidden;
+    white-space: nowrap; /* Don&#x27;t forget this one */
+    text-overflow: ellipsis;
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ng-container *ngIf="tileLoader$ | async"></ng-container><div class="info-box">  <ng-content></ng-content>  <!-- Tipologia Layer Entità -->  <div (click)="centraMappaLayer($event, dataItem)">    <tr><i aria-hidden="true" class="xi-layer-legend-raster"></i></tr>    <tr><i aria-hidden="true" class="xi-layer-search-small"></i></tr>  </div>  <!-- Icona colore -->  <div class="color-icon" [ngStyle]="{ \'background-color\': \'#\' + dataItem.colore_1 }"    (click)="togglePicker($event, dataItem, type)">  </div>  <div (click)="openRasterConfig($event, dataItem)">    <i aria-hidden="true" class="xi-theme-layer-dark"></i>  </div>  <!-- Nome layer -->  <div class="layer-info">    <span class="layer-name">{{ dataItem.nome }}</span>    <span class="layer-feature-data">Totale: {{ numberOfFeatures }}, Visibili ora: {{ dataItem.flagvisibile ===      \'1\' ? numberOfVisibleFeatures : 0 }}</span>  </div></div><span (click)="toggleDesc($event, dataItem, type)" class="info-icon">  <i aria-hidden="true"     [class]="dataItem.MostraDescrizioneAssociata==\'1\' ? \'xi-layer-callout-ab-visible\' : \'xi-layer-callout-ab-invisible\'">  </i></span><span (click)="toggleGrouping($event, dataItem)" class="info-icon">  <i aria-hidden="true"     [class]="dataItem.RaggruppaDescrizioneAssociata == \'1\' ? \'xi-layer-callout-46-visible\' : \'xi-layer-callout-46-invisible\'">  </i></span><ng-container *ngIf="{ visible: visible$ | async, masks: masks$ | async } as data">  <span (click)="toggleRasterVisible($event, dataItem, data.masks, !data.visible)" class="info-icon">    <i aria-hidden="true" [class]="data.visible ? \'xi-eye-visible-dark\' : \'xi-eye-invisible-dark\'">    </i>  </span></ng-container></div>'
+    var COMPONENTS = [{'name': 'AbbattimentoImpiantiComponent', 'selector': 'app-abbattimento-impianti'},{'name': 'AccessoNegatoComponent', 'selector': 'app-accesso-negato'},{'name': 'AcquaComponent', 'selector': 'app-acqua'},{'name': 'AgendaFiltersComponent', 'selector': 'agenda-filters'},{'name': 'AgriculturalExerciceContributeLinkComponent', 'selector': 'app-agricultural-exercice-contribute-link'},{'name': 'AgriculturalPlotMachineLinkComponent', 'selector': 'app-agricultural-plots-machines-link'},{'name': 'AgriculturalPlotSlopeComponent', 'selector': 'app-agricultural-plot-slope'},{'name': 'AgriculturalPlotWeavingComponent', 'selector': 'app-agricultural-plot-weaving'},{'name': 'AlertDocumentiWidgetComponent', 'selector': 'app-alert-documenti-widget'},{'name': 'AllOperationsTableComponent', 'selector': 'all-operations-table'},{'name': 'AnagraficaComponent', 'selector': 'gias-anagrafica'},{'name': 'AnagraficaTreeFiltersComponent', 'selector': 'tree-filters'},{'name': 'AnagraficheIndiciMaturitaComponent', 'selector': 'app-anagrafiche-indici-maturita'},{'name': 'AnagraficheRilieviAvversitaComponent', 'selector': 'app-anagrafiche-rilievi-avversita'},{'name': 'AnalisiTerrenoComponent', 'selector': 'app-analisi-terreno'},{'name': 'AnalisiTerrenoEditComponent', 'selector': 'app-analisi-terreno-edit'},{'name': 'AnnoValutazioniEditComponent', 'selector': 'app-anno-valutazioni-edit'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'AppezzamentiCampoEditComponent', 'selector': 'app-appezzamento-campo-edit'},{'name': 'AppezzamentiComponent', 'selector': 'app-appezzamenti'},{'name': 'AppezzamentoEditComponent', 'selector': 'app-appezzamento-edit'},{'name': 'AppezzamentoGlobalEditComponent', 'selector': 'app-appezzamento-global-edit'},{'name': 'AvversitaComponent', 'selector': 'app-avversita'},{'name': 'AxpMessageContentComponent', 'selector': 'app-axp-message-content'},{'name': 'AziendaComponent', 'selector': 'app-azienda'},{'name': 'AziendeMultiPieWidgetComponent', 'selector': 'app-aziende-multi-pie-widget'},{'name': 'BiologicoComponent', 'selector': 'centri-biologico'},{'name': 'BottoneAggiuntaProdottoComponent', 'selector': 'app-bottone-aggiunta-prodotto'},{'name': 'BottoneCreaProdottoComponent', 'selector': 'app-bottone-crea-prodotto'},{'name': 'BottoneRicercaProdotti', 'selector': 'app-bottone-ricerca-prodotti'},{'name': 'BottoniGestioneProdottoComponent', 'selector': 'app-bottoni-gestione-prodotto'},{'name': 'BottoniSalvataggioComponent', 'selector': 'app-bottoni-salvataggio'},{'name': 'BottoniSezioneProdottiComponent', 'selector': 'app-bottoni-sezione-prodotti'},{'name': 'BottoniTestataComponent', 'selector': 'btn-bottoni-testata'},{'name': 'BreadcrumbComponent', 'selector': 'app-breadcrumb'},{'name': 'BrogliaccioGridComponent', 'selector': 'brogliaccio-table'},{'name': 'BudgetComponent', 'selector': 'gias-budget'},{'name': 'CacCodificheComponent', 'selector': 'app-cac-codifiche'},{'name': 'CampiComponent', 'selector': 'app-campi'},{'name': 'CampiEditComponent', 'selector': 'app-campi-edit'},{'name': 'CampiShortDescriptionComponent', 'selector': 'campi-short-description'},{'name': 'CardImpostazioneComponent', 'selector': 'app-card-impostazione'},{'name': 'CatastoCampoEditComponent', 'selector': 'app-catasto-campo-edit'},{'name': 'CatastoClassamentoEditComponent', 'selector': 'app-catasto-classamento-edit'},{'name': 'CatastoComponent', 'selector': 'app-catasto'},{'name': 'CatastoEditComponent', 'selector': 'app-catasto-edit'},{'name': 'CatastoMacrousiEditComponent', 'selector': 'app-catasto-macrousi-edit'},{'name': 'CatastoMetodoProduzioneEditComponent', 'selector': 'app-catasto-metodo-produzione-edit'},{'name': 'CatastoPossessiEditComponent', 'selector': 'app-catasto-possessi-edit'},{'name': 'CatastoZoneEditComponent', 'selector': 'app-catasto-zone-edit'},{'name': 'CentriCodiciGridComponent', 'selector': 'grid-centri-codici'},{'name': 'CentriComponent', 'selector': 'gias-anagrafica-centri'},{'name': 'CentroEditComponent', 'selector': 'app-centri-edit'},{'name': 'ChartWidgetComponent', 'selector': 'app-chart-widget'},{'name': 'ClearButtonComponent', 'selector': 'app-clear-button'},{'name': 'ClientePermessiComponent', 'selector': 'app-cliente-permessi'},{'name': 'ClientePermessiGridComponent', 'selector': 'app-cliente-permessi-grid'},{'name': 'Co2ComparisonWidgetComponent', 'selector': 'app-co2-comparison-widget'},{'name': 'CodiciComponent', 'selector': 'app-codici'},{'name': 'CodiciTemplateComponent', 'selector': 'gias-codici-template'},{'name': 'ColtureMultiAziendaWidget', 'selector': 'app-colture-multiazienda-widget'},{'name': 'ColtureWidgetComponent', 'selector': 'app-colture-widget'},{'name': 'ColumnsChartWidgetComponent', 'selector': 'app-columns-chart-widget'},{'name': 'ComparisonWidgetComponent', 'selector': 'app-comparison-widget'},{'name': 'ConfigurazioneOperazioniCulturaliComponent', 'selector': 'app-configurazione-operazioni-culturali'},{'name': 'ConformitaWidgetComponent', 'selector': 'app-conformita-widget'},{'name': 'ConfrontoPcCatastoComponent', 'selector': 'app-confronto-pc-catasto'},{'name': 'ConfrontoPcCatastoGridComponent', 'selector': 'app-confronto-pc-catasto-grid'},{'name': 'ConfrontoPianoColturaleComponent', 'selector': 'app-confronto-piano-colturale'},{'name': 'ConsultaSincroDatiAppComponent', 'selector': 'app-consulta-sincro-dati-app'},{'name': 'ContattiAssociaUtenteComponent', 'selector': 'app-contatti-associa-utente'},{'name': 'ContattiComponent', 'selector': 'app-contatti'},{'name': 'ContattiEditComponent', 'selector': 'app-contatti-edit'},{'name': 'ContoEconomicoDettaglioComponent', 'selector': 'app-conto-economico-dettaglio'},{'name': 'CooperativeComponent', 'selector': 'cooperative-edit'},{'name': 'CostiAccessoriComponent', 'selector': 'app-costi-accessori'},{'name': 'CostiMacchinaEditComponent', 'selector': 'app-macchina-edit-costi'},{'name': 'CostiRicaviAIWidgetComponent', 'selector': 'costi-ricavi-ai-widget'},{'name': 'CounterComponent', 'selector': 'app-counter-component'},{'name': 'CustomMessageComponent', 'selector': 'custom-message-component'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'DataOperazioneComponent', 'selector': 'app-data-operazione'},{'name': 'DatiAccessoriComponent', 'selector': 'dati-accessori'},{'name': 'DatiCatastaliComponent', 'selector': 'app-dati-catastali'},{'name': 'DatiCentroComponent', 'selector': 'dati-centro'},{'name': 'DatiGeneraliFarmersComponent', 'selector': 'app-dati-generali-farmers-widget'},{'name': 'DatiPrevisionailiColtureGridComponent', 'selector': 'app-dati-previsionaili-colture-grid'},{'name': 'DatiPrevisionaliColtureComponent', 'selector': 'app-dati-previsionali-colture'},{'name': 'DettagliFertilizzantiComponent', 'selector': 'app-dettagli-fertilizzanti'},{'name': 'DettagliFormulatiComponent', 'selector': 'app-dettagli-formulati'},{'name': 'DettagliSementiComponent', 'selector': 'app-dettagli-sementi'},{'name': 'DialogComponent', 'selector': 'app-dialog'},{'name': 'DisciplinareComponent', 'selector': 'app-disciplinare'},{'name': 'DomandaIrriguaComponent', 'selector': 'app-menu-dss'},{'name': 'DosiComponent', 'selector': 'app-dosi'},{'name': 'DraggableComponent', 'selector': 'app-draggable'},{'name': 'DrawWindowComponent', 'selector': 'draw-window'},{'name': 'EditGruppiMerceComponent', 'selector': 'app-gruppi-merce'},{'name': 'EditGruppiMerceGridComponent', 'selector': 'gruppi-merce-grid'},{'name': 'ErosioneComparisonWidgetComponent', 'selector': 'app-erosione-comparison-widget'},{'name': 'EserciziComponent', 'selector': 'app-esercizi'},{'name': 'EserciziCopiaSpostaAppezzamentiComponent', 'selector': 'app-esercizi-copia-sposta-appezzamenti'},{'name': 'EsercizioEditComponent', 'selector': 'app-esercizio-edit'},{'name': 'ExportQdCToAgeaComponent', 'selector': 'app-export-qdc-to-agea'},{'name': 'ExportQdcToAgeaFarmFilterComponent', 'selector': 'app-export-qdc-to-agea-farm-filter'},{'name': 'ExportQdcToAgeaJsonDialogComponent', 'selector': 'app-export-qdc-to-agea-json-dialog'},{'name': 'FabbricatiComponent', 'selector': 'app-fabbricati'},{'name': 'FabbricatiEditComponent', 'selector': 'app-fabbricati-edit'},{'name': 'FertilizzantiComponent', 'selector': 'app-fertilizzanti'},{'name': 'FetchDataComponent', 'selector': 'app-fetch-data'},{'name': 'FiltersRilieviComponent', 'selector': 'app-filters-rilievi'},{'name': 'FiltersVisiteComponent', 'selector': 'app-filters-visite'},{'name': 'FiltriRequisitiStabilimentoComponent', 'selector': 'app-filtri-requisiti-stabilimento'},{'name': 'FiltriTemporaliComponent', 'selector': 'app-filtri-temporali'},{'name': 'FiltriUtenteComponent', 'selector': 'app-filtri-utente'},{'name': 'FiltroRicercaComponent', 'selector': 'app-filtro-ricerca'},{'name': 'FiltroSqlMateriePrimeComponent', 'selector': 'app-filtro-sql-materie-prime'},{'name': 'FlagMagazziniAgenzieComponent', 'selector': 'app-flag-magazzini-agenzie'},{'name': 'FlagMagazziniEsterniComponent', 'selector': 'app-flag-magazzini-esterni'},{'name': 'FlagVisualizzaGiacenzeZeroComponent', 'selector': 'app-flag-visualizza-giacenze-zero'},{'name': 'FooterComponent', 'selector': 'gias-master-footer'},{'name': 'FormatiStampaComponent', 'selector': 'impostazione-formati-stampa'},{'name': 'FormImpostazioniAziendeCentriComponent', 'selector': 'app-form-impostazioni-aziende-centri'},{'name': 'FormImpostazioniComponent', 'selector': 'app-form-impostazioni'},{'name': 'FormulatiComponent', 'selector': 'app-formulati'},{'name': 'GeneralFieldComponent', 'selector': 'app-settings-general-field'},{'name': 'GeoFiltersComponent', 'selector': 'app-geo-filters'},{'name': 'GestioneNoteComponent', 'selector': 'app-gestione-note'},{'name': 'GestioneOperazioniComponent', 'selector': 'app-gestione-operazioni'},{'name': 'GestioneRichiesteComponent', 'selector': 'gias-gestione-richieste'},{'name': 'GhgColtureWidgetComponent', 'selector': 'app-ghg-colture-widget'},{'name': 'GiasAddressTemplateComponent', 'selector': 'gias-address-template'},{'name': 'GiasBreadcrumbsComponent', 'selector': 'gias-breadcrumbs'},{'name': 'GisAlgorithmConfigurationComponent', 'selector': 'gis-algorithm-configuration'},{'name': 'GisAlgorithmConfigurationLogComponent', 'selector': 'gis-algorithm-configuration-log'},{'name': 'GisAlgorithmConfigurationWindowComponent', 'selector': 'gis-algorithm-configuration-window'},{'name': 'GISAlgorithmResultComponent', 'selector': 'gis-algorithm-result'},{'name': 'GISAnalisiMappeSatellitariAnimationComponent', 'selector': 'gis-analisi-mappe-satellitari-animation'},{'name': 'GISAnalisiMappeSatellitariCalendarioComponent', 'selector': 'gis-analisi-mappe-satellitari-calendario'},{'name': 'GISAnalisiMappeSatellitariGraficiComponent', 'selector': 'gis-analisi-mappe-satellitari-grafici'},{'name': 'GISAnalisiMappeSatellitariNotificheComponent', 'selector': 'gis-analisi-mappe-satellitari-notifiche'},{'name': 'GISAnalisiMappeSatellitariOpzioniComponent', 'selector': 'gis-analisi-mappe-satellitari-opzioni'},{'name': 'GISAnalisiMappeSatellitariWindowComponent', 'selector': 'gis-analisi-mappe-satellitari-window'},{'name': 'GISAttributiAlgorithmConfigurationComponent', 'selector': 'gis-attributi-algorithm-configuration'},{'name': 'GISAttributiComponent', 'selector': 'GIS-attributi'},{'name': 'GISAttributiExportComponent', 'selector': 'gis-attributi-export'},{'name': 'GISAttributiFileUploadCatastoComponent', 'selector': 'gis-attributi-file-upload-catasto'},{'name': 'GISAttributiFileUploadComponent', 'selector': 'gis-attributi-file-upload'},{'name': 'GISAttributiFileUploadRasterComponent', 'selector': 'gis-attributi-file-upload-raster'},{'name': 'GISAttributiFileUploadStandardComponent', 'selector': 'gis-attributi-file-upload-standard'},{'name': 'GISAttributiGridComponent', 'selector': 'GIS-attributi-grid'},{'name': 'GISAttributiMuzGridComponent', 'selector': 'GIS-attributi-muz-grid'},{'name': 'GISAttributiRasterMasksComponent', 'selector': 'gis-attributi-raster-masks'},{'name': 'GISAttributiRasterMasksGroupsPermissionsComponent', 'selector': 'gis-attributi-raster-masks-groups-permissions'},{'name': 'GISAttributiRasterMasksPermissionsComponent', 'selector': 'gis-attributi-raster-masks-permissions'},{'name': 'GISAttributiRasterMasksUsersPermissionsComponent', 'selector': 'gis-attributi-raster-masks-users-permissions'},{'name': 'GISAttributiSettingsComponent', 'selector': 'gis-attributi-settings'},{'name': 'GISBookmarksWindowComponent', 'selector': 'gis-bookmarks-window'},{'name': 'GisBottomWindow', 'selector': 'gis-bottom-window'},{'name': 'GISCalendarModalComponent', 'selector': 'app-gis-calendar-modal'},{'name': 'GISCfgProiezioniComponent', 'selector': 'gis-cfg-proiezioni'},{'name': 'GISCfgProiezioniConfigComponent', 'selector': 'gis-cfg-proiezioni-config'},{'name': 'GISCfgProiezioniDialogComponent', 'selector': 'gis-cfg-proiezioni-dialog'},{'name': 'GISCfgProiezioniGroupsPermissionsComponent', 'selector': 'gis-cfg-proiezioni-groups-permissions'},{'name': 'GISCfgProiezioniUsersPermissionsComponent', 'selector': 'gis-cfg-proiezioni-users-permissions'},{'name': 'GISCfgProziezioniLayerComponent', 'selector': 'gis-cfg-proiezioni-layer'},{'name': 'GISCfgProziezioniPermissionsComponent', 'selector': 'gis-cfg-proiezioni-permissions'},{'name': 'GisCheckboxComponent', 'selector': 'gis-checkbox'},{'name': 'GISComponent', 'selector': 'GIS'},{'name': 'GISConfigurationModalComponent', 'selector': 'app-gis-configuration-modal'},{'name': 'GISDeleteFeatureWindowComponent', 'selector': 'gis-delete-feature-window'},{'name': 'GISEditMuzComponent', 'selector': 'gis-edit-muz'},{'name': 'GISEditMuzParticelleCatastaliComponent', 'selector': 'gis-edit-muz-particelle-catastali'},{'name': 'GISFixedLayerPropertyWindowComponent', 'selector': 'gis-fixed-layer-property-window'},{'name': 'GISGestionePianoRateoComponent', 'selector': 'gis-gestione-piano-rateo'},{'name': 'GISGestionePianoRateoLoaderComponent', 'selector': 'gis-gestione-piano-rateo-loader'},{'name': 'GISGestionePianoRateoPickerComponent', 'selector': 'gis-gestione-piano-rateo-picker'},{'name': 'GISInitMuzGroupComponent', 'selector': 'gis-init-muz-group'},{'name': 'GISLayerAdvancedSettingsWindowComponent', 'selector': 'gis-layer-advanced-settings-window'},{'name': 'GISLayerColorPickerWindowComponent', 'selector': 'gis-layer-color-picker-window'},{'name': 'GISLayerGroupsPermissionsComponent', 'selector': 'gis-layer-groups-permissions'},{'name': 'GISLayerListItemComponent', 'selector': 'gis-layer-list-item'},{'name': 'GISLayerListItemMappeSatellitariComponent', 'selector': 'gis-layer-list-item-mappe-satellitari'},{'name': 'GISLayerListItemRasterComponent', 'selector': 'gis-layer-list-item-raster'},{'name': 'GISLayerPermissionsWindowComponent', 'selector': 'gis-layer-permissions-window'},{'name': 'GISLayerUsersPermissionsComponent', 'selector': 'gis-layer-users-permissions'},{'name': 'GISLayerVisibilityConfigurationWindowComponent', 'selector': 'gis-layer-visibility-configuration-window'},{'name': 'GISLayerWindowComponent', 'selector': 'gis-layer-window'},{'name': 'GISLayerWindowToolbarComponent', 'selector': 'gis-layer-window-toolbar'},{'name': 'GISParticelleCatastaliComponent', 'selector': 'gis-particelle-catastali'},{'name': 'GISRasterConfigurationWindowComponent', 'selector': 'gis-raster-configuration-window'},{'name': 'GisToolbarComponent', 'selector': 'gis-toolbar'},{'name': 'GisToolbarMobileComponent', 'selector': 'gis-toolbar-mobile'},{'name': 'GisTreeFiltersComponent', 'selector': 'tree-filters-gis'},{'name': 'GISWindowComponent', 'selector': 'gis-window'},{'name': 'GoogleMapComponent', 'selector': 'gias-google-map'},{'name': 'GridAddMacchineComponent', 'selector': 'app-grid-add-macchine'},{'name': 'GridAddOperaiComponent', 'selector': 'app-grid-add-operai'},{'name': 'GridAziendeCentriComponent', 'selector': 'app-grid-aziende-centri'},{'name': 'GridAziendeCentriImpostazioniComponent', 'selector': 'app-grid-aziende-centri-impostazioni'},{'name': 'GridCapiAnimaliComponent', 'selector': 'app-capi-animali'},{'name': 'GridDosiProdottiComponent', 'selector': 'app-grid-dosi-prodotti'},{'name': 'GridGroupTransitionsComponent', 'selector': 'app-grid-group-transitions'},{'name': 'GridGruppiComponent', 'selector': 'app-grid-gruppi'},{'name': 'GridImpiantiComponent', 'selector': 'app-grid-impianti'},{'name': 'GridMacchineComponent', 'selector': 'app-grid-macchine'},{'name': 'GridNoteComponent', 'selector': 'app-grid-note'},{'name': 'GridOperatoriComponent', 'selector': 'app-grid-operatori'},{'name': 'GridPasswordComponent', 'selector': 'app-grid-password'},{'name': 'GridPermessiComponent', 'selector': 'app-grid-permessi'},{'name': 'GridPermessiEditComponent', 'selector': 'app-grid-permessi-edit'},{'name': 'GridProdottiDaTrattareComponent', 'selector': 'app-grid-prodotti-da-trattare'},{'name': 'GridProdottiSomministrazioneComponent', 'selector': 'app-prodotti-somministrazione'},{'name': 'GridProfiliComponent', 'selector': 'app-grid-profili'},{'name': 'GridProfiliPermessiComponent', 'selector': 'app-grid-profili-permessi'},{'name': 'GridRaccoltaAutoComponent', 'selector': 'app-grid-raccolta-auto'},{'name': 'GridRilieviComponent', 'selector': 'app-grid-rilievi'},{'name': 'GridRipartizioneManualeComponent', 'selector': 'app-grid-ripartizione-manuale'},{'name': 'GridUtentiPermessiComponent', 'selector': 'app-grid-utenti-permessi'},{'name': 'GridVisibilitaEditComponent', 'selector': 'app-grid-visibilita-edit'},{'name': 'GridZooComponent', 'selector': 'grid-zoo'},{'name': 'GrigliaAnalisiTerrenoComponent', 'selector': 'app-griglia-analisi-terreno'},{'name': 'GrigliaEntitaComponent', 'selector': 'app-griglia-entita'},{'name': 'GrigliaFiltroRicercaComponent', 'selector': 'app-griglia-filtro'},{'name': 'GruppiMerceGrid2Component', 'selector': 'gruppi-merce-grid2'},{'name': 'GruppiMerceMasterComponent', 'selector': 'app-gruppi-merce'},{'name': 'GruppiRaccoltaComponent', 'selector': 'app-gruppi-raccolta'},{'name': 'GruppiUtentiComponent', 'selector': 'app-gruppi-utenti'},{'name': 'GruppiUtentiGridComponent', 'selector': 'gruppi-utenti-grid'},{'name': 'GruppiUtentiPerGruppiMerce', 'selector': 'gruppi-utentix-gruppi-merce'},{'name': 'GruppiUtentixGruppiMerceGridComponent', 'selector': 'gruppi-utentix-gruppi-merce-grid'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HeaderComponent', 'selector': 'gias-master-header'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'ImgBase64Component', 'selector': 'app-img64'},{'name': 'ImpiantiComponent', 'selector': 'app-impianti'},{'name': 'ImpiantoEditComponent', 'selector': 'app-impianto-edit'},{'name': 'ImpiantoShortDescriptionComponent', 'selector': 'impianto-short-description'},{'name': 'ImportUtentiComponent', 'selector': 'app-import-utenti'},{'name': 'ImpostazioniUtenteComponent', 'selector': 'app-impostazioni-utente'},{'name': 'ImpresaEditComponent', 'selector': 'gias-impresa-edit'},{'name': 'ImpreseComponent', 'selector': 'gias-anagrafica-imprese'},{'name': 'ImpreseFilterComponent', 'selector': 'gias-imprese-filter'},{'name': 'ImpreseParametriGHGComponent', 'selector': 'app-imprese-parametri-ghg'},{'name': 'IndicatoriWidgetComponent', 'selector': 'app-indicatori-widget'},{'name': 'IndicatoriWidgetDashboardComponent', 'selector': 'app-indicatori-widget-dashboard'},{'name': 'IndicatoriWidgetFullComponent', 'selector': 'app-indicatori-widget-full'},{'name': 'IndicatoriWidgetGridComponent', 'selector': 'app-indicatori-widget-grid'},{'name': 'IndicazioniComponent', 'selector': 'zoo-indicazioni'},{'name': 'IndirizziComponent', 'selector': 'app-appezzamento-edit-indirizzi'},{'name': 'InvestimentoCatastaleAppezzamentoComponent', 'selector': 'app-investimento-catastale-appezzamento'},{'name': 'InvestimentoCatastaleCampoComponent', 'selector': 'app-investimento-catastale-campo'},{'name': 'InvestimentoCatastaleComponent', 'selector': 'app-investimento-catastale'},{'name': 'KendoTreeContainerComponent', 'selector': 'app-kendo-tree'},{'name': 'LayerWindowComponent', 'selector': 'satellite-data-window'},{'name': 'LettureContatoriAziendaliGridComponent', 'selector': 'app-letture-contatori-aziendali-grid'},{'name': 'LettureContatoriComponent', 'selector': 'app-letture-contatori'},{'name': 'LineeGuidaABWindowComponent', 'selector': 'app-linee-guida-ab-window'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'MacchinaEditCaratteristicheComponent', 'selector': 'app-macchine-edit-caratteristiche'},{'name': 'MacchinaShortDescriptionComponent', 'selector': 'macchina-short-description'},{'name': 'MacchineComponent', 'selector': 'app-macchine'},{'name': 'MacchineEditComponent', 'selector': 'app-macchine-edit'},{'name': 'MacchineEditGerarchiaComponent', 'selector': 'app-macchine-edit-gerarchia'},{'name': 'MacchineEditImageComponent', 'selector': 'app-macchine-edit-image'},{'name': 'MagazzinoLottoComponent', 'selector': 'app-magazzino-lotto'},{'name': 'MainValutazioniEditComponent', 'selector': 'app-main-valutazioni-edit'},{'name': 'MappaMultiAziendaComponent', 'selector': 'app-mappa-multiazienda-widget'},{'name': 'MarkerWindowComponent', 'selector': 'app-marker-window'},{'name': 'MenuAgendaComponent', 'selector': 'app-menu-agenda'},{'name': 'MenuContestualeComponent', 'selector': 'gias-menu-contestuale'},{'name': 'MenuImpostazioniAziendeCentriComponent', 'selector': 'app-menu-impostazioni-aziende-centri'},{'name': 'MenuProfilazioneComponent', 'selector': 'app-menu-profilazione'},{'name': 'MenuProfilazioneGridComponent', 'selector': 'app-grid-menu-profilazione'},{'name': 'MenuRilieviComponent', 'selector': 'app-menu-rilievi'},{'name': 'MenuUtentiComponent', 'selector': 'app-menu-utenti'},{'name': 'MenuVisibilitaComponent', 'selector': 'app-menu-visibilita'},{'name': 'MenuVisiteComponent', 'selector': 'app-menu-visite'},{'name': 'MenuZooComponent', 'selector': 'zoo-menu'},{'name': 'MeteoWidgetComponent', 'selector': 'app-meteo-widget'},{'name': 'MeteoWidgetFullComponent', 'selector': 'app-meteo-widget-full'},{'name': 'ModalitaApplicazioneComponent', 'selector': 'app-modalita-applicazione'},{'name': 'MonitoraggioWidgetComponent', 'selector': 'app-monitoraggio-widget'},{'name': 'MultiOperazioneComponent', 'selector': 'app-multi-operazione'},{'name': 'NavMenuComponent', 'selector': 'app-nav-menu'},{'name': 'NotaTestualeComponent', 'selector': 'app-nota-testuale'},{'name': 'NuovaOperazioneComponent', 'selector': 'app-esercizi-nuova-operazione'},{'name': 'OnCloseEsercizioComponent', 'selector': 'app-on-close-esercizio'},{'name': 'OperationsListComponent', 'selector': 'operations-list'},{'name': 'OperationsMassEditComponent', 'selector': 'app-operations-mass-edit'},{'name': 'OperatoreComponent', 'selector': 'app-operatore'},{'name': 'OperazioneCausaleComponent', 'selector': 'app-operazione-causale'},{'name': 'OperazioniTemplateWidgetComponent', 'selector': 'app-operazioni-template-widget'},{'name': 'OpzioniRaccoltaComponent', 'selector': 'app-opzioni-raccolta'},{'name': 'OpzioniSeminaComponent', 'selector': 'app-opzioni-semina'},{'name': 'PaeseMultiAziendaComponent', 'selector': 'app-paese-multiazienda-widget'},{'name': 'PageNotFoundComponent', 'selector': 'gias-page-not-found'},{'name': 'PaginaAziendeCentriImpostazioniComponent', 'selector': 'app-pagina-aziende-centri-impostazioni'},{'name': 'PaginaImpostazioniMassiveComponent', 'selector': 'app-pagina-impostazioni-massive'},{'name': 'ParametriAnalisiTerrenoComponent', 'selector': 'app-parametri-analisi-terreno'},{'name': 'PercentGridViewerComponent', 'selector': 'app-percent-grid-viewer'},{'name': 'PianoColturaleGridComponent', 'selector': 'app-piano-colturale-grid'},{'name': 'PianoContiComponent', 'selector': 'app-piano-conti'},{'name': 'PianoContiEditComponent', 'selector': 'app-piano-conti-edit'},{'name': 'PlvComparisonWidgetComponent', 'selector': 'app-plv-comparison-widget'},{'name': 'PolygonMergeWindowComponent', 'selector': 'gis-polygon-merge-window'},{'name': 'PolygonWindowComponent', 'selector': 'polygon-window'},{'name': 'PreferitiConfigComponent', 'selector': 'app-preferiti-config'},{'name': 'PreferitoCardComponent', 'selector': 'app-preferito-card'},{'name': 'PrintExportComponent', 'selector': 'print-export-button'},{'name': 'ProdottiComponent', 'selector': 'app-prodotti'},{'name': 'ProduttivitaComparisonWidgetComponent', 'selector': 'app-produttivita-comparison-widget'},{'name': 'ProduzioneColtureWidgetComponent', 'selector': 'app-produzione-colture-widget'},{'name': 'ProfilazioneImpreseCampoApplicativoComponent', 'selector': 'app-profilazione-imprese-campo-applicativo'},{'name': 'ProfilazioneImpreseComponent', 'selector': 'app-profilazione-imprese'},{'name': 'ProfilazioneImpreseContattiComponent', 'selector': 'app-profilazione-imprese-contatti'},{'name': 'ProfilazioneImpreseDefaultDistintaProduzioneComponent', 'selector': 'app-profilazione-imprese-default-distinta-produzione'},{'name': 'ProfilazioneImpreseDefaultPianiColturaliComponent', 'selector': 'app-profilazione-imprese-default-piani-colturali'},{'name': 'ProfilazioneImpreseDefaultSpecieComponent', 'selector': 'app-profilazione-imprese-default-specie'},{'name': 'ProfilazioneImpreseGlobalComponent', 'selector': 'app-profilazione-imprese-global'},{'name': 'ProfilazioneImpreseGruppoNoteDialogComponent', 'selector': 'app-profilazione-imprese-gruppo-note-dialog'},{'name': 'ProfilazioneImpreseGruppoOperazioneComponent', 'selector': 'app-profilazione-imprese-gruppo-operazione'},{'name': 'ProfilazioneImpreseLavorazioneComponent', 'selector': 'app-profilazione-imprese-lavorazione'},{'name': 'ProfilazioneImpreseMacchineComponent', 'selector': 'app-profilazione-imprese-macchine'},{'name': 'ProfilazioneImpreseMacchineDialogComponent', 'selector': 'app-profilazione-imprese-macchine-dialog'},{'name': 'ProfilazioneImpreseMacchineOperatoriComponent', 'selector': 'app-profilazione-imprese-macchine-operatori'},{'name': 'ProfilazioneImpreseNoteComponent', 'selector': 'app-profilazione-imprese-note'},{'name': 'ProfilazioneImpreseNoteListComponent', 'selector': 'app-profilazione-imprese-note-list'},{'name': 'ProfilazioneImpreseParametriGeneraliColturaComponent', 'selector': 'app-profilazione-imprese-parametri-generali-coltura'},{'name': 'ProfilazioneImpreseSpecieComponent', 'selector': 'app-profilazione-imprese-specie'},{'name': 'ProfilazioneImpreseVarietaComponent', 'selector': 'app-profilazione-imprese-varieta'},{'name': 'ProfiliPermessiComponent', 'selector': 'app-profili-permessi'},{'name': 'ProtocolliComponent', 'selector': 'zoo-protocolli'},{'name': 'ProtocolliInCorsoComponent', 'selector': 'zoo-protocolli-in-corso'},{'name': 'ProvinciaComuneMultiselectComponent', 'selector': 'app-provincia-comune-multiselect'},{'name': 'QuadernoDiCampagnaComponent', 'selector': 'app-quaderno-di-campagna'},{'name': 'QuantitaProdottiComponent', 'selector': 'app-quantita-prodotti'},{'name': 'RaccoltaComponent', 'selector': 'app-raccolta'},{'name': 'RedSpotComponent', 'selector': 'app-red-spot'},{'name': 'ReportAbilitazionePdCComponent', 'selector': 'app-report-abilitazione-pdc'},{'name': 'ReportImpiegoProdottiFitosanitariComponent', 'selector': 'app-report-impiego-prodotti-fitosanitari'},{'name': 'RequisitiStabilimentoComponent', 'selector': 'app-requisiti-stabilimento'},{'name': 'RequisitiStabilimentoContrattiGridComponent', 'selector': 'app-requisiti-stabilimento-contratti-grid'},{'name': 'RequisitiStabilimentoGridComponent', 'selector': 'app-requisiti-stabilimento-grid'},{'name': 'RicercaFertilizzantiComponent', 'selector': 'app-ricerca-fertilizzanti'},{'name': 'RicercaFormulatiComponent', 'selector': 'app-ricerca-formulati'},{'name': 'RicercaSementiComponent', 'selector': 'app-ricerca-sementi'},{'name': 'RicetteComponent', 'selector': 'grid-ricette'},{'name': 'RiepilogoMeteoWidgetComponent', 'selector': 'app-riepilogo-meteo-widget'},{'name': 'RilevaFaseEpocaComponent', 'selector': 'btn-rileva-fase-epoca'},{'name': 'RilieviAvversitaComponent', 'selector': 'app-rilievi-avversita'},{'name': 'RilieviComponent', 'selector': 'app-rilievi'},{'name': 'RipartizioneManualeComponent', 'selector': 'app-ripartizione-manuale'},{'name': 'RischioMeteoAggregatoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-aggregato-comparison-widget'},{'name': 'RischioMeteoAllagamentoComparisonWidgetComponent', 'selector': 'app-rischio-meteo-allagamento-comparison-widget'},{'name': 'RischioMeteoGelataComparisonWidgetComponent', 'selector': 'app-rischio-meteo-gelata-comparison-widget'},{'name': 'RischioMeteoGrandineComparisonWidgetComponent', 'selector': 'app-rischio-meteo-grandine-comparison-widget'},{'name': 'RischioMeteoSiccitaComparisonWidgetComponent', 'selector': 'app-rischio-meteo-siccita-comparison-widget'},{'name': 'RischioMeteoVentoForteComparisonWidgetComponent', 'selector': 'app-rischio-meteo-vento-forte-comparison-widget'},{'name': 'SalvataggioAppezzamentoGISComponent', 'selector': 'salvataggio-appezzamento-GIS'},{'name': 'SelezionaCentroComponent', 'selector': 'app-seleziona-centro'},{'name': 'SementiComponent', 'selector': 'app-sementi'},{'name': 'SeminatiMultiAziendaWidgetComponent', 'selector': 'app-seminati-multiazienda-widget'},{'name': 'SettingsAnnataAgrariaComponent', 'selector': 'app-settings-annata-agraria'},{'name': 'SettingsCategorieMagazzinoComponent', 'selector': 'app-settings-categorie-magazzino'},{'name': 'SettingsGiasAppComponent', 'selector': 'app-settings-gias-app'},{'name': 'SettingsGisComponent', 'selector': 'app-settings-gis'},{'name': 'SettingsLavorazioniGridComponent', 'selector': 'app-settings-lavorazioni-grid'},{'name': 'SettingsManagerComponent', 'selector': 'app-settings-manager'},{'name': 'SettingsProxyComponent', 'selector': 'app-settings-proxy'},{'name': 'SettingsSpecieVarietaComponent', 'selector': 'app-settings-specie-varieta'},{'name': 'SezioneImpostazioniComponent', 'selector': 'app-sezione-impostazioni'},{'name': 'SezioniNoProdottoComponent', 'selector': 'app-sezioni-no-prodotto'},{'name': 'SidemenuChildComponent', 'selector': 'app-sidemenu-child'},{'name': 'SideMenuComponent', 'selector': 'gias-sidemenu'},{'name': 'SideMenuFooterComponent', 'selector': 'gias-sidemenu-footer'},{'name': 'SideMenuServicesComponent', 'selector': 'gias-sidemenu-services'},{'name': 'SpecialEditComponent', 'selector': 'app-special-edit'},{'name': 'SpecieAnimaleComponent', 'selector': 'app-specie-animale'},{'name': 'SpecieComponent', 'selector': 'app-specie'},{'name': 'StimeProduzioneColtureWidgetComponent', 'selector': 'app-stime-produzione-colture-widget'},{'name': 'SuperficiImpiantiComponent', 'selector': 'app-superfici-impianti'},{'name': 'SvgIconSpeciesComponent', 'selector': 'gias-svg-icon-species-species'},{'name': 'TargetSuperficieWidgetComponent', 'selector': 'app-target-superficie-widget'},{'name': 'TestAnagraficaCampiComponent', 'selector': 'app-test-anagrafica-campi'},{'name': 'TestAnagraficaCatastoComponent', 'selector': 'app-test-anagrafica-catasto'},{'name': 'TestAnagraficaCentriComponent', 'selector': 'app-test-anagrafica-centri'},{'name': 'TestAnagraficaComponent', 'selector': 'app-test-anagrafica'},{'name': 'TestAnagraficaImpiantiComponent', 'selector': 'app-test-anagrafica-impianti'},{'name': 'TestAnagraficaImpreseComponent', 'selector': 'app-test-anagrafica-imprese'},{'name': 'TestAnagraficaMacchineComponent', 'selector': 'app-test-anagrafica-macchine'},{'name': 'TestataComponent', 'selector': 'app-testata'},{'name': 'TestataRicettaComponent', 'selector': 'app-testata-ricetta'},{'name': 'TestataVisitaComponent', 'selector': 'app-testata-visita'},{'name': 'TestComponent', 'selector': 'app-test'},{'name': 'TestGiasGiasKendoGridComponent', 'selector': 'app-test-gias-kendo-grid'},{'name': 'TestGridComponent', 'selector': 'test-grid'},{'name': 'ThemeWindowBandSliderComponent', 'selector': 'theme-window-band-slider'},{'name': 'ThemeWindowComponent', 'selector': 'theme-window'},{'name': 'ThemeWindowSettingsComponent', 'selector': 'theme-window-settings'},{'name': 'ToolDisegnaPuntiComponent', 'selector': 'app-tool-disegna-punti'},{'name': 'ToolDisegnoAvanzatoComponent', 'selector': 'app-tool-disegno-avanzato'},{'name': 'ToolPolygonMergeComponent', 'selector': 'app-tool-polygon-merge'},{'name': 'ToolScomponiPuntiComponent', 'selector': 'app-tool-scomponi-punti'},{'name': 'TrattamentoComponent', 'selector': 'app-trattamento'},{'name': 'TrattamentoZooComponent', 'selector': 'app-trattamento-zoo'},{'name': 'TreeAziende', 'selector': 'app-tree-aziende'},{'name': 'TreeAziendeFilters', 'selector': 'app-tree-aziende-filters'},{'name': 'TreeViewComponent', 'selector': 'app-treeview'},{'name': 'TreeWindowComponent', 'selector': 'tree-window'},{'name': 'UltimeAttivitaWidgetComponent', 'selector': 'app-ultime-attivita-widget'},{'name': 'UltimeVisiteWidgetComponent', 'selector': 'app-ultime-visite-widget'},{'name': 'UltimiAcquistiWidgetComponent', 'selector': 'app-ultimi-acquisti-widget'},{'name': 'UltimiProdottiWidgetComponent', 'selector': 'app-ultimi-prodotti-widget'},{'name': 'UltimiRilieviWidgetComponent', 'selector': 'app-ultimi-rilievi-widget'},{'name': 'UniqueRatingWidgetComponent', 'selector': 'app-unique-rating-widget'},{'name': 'UnitaDiMisuraComponent', 'selector': 'app-unita-di-misura'},{'name': 'UtilizzoTerrenoComponent', 'selector': 'app-utilizzo-terreno'},{'name': 'ValutazioneEditDettaglioComponent', 'selector': 'app-valutazione-edit-dettaglio'},{'name': 'ValutazioniComponent', 'selector': 'app-valutazioni'},{'name': 'ValutazioniContoEconomicoComponent', 'selector': 'app-valutazioni-conto-economico'},{'name': 'ValutazioniEditComponent', 'selector': 'app-valutazioni-edit'},{'name': 'ValutazioniMainComponentComponent', 'selector': 'app-valutazioni-main-component'},{'name': 'ValutazioniStatoPatrimonialeComponent', 'selector': 'app-valutazioni-stato-patrimoniale'},{'name': 'ValutazioniStatoPatrimonialeDettaglioComponent', 'selector': 'app-valutazioni-stato-patrimoniale-dettaglio'},{'name': 'VDContrattiComponent', 'selector': 'app-v-d-contratti'},{'name': 'VDPianoColturaleComponent', 'selector': 'app-v-d-piano-colturale'},{'name': 'VisibilitaUtenteEditComponent', 'selector': 'app-visibilita-utente'},{'name': 'VisiteComponent', 'selector': 'app-visite'},{'name': 'VisualizzaDettagliComponent', 'selector': 'app-visualizza-dettagli'},{'name': 'WidgetConfigComponent', 'selector': 'app-widget-config'},{'name': 'WidgetConfigListComponent', 'selector': 'app-widget-config-list'},{'name': 'WidgetGridComponent', 'selector': 'app-widget-grid'},{'name': 'WidgetResizerComponent', 'selector': 'app-widget-resizer'},{'name': 'WidgetsComponent', 'selector': 'app-widgets'},{'name': 'WidgetTemplateComponent', 'selector': 'app-widget-template'},{'name': 'WindowMessaggioErroreComponent', 'selector': 'gias-master-window-messaggio-errore'},{'name': 'WMSWindowComponent', 'selector': 'wms-window'},{'name': 'ZooComponent', 'selector': 'app-zoo'},{'name': 'ZooFavoritesEditingComponent', 'selector': 'zoo-favorites-editing'},{'name': 'ZooOperationsGridComponent', 'selector': 'zoo-operations-grid'}];
+    var DIRECTIVES = [{'name': 'AfterValueChangedDirective', 'selector': '[afterValueChanged]'},{'name': 'BackButtonDirective', 'selector': '[backButton]'},{'name': 'ClearInputButtonDirective', 'selector': '[clear-input-button]'},{'name': 'DraggableDirective', 'selector': '[draggable]'},{'name': 'GISTooltipDirective', 'selector': '[gisTooltip]'},{'name': 'HomeButtonDirective', 'selector': '[homeButton]'},{'name': 'ProjectDocumentaleDirective', 'selector': '[projectDocumentale]'}];
+    var ACTUAL_COMPONENT = {'name': 'GISLayerListItemRasterComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'GISLayerListItemRasterComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

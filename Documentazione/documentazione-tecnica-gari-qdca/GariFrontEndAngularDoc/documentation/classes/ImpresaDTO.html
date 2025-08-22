@@ -1,0 +1,959 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >ImpresaDTO</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts</code>
+        </p>
+
+
+
+
+            <p class="comment">
+                <h3>Implements</h3>
+            </p>
+            <p class="comment">
+                            <code><a href="../interfaces/ImpresaDto.html" target="_self" >ImpresaDto</a></code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#piva" >piva</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#rag_soc" >rag_soc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#Sa_Cod" >Sa_Cod</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#Sa_Nome" >Sa_Nome</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(piva?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, Sa_Cod?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, rag_soc?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, Sa_Nome?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts:25</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>piva</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>Sa_Cod</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rag_soc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>Sa_Nome</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="piva"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>piva</b></span>
+                        <a href="#piva"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rag_soc"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>rag_soc</b></span>
+                        <a href="#rag_soc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sa_Cod"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>Sa_Cod</b></span>
+                        <a href="#Sa_Cod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Sa_Nome"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>Sa_Nome</b></span>
+                        <a href="#Sa_Nome"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-aziende-centri.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {EventEmitter, Injectable} from &quot;@angular/core&quot;;
+import {Utente_Impostazioni} from &quot;../../../Model/utente/utente_impostazioni&quot;;
+import {AjaxAgronicaAPIService} from &quot;../../../Service/ajax-agronica.api.service&quot;;
+import {BudgetService} from &quot;../../../Service/Budget/budget.service&quot;;
+import {Imprese_Impostazioni, MasterService, rispostaStandard} from &quot;../../../Service/master.service&quot;;
+import {PermessiUtenteService} from &quot;../../../Service/permessi-utente.service&quot;;
+import {cloneDeep} from &quot;lodash&quot;;
+import {BehaviorSubject, map, Observable, of, switchMap, take, tap} from &quot;rxjs&quot;;
+import {AziendaCentro} from &quot;../../impostazioni-utente/impostazioni.model&quot;;
+import { GuidaValoreImpostazione, Impostazione } from &#x27;gias-ui-kit&#x27;;
+import {GiasDialogService} from &quot;../../../Service/gias-dialog.service&quot;;
+import {ImpresaDto} from &quot;../../../Service/api.service&quot;;
+import {CopiaImpostazioniObj} from &quot;./impostazioni-utenti.service&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+
+
+export class LeggiImpostazioni_AziendeCentri {
+  constructor(
+    public impostazioni: number[],
+    public imprese: ImpresaDTO[]
+  ) {
+  }
+}
+
+export class ImpresaDTO implements ImpresaDto {
+  constructor(
+    public piva?: string,
+    public Sa_Cod?: number,
+    public rag_soc?: string,
+    public Sa_Nome?: string
+  ) {
+  }
+}
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class ImpostazioniAziendeCentriService {
+  public modeChangeEvent: EventEmitter&lt;{ type: string, value: any }&gt; &#x3D; new EventEmitter();
+  public gridRemoveRow: EventEmitter&lt;{ gridId: string, items: any[] }&gt; &#x3D; new EventEmitter();
+
+  public imprese_Impostazioni: Imprese_Impostazioni[] &#x3D; null;
+  private impreseImpostazioni$ &#x3D; new BehaviorSubject(this.imprese_Impostazioni);
+
+  public imprese: AziendaCentro[] &#x3D; [];
+  public ImpresexCentri: AziendaCentro[] &#x3D; [];
+  public impreseInModifica: { impresa: AziendaCentro, impostazioni: Impostazione[] }[] &#x3D; [];
+
+  public selectionChange$ &#x3D; new BehaviorSubject([]);
+  private _impreseSelezionate &#x3D; [];
+  public set impreseSelezionate(selected: any[] | ImpresaDto[]) {
+    this._impreseSelezionate &#x3D; selected;
+    this.selectionChange$.next(selected);
+  }
+
+  public get impreseSelezionate(): any[] {
+    return this._impreseSelezionate;
+  }
+
+  private toSave &#x3D; {impostazioni: [], imprese: [], hasToShowDialog: false};
+
+  constructor(
+    public masterService: MasterService,
+    private dialogService: GiasDialogService,
+    private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+    private premessiutenteService: PermessiUtenteService,
+    private budgetService: BudgetService,
+    private transloco: TranslocoService
+  ) {
+  }
+
+  public leggiSezioniImpostazioniAziendeCentri(): Observable&lt;Impostazione[]&gt; {
+    return this.ajaxAgronicaAPIService.ajaxAPIGet&lt;string, any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/LeggiSezioniImpostazioni_AziendeCentri&quot;, &quot;&quot;
+    ).pipe(
+      map((data) &#x3D;&gt; data.RispostaStringa),
+      map((impostazioni: Impostazione[]) &#x3D;&gt; {
+        let imps &#x3D; impostazioni;
+        imps.forEach(i &#x3D;&gt; {
+          i.Sezione_Cod &#x3D; 25;
+          i.Sezione_Des &#x3D; this.transloco.translate(&quot;prof.ImpostazioniImprese&quot;);
+        })
+        return this.filterVisibleSettings(imps);
+      })
+    );
+  }
+
+  private filterVisibleSettings(impostazioni: Impostazione[]) {
+    if (this.impreseSelezionate.every(i &#x3D;&gt; i.Sa_Cod &#x3D;&#x3D;&#x3D; 0)) {
+      impostazioni &#x3D; impostazioni.filter(i &#x3D;&gt; i.Impostazione_Azienda &#x3D;&#x3D; 1);
+    } else {
+      impostazioni &#x3D; impostazioni.filter(i &#x3D;&gt; i.Impostazione_AziendaCentro &#x3D;&#x3D; 1);
+    }
+    // if (!this.masterService.isSuperuser())
+    //   impostazioni &#x3D; impostazioni.filter(i &#x3D;&gt; !i.Impostazione_SuperUser)
+    return impostazioni;
+  }
+
+  leggiDatiImpostazioniAziendeCentri(codiciImpostazioni: number[]) {
+    const imprese &#x3D; this.impreseSelezionate.map(i &#x3D;&gt; new ImpresaDTO(i.piva, i.Sa_Cod));
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiImpostazioni_AziendeCentri, any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/LeggiValoriImpostazioni_AziendeCentri&quot;,
+      new LeggiImpostazioni_AziendeCentri(codiciImpostazioni, imprese)
+    ).pipe(map((R) &#x3D;&gt; {
+      for (let r of R.RispostaStringa) {
+        r.data &#x3D; r.data.map(d &#x3D;&gt; new GuidaValoreImpostazione(
+          d.codice, d.descrizione, d.Valore, d.Tipo_campo, d.Note
+        ));
+      }
+      return R.RispostaStringa;
+    }));
+  }
+
+  public leggiImpreseImpostazioni(imprese: ImpresaDTO[] &#x3D; [], impostazioni: number[] &#x3D; []): Observable&lt;any[]&gt; {
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiImpostazioni_AziendeCentri, any[]&gt;(
+      &quot;AgronicaCoreUtentiBIZ/LeggiImpostazioneImpresaCentro&quot;,
+      new LeggiImpostazioni_AziendeCentri(impostazioni, imprese)
+    ).pipe(take(1), map(R &#x3D;&gt; R.RispostaOK ? R.RispostaStringa : []));
+  }
+
+  /** Salva le impostazioi in riferimento alle imprese presenti nella variabile toSave */
+  salvaImpostazioniAziendeCentri(impostazioni: Utente_Impostazioni[]) {
+    this.toSave.impostazioni &#x3D; impostazioni;
+    this.toSave.imprese &#x3D; this.gestioneSelezioneTuttiCentri()
+    if (this.toSave.hasToShowDialog) {
+      this.showDialog().pipe(take(1)).subscribe();
+    } else {
+      this.salvaImpostazioni(this.toSave.imprese, this.toSave.impostazioni)
+    }
+  }
+
+  /** Salva le impostazioi in riferimento alle imprese presenti nella variabile toSave */
+  salvaImpostazioniAziendeCentriObs(impostazioni: Utente_Impostazioni[]) {
+    this.toSave.impostazioni &#x3D; impostazioni;
+    this.toSave.imprese &#x3D; this.gestioneSelezioneTuttiCentri()
+    if (this.toSave.hasToShowDialog) {
+      return this.showDialog();
+    } else {
+      return this.salvaImpostazioniObs(this.toSave.imprese, this.toSave.impostazioni)
+    }
+  }
+
+  salvaImpostazioni(imprese: AziendaCentro[], impostazioni: Utente_Impostazioni[]) {
+    const params &#x3D; {
+      imprese: imprese.map(i &#x3D;&gt; new ImpresaDTO(i.piva, i.Sa_Cod, i.Sa_Nome)),
+      impostazioni: impostazioni
+    };
+    this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/SalvaImpostazioni_AziendeCentri&quot;,
+      params
+    ).pipe(map((res: rispostaStandard&lt;any&gt;) &#x3D;&gt; {
+      if (res.RispostaOK)
+        this.updateImpostazioni(impostazioni, imprese)
+      return res.RispostaOK;
+    })).GiasSubscribe(success &#x3D;&gt; {
+      if (success)
+        this.dialogService.baseSuccess(&#x27;SalvataggioAvvenutoConSuccesso&#x27;, &#x27;&#x27;);
+      else
+        this.dialogService.baseError(&#x27;&#x27;, &#x27;ErroreSalvataggio&#x27;);
+    });
+  }
+
+  salvaImpostazioniObs(imprese: AziendaCentro[], impostazioni: Utente_Impostazioni[]): Observable&lt;boolean&gt; {
+    const params &#x3D; {
+      imprese: imprese.map(i &#x3D;&gt; new ImpresaDTO(i.piva, i.Sa_Cod, i.Sa_Nome)),
+      impostazioni: impostazioni
+    };
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/SalvaImpostazioni_AziendeCentri&quot;,
+      params
+    ).pipe(
+      map((res: rispostaStandard&lt;any&gt;) &#x3D;&gt; res.RispostaOK),
+      tap((ok: boolean) &#x3D;&gt; {
+        if (ok) this.updateImpostazioni(impostazioni, imprese)
+      })
+    );
+  }
+
+  private updateImpostazioni(impostazioni: Utente_Impostazioni[], imprese: AziendaCentro[]) {
+    if (impostazioni?.length &amp;&amp; imprese?.length) {
+      let listaImpostazioniImprese: Imprese_Impostazioni[] &#x3D; [];
+      for (let a of imprese) {
+        impostazioni.map(i &#x3D;&gt; new Imprese_Impostazioni(a.piva, i.Impostazione_Cod, i.Valore, a.Sa_Cod))
+          .forEach(newImp &#x3D;&gt; listaImpostazioniImprese.push(newImp))
+      }
+      this.changeImprese_Impostazioni(listaImpostazioniImprese);
+    }
+  }
+
+  /**
+   * Resetta i valori delle impostazioni specificate a quelli di default.
+   * Usata per &quot;cancellare&quot; le impostazioni.
+   * @returns un &#x60;Observable&#x60; che indica quando l&#x27;operazione è stata compiuta
+   */
+  resetImpostazioni(impostazioni: Imprese_Impostazioni[]) {
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;Imprese_Impostazioni[], any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/CancellaImpostazioni_AziendeCentri&quot;, impostazioni
+    ).pipe(take(1), tap(res &#x3D;&gt; {
+      if (res.RispostaOK)
+        this.dialogService.baseSuccess(&#x27;EliminazioneAvvenutaConSuccesso&#x27;, &#x27;prof.ImpostazioniRipristinateADefault&#x27;);
+      else
+        this.dialogService.baseError(&#x27;ErroreEliminazione&#x27;, &#x27;ImpossibileCompletareOperazione&#x27;);
+    }));
+  }
+
+  public copiaImpostazioni(base: string[], template: string, imps: Utente_Impostazioni[] &#x3D; []) {
+    if (imps.length) {
+      this.toSave.impostazioni &#x3D; imps;
+    }
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(
+      &quot;AgronicaCoreUtentiBIZ/CopiaImpostazioniAziende&quot;,
+      new CopiaImpostazioniObj(base, template), true
+    ).pipe(map((R) &#x3D;&gt; {
+      console.log(&#x27;impostazioni salvate?&#x27;, R);
+      if (R.RispostaOK) {
+        this.dialogService.baseSuccess(&#x27;SalvataggioAvvenutoConSuccesso&#x27;, &#x27;&#x27;);
+      } else
+        this.dialogService.baseError(&#x27;&#x27;, &#x27;ErroreSalvataggio&#x27;);
+      return R.RispostaOK;
+    }));
+  }
+
+  /***** CENTRI *****/
+
+  caricaImpreseXCentri() {
+    const pive &#x3D; this.imprese.map(i &#x3D;&gt; i.piva);
+    this.masterService.set_isLoading({isLoading: true, message: &#x27;&#x27;})
+    return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, any&gt;(
+      &#x27;AnagraficaNG/CaricaCentriImpresa&#x27;, {Lista: JSON.stringify(pive)}
+    ).pipe(map((data) &#x3D;&gt; {
+      const centri &#x3D; (&lt;any&gt;data.RispostaStringa);
+      this.ImpresexCentri &#x3D; [];
+      this.generaImpresexCentri(centri);
+      this.updateCentriInModifica(centri);
+      this.masterService.set_isLoading({isLoading: false, message: &#x27;&#x27;})
+      return this.ImpresexCentri
+    }));
+  }
+
+  private generaImpresexCentri(centri) { // O(mn)
+    this.imprese.forEach(imp &#x3D;&gt; {
+      let centriImpresa &#x3D; centri.filter(c &#x3D;&gt; c.piva &#x3D;&#x3D;&#x3D; imp.piva)
+      centriImpresa.forEach(c &#x3D;&gt; {
+        let centro &#x3D; cloneDeep(imp);
+        centro.Sa_Cod &#x3D; c.sa_cod;
+        centro.Sa_Nome &#x3D; c.sa_nome;
+        centro.numeroCentri &#x3D; centriImpresa.length
+        this.ImpresexCentri.push(centro);
+      })
+      if (centriImpresa.length &gt; 1) {
+        this.ImpresexCentri.push(imp)
+      }
+    })
+  }
+
+  private updateCentriInModifica(centri) { // O(mn^2)
+    let inModifica &#x3D; cloneDeep(this.impreseInModifica)
+    for (let imp of inModifica) {
+      if (imp.impresa.Sa_Cod &#x3D;&#x3D;&#x3D; 0) {
+        let centriImpresa &#x3D; centri.filter(c &#x3D;&gt; c.piva &#x3D;&#x3D;&#x3D; imp.impresa.piva)
+        centriImpresa.forEach(c &#x3D;&gt; {
+          let centro &#x3D; cloneDeep(imp);
+          centro.impresa.Sa_Cod &#x3D; c.sa_cod;
+          centro.impresa.Sa_Nome &#x3D; c.sa_nome;
+          centro.impresa.numeroCentri &#x3D; centriImpresa.length
+          this.impreseInModifica.push(centro);
+        })
+        let index &#x3D; this.impreseInModifica.findIndex(i &#x3D;&gt; this.isSameCentro(imp, i))
+        this.impreseInModifica.splice(index, 1);
+      }
+    }
+  }
+
+  /***** UTILITY SELEZIONE *****/
+
+  private checkCentersCoherence() {
+    // Non si applica se non sto mostrando i centri
+    if (this.ImpresexCentri.length &#x3D;&#x3D;&#x3D; 0) return
+
+    let tuttiCentriItems &#x3D; this.impreseSelezionate.filter(i &#x3D;&gt; i.Sa_Cod &#x3D;&#x3D;&#x3D; 0);
+    for (let azienda of tuttiCentriItems) {
+      if (this.isEverythingSelected(azienda)) {
+        // se ho selezionato tutti i centri rimuove il record con &#x27;tutti i centri&#x27;
+        // dalle imprese selezionate poiché sottointeso
+        let index &#x3D; this.impreseSelezionate.findIndex(i &#x3D;&gt; this.isSameCentro(i, azienda));
+        this.impreseSelezionate.splice(index, 1);
+      } else {
+        // altrimenti aggiunge quelli mancanti
+        this.addAllCenters(azienda)
+      }
+    }
+  }
+
+  private isEverythingSelected(azienda): boolean {
+    let nCentri &#x3D; this.ImpresexCentri.filter(i &#x3D;&gt; i.piva &#x3D;&#x3D;&#x3D; azienda.piva).length;
+    let nSelected &#x3D; this.impreseSelezionate.filter(i &#x3D;&gt; i.piva &#x3D;&#x3D;&#x3D; azienda.piva).length;
+    return nSelected &#x3D;&#x3D;&#x3D; nCentri;
+  }
+
+  private addAllCenters(azienda) {
+    let centers &#x3D; this.impreseSelezionate.filter(i &#x3D;&gt; i.piva &#x3D;&#x3D;&#x3D; azienda.piva);
+    let excluded &#x3D; this.getCentriEsclusi(centers)
+
+    let index &#x3D; this.impreseSelezionate.findIndex(i &#x3D;&gt; this.isSameCentro(i, azienda));
+    this.impreseSelezionate.splice(index, 1);
+
+    this.impreseSelezionate &#x3D; this.impreseSelezionate.concat(excluded);
+  }
+
+  /**
+   * A function to handle the selection of all centers.
+   * Iterates over selected businesses and checks if the centers&#x27; selection in valid.
+   * If the &#x27;Tutti i Centri&#x27; record is selected but not all centers are in the selection,
+   * adds all the business&#x27; centers to the adjusted selection.
+   * Else considers only the selected records.
+   * @return {Array} the list of centers after selection handling
+   */
+  private gestioneSelezioneTuttiCentri() { // O(mn^2)
+    const editing &#x3D; [];
+    const distinctPiveSelezionate &#x3D; new Set(this.impreseSelezionate.map(i &#x3D;&gt; i.piva));
+    for (let piva of distinctPiveSelezionate) {
+      const totCentri &#x3D; this.ImpresexCentri.filter(i &#x3D;&gt; i.piva &#x3D;&#x3D; piva);
+      const centriSelezionati &#x3D; this.impreseSelezionate.filter(i &#x3D;&gt; i.piva &#x3D;&#x3D; piva);
+
+      if (centriSelezionati.length &gt; 1 &amp;&amp; centriSelezionati.length &lt; totCentri.length &amp;&amp; centriSelezionati.some(i &#x3D;&gt; i.Sa_Cod &#x3D;&#x3D;&#x3D; 0)) {
+        this.toSave.hasToShowDialog &#x3D; true;
+        totCentri.forEach(centro &#x3D;&gt; editing.push(centro));
+      } else {
+        if (totCentri.length &#x3D;&#x3D;&#x3D; 1) {
+          const recordTuttiCentri &#x3D; cloneDeep(totCentri[0]);
+          recordTuttiCentri.Sa_Cod &#x3D; 0;
+          centriSelezionati.push(recordTuttiCentri);
+        }
+        centriSelezionati.forEach(centro &#x3D;&gt; editing.push(centro));
+      }
+    }
+    return editing;
+  }
+
+  private showDialog(): Observable&lt;boolean&gt; {
+    return this.dialogService.warningObs(&#x27;prof.TuttiCentriSelezionati&#x27;, &#x27;prof.WarningTuttiCentriSelezionati&#x27;)
+      .pipe(switchMap((response: boolean) &#x3D;&gt; {
+        if (!response) {
+          return this.salvaImpostazioniObs(this.toSave.imprese, this.toSave.impostazioni)
+        } else {
+          this.toSave.imprese &#x3D; this.impreseSelezionate;
+          this.toSave.hasToShowDialog &#x3D; false;
+          return of(false);
+        }
+      }));
+  }
+
+  private getCentriEsclusi(centriSelezionati: any[]) {
+    let esclusi &#x3D; [];
+    let piva &#x3D; centriSelezionati.at(0).piva;
+    let centri &#x3D; this.ImpresexCentri.filter(c &#x3D;&gt; c.piva &#x3D;&#x3D;&#x3D; piva);
+    centri.forEach(centro &#x3D;&gt; {
+      let presente &#x3D; centriSelezionati.find(c &#x3D;&gt; c.Sa_Cod &#x3D;&#x3D;&#x3D; centro.Sa_Cod)
+      if (presente &#x3D;&#x3D;&#x3D; undefined) {
+        esclusi.push(centro);
+      }
+    });
+    return esclusi;
+  }
+
+  /** Confronto basato su piva e Sa_Cod */
+  public isSameCentro(c1, c2): boolean {
+    return c1.piva &#x3D;&#x3D;&#x3D; c2.piva &amp;&amp; c1.Sa_Cod &#x3D;&#x3D;&#x3D; c2.Sa_Cod;
+  }
+
+  /** Confronto basato solo su piva */
+  public isSameAzienda(c1, c2): boolean {
+    return c1.piva &#x3D;&#x3D;&#x3D; c2.piva;
+  }
+
+  changeImprese_Impostazioni(imprese_impostazioni: Imprese_Impostazioni[]) {
+    this.impreseImpostazioni$.next(imprese_impostazioni ?? []);
+  }
+
+  getCurrentImprese_Impostazioni(): Imprese_Impostazioni[] {
+    return this.impreseImpostazioni$.value;
+  }
+
+  sonoInBudget(): boolean {
+    return this.budgetService.getBudget().activeBudget &#x3D;&#x3D; true
+  }
+
+  getImprese_Impostazioni(piva: string, sa_cod: number): Observable&lt;Array&lt;Imprese_Impostazioni&gt;&gt; {
+    //Aggiorno le imprese_impostazioni facendo la lettura lato server solo se
+    //la piva non è presente tra l&#x27;elenco di imprese_impostazioni
+    let leggi_imprese_impostazioni &#x3D; true;
+    let imprese_impostazioni: Imprese_Impostazioni[] &#x3D; this.getCurrentImprese_Impostazioni();
+
+    if (imprese_impostazioni !&#x3D; undefined &amp;&amp; imprese_impostazioni.findIndex(imp &#x3D;&gt; imp.Piva &#x3D;&#x3D;&#x3D; piva) &gt; -1)
+      leggi_imprese_impostazioni &#x3D; false;
+
+    if (leggi_imprese_impostazioni &amp;&amp; this.masterService.InitialLoadCompleteValue()) {
+      return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Imprese_Impostazioni[]&gt;(&#x27;UtilityNG/Get_Imprese_Impostazioni&#x27;, {
+        Piva: piva, Sa_Cod: sa_cod
+      }).pipe(take(1), map(R &#x3D;&gt; {
+        imprese_impostazioni &#x3D; R.RispostaStringa;
+        if (imprese_impostazioni.length &#x3D;&#x3D; 0) {
+          imprese_impostazioni &#x3D; [{Piva: piva, Sa_Cod: sa_cod, Impostazione_Cod: 0, Valore: &#x27;&#x27;}]
+        }
+        this.changeImprese_Impostazioni(imprese_impostazioni);
+        return imprese_impostazioni;
+      }));
+    }
+    return of([]);
+  }
+
+
+  getValore_Impostazione_Scalare_Centro_Azienda_Utente_SuperUser(Piva: string, Sa_Cod: number, Impostazione_Cod: number): string { // Aggiunta
+    let valore &#x3D; &quot;&quot;;
+    let impostazione_Centro_Azienda &#x3D; this.getImpostazione_Centro_Azienda(Piva, Sa_Cod, Impostazione_Cod);
+
+    if (impostazione_Centro_Azienda) {
+      if (!impostazione_Centro_Azienda.Valore || impostazione_Centro_Azienda.Valore &#x3D;&#x3D;&#x3D; &quot;&quot;) {
+        let impostazione_U &#x3D; this.premessiutenteService.getImpostazione_Utente(Impostazione_Cod);
+        if (impostazione_U &amp;&amp; impostazione_U.Valore &amp;&amp; impostazione_U.Valore !&#x3D;&#x3D; &quot;&quot;)
+          valore &#x3D; impostazione_U.Valore;
+      } else {
+        valore &#x3D; impostazione_Centro_Azienda.Valore;
+      }
+    } else {
+      let impostazione_U &#x3D; this.premessiutenteService.getImpostazione_Utente(Impostazione_Cod);
+      if (impostazione_U &amp;&amp; impostazione_U.Valore &amp;&amp; impostazione_U.Valore !&#x3D;&#x3D; &quot;&quot;)
+        valore &#x3D; impostazione_U.Valore;
+    }
+
+    return valore;
+  }
+
+  getImpostazione_Centro_Azienda(Piva: string, Sa_Cod: number, Impostazione_Cod: number) { // Aggiunta
+    let impostazione: Imprese_Impostazioni &#x3D; null;
+    let imprese_impostazioni &#x3D; this.getCurrentImprese_Impostazioni();
+
+    //Prima controllo se esiste l&#x27;impostazione per il sa_cod passato se non esiste controllo se c&#x27;è per il sa_cod generale (0)
+    impostazione &#x3D; imprese_impostazioni?.find((imp) &#x3D;&gt; imp.Impostazione_Cod &#x3D;&#x3D;&#x3D; Impostazione_Cod &amp;&amp; imp.Piva &#x3D;&#x3D;&#x3D; Piva &amp;&amp;
+      imp.Sa_Cod &#x3D;&#x3D;&#x3D; Sa_Cod);
+
+    if (!impostazione &amp;&amp; Sa_Cod !&#x3D;&#x3D; 0) {
+      impostazione &#x3D; imprese_impostazioni?.find((imp) &#x3D;&gt; imp.Impostazione_Cod &#x3D;&#x3D;&#x3D; Impostazione_Cod &amp;&amp; imp.Piva &#x3D;&#x3D;&#x3D; Piva &amp;&amp;
+        imp.Sa_Cod &#x3D;&#x3D;&#x3D; 0);
+    }
+    return impostazione;
+  }
+
+  getImpostazione_Centro_Azienda_per_Elem_Cod(Piva: string, Sa_Cod: number, Impostazione_Cod: number, Elem_Cod: number) {
+    let valore: string &#x3D; &quot;&quot;;
+    let imprese_impostazioni &#x3D; this.getImpostazione_Centro_Azienda(Piva, Sa_Cod, Impostazione_Cod);
+
+    if (imprese_impostazioni &amp;&amp; imprese_impostazioni.Valore &amp;&amp; imprese_impostazioni.Valore !&#x3D;&#x3D; &quot;&quot;) {
+      const impostazione: Array&lt;string&gt; &#x3D; imprese_impostazioni.Valore.split(&#x27;|&#x27;);
+      for (let i &#x3D; 0; i &lt; impostazione.length; i++) {
+        const elem_cod_impostazione: Array&lt;string&gt; &#x3D; impostazione[i].split(&#x27;_&#x27;);
+        if (Elem_Cod &#x3D;&#x3D;&#x3D; +elem_cod_impostazione[0]) {
+          valore &#x3D; elem_cod_impostazione[1];
+          break;
+        }
+      }
+    }
+
+    return valore;
+  }
+
+  getValore_Impostazione_Scalare_Centro_Azienda_Utente_SuperUser_per_Elem_Cod(Piva: string, Sa_Cod: number, Impostazione_Cod: number, Elem_Cod: number): string { // Aggiunta
+    let valore: string &#x3D; &quot;&quot;;
+    let valore_impostazione &#x3D; this.getValore_Impostazione_Scalare_Centro_Azienda_Utente_SuperUser(Piva, Sa_Cod, Impostazione_Cod);
+    if (valore_impostazione &amp;&amp; valore_impostazione !&#x3D;&#x3D; &quot;&quot;) {
+      const impostazione: Array&lt;string&gt; &#x3D; valore_impostazione.split(&#x27;|&#x27;);
+      for (let i &#x3D; 0; i &lt; impostazione.length; i++) {
+        const elem_cod_impostazione: Array&lt;string&gt; &#x3D; impostazione[i].split(&#x27;_&#x27;);
+        if (Elem_Cod &#x3D;&#x3D;&#x3D; +elem_cod_impostazione[0]) {
+          valore &#x3D; elem_cod_impostazione[1];
+          break;
+        }
+      }
+    }
+    return valore;
+  }
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'ImpresaDTO.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

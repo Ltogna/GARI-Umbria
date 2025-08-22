@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gdal
+spec:
+  containers:
+    - name: gdal
+      image: ghcr.io/osgeo/gdal:ubuntu-small-3.10.0
+      command: ["/bin/bash", "-c", "--"]
+      args: ["while true; do sleep 30; done;"]
+      volumeMounts:
+        - name: nfs
+          mountPath: "/data"
+  volumes:
+    - name: nfs
+      persistentVolumeClaim:
+        claimName: nfs-umbria-dev

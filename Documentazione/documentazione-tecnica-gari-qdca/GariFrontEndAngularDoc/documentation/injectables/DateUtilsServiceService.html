@@ -1,0 +1,968 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DateUtilsServiceService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/date-utils-service.service.ts</code>
+        </p>
+
+
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Provides some utility functions to handle dates in different languages.</p>
+
+            </p>
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#formats" >formats</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDateFormat" >getDateFormat</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getFormatParts" >getFormatParts</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSeparator" >getSeparator</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#parseDate" >parseDate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(transloco: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="230" class="link-to-prism">src/app/Service/date-utils-service.service.ts:230</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDateFormat"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getDateFormat</b></span>
+                        <a href="#getDateFormat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDateFormat(locale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/app/Service/date-utils-service.service.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Returns the format used to visualize dates.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>locale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the language to use to retrive the date format. If not specified, the active language is used as default.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>a string indicating the date format</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFormatParts"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getFormatParts</b></span>
+                        <a href="#getFormatParts"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFormatParts(locale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="262"
+                                    class="link-to-prism">src/app/Service/date-utils-service.service.ts:262</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>locale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSeparator"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getSeparator</b></span>
+                        <a href="#getSeparator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSeparator(dateFormat: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="267"
+                                    class="link-to-prism">src/app/Service/date-utils-service.service.ts:267</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dateFormat</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="parseDate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>parseDate</b></span>
+                        <a href="#parseDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>parseDate(dateString: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, locale?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="250"
+                                    class="link-to-prism">src/app/Service/date-utils-service.service.ts:250</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Parses a locale date string to a Date object.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dateString</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the locale date string to parse (i.e. &quot;26/03/2024&quot;). Note: this string must not specify the time.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>locale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <p>the language to use to retrive the date format. If not specified, the active language is used as default.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>the date indicated by <code>dateString</code></p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formats"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>formats</b></span>
+                        <a href="#formats"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    &quot;it&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en&quot;: &quot;MM/dd/yyyy&quot;,
+    &quot;fr&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;pt&quot;: &quot;dd-MM-yyyy&quot;,
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="225" class="link-to-prism">src/app/Service/date-utils-service.service.ts:225</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Contains the formats available to Gias.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+
+/**
+ * Provides some utility functions to handle dates in different languages.
+ */
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class DateUtilsServiceService {
+  /** List of all existing formats. */
+  /* private readonly allFormats &#x3D; {
+    &quot;af-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;am-ET&quot;: &quot;d/M/yyyy&quot;,
+    &quot;ar-AE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-BH&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-DZ&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ar-EG&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-IQ&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-JO&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-KW&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-LB&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-LY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-MA&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ar-OM&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-QA&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-SA&quot;: &quot;dd/MM/yy&quot;,
+    &quot;ar-SY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ar-TN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ar-YE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;arn-CL&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;as-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;az-Cyrl-AZ&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;az-Latn-AZ&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;ba-RU&quot;: &quot;dd.MM.yy&quot;,
+    &quot;be-BY&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;bg-BG&quot;: &quot;dd.M.yyyy&quot;,
+    &quot;bn-BD&quot;: &quot;dd-MM-yy&quot;,
+    &quot;bn-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;bo-CN&quot;: &quot;yyyy/M/d&quot;,
+    &quot;br-FR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;bs-Cyrl-BA&quot;: &quot;d.M.yyyy&quot;,
+    &quot;bs-Latn-BA&quot;: &quot;d.M.yyyy&quot;,
+    &quot;ca-ES&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;co-FR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;cs-CZ&quot;: &quot;d.M.yyyy&quot;,
+    &quot;cy-GB&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;da-DK&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;de-AT&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;de-CH&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;de-DE&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;de-LI&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;de-LU&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;dsb-DE&quot;: &quot;d. M. yyyy&quot;,
+    &quot;dv-MV&quot;: &quot;dd/MM/yy&quot;,
+    &quot;el-GR&quot;: &quot;d/M/yyyy&quot;,
+    &quot;en-029&quot;: &quot;MM/dd/yyyy&quot;,
+    &quot;en-AU&quot;: &quot;d/MM/yyyy&quot;,
+    &quot;en-BZ&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-CA&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-GB&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-IE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;en-JM&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-MY&quot;: &quot;d/M/yyyy&quot;,
+    &quot;en-NZ&quot;: &quot;d/MM/yyyy&quot;,
+    &quot;en-PH&quot;: &quot;M/d/yyyy&quot;,
+    &quot;en-SG&quot;: &quot;d/M/yyyy&quot;,
+    &quot;en-TT&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en-US&quot;: &quot;M/d/yyyy&quot;,
+    &quot;en-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;en-ZW&quot;: &quot;M/d/yyyy&quot;,
+    &quot;es-AR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-BO&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-CL&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;es-CO&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-CR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-DO&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-EC&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-ES&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-GT&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-HN&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-MX&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-NI&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-PA&quot;: &quot;MM/dd/yyyy&quot;,
+    &quot;es-PE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-PR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-PY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-SV&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-US&quot;: &quot;M/d/yyyy&quot;,
+    &quot;es-UY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;es-VE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;et-EE&quot;: &quot;d.MM.yyyy&quot;,
+    &quot;eu-ES&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;fa-IR&quot;: &quot;MM/dd/yyyy&quot;,
+    &quot;fi-FI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;fil-PH&quot;: &quot;M/d/yyyy&quot;,
+    &quot;fo-FO&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;fr-BE&quot;: &quot;d/MM/yyyy&quot;,
+    &quot;fr-CA&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;fr-CH&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;fr-FR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;fr-LU&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;fr-MC&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;fy-NL&quot;: &quot;d-M-yyyy&quot;,
+    &quot;ga-IE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;gd-GB&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;gl-ES&quot;: &quot;dd/MM/yy&quot;,
+    &quot;gsw-FR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;gu-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;ha-Latn-NG&quot;: &quot;d/M/yyyy&quot;,
+    &quot;he-IL&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;hi-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;hr-BA&quot;: &quot;d.M.yyyy.&quot;,
+    &quot;hr-HR&quot;: &quot;d.M.yyyy&quot;,
+    &quot;hsb-DE&quot;: &quot;d. M. yyyy&quot;,
+    &quot;hu-HU&quot;: &quot;yyyy. MM. dd.&quot;,
+    &quot;hy-AM&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;id-ID&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ig-NG&quot;: &quot;d/M/yyyy&quot;,
+    &quot;ii-CN&quot;: &quot;yyyy/M/d&quot;,
+    &quot;is-IS&quot;: &quot;d.M.yyyy&quot;,
+    &quot;it-CH&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;it-IT&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;iu-Cans-CA&quot;: &quot;d/M/yyyy&quot;,
+    &quot;iu-Latn-CA&quot;: &quot;d/MM/yyyy&quot;,
+    &quot;ja-JP&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;ka-GE&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;kk-KZ&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;kl-GL&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;km-KH&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;kn-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;ko-KR&quot;: &quot;yyyy. MM. dd&quot;,
+    &quot;kok-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ky-KG&quot;: &quot;dd.MM.yy&quot;,
+    &quot;lb-LU&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;lo-LA&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;lt-LT&quot;: &quot;yyyy.MM.dd&quot;,
+    &quot;lv-LV&quot;: &quot;yyyy.MM.dd.&quot;,
+    &quot;mi-NZ&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;mk-MK&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;ml-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;mn-MN&quot;: &quot;yy.MM.dd&quot;,
+    &quot;mn-Mong-CN&quot;: &quot;yyyy/M/d&quot;,
+    &quot;moh-CA&quot;: &quot;M/d/yyyy&quot;,
+    &quot;mr-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ms-BN&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ms-MY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;mt-MT&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;nb-NO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;ne-NP&quot;: &quot;M/d/yyyy&quot;,
+    &quot;nl-BE&quot;: &quot;d/MM/yyyy&quot;,
+    &quot;nl-NL&quot;: &quot;d-M-yyyy&quot;,
+    &quot;nn-NO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;nso-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;oc-FR&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;or-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;pa-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;pl-PL&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;prs-AF&quot;: &quot;dd/MM/yy&quot;,
+    &quot;ps-AF&quot;: &quot;dd/MM/yy&quot;,
+    &quot;pt-BR&quot;: &quot;d/M/yyyy&quot;,
+    &quot;pt-PT&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;qut-GT&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;quz-BO&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;quz-EC&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;quz-PE&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;rm-CH&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ro-RO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;ru-RU&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;rw-RW&quot;: &quot;M/d/yyyy&quot;,
+    &quot;sa-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;sah-RU&quot;: &quot;MM.dd.yyyy&quot;,
+    &quot;se-FI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;se-NO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;se-SE&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;si-LK&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;sk-SK&quot;: &quot;d. M. yyyy&quot;,
+    &quot;sl-SI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sma-NO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;sma-SE&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;smj-NO&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;smj-SE&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;smn-FI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sms-FI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sq-AL&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;sr-Cyrl-BA&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Cyrl-CS&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Cyrl-ME&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Cyrl-RS&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Latn-BA&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Latn-CS&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Latn-ME&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sr-Latn-RS&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sv-FI&quot;: &quot;d.M.yyyy&quot;,
+    &quot;sv-SE&quot;: &quot;yyyy-MM-dd&quot;,
+    &quot;sw-KE&quot;: &quot;M/d/yyyy&quot;,
+    &quot;syr-SY&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;ta-IN&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;te-IN&quot;: &quot;dd-MM-yy&quot;,
+    &quot;tg-Cyrl-TJ&quot;: &quot;dd.MM.yy&quot;,
+    &quot;th-TH&quot;: &quot;d/M/yyyy&quot;,
+    &quot;tk-TM&quot;: &quot;dd.MM.yy&quot;,
+    &quot;tn-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;tr-TR&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;tt-RU&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;tzm-Latn-DZ&quot;: &quot;dd-MM-yyyy&quot;,
+    &quot;ug-CN&quot;: &quot;yyyy-M-d&quot;,
+    &quot;uk-UA&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;ur-PK&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;uz-Cyrl-UZ&quot;: &quot;dd.MM.yyyy&quot;,
+    &quot;uz-Latn-UZ&quot;: &quot;dd/MM yyyy&quot;,
+    &quot;vi-VN&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;wo-SN&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;xh-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+    &quot;yo-NG&quot;: &quot;d/M/yyyy&quot;,
+    &quot;zh-CN&quot;: &quot;yyyy/M/d&quot;,
+    &quot;zh-HK&quot;: &quot;d/M/yyyy&quot;,
+    &quot;zh-MO&quot;: &quot;d/M/yyyy&quot;,
+    &quot;zh-SG&quot;: &quot;d/M/yyyy&quot;,
+    &quot;zh-TW&quot;: &quot;yyyy/M/d&quot;,
+    &quot;zu-ZA&quot;: &quot;yyyy/MM/dd&quot;,
+  };*/
+  /** Contains the formats available to Gias. */
+  private readonly formats &#x3D; {
+    &quot;it&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;en&quot;: &quot;MM/dd/yyyy&quot;,
+    &quot;fr&quot;: &quot;dd/MM/yyyy&quot;,
+    &quot;pt&quot;: &quot;dd-MM-yyyy&quot;,
+  }
+
+  constructor(private transloco: TranslocoService) { }
+
+  /** Returns the format used to visualize dates.
+   * @param locale the language to use to retrive the date format. If not specified, the active language is used as default.
+   * @returns a string indicating the date format
+   */
+  public getDateFormat(locale?: string): string {
+    if (!locale) {
+      locale &#x3D; this.transloco.getActiveLang();
+    }
+    return this.formats[locale];
+  }
+
+  /** Parses a locale date string to a Date object.
+   * @param dateString the locale date string to parse (i.e. &quot;26/03/2024&quot;). Note: this string must not specify the time.
+   * @param locale the language to use to retrive the date format. If not specified, the active language is used as default.
+   * @returns the date indicated by &#x60;dateString&#x60;
+   */
+  public parseDate(dateString: string, locale?: string): Date {
+    if (!locale) {
+      locale &#x3D; this.transloco.getActiveLang();
+    }
+    const dateFormatParts &#x3D; this.getFormatParts(locale);
+    const dateParts &#x3D; dateString.split(this.getSeparator(dateString));
+    const options &#x3D; { &quot;dd&quot; : 0, &quot;MM&quot; : 0, &quot;yyyy&quot;: 0};
+    dateFormatParts.forEach((key, i) &#x3D;&gt; options[key] &#x3D; +dateParts[i]);
+    options[&quot;MM&quot;] &#x3D; options[&quot;MM&quot;] - 1;
+    return new Date(options[&quot;yyyy&quot;], options[&quot;MM&quot;], options[&quot;dd&quot;]);
+  }
+
+  private getFormatParts(locale?: string): string[] {
+    const format &#x3D; this.getDateFormat(locale);
+    return format.split(this.getSeparator(format));
+  }
+
+  private getSeparator(dateFormat: string): string {
+    if (dateFormat.includes(&#x27;/&#x27;)) return &#x27;/&#x27;;
+    else if (dateFormat.includes(&#x27;-&#x27;)) return &#x27;-&#x27;;
+    else if (dateFormat.includes(&#x27;. &#x27;)) return &#x27;. &#x27;;
+    else if (dateFormat.includes(&#x27;.&#x27;)) return &#x27;.&#x27;;
+    else throw new Error(&quot;Format separator not handled&quot;);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DateUtilsServiceService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

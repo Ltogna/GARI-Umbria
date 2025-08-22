@@ -1,0 +1,2010 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >FeatureService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/GIS/services/feature.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#featureDaCopiare" >featureDaCopiare</a>
+                            </li>
+                            <li>
+                                <a href="#featureDaCopiareSource" >featureDaCopiareSource</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#featureDeleted" >featureDeleted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#featureSelezionate" >featureSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#featureSelezionateSource" >featureSelezionateSource</a>
+                            </li>
+                            <li>
+                                <a href="#origineChiamata" >origineChiamata</a>
+                            </li>
+                            <li>
+                                <a href="#origineChiamataSource" >origineChiamataSource</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addFeatureSelezionata" >addFeatureSelezionata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#deleteFeature" >deleteFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#esistonoFeatureSelezionate" >esistonoFeatureSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getChiaveAlberoCompletaByFeature" >getChiaveAlberoCompletaByFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getElencoChiaviAlberoFeatureCompleteSelezionate" >getElencoChiaviAlberoFeatureCompleteSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getFeatureDaCopiare" >getFeatureDaCopiare</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getFeatureSelezionataById" >getFeatureSelezionataById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getFeatureSelezionate" >getFeatureSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getFeatureSelezionate$" >getFeatureSelezionate$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getObjChiaveAlberoByFeature" >getObjChiaveAlberoByFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getOrigineChiamata" >getOrigineChiamata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPermessiFeature" >getPermessiFeature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getPrimaFeatureSelezionata" >getPrimaFeatureSelezionata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUltimaFeatureSelezionata" >getUltimaFeatureSelezionata</a>
+                            </li>
+                            <li>
+                                <a href="#inizializzaFeatureDaCopiare" >inizializzaFeatureDaCopiare</a>
+                            </li>
+                            <li>
+                                <a href="#inizializzaFeatureSelezionate" >inizializzaFeatureSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#removeFeatureSelezionata" >removeFeatureSelezionata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setFeatureDaCopiare" >setFeatureDaCopiare</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setFeatureSelezionate" >setFeatureSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setOrigineChiamata" >setOrigineChiamata</a>
+                            </li>
+                            <li>
+                                <a href="#stringToBoolean" >stringToBoolean</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#featureDeleted$" >featureDeleted$</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(funzioniComuniService: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>, sharedDataService: <a href="../injectables/SharedDataService.html" target="_self">SharedDataService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/GIS/services/feature.service.ts:19</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>funzioniComuniService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>sharedDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/SharedDataService.html" target="_self" >SharedDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addFeatureSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addFeatureSelezionata</b></span>
+                        <a href="#addFeatureSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addFeatureSelezionata(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>deleteFeature</b></span>
+                        <a href="#deleteFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteFeature(featureId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="127"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="esistonoFeatureSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>esistonoFeatureSelezionate</b></span>
+                        <a href="#esistonoFeatureSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>esistonoFeatureSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="100"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:100</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getChiaveAlberoCompletaByFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getChiaveAlberoCompletaByFeature</b></span>
+                        <a href="#getChiaveAlberoCompletaByFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getChiaveAlberoCompletaByFeature(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="80"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:80</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getElencoChiaviAlberoFeatureCompleteSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getElencoChiaviAlberoFeatureCompleteSelezionate</b></span>
+                        <a href="#getElencoChiaviAlberoFeatureCompleteSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getElencoChiaviAlberoFeatureCompleteSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>string[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeatureDaCopiare"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getFeatureDaCopiare</b></span>
+                        <a href="#getFeatureDaCopiare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeatureDaCopiare()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeatureSelezionataById"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getFeatureSelezionataById</b></span>
+                        <a href="#getFeatureSelezionataById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeatureSelezionataById(featureId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="63"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:63</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeatureSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getFeatureSelezionate</b></span>
+                        <a href="#getFeatureSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeatureSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Feature.html" target="_self" >GeoJson_Feature_New[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getFeatureSelezionate$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getFeatureSelezionate$</b></span>
+                        <a href="#getFeatureSelezionate$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getFeatureSelezionate$()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="59"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Feature.html" target="_self" >Observable&lt;GeoJson_Feature_New[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getObjChiaveAlberoByFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getObjChiaveAlberoByFeature</b></span>
+                        <a href="#getObjChiaveAlberoByFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getObjChiaveAlberoByFeature(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/ChiaveAlbero.html" target="_self" >ChiaveAlbero</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getOrigineChiamata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getOrigineChiamata</b></span>
+                        <a href="#getOrigineChiamata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getOrigineChiamata()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/enumerations.html#enum_OrigineChiamata" target="_self" >enum_OrigineChiamata</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPermessiFeature"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getPermessiFeature</b></span>
+                        <a href="#getPermessiFeature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPermessiFeature(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="132"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/PermessiFeature.html" target="_self" >PermessiFeature</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getPrimaFeatureSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getPrimaFeatureSelezionata</b></span>
+                        <a href="#getPrimaFeatureSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getPrimaFeatureSelezionata()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUltimaFeatureSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getUltimaFeatureSelezionata</b></span>
+                        <a href="#getUltimaFeatureSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUltimaFeatureSelezionata()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inizializzaFeatureDaCopiare"></a>
+                    <span class="name">
+                        <span ><b>inizializzaFeatureDaCopiare</b></span>
+                        <a href="#inizializzaFeatureDaCopiare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inizializzaFeatureDaCopiare()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="31"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="inizializzaFeatureSelezionate"></a>
+                    <span class="name">
+                        <span ><b>inizializzaFeatureSelezionate</b></span>
+                        <a href="#inizializzaFeatureSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>inizializzaFeatureSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="26"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeFeatureSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>removeFeatureSelezionata</b></span>
+                        <a href="#removeFeatureSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeFeatureSelezionata(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="45"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFeatureDaCopiare"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setFeatureDaCopiare</b></span>
+                        <a href="#setFeatureDaCopiare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFeatureDaCopiare(feature: GeoJson_Feature_New<GeoJSONAgroGisProp>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>feature</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFeatureSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setFeatureSelezionate</b></span>
+                        <a href="#setFeatureSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFeatureSelezionate(featureSelezionate: GeoJson_Feature_New<GeoJSONAgroGisProp>[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="35"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>featureSelezionate</td>
+                                            <td>
+                                                        <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setOrigineChiamata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setOrigineChiamata</b></span>
+                        <a href="#setOrigineChiamata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setOrigineChiamata(origineChiamata: <a href="../undefineds/enum_OrigineChiamata.html" target="_self">enum_OrigineChiamata</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>origineChiamata</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_OrigineChiamata" target="_self" >enum_OrigineChiamata</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stringToBoolean"></a>
+                    <span class="name">
+                        <span ><b>stringToBoolean</b></span>
+                        <a href="#stringToBoolean"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>stringToBoolean(stringValue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="182"
+                                    class="link-to-prism">src/app/GIS/services/feature.service.ts:182</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>stringValue</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureDaCopiare"></a>
+                    <span class="name">
+                        <span ><b>featureDaCopiare</b></span>
+                        <a href="#featureDaCopiare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/GIS/services/feature.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureDaCopiareSource"></a>
+                    <span class="name">
+                        <span ><b>featureDaCopiareSource</b></span>
+                        <a href="#featureDaCopiareSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(this.featureDaCopiare)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/GIS/services/feature.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureDeleted"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>featureDeleted</b></span>
+                        <a href="#featureDeleted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subject&lt;string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject&lt;string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/GIS/services/feature.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>featureSelezionate</b></span>
+                        <a href="#featureSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/GIS/services/feature.service.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="featureSelezionateSource"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>featureSelezionateSource</b></span>
+                        <a href="#featureSelezionateSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(this.featureSelezionate)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/GIS/services/feature.service.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="origineChiamata"></a>
+                    <span class="name">
+                        <span ><b>origineChiamata</b></span>
+                        <a href="#origineChiamata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#enum_OrigineChiamata" target="_self" >enum_OrigineChiamata</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>enum_OrigineChiamata.Mappa</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/GIS/services/feature.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="origineChiamataSource"></a>
+                    <span class="name">
+                        <span ><b>origineChiamataSource</b></span>
+                        <a href="#origineChiamataSource"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject(this.origineChiamata)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/GIS/services/feature.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="featureDeleted$"></a>
+                        <span class="name"><b>featureDeleted$</b><a href="#featureDeleted$"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>featureDeleted$()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="123" class="link-to-prism">src/app/GIS/services/feature.service.ts:123</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { ChiaveAlbero } from &#x27;app/Service/api.service&#x27;;
+import { FunzioniComuniService } from &quot;app/Service/FunzioniComuni.service&quot;;
+import { BehaviorSubject, Observable, Subject } from &#x27;rxjs&#x27;;
+import { enum_OrigineChiamata } from &quot;../GIS-enum/GIS-origine-chiamata&quot;;
+import { SharedDataService } from &quot;./shared-data.service&quot;;
+import { GeoJSONAgroGisProp, GeoJson_Feature_New } from &quot;app/Model/GIS/GisDataReadRval_New&quot;;
+import { GisFeaturesUtils } from &#x27;../utils/gis-features.utils&#x27;;
+
+@Injectable()
+export class FeatureService {
+
+    private featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] &#x3D; [];
+    private featureSelezionateSource &#x3D; new BehaviorSubject(this.featureSelezionate);
+    origineChiamata: enum_OrigineChiamata &#x3D; enum_OrigineChiamata.Mappa;
+    origineChiamataSource &#x3D; new BehaviorSubject(this.origineChiamata);
+    featureDaCopiare: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt; &#x3D; null;
+    featureDaCopiareSource &#x3D; new BehaviorSubject(this.featureDaCopiare);
+    public featureDeleted: Subject&lt;string&gt; &#x3D; new Subject&lt;string&gt;();
+
+    constructor(
+        private funzioniComuniService: FunzioniComuniService,
+        private sharedDataService: SharedDataService
+    ) { }
+
+    inizializzaFeatureSelezionate() {
+        this.setOrigineChiamata(enum_OrigineChiamata.Mappa);
+        this.setFeatureSelezionate([]);
+    }
+
+    inizializzaFeatureDaCopiare() {
+        this.setFeatureDaCopiare(null);
+    }
+
+    public setFeatureSelezionate(featureSelezionate: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]) {
+        this.featureSelezionateSource.next(featureSelezionate);
+    }
+
+    public addFeatureSelezionata(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;) {
+        let featureSelezionate &#x3D; this.getFeatureSelezionate();
+        featureSelezionate.push(feature);
+        this.featureSelezionateSource.next(featureSelezionate);
+    }
+
+    public removeFeatureSelezionata(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;) {
+        const idFeature &#x3D; feature.properties.id;
+        const featureSelezionate &#x3D; this.getFeatureSelezionate();
+        const indexFeature &#x3D; featureSelezionate.findIndex(element &#x3D;&gt; element.properties.id &#x3D;&#x3D;&#x3D; idFeature);
+        if (indexFeature &gt;&#x3D; 0) {
+            featureSelezionate.splice(indexFeature, 1);
+            this.featureSelezionateSource.next(featureSelezionate);
+        }
+    }
+
+    public getFeatureSelezionate(): GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[] {
+        return this.featureSelezionateSource.getValue();
+    }
+
+    public getFeatureSelezionate$(): Observable&lt;GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;[]&gt; {
+        return this.featureSelezionateSource.asObservable();
+    }
+
+    public getFeatureSelezionataById(featureId: string): GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt; {
+        return this.featureSelezionateSource.getValue().find(feature &#x3D;&gt; feature.properties.id &#x3D;&#x3D;&#x3D; featureId);
+    }
+
+    public getElencoChiaviAlberoFeatureCompleteSelezionate(): string[] {
+        const featureSelezionate &#x3D; this.getFeatureSelezionate();
+
+        let elencoChiaviAlberoFeatureCompleteSelezionate: string[] &#x3D; [];
+
+        featureSelezionate.forEach(feature &#x3D;&gt; {
+            const chiaveAlberoCompleta &#x3D; this.getChiaveAlberoCompletaByFeature(feature);
+            elencoChiaviAlberoFeatureCompleteSelezionate.push(chiaveAlberoCompleta);
+        });
+
+        return elencoChiaviAlberoFeatureCompleteSelezionate;
+    }
+
+    public getChiaveAlberoCompletaByFeature(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;) {
+        const chiaveAlbero &#x3D; feature.properties.chiavealbero;
+        return FunzioniComuniService.chiaveAlberoRidottaToBig(chiaveAlbero);
+    }
+
+    public getObjChiaveAlberoByFeature(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;): ChiaveAlbero {
+        const chiaveAlbero &#x3D; this.getChiaveAlberoCompletaByFeature(feature);
+        return FunzioniComuniService.scomponiChiaveAlbero(chiaveAlbero);
+    }
+
+    public getPrimaFeatureSelezionata() {
+        const featureSelezionate &#x3D; this.getFeatureSelezionate();
+        return featureSelezionate.slice(0)[0]
+    }
+
+    public getUltimaFeatureSelezionata() {
+        const featureSelezionate &#x3D; this.getFeatureSelezionate();
+        return featureSelezionate.slice(-1)[0]
+    }
+
+    public esistonoFeatureSelezionate() {
+        return this.getFeatureSelezionate().length &gt; 0;
+    }
+
+    // Origine chiamata
+    public setOrigineChiamata(origineChiamata: enum_OrigineChiamata) {
+        this.origineChiamataSource.next(origineChiamata);
+    }
+
+    public getOrigineChiamata(): enum_OrigineChiamata {
+        return this.origineChiamataSource.getValue();
+    }
+
+    // Feature da copiare
+    public setFeatureDaCopiare(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;) {
+        this.featureDaCopiareSource.next(feature);
+    }
+
+    public getFeatureDaCopiare(): GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt; {
+        return this.featureDaCopiareSource.getValue();
+    }
+
+    // Feature cancellate
+    public get featureDeleted$(): Observable&lt;string&gt; {
+        return this.featureDeleted.asObservable();
+    }
+
+    public deleteFeature(featureId: string): void {
+        this.featureDeleted.next(featureId);
+    }
+
+    // Permessi
+    public getPermessiFeature(feature: GeoJson_Feature_New&lt;GeoJSONAgroGisProp&gt;): PermessiFeature {
+        let permessiFeature &#x3D; new PermessiFeature();
+        // Permessi layer
+        let layerId &#x3D; feature.properties.layer;
+        let layer &#x3D; this.sharedDataService.getTipologiaLayerById(layerId);
+        let permessiLayer &#x3D; this.sharedDataService.getPermessiLayer(layer);
+        //--------------------------------------------------------------------------------
+        // Inserimento
+        //--------------------------------------------------------------------------------
+        if (permessiLayer.inserimento) {
+            const inserimento &#x3D; feature.properties.inserimento;
+            permessiFeature.inserimento &#x3D; this.stringToBoolean(inserimento);
+        } else {
+            permessiFeature.inserimento &#x3D; false;
+        }
+        //--------------------------------------------------------------------------------
+        // Modifica,
+        // ammessi solo i poligoni senza innerboud. tutto il resto non è al momento modificabile:
+        // . Poligoni con innerBound
+        // . MultiPlugons
+        //--------------------------------------------------------------------------------
+        if (permessiLayer.modifica &amp;&amp; !GisFeaturesUtils.isGeoJsonFeaturePolygonWithInnerBounds(feature) &amp;&amp; !GisFeaturesUtils.isGeoJsonFeatureMultipolygon(feature)) {
+            const modifica &#x3D; feature.properties.modifica;
+            permessiFeature.modifica &#x3D; this.stringToBoolean(modifica);
+        } else {
+            permessiFeature.modifica &#x3D; false;
+        }
+        //--------------------------------------------------------------------------------
+        // Cancellazione
+        //--------------------------------------------------------------------------------
+        if (permessiLayer.cancellazione) {
+            const cancellazione &#x3D; feature.properties.cancellazione;
+            permessiFeature.cancellazione &#x3D; this.stringToBoolean(cancellazione);
+
+        } else {
+            permessiFeature.cancellazione &#x3D; false;
+        }
+        //--------------------------------------------------------------------------------
+        // Informazioni
+        //--------------------------------------------------------------------------------
+        if (permessiLayer.informazioni) {
+            const informazioni &#x3D; feature.properties.informazioni;
+            permessiFeature.informazioni &#x3D; this.stringToBoolean(informazioni);
+        } else {
+            permessiFeature.informazioni &#x3D; false;
+        }
+        //--------------------------------------------------------------------------------
+        return permessiFeature;
+    }
+
+    stringToBoolean(stringValue: string): boolean {
+        return stringValue.toLowerCase() &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+    }
+}
+
+export class PermessiFeature {
+    inserimento: boolean;
+    modifica: boolean;
+    cancellazione: boolean;
+    informazioni: boolean
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'FeatureService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

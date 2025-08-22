@@ -1,0 +1,1408 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >Ricetta_Operazione</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/Service/Agenda/Agenda.service.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#app_ricetta_operazione_id" >app_ricetta_operazione_id</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#data" >data</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#in_uso" >in_uso</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#ricetta_cod" >ricetta_cod</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Optional</span>
+                                <a href="#ricetta_operazione_cod" >ricetta_operazione_cod</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ricetta_cod?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, ricetta_operazione_cod?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, data?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, in_uso?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, app_ricetta_operazione_id?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="307" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:307</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ricetta_cod</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ricetta_operazione_cod</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>data</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>in_uso</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>app_ricetta_operazione_id</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            Yes
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="app_ricetta_operazione_id"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>app_ricetta_operazione_id</b></span>
+                        <a href="#app_ricetta_operazione_id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="313" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:313</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="data"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>data</b></span>
+                        <a href="#data"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="311" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:311</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="in_uso"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>in_uso</b></span>
+                        <a href="#in_uso"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="312" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:312</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricetta_cod"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>ricetta_cod</b></span>
+                        <a href="#ricetta_cod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ricetta_operazione_cod"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Optional</span>
+                        <span ><b>ricetta_operazione_cod</b></span>
+                        <a href="#ricetta_operazione_cod"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="310" class="link-to-prism">src/app/Service/Agenda/Agenda.service.ts:310</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@angular/core&#x27;;
+import { CentroAziendale } from &#x27;app/Model/anagrafiche/CentroAziendale&#x27;;
+import { Fabbricato } from &#x27;app/Model/anagrafiche/Fabbricato&#x27;;
+import { Impianto } from &#x27;app/Model/anagrafiche/Impianto&#x27;;
+import { Impresa } from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import { Attivita, Tipo_Ricetta } from &#x27;app/Model/attivita/Attivita&#x27;;
+import { DettaglioFertilizzazione } from &#x27;app/Model/attivita/dettagli/DettaglioFertilizzazione&#x27;;
+import { DettaglioSemina } from &#x27;app/Model/attivita/dettagli/DettaglioSemina&#x27;;
+import { DettaglioTrattamento } from &#x27;app/Model/attivita/dettagli/DettaglioTrattamento&#x27;;
+import { Lavorazione } from &#x27;app/Model/attivita/Lavorazione&#x27;;
+import { RisorsaAcqua } from &#x27;app/Model/attivita/risorse/RisorsaAcqua&#x27;;
+import {AGRODATAFINE, AGRODATAINIZIO} from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { AvversitaGruppo } from &#x27;app/Model/metaschema/avversita/AvversitaGruppo&#x27;;
+import { Disciplinare } from &#x27;app/Model/metaschema/Disciplinari&#x27;;
+import { DoseEtichetta } from &#x27;app/Model/metaschema/DoseEtichetta&#x27;;
+import { Soglia } from &#x27;app/Model/metaschema/Soglia&#x27;;
+import { UnitaDiMisura } from &#x27;app/Model/metaschema/UnitaDiMisura&#x27;;
+import { Specie } from &#x27;app/Model/metaschema/utilizzi/Specie&#x27;;
+import {
+    CodiciXOperazione,
+    Parametri_Aggiuntivi_Attivita,
+    Parametri_Aggiuntivi_ControllaDosi
+} from &#x27;app/quaderno-di-campagna/agenda-edit/quaderno-di-campagna-form/quaderno-di-campagna-form.model&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import {BehaviorSubject, map, take} from &#x27;rxjs&#x27;;
+import {MasterService, RispostaStandard, rispostaStandard, VariabiliInSessione_NG} from &#x27;../master.service&#x27;;
+import { ObjParametriAgendaService } from &#x27;../obj-parametri-agenda.service&#x27;;
+import {UtilizzoTerreno} from &quot;../../Model/metaschema/utilizzi/UtilizzoTerreno&quot;;
+import {Epoca} from &quot;../../Model/metaschema/Epoca&quot;;
+import {BaseCodeDescr} from &quot;../../Model/baseClass/baseCodeDescr&quot;;
+import {AjaxAgronicaAPIService} from &quot;../ajax-agronica.api.service&quot;;
+import {Pua} from &quot;../../Model/metaschema/Pua&quot;;
+import { Tipo_Attivita, Stati } from &#x27;gias-ui-kit&#x27;;
+
+export class Controllo_Sportello{
+    Piva: string;
+
+    Servizio_Cod: number;
+
+    Data_Riferimento: Date;
+
+    SportelloAperto: boolean;
+
+    Data_Min: Date;
+
+    Data_Max: Date;
+}
+
+export class LeggiInizializza_QdC{
+
+    operazioni: Array&lt;Lavorazione&gt;;
+
+    tipoOperazioneDB: Enum_DBTypeOperation;
+
+    data: Date;
+
+    impresa: Impresa;
+
+    tipoAttivita: Tipo_Attivita;
+
+    statoAttivita: Stati;
+
+    tipoRicetta: Tipo_Ricetta;
+
+    lista_Attivita: Array&lt;Attivita&gt;;
+
+    codiciAttivita: CodiciXOperazione[];
+
+    disciplinare: Disciplinare;
+}
+
+export class Inizializza_QdC{
+
+    SportelloAperto: boolean;
+
+    AziendaInVerifica: boolean;
+
+    Data: Date;
+
+    Data_Min: Date;
+
+    Data_Max: Date;
+
+    flagNuovoControlloRiduzioneDiserbo: boolean;
+
+    ListaPivaAgenzie: Array&lt;string&gt;;
+
+    ListaFabbricatiConUsodaTerzi: Array&lt;Fabbricato&gt;;
+
+    ListaGiacenzeXProdotto: Array&lt;GiacenzeXProdotto&gt;;
+
+    pua: Pua;
+
+    PraticaTrovata: boolean;
+
+    constructor(){
+        this.SportelloAperto &#x3D; true;
+
+        this.AziendaInVerifica &#x3D; false;
+
+        this.Data &#x3D; new Date();
+
+        this.Data_Min &#x3D; AGRODATAINIZIO;
+
+        this.Data_Max &#x3D; AGRODATAFINE;
+
+        this.flagNuovoControlloRiduzioneDiserbo &#x3D; false;
+
+        this.ListaPivaAgenzie &#x3D; [];
+
+        this.ListaFabbricatiConUsodaTerzi &#x3D; [];
+
+        this.ListaGiacenzeXProdotto &#x3D; [];
+
+        this.pua &#x3D; null;
+
+        this.PraticaTrovata &#x3D; true;
+    }
+
+}
+
+export class GiacenzeXProdotto{
+    Operazione: Lavorazione;
+    Categoria_Magazzino: number;
+    dettaglioTrattamento: DettaglioTrattamento;
+    dettaglioFertilizzazione: DettaglioFertilizzazione;
+    dettaglioSemina: DettaglioSemina;
+}
+
+export class Attivita_Con_Parametri_Aggiuntivi extends Attivita{
+    parametri_aggiuntivi: Parametri_Aggiuntivi_Attivita[];
+
+    constructor() {
+        super();
+    }
+}
+
+export class Controllo_Inserimento_Dose_Prodotto{
+
+    tipoAttivita: Tipo_Attivita;
+
+    statoAttivita: Stati;
+
+    parametri_aggiuntivi_list: Parametri_Aggiuntivi_ControllaDosi[];
+
+    id_agenda: number;
+
+    raccoglitore_cod: number;
+
+    DoseConsentitaDiserbo: number;
+
+    DosiProdottiGridrowId: number;
+
+    risorsaAcqua: RisorsaAcqua;
+
+    row_grid_impianti: Object[];
+
+    row_grid_prodottiDaTrattare: Object[];
+
+    row_grid_dosi_altre_operazioni: Object[];
+
+    lavorazione: Lavorazione;
+
+    dettaglioTrattamento: DettaglioTrattamento;
+
+    dettaglioSemina: DettaglioSemina;
+
+    dettaglioFertilizzazione: DettaglioFertilizzazione;
+
+    unitadiMisura: UnitaDiMisura;
+
+    avversitaGruppo: AvversitaGruppo;
+
+    soglia_Avversita: Soglia;
+
+    dosi_Etichetta: DoseEtichetta[];
+
+    N: number;
+
+    N_Utile: number;
+
+    P: number;
+
+    K: number;
+
+    Cu: number;
+
+    flagDoseQuantitaTotale: number;
+
+    flagTipoDose: number;
+
+    doseHa: number;
+
+    doseHl: number;
+
+    doseQ: number;
+
+    quantitaTotale: number;
+
+    Magazzino: Fabbricato;
+
+    Lotto: string;
+
+    data: Date;
+
+    disciplinare: Disciplinare;
+
+    utilizzoTerreno: UtilizzoTerreno;
+
+    epocaFertilizzazione: Epoca;
+
+    tipoRicetta: Tipo_Ricetta;
+
+    sup_Trattata: number;
+
+    sup_Calcolata: number;
+
+    qtaProdotto_Trattata: number;
+
+    tipo_Semina: BaseCodeDescr;
+
+    ricetta_cod: number;
+
+    efficienza: number;
+
+    row_grid_dosi: Object[];
+
+    Piva_Rif: string;
+
+    Sa_Cod_Rif: number;
+
+    ID_Agenda_Rif: number;
+
+    ID_Mov_Rif: number;
+
+    ID_Mov_Det_Rif: number;
+
+    Lav_Cod_Rif: number;
+
+    Cau_Mov_Rif: string;
+
+    Des_Rif: string;
+
+    Qta_Rif: number;
+
+    ricetta_operazione_cod: number;
+
+    pua: Pua;
+
+    Magazzino_Esterno: Fabbricato;
+
+    Categoria_Magazzino: number;
+
+    impresa: Impresa;
+
+    Visualizza_Magazzini_Esterni: boolean;
+
+    Original_Row_Value: Object[];
+
+}
+
+export class LeggiDoseConsentitaDiserbo{
+
+    attivita: Attivita;
+
+    dettaglioTrattamento: DettaglioTrattamento;
+
+    fabbricato: Fabbricato;
+
+    lotto: string;
+
+    avversitaGruppo: AvversitaGruppo;
+
+}
+
+export class DoseConsentitaDiserbo{
+
+    D_HA_Max_Diserbo: number;
+
+    lbl_qta_residua: string;
+
+    Udm_Radice_HA: number;
+
+    Lbl_Dose_Consigliata: string;
+
+    Div_DettaglioDoseConsentita: boolean;
+
+    Lbl_Dose_Consigliata2: string;
+
+    percAbbDaApplicare: number;
+
+    principiAttiviPercAbb: string;
+
+    constructor(){
+        this.D_HA_Max_Diserbo &#x3D; 0;
+        this.lbl_qta_residua &#x3D; &quot;&quot;;
+        this.Udm_Radice_HA &#x3D; 0;
+        this.Lbl_Dose_Consigliata &#x3D; &quot;&quot;;
+        this.Div_DettaglioDoseConsentita &#x3D; false;
+        this.Lbl_Dose_Consigliata2 &#x3D; &quot;&quot;;
+        this.percAbbDaApplicare &#x3D; 0;
+        this.principiAttiviPercAbb &#x3D; &quot;&quot;;
+    }
+
+}
+
+export class Ricetta_Operazione{
+    constructor(
+        public ricetta_cod?: number,
+        public ricetta_operazione_cod?: number,
+        public data?: Date,
+        public in_uso?: number,
+        public app_ricetta_operazione_id?: string
+    ) {}
+}
+
+export class APP_Ricetta_Operazione {
+    W_Anagrafica_Stati_Cod: number;
+    Ricetta_Cod: number;
+    Ricetta_Operazione_Cod: number;
+    Ricetta_Operazione_Cod_RIF: number;
+    Ricetta_Operazione_Des: string;
+    Note: string;
+    Lav_Cod: number;
+    Extra_Int: number;
+    Mezzo: number;
+    Bozza: number;
+}
+
+export class LeggiLink_Operazione{
+    id_agenda: string;
+    codiceRicetta: string;
+    codiceOperazioneRicetta: string;
+    tipo_operazione: number;
+    impresa: Impresa;
+    centroaziendale: CentroAziendale;
+    specie: Specie;
+    data: Date;
+    lavorazione: Lavorazione;
+    tipo: Tipo_Attivita;
+    tiporicetta: Tipo_Ricetta;
+    stato: Stati;
+    variabiliInSessione_NG: VariabiliInSessione_NG;
+}
+
+export class Link_Operazione{
+    Operazione: Lavorazione;
+    Link: string;
+}
+
+export class LeggiDefault_DPI_QdC{
+    operazioni: Lavorazione[];
+    impianti: Impianto[];
+    disciplinari: Disciplinare[];
+    tipoOperazioneDB: Enum_DBTypeOperation;
+    data: Date;
+    impresa: Impresa;
+    tipoRicetta: Tipo_Ricetta;
+    tipoAttivita: Tipo_Attivita;
+    codiciAttivita: CodiciXOperazione[];
+}
+
+export class ScriviListaAttivita{
+    attivita_list: Attivita[];
+    parametri_aggiuntivi_list: Parametri_Aggiuntivi_Attivita[];
+}
+
+export class ControllaMassimali_QdC {
+    Qta_Ha_Distribuibile_Prodotto: number;
+    Qta_Ha_Distribuibile_Prodotto_Ricette: number;
+}
+
+export class LeggiMenuRicette{
+    codiciAttivita: CodiciXOperazione[];
+}
+
+export class MenuRicette{
+    tipo: number;
+    des: string;
+    codiciAttivita: CodiciXOperazione[];
+    data: Date;
+    ribaltata: boolean;
+    inviata_ad_app: boolean;
+    raccoglitore_cod: number;
+}
+
+export class AggiungiRicettaAlPUA{
+    data: string;
+    id_agenda_checked: string;
+    id_agenda: string;
+    lav_cod_checked: string;
+    lav_cod: string;
+    piva: string;
+    sa_cod: string;
+    ricetta_cod: string;
+}
+
+export class LeggiDisponibilitaAttualeFertilizzante{
+    dettaglioFertilizzazione: DettaglioFertilizzazione;
+    pua: Pua;
+    data: Date;
+}
+
+export class LeggiPUA{
+  impresa: Impresa;
+  data: Date;
+  operazioni: Array&lt;Lavorazione&gt;;
+  tipo_Attivita: Tipo_Attivita;
+  tipo_Ricetta: Tipo_Ricetta;
+  stato: Stati;
+  disciplinare: Disciplinare;
+}
+
+export class Leggi_Modalita_Applicazione{
+  Operazione: Lavorazione;
+}
+
+@Injectable({
+    providedIn: &#x27;root&#x27;
+})
+export class AgendaService {
+
+    private Elenco_Link_OperazioniSource &#x3D; new BehaviorSubject([]);
+    currentElenco_Link_Operazioni &#x3D; this.Elenco_Link_OperazioniSource.asObservable();
+
+    constructor(
+        private masterService: MasterService,
+        private objParametriAgendaService: ObjParametriAgendaService,
+        private ajaxAgronicaAPIService: AjaxAgronicaAPIService
+    ) {  }
+
+    private changeElenco_Link_Operazioni(link_operazione: Link_Operazione[]): void {
+        this.Elenco_Link_OperazioniSource.next(link_operazione);
+    }
+
+    private getCurrentElenco_Link_Operazioni(): Link_Operazione[] {
+        return this.Elenco_Link_OperazioniSource.getValue();
+    }
+
+    // ScriviListaAttivita_Old(p: ScriviListaAttivita) {
+    //     return new Promise&lt;rispostaStandard&lt;Attivita[]&gt;&gt;(async (resolve, reject) &#x3D;&gt; {
+    //         const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic (
+    //             this.masterService.getCoreWSGenericObjP(),
+    //             p
+    //         );
+    //
+    //         const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, rispostaStandard&lt;Attivita[]&gt;&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/ScriviListaAttivitaToRaccoglitore&#x27;, parametri);
+    //
+    //         resolve(R);
+    //     });
+    // }
+
+    ScriviListaAttivita(p: ScriviListaAttivita) {
+        return new Promise&lt;rispostaStandard&lt;Attivita[]&gt;&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Attivita[]&gt;(&#x27;Agenda/ScriviListaAttivitaToRaccoglitore&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R);
+            }),take(1)).subscribe();
+        });
+    }
+
+    // CheckListaAttivitaWS(listaAttivita: Attivita[]) {
+    //
+    //     return new Promise&lt;RispostaStandard&gt;(async (resolve, reject) &#x3D;&gt; {
+    //
+    //         const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+    //         (
+    //             this.masterService.getCoreWSGenericObjP(),
+    //             listaAttivita
+    //         );
+    //
+    //         const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, RispostaStandard&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/CheckListaAttivita&#x27;, parametri);
+    //
+    //         resolve(R);
+    //     });
+    //
+    // }
+
+    /*LeggiListaAttivitaWS_Old(piva: String, id_agenda: Number) {
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                {piva, id_agenda}
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, Attivita[]&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/LeggiListaAttivitaDaAgenda&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    LeggiListaAttivitaWS(piva: String, id_agenda: Number) {
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Attivita[]&gt;(&#x27;Agenda/LeggiListaAttivitaDaAgenda&#x27;, {piva: piva, Id_Agenda: id_agenda},true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        }); //IMPORTANTE
+    }
+
+
+    //Legge una ricetta e la restituisce di tipo Quaderno di Campagna (utilizata per il ribaltamento da brogliaccio ad agenda)
+    /*LeggiListaAttivitaDaRicettaOperazionePerAgendaWS_Old(Ricetta_Operazione_Cod: number) {
+
+        return new Promise&lt;Attivita_Con_Parametri_Aggiuntivi[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                {Ricetta_Operazione_Cod}
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, Attivita_Con_Parametri_Aggiuntivi[]&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/LeggiListaAttivitaDaRicettaOperazionePerAgenda&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    //Legge una ricetta e la restituisce di tipo Quaderno di Campagna (utilizata per il ribaltamento da brogliaccio ad agenda)
+    LeggiListaAttivitaDaRicettaOperazionePerAgendaWS(Ricetta_Operazione_Cod: number) {
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Attivita[]&gt;(&#x27;Agenda/LeggiListaAttivitaDaRicettaOperazionePerAgenda&#x27;, {Ricetta_Operazione_Cod: Ricetta_Operazione_Cod},true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+    }
+
+    //Legge una ricetta e la restituisce di tipo Brogliaccio (utilizata per il ribaltamento da ricetta a brogliaccio)
+
+    /*LeggiListaAttivitaDaRicettaOperazionePerBrogliaccioWS_Old(Ricetta_Operazione_Cod: number) {
+
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                {Ricetta_Operazione_Cod}
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, Attivita[]&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/LeggiListaAttivitaDaRicettaOperazionePerBrogliaccio&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    LeggiListaAttivitaDaRicettaOperazionePerBrogliaccioWS(Ricetta_Operazione_Cod: number) {
+
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Attivita[]&gt;(&#x27;Agenda/LeggiListaAttivitaDaRicettaOperazionePerBrogliaccio&#x27;, {Ricetta_Operazione_Cod: Ricetta_Operazione_Cod},true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+
+        });
+
+    }
+
+    //Legge una ricetta o brogliaccio
+
+    /*LeggiListaAttivitaDaRicettaOperazionePerRicettaWS_Old(Ricetta_Operazione_Cod: number) {
+
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                {Ricetta_Operazione_Cod}
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;any, Attivita[]&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/LeggiListaAttivitaDaRicettaOperazionePerRicetta&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    LeggiListaAttivitaDaRicettaOperazionePerRicettaWS(Ricetta_Operazione_Cod: number) {
+
+        return new Promise&lt;Attivita[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Attivita[]&gt;(&#x27;Agenda/LeggiListaAttivitaDaRicettaOperazionePerRicetta&#x27;, {Ricetta_Operazione_Cod: Ricetta_Operazione_Cod},true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+
+        });
+
+    }
+
+    // LeggiAttivitaAPI(piva: String, id_agenda: Number) {
+    //
+    //     return new Promise&lt;any&gt;(async (resolve, reject) &#x3D;&gt; {
+    //         const parametri: object &#x3D; new Object (
+    //             {piva, id_agenda}
+    //         );
+    //         //const r &#x3D; await this.ajaxAgronicaService.ajaxAgronica(this.masterService.link_CoreAPI + &#x27;/Agenda/AttivitaDaAgenda&#x27;, parametri);
+    //         const r &#x3D; await this.ajaxAgronicaService.ajaxAgronica(&#x27;http://192.168.1.106:5000/Agenda/AttivitaDaAgenda&#x27;, parametri);
+    //
+    //         resolve(r.RispostaStringa);
+    //     });
+    //
+    // }
+
+    /*Controllo_Sportello_Old(p: Controllo_Sportello){
+        return new Promise&lt;Controllo_Sportello&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;Controllo_Sportello&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;Controllo_Sportello, Controllo_Sportello&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/Controllo_Sportello&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Controllo_Sportello(p: Controllo_Sportello){
+        return new Promise&lt;Controllo_Sportello&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;Controllo_Sportello, Controllo_Sportello&gt;(&#x27;Agenda/Controllo_Sportello&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+    }
+
+    /*Inizializza_QdC_Old(p: LeggiInizializza_QdC){
+        return new Promise&lt;rispostaStandard&lt;Inizializza_QdC&gt;&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiInizializza_QdC&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;Inizializza_QdC, LeggiInizializza_QdC&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/Inizializza_QdC_NG&#x27;, p);
+
+            resolve(R);
+        });
+    }*/
+
+    Inizializza_QdC(p: LeggiInizializza_QdC){
+        return new Promise&lt;rispostaStandard&lt;Inizializza_QdC&gt;&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiInizializza_QdC, Inizializza_QdC&gt;(&#x27;Agenda/Inizializza_QdC_NG&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R);
+            }),take(1)).subscribe();
+        });
+    }
+
+    /*Controllo_Inserimento_Dose_Prodotto_Old(p: Controllo_Inserimento_Dose_Prodotto){
+        return new Promise&lt;any&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;Controllo_Inserimento_Dose_Prodotto&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;RispostaStandard, Controllo_Inserimento_Dose_Prodotto&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/Controllo_Inserimento_Dose_Prodotto&#x27;, parametri);
+
+            resolve(R);
+        });
+    }*/
+
+    Controllo_Inserimento_Dose_Prodotto(p: Controllo_Inserimento_Dose_Prodotto){
+        return new Promise&lt;any&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;Controllo_Inserimento_Dose_Prodotto, RispostaStandard&gt;(&#x27;Agenda/Controllo_Inserimento_Dose_Prodotto&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R);
+            }),take(1)).subscribe();
+        });
+    }
+
+    /*Imposta_DoseConsentitaDiserbo_Old(p: LeggiDoseConsentitaDiserbo){
+        return new Promise&lt;DoseConsentitaDiserbo&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiDoseConsentitaDiserbo&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;DoseConsentitaDiserbo, LeggiDoseConsentitaDiserbo&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/Imposta_DoseConsentitaDiserbo&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+    }*/
+
+    Imposta_DoseConsentitaDiserbo(p: LeggiDoseConsentitaDiserbo){
+        return new Promise&lt;DoseConsentitaDiserbo&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiDoseConsentitaDiserbo, DoseConsentitaDiserbo&gt;(&#x27;Agenda/Imposta_DoseConsentitaDiserbo&#x27;, p).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+    }
+
+    /*CaricaRicetteOperazioni_Old(Ricetta_Operazione_Cod: number, Ricetta_Cod: number) {
+
+        return new Promise&lt;MenuRicette[]&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;any&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;MenuRicette[],LeggiMenuRicette&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/CaricaMenuRicette&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    CaricaRicetteOperazioni(Ricetta_Operazione_Cod: number, Ricetta_Cod: number) {
+
+        return new Promise&lt;Ricetta_Operazione[]&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, Ricetta_Operazione[]&gt;(&#x27;Agenda/CaricaRicetteOperazioni&#x27;, {Ricetta_Operazione_Cod: Ricetta_Operazione_Cod,Ricetta_Cod: Ricetta_Cod}).pipe(map( R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            })).subscribe();
+        });
+
+    }
+
+    CaricaMenuRicette(p: LeggiMenuRicette) {
+
+        return new Promise&lt;MenuRicette[]&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiMenuRicette, MenuRicette[]&gt;(&#x27;Agenda/CaricaMenuRicette&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+
+    }
+
+    Redirect_In_Base_Al_Lav_Cod(p: LeggiLink_Operazione){
+        return new Promise&lt;string&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            let Elenco_Link_Operazioni: Link_Operazione[] &#x3D; this.getCurrentElenco_Link_Operazioni();
+
+            let link:string &#x3D; &quot;&quot;;
+
+            if(Elenco_Link_Operazioni &amp;&amp; Elenco_Link_Operazioni.length &gt; 0){
+
+                let index:number &#x3D; Elenco_Link_Operazioni.findIndex(l&#x3D;&gt;{ return l.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; p.lavorazione.primaryKey.codice });
+
+                if(index &gt; -1)
+                    link &#x3D; Elenco_Link_Operazioni[index].Link;
+
+            }
+
+            if(link &#x3D;&#x3D;&#x3D; &quot;&quot;){
+
+                p.variabiliInSessione_NG &#x3D; this.masterService.variabiliInSessione;
+
+                this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiLink_Operazione, string&gt;(&#x27;Agenda/Redirect_In_Base_Al_Lav_Cod&#x27;, p,true).pipe(map(R &#x3D;&gt; {
+                    link &#x3D; R.RispostaStringa;
+
+                    Elenco_Link_Operazioni.push({
+                        Operazione: p.lavorazione,
+                        Link: link
+                    });
+
+                    this.changeElenco_Link_Operazioni(Elenco_Link_Operazioni);
+                    resolve(link);
+
+                }),take(1)).subscribe();
+
+            } else {
+                resolve(link);
+            }
+        });
+    }
+
+
+    /*Default_DPI_QdC_Old(p: LeggiDefault_DPI_QdC) {
+
+        return new Promise&lt;Disciplinare&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;LeggiDefault_DPI_QdC&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;Disciplinare, LeggiDefault_DPI_QdC&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/Default_DPI_QdC_NG&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    Default_DPI_QdC(p: LeggiDefault_DPI_QdC) {
+        return new Promise&lt;Disciplinare&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiDefault_DPI_QdC, Disciplinare&gt;(&#x27;Agenda/Default_DPI_QdC_NG&#x27;, p).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+    }
+
+    /*ControllaMassimali_Old(p: Controllo_Inserimento_Dose_Prodotto) {
+
+        return new Promise&lt;ControllaMassimali_QdC&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: CoreWS_Generic&lt;Controllo_Inserimento_Dose_Prodotto&gt; &#x3D; new CoreWS_Generic
+            (
+                this.masterService.getCoreWSGenericObjP(),
+                p
+            );
+
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronicaCoreWS_Promise&lt;ControllaMassimali_QdC, Controllo_Inserimento_Dose_Prodotto&gt;(this.masterService.link_CoreWS + &#x27;/Agenda/Agenda.asmx/ControllaMassimali&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+
+    /*Ricetta_Numero_Default_Old(piva: string, data_operazione: string) {
+
+        return new Promise&lt;string&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: any &#x3D; {
+                piva: piva,
+                data_operazione: data_operazione,
+                objP_server: this.masterService.ObjParametri_Server
+            };
+            const R &#x3D; await this.ajaxAgronicaService.ajaxAgronica(this.masterService.link_CoreWS + &#x27;/Agenda/MenuBS_WS.asmx/ricetta_numero_default&#x27;, parametri);
+
+            resolve(R.RispostaStringa);
+        });
+
+    }*/
+
+    Ricetta_Numero_Default(piva: string, data_operazione: string) {
+
+        return new Promise&lt;string&gt;(async (resolve, reject) &#x3D;&gt; {
+
+            const parametri: any &#x3D; {
+                piva: piva,
+                data_operazione: data_operazione
+            };
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;any, string&gt;(&#x27;Agenda/ricetta_numero_default&#x27;, parametri).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+
+        });
+
+    }
+    ControllaMassimali(p: Controllo_Inserimento_Dose_Prodotto) {
+
+        return new Promise&lt;ControllaMassimali_QdC&gt;(async (resolve, reject) &#x3D;&gt; {
+            this.ajaxAgronicaAPIService.ajaxAPIPost&lt;Controllo_Inserimento_Dose_Prodotto, ControllaMassimali_QdC&gt;(&#x27;Agenda/ControllaMassimali&#x27;, p).pipe(map(R &#x3D;&gt; {
+                resolve(R.RispostaStringa);
+            }),take(1)).subscribe();
+        });
+
+    }
+
+    public Aggiungi_Ricetta_Al_PUA_MenuAgenda(p: AggiungiRicettaAlPUA){
+
+        const Obs &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;AggiungiRicettaAlPUA,RispostaStandard&gt;(&#x27;Agenda/Menu/Aggiungi_Al_PUA&#x27;,p,true);
+
+        return Obs;
+    }
+
+    public Recupera_Pua(p: LeggiPUA){
+
+        const Obs &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiPUA,Pua&gt;(&#x27;Agenda/Recupera_Pua&#x27;,p);
+
+        return Obs;
+    }
+
+    public CaricaDisponibilitaAttualeFertilizzante(p: LeggiDisponibilitaAttualeFertilizzante){
+
+        const Obs &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;LeggiDisponibilitaAttualeFertilizzante,number&gt;(&#x27;Agenda/CaricaDisponibilitaAttualeFertilizzante&#x27;,p);
+
+        return Obs;
+    }
+
+    public Leggi_Modalita_Applicazione_QdC(p: Leggi_Modalita_Applicazione){
+        const Obs &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;Leggi_Modalita_Applicazione,Array&lt;BaseCodeDescr&gt;&gt;(&#x27;Agenda/Leggi_Modalita_Applicazione_QdC&#x27;,p);
+
+        return Obs;
+    }
+
+    public Controlla_Giacenza_Fertilizzanti(p: ScriviListaAttivita){
+      const Obs &#x3D; this.ajaxAgronicaAPIService.ajaxAPIPost&lt;ScriviListaAttivita,string&gt;(&#x27;Agenda/Controlla_Giacenza_Fertilizzanti&#x27;,p,true);
+
+      return Obs;
+    }
+
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'Ricetta_Operazione.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

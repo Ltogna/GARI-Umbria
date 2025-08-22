@@ -1,0 +1,2586 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridRipManualeConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_impianti" >_impianti</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoRows" >kendoRows</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addSelected" >addSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#afterLoadComplete" >afterLoadComplete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateTotal" >calculateTotal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#compareGridImpianto" >compareGridImpianto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#enableColumns" >enableColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#enableLottoEdit" >enableLottoEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#evalObjRaccolta" >evalObjRaccolta</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizatons" >handleCustomizatons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleEvents" >handleEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleInlineEdit" >handleInlineEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleLottoGenModeChange" >handleLottoGenModeChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handlePagination" >handlePagination</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#hideEsercizioCol" >hideEsercizioCol</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#impiantiSelectionChange" >impiantiSelectionChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadAppezzamenti" >loadAppezzamenti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadQtaLottoFromSection" >loadQtaLottoFromSection</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onProductSelected" >onProductSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onStorageSelected" >onStorageSelected</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#refresh" >refresh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#removeUnselected" >removeUnselected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateLotto" >updateLotto</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateQuantitaSuImpianti" >updateQuantitaSuImpianti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#valorizeLotto" >valorizeLotto</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#carichiAttivi" >carichiAttivi</a>
+                                </li>
+                                <li>
+                                    <a href="#lottiAttivi" >lottiAttivi</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, raccoltaService: <a href="../injectables/QdCRaccoltaService.html" target="_self">QdCRaccoltaService</a>, dataShare: <a href="../injectables/RaccoltaDataShareService.html" target="_self">RaccoltaDataShareService</a>, message: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>raccoltaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCRaccoltaService.html" target="_self" >QdCRaccoltaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dataShare</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/RaccoltaDataShareService.html" target="_self" >RaccoltaDataShareService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>message</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addSelected</b></span>
+                        <a href="#addSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addSelected(selected)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="296"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:296</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Aggiunge l&#39;esercizio selezionato alle righe della griglia.
+L&#39;esercizio non viene automaticamente registrato nel modello del
+prodotto, è necessario richiamare la funzione updateQuantitaSuImpianti()</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selected</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="afterLoadComplete"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>afterLoadComplete</b></span>
+                        <a href="#afterLoadComplete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>afterLoadComplete(end)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="110"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:110</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>end</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateTotal"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateTotal</b></span>
+                        <a href="#calculateTotal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateTotal()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="343"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:343</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="compareGridImpianto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>compareGridImpianto</b></span>
+                        <a href="#compareGridImpianto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>compareGridImpianto(a: <a href="../classes/GridImpiantoSelezionatoModel.html" target="_self">GridImpiantoSelezionatoModel</a>, b: <a href="../classes/GridImpiantoSelezionatoModel.html" target="_self">GridImpiantoSelezionatoModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="237"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:237</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Sorts the fields based on their project code.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>a</td>
+                                            <td>
+                                                            <code><a href="../classes/GridImpiantoSelezionatoModel.html" target="_self" >GridImpiantoSelezionatoModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>b</td>
+                                            <td>
+                                                            <code><a href="../classes/GridImpiantoSelezionatoModel.html" target="_self" >GridImpiantoSelezionatoModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>1 if b should be shown after a, -1 if a should be shown after b, 0 if the order is not significant.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enableColumns</b></span>
+                        <a href="#enableColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enableColumns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableLottoEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>enableLottoEdit</b></span>
+                        <a href="#enableLottoEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enableLottoEdit(genType: <a href="../undefineds/enum_Generazione_Lotto_Raccolta.html" target="_self">enum_Generazione_Lotto_Raccolta</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="195"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:195</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>genType</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Generazione_Lotto_Raccolta" target="_self" >enum_Generazione_Lotto_Raccolta</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="evalObjRaccolta"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>evalObjRaccolta</b></span>
+                        <a href="#evalObjRaccolta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>evalObjRaccolta(impianto: <a href="../classes/GridImpiantoSelezionatoModel.html" target="_self">GridImpiantoSelezionatoModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="379"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:379</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Map the specified field into a grid item used to model the grid rows.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>impianto</td>
+                                            <td>
+                                                            <code><a href="../classes/GridImpiantoSelezionatoModel.html" target="_self" >GridImpiantoSelezionatoModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/GridRaccoltaObject.html" target="_self" >GridRaccoltaObject</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizatons"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizatons</b></span>
+                        <a href="#handleCustomizatons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizatons()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="95"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:95</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEvents"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleEvents</b></span>
+                        <a href="#handleEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="142"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleInlineEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleInlineEdit</b></span>
+                        <a href="#handleInlineEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleInlineEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="149"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:149</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleLottoGenModeChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleLottoGenModeChange</b></span>
+                        <a href="#handleLottoGenModeChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleLottoGenModeChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handlePagination"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handlePagination</b></span>
+                        <a href="#handlePagination"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handlePagination()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="126"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:126</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hideEsercizioCol"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>hideEsercizioCol</b></span>
+                        <a href="#hideEsercizioCol"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hideEsercizioCol(show: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>show</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="impiantiSelectionChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>impiantiSelectionChange</b></span>
+                        <a href="#impiantiSelectionChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>impiantiSelectionChange()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="249"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:249</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadAppezzamenti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadAppezzamenti</b></span>
+                        <a href="#loadAppezzamenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadAppezzamenti()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="370"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:370</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Reads the selected fields and creates the grid&#39;s rows accordingly.</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/GridRaccoltaObject.html" target="_self" >GridRaccoltaObject[]</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadQtaLottoFromSection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadQtaLottoFromSection</b></span>
+                        <a href="#loadQtaLottoFromSection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadQtaLottoFromSection(rigaRaccoltaImpianto: <a href="../classes/GridRaccoltaObject.html" target="_self">GridRaccoltaObject</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="396"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:396</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rigaRaccoltaImpianto</td>
+                                            <td>
+                                                            <code><a href="../classes/GridRaccoltaObject.html" target="_self" >GridRaccoltaObject</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onProductSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onProductSelected</b></span>
+                        <a href="#onProductSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onProductSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="353"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:353</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onStorageSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onStorageSelected</b></span>
+                        <a href="#onStorageSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>onStorageSelected()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:73</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GridRipManualeServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="refresh"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>refresh</b></span>
+                        <a href="#refresh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>refresh()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="88"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:88</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="removeUnselected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>removeUnselected</b></span>
+                        <a href="#removeUnselected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>removeUnselected(selected)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="268"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:268</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selected</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateLotto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateLotto</b></span>
+                        <a href="#updateLotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateLotto(ch: <a href="../classes/GridRaccoltaObject.html" target="_self">GridRaccoltaObject</a>, force: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="329"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:329</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ch</td>
+                                            <td>
+                                                            <code><a href="../classes/GridRaccoltaObject.html" target="_self" >GridRaccoltaObject</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>force</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateQuantitaSuImpianti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateQuantitaSuImpianti</b></span>
+                        <a href="#updateQuantitaSuImpianti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateQuantitaSuImpianti()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="309"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="valorizeLotto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>valorizeLotto</b></span>
+                        <a href="#valorizeLotto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>valorizeLotto(GenMode: <a href="../undefineds/enum_Generazione_Lotto_Raccolta.html" target="_self">enum_Generazione_Lotto_Raccolta</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:222</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>GenMode</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_Generazione_Lotto_Raccolta" target="_self" >enum_Generazione_Lotto_Raccolta</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_impianti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_impianti</b></span>
+                        <a href="#_impianti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormArray</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;gridRipMan&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GridRaccoltaModel()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoRows</b></span>
+                        <a href="#kendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;APPEZ_COD&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="carichiAttivi"></a>
+                        <span class="name"><b>carichiAttivi</b><a href="#carichiAttivi"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>carichiAttivi()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:64</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lottiAttivi"></a>
+                        <span class="name"><b>lottiAttivi</b><a href="#lottiAttivi"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>lottiAttivi()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/componenti/prodotti/sezioni/raccolta/ripartizione-manuale/grid-ripartizione-manuale/grid-ripartizione-manuale.service.ts:67</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, Injector} from &#x27;@angular/core&#x27;;
+import {FormArray, FormGroup} from &#x27;@angular/forms&#x27;;
+import {
+    CommandsColumnSettings,
+    ExcelSettings,
+    PaginationSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import {
+    EditingMode,
+    KendoGridColumn,
+    KendoServerResult,
+    LoaderType
+} from &#x27;gias-kendo-grid&#x27;;
+import {AbstractGridConfigService, HttpAction} from &#x27;gias-kendo-grid&#x27;;
+import {filter, map, Observable, of, switchMap, takeUntil, tap} from &#x27;rxjs&#x27;;
+import {GridRaccoltaModel, GridRaccoltaObject} from &#x27;../../raccolta.model&#x27;;
+import {
+  GridImpiantoSelezionatoModel
+} from &#x27;../../../../../../quaderno-di-campagna-form/quaderno-di-campagna-form.model&#x27;;
+import {QdCRaccoltaService} from &#x27;../../../../../../service/prodotti/raccolta.service&#x27;;
+import {QdCService} from &#x27;../../../../../../service/qdc.service&#x27;;
+import {DettaglioRaccolta} from &#x27;app/Model/attivita/dettagli/DettaglioRaccolta&#x27;;
+import {RaccoltaDataShareService} from &#x27;../../data-share.service&#x27;;
+import {QuantitaSuImpianto} from &#x27;app/Model/attivita/dettagli/QuantitaSuImpianto&#x27;;
+import {enum_Generazione_Lotto_Raccolta} from &#x27;../../opzioni-raccolta/opzioni-raccolta.model&#x27;;
+import {GiasMessageService} from &quot;../../../../../../../../Service/gias-message.service&quot;;
+import {CellCloseEvent} from &quot;@progress/kendo-angular-grid&quot;;
+
+
+export class GridRipManualeServerResult extends KendoServerResult {
+  constructor(model, columns, rows) {
+    super(model, columns, rows);
+  }
+}
+
+@Injectable({providedIn: &#x27;root&#x27;})
+export class GridRipManualeConfigService extends AbstractGridConfigService&lt;GridRipManualeServerResult&gt; {
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &#x27;APPEZ_COD&#x27;;
+  gridId &#x3D; &#x27;gridRipMan&#x27;;
+
+  private _impianti: FormArray;
+  //private floatRegex &#x3D; /[+-]?([0-9]*[.])?[0-9]+/;
+
+  private kendoRows &#x3D; [];
+  private kendoModel &#x3D; new GridRaccoltaModel();
+  private kendoColumns: KendoGridColumn[] &#x3D; [];
+
+  constructor(
+    injector: Injector,
+    private qdcservice: QdCService,
+    private raccoltaService: QdCRaccoltaService,
+    private dataShare: RaccoltaDataShareService,
+    private message: GiasMessageService,
+  ) {
+    super(injector);
+    this.handleCustomizatons();
+    this.handleEvents();
+  }
+
+  // GETTERS &amp; SHORT UTILS
+
+  private get carichiAttivi(): boolean {
+    return this.raccoltaService.Raccolta_Con_Carico_Magazzino;
+  }
+  private get lottiAttivi(): boolean {
+    return this.raccoltaService.lottiAttivi;
+  }
+
+  // GRID LOAD FUNCTIONS
+
+  read(options?: any): Observable&lt;GridRipManualeServerResult&gt; {
+    this.kendoRows &#x3D; this.loadAppezzamenti();
+    this.kendoColumns &#x3D; this.dataShare.gridColumns;
+    this.enableColumns();
+    this.onProductSelected();
+    this.updateLotto(this.kendoRows[0], true);
+    return of(new GridRipManualeServerResult(
+      this.kendoModel, this.kendoColumns, this.kendoRows
+    ));
+  }
+
+  perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+    return null;
+  }
+
+  private refresh() {
+    const grid &#x3D; new GridRipManualeServerResult(this.kendoModel, this.kendoColumns, this.kendoRows);
+    this.gridPublicService.refresh(true, grid);
+  }
+
+  // GRID MANAGEMENT
+
+  private handleCustomizatons() {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      infoBtn: false,
+      removeBtn: false,
+    });
+    this.groups.groupable.enabled &#x3D; false;
+    this.behavior.excelSettings &#x3D; new ExcelSettings({enabled: false});
+    this.views.enabled &#x3D; false;
+    this.pagination &#x3D; this.handlePagination();
+
+    this.raccoltaService.loadEndEvent.pipe(takeUntil(this.signal))
+      .subscribe(end &#x3D;&gt; this.afterLoadComplete(end));
+  }
+
+  private afterLoadComplete(end): void {
+    if (!end) return;
+    if (!this.kendoColumns.length) {
+      this.kendoColumns &#x3D; this.dataShare.gridColumns;
+    }
+
+    const lottoCol &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;);
+    const progCodCol &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Progetto_Cod&#x27;);
+    const progDesCol &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Progetto_Des&#x27;);
+
+    progDesCol.hidden &#x3D; !this.lottiAttivi || !this.raccoltaService.isLottoFromProg;
+    progCodCol.hidden &#x3D; !this.lottiAttivi || !this.raccoltaService.isLottoFromProg;
+    lottoCol.hidden &#x3D; !this.lottiAttivi;
+    lottoCol.editable &#x3D; this.raccoltaService.isLottoManuale || this.raccoltaService.isLottoFromProg;
+  }
+
+  private handlePagination() {
+    const result &#x3D; new PaginationSettings();
+    result.gridState &#x3D; {sort: [], skip: 0, take: 10};
+    result.pageable &#x3D; true;
+    result.navigable &#x3D; true;
+    return result;
+  }
+
+  private enableColumns() {
+    this.kendoColumns.forEach(col &#x3D;&gt; col.editable &#x3D; false);
+    this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Qta&#x27;).editable &#x3D; this.qdcservice.abilitaGrid;
+    this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;).editable &#x3D; this.raccoltaService.isLottoManuale;
+  }
+
+  // EVENTS
+
+  private handleEvents() {
+    this.impiantiSelectionChange();
+    this.handleLottoGenModeChange();
+    this.handleInlineEdit();
+    this.onStorageSelected();
+  }
+
+  private handleInlineEdit() {
+    let orig;
+    this.gridPublicService.formGroup.pipe(
+      takeUntil(this.signal),
+      filter(fg &#x3D;&gt; !!fg),
+      tap(fg &#x3D;&gt; orig &#x3D; fg.value),
+      switchMap(fg &#x3D;&gt; fg.valueChanges)
+    ).subscribe(val &#x3D;&gt; this.raccoltaService.startEditing());
+
+    this.onCellClose &#x3D; (event: CellCloseEvent) &#x3D;&gt; {
+      this.calculateTotal();
+      this.updateQuantitaSuImpianti();
+      this.updateLotto(event.formGroup.value, event.formGroup.value.Lotto !&#x3D;&#x3D; orig.Lotto);
+      this.raccoltaService.stopEditing();
+    };
+    this.preventEdit &#x3D; (dataItem, column) &#x3D;&gt; {
+      if (column.field &#x3D;&#x3D;&#x3D; &quot;Lotto&quot; &amp;&amp; dataItem.Qta &lt;&#x3D; 0) {
+        this.message.warningMessage(&#x27;ImpossibileAssegnareLottoQtaNulla&#x27;, false, true);
+        return true;
+      }
+      return false;
+    };
+  }
+
+  private onStorageSelected() {
+    this.dataShare.formRipartizione.pipe(
+      takeUntil(this.signal),
+      filter(form &#x3D;&gt; !!form),
+      switchMap(form &#x3D;&gt; form.get(&quot;Magazzino&quot;).valueChanges)
+    ).subscribe(storage &#x3D;&gt; {
+      // Visibilità lotto e codice esercizio gestite in this.enableLottoEdit
+      // e nella funzione handleVisibility del component
+      this.kendoRows.forEach(r &#x3D;&gt; this.loadQtaLottoFromSection(r));
+    });
+  }
+
+  private handleLottoGenModeChange() {
+    const options &#x3D; this.raccoltaService.sezione_prodotto
+      .get(&quot;Opzioni_Raccolta&quot;) as FormGroup;
+    options.get(&quot;GenerazioneLotto&quot;).valueChanges.pipe(takeUntil(this.signal))
+      .subscribe(GenMode &#x3D;&gt; {
+        this.enableLottoEdit(GenMode);
+        this.valorizeLotto(GenMode);
+      });
+  }
+
+  private enableLottoEdit(genType: enum_Generazione_Lotto_Raccolta): void {
+    if (!this.lottiAttivi) {
+      this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;).hidden &#x3D; true;
+      this.hideEsercizioCol(true);
+      return;
+    }
+
+    if (genType &#x3D;&#x3D;&#x3D; enum_Generazione_Lotto_Raccolta.DA_PROGETTO_COD) {
+      this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;).editable &#x3D; true;
+      this.hideEsercizioCol(false);
+      if (!this.dataShare.Magazzino || this.dataShare.Magazzino.primaryKey.codice &#x3D;&#x3D;&#x3D; 0) {
+        this.hideEsercizioCol(true);
+      }
+    } else if (genType &#x3D;&#x3D;&#x3D; enum_Generazione_Lotto_Raccolta.MANUALE) {
+      this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;).editable &#x3D; true;
+      this.hideEsercizioCol(true);
+    } else if (genType &#x3D;&#x3D;&#x3D; enum_Generazione_Lotto_Raccolta.DA_DATA || genType &#x3D;&#x3D;&#x3D; enum_Generazione_Lotto_Raccolta.UNIVOCO) {
+      this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Lotto&#x27;).editable &#x3D; false;
+      this.hideEsercizioCol(true);
+    }
+  }
+
+  private hideEsercizioCol(show: boolean) {
+    this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Progetto_Cod&#x27;).hidden &#x3D; show;
+    this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Progetto_Des&#x27;).hidden &#x3D; show;
+  }
+
+  private valorizeLotto(GenMode: enum_Generazione_Lotto_Raccolta): void {
+    if (this.raccoltaService.isLottoEditable(GenMode)) {
+      let prodotto &#x3D; this.dataShare.Prodotto?.value;
+      if (!prodotto) return;
+      this.kendoRows.forEach(r &#x3D;&gt; r.Lotto &#x3D; prodotto.QuantitaSuImpianti[0].Lotto);
+      return;
+    }
+    this.kendoRows.forEach(r &#x3D;&gt; r.Lotto &#x3D; this.transloco.translate(&#x27;GeneratoAutomaticamente&#x27;));
+  }
+
+  // FIELDS MANAGEMENT
+
+  /** Sorts the fields based on their project code.
+   * @return 1 if b should be shown after a, -1 if a should be shown after b, 0 if the order is not significant.
+   */
+  private compareGridImpianto(a: GridImpiantoSelezionatoModel, b: GridImpiantoSelezionatoModel): number {
+    let res &#x3D; a.App_Nome.localeCompare(b.App_Nome);
+    if (res !&#x3D;&#x3D; 0) return res;
+
+    res &#x3D; a.Cul_Des.localeCompare(b.Cul_Des);
+    if (res !&#x3D;&#x3D; 0) return res;
+
+    if (a.Progetto_Cod &lt; b.Progetto_Cod) return 1;
+    if (a.Progetto_Cod &gt; b.Progetto_Cod) return -1;
+    return 0;
+  }
+
+  private impiantiSelectionChange() {
+    this._impianti &#x3D; &lt;FormArray&gt;this.qdcservice.QdCForm
+      .get(&#x27;Trattamento&#x27;).get(&#x27;Impianti&#x27;).get(&quot;ImpiantiSelezionati&quot;);
+    this.qdcservice.SelezioneEsercizi.pipe(
+      takeUntil(this.signal),
+      filter(es &#x3D;&gt; !!es &amp;&amp; !!this.dataShare.Prodotto),
+      map(es &#x3D;&gt; es.value)
+    ).subscribe(esercizi &#x3D;&gt; {
+      this.removeUnselected(esercizi);
+      this.addSelected(esercizi);
+      this.calculateTotal();
+      this.updateQuantitaSuImpianti();
+      this.refresh();
+    });
+  }
+
+  /* Rimuove l&#x27;esercizio dalle righe della griglia e dala lista di
+   * QuantitaSuImpianti riferita al prodotto corrente.
+   */
+  private removeUnselected(selected) {
+    let unselected &#x3D; this.kendoRows.filter(row &#x3D;&gt;
+      !selected.find(s &#x3D;&gt; s.Progetto_Cod &#x3D;&#x3D;&#x3D; row.Progetto_Cod)
+    );
+
+    let prodotto &#x3D; this.dataShare.Prodotto.value as DettaglioRaccolta;
+    let QsI &#x3D; prodotto.QuantitaSuImpianti;
+
+    for (let item of unselected) {
+      let index &#x3D; this.kendoRows.findIndex(row &#x3D;&gt;
+        row.Progetto_Cod &#x3D;&#x3D;&#x3D; item.Progetto_Cod
+      );
+      this.kendoRows.splice(index, 1);
+
+      index &#x3D; QsI.findIndex(q &#x3D;&gt;
+        q.esercizioCDC.esercizio.codice &#x3D;&#x3D;&#x3D; item.Progetto_Cod
+      );
+      QsI.splice(index, 1);
+    }
+
+    this.dataShare.Prodotto.patchValue(prodotto);
+    this.raccoltaService.updateFastHarvestTemplate([], unselected);
+  }
+
+  /** Aggiunge l&#x27;esercizio selezionato alle righe della griglia.
+   * L&#x27;esercizio non viene automaticamente registrato nel modello del
+   * prodotto, è necessario richiamare la funzione updateQuantitaSuImpianti()
+   */
+  private addSelected(selected) {
+    let newRows &#x3D; selected.filter(r &#x3D;&gt;
+      !this.kendoRows.find(row &#x3D;&gt; row.Progetto_Cod &#x3D;&#x3D;&#x3D; r.Progetto_Cod)
+    );
+    newRows.forEach(row &#x3D;&gt; this.kendoRows.push(this.evalObjRaccolta(row)));
+    this.raccoltaService.updateFastHarvestTemplate(
+      newRows.map((row: GridImpiantoSelezionatoModel) &#x3D;&gt; row.Progetto_Cod),
+      []
+    );
+  }
+
+  // UPDATE
+
+  private updateQuantitaSuImpianti() {
+    let prodotto &#x3D; this.dataShare.Prodotto.value as DettaglioRaccolta;
+    let QsI &#x3D; prodotto.QuantitaSuImpianti;
+    let magazzino &#x3D; this.dataShare.Magazzino;
+    for (let row of this.kendoRows) {
+      let q &#x3D; QsI.find(c &#x3D;&gt; c.esercizioCDC.esercizio.codice &#x3D;&#x3D;&#x3D; row.Progetto_Cod);
+      if (!q) {
+        const CDC &#x3D; this.qdcservice.GetEserciziCDCSelezionatiModel()
+          .find(cdc &#x3D;&gt; cdc.esercizio.codice &#x3D;&#x3D;&#x3D; row.Progetto_Cod);
+        q &#x3D; new QuantitaSuImpianto();
+        q.Qta &#x3D; 0;
+        q.esercizioCDC &#x3D; CDC;
+        QsI.push(q);
+      }
+      q.Magazzino &#x3D; magazzino;
+      q.Qta &#x3D; parseFloat(row.Qta) || 0;
+    }
+    this.dataShare.Prodotto.patchValue(prodotto);
+  }
+
+  private updateLotto(ch: GridRaccoltaObject, force: boolean &#x3D; false) {
+    if (this.carichiAttivi || force) {
+      let control &#x3D; this.dataShare.Prodotto;
+      let prodotto &#x3D; control.value;
+      let lotto &#x3D; ch.Lotto.trim();
+      if (!lotto &amp;&amp; !force) {
+        lotto &#x3D; prodotto.QuantitaSuImpianti.map(q &#x3D;&gt; q.Lotto).find(l &#x3D;&gt; l) ?? &quot;&quot;;
+      }
+      this.kendoRows.forEach(r &#x3D;&gt; r.Lotto &#x3D; (+r.Qta) ? lotto : &quot;&quot;);
+      prodotto.QuantitaSuImpianti.forEach(q &#x3D;&gt; q.Lotto &#x3D; q.Qta ? lotto : &#x27;&#x27;);
+      control.patchValue(prodotto);
+    }
+  }
+
+  private calculateTotal() {
+    let Qta_Tot &#x3D; 0;
+    if (this.kendoRows.length) {
+      Qta_Tot &#x3D; this.kendoRows.map(row &#x3D;&gt; parseFloat(row.Qta))
+        .reduce((q1, q2) &#x3D;&gt; q1 + q2);
+    }
+    this.dataShare.formRipartizione.value
+      .get(&#x27;Qta_Tot&#x27;).patchValue(Qta_Tot);
+  }
+
+  private onProductSelected() {
+    this.kendoColumns.find(c &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &#x27;Qta&#x27;).hidden &#x3D; this.dataShare.Prodotto.value.prodotto.codice &#x3D;&#x3D;&#x3D; 0;
+    this.dataShare.Prodotto.valueChanges
+      .pipe(takeUntil(this.signal))
+      .subscribe((dettaglio) &#x3D;&gt; {
+        this.kendoColumns.find(c &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &#x27;Qta&#x27;).hidden &#x3D; !dettaglio.prodotto?.codice;
+        if (!dettaglio.prodotto?.codice) {
+          this.kendoRows.forEach(r &#x3D;&gt; r.Qta &#x3D; 0);
+        }
+      });
+  }
+
+  // LOAD
+
+  /** Reads the selected fields and creates the grid&#x27;s rows accordingly.
+   *
+   */
+  private loadAppezzamenti(): GridRaccoltaObject[] {
+    this.qdcservice.GridImpiantiHttpService.impiantiLoaded$
+      .pipe(takeUntil(this.signal)).subscribe(() &#x3D;&gt; this.refresh());
+    let impianti &#x3D; this._impianti.value as GridImpiantoSelezionatoModel[];
+    impianti &#x3D; impianti.sort((a, b) &#x3D;&gt; this.compareGridImpianto(a, b));
+    return impianti.map(i &#x3D;&gt; this.evalObjRaccolta(i));
+  }
+
+  /** Map the specified field into a grid item used to model the grid rows. */
+  private evalObjRaccolta(impianto: GridImpiantoSelezionatoModel): GridRaccoltaObject {
+    const obj &#x3D; new GridRaccoltaObject();
+    const specie &#x3D; this.qdcservice.GetSpeciefromUtilizzoTerreno();
+    obj.Specie_Cod &#x3D; specie.codice;
+    obj.Specie_Des &#x3D; specie.descrizione;
+    obj.Progetto_Cod &#x3D; impianto.Progetto_Cod;
+    obj.Progetto_Des &#x3D; impianto.Progetto_Des || impianto.App_Nome;
+    obj.ID_Reg &#x3D; impianto.ID_REG;
+    obj.APPEZ_Des &#x3D; impianto.App_Nome;
+    obj.APPEZ_Cod &#x3D; impianto.APPEZZA;
+    obj.Cul_Cod &#x3D; impianto.CUL_COD;
+    obj.Cul_Des &#x3D; impianto.Cul_Des;
+    obj.Sup &#x3D; impianto.Sup_Imp_help;
+    this.loadQtaLottoFromSection(obj);
+    return obj;
+  }
+
+  private loadQtaLottoFromSection(rigaRaccoltaImpianto: GridRaccoltaObject) {
+    let quantitaSuImpianto: QuantitaSuImpianto &#x3D; this.dataShare.Prodotto.value.QuantitaSuImpianti
+      .find(q &#x3D;&gt; q.esercizioCDC.esercizio.codice &#x3D;&#x3D;&#x3D; rigaRaccoltaImpianto.Progetto_Cod);
+    if (
+      quantitaSuImpianto &amp;&amp; quantitaSuImpianto.esercizioCDC?.esercizio
+      &amp;&amp; !quantitaSuImpianto.esercizioCDC.esercizio.descrizione
+    ) {
+      quantitaSuImpianto.esercizioCDC.esercizio.descrizione &#x3D; rigaRaccoltaImpianto.Progetto_Des || rigaRaccoltaImpianto.APPEZ_Des;
+    }
+    rigaRaccoltaImpianto.Qta &#x3D; !!quantitaSuImpianto ? quantitaSuImpianto.Qta : 0;
+    rigaRaccoltaImpianto.Lotto &#x3D; this.dataShare.Prodotto.value.MagazziniMovimentazioni?.at(0)?.Lotto;
+    if (!rigaRaccoltaImpianto.Lotto) {
+      if (this.raccoltaService.isLottoEditable()) rigaRaccoltaImpianto.Lotto &#x3D; &#x27;&#x27;;
+      else rigaRaccoltaImpianto.Lotto &#x3D; this.transloco.translate(&quot;GeneratoAutomaticamente&quot;);
+    }
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridRipManualeConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

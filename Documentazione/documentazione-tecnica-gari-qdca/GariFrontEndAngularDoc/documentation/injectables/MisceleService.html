@@ -1,0 +1,3411 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MisceleService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#acqua_ha_change" >acqua_ha_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#Acqua_Prodotti_change" >Acqua_Prodotti_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#acqua_tot_change" >acqua_tot_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calcola_dose_ha_hl_da_dose_tot" >calcola_dose_ha_hl_da_dose_tot</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calcola_dose_ha_tot_ha_da_dose_hl" >calcola_dose_ha_tot_ha_da_dose_hl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calcola_dose_hl_tot_ha_da_dose_ha" >calcola_dose_hl_tot_ha_da_dose_ha</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#calcoloMiscele" >calcoloMiscele</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateAcquaHa" >calculateAcquaHa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateAcquaTot" >calculateAcquaTot</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateDoseHa" >calculateDoseHa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateDoseHl" >calculateDoseHl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#calculateQtaTotale" >calculateQtaTotale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#changeDoseHa" >changeDoseHa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#changeDoseHl" >changeDoseHl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#changeDoseTotHa" >changeDoseTotHa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dose_ha_change" >dose_ha_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dose_hl_change" >dose_hl_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#dose_tot_ha_change" >dose_tot_ha_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSupTrattata" >getSupTrattata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#QtaTotDist_fissa" >QtaTotDist_fissa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sup_calcolata_change" >sup_calcolata_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sup_trattata_change" >sup_trattata_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#SupTrattata_Ha_Prodotti_change" >SupTrattata_Ha_Prodotti_change</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#supTrattataHa_DoseHa_fissa" >supTrattataHa_DoseHa_fissa</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#supTrattataHa_DoseHl_fissa" >supTrattataHa_DoseHl_fissa</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(funzionicomuniservice: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>, qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:18</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>funzionicomuniservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="acqua_ha_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>acqua_ha_change</b></span>
+                        <a href="#acqua_ha_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>acqua_ha_change(QdCForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="177"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:177</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Acqua_Prodotti_change"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>Acqua_Prodotti_change</b></span>
+                        <a href="#Acqua_Prodotti_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>Acqua_Prodotti_change(QdCForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="635"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:635</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="acqua_tot_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>acqua_tot_change</b></span>
+                        <a href="#acqua_tot_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>acqua_tot_change(QdCForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="226"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:226</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcola_dose_ha_hl_da_dose_tot"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calcola_dose_ha_hl_da_dose_tot</b></span>
+                        <a href="#calcola_dose_ha_hl_da_dose_tot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcola_dose_ha_hl_da_dose_tot(Dose_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Dose_Hl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Sup_Trattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, flag_acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Acqua_Tot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, DoseTot_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Operazione: <a href="../interfaces/Lavorazione.html" target="_self">Lavorazione</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="405"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:405</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Dose_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Dose_Hl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Trattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flag_acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Acqua_Tot</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DoseTot_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Operazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Lavorazione.html" target="_self" >Lavorazione</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Obj_Dose_Ha_Hl.html" target="_self" >Obj_Dose_Ha_Hl</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcola_dose_ha_tot_ha_da_dose_hl"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calcola_dose_ha_tot_ha_da_dose_hl</b></span>
+                        <a href="#calcola_dose_ha_tot_ha_da_dose_hl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcola_dose_ha_tot_ha_da_dose_hl(Dose_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, DoseTot_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Dose_Hl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Sup_Trattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, flag_acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Acqua_Tot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="350"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:350</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Dose_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DoseTot_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Dose_Hl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Trattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flag_acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Acqua_Tot</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Obj_Dose_Ha_Tot.html" target="_self" >Obj_Dose_Ha_Tot</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcola_dose_hl_tot_ha_da_dose_ha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calcola_dose_hl_tot_ha_da_dose_ha</b></span>
+                        <a href="#calcola_dose_hl_tot_ha_da_dose_ha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcola_dose_hl_tot_ha_da_dose_ha(Dose_Hl: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, DoseTot_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Dose_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Sup_Trattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, flag_acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Acqua_Tot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Operazione: <a href="../interfaces/Lavorazione.html" target="_self">Lavorazione</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="306"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:306</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Dose_Hl</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>DoseTot_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Dose_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Trattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flag_acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Acqua_Tot</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Operazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Lavorazione.html" target="_self" >Lavorazione</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Obj_Dose_Hl_Tot.html" target="_self" >Obj_Dose_Hl_Tot</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calcoloMiscele"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>calcoloMiscele</b></span>
+                        <a href="#calcoloMiscele"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calcoloMiscele(campo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, sezione_prodottoForm: FormGroup, Sup_Calcolata_per_Frazionamento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, new_value?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="25"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>campo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>sezione_prodottoForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Calcolata_per_Frazionamento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_value</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateAcquaHa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateAcquaHa</b></span>
+                        <a href="#calculateAcquaHa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateAcquaHa(Acqua_Tot: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Sup_Trattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="527"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:527</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Acqua_Tot</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Trattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateAcquaTot"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateAcquaTot</b></span>
+                        <a href="#calculateAcquaTot"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateAcquaTot(Sup_Trattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Acqua_Ha: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="523"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:523</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Sup_Trattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Acqua_Ha</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateDoseHa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateDoseHa</b></span>
+                        <a href="#calculateDoseHa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateDoseHa(qtaTotale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, supTrattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>qtaTotale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>supTrattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateDoseHl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateDoseHl</b></span>
+                        <a href="#calculateDoseHl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateDoseHl(qtaTotale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, acquaTotale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="541"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:541</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>qtaTotale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>acquaTotale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="calculateQtaTotale"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>calculateQtaTotale</b></span>
+                        <a href="#calculateQtaTotale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>calculateQtaTotale(acquaTotale_DoseHa: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, doseHl_supTrattata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="531"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:531</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>acquaTotale_DoseHa</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>doseHl_supTrattata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeDoseHa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>changeDoseHa</b></span>
+                        <a href="#changeDoseHa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeDoseHa(element: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="474"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:474</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>element</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeDoseHl"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>changeDoseHl</b></span>
+                        <a href="#changeDoseHl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeDoseHl(element: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="487"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:487</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>element</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="changeDoseTotHa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>changeDoseTotHa</b></span>
+                        <a href="#changeDoseTotHa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>changeDoseTotHa(element: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="500"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:500</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>element</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dose_ha_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dose_ha_change</b></span>
+                        <a href="#dose_ha_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dose_ha_change(QdCForm: FormGroup, Form: FormGroup, acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Opzione_Semina: <a href="../interfaces/BaseCodeDescr.html" target="_self">BaseCodeDescr</a>, Sup_Calcolata_per_Frazionamento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="275"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:275</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Opzione_Semina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BaseCodeDescr.html" target="_self" >BaseCodeDescr</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Calcolata_per_Frazionamento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dose_hl_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dose_hl_change</b></span>
+                        <a href="#dose_hl_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dose_hl_change(QdCForm: FormGroup, Form: FormGroup, acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="332"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:332</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dose_tot_ha_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>dose_tot_ha_change</b></span>
+                        <a href="#dose_tot_ha_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dose_tot_ha_change(QdCForm: FormGroup, Form: FormGroup, acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Opzione_Semina: <a href="../interfaces/BaseCodeDescr.html" target="_self">BaseCodeDescr</a>, Sup_Calcolata_per_Frazionamento: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="372"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:372</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Opzione_Semina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BaseCodeDescr.html" target="_self" >BaseCodeDescr</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Sup_Calcolata_per_Frazionamento</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSupTrattata"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getSupTrattata</b></span>
+                        <a href="#getSupTrattata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSupTrattata(new_sup: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, QdCForm: FormGroup<any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="694"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:694</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QtaTotDist_fissa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>QtaTotDist_fissa</b></span>
+                        <a href="#QtaTotDist_fissa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>QtaTotDist_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="616"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:616</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fc</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sup_calcolata_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sup_calcolata_change</b></span>
+                        <a href="#sup_calcolata_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sup_calcolata_change(Form: FormGroup, _SupCalcolata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="442"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:442</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Form</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>_SupCalcolata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sup_trattata_change"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sup_trattata_change</b></span>
+                        <a href="#sup_trattata_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sup_trattata_change(QdCForm: FormGroup, acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="51"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SupTrattata_Ha_Prodotti_change"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>SupTrattata_Ha_Prodotti_change</b></span>
+                        <a href="#SupTrattata_Ha_Prodotti_change"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>SupTrattata_Ha_Prodotti_change(QdCForm: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="549"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:549</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supTrattataHa_DoseHa_fissa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>supTrattataHa_DoseHa_fissa</b></span>
+                        <a href="#supTrattataHa_DoseHa_fissa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supTrattataHa_DoseHa_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="596"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:596</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fc</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supTrattataHa_DoseHl_fissa"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>supTrattataHa_DoseHl_fissa</b></span>
+                        <a href="#supTrattataHa_DoseHl_fissa"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>supTrattataHa_DoseHl_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="578"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/miscele.service.ts:578</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>QdCForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>fc</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>new_sup</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &quot;@angular/core&quot;;
+import { FormArray, FormGroup} from &#x27;@angular/forms&#x27;;
+import { DoseAcqua } from &quot;app/Model/attivita/risorse/RisorsaAcqua&quot;;
+import { BaseCodeDescr } from &quot;app/Model/baseClass/baseCodeDescr&quot;;
+import { SEMENTI } from &quot;app/Model/CostantiPersonalizzate&quot;;
+import { enum_doseQuantitaTotale, enum_SEMINA_TIPO, enum_TipoMezzo } from &quot;app/Model/TipiEnumerativi&quot;;
+import { FunzioniComuniService } from &quot;app/Service/FunzioniComuni.service&quot;;
+import {QdCService} from &quot;./qdc.service&quot;;
+import {Lavorazione} from &quot;../../../Model/attivita/Lavorazione&quot;;
+import {
+    Obj_Dose_Ha_Hl,
+    Obj_Dose_Ha_Tot,
+    Obj_Dose_Hl_Tot
+} from &quot;../quaderno-di-campagna-form/quaderno-di-campagna-form.model&quot;;
+import { Tipo } from &quot;app/Model/attivita/centri_di_costo/CentroDiCosto&quot;;
+
+@Injectable()
+export class MisceleService {
+
+    constructor(
+        private funzionicomuniservice: FunzioniComuniService,
+        private qdcservice: QdCService
+    ) {  }
+
+    public calcoloMiscele(campo: string, sezione_prodottoForm: FormGroup, Sup_Calcolata_per_Frazionamento: number, new_value?: number) {
+
+        //Verifico se è un&#x27;Operazione o multi Operazioni con Acqua
+        let acqua: boolean &#x3D; this.qdcservice.mostraAcqua();
+
+        let Opzione_Semina: BaseCodeDescr &#x3D; null;
+
+        if(sezione_prodottoForm){
+            let Operazione &#x3D; sezione_prodottoForm.get(&quot;Operazione&quot;).value;
+            Opzione_Semina &#x3D; this.qdcservice.getOpzione_Semina_Model(Operazione);
+        }
+
+        switch (campo) {
+            case&#x27;Sup_Trattata&#x27; : return this.sup_trattata_change(this.qdcservice.QdCForm, acqua, new_value);
+            case&#x27;changeDose_Ha&#x27; : return this.dose_ha_change(this.qdcservice.QdCForm, sezione_prodottoForm, acqua, Opzione_Semina, Sup_Calcolata_per_Frazionamento)
+            case&#x27;changeDose_Hl&#x27; : return this.dose_hl_change(this.qdcservice.QdCForm, sezione_prodottoForm, acqua)
+            case&#x27;changeDoseTot_Ha&#x27; : return this.dose_tot_ha_change(this.qdcservice.QdCForm, sezione_prodottoForm, acqua, Opzione_Semina, Sup_Calcolata_per_Frazionamento)
+            case&#x27;changeAcqua_Ha&#x27; : return this.acqua_ha_change(this.qdcservice.QdCForm);
+            case&#x27;changeAcqua_Tot&#x27; : return this.acqua_tot_change(this.qdcservice.QdCForm);
+            //case&#x27;changeSup_Calcolata&#x27; : return this.misceleservice.sup_calcolata_change(this.QdCForm)
+        }
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------------------------
+
+    public sup_trattata_change(QdCForm: FormGroup, acqua: boolean, new_sup?: number) {
+
+        const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, QdCForm);
+
+        // ---------------------------- ACQUA ----------------------------
+        if (acqua) {
+            if (QdCForm.get(&#x27;Trattamento.Acqua.Dose_Acqua&#x27;).value &#x3D;&#x3D; DoseAcqua.TOTALE) {
+                const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+                if (Sup_Trattata &#x3D;&#x3D; 0) {
+                    QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+                        Acqua_Ha: 0
+                    });
+                } else {
+                    QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+                        Acqua_Ha: this.calculateAcquaHa(Acqua_Tot, Sup_Trattata)
+                    });
+                }
+            } else {
+                const Acqua_Ha &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Ha&#x27;];
+                if (Sup_Trattata &#x3D;&#x3D; 0) {
+                    QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+                        Acqua_Tot: 0
+                    });
+                } else {
+                    QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+                        Acqua_Tot: this.calculateAcquaTot(Sup_Trattata, Acqua_Ha)
+                    });
+                }
+            }
+        }
+
+        // ---------------------------- DOSI ----------------------------
+        //Cambio i Dosaggi dei Prodotti che non sono ancora stati salvati
+        if (QdCForm.get(&#x27;Trattamento.Sezioni_Prodotto&#x27;) &amp;&amp; QdCForm.get(&#x27;Trattamento.Sezioni_Prodotto&#x27;).value.length &gt; 0) {
+
+            const fa_SezioniProdotto &#x3D; (QdCForm.controls[&#x27;Trattamento&#x27;] as FormGroup).controls[&#x27;Sezioni_Prodotto&#x27;] as FormArray;
+
+            if (QdCForm.get(&#x27;Trattamento.Acqua.Dose_Acqua&#x27;).value &#x3D;&#x3D; DoseAcqua.HA) {
+                // AcquaHa fissa
+                if(acqua){
+                    fa_SezioniProdotto.controls.forEach((element: FormGroup, index) &#x3D;&gt; {
+
+                        if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+                            if (element.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                                // DoseTotaleHa fissa
+                                this.changeDoseHl(element);
+                                this.changeDoseHa(element, new_sup);
+                            } else {
+                                // if (element.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                //     // DoseHl fissa
+                                //     this.changeDoseTotHa(element, new_sup);
+                                // } else {
+                                //     // DoseHa fissa
+                                //     this.changeDoseTotHa(element, new_sup);
+                                // }
+                              this.changeDoseTotHa(element, new_sup);
+                            }
+                        }else{
+                            (element.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+                                if(fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; false){
+                                    if (fc.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                                        // DoseTotaleHa fissa
+                                        this.changeDoseHl(fc);
+                                        this.changeDoseHa(fc, new_sup);
+                                    } else {
+                                        // if (fc.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                        //     // DoseHl fissa
+                                        //     this.changeDoseTotHa(fc, new_sup);
+                                        // } else {
+                                        //     // DoseHa fissa
+                                        //     this.changeDoseTotHa(fc, new_sup);
+                                        // }
+                                      this.changeDoseTotHa(fc, new_sup);
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            } else {
+                // AcquaTot fissa
+                if (acqua) {
+                    fa_SezioniProdotto.controls.forEach((element: FormGroup, index) &#x3D;&gt; {
+
+                        if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+                            if (element.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                                // DoseTotaleHa fissa
+                                this.changeDoseHa(element, new_sup);
+                            } else {
+                                if (element.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                    // DoseHl fissa
+                                    this.changeDoseHa(element, new_sup);
+                                } else {
+                                    // DoseHa fissa
+                                    this.changeDoseTotHa(element, new_sup);
+                                    this.changeDoseHl(element);
+                                }
+                            }
+                        }else{
+                            (element.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+
+                                if(fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; false){
+                                    if (fc.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                                        // DoseTotaleHa fissa
+                                        this.changeDoseHa(fc, new_sup);
+                                    } else {
+                                        if (fc.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                            // DoseHl fissa
+                                            this.changeDoseHa(fc, new_sup);
+                                        } else {
+                                            // DoseHa fissa
+                                            this.changeDoseTotHa(fc, new_sup);
+                                            this.changeDoseHl(fc);
+                                        }
+                                    }
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+
+            this.SupTrattata_Ha_Prodotti_change(QdCForm,  new_sup);
+        }
+    }
+
+    public acqua_ha_change(QdCForm: FormGroup) {
+        const Acqua_Ha &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Ha&#x27;];
+        const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+        const fa_SezioniProdotto &#x3D; (QdCForm.controls[&#x27;Trattamento&#x27;] as FormGroup).controls[&#x27;Sezioni_Prodotto&#x27;] as FormArray;
+
+        QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+            Dose_Acqua: DoseAcqua.HA,
+            Acqua_Tot: this.calculateAcquaTot(Sup_Trattata, Acqua_Ha)
+        });
+
+        //Cambio i Dosaggi dei Prodotti che non sono ancora stati salvati
+        if (QdCForm.get(&#x27;Trattamento.Sezioni_Prodotto&#x27;) !&#x3D; undefined) {
+            const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+            fa_SezioniProdotto.controls.forEach((element: FormGroup, index) &#x3D;&gt; {
+
+                if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+                    if (element.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                        //------------------------------------------------------------------------------------------------------------------
+                        const Dose_Hl &#x3D; element.getRawValue().Dose_Hl;
+                        element.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Acqua_Tot, Dose_Hl), {emitEvent: false});
+                        //------------------------------------------------------------------------------------------------------------------
+                        this.changeDoseHa(element);
+                    } else {
+                        this.changeDoseHl(element);
+                    }
+                }else{
+                    (element.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+                        if(fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; false){
+
+                            if (fc.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                //------------------------------------------------------------------------------------------------------------------
+                                const Dose_Hl &#x3D; fc.getRawValue().Dose_Hl;
+                                fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Acqua_Tot, Dose_Hl), {emitEvent: false});
+                                //------------------------------------------------------------------------------------------------------------------
+                                this.changeDoseHa(fc);
+                            } else {
+                                this.changeDoseHl(fc);
+                            }
+                        }
+                    });
+                }
+
+            });
+        }
+
+        this.Acqua_Prodotti_change(QdCForm);
+    }
+
+    public acqua_tot_change(QdCForm: FormGroup) {
+        const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+        const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+        const fa_SezioniProdotto &#x3D; (QdCForm.controls[&#x27;Trattamento&#x27;] as FormGroup).controls[&#x27;Sezioni_Prodotto&#x27;] as FormArray;
+
+        QdCForm.get(&#x27;Trattamento.Acqua&#x27;).patchValue({
+            Dose_Acqua: DoseAcqua.TOTALE,
+            Acqua_Ha: this.calculateAcquaHa(Acqua_Tot, Sup_Trattata)
+        });
+
+        //Cambio i Dosaggi dei Prodotti che non sono ancora stati salvati
+        if (QdCForm.get(&#x27;Trattamento.Sezioni_Prodotto&#x27;) !&#x3D; undefined) {
+            fa_SezioniProdotto.controls.forEach((element: FormGroup, index) &#x3D;&gt; {
+
+                if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+                    if (element.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                        //------------------------------------------------------------------------------------------------------------------
+                        const Dose_Hl &#x3D; element.getRawValue().Dose_Hl;
+                        element.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Acqua_Tot, Dose_Hl), {emitEvent: false});
+                        //------------------------------------------------------------------------------------------------------------------
+                        this.changeDoseHa(element);
+                    } else {
+                        this.changeDoseHl(element);
+                    }
+                }else{
+                    (element.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+                       if(fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; false){
+                            if (fc.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                                //------------------------------------------------------------------------------------------------------------------
+                                const Dose_Hl &#x3D; fc.getRawValue().Dose_Hl;
+                                fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Acqua_Tot, Dose_Hl), {emitEvent: false});
+                                //------------------------------------------------------------------------------------------------------------------
+                                this.changeDoseHa(fc);
+                            } else {
+                                this.changeDoseHl(fc);
+                            }
+                        }
+                    });
+                }
+
+
+            });
+        }
+
+        this.Acqua_Prodotti_change(QdCForm);
+    }
+
+    //Questa funzione di change viene richiamata sia dal cambio della Dose Ha fuori dalla griglia sia dal cambio
+    //Dose Ha dentro la griglia
+    public dose_ha_change(QdCForm: FormGroup, Form: FormGroup, acqua: boolean, Opzione_Semina: BaseCodeDescr, Sup_Calcolata_per_Frazionamento: number) {
+
+        Form.controls[&#x27;flagDoseQuantitaTotale&#x27;].setValue(enum_doseQuantitaTotale.Dose, {emitEvent: false});
+        Form.controls[&#x27;flagTipoDose&#x27;].setValue(enum_TipoMezzo.Ettaro, {emitEvent: false});
+
+        if(
+            Form.get(&quot;Categoria_Magazzino&quot;).value &#x3D;&#x3D;&#x3D; SEMENTI &amp;&amp;
+            Opzione_Semina &amp;&amp;
+            Opzione_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default
+        ) {
+
+            this.sup_calcolata_change(Form,Sup_Calcolata_per_Frazionamento);
+
+        } else {
+
+            const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+            const Dose_Ha &#x3D; Form.getRawValue().Dose_Ha;
+            const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+            let obj_Dose_Hl_Tot &#x3D; this.calcola_dose_hl_tot_ha_da_dose_ha(Form.controls[&#x27;Dose_Hl&#x27;].value,Form.controls[&#x27;DoseTot_Ha&#x27;].value,
+                                                                                                        Dose_Ha, Sup_Trattata, acqua,Acqua_Tot, Form.controls[&#x27;Operazione&#x27;].value)
+
+            Form.controls[&#x27;DoseTot_Ha&#x27;].setValue(obj_Dose_Hl_Tot.DoseTot_Ha, {emitEvent: false});
+
+            Form.controls[&#x27;Dose_Hl&#x27;].setValue(obj_Dose_Hl_Tot.Dose_Hl, {emitEvent: false});
+
+            this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(Form.getRawValue().DosiProdottiGridrowId);
+        }
+
+    }
+
+    public calcola_dose_hl_tot_ha_da_dose_ha (Dose_Hl:number,DoseTot_Ha: number,Dose_Ha: number,Sup_Trattata: number, flag_acqua: boolean, Acqua_Tot: number,Operazione: Lavorazione): Obj_Dose_Hl_Tot{
+
+        let obj_Dose_Hl_Tot: Obj_Dose_Hl_Tot &#x3D; {
+            Dose_Hl: Dose_Hl,
+            DoseTot_Ha: DoseTot_Ha
+        };
+
+        obj_Dose_Hl_Tot.DoseTot_Ha &#x3D; this.calculateQtaTotale(Dose_Ha, Sup_Trattata);
+
+        if(flag_acqua){
+
+            if(this.qdcservice.mostraDose_Hl(Operazione)){
+                if (Acqua_Tot &#x3D;&#x3D; 0) {
+                    obj_Dose_Hl_Tot.Dose_Hl &#x3D; this.calculateDoseHl(0, 1);
+                } else {
+                    obj_Dose_Hl_Tot.Dose_Hl &#x3D; this.calculateDoseHl(obj_Dose_Hl_Tot.DoseTot_Ha, Acqua_Tot);
+                }
+            }
+
+        }
+
+        return obj_Dose_Hl_Tot;
+    }
+
+    //Questa funzione di change viene richiamata sia dal cambio della Dose Hl fuori dalla griglia sia dal cambio
+    //Dose Hl dentro la griglia
+    public dose_hl_change(QdCForm: FormGroup, Form: FormGroup, acqua: boolean) {
+        const Dose_Hl &#x3D; Form.getRawValue().Dose_Hl;
+        const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+        const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+        Form.controls[&#x27;flagDoseQuantitaTotale&#x27;].setValue(enum_doseQuantitaTotale.Dose, {emitEvent: false});
+        Form.controls[&#x27;flagTipoDose&#x27;].setValue(enum_TipoMezzo.Ettolitro, {emitEvent: false});
+
+        let obj_Dose_Ha_Tot &#x3D; this.calcola_dose_ha_tot_ha_da_dose_hl(Form.getRawValue().Dose_Ha,Form.getRawValue().DoseTot_Ha,
+                                                                                        Dose_Hl,Sup_Trattata,acqua,Acqua_Tot);
+
+        Form.controls[&#x27;DoseTot_Ha&#x27;].setValue(obj_Dose_Ha_Tot.DoseTot_Ha, {emitEvent: false});
+
+        Form.controls[&#x27;Dose_Ha&#x27;].setValue(obj_Dose_Ha_Tot.Dose_Ha, {emitEvent: false});
+
+        this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(Form.controls[&#x27;DosiProdottiGridrowId&#x27;].getRawValue());
+    }
+
+    public calcola_dose_ha_tot_ha_da_dose_hl (Dose_Ha:number,DoseTot_Ha: number,Dose_Hl: number,Sup_Trattata: number, flag_acqua: boolean, Acqua_Tot: number): Obj_Dose_Ha_Tot{
+
+        let obj_Dose_Ha_Tot: Obj_Dose_Ha_Tot &#x3D; {
+            Dose_Ha: Dose_Ha,
+            DoseTot_Ha: DoseTot_Ha
+        };
+
+        if (flag_acqua) {
+            obj_Dose_Ha_Tot.DoseTot_Ha &#x3D; this.calculateQtaTotale(Acqua_Tot, Dose_Hl);
+        }
+
+        if (Sup_Trattata &#x3D;&#x3D; 0) {
+            obj_Dose_Ha_Tot.Dose_Ha &#x3D; this.calculateDoseHa(0, 1);
+        } else {
+            obj_Dose_Ha_Tot.Dose_Ha &#x3D; this.calculateDoseHa(obj_Dose_Ha_Tot.DoseTot_Ha, Sup_Trattata);
+        }
+
+        return obj_Dose_Ha_Tot;
+    }
+
+    //Questa funzione di change viene richiamata sia dal cambio della Dose Totale fuori dalla griglia sia dal cambio
+    //Dose Totale dentro la griglia
+    public dose_tot_ha_change(QdCForm: FormGroup, Form: FormGroup, acqua: boolean, Opzione_Semina: BaseCodeDescr , Sup_Calcolata_per_Frazionamento: number) {
+
+        const DoseTot_Ha &#x3D; Form.getRawValue().DoseTot_Ha;
+
+        Form.controls[&#x27;flagDoseQuantitaTotale&#x27;].setValue(enum_doseQuantitaTotale.Qta_Totale, {emitEvent: false});
+        // si mette flagTipoDose &#x3D; 1 di default, ma non ha alcun valore se flagDoseQuantitaTotale &#x3D; 10
+        Form.controls[&#x27;flagTipoDose&#x27;].setValue(enum_TipoMezzo.Ettaro, {emitEvent: false});
+
+        if(Form.get(&quot;Categoria_Magazzino&quot;).value &#x3D;&#x3D;&#x3D; SEMENTI &amp;&amp;
+            Opzione_Semina &amp;&amp;
+            Opzione_Semina.codice &#x3D;&#x3D;&#x3D; enum_SEMINA_TIPO.Frazionamento_Appezzamenti_perLotto_e_Semina_sui_Singoli_Default){
+
+            this.sup_calcolata_change(Form,Sup_Calcolata_per_Frazionamento);
+
+        }else{
+
+            const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+
+            const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+            let obj_Dose_ha_hl &#x3D; this.calcola_dose_ha_hl_da_dose_tot(Form.controls[&#x27;Dose_Ha&#x27;].value,Form.controls[&#x27;Dose_Hl&#x27;].value,Sup_Trattata,
+                                                                                                acqua,Acqua_Tot,DoseTot_Ha,Form.controls[&#x27;Operazione&#x27;].value)
+
+            Form.controls[&#x27;Dose_Ha&#x27;].setValue(obj_Dose_ha_hl.Dose_Ha, {emitEvent: false});
+
+
+            Form.controls[&#x27;Dose_Hl&#x27;].setValue(obj_Dose_ha_hl.Dose_Hl, {emitEvent: false});
+
+            this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(Form.controls[&#x27;DosiProdottiGridrowId&#x27;].getRawValue());
+        }
+
+    }
+
+    public calcola_dose_ha_hl_da_dose_tot(Dose_Ha:number,Dose_Hl:number,Sup_Trattata: number,
+                                          flag_acqua: boolean,Acqua_Tot:number,DoseTot_Ha: number, Operazione: Lavorazione): Obj_Dose_Ha_Hl{
+
+        let obj_Dose_Ha_Hl: Obj_Dose_Ha_Hl &#x3D; {
+            Dose_Ha: Dose_Ha,
+            Dose_Hl: Dose_Hl
+        };
+
+        if (Sup_Trattata &#x3D;&#x3D; 0) {
+            obj_Dose_Ha_Hl.Dose_Ha &#x3D; this.calculateDoseHa(0, 1);
+        } else {
+            obj_Dose_Ha_Hl.Dose_Ha &#x3D; this.calculateDoseHa(DoseTot_Ha, Sup_Trattata);
+        }
+
+        if (flag_acqua) {
+
+            if(this.qdcservice.mostraDose_Hl(Operazione)){
+                if (Acqua_Tot &#x3D;&#x3D; 0) {
+                    obj_Dose_Ha_Hl.Dose_Hl &#x3D; this.calculateDoseHl(0, 1);
+                } else {
+                    obj_Dose_Ha_Hl.Dose_Hl &#x3D; this.calculateDoseHl(DoseTot_Ha, Acqua_Tot);
+                }
+            }
+
+        }
+
+        return obj_Dose_Ha_Hl;
+    }
+
+    // ------------------------------------------------------------------------------------------------------------------------------------
+    // ------------------------------------------------------------------------------------------------------------------------------------
+
+
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+    //Richiamo questa funzione anche nel caso in cui cambio la Dose_ha e la Dose_Totale perchè così vengono ricalcolati
+    public sup_calcolata_change(Form: FormGroup,_SupCalcolata: number){
+
+            let flagTipoDose: number &#x3D; Form.get(&quot;flagTipoDose&quot;).value;
+            let flagDoseQuantitaTotale: number &#x3D; Form.get(&quot;flagDoseQuantitaTotale&quot;).value;
+
+            let _DoseTotaleHA &#x3D; Form.get(&quot;DoseTot_Ha&quot;).value;
+            let _DoseHA &#x3D; Form.get(&quot;Dose_Ha&quot;).value;
+
+            if(flagDoseQuantitaTotale &#x3D;&#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale){
+
+                if (_SupCalcolata !&#x3D; 0 &amp;&amp; _DoseTotaleHA !&#x3D; 0) {
+                    Form.controls[&#x27;Dose_Ha&#x27;].setValue(this.calculateDoseHa(_DoseTotaleHA,_SupCalcolata), {emitEvent: false});
+
+                    this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(Form.controls[&#x27;DosiProdottiGridrowId&#x27;].getRawValue());
+                }
+
+            }else{
+
+                if(flagTipoDose &#x3D;&#x3D;&#x3D; enum_TipoMezzo.Ettaro){
+                    if (_SupCalcolata !&#x3D; 0 &amp;&amp; _DoseTotaleHA !&#x3D; 0) {
+                        Form.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(_DoseHA,_SupCalcolata), {emitEvent: false});
+                    }
+                }
+
+            }
+
+            if(this.qdcservice.mostraDose_Hl(Form.controls[&#x27;Operazione&#x27;].value)){
+                Form.controls[&#x27;Dose_Hl&#x27;].setValue(0, {emitEvent: false});
+            }
+
+    }
+
+    private changeDoseHa(element: FormGroup, new_sup?: number): void {
+        const DoseTot_Ha &#x3D; element.getRawValue().DoseTot_Ha;
+        const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, this.qdcservice.QdCForm);
+
+        if (Sup_Trattata &#x3D;&#x3D; 0) {
+            element.controls[&#x27;Dose_Ha&#x27;].setValue(0, {emitEvent: false});
+
+            this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(element.controls[&#x27;DosiProdottiGridrowId&#x27;].value);
+        } else {
+            element.controls[&#x27;Dose_Ha&#x27;].setValue(this.calculateDoseHa(DoseTot_Ha, Sup_Trattata), {emitEvent: false});
+        }
+    }
+
+    private changeDoseHl(element: FormGroup): void {
+        const DoseTot_Ha &#x3D; element.getRawValue().DoseTot_Ha;
+        const Acqua_Tot &#x3D; this.qdcservice.QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+        if(this.qdcservice.mostraDose_Hl(element.controls[&#x27;Operazione&#x27;].value)){
+            if (Acqua_Tot &#x3D;&#x3D; 0) {
+                element.controls[&#x27;Dose_Hl&#x27;].setValue(0, {emitEvent: false});
+            } else {
+                element.controls[&#x27;Dose_Hl&#x27;].setValue(this.calculateDoseHl(DoseTot_Ha, Acqua_Tot), {emitEvent: false});
+            }
+        }
+    }
+
+    private changeDoseTotHa(element: FormGroup, new_sup?: number): void {
+        /// se DoseHl fissa doseTotHa &#x3D; AcquaTot * DoseHl
+        /// se DoseHa fissa doseTotHa &#x3D; DoseHa * SupTrattata
+
+        if (element.controls[&#x27;flagTipoDose&#x27;].value &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+            // DoseHl fissa
+            const Acqua_Tot &#x3D; this.qdcservice.QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+            const Dose_Hl &#x3D; element.getRawValue().Dose_Hl;
+
+            element.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Acqua_Tot, Dose_Hl), {emitEvent: false});
+        } else {
+            // DoseHa fissa
+            const Dose_Ha &#x3D; element.getRawValue().Dose_Ha
+            const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, this.qdcservice.QdCForm);
+
+            element.controls[&#x27;DoseTot_Ha&#x27;].setValue(this.calculateQtaTotale(Dose_Ha, Sup_Trattata), {emitEvent: false});
+        }
+    }
+
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+    // $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+    private calculateAcquaTot(Sup_Trattata: number, Acqua_Ha: number) {
+        return this.funzionicomuniservice.roundNumber((Sup_Trattata * Acqua_Ha),this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+    }
+
+    private calculateAcquaHa(Acqua_Tot: number, Sup_Trattata: number): number {
+        return this.funzionicomuniservice.roundNumber((Acqua_Tot / Sup_Trattata),this.qdcservice.Obj_Default_Numeric_Settings.decimals)
+    }
+
+    private calculateQtaTotale(acquaTotale_DoseHa: number, doseHl_supTrattata: number) {
+        /// se DoseHl fissa doseTotHa &#x3D; AcquaTot * DoseHl
+        /// se DoseHa fissa doseTotHa &#x3D; DoseHa * SupTrattata
+        return this.funzionicomuniservice.roundNumber(acquaTotale_DoseHa * doseHl_supTrattata, this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+    }
+
+    private calculateDoseHa(qtaTotale: number, supTrattata: number) {
+        return this.funzionicomuniservice.roundNumber(qtaTotale / supTrattata,this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+    }
+
+    private calculateDoseHl(qtaTotale: number, acquaTotale: number) {
+        return this.funzionicomuniservice.roundNumber(qtaTotale / acquaTotale,this.qdcservice.Obj_Default_Numeric_Settings.decimals);
+    }
+
+
+    // #######################################################################
+    // ##################### Change Parametri in Griglia #####################
+    // #######################################################################
+    private SupTrattata_Ha_Prodotti_change(QdCForm: FormGroup,new_sup?: number) {
+        const fa_SezioniProdotto &#x3D; (QdCForm.controls[&#x27;Trattamento&#x27;] as FormGroup).controls[&#x27;Sezioni_Prodotto&#x27;] as FormArray;
+
+        //Cambio i Dosaggi dei Prodotti che sono stati salvati
+
+        (fa_SezioniProdotto as FormArray).controls.forEach((sezione_prodotto:FormGroup) &#x3D;&gt; {
+            (sezione_prodotto.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+
+                if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi() ||
+                    (!this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi() &amp;&amp; fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; true)){
+
+                    if (fc.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                        this.QtaTotDist_fissa(QdCForm, fc, new_sup);
+                    } else {
+                        if (fc.value[&#x27;flagTipoDose&#x27;] &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+                            if(this.qdcservice.mostraDose_Hl(fc.value.Operazione)){
+                                this.supTrattataHa_DoseHl_fissa(QdCForm, fc, new_sup);
+                            }
+                        } else {
+                            this.supTrattataHa_DoseHa_fissa(QdCForm, fc, new_sup);
+                        }
+                    }
+
+                }
+
+            });
+        });
+    }
+
+    private supTrattataHa_DoseHl_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: number) {
+        const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+        const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, QdCForm);
+        const Dose_Hl &#x3D; fc.value[&#x27;Dose_Hl&#x27;];
+
+        const Qta_Totale_Distribuita &#x3D; this.calculateQtaTotale(Acqua_Tot, Dose_Hl);
+
+        fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(Qta_Totale_Distribuita);
+
+        if (Sup_Trattata &#x3D;&#x3D; 0) {
+            fc.controls[&#x27;Dose_Ha&#x27;].setValue(0);
+        } else {
+            fc.controls[&#x27;Dose_Ha&#x27;].setValue(this.calculateDoseHa(Qta_Totale_Distribuita ,Sup_Trattata));
+        }
+
+        this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(fc.controls[&#x27;DosiProdottiGridrowId&#x27;].getRawValue());
+    }
+
+    private supTrattataHa_DoseHa_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: number) {
+        const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+        const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, QdCForm);
+        const Dose_Ha &#x3D; fc.value[&#x27;Dose_Ha&#x27;];
+
+        const Qta_Totale_Distribuita &#x3D; this.calculateQtaTotale(Dose_Ha,Sup_Trattata);
+
+        fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(Qta_Totale_Distribuita);
+
+        if(this.qdcservice.mostraDose_Hl(fc.value[&#x27;Operazione&#x27;])){
+
+            if(Acqua_Tot &#x3D;&#x3D; 0){
+                fc.controls[&#x27;Dose_Hl&#x27;].setValue(0);
+            }else{
+                fc.controls[&#x27;Dose_Hl&#x27;].setValue(this.calculateDoseHl(Qta_Totale_Distribuita, Acqua_Tot));
+            }
+
+        }
+    }
+
+    private QtaTotDist_fissa(QdCForm: FormGroup, fc: FormGroup, new_sup?: number) {
+        const Sup_Trattata &#x3D; this.getSupTrattata(new_sup, QdCForm);
+        const Qta_Totale_Distribuita &#x3D; fc.value[&#x27;DoseTot_Ha&#x27;];
+
+        fc.controls[&#x27;Dose_Ha&#x27;].setValue(this.calculateDoseHa(Qta_Totale_Distribuita, Sup_Trattata));
+
+        this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(fc.controls[&#x27;DosiProdottiGridrowId&#x27;].getRawValue());
+
+        if(this.qdcservice.mostraDose_Hl(fc.value[&#x27;Operazione&#x27;])){
+            const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+
+            if(Acqua_Tot &#x3D;&#x3D; 0){
+                fc.controls[&#x27;Dose_Hl&#x27;].setValue(0);
+            }else{
+                fc.controls[&#x27;Dose_Hl&#x27;].setValue(this.calculateDoseHl(Qta_Totale_Distribuita, Acqua_Tot));
+            }
+        }
+    }
+
+    private Acqua_Prodotti_change(QdCForm: FormGroup) {
+
+        //Cambio i Dosaggi dei Prodotti che sono stati salvati
+
+        const Acqua_Tot &#x3D; QdCForm.get(&#x27;Trattamento.Acqua&#x27;).value[&#x27;Acqua_Tot&#x27;];
+        const Sup_Trattata &#x3D; this.getSupTrattata(undefined, QdCForm);
+        const fa_SezioniProdotto &#x3D; (QdCForm.controls[&#x27;Trattamento&#x27;] as FormGroup).controls[&#x27;Sezioni_Prodotto&#x27;] as FormArray;
+
+        (fa_SezioniProdotto as FormArray).controls.forEach((sezione_prodotto:FormGroup) &#x3D;&gt; {
+            (sezione_prodotto.get(&#x27;DosiProdotti&#x27;) as FormArray).controls.forEach((fc:FormGroup) &#x3D;&gt; {
+
+                if(this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi() ||
+                    (!this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi() &amp;&amp; fc.controls[&#x27;Riga_Salvata&#x27;].value &#x3D;&#x3D;&#x3D; true)){
+
+                    if (fc.controls[&#x27;flagDoseQuantitaTotale&#x27;].value &#x3D;&#x3D; enum_doseQuantitaTotale.Qta_Totale) {
+                        this.QtaTotDist_fissa(QdCForm, fc);
+                    } else {
+                        if (fc.value[&#x27;flagTipoDose&#x27;] &#x3D;&#x3D; enum_TipoMezzo.Ettolitro) {
+
+                            if (this.qdcservice.mostraDose_Hl(fc.value[&#x27;Operazione&#x27;])) {
+                                const Dose_Hl &#x3D; fc.value[&#x27;Dose_Hl&#x27;];
+                                const Qta_Totale_Distribuita &#x3D; this.calculateQtaTotale(Acqua_Tot, Dose_Hl);
+
+                                fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(Qta_Totale_Distribuita);
+
+                                if (Sup_Trattata &#x3D;&#x3D; 0) {
+                                    fc.controls[&#x27;Dose_Ha&#x27;].setValue(0);
+                                } else {
+                                    fc.controls[&#x27;Dose_Ha&#x27;].setValue(this.calculateDoseHa(Qta_Totale_Distribuita, Sup_Trattata));
+                                }
+
+                                this.qdcservice.Calcola_Percentuale_N_Per_Piano_Nutrizionale_Fertilizzanti(fc.controls[&#x27;DosiProdottiGridrowId&#x27;].value);
+                            }
+
+                        } else {
+
+                            const Dose_Ha &#x3D; fc.value[&#x27;Dose_Ha&#x27;];
+                            const Qta_Totale_Distribuita &#x3D; this.calculateQtaTotale(Dose_Ha, Sup_Trattata);
+
+                            fc.controls[&#x27;DoseTot_Ha&#x27;].setValue(Qta_Totale_Distribuita);
+
+                            if(this.qdcservice.mostraDose_Hl(fc.value[&#x27;Operazione&#x27;])){
+
+                                if(Acqua_Tot &#x3D;&#x3D; 0){
+                                    fc.controls[&#x27;Dose_Hl&#x27;].setValue(0);
+                                }else{
+                                    fc.controls[&#x27;Dose_Hl&#x27;].setValue(this.calculateDoseHl(Qta_Totale_Distribuita, Acqua_Tot));
+                                }
+                            }
+
+                        }
+                    }
+
+                }
+
+            });
+        });
+    }
+
+    private getSupTrattata(new_sup: number, QdCForm: FormGroup&lt;any&gt;) {
+        return new_sup !&#x3D; undefined
+            ? new_sup
+            : this.qdcservice.getCentroDiCostoTipo() &#x3D;&#x3D; Tipo.ProdottoDaTrattare
+                ? QdCForm.get(&#x27;Trattamento.Quantita&#x27;).value[&#x27;Qta_Trattata&#x27;]
+                : QdCForm.get(&#x27;Trattamento.Superfici&#x27;).value[&#x27;Sup_Trattata&#x27;];
+    }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MisceleService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

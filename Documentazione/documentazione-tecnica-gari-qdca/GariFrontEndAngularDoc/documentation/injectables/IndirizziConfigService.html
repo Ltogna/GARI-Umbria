@@ -1,0 +1,1891 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >IndirizziConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#behavior" >behavior</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#edit" >edit</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#generalSettings" >generalSettings</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#gridIndirizziAppezzamento" >gridIndirizziAppezzamento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indirizziColumns" >indirizziColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indirizziModel" >indirizziModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indirizziParentForm" >indirizziParentForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#indirizziParentFormSub" >indirizziParentFormSub</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#IndirizziServerResult" >IndirizziServerResult</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#caricaComuni" >caricaComuni</a>
+                            </li>
+                            <li>
+                                <a href="#caricaProvincie" >caricaProvincie</a>
+                            </li>
+                            <li>
+                                <a href="#caricaStati" >caricaStati</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getRows" >getRows</a>
+                            </li>
+                            <li>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDropdowns" >handleDropdowns</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, fb: FormBuilder, indirizziAppezzamentoDataSevice: <a href="../injectables/IndirizziAppezzamentoDataService.html" target="_self">IndirizziAppezzamentoDataService</a>, indirizziAppezzamentoService: <a href="../injectables/IndirizziAppezzamentoService.html" target="_self">IndirizziAppezzamentoService</a>, indirizziParentFormDataService: <a href="../injectables/IndirizziParentFormDataService.html" target="_self">IndirizziParentFormDataService</a>, istatService: <a href="../injectables/GiasIstatService.html" target="_self">GiasIstatService</a>, gridPublicSerivce: GridPublicService, centriService: <a href="../injectables/CentriAziendaliService.html" target="_self">CentriAziendaliService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, transloco: TranslocoService)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="125" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:125</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>indirizziAppezzamentoDataSevice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IndirizziAppezzamentoDataService.html" target="_self" >IndirizziAppezzamentoDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>indirizziAppezzamentoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IndirizziAppezzamentoService.html" target="_self" >IndirizziAppezzamentoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>indirizziParentFormDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/IndirizziParentFormDataService.html" target="_self" >IndirizziParentFormDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>istatService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasIstatService.html" target="_self" >GiasIstatService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gridPublicSerivce</td>
+                                                  
+                                                        <td>
+                                                                    <code>GridPublicService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>centriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriAziendaliService.html" target="_self" >CentriAziendaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaComuni"></a>
+                    <span class="name">
+                        <span ><b>caricaComuni</b></span>
+                        <a href="#caricaComuni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaComuni(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="452"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:452</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Comune.html" target="_self" >Observable&lt;Comune[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaProvincie"></a>
+                    <span class="name">
+                        <span ><b>caricaProvincie</b></span>
+                        <a href="#caricaProvincie"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaProvincie(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="448"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:448</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaStati"></a>
+                    <span class="name">
+                        <span ><b>caricaStati</b></span>
+                        <a href="#caricaStati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>caricaStati(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="460"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:460</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getRows</b></span>
+                        <a href="#getRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRows()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="388"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:388</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDropdowns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDropdowns</b></span>
+                        <a href="#handleDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDropdowns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="419"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, rows: Array<any>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="380"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:380</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;KendoGridRow[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="332"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:332</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;IndirizziServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="behavior"></a>
+                    <span class="name">
+                        <span ><b>behavior</b></span>
+                        <a href="#behavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="edit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>edit</b></span>
+                        <a href="#edit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generalSettings"></a>
+                    <span class="name">
+                        <span ><b>generalSettings</b></span>
+                        <a href="#generalSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new GeneralSettings()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;IdirizziAppezzamento&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridIndirizziAppezzamento"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>gridIndirizziAppezzamento</b></span>
+                        <a href="#gridIndirizziAppezzamento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indirizziColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>indirizziColumns</b></span>
+                        <a href="#indirizziColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      { field: &#x27;cap&#x27;, title: this.transloco.translate(&#x27;CAP&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135,
+        validators: [capValidatorAppezzamenti()]
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;prov&#x27;, title: this.transloco.translate(&#x27;Provincia&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;com&#x27;, title: this.transloco.translate(&#x27;Comune&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;frazione&#x27;, title: this.transloco.translate(&#x27;Frazione&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;via&#x27;, title: this.transloco.translate(&#x27;Via&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;codice_stato&#x27;, title: this.transloco.translate(&#x27;Stato&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;note&#x27;, title: this.transloco.translate(&#x27;Note&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indirizziModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>indirizziModel</b></span>
+                        <a href="#indirizziModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/IndirizziAppezzamentoModel.html" target="_self" >IndirizziAppezzamentoModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    chiave: new ModelEntry(CELL_TYPES.NUMBER, false),
+    codice: new ModelEntry(CELL_TYPES.NUMBER, false),
+    cap: new ModelEntry(CELL_TYPES.STRING, false),
+    frazione: new ModelEntry(CELL_TYPES.STRING, false),
+
+    prov: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    PROVINCIA: new ModelEntry(CELL_TYPES.STRING, true),
+    com: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    COMUNE: new ModelEntry(CELL_TYPES.STRING, true),
+    codice_stato: new ModelEntry(CELL_TYPES.DROPDOWNLIST, false),
+    descrizione_stato: new ModelEntry(CELL_TYPES.STRING, false),
+
+    note: new ModelEntry(CELL_TYPES.STRING, false),
+    via: new ModelEntry(CELL_TYPES.STRING, false),
+    tipo_indirizzo: new ModelEntry(CELL_TYPES.STRING, false)
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="109" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indirizziParentForm"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>indirizziParentForm</b></span>
+                        <a href="#indirizziParentForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>this.fb.group({})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="indirizziParentFormSub"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>indirizziParentFormSub</b></span>
+                        <a href="#indirizziParentFormSub"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Subscription</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="IndirizziServerResult"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>IndirizziServerResult</b></span>
+                        <a href="#IndirizziServerResult"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/IndirizziServerResult.html" target="_self" >IndirizziServerResult</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/impianto-edit-indirizzi/indirizzi-grid-config.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &#x27;@angular/core&#x27;;
+import { from, map, Observable, of, Subscription, take, tap } from &#x27;rxjs&#x27;;
+import { DropdownListWithForm, EditingMode, KendoGridColumn, KendoGridRow, LoaderType, ModelEntry } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { CELL_TYPES, ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import { BehaviorSettings, GeneralSettings, CommandsColumnSettings, ToolbarSettings, AgrSelectableSettings, ResizableSettings } from &#x27;gias-kendo-grid&#x27;;
+import { GridPublicService } from &#x27;gias-kendo-grid&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { IndirizziAppezzamentoModel, IndirizziServerResult } from &#x27;../../appezzamenti.model&#x27;;
+import { SMARTPHONE_WIDTH } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { IndirizziAppezzamentoDataService } from &#x27;./indirizzi-data.service&#x27;;
+import { IndirizziAppezzamentoService } from &#x27;./indirizzi.service&#x27;;
+import { Comune } from &#x27;app/Model/MetaschemaModel&#x27;;
+import { CentriAziendaliService } from &#x27;app/Service/Anagrafica/centri.service&#x27;;
+import { FormBuilder, FormGroup } from &#x27;@angular/forms&#x27;;
+import { IndirizziParentFormDataService } from &#x27;./indirizzi-parent-from.service&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { capValidatorAppezzamenti } from &#x27;gias-ui-kit&#x27;;
+import {GiasIstatService} from &#x27;../../../../Service/istat/gias-istat.service&#x27;;
+
+@Injectable()
+export class IndirizziConfigService extends AbstractGridConfigService&lt;IndirizziServerResult&gt; {
+  gridId &#x3D; &#x27;IdirizziAppezzamento&#x27;;
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+  behavior: BehaviorSettings;
+  rowId &#x3D; &#x27;chiave&#x27;;
+  generalSettings &#x3D; new GeneralSettings();
+
+  private objParametriAgenda: ObjParametriAgenda;
+
+  private IndirizziServerResult: IndirizziServerResult;
+  private gridIndirizziAppezzamento: any &#x3D; {};
+
+  private indirizziParentForm: FormGroup &#x3D; this.fb.group({});
+  private indirizziParentFormSub: Subscription;
+
+  private edit: boolean;
+
+  private indirizziColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      { field: &#x27;cap&#x27;, title: this.transloco.translate(&#x27;CAP&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135,
+        validators: [capValidatorAppezzamenti()]
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;prov&#x27;, title: this.transloco.translate(&#x27;Provincia&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;com&#x27;, title: this.transloco.translate(&#x27;Comune&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;frazione&#x27;, title: this.transloco.translate(&#x27;Frazione&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;via&#x27;, title: this.transloco.translate(&#x27;Via&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;codice_stato&#x27;, title: this.transloco.translate(&#x27;Stato&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;note&#x27;, title: this.transloco.translate(&#x27;Note&#x27;) },
+      {
+        resizable: true,
+        filterable: true,
+        editable: true,
+        width: 135
+      }
+    )
+  ];
+
+  private indirizziModel: IndirizziAppezzamentoModel &#x3D; {
+    chiave: new ModelEntry(CELL_TYPES.NUMBER, false),
+    codice: new ModelEntry(CELL_TYPES.NUMBER, false),
+    cap: new ModelEntry(CELL_TYPES.STRING, false),
+    frazione: new ModelEntry(CELL_TYPES.STRING, false),
+
+    prov: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    PROVINCIA: new ModelEntry(CELL_TYPES.STRING, true),
+    com: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    COMUNE: new ModelEntry(CELL_TYPES.STRING, true),
+    codice_stato: new ModelEntry(CELL_TYPES.DROPDOWNLIST, false),
+    descrizione_stato: new ModelEntry(CELL_TYPES.STRING, false),
+
+    note: new ModelEntry(CELL_TYPES.STRING, false),
+    via: new ModelEntry(CELL_TYPES.STRING, false),
+    tipo_indirizzo: new ModelEntry(CELL_TYPES.STRING, false)
+  }
+
+  constructor(
+    injector: Injector,
+    private fb: FormBuilder,
+    private indirizziAppezzamentoDataSevice: IndirizziAppezzamentoDataService,
+    private indirizziAppezzamentoService: IndirizziAppezzamentoService,
+    private indirizziParentFormDataService: IndirizziParentFormDataService,
+    private istatService: GiasIstatService,
+    private gridPublicSerivce: GridPublicService,
+    private centriService: CentriAziendaliService,
+    private objParametriAgendaService: ObjParametriAgendaService,
+    protected transloco: TranslocoService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.objParametriAgenda &#x3D; objParametriAgendaService.getObjParamValue();
+    this.resizable &#x3D; new ResizableSettings();
+    this.resizable.autoFitColumns &#x3D; true;
+
+    const objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+
+    this.edit &#x3D; objParametriAgenda.TipoOperazioneDB !&#x3D; Enum_DBTypeOperation.Read;
+
+    this.behavior.saveExternalChanges &#x3D; this.edit;
+    this.generalSettings.performOnEdit &#x3D; this.edit;
+
+    this.handleCustomizations();
+
+    this.indirizziParentFormSub &#x3D; this.indirizziParentFormDataService.indirizziParentForm$
+      .subscribe(i &#x3D;&gt; {
+        this.indirizziParentForm &#x3D; this.indirizziParentFormDataService.indirizziParentForm;
+      });
+
+    this.gridPublicService.changeDetected.pipe(
+      tap((event: any) &#x3D;&gt; {
+        const fb &#x3D; this.gridPublicService.formGroup.getValue();
+        let centroAziendaleSelezionato &#x3D; this.indirizziParentFormDataService.centroSelezionato;
+
+        if (event?.action &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+          if (this.indirizziParentForm.controls[&#x27;catastoAppezzamento&#x27;].value.length &gt; 0) {
+            let part &#x3D; this.indirizziParentForm.controls[&#x27;catastoAppezzamento&#x27;].value[0].particella;
+            let prov &#x3D; part.Prov;
+            let com &#x3D; part.Com;
+
+            this.istatService.leggiStati().then((stati) &#x3D;&gt; {
+              let stato &#x3D; stati.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; &#x27;IT&#x27;);
+              let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice_stato&#x27;);
+              fb.controls[&#x27;codice_stato&#x27;].setValue(stato.codice);
+              fb.controls[&#x27;descrizione_stato&#x27;].setValue(stato.descrizione, { emitEvent: false });
+              col.ddl.reload.next(true);
+
+              this.istatService.leggiProvincie(&#x27;&#x27;).then((province) &#x3D;&gt; {
+                let pro &#x3D; province.find(s &#x3D;&gt; s.Istat_Prov &#x3D;&#x3D;&#x3D; prov);
+                let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;prov&#x27;);
+                fb.controls[&#x27;prov&#x27;].setValue(pro.Istat_Prov, { emitEvent: false });
+                fb.controls[&#x27;PROVINCIA&#x27;].setValue(pro.Provincia_Des, { emitEvent: false });
+                col.ddl.reload.next(true);
+
+                this.istatService.leggiComuni(prov).then((comuni) &#x3D;&gt; {
+                  let comune &#x3D; comuni.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; com);
+                  let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com&#x27;);
+                  fb.controls[&#x27;com&#x27;].setValue(comune.codice);
+                  fb.controls[&#x27;COMUNE&#x27;].setValue(comune.descrizione, { emitEvent: false });
+                  col.ddl.reload.next(true);
+                });
+              });
+            });
+          } else {
+            let centroCodice: number &#x3D; 0;
+            let centroPiva: string &#x3D; &#x27;&#x27;;
+
+            if (centroAziendaleSelezionato.primaryKey.codice &#x3D;&#x3D;&#x3D; 0 || centroAziendaleSelezionato.primaryKey.partitaIva &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+              const objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+              centroCodice &#x3D; objParametriAgenda.Sa_Cod;
+              centroPiva &#x3D; objParametriAgenda.Piva;
+            } else {
+              centroCodice &#x3D; centroAziendaleSelezionato.primaryKey.codice;
+              centroPiva &#x3D; centroAziendaleSelezionato.primaryKey.partitaIva;
+            }
+
+            this.centriService.leggiCentroAziendale(centroPiva, centroCodice).pipe(
+              take(1),
+              tap((vals) &#x3D;&gt; {
+                if (vals.RispostaStringa.indirizzi.length &gt; 0) {
+                  let ind &#x3D; vals.RispostaStringa.indirizzi[0];
+
+                  this.istatService.leggiStati().then((stati) &#x3D;&gt; {
+                    let stato &#x3D; stati.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; ind.indirizzo.stato.codice);
+                    let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice_stato&#x27;);
+                    fb.controls[&#x27;codice_stato&#x27;].setValue(stato.codice);
+                    fb.controls[&#x27;descrizione_stato&#x27;].setValue(stato.descrizione, { emitEvent: false });
+                    col.ddl.reload.next(true);
+
+                    col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;prov&#x27;);
+                    fb.controls[&#x27;prov&#x27;].setValue(ind.indirizzo.istatComune.prov, { emitEvent: false });
+                    fb.controls[&#x27;PROVINCIA&#x27;].setValue(ind.indirizzo.istatComune.comuni_prov, { emitEvent: false });
+                    col.ddl.reload.next(true);
+
+                    col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com&#x27;);
+                    fb.controls[&#x27;com&#x27;].setValue(ind.indirizzo.istatComune.com, { emitEvent: false });
+                    fb.controls[&#x27;COMUNE&#x27;].setValue(ind.indirizzo.istatComune.localita, { emitEvent: false });
+                    col.ddl.reload.next(true);
+
+                    fb.controls[&#x27;cap&#x27;].setValue(ind.indirizzo.cap, { emitEvent: false });
+                    fb.controls[&#x27;frazione&#x27;].setValue(ind.indirizzo.frazione, { emitEvent: false });
+                    fb.controls[&#x27;via&#x27;].setValue(ind.indirizzo.via, { emitEvent: false });
+                    fb.controls[&#x27;note&#x27;].setValue(ind.indirizzo.note, { emitEvent: false });
+                    fb.controls[&#x27;tipo_indirizzo&#x27;].setValue(ind.tipo_Indirizzo, { emitEvent: false });
+                  });
+                }
+              })
+            ).GiasSubscribe(() &#x3D;&gt; {
+              let a &#x3D; 0; //Commento per funzione vuota SonarQube
+            });
+          }
+        }
+      })
+    ).GiasSubscribe((event: any) &#x3D;&gt; {
+      let a &#x3D; 0; //Commento per funzione vuota SonarQube
+    });
+
+    this.gridPublicSerivce.formGroup.GiasSubscribe(fg &#x3D;&gt; {
+      if (fg !&#x3D; undefined) {
+        from(this.istatService.leggiStati()).pipe(take(1), map(s &#x3D;&gt; {
+          let stato &#x3D; fg.controls[&quot;codice_stato&quot;].value;
+          let gestioneGerarchia &#x3D; 1;
+
+          if (!!stato) {
+            gestioneGerarchia &#x3D; s.filter(t &#x3D;&gt; t.codice &#x3D;&#x3D; stato)[0].gestioneGerarchia;
+          }
+
+          if (gestioneGerarchia !&#x3D; 1) {
+            fg.controls[&#x27;com&#x27;].disable({ emitEvent: false });
+            fg.controls[&#x27;prov&#x27;].disable({ emitEvent: false });
+            fg.controls[&quot;prov&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+            fg.controls[&quot;PROVINCIA&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+            fg.controls[&quot;com&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+            fg.controls[&quot;COMUNE&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+          }
+
+          fg.controls[&quot;codice_stato&quot;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+            let stato &#x3D; fg.controls[&quot;codice_stato&quot;].value;
+            gestioneGerarchia &#x3D; s.filter(t &#x3D;&gt; t.codice &#x3D;&#x3D; stato)[0].gestioneGerarchia;
+            if (gestioneGerarchia !&#x3D; 1) {
+              let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;prov&#x27;);
+              fg.controls[&quot;prov&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+              fg.controls[&quot;PROVINCIA&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+              fg.controls[&#x27;com&#x27;].disable({ emitEvent: false });
+              fg.controls[&#x27;prov&#x27;].disable({ emitEvent: false });
+              col.ddl.reload.next(true);
+
+              col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com&#x27;);
+              fg.controls[&quot;com&quot;].setValue(&#x27;000&#x27;, { emitEvent: false });
+              fg.controls[&quot;COMUNE&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+              col.ddl.reload.next(true);
+            } else {
+              let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;prov&#x27;);
+              fg.controls[&#x27;com&#x27;].enable({ emitEvent: false });
+              fg.controls[&#x27;prov&#x27;].enable({ emitEvent: false });
+              fg.controls[&quot;prov&quot;].setValue(stato &#x3D;&#x3D; &#x27;IT&#x27; ? &#x27;000&#x27; : stato + &#x27;000&#x27;, { emitEvent: false });
+              fg.controls[&quot;PROVINCIA&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+              fg.controls[&quot;com&quot;].setValue(stato &#x3D;&#x3D; &#x27;IT&#x27; ? &#x27;000&#x27; : stato + &#x27;000&#x27;, { emitEvent: false });
+              fg.controls[&quot;COMUNE&quot;].setValue(&#x27;&#x27;, { emitEvent: false });
+            }
+
+            fg.controls[&#x27;cap&#x27;].updateValueAndValidity({ onlySelf: true, emitEvent: false });
+          });
+        })).subscribe();
+
+        fg.controls[&quot;prov&quot;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+          let prov &#x3D; fg.controls[&quot;prov&quot;].value;
+          if (prov !&#x3D; null &amp;&amp; prov !&#x3D; &quot;&quot;) {
+            const formVal &#x3D; fg.getRawValue();
+            if (formVal.Codice &lt;&#x3D; 0) {
+              fg.controls[&quot;com&quot;].enable({ emitEvent: false });
+            }
+            from(this.istatService.leggiProvincie(fg.controls[&#x27;codice_stato&#x27;].value)).pipe(take(1), map(p &#x3D;&gt; {
+              let comdef &#x3D; p.filter(t &#x3D;&gt; t.Istat_Prov &#x3D;&#x3D; fg.controls[&#x27;prov&#x27;].value)[0].comuneDefault;
+              this.istatService.leggiComuni(prov).then((comuni) &#x3D;&gt; {
+                let com &#x3D; comuni.find(s &#x3D;&gt; s.codice &#x3D;&#x3D;&#x3D; comdef);
+                let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com&#x27;);
+                fg.controls[&quot;com&quot;].setValue(com.codice, { emitEvent: false });
+                fg.controls[&quot;COMUNE&quot;].setValue(com.descrizione, { emitEvent: false });
+                col.ddl.reload.next(true);
+              })
+            })).subscribe();
+          }
+        });
+
+        fg.controls[&quot;com&quot;].valueChanges.GiasSubscribe(() &#x3D;&gt; {
+          let com &#x3D; fg.controls[&quot;com&quot;].value;
+          let prov &#x3D; fg.controls[&quot;prov&quot;].value;
+          let stato &#x3D; fg.controls[&quot;codice_stato&quot;].value;
+          if (com !&#x3D; &#x27;&#x27; &amp;&amp; com !&#x3D; &#x27;000&#x27; &amp;&amp; prov !&#x3D; &#x27;&#x27; &amp;&amp; prov !&#x3D; &#x27;000&#x27; &amp;&amp; (stato &#x3D;&#x3D; &#x27;IT&#x27; || stato &#x3D;&#x3D; &#x27;&#x27;)) {
+            this.istatService.leggiCAP(prov, com).then((cap) &#x3D;&gt; {
+              fg.controls[&#x27;cap&#x27;].setValue(cap);
+            })
+          } else {
+            fg.controls[&#x27;cap&#x27;].setValue(&#x27;00000&#x27;);
+          }
+        });
+      }
+    })
+
+  }
+
+  read(): Observable&lt;IndirizziServerResult&gt; {
+    for (let i &#x3D; 0; i &lt; this.indirizziColumns.length; i++) {
+      this.indirizziColumns[i].editable &#x3D; this.edit;
+    }
+
+    this.getRows();
+    this.gridIndirizziAppezzamento.kendo_columns &#x3D; this.indirizziColumns;
+    this.gridIndirizziAppezzamento.kendo_model &#x3D; this.indirizziModel;
+
+    this.IndirizziServerResult &#x3D; new IndirizziServerResult(this.gridIndirizziAppezzamento.kendo_rows,
+      this.gridIndirizziAppezzamento.kendo_columns,
+      this.gridIndirizziAppezzamento.kendo_model
+    );
+
+    let id &#x3D; 0;
+    this.gridIndirizziAppezzamento.kendo_rows.forEach((row) &#x3D;&gt; {
+      row[this.rowId] &#x3D; id;
+      id++;
+    });
+
+    this.handleDropdowns();
+
+    return of(this.IndirizziServerResult);
+  }
+
+  private getRows() {
+    let rows &#x3D; this.indirizziAppezzamentoDataSevice.indirizziAppezzamento;
+    let kendoRows &#x3D; new Array();
+    rows.forEach(r &#x3D;&gt; {
+      let row: any &#x3D; {};
+      row.chiave &#x3D; r.chiave;
+      row.cap &#x3D; r.indirizzo.cap;
+      row.codice &#x3D; r.indirizzo.codice;
+      row.frazione &#x3D; r.indirizzo.frazione;
+      row.com &#x3D; r.indirizzo.istatComune.com;
+      row.COMUNE &#x3D; r.indirizzo.istatComune.localita;
+      row.prov &#x3D; r.indirizzo.istatComune.prov;
+      row.PROVINCIA &#x3D; r.indirizzo.istatComune.comuni_prov;
+      row.note &#x3D; r.indirizzo.note;
+      row.codice_stato &#x3D; r.indirizzo.stato.codice;
+      row.descrizione_stato &#x3D; r.indirizzo.stato.descrizione;
+      row.via &#x3D; r.indirizzo.via;
+      row.tipo_indirizzo &#x3D; r.tipo_Indirizzo;
+      kendoRows.push(row);
+    });
+    this.gridIndirizziAppezzamento.kendo_rows &#x3D; kendoRows;
+  }
+
+  perform(actionType: HttpAction, rows: Array&lt;any&gt;): Observable&lt;KendoGridRow[]&gt; {
+    rows.forEach((row) &#x3D;&gt; {
+      this.indirizziAppezzamentoService.perform(actionType, row);
+    });
+
+    return of(rows);
+  }
+
+  handleCustomizations(): void {
+    this.selectable &#x3D; new AgrSelectableSettings();
+    this.selectable.selectable.checkboxOnly &#x3D; false;
+    this.selectable.selectable.enabled &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; false;
+
+    this.behavior.pdfSettings.enabled &#x3D; false;
+    this.behavior.excelSettings.enabled &#x3D; false;
+    this.groups.groupable.enabled &#x3D; false;
+    this.views.enabled &#x3D; false;
+
+    this.toolbar &#x3D; new ToolbarSettings(this.edit, false);
+
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      infoBtn: false,
+      removeBtn: this.edit,
+      onDisableInfoBtn: () &#x3D;&gt; false
+    });
+
+    this.resizable.autoFitColumns &#x3D; false;
+    this.resizable.isResizable &#x3D; true;
+
+    if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+      this.toolbar.newItem &#x3D; false;
+      this.cmdColumn.editBtn &#x3D; false;
+      this.groups.groupable.enabled &#x3D; false;
+      this.views.enabled &#x3D; false;
+    }
+  }
+
+  private handleDropdowns() {
+    // Provincia
+    let col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;prov&#x27;);
+    let data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;Istat_Prov&#x27;, &#x27;prov&#x27;, &#x27;Provincia_Des&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;PROVINCIA&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaProvincie.bind(this);
+
+    // Comune
+    col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;com&#x27;);
+    data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;com&#x27;, &#x27;descrizione&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;COMUNE&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaComuni.bind(this);
+
+    // Stato
+    col &#x3D; this.indirizziColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;codice_stato&#x27;);
+    data &#x3D; [];
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;codice_stato&#x27;, &#x27;descrizione&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;descrizione_stato&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaStati.bind(this);
+  }
+
+  caricaProvincie(dataItem: any) {
+    return from(this.istatService.leggiProvincie(dataItem.codice_stato));
+  }
+
+  caricaComuni(dataItem: any): Observable&lt;Comune[]&gt; {
+    if (dataItem.prov !&#x3D;&#x3D; null &amp;&amp; dataItem.prov !&#x3D; &quot;&quot;) {
+      return from(this.istatService.leggiComuni(dataItem.prov));
+    } else {
+      return from([]);
+    }
+  }
+
+  caricaStati(dataItem: any) {
+    return from(this.istatService.leggiStati());
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'IndirizziConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2477 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DatiCatastaliHttpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aggregates" >aggregates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#DatiCatastaliObs" >DatiCatastaliObs</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                <a href="#lastLoadedSettings" >lastLoadedSettings</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier"></span>
+                                <a href="#onCellClick" >onCellClick</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier"></span>
+                                <a href="#onCellClose" >onCellClose</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#renderer" >renderer</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#selectionChangeFn" >selectionChangeFn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#SelezionaRigha" >SelezionaRigha</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                <a href="#assegnaAutomaticamenteMacrousiUtilizzi" >assegnaAutomaticamenteMacrousiUtilizzi</a>
+                            </li>
+                            <li>
+                                <a href="#catastoSettingsDifferences" >catastoSettingsDifferences</a>
+                            </li>
+                            <li>
+                                <a href="#dynamicSort" >dynamicSort</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDeselectedRows" >handleDeselectedRows</a>
+                            </li>
+                            <li>
+                                <a href="#handleRead" >handleRead</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSelectedRows" >handleSelectedRows</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setColumnsGridDatiCatastali" >setColumnsGridDatiCatastali</a>
+                            </li>
+                            <li>
+                                <a href="#setModelGridDatiCatastali" >setModelGridDatiCatastali</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, appezzamentiService: <a href="../injectables/ImpiantiFactoryService.html" target="_self">ImpiantiFactoryService</a>, ObjParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, daticatastali: <a href="../injectables/DatiCatastaliService.html" target="_self">DatiCatastaliService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, translocoLoc: TranslocoService, rendererFactory: RendererFactory2)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="136" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:136</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>appezzamentiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpiantiFactoryService.html" target="_self" >ImpiantiFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ObjParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>daticatastali</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/DatiCatastaliService.html" target="_self" >DatiCatastaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoLoc</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rendererFactory</td>
+                                                  
+                                                        <td>
+                                                                    <code>RendererFactory2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="521"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:521</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="assegnaAutomaticamenteMacrousiUtilizzi"></a>
+                    <span class="name">
+                        <span ><b>assegnaAutomaticamenteMacrousiUtilizzi</b></span>
+                        <a href="#assegnaAutomaticamenteMacrousiUtilizzi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>assegnaAutomaticamenteMacrousiUtilizzi(rows: any[], settings: <a href="../classes/CaricaCatastoSettings.html" target="_self">CaricaCatastoSettings</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="277"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:277</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>settings</td>
+                                            <td>
+                                                            <code><a href="../classes/CaricaCatastoSettings.html" target="_self" >CaricaCatastoSettings</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catastoSettingsDifferences"></a>
+                    <span class="name">
+                        <span ><b>catastoSettingsDifferences</b></span>
+                        <a href="#catastoSettingsDifferences"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>catastoSettingsDifferences(oldSettings: <a href="../classes/CaricaCatastoSettings.html" target="_self">CaricaCatastoSettings</a>, newSettings: <a href="../classes/CaricaCatastoSettings.html" target="_self">CaricaCatastoSettings</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="501"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:501</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>oldSettings</td>
+                                            <td>
+                                                            <code><a href="../classes/CaricaCatastoSettings.html" target="_self" >CaricaCatastoSettings</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>newSettings</td>
+                                            <td>
+                                                            <code><a href="../classes/CaricaCatastoSettings.html" target="_self" >CaricaCatastoSettings</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dynamicSort"></a>
+                    <span class="name">
+                        <span ><b>dynamicSort</b></span>
+                        <a href="#dynamicSort"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dynamicSort(property)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="401"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:401</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>property</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>(a: any, b: any) &#x3D;&gt; number</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="535"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:535</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDeselectedRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDeselectedRows</b></span>
+                        <a href="#handleDeselectedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDeselectedRows(event: SelectionEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="692"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:692</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>SelectionEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleRead"></a>
+                    <span class="name">
+                        <span ><b>handleRead</b></span>
+                        <a href="#handleRead"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleRead(rows: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="263"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:263</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSelectedRows</b></span>
+                        <a href="#handleSelectedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectedRows(event: SelectionEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="569"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:569</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>SelectionEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="206"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:206</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;DatiCatastaliServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumnsGridDatiCatastali"></a>
+                    <span class="name">
+                        <span ><b>setColumnsGridDatiCatastali</b></span>
+                        <a href="#setColumnsGridDatiCatastali"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumnsGridDatiCatastali()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="416"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:416</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setModelGridDatiCatastali"></a>
+                    <span class="name">
+                        <span ><b>setModelGridDatiCatastali</b></span>
+                        <a href="#setModelGridDatiCatastali"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setModelGridDatiCatastali()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="471"
+                                    class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:471</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggregates"></a>
+                    <span class="name">
+                        <span ><b>aggregates</b></span>
+                        <a href="#aggregates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AggregateSettings</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      {field: &#x27;SuperficieImpiegata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27;}
+    ]
+  })</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DatiCatastaliObs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>DatiCatastaliObs</b></span>
+                        <a href="#DatiCatastaliObs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;DatiCatastaliHttpService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      { field: &#x27;CodiceIstat_Provincia&#x27;, title: this.translocoLoc.translate(&#x27;IstatProvinciaAbbr&#x27;) },
+      { hidden: true, resizable: true, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;CodiceIstat_Comune&#x27;, title: this.translocoLoc.translate(&#x27;IstatComuneAbbr&#x27;) },
+      { hidden: true, resizable: true, editable: false, width: 130 })
+    ,
+    new KendoGridColumn(
+      { field: &#x27;Part_Cod&#x27;, title: this.translocoLoc.translate(&#x27;CodiceParticella&#x27;) },
+      { hidden: true, resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Progressivo&#x27;, title: this.translocoLoc.translate(&#x27;Progressivo&#x27;) },
+      { hidden: true, title: this.translocoLoc.translate(&#x27;Progressivo&#x27;), resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieImpiegata&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieImpiegata&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, width: 140, editable: true }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Provincia&#x27;, title: this.translocoLoc.translate(&#x27;Provincia&#x27;) },
+      { resizable: true, editable: false, width: 110 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Comune&#x27;, title: this.translocoLoc.translate(&#x27;Comune&#x27;) },
+      { resizable: true, editable: false, width: 200 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Sezione&#x27;, title: this.translocoLoc.translate(&#x27;Sezione&#x27;) },
+      { resizable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Foglio&#x27;, title: this.translocoLoc.translate(&#x27;Foglio&#x27;) },
+      { resizable: true, editable: false, numeric: { defaultValue: 0, multiCheckFiltering: true }, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Numero&#x27;, title: this.translocoLoc.translate(&#x27;Numero&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0, multiCheckFiltering: true }, width: 100, editable: false }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Subalterno&#x27;, title: this.translocoLoc.translate(&#x27;Subalterno&#x27;) },
+      { resizable: true, editable: false, width: 120 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ZVN&#x27;, title: this.translocoLoc.translate(&#x27;ZVN&#x27;) },
+      { resizable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieCondottaDisponibile&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCondottaDisponibileAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 200 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieLorda&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCatastaleAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 170 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Superficie&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCondottaAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 150 }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridModel</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    ChkSelezionaParticella: new ModelEntry(CELL_TYPES.STRING, false),
+    CodiceIstat_Comune: new ModelEntry(CELL_TYPES.STRING, false),
+    CodiceIstat_Provincia: new ModelEntry(CELL_TYPES.STRING, false),
+    Comune: new ModelEntry(CELL_TYPES.STRING, false),
+    Foglio: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Numero: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Part_Cod: new ModelEntry(CELL_TYPES.STRING, false),
+    Progressivo: new ModelEntry(CELL_TYPES.STRING, false),
+    Provincia: new ModelEntry(CELL_TYPES.STRING, false),
+    Sezione: new ModelEntry(CELL_TYPES.STRING, false),
+    Subalterno: new ModelEntry(CELL_TYPES.STRING, false),
+    ZVN: new ModelEntry(CELL_TYPES.STRING, false),
+    Superficie: new ModelEntry(CELL_TYPES.STRING, false),
+    SuperficieCondottaDisponibile: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SuperficieImpiegata: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SuperficieLorda: new ModelEntry(CELL_TYPES.STRING, false),
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="118" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="lastLoadedSettings"></a>
+                    <span class="name">
+                        <span ><b>lastLoadedSettings</b></span>
+                        <a href="#lastLoadedSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/CaricaCatastoSettings.html" target="_self" >CaricaCatastoSettings</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="42" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:42</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCellClick"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier"></span>
+                        <span ><b>onCellClick</b></span>
+                        <a href="#onCellClick"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:187</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCellClose"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier"></span>
+                        <span ><b>onCellClose</b></span>
+                        <a href="#onCellClose"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="170" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:170</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renderer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>renderer</b></span>
+                        <a href="#renderer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Renderer2</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionChangeFn"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>selectionChangeFn</b></span>
+                        <a href="#selectionChangeFn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="193" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="SelezionaRigha"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>SelezionaRigha</b></span>
+                        <a href="#SelezionaRigha"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="164" class="link-to-prism">src/app/anagrafica/appezzamenti/appezzamenti-edit/dati-catastali/dati-catastali-http.service.ts:164</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, Injector, Renderer2, RendererFactory2 } from &#x27;@angular/core&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { from, Observable, of } from &#x27;rxjs&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;; 
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import {
+  EditingMode,
+  KendoGridColumn,
+  KendoGridModel,
+  KendoGridRow,
+  KendoServerResult,
+  LoaderType, ModelEntry,
+  RendererGridEvent
+} from &#x27;gias-kendo-grid&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { CellClickEvent, CellCloseEvent, RowArgs, SelectionEvent } from &#x27;@progress/kendo-angular-grid&#x27;;
+import { CatastoAppezzamento_Extended, DatiCatastaliService, MacrousiCatastoAppezzamento } from &#x27;./dati-catastali.service&#x27;;
+import { GiasKendoGridComponent } from &#x27;gias-kendo-grid&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { PKParticelleCatastali } from &#x27;app/Model/anagrafiche/ParticelleCatastali&#x27;;
+import { AggregateSettings } from &#x27;gias-kendo-grid&#x27;;
+import {CaricaCatastoSettings, ImpiantiFactoryService, IMPIANTI_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/impianti.factory.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+
+export class DatiCatastaliServerResult extends KendoServerResult {
+  constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+    super(model, cols, rows);
+  }
+}
+
+@Injectable()
+export class DatiCatastaliHttpService extends AbstractGridConfigService&lt;DatiCatastaliServerResult&gt;{
+  gridId: string &#x3D; &#x27;DatiCatastaliHttpService&#x27;;
+  rowId: string &#x3D; &#x27;chiave&#x27;;
+
+  private renderer: Renderer2;
+  private objParametriAgenda: ObjParametriAgenda;
+
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+  lastLoadedSettings: CaricaCatastoSettings &#x3D; null;
+
+  aggregates: AggregateSettings &#x3D; new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      {field: &#x27;SuperficieImpiegata&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27;}
+    ]
+  });
+
+  private DatiCatastaliObs: any[];
+
+  private kendoColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      { field: &#x27;CodiceIstat_Provincia&#x27;, title: this.translocoLoc.translate(&#x27;IstatProvinciaAbbr&#x27;) },
+      { hidden: true, resizable: true, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;CodiceIstat_Comune&#x27;, title: this.translocoLoc.translate(&#x27;IstatComuneAbbr&#x27;) },
+      { hidden: true, resizable: true, editable: false, width: 130 })
+    ,
+    new KendoGridColumn(
+      { field: &#x27;Part_Cod&#x27;, title: this.translocoLoc.translate(&#x27;CodiceParticella&#x27;) },
+      { hidden: true, resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Progressivo&#x27;, title: this.translocoLoc.translate(&#x27;Progressivo&#x27;) },
+      { hidden: true, title: this.translocoLoc.translate(&#x27;Progressivo&#x27;), resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 130 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieImpiegata&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieImpiegata&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, width: 140, editable: true }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Provincia&#x27;, title: this.translocoLoc.translate(&#x27;Provincia&#x27;) },
+      { resizable: true, editable: false, width: 110 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Comune&#x27;, title: this.translocoLoc.translate(&#x27;Comune&#x27;) },
+      { resizable: true, editable: false, width: 200 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Sezione&#x27;, title: this.translocoLoc.translate(&#x27;Sezione&#x27;) },
+      { resizable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Foglio&#x27;, title: this.translocoLoc.translate(&#x27;Foglio&#x27;) },
+      { resizable: true, editable: false, numeric: { defaultValue: 0, multiCheckFiltering: true }, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Numero&#x27;, title: this.translocoLoc.translate(&#x27;Numero&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0, multiCheckFiltering: true }, width: 100, editable: false }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Subalterno&#x27;, title: this.translocoLoc.translate(&#x27;Subalterno&#x27;) },
+      { resizable: true, editable: false, width: 120 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;ZVN&#x27;, title: this.translocoLoc.translate(&#x27;ZVN&#x27;) },
+      { resizable: true, editable: false, width: 100 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieCondottaDisponibile&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCondottaDisponibileAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 200 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;SuperficieLorda&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCatastaleAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 170 }
+    ),
+    new KendoGridColumn(
+      { field: &#x27;Superficie&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieCondottaAbbr&#x27;) },
+      { resizable: true, numeric: { defaultValue: 0 }, editable: false, width: 150 }
+    )
+  ];
+
+  private kendoModel: KendoGridModel &#x3D; {
+    ChkSelezionaParticella: new ModelEntry(CELL_TYPES.STRING, false),
+    CodiceIstat_Comune: new ModelEntry(CELL_TYPES.STRING, false),
+    CodiceIstat_Provincia: new ModelEntry(CELL_TYPES.STRING, false),
+    Comune: new ModelEntry(CELL_TYPES.STRING, false),
+    Foglio: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Numero: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Part_Cod: new ModelEntry(CELL_TYPES.STRING, false),
+    Progressivo: new ModelEntry(CELL_TYPES.STRING, false),
+    Provincia: new ModelEntry(CELL_TYPES.STRING, false),
+    Sezione: new ModelEntry(CELL_TYPES.STRING, false),
+    Subalterno: new ModelEntry(CELL_TYPES.STRING, false),
+    ZVN: new ModelEntry(CELL_TYPES.STRING, false),
+    Superficie: new ModelEntry(CELL_TYPES.STRING, false),
+    SuperficieCondottaDisponibile: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SuperficieImpiegata: new ModelEntry(CELL_TYPES.NUMBER, false),
+    SuperficieLorda: new ModelEntry(CELL_TYPES.STRING, false),
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+  };
+
+  constructor(
+    injector: Injector,
+    @Inject(IMPIANTI_SERVICE_TOKEN) private appezzamentiService: ImpiantiFactoryService,
+    private ObjParametriAgendaService: ObjParametriAgendaService,
+    private daticatastali: DatiCatastaliService,
+    private giasMessageService: GiasMessageService,
+    private translocoLoc: TranslocoService,
+    private rendererFactory: RendererFactory2
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.renderer &#x3D; this.rendererFactory.createRenderer(null, null);
+
+    this.lastLoadedSettings &#x3D; null;
+    this.objParametriAgenda &#x3D; this.ObjParametriAgendaService.getObjParamValue();
+
+    this.daticatastali.caricaCatastoSettings.GiasSubscribe(val &#x3D;&gt; {
+      if (this.catastoSettingsDifferences(this.lastLoadedSettings, val)) {
+        this.DatiCatastaliObs &#x3D; null;
+        this.gridPublicService.refresh(true);
+      }
+    });
+
+    this.handleCustomizations();
+  }
+
+  public SelezionaRigha &#x3D; (e: RowArgs, component: GiasKendoGridComponent) &#x3D;&gt; {
+    return (
+      this.daticatastali.ControllaSeSelezionareLaRiga(e.dataItem, this.daticatastali.getCatastoAppezzamento(), false) !&#x3D;&#x3D; -1
+    );
+  }
+
+  public override onCellClose &#x3D; (event: CellCloseEvent, inputElementRef) &#x3D;&gt; {
+    // Aggiorno la textbox della Superficie
+    const catastoAppezzamento: CatastoAppezzamento_Extended[] &#x3D; this.daticatastali.getCatastoAppezzamento();
+    const index: number &#x3D; this.daticatastali.ControllaSeSelezionareLaRiga(event.dataItem, catastoAppezzamento, false);
+
+    if (index !&#x3D;&#x3D; -1) {
+      event.dataItem.SuperficieCondottaDisponibile &#x3D; parseFloat((event.dataItem.SuperficieCondottaDisponibile + (catastoAppezzamento[index].area - event.dataItem.SuperficieImpiegata)).toFixed(4));
+      catastoAppezzamento[index].area &#x3D; event.dataItem.SuperficieImpiegata;
+
+      if (event.dataItem.SuperficieCondottaDisponibile &lt; 0) {
+        this.giasMessageService.warningMessage(&quot;Superficie selezionata superiore alla superficie condotta&quot;);
+      }
+    }
+
+    this.daticatastali.setCatastoAppezzamento(catastoAppezzamento);
+  };
+
+  public override onCellClick &#x3D; (event: CellClickEvent) &#x3D;&gt; {
+    if (event.dataItem.ChkSelezionaParticella &#x3D;&#x3D; false || event.dataItem.ChkSelezionaParticella &#x3D;&#x3D; null) {
+      event.sender.closeRow(event.rowIndex);
+    }
+  };
+
+  public selectionChangeFn &#x3D; (event: SelectionEvent, component: GiasKendoGridComponent) &#x3D;&gt; {
+    const selectedRows &#x3D; event.selectedRows;
+    const deselectedRows &#x3D; event.deselectedRows;
+
+    if (selectedRows.length !&#x3D;&#x3D; 0) {
+      this.handleSelectedRows(event);
+    } else if (deselectedRows.length !&#x3D;&#x3D; 0 ) {
+      this.handleDeselectedRows(event);
+    }
+
+    this.gridPublicService.refresh(true);
+  };
+
+  perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+    return from([]);
+  }
+
+  read(): Observable&lt;DatiCatastaliServerResult&gt; {
+    // TODO Da completare quando sarà disponibile l&#x27;edit inline e controlla bene la funzione &quot;CaricaKendo_Particelle&quot; in Appezzamento.Edit
+    //e guarda bene anche lato client cosa fa di preciso
+    const DatiCatastali: any &#x3D; {};
+
+    let obs: Observable&lt;any[]&gt;
+    if (this.DatiCatastaliObs &#x3D;&#x3D; null) {
+      const caricaCatastoSettings &#x3D; this.daticatastali.getCaricaCatastoSettings();
+      this.lastLoadedSettings &#x3D; { ...caricaCatastoSettings };
+      obs &#x3D; this.appezzamentiService.CaricaDatiCatastaliObs(caricaCatastoSettings);
+    } else {
+      obs &#x3D; of(this.DatiCatastaliObs)
+    }
+
+    this.daticatastali.loading.next(true);
+
+    return obs.pipe(map((daticatastali: any[]) &#x3D;&gt; {
+      const rows &#x3D; &lt;KendoGridRow[]&gt;daticatastali;
+      this.DatiCatastaliObs &#x3D; daticatastali;
+      this.handleRead(rows);
+      rows.sort(this.dynamicSort(&quot;SuperficieImpiegata&quot;));
+      rows.forEach((r:any) &#x3D;&gt; {
+        if (r.SuperficieImpiegata &gt; 0){
+          r.ChkSelezionaParticella &#x3D; true;
+        }
+      })
+      if (this.objParametriAgenda.TipoOperazioneDB &#x3D;&#x3D; Enum_DBTypeOperation.Read) {
+        for (let i &#x3D; 0; i &lt; DatiCatastali?.kendo_columns?.length; i++){
+          DatiCatastali.kendo_columns[i].editable &#x3D; false;
+        }
+      }
+      let col;
+      let mod;
+      if (this.gridPublicService?.giasGridComponent?.columns &#x3D;&#x3D; undefined) {
+        col &#x3D; this.kendoColumns;
+      } else {
+        col &#x3D; this.gridPublicService?.giasGridComponent?.columns;
+      }
+      if (this.gridPublicService?.giasGridComponent?.model &#x3D;&#x3D; undefined) {
+        mod &#x3D; this.kendoModel;
+      } else {
+        mod &#x3D; this.gridPublicService?.giasGridComponent?.model;
+      }
+
+      this.setModelGridDatiCatastali();
+      this.setColumnsGridDatiCatastali();
+
+      this.daticatastali.loading.next(false);
+
+      return new DatiCatastaliServerResult(rows, col, mod);;
+    }));
+  }
+
+  handleRead(rows: any[]) {
+    this.assegnaAutomaticamenteMacrousiUtilizzi(rows, this.daticatastali.getCaricaCatastoSettings());
+
+    const catastoAppezzamento &#x3D; this.daticatastali.getCatastoAppezzamento();
+    rows.forEach(row &#x3D;&gt; {
+      if (this.daticatastali.ControllaSeSelezionareLaRiga(row, catastoAppezzamento, true) &gt;&#x3D; 0) {
+        row.Selected &#x3D; true;
+      } else {
+        row.SuperficieImpiegata &#x3D; 0;
+        row.Selected &#x3D; false;
+      }
+    });
+  }
+
+  assegnaAutomaticamenteMacrousiUtilizzi(rows: any[], settings: CaricaCatastoSettings) {
+    let catastoAppezzamento &#x3D; this.daticatastali.getCatastoAppezzamento();
+    if (settings.chkMacrousi) {
+      let particelleNoMacrousi &#x3D; catastoAppezzamento.filter((el) &#x3D;&gt; (el.macrousi &#x3D;&#x3D; null) || (el.macrousi?.length &#x3D;&#x3D; 0));
+
+      particelleNoMacrousi.forEach((catasto) &#x3D;&gt; {
+        let rowsParticella &#x3D; rows.filter((dataItem) &#x3D;&gt; {
+          const ProvItem &#x3D; dataItem.CodiceIstat_Provincia;
+          const ComuneItem &#x3D; dataItem.CodiceIstat_Comune;
+          let SezioneItem &#x3D; dataItem.Sezione;
+          const FoglioItem &#x3D; dataItem.Foglio;
+          const NumeroItem &#x3D; dataItem.Numero;
+          let SubalternoItem &#x3D; dataItem.Subalterno;
+
+          if (SezioneItem &#x3D;&#x3D; &#x27;0&#x27;) {
+            SezioneItem &#x3D; &#x27;&#x27;;
+          }
+
+          if (SubalternoItem &#x3D;&#x3D; &#x27;0&#x27;) {
+            SubalternoItem &#x3D; &#x27;&#x27;;
+          }
+
+          const ProvCatasto &#x3D; catasto.particella[&#x27;Prov&#x27;];
+          const ComuneCatasto &#x3D; catasto.particella[&#x27;Com&#x27;];
+          let SezioneCatasto &#x3D; catasto.particella[&#x27;Sezione&#x27;];
+          const FoglioCatasto &#x3D; catasto.particella[&#x27;Foglio&#x27;];
+          const NumeroCatasto &#x3D; catasto.particella[&#x27;Numero&#x27;];
+          let SubalternoCatasto &#x3D; catasto.particella[&#x27;Subalterno&#x27;];
+
+          if (SezioneCatasto &#x3D;&#x3D; &#x27;0&#x27;) {
+            SezioneCatasto &#x3D; &#x27;&#x27;;
+          }
+
+          if (SubalternoCatasto &#x3D;&#x3D; &#x27;0&#x27;) {
+            SubalternoCatasto &#x3D; &#x27;&#x27;;
+          }
+
+          return ProvCatasto &#x3D;&#x3D;&#x3D; ProvItem &amp;&amp;
+            ComuneCatasto &#x3D;&#x3D;&#x3D; ComuneItem &amp;&amp;
+            SezioneCatasto &#x3D;&#x3D;&#x3D; SezioneItem &amp;&amp;
+            FoglioCatasto &#x3D;&#x3D;&#x3D; FoglioItem &amp;&amp;
+            NumeroCatasto &#x3D;&#x3D;&#x3D; NumeroItem &amp;&amp;
+            SubalternoCatasto &#x3D;&#x3D;&#x3D; SubalternoItem;
+        });
+
+        if (rowsParticella.length &gt; 0) {
+          catasto.macrousi &#x3D; [{
+            macrouso: { codice: rowsParticella[0].Macrouso_Cod, descrizione: rowsParticella[0].Macrouso_Des },
+            Area: catasto.area,
+            utilizzi: []
+          }]
+        }
+
+      });
+
+      if (settings.chkUtilizzi) {
+        let macrousiNoUtilizzi: { particella: PKParticelleCatastali, macrouso: MacrousiCatastoAppezzamento}[] &#x3D; [];
+
+        catastoAppezzamento.forEach((el) &#x3D;&gt; {
+          let val &#x3D; el.macrousi?.filter((macr) &#x3D;&gt; (macr.utilizzi &#x3D;&#x3D; null) || (macr.utilizzi?.length &#x3D;&#x3D; 0));
+          if (val) {
+            val.forEach((nullVal) &#x3D;&gt; {
+              macrousiNoUtilizzi.push({particella: el.particella, macrouso: nullVal});
+            })
+          }
+        });
+
+        macrousiNoUtilizzi.forEach((catasto) &#x3D;&gt; {
+
+          let rowsParticella &#x3D; rows.filter((dataItem) &#x3D;&gt; {
+
+            const ProvItem &#x3D; dataItem.CodiceIstat_Provincia;
+            const ComuneItem &#x3D; dataItem.CodiceIstat_Comune;
+            let SezioneItem &#x3D; dataItem.Sezione;
+            const FoglioItem &#x3D; dataItem.Foglio;
+            const NumeroItem &#x3D; dataItem.Numero;
+            let SubalternoItem &#x3D; dataItem.Subalterno;
+
+            if (SezioneItem &#x3D;&#x3D; &#x27;0&#x27;) {
+              SezioneItem &#x3D; &#x27;&#x27;;
+            }
+
+            if (SubalternoItem &#x3D;&#x3D; &#x27;0&#x27;) {
+              SubalternoItem &#x3D; &#x27;&#x27;;
+            }
+
+            const ProvCatasto: string &#x3D; catasto.particella[&#x27;Prov&#x27;];
+            const ComuneCatasto: string &#x3D; catasto.particella[&#x27;Com&#x27;];
+            let SezioneCatasto: string &#x3D; catasto.particella[&#x27;Sezione&#x27;];
+            const FoglioCatasto: number &#x3D; catasto.particella[&#x27;Foglio&#x27;];
+            const NumeroCatasto: number &#x3D; catasto.particella[&#x27;Numero&#x27;];
+            let SubalternoCatasto: string &#x3D; catasto.particella[&#x27;Subalterno&#x27;];
+
+            if (SezioneCatasto &#x3D;&#x3D; &#x27;0&#x27;) {
+              SezioneCatasto &#x3D; &#x27;&#x27;;
+            }
+
+            if (SubalternoCatasto &#x3D;&#x3D; &#x27;0&#x27;) {
+              SubalternoCatasto &#x3D; &#x27;&#x27;;
+            }
+
+            return ProvCatasto &#x3D;&#x3D;&#x3D; ProvItem &amp;&amp;
+              ComuneCatasto &#x3D;&#x3D;&#x3D; ComuneItem &amp;&amp;
+              SezioneCatasto &#x3D;&#x3D;&#x3D; SezioneItem &amp;&amp;
+              FoglioCatasto &#x3D;&#x3D;&#x3D; FoglioItem &amp;&amp;
+              NumeroCatasto &#x3D;&#x3D;&#x3D; NumeroItem &amp;&amp;
+              SubalternoCatasto &#x3D;&#x3D;&#x3D; SubalternoItem &amp;&amp;
+              dataItem.Macrouso_Cod &#x3D;&#x3D;&#x3D; catasto.macrouso.macrouso.codice;
+          })
+
+          if (rowsParticella.length &gt; 0) {
+            catasto.macrouso.utilizzi &#x3D; [{
+              utilizzo: { codice: rowsParticella[0].Veg_Cod_Agea, descrizione: rowsParticella[0].Veg_Des_Agea },
+              Area: catasto.macrouso.Area
+            }]
+          }
+
+        });
+
+      }
+
+    }
+  }
+
+  dynamicSort(property) {
+    var sortOrder &#x3D; 1;
+    if(property[0] &#x3D;&#x3D;&#x3D; &quot;-&quot;) {
+      sortOrder &#x3D; -1;
+      property &#x3D; property.substring(1);
+    }
+    return function (a,b) {
+      /* next line works with strings and numbers,
+      * and you may want to customize it to your needs
+      */
+      var result &#x3D; (a[property] &gt; b[property]) ? -1 : (a[property] &lt; b[property]) ? 1 : 0;
+      return result * sortOrder;
+    }
+  }
+
+  setColumnsGridDatiCatastali(){
+    let c: KendoGridColumn&#x3D; null;
+
+    let catastoSettings &#x3D; this.daticatastali.getCaricaCatastoSettings();
+
+    // In base ai vari flag nascondo o mostro le colonne
+    if(catastoSettings.chkMacrousi &amp;&amp; this.kendoColumns.find((el) &#x3D;&gt; el.field &#x3D;&#x3D; &#x27;Macrouso_Cod&#x27;) &#x3D;&#x3D; undefined){
+
+      c&#x3D; new KendoGridColumn({field: &#x27;Macrouso_Cod&#x27;,title: this.translocoLoc.translate(&#x27;CodiceMacrousoAbbr&#x27;)},{hidden:true,resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D; new KendoGridColumn({field: &#x27;Macrouso_Des&#x27;,title: this.translocoLoc.translate(&#x27;Macrouso&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D;new KendoGridColumn({field: &#x27;Sup_Macrouso&#x27;,title: this.translocoLoc.translate(&#x27;SuperficieMacrousoAbbr&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D;new KendoGridColumn({field: &#x27;SuperficieMacrousoDisponibile&#x27;,title: this.translocoLoc.translate(&#x27;SuperficieMacrousoDisponibileAbbr&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+    } else if (catastoSettings.chkMacrousi &#x3D;&#x3D; false &amp;&amp; this.kendoColumns.find((el) &#x3D;&gt; el.field &#x3D;&#x3D; &#x27;Macrouso_Cod&#x27;) !&#x3D; undefined) {
+      let key &#x3D; [&#x27;Macrouso_Cod&#x27;, &#x27;Macrouso_Des&#x27;, &#x27;Sup_Macrouso&#x27;, &#x27;SuperficieMacrousoDisponibile&#x27;]
+      key.forEach(element &#x3D;&gt; {
+        let index &#x3D; this.kendoColumns.findIndex((e) &#x3D;&gt; e.field &#x3D;&#x3D; element);
+        if (index &gt;&#x3D; 0) {
+          this.kendoColumns.splice(index, 1)
+        }
+      });
+    }
+
+    if(catastoSettings.chkUtilizzi &amp;&amp; this.kendoColumns.find((el) &#x3D;&gt; el.field &#x3D;&#x3D; &#x27;Veg_Cod_Agea&#x27;) &#x3D;&#x3D; undefined){
+
+      c&#x3D;new KendoGridColumn({field: &#x27;Veg_Cod_Agea&#x27;,title: this.translocoLoc.translate(&#x27;VegCodAgea&#x27;)},{hidden:true,resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D;new KendoGridColumn({field: &#x27;Veg_Des_Agea&#x27;,title: this.translocoLoc.translate(&#x27;SpecieAgea&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D;new KendoGridColumn({field: &#x27;Sup_Utilizzo&#x27;,title: this.translocoLoc.translate(&#x27;SuperficieUtilizzoAbbr&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+      c&#x3D;new KendoGridColumn({field: &#x27;SuperficieUtilizzoDisponibile&#x27;,title: this.translocoLoc.translate(&#x27;SuperficieUtilizzoDisponibileAbbr&#x27;)},{resizable:true,editable: false, width: 200});
+      this.kendoColumns.push(c);
+
+    } else if (catastoSettings.chkUtilizzi &#x3D;&#x3D; false &amp;&amp; this.kendoColumns.find((el) &#x3D;&gt; el.field &#x3D;&#x3D; &#x27;Veg_Cod_Agea&#x27;) !&#x3D; undefined) {
+      let key &#x3D; [&#x27;Veg_Cod_Agea&#x27;, &#x27;Veg_Des_Agea&#x27;, &#x27;Sup_Utilizzo&#x27;, &#x27;SuperficieUtilizzoDisponibile&#x27;]
+      key.forEach(element &#x3D;&gt; {
+        let index &#x3D; this.kendoColumns.findIndex((e) &#x3D;&gt; e.field &#x3D;&#x3D; element);
+        if (index &gt;&#x3D; 0) {
+          this.kendoColumns.splice(index, 1)
+        }
+      });
+    }
+  }
+
+  setModelGridDatiCatastali(){
+    // In base ai vari flag nascondo o mostro le colonne
+
+    let catastoSettings &#x3D; this.daticatastali.getCaricaCatastoSettings();
+
+    if(catastoSettings.chkMacrousi &amp;&amp; this.kendoModel[&#x27;Macrouso_Cod&#x27;] &#x3D;&#x3D; undefined){
+      this.kendoModel[&#x27;Macrouso_Cod&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;Macrouso_Des&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;Sup_Macrouso&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;SuperficieMacrousoDisponibile&#x27;]&#x3D;{type: &#x27;string&#x27;};
+    } else if (catastoSettings.chkMacrousi &#x3D;&#x3D; false &amp;&amp; this.kendoModel[&#x27;Macrouso_Cod&#x27;] !&#x3D; undefined) {
+      this.kendoModel[&#x27;Macrouso_Cod&#x27;] &#x3D; undefined;
+      this.kendoModel[&#x27;Macrouso_Des&#x27;] &#x3D; undefined;
+      this.kendoModel[&#x27;Sup_Macrouso&#x27;] &#x3D; undefined;
+      this.kendoModel[&#x27;SuperficieMacrousoDisponibile&#x27;] &#x3D; undefined;
+    }
+
+    if(catastoSettings.chkUtilizzi &amp;&amp; this.kendoModel[&#x27;Veg_Cod_Agea&#x27;] &#x3D;&#x3D; undefined){
+      this.kendoModel[&#x27;Veg_Cod_Agea&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;Veg_Des_Agea&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;Sup_Utilizzo&#x27;]&#x3D;{type: &#x27;string&#x27;};
+      this.kendoModel[&#x27;SuperficieUtilizzoDisponibile&#x27;]&#x3D;{type: &#x27;string&#x27;};
+    } else if (catastoSettings.chkUtilizzi &#x3D;&#x3D; false &amp;&amp; this.kendoModel[&#x27;Veg_Cod_Agea&#x27;] !&#x3D; undefined) {
+      this.kendoModel[&#x27;Veg_Cod_Agea&#x27;]&#x3D; undefined;
+      this.kendoModel[&#x27;Veg_Des_Agea&#x27;]&#x3D; undefined;
+      this.kendoModel[&#x27;Sup_Utilizzo&#x27;]&#x3D; undefined;
+      this.kendoModel[&#x27;SuperficieUtilizzoDisponibile&#x27;]&#x3D; undefined;
+    }
+  }
+
+  catastoSettingsDifferences(oldSettings: CaricaCatastoSettings, newSettings: CaricaCatastoSettings): boolean{
+    if (oldSettings &#x3D;&#x3D; null &amp;&amp; newSettings !&#x3D; null) {
+      return true;
+    }
+    if (newSettings &#x3D;&#x3D; null) {
+      return true;
+    }
+    if (oldSettings.Piva &#x3D;&#x3D; newSettings.Piva &amp;&amp;
+      oldSettings.Sa_Cod &#x3D;&#x3D; newSettings.Sa_Cod &amp;&amp;
+      oldSettings.Campo_Cod &#x3D;&#x3D; newSettings.Campo_Cod &amp;&amp;
+      oldSettings.chkMacrousi &#x3D;&#x3D; newSettings.chkMacrousi &amp;&amp;
+      oldSettings.chkUtilizzi &#x3D;&#x3D; newSettings.chkUtilizzi &amp;&amp;
+      oldSettings.chkVarieta &#x3D;&#x3D; newSettings.chkVarieta &amp;&amp;
+      oldSettings.Validita_Inizio &#x3D;&#x3D; newSettings.Validita_Inizio &amp;&amp;
+      oldSettings.Validita_Fine &#x3D;&#x3D; newSettings.Validita_Fine) {
+      return false;
+    }
+    return true;
+  }
+
+  override applyRendererRules(opts: RendererGridEvent): void {
+    const { grid, gridElRef } &#x3D; { ...opts };
+    let a &#x3D; gridElRef;
+    let visibleRows: [] &#x3D; gridElRef.nativeElement.querySelectorAll(&#x27;tbody tr&#x27;);
+    grid.view.forEach((el, index) &#x3D;&gt; {
+      const row &#x3D; visibleRows[index] as HTMLElement;
+      if (el.SuperficieCondottaDisponibile &lt; 0) {
+        this.renderer.addClass(row, &#x27;nonAttivo&#x27;);
+      } else {
+        this.renderer.removeClass(row, &#x27;nonAttivo&#x27;);
+      }
+    });
+  }
+
+  private handleCustomizations(): void {
+    // Nascondo la colonna Azioni con i bottoni di Info,Modifica e Cancella
+    this.cmdColumn.editBtn&#x3D;false;
+    this.cmdColumn.infoBtn&#x3D;false;
+    this.cmdColumn.removeBtn&#x3D;false;
+    // Setting colonna con checkbox
+    this.resizable.autoFitColumns &#x3D; true;
+    this.resizable.isResizable &#x3D; true;
+    this.resizable.autoFitColumns&#x3D;true;
+    this.resizable.isResizable &#x3D; true;
+
+    // Setting generali altezza grid
+    this.behavior.pdfSettings.enabled &#x3D; false;
+    this.behavior.excelSettings.enabled &#x3D; false;
+    this.groups.groupable.enabled &#x3D; false;
+    this.generalSettings.height &#x3D; 450;
+    // Pre ordinamento colonne
+    this.pagination.gridState.sort&#x3D;[{
+      field: &#x27;Selected&#x27;,
+      dir: &#x27;desc&#x27;
+    }];
+
+    if (this.objParametriAgenda.TipoOperazioneDB !&#x3D; Enum_DBTypeOperation.Read) {
+      this.selectable.selectable.checkboxOnly &#x3D; true;
+      this.selectable.selectable.enabled &#x3D; true;
+      this.selectable.preselectedRows.isRowSelectedFn &#x3D; this.SelezionaRigha;
+      this.selectable.preselectedRows.selectionChangeFn &#x3D; this.selectionChangeFn;
+      this.selectable.preselectedRows.selectedRows &#x3D; [];
+      this.selectable.columnSettings.showSelectAll &#x3D; true;
+      this.selectable.shouldShowCheckbox &#x3D; true;
+      this.selectable.columnSettings.title &#x3D; &#x27; &#x27;;
+    }
+  }
+
+  private handleSelectedRows(event: SelectionEvent): void {
+    const settings: CaricaCatastoSettings &#x3D; this.daticatastali.getCaricaCatastoSettings();
+    let catastoAppezzamento: CatastoAppezzamento_Extended[] &#x3D; this.daticatastali.getCatastoAppezzamento();
+
+    event.selectedRows.forEach(row &#x3D;&gt; {
+      if (row.dataItem.SuperficieCondottaDisponibile &lt;&#x3D; 0) {
+        // segnalo il possibile errore, ma permetto comunque l&#x27;associazione della particella
+        this.giasMessageService.warningMessage(this.transloco.translate(&#x27;SuperficieDisponibileZero&#x27;));
+      }
+
+      row.dataItem.ChkSelezionaParticella &#x3D; true;
+      if (this.daticatastali.ControllaSeSelezionareLaRiga(row.dataItem, catastoAppezzamento, false) &#x3D;&#x3D;&#x3D; -1) {
+        let Sezione &#x3D; row.dataItem.Sezione;
+        let Subalterno &#x3D; row.dataItem.Subalterno;
+
+        if (Sezione &#x3D;&#x3D;&#x3D; &#x27;&amp;nbsp;&#x27; || Sezione &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+          Sezione &#x3D; &#x27;0&#x27;;
+        }
+
+        if (Subalterno &#x3D;&#x3D;&#x3D; &#x27;&amp;nbsp;&#x27; || Subalterno &#x3D;&#x3D;&#x3D; &#x27;&#x27;) {
+          Subalterno &#x3D; &#x27;0&#x27;;
+        }
+
+        let findCatasto: boolean &#x3D; false;
+        let catasto: CatastoAppezzamento_Extended &#x3D; catastoAppezzamento.find((el) &#x3D;&gt; {
+          return el.particella.Prov &#x3D;&#x3D; row.dataItem.CodiceIstat_Provincia &amp;&amp;
+            el.particella.Com &#x3D;&#x3D; row.dataItem.CodiceIstat_Comune &amp;&amp;
+            el.particella.Sezione &#x3D;&#x3D; Sezione &amp;&amp;
+            el.particella.Foglio &#x3D;&#x3D; row.dataItem.Foglio &amp;&amp;
+            el.particella.Numero &#x3D;&#x3D; row.dataItem.Numero &amp;&amp;
+            el.particella.Subalterno &#x3D;&#x3D; Subalterno;
+        });
+
+        if (catasto &#x3D;&#x3D; undefined) {
+          catasto &#x3D; new CatastoAppezzamento_Extended();
+          catasto.area &#x3D; row.dataItem.SuperficieImpiegata;
+          catasto.particella &#x3D; {} as any;
+          catasto.particella[&#x27;Prov&#x27;] &#x3D; row.dataItem.CodiceIstat_Provincia;
+          catasto.particella[&#x27;Com&#x27;] &#x3D; row.dataItem.CodiceIstat_Comune;
+          catasto.particella[&#x27;Sezione&#x27;] &#x3D; Sezione;
+          catasto.particella[&#x27;Foglio&#x27;] &#x3D; row.dataItem.Foglio;
+          catasto.particella[&#x27;Numero&#x27;] &#x3D; row.dataItem.Numero;
+          catasto.particella[&#x27;Subalterno&#x27;] &#x3D; Subalterno;
+        } else {
+          findCatasto &#x3D; true;
+        }
+
+        if (!settings.chkMacrousi &amp;&amp; row.dataItem.SuperficieCondottaDisponibile &gt;&#x3D; 0) {
+          catasto.area &#x3D; row.dataItem.SuperficieCondottaDisponibile;
+        } else if (settings.chkMacrousi &amp;&amp; !settings.chkUtilizzi &amp;&amp; row.dataItem.SuperficieMacrousoDisponibile &gt;&#x3D; 0) {
+          catasto.area &#x3D; row.dataItem.SuperficieMacrousoDisponibile;
+
+          if (!catasto.macrousi) {
+            catasto.macrousi &#x3D; [];
+          }
+
+          catasto.macrousi.push({
+            macrouso: {codice: row.dataItem.Macrouso_Cod, descrizione: row.dataItem.Macrouso_Des},
+            Area: row.dataItem.SuperficieMacrousoDisponibile,
+            utilizzi: []
+          });
+
+          catasto.area &#x3D; catasto.macrousi.reduce((sum, {Area}) &#x3D;&gt; parseFloat((sum + Area).toFixed(4)), 0);
+        } else if (settings.chkMacrousi &amp;&amp; settings.chkUtilizzi &amp;&amp; !settings.chkVarieta &amp;&amp; row.dataItem.SuperficieUtilizzoDisponibile &gt;&#x3D; 0) {
+
+          catasto.area &#x3D; row.dataItem.SuperficieUtilizzoDisponibile;
+          if (catasto.macrousi &#x3D;&#x3D; undefined) {
+            catasto.macrousi &#x3D; [];
+          }
+
+          let macrousoFind: number &#x3D; catasto.macrousi.findIndex((el) &#x3D;&gt; el.macrouso.codice &#x3D;&#x3D; row.dataItem.Macrouso_Cod);
+          if (macrousoFind &#x3D;&#x3D; -1) {
+            catasto.macrousi.push({
+              macrouso: {codice: row.dataItem.Macrouso_Cod, descrizione: row.dataItem.Macrouso_Des},
+              Area: row.dataItem.SuperficieMacrousoDisponibile,
+              utilizzi: [{
+                utilizzo: {codice: row.dataItem.Veg_Cod_Agea, descrizione: row.dataItem.Veg_Des_Agea},
+                Area: row.dataItem.SuperficieUtilizzoDisponibile
+              }]
+            });
+          } else {
+            let utilizzoFind: number &#x3D; catasto.macrousi[macrousoFind].utilizzi.findIndex((el) &#x3D;&gt; el.utilizzo.codice &#x3D;&#x3D; row.dataItem.Veg_Cod_Agea);
+
+            if (utilizzoFind &#x3D;&#x3D; -1) {
+              catasto.macrousi[macrousoFind].utilizzi.push({
+                utilizzo: {codice: row.dataItem.Veg_Cod_Agea, descrizione: row.dataItem.Veg_Des_Agea},
+                Area: row.dataItem.SuperficieUtilizzoDisponibile
+              });
+            }
+          }
+
+          catasto.macrousi.forEach((item) &#x3D;&gt; {
+            item.Area &#x3D;
+              item.utilizzi.reduce((sumUtilizzi, {Area}) &#x3D;&gt; parseFloat((sumUtilizzi + Area).toFixed(4)), 0);
+          });
+
+          catasto.area &#x3D; catasto.macrousi.reduce((sum, {Area}) &#x3D;&gt; parseFloat((sum + Area).toFixed(4)), 0);
+        } else if (settings.chkMacrousi &amp;&amp; settings.chkUtilizzi &amp;&amp; settings.chkVarieta &amp;&amp; row.dataItem.SuperficieMacrousoDisponibile &gt;&#x3D; 0) {
+          catasto.area &#x3D; row.dataItem.SuperficieMacrousoDisponibile;
+        }
+
+        row.dataItem.SuperficieCondottaDisponibile -&#x3D; catasto.area;
+        row.dataItem.SuperficieCondottaDisponibile &#x3D; parseFloat(row.dataItem.SuperficieCondottaDisponibile.toFixed(4));
+
+        if (findCatasto) {
+          let catastoIndex: number &#x3D; catastoAppezzamento.findIndex((el) &#x3D;&gt; {
+            return el.particella.Prov &#x3D;&#x3D; row.dataItem.CodiceIstat_Provincia &amp;&amp;
+              el.particella.Com &#x3D;&#x3D; row.dataItem.CodiceIstat_Comune &amp;&amp;
+              el.particella.Sezione &#x3D;&#x3D; Sezione &amp;&amp;
+              el.particella.Foglio &#x3D;&#x3D; row.dataItem.Foglio &amp;&amp;
+              el.particella.Numero &#x3D;&#x3D; row.dataItem.Numero &amp;&amp;
+              el.particella.Subalterno &#x3D;&#x3D; Subalterno;
+          });
+          catastoAppezzamento[catastoIndex] &#x3D; catasto;
+        } else {
+          catastoAppezzamento.push(catasto);
+        }
+      }
+    });
+
+    this.daticatastali.setCatastoAppezzamento(catastoAppezzamento);
+  }
+
+  private handleDeselectedRows(event: SelectionEvent): void {
+    const settings: CaricaCatastoSettings &#x3D; this.daticatastali.getCaricaCatastoSettings();
+    let catastoAppezzamento: CatastoAppezzamento_Extended[] &#x3D; this.daticatastali.getCatastoAppezzamento();
+
+    event.deselectedRows.forEach(row &#x3D;&gt; {
+      const index&#x3D;this.daticatastali.ControllaSeSelezionareLaRiga(row.dataItem, catastoAppezzamento, false);
+      row.dataItem.ChkSelezionaParticella &#x3D; false;
+
+      if (index !&#x3D;&#x3D; -1) {
+        if (settings.chkMacrousi) {
+          const indexMacrouso: number &#x3D; catastoAppezzamento[index].macrousi.findIndex(el &#x3D;&gt; el.macrouso.codice &#x3D;&#x3D; row.dataItem.Macrouso_Cod);
+
+          if (settings.chkUtilizzi) {
+            const indexUtilizzo: number &#x3D; catastoAppezzamento[index].macrousi[indexMacrouso].utilizzi.findIndex(el &#x3D;&gt; el.utilizzo.codice &#x3D;&#x3D; row.dataItem.Veg_Cod_Agea);
+
+            row.dataItem.SuperficieCondottaDisponibile +&#x3D; catastoAppezzamento[index].macrousi[indexMacrouso].utilizzi[indexUtilizzo].Area;
+            row.dataItem.SuperficieCondottaDisponibile &#x3D; parseFloat(row.dataItem.SuperficieCondottaDisponibile.toFixed(4));
+
+            catastoAppezzamento[index].macrousi[indexMacrouso].utilizzi.splice(indexUtilizzo, 1);
+
+            if (catastoAppezzamento[index].macrousi[indexMacrouso].utilizzi.length &#x3D;&#x3D; 0) {
+              catastoAppezzamento[index].macrousi.splice(indexMacrouso, 1);
+            }
+
+            catastoAppezzamento[index].macrousi.forEach((m) &#x3D;&gt; {
+              m.Area &#x3D; m.utilizzi.reduce((sum, { Area }) &#x3D;&gt; parseFloat((sum + Area).toFixed(4)), 0);
+            });
+
+            catastoAppezzamento[index].area &#x3D; catastoAppezzamento[index].macrousi.reduce((sum, { Area }) &#x3D;&gt; parseFloat((sum + Area).toFixed(4)), 0);
+          } else {
+            row.dataItem.SuperficieCondottaDisponibile +&#x3D; catastoAppezzamento[index].macrousi[indexMacrouso].Area;
+            row.dataItem.SuperficieCondottaDisponibile &#x3D; parseFloat(row.dataItem.SuperficieCondottaDisponibile.toFixed(4));
+
+            catastoAppezzamento[index].macrousi.splice(indexMacrouso, 1);
+
+            catastoAppezzamento[index].area &#x3D; catastoAppezzamento[index].macrousi.reduce((sum, {Area}) &#x3D;&gt; parseFloat((sum + Area).toFixed(4)), 0);
+          }
+
+          if (catastoAppezzamento[index].macrousi.length &#x3D;&#x3D; 0) {
+            catastoAppezzamento.splice(index, 1);
+          }
+        } else {
+          row.dataItem.SuperficieCondottaDisponibile +&#x3D; catastoAppezzamento[index].area;
+          row.dataItem.SuperficieCondottaDisponibile &#x3D; parseFloat(row.dataItem.SuperficieCondottaDisponibile.toFixed(4));
+
+          catastoAppezzamento.splice(index, 1);
+        }
+      }
+    });
+
+    this.daticatastali.setCatastoAppezzamento(catastoAppezzamento);
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DatiCatastaliHttpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

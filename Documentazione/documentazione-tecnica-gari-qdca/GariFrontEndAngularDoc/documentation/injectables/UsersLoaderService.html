@@ -1,0 +1,1271 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >UsersLoaderService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_commonTranslations" >_commonTranslations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_initFinished$" >_initFinished$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_lastLoaded" >_lastLoaded</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_lastUsedFilter" >_lastUsedFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_mediumBuisinessSizeLimit" >_mediumBuisinessSizeLimit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_self" >_self</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_userCount" >_userCount</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fixTranslations" >fixTranslations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initConstantParams" >initConstantParams</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#initTranslations" >initTranslations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#innerUsersLoad" >innerUsersLoad</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#loadUsersFromServer" >loadUsersFromServer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#setFiltersForLoadAll" >setFiltersForLoadAll</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#_isSmallMediumBusiness" >_isSmallMediumBusiness</a>
+                                </li>
+                                <li>
+                                    <a href="#_isFirstTimeLoading" >_isFirstTimeLoading</a>
+                                </li>
+                                <li>
+                                    <a href="#_hasLoadedSelf" >_hasLoadedSelf</a>
+                                </li>
+                                <li>
+                                    <a href="#_isSearchingSelf" >_isSearchingSelf</a>
+                                </li>
+                                <li>
+                                    <a href="#_areFiltersEmpty" >_areFiltersEmpty</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(transloco: TranslocoService, usersService: <a href="../injectables/ProfilazioneUtentiService.html" target="_self">ProfilazioneUtentiService</a>, datashare: <a href="../injectables/ProfilazioneDataShareService.html" target="_self">ProfilazioneDataShareService</a>, siteConfig: <a href="../injectables/ConfigurazioneSitiService.html" target="_self">ConfigurazioneSitiService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:20</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>usersService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfilazioneUtentiService.html" target="_self" >ProfilazioneUtentiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datashare</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfilazioneDataShareService.html" target="_self" >ProfilazioneDataShareService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>siteConfig</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConfigurazioneSitiService.html" target="_self" >ConfigurazioneSitiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fixTranslations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fixTranslations</b></span>
+                        <a href="#fixTranslations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fixTranslations(user: <a href="../classes/UtenteFlatModel.html" target="_self">UtenteFlatModel</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="114"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:114</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fixes the user fields applying the correct translations based on the current culture.
+The function also rephrase the user&#39;s data of the users with type &#39;company&#39; (Flag_Azienda_Persona = 1) changing
+the value of the field Cognome to contain the company name, and the fields PIVA or CodFisc whith the value of
+the field that is actually valorized.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>user</td>
+                                            <td>
+                                                            <code><a href="../classes/UtenteFlatModel.html" target="_self" >UtenteFlatModel</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initConstantParams"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initConstantParams</b></span>
+                        <a href="#initConstantParams"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initConstantParams()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="initTranslations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>initTranslations</b></span>
+                        <a href="#initTranslations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>initTranslations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="128"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:128</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="innerUsersLoad"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>innerUsersLoad</b></span>
+                        <a href="#innerUsersLoad"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>innerUsersLoad(forceRead: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>forceRead</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;UtenteFlatModel[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadUsersFromServer"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>loadUsersFromServer</b></span>
+                        <a href="#loadUsersFromServer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadUsersFromServer(forceRead: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>forceRead</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>if <code>true</code> forces the reload of the users from the database.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;UtenteFlatModel[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setFiltersForLoadAll"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>setFiltersForLoadAll</b></span>
+                        <a href="#setFiltersForLoadAll"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setFiltersForLoadAll(preventIfBigBusiness)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="74"
+                                    class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>preventIfBigBusiness</td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_commonTranslations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_commonTranslations</b></span>
+                        <a href="#_commonTranslations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_initFinished$"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_initFinished$</b></span>
+                        <a href="#_initFinished$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;boolean&gt;(false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_lastLoaded"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_lastLoaded</b></span>
+                        <a href="#_lastLoaded"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UtenteFlatModel[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="20" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:20</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_lastUsedFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_lastUsedFilter</b></span>
+                        <a href="#_lastUsedFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="19" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:19</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_mediumBuisinessSizeLimit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_mediumBuisinessSizeLimit</b></span>
+                        <a href="#_mediumBuisinessSizeLimit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>200</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:15</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_self"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_self</b></span>
+                        <a href="#_self"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>UtenteFlatModel[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="18" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:18</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_userCount"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_userCount</b></span>
+                        <a href="#_userCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_isSmallMediumBusiness"></a>
+                        <span class="name"><b>_isSmallMediumBusiness</b><a href="#_isSmallMediumBusiness"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>_isSmallMediumBusiness()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:32</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_isFirstTimeLoading"></a>
+                        <span class="name"><b>_isFirstTimeLoading</b><a href="#_isFirstTimeLoading"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>_isFirstTimeLoading()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:36</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_hasLoadedSelf"></a>
+                        <span class="name"><b>_hasLoadedSelf</b><a href="#_hasLoadedSelf"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>_hasLoadedSelf()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:41</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_isSearchingSelf"></a>
+                        <span class="name"><b>_isSearchingSelf</b><a href="#_isSearchingSelf"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>_isSearchingSelf()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:45</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="_areFiltersEmpty"></a>
+                        <span class="name"><b>_areFiltersEmpty</b><a href="#_areFiltersEmpty"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>_areFiltersEmpty()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/profilazione/gestione-utenti/utenti/griglia-menu-profilazione/users-loader.service.ts:51</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {ProfilazioneDataShareService} from &quot;../../../services/profilazione-data-share.service&quot;;
+import {ProfilazioneUtentiService} from &quot;../../../services/profilazione-utenti.service&quot;;
+import {BehaviorSubject, filter, forkJoin, Observable, of, switchMap, take, tap} from &quot;rxjs&quot;;
+import {enum_Azienda_Persona, UtenteFlatModel} from &quot;../../../models/utente.model&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import {ConfigurazioneSitiService} from &quot;../../../../Service/configurazione-siti.service&quot;;
+import {FormArray} from &quot;@angular/forms&quot;;
+import {enum_TipoFiltro} from &quot;../filtri-utente/filtri-utente.component&quot;;
+
+@Injectable()
+export class UsersLoaderService {
+
+  private _commonTranslations: any;
+  private _mediumBuisinessSizeLimit &#x3D; 200;
+  private _userCount: number;
+  private _initFinished$ &#x3D; new BehaviorSubject&lt;boolean&gt;(false);
+  private _self: UtenteFlatModel[] &#x3D; [];
+  private _lastUsedFilter &#x3D; &quot;&quot;;
+  private _lastLoaded: UtenteFlatModel[] &#x3D; [];
+
+  constructor(
+    private transloco: TranslocoService,
+    private usersService: ProfilazioneUtentiService,
+    private datashare: ProfilazioneDataShareService,
+    private siteConfig: ConfigurazioneSitiService
+  ) {
+    this.initTranslations();
+    this.initConstantParams();
+  }
+
+  private get _isSmallMediumBusiness(): boolean {
+    return this._userCount &lt;&#x3D; this._mediumBuisinessSizeLimit;
+  }
+
+  private get _isFirstTimeLoading(): boolean {
+    const firstTime &#x3D; this.datashare.filterService.filters.ctrls.find(c &#x3D;&gt; c.field &#x3D;&#x3D;&#x3D; &quot;firstTime&quot;).value;
+    return firstTime &#x3D;&#x3D;&#x3D; &#x27;true&#x27;;
+  }
+
+  private get _hasLoadedSelf(): boolean {
+    return this.usersService.masterService.isSuperuser() || this._self.length &gt; 0;
+  }
+
+  private get _isSearchingSelf(): boolean {
+    const usernameCtrl &#x3D; this.datashare.loadUsersFilters.value.ctrls.find(ctrl &#x3D;&gt; ctrl.field &#x3D;&#x3D;&#x3D; &quot;Username&quot;);
+    return usernameCtrl.value &#x3D;&#x3D;&#x3D; this.usersService.masterService.getCurrentUserUsername()
+    &amp;&amp; usernameCtrl.filterType &#x3D;&#x3D;&#x3D; enum_TipoFiltro.EQUALS;
+  }
+
+  private get _areFiltersEmpty(): boolean {
+    const visibleFields &#x3D; this.datashare.filterService.filterableProperties.map(fg &#x3D;&gt; fg.value.field);
+    return this.datashare.loadUsersFilters.value.ctrls
+      .filter(ctrl &#x3D;&gt; visibleFields.includes(ctrl.field))
+      .map(ctrl &#x3D;&gt; ctrl.value)
+      .every(value &#x3D;&gt; !value);
+  }
+
+  /**
+   * @param forceRead if &#x60;true&#x60; forces the reload of the users from the database.
+   */
+  public loadUsersFromServer(forceRead: boolean &#x3D; false): Observable&lt;UtenteFlatModel[]&gt; {
+    if (this._initFinished$.value) {
+      return this.innerUsersLoad(forceRead);
+    } else {
+      return this._initFinished$.pipe(
+        filter(done &#x3D;&gt; !!done),
+        take(1),
+        switchMap(() &#x3D;&gt; this.innerUsersLoad(forceRead))
+      );
+    }
+  }
+
+  public setFiltersForLoadAll(preventIfBigBusiness &#x3D; false) {
+    // if (preventIfBigBusiness &amp;&amp; !this._isSmallMediumBusiness) {
+    //   return;
+    // }
+    this.datashare.removeUserDateFilter();
+    const fArray &#x3D; (this.datashare.loadUsersFilters.controls.ctrls as FormArray);
+    for (let ctrlsKey in fArray.controls) {
+      fArray.get(ctrlsKey).get(&quot;value&quot;).patchValue(&quot;&quot;);
+    }
+  }
+
+  private innerUsersLoad(forceRead: boolean &#x3D; false): Observable&lt;UtenteFlatModel[]&gt; {
+    if (!this._isSmallMediumBusiness &amp;&amp; this._hasLoadedSelf &amp;&amp; this._isSearchingSelf &amp;&amp; !forceRead) {
+      return of(this._self);
+    }
+    const toLoad &#x3D; this.datashare.getUserFiltersJson();
+    if (toLoad &#x3D;&#x3D;&#x3D; this._lastUsedFilter &amp;&amp; !forceRead) {
+      return of(this._lastLoaded);
+    }
+    this._lastUsedFilter &#x3D; toLoad;
+    return this.usersService.readUtentiFlat(true, false, toLoad).pipe(
+      take(1),
+      tap((users: UtenteFlatModel[]) &#x3D;&gt; {
+        for (let u of users) {
+          this.fixTranslations(u);
+          if (u.UserName &#x3D;&#x3D;&#x3D; this.usersService.masterService.getCurrentUserUsername()) {
+            this._self &#x3D; [u];
+          }
+        }
+        this._lastLoaded &#x3D; users;
+      })
+    );
+  }
+
+  /**
+   * Fixes the user fields applying the correct translations based on the current culture.
+   * The function also rephrase the user&#x27;s data of the users with type &#x27;company&#x27; (Flag_Azienda_Persona &#x3D; 1) changing
+   * the value of the field Cognome to contain the company name, and the fields PIVA or CodFisc whith the value of
+   * the field that is actually valorized.
+   */
+  private fixTranslations(user: UtenteFlatModel): void {
+    user.Attivo &#x3D; user.Attivo ? this._commonTranslations.active : this._commonTranslations.notActive;
+    user.Azienda_Persona &#x3D; user.Flag_Azienda_Persona &#x3D;&#x3D;&#x3D; enum_Azienda_Persona.Impresa
+      ? this._commonTranslations.business : this._commonTranslations.person;
+    user.GDPR &#x3D; +user.GDPR &#x3D;&#x3D;&#x3D; 1 ? this._commonTranslations.yes : this._commonTranslations.no;
+
+    user.Cognome &#x3D; user.Flag_Azienda_Persona &#x3D;&#x3D;&#x3D; enum_Azienda_Persona.Impresa ? user.Rag_Soc : user.Cognome;
+    if (user.Flag_Azienda_Persona &#x3D;&#x3D;&#x3D; enum_Azienda_Persona.Impresa) {
+      if (user.PIVA &#x3D;&#x3D; &quot;&quot; &amp;&amp; user.CodFisc !&#x3D; &quot;&quot;) user.PIVA &#x3D; user.CodFisc;
+      else if (user.CodFisc &#x3D;&#x3D; &quot;&quot; &amp;&amp; user.PIVA !&#x3D; &quot;&quot;) user.CodFisc &#x3D; user.PIVA;
+    }
+    // user.CodFisc &#x3D; user.Flag_Azienda_Persona &#x3D;&#x3D;&#x3D; enum_Azienda_Persona.Impresa ? user.PIVA : user.CodFisc;
+  }
+
+  private initTranslations() {
+    this._commonTranslations &#x3D; {
+      no: this.transloco.translate(&#x27;No&#x27;),
+      yes: this.transloco.translate(&#x27;Si&#x27;),
+      active: this.transloco.translate(&#x27;Attivo&#x27;),
+      notActive: this.transloco.translate(&#x27;NonAttivo&#x27;),
+      business: this.transloco.translate(&#x27;Azienda&#x27;),
+      person: this.transloco.translate(&#x27;Persona&#x27;)
+    };
+  }
+
+  private initConstantParams() {
+    forkJoin([
+      this.usersService.getUsersCount().pipe(tap(count &#x3D;&gt; this._userCount &#x3D; count)),
+      this.siteConfig.leggiChiave(&quot;AgroProfilazione_MaxUtentiCaricatiDefault&quot;).pipe(
+        take(1),
+        tap(r &#x3D;&gt; this._mediumBuisinessSizeLimit &#x3D; !!(+r?.Valore) ? +r.Valore : this._mediumBuisinessSizeLimit)
+      )
+    ]).subscribe(() &#x3D;&gt; this._initFinished$.next(true));
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'UsersLoaderService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

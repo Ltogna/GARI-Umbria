@@ -1,0 +1,39 @@
+<ng-container *ngIf="title$ | async"></ng-container>
+<ng-container *ngIf="mapInfo$ | async"></ng-container>
+<ng-container *ngIf="loader$ | async"></ng-container>
+
+<ng-container *ngIf="windowArgs$ | async as computedArgs">
+  <gis-window #window [windowArgs]="computedArgs" class="pb-3 custom-window"
+    [ngClass]="{ 'isCloudy': computedArgs.additionalArgs?.isCloudy }">
+    <kendo-panelbar *ngIf="{ value: selectedTab$ | async } as selectedTab" expandMode="single"
+      (expand)="selectedTabSubject.next($event)" (collapse)="$event.preventDefault()" [keepItemContent]="true">
+
+      <kendo-panelbar-item [title]="'gis.Animazione' | transloco" [expanded]="selectedTab.value == 0" id="accordion-0">
+        <ng-template kendoPanelBarContent>
+          <gis-analisi-mappe-satellitari-animation></gis-analisi-mappe-satellitari-animation>
+        </ng-template>
+      </kendo-panelbar-item>
+
+      <kendo-panelbar-item [title]="'gis.Grafici' | transloco" [expanded]="selectedTab.value == 1" id="accordion-1"
+        [ngClass]="{ 'satellitari-hidden': !(mapClick$ | async) }">
+        <ng-template kendoPanelBarContent>
+          <gis-analisi-mappe-satellitari-grafici></gis-analisi-mappe-satellitari-grafici>
+        </ng-template>
+      </kendo-panelbar-item>
+
+      <kendo-panelbar-item [title]="'gis.Notifiche' | transloco" [expanded]="selectedTab.value == 2" id="accordion-2"
+        [ngClass]="{ 'satellitari-hidden': true }">
+        <ng-template kendoPanelBarContent>
+          <gis-analisi-mappe-satellitari-notifiche></gis-analisi-mappe-satellitari-notifiche>
+        </ng-template>
+      </kendo-panelbar-item>
+
+      <kendo-panelbar-item [title]="'gis.Opzioni' | transloco" [expanded]="selectedTab.value == 3" id="accordion-3">
+        <ng-template kendoPanelBarContent>
+          <gis-analisi-mappe-satellitari-opzioni></gis-analisi-mappe-satellitari-opzioni>
+        </ng-template>
+      </kendo-panelbar-item>
+
+    </kendo-panelbar>
+  </gis-window>
+</ng-container>

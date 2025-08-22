@@ -1,0 +1,47 @@
+<ng-container *nfIg="lastPage$ | async"></ng-container>
+
+<ng-container *ngIf="{ enabled: enabled$ | async, status: status$ | async, masks: masks$ | async } as data">
+  <div class="info-box">
+
+    <ng-content></ng-content>
+
+    <span (click)="data.enabled ? toggleAnalisiMappeSatellitari($event, dataItem) : $event.stopPropagation()"
+      class="menu-icon">
+      <i aria-hidden="true" [class]="data.enabled ? 'xi-settings-dark' : 'xi-settings-disabled'"></i>
+    </span>
+
+    <div class="color-icon" [ngStyle]="{ 'background-color': '#' + dataItem.colore_1 }"
+      (click)="toggleAnalisiMappeSatellitari($event, dataItem)">
+    </div>
+
+    <div *ngIf="themes"><i aria-hidden="true" class="xi-theme-layer-empty add-margin-right"></i></div>
+    <div *ngIf="!themes" class="add-margin-right"></div>
+
+    <span [ngClass]="{ 'isCloudy': isCloudy }"> {{ title }} <span *ngIf="isCloudy" class="k-icon k-i-cloud cloudy-icon"
+        [title]="'gis.DatiNonPresentiPerScarsaVisibilita' | transloco" kendoTooltip></span>
+    </span>
+
+  </div>
+
+  <span *ngIf="data.status != animationStatus.Started"
+    (click)="data.enabled ? mappeSatellitariStart($event) : $event.stopPropagation()" class="info-icon">
+    <i aria-hidden="true" [class]="data.enabled ? 'xi-satellitari-play' : 'xi-satellitari-play-disabled'"></i>
+  </span>
+
+  <span *ngIf="data.status == animationStatus.Started"
+    (click)="data.enabled ? mappeSatellitariPause($event) : $event.stopPropagation()" class="info-icon">
+    <i aria-hidden="true" [class]="data.enabled ? 'xi-satellitari-pause' : 'xi-satellitari-pause-disabled'"></i>
+  </span>
+
+  <span
+    (click)="data.enabled && data.status != animationStatus.ToBeLoaded ? mappeSatellitariNext($event) : $event.stopPropagation()"
+    class="info-icon">
+    <i aria-hidden="true"
+      [class]="data.enabled && data.status != animationStatus.ToBeLoaded ? 'xi-satellitari-forward' : 'xi-satellitari-forward-invisible'"></i>
+  </span>
+
+  <span (click)="toggleVisible($event, dataItem, data.masks, !data.enabled)" class="info-icon">
+    <i aria-hidden="true" [class]="dataItem.flagvisibile == '1' ? 'xi-eye-visible-dark' : 'xi-eye-invisible-dark'">
+    </i>
+  </span>
+</ng-container>

@@ -1,0 +1,2474 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridDosiProdottiService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#datepipe" >datepipe</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#AggiungiRigaVuotaGridDosiProdotti" >AggiungiRigaVuotaGridDosiProdotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getDescrizioniDosiEtichetta" >getDescrizioniDosiEtichetta</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDosePerMagazzino" >getDosePerMagazzino</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getDosi_Etichetta" >getDosi_Etichetta</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getMagazzino_Agenzia" >getMagazzino_Agenzia</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getN_Utile" >getN_Utile</a>
+                            </li>
+                            <li>
+                                <a href="#getRigaGridDosiProdotti" >getRigaGridDosiProdotti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getSimboloOriginaleUnitaDiMisuraIndicata" >getSimboloOriginaleUnitaDiMisuraIndicata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getSimboloUnitaDiMisuraIndicata" >getSimboloUnitaDiMisuraIndicata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getStrBuffer" >getStrBuffer</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getUnitaDiMisura" >getUnitaDiMisura</a>
+                            </li>
+                            <li>
+                                <a href="#setUdm_Cod_for_ddl" >setUdm_Cod_for_ddl</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(qdcservice: <a href="../injectables/QdCService.html" target="_self">QdCService</a>, datepipe: DatePipe, translocoService: TranslocoService, unitadimisuraservice: <a href="../injectables/UnitaDiMisuraService.html" target="_self">UnitaDiMisuraService</a>, funzionicomuniservice: <a href="../injectables/FunzioniComuniService.html" target="_self">FunzioniComuniService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:44</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>qdcservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/QdCService.html" target="_self" >QdCService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datepipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>DatePipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>unitadimisuraservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UnitaDiMisuraService.html" target="_self" >UnitaDiMisuraService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>funzionicomuniservice</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FunzioniComuniService.html" target="_self" >FunzioniComuniService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AggiungiRigaVuotaGridDosiProdotti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>AggiungiRigaVuotaGridDosiProdotti</b></span>
+                        <a href="#AggiungiRigaVuotaGridDosiProdotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>AggiungiRigaVuotaGridDosiProdotti(disciplinare: <a href="../interfaces/DropdownListDisciplinare.html" target="_self">DropdownListDisciplinare</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="609"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:609</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>disciplinare</td>
+                                            <td>
+                                                            <code><a href="../interfaces/DropdownListDisciplinare.html" target="_self" >DropdownListDisciplinare</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>null</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDescrizioniDosiEtichetta"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getDescrizioniDosiEtichetta</b></span>
+                        <a href="#getDescrizioniDosiEtichetta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDescrizioniDosiEtichetta(dosiEtichetta: <a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self">MultiColumnComboboxDose_Etichetta[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="669"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:669</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dosiEtichetta</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self" >MultiColumnComboboxDose_Etichetta[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDosePerMagazzino"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getDosePerMagazzino</b></span>
+                        <a href="#getDosePerMagazzino"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDosePerMagazzino(doseTrasformata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, udm_codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="802"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:802</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>doseTrasformata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>udm_codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDosi_Etichetta"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getDosi_Etichetta</b></span>
+                        <a href="#getDosi_Etichetta"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getDosi_Etichetta(ddl_Dosi: <a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self">MultiColumnComboboxDose_Etichetta[]</a>, Dose_Selezionata: <a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self">MultiColumnComboboxDose_Etichetta</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="843"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:843</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>ddl_Dosi</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self" >MultiColumnComboboxDose_Etichetta[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Dose_Selezionata</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self" >MultiColumnComboboxDose_Etichetta</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMagazzino_Agenzia"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getMagazzino_Agenzia</b></span>
+                        <a href="#getMagazzino_Agenzia"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMagazzino_Agenzia(rilevamentoMagazzino: <a href="../interfaces/RilevamentoDiMagazzino.html" target="_self">RilevamentoDiMagazzino[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="885"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:885</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rilevamentoMagazzino</td>
+                                            <td>
+                                                            <code><a href="../interfaces/RilevamentoDiMagazzino.html" target="_self" >RilevamentoDiMagazzino[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Fabbricato.html" target="_self" >Fabbricato</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getN_Utile"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getN_Utile</b></span>
+                        <a href="#getN_Utile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getN_Utile(efficienza: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, n: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="682"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:682</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>efficienza</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>n</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRigaGridDosiProdotti"></a>
+                    <span class="name">
+                        <span ><b>getRigaGridDosiProdotti</b></span>
+                        <a href="#getRigaGridDosiProdotti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getRigaGridDosiProdotti(DosiProdotti: Array<any>, index: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, ProdottiForm: FormGroup, Prodotto: <a href="../classes/Trattamento.html" target="_self">MultiColumnComboboxTrattamento | MultiColumnComboboxFertilizzazione | MultiColumnComboboxSemina</a>, Centro_Aziendale: <a href="../interfaces/CentroAziendale.html" target="_self">CentroAziendale</a>, Operazione: <a href="../interfaces/Lavorazione.html" target="_self">Lavorazione</a>, Data: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>, flagTipoDose: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, flagDoseQuantitaTotale: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, Dose_Acqua: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, ddl_dosi: <a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self">MultiColumnComboboxDose_Etichetta[]</a>, EpocaDPI: <a href="../interfaces/Epoca.html" target="_self">Epoca</a>, EpocaFertilizzazione: <a href="../interfaces/Epoca.html" target="_self">Epoca</a>, Utilizza_Direttiva_Nitrati: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, Direttiva_Nitrati: <a href="../interfaces/Disciplinare.html" target="_self">Disciplinare</a>, Opzioni_Semina: <a href="../interfaces/BaseCodeDescr.html" target="_self">BaseCodeDescr</a>, Modalita_Applicazione: <a href="../interfaces/BaseCodeDescr.html" target="_self">BaseCodeDescr</a>, riga_vuota: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, riga_salvata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, nuova_riga_da_btn: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="55"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:55</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>DosiProdotti</td>
+                                            <td>
+                                                        <code>Array&lt;any&gt;</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>index</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ProdottiForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Prodotto</td>
+                                            <td>
+                                                            <code><a href="../classes/Trattamento.html" target="_self" >MultiColumnComboboxTrattamento | MultiColumnComboboxFertilizzazione | MultiColumnComboboxSemina</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Centro_Aziendale</td>
+                                            <td>
+                                                            <code><a href="../interfaces/CentroAziendale.html" target="_self" >CentroAziendale</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Operazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Lavorazione.html" target="_self" >Lavorazione</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Data</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flagTipoDose</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flagDoseQuantitaTotale</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Dose_Acqua</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>ddl_dosi</td>
+                                            <td>
+                                                            <code><a href="../interfaces/MultiColumnComboboxDose_Etichetta.html" target="_self" >MultiColumnComboboxDose_Etichetta[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>EpocaDPI</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Epoca.html" target="_self" >Epoca</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>EpocaFertilizzazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Epoca.html" target="_self" >Epoca</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Utilizza_Direttiva_Nitrati</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Direttiva_Nitrati</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Disciplinare.html" target="_self" >Disciplinare</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Opzioni_Semina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BaseCodeDescr.html" target="_self" >BaseCodeDescr</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Modalita_Applicazione</td>
+                                            <td>
+                                                            <code><a href="../interfaces/BaseCodeDescr.html" target="_self" >BaseCodeDescr</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>riga_vuota</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>riga_salvata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>nuova_riga_da_btn</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSimboloOriginaleUnitaDiMisuraIndicata"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getSimboloOriginaleUnitaDiMisuraIndicata</b></span>
+                        <a href="#getSimboloOriginaleUnitaDiMisuraIndicata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSimboloOriginaleUnitaDiMisuraIndicata(udm_indicata: <a href="../interfaces/UnitaDiMisura.html" target="_self">UnitaDiMisura</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="775"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:775</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>udm_indicata</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UnitaDiMisura.html" target="_self" >UnitaDiMisura</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getSimboloUnitaDiMisuraIndicata"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getSimboloUnitaDiMisuraIndicata</b></span>
+                        <a href="#getSimboloUnitaDiMisuraIndicata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getSimboloUnitaDiMisuraIndicata(udm_indicata: <a href="../interfaces/UnitaDiMisura.html" target="_self">UnitaDiMisura</a>, flagTipoDose: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="739"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:739</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>udm_indicata</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UnitaDiMisura.html" target="_self" >UnitaDiMisura</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>flagTipoDose</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getStrBuffer"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getStrBuffer</b></span>
+                        <a href="#getStrBuffer"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getStrBuffer(BufferMin: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, BufferMax: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="657"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:657</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>BufferMin</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>BufferMax</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getUnitaDiMisura"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getUnitaDiMisura</b></span>
+                        <a href="#getUnitaDiMisura"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getUnitaDiMisura(udm_indicata: <a href="../interfaces/UnitaDiMisura.html" target="_self">UnitaDiMisura</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="691"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:691</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>udm_indicata</td>
+                                            <td>
+                                                            <code><a href="../interfaces/UnitaDiMisura.html" target="_self" >UnitaDiMisura</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/UnitaDiMisura.html" target="_self" >UnitaDiMisura</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setUdm_Cod_for_ddl"></a>
+                    <span class="name">
+                        <span ><b>setUdm_Cod_for_ddl</b></span>
+                        <a href="#setUdm_Cod_for_ddl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setUdm_Cod_for_ddl(Udm_Cod: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, Udm_Des: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="791"
+                                    class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:791</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>Udm_Cod</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>Udm_Des</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="datepipe"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>datepipe</b></span>
+                        <a href="#datepipe"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>DatePipe</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/quaderno-di-campagna/agenda-edit/service/grid-dosi-prodotti/grid-dosi-prodotti.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {DatePipe} from &quot;@angular/common&quot;;
+import {Injectable} from &quot;@angular/core&quot;;
+import {FormControl, FormGroup} from &quot;@angular/forms&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import {Lavorazione} from &quot;app/Model/attivita/Lavorazione&quot;;
+import {RilevamentoDiMagazzino} from &quot;app/Model/attivita/RilevamentoDiMagazzino&quot;;
+import {FERTILIZZANTI, FORMULATI, INSETTI, SEMENTI} from &quot;app/Model/CostantiPersonalizzate&quot;;
+import {BufferZone} from &quot;app/Model/metaschema/BufferZone&quot;;
+import {Soglia} from &quot;app/Model/metaschema/Soglia&quot;;
+import {UnitaDiMisura} from &quot;app/Model/metaschema/UnitaDiMisura&quot;;
+import {
+    enum_doseQuantitaTotale,
+    enum_LAVCOD, enum_PUARegolamenti_Tipo,
+    enum_TipoMezzo,
+    enum_TipoOperazioneDB,
+    enum_UnitaMisura,
+    Tipo_Polverulento
+} from &quot;app/Model/TipiEnumerativi&quot;;
+import {
+    DropdownListAvversita, DropdownListDisciplinare,
+    DropdownListMagazzino,
+    enum_Problema_DettaglioProdotto,
+    MultiColumnComboboxDose_Etichetta,
+    MultiColumnComboboxFertilizzazione,
+    MultiColumnComboboxSemina,
+    MultiColumnComboboxTrattamento,
+    Sezione_Prodotto_Fertilizzanti,
+    Sezione_Prodotto_Formulati,
+    Sezione_Prodotto_Sementi
+} from &quot;../../quaderno-di-campagna-form/quaderno-di-campagna-form.model&quot;;
+import {QdCService} from &quot;../qdc.service&quot;;
+import {UnitaDiMisuraService} from &quot;../../../../Service/Metaschema/UnitaDiMisura.service&quot;;
+import {FunzioniComuniService} from &quot;../../../../Service/FunzioniComuni.service&quot;;
+import {Epoca} from &quot;../../../../Model/metaschema/Epoca&quot;;
+import {Disciplinare} from &quot;../../../../Model/metaschema/Disciplinari&quot;;
+import {BaseCodeDescr} from &quot;../../../../Model/baseClass/baseCodeDescr&quot;;
+import {PrincipioAttivo} from &quot;../../../../Model/metaschema/PrincipioAttivo&quot;;
+import {Fabbricato} from &quot;../../../../Model/anagrafiche/Fabbricato&quot;;
+import {CentroAziendale} from &quot;../../../../Model/anagrafiche/CentroAziendale&quot;;
+import {cloneDeep} from &quot;lodash&quot;;
+
+@Injectable()
+
+export class GridDosiProdottiService {
+
+    constructor(
+        private qdcservice: QdCService,
+        public datepipe: DatePipe,
+        private translocoService: TranslocoService,
+        private unitadimisuraservice: UnitaDiMisuraService,
+        private funzionicomuniservice: FunzioniComuniService
+    ) {  }
+
+
+    getRigaGridDosiProdotti(
+        DosiProdotti: Array&lt;any&gt;,
+        index: number,
+        ProdottiForm: FormGroup,
+        Prodotto: MultiColumnComboboxTrattamento | MultiColumnComboboxFertilizzazione | MultiColumnComboboxSemina,
+        Centro_Aziendale: CentroAziendale,
+        Operazione: Lavorazione,
+        Data: Date,
+        flagTipoDose: number,
+        flagDoseQuantitaTotale:number,
+        Dose_Acqua: number,
+        ddl_dosi: MultiColumnComboboxDose_Etichetta[],
+        EpocaDPI: Epoca,
+        EpocaFertilizzazione: Epoca,
+        Utilizza_Direttiva_Nitrati: boolean,
+        Direttiva_Nitrati: Disciplinare,
+        Opzioni_Semina: BaseCodeDescr,
+        Modalita_Applicazione: BaseCodeDescr,
+        riga_vuota: boolean,
+        riga_salvata: boolean,
+        nuova_riga_da_btn: boolean
+    ): FormGroup {
+
+        //Compone una nuova riga in base alla categoria di magazzino del prodotto
+        //Se viene richiamata quando clicco sul bottone Inserisci Prodotto devo passare ProdottiForm valorizzato
+        //Mentre quando sono in fase di lettura di una nuova Attivita Prodotto deve essere valorizzato
+        //Se index è -1 allora ricavo l&#x27;indice per la nuova riga altrimenti vuol dire che sono in modifica e non genero il nuovo indice
+
+        let Row: FormGroup;
+        let RowIndex:number &#x3D; index;
+        let lav_cod: number &#x3D; + Operazione.primaryKey.codice;
+
+        let elem_cod &#x3D; this.qdcservice.getCategoria_Magazzino(lav_cod);
+
+        if(RowIndex &#x3D;&#x3D;&#x3D; -1){
+            if(DosiProdotti &amp;&amp; DosiProdotti.length &gt; 0){
+                RowIndex &#x3D; ( Math.max.apply(Math, DosiProdotti.map(function(o) { return o.DosiProdottiGridrowId; }))) + 1;
+            }else{
+                RowIndex &#x3D; 0;
+            }
+        }
+
+        let Prodotto_Selezionato: MultiColumnComboboxTrattamento | MultiColumnComboboxFertilizzazione | MultiColumnComboboxSemina &#x3D; null;
+        let Fabbricato_Cod &#x3D; 0;
+        let Fabbricato_Des &#x3D; this.translocoService.translate(&quot;MagazzinoNonSelezionato&quot;);
+        let Fr_Cod &#x3D; 0;
+        let Fr_Des &#x3D; &quot;&quot;;
+
+        //Questo può essere solo kg o l
+        let UdM_Magazzino: UnitaDiMisura &#x3D; null;
+
+        //Quando vado in modifica della riga sarà questa l&#x27;udm che utilizzerò
+        //per impostare il valore nella ddl(non posso usare UdM_Indicata perché avrà il simbolo è concatenato  con hl o ha)
+        let UdM: UnitaDiMisura &#x3D; null;
+        let UdM_Indicata: UnitaDiMisura &#x3D; null;
+        let Udm_Cod: string &#x3D; &quot;&quot;;
+        let Udm_Des: string &#x3D; &quot;&quot;;
+        let Magazzino_del_Prodotto_Selezionato: DropdownListMagazzino &#x3D; null;
+        let Magazzino_Agenzia: Fabbricato &#x3D; null;
+        let Magazzino_Esterno: Fabbricato &#x3D; null;
+        let Dose_Ha: number &#x3D; 0;
+        let Dose_Hl: number &#x3D; 0;
+        let DoseTot_Ha: number &#x3D; 0;
+        let Lotto: string &#x3D; &quot;&quot;;
+        let Avversita: DropdownListAvversita &#x3D; null;
+        let Av_Cod: number &#x3D; 0;
+        let Av_Des: string &#x3D; &quot;&quot;;
+        let Soglia_Avversita: Soglia &#x3D; null;
+        let Soglia_Des: string &#x3D; &quot;&quot;;
+        let Dose_Etichetta: MultiColumnComboboxDose_Etichetta &#x3D; null;
+        let Dosi_Etichetta: Array&lt;MultiColumnComboboxDose_Etichetta&gt; &#x3D; [];
+        let Dosi_Etichetta_Des: string &#x3D; &quot;&quot;;
+        let BufferZone: BufferZone &#x3D; null;
+        let BufferMin: number &#x3D; 0;
+        let BufferMax: number &#x3D; 0;
+        let Polverulento: Tipo_Polverulento &#x3D; Tipo_Polverulento.NonPolverulento;
+        let Carenza: number &#x3D; 0;
+        let Efficienza: number &#x3D; 0;
+        let N: number &#x3D; 0;
+        let N_Utile: number &#x3D; 0;
+        let P: number &#x3D; 0;
+        let K: number &#x3D; 0;
+        let Cu: number &#x3D; 0;
+        let Cod_Articolo: string &#x3D; &quot;&quot;;
+        let Prima_Data: string &#x3D; &quot;&quot;;
+        let Sup_Calcolata_Per_Frazionamento: number &#x3D; 0;
+        let Piva: string &#x3D; &quot;&quot;;
+        let Sa_Cod: number &#x3D; 0;
+        let Visualizza_Solo_Prodotti_in_Giacenza: boolean &#x3D; true;
+        let Visualizza_Magazzini_Agenzie: boolean &#x3D; false;
+        let Visualizza_Magazzini_Esterni: boolean &#x3D; false;
+        let PrincipiAttivi: PrincipioAttivo[] &#x3D; [];
+
+        let N_Percentuale_X_Prodotto: number &#x3D; 0;
+
+        let problemi_DettaglioProdotto: Array&lt;enum_Problema_DettaglioProdotto&gt; &#x3D; [];
+
+        let problema_DettaglioProdotto_da_risolvere: enum_Problema_DettaglioProdotto &#x3D; enum_Problema_DettaglioProdotto.Nessuno;
+
+        let original_row_value: object &#x3D; null;
+
+        /*
+        * Se mi arrivano più problemi_DettaglioTrattamento devo ricondurli tutti a un unico problema:
+        * - Prodotto_Non_Corretto non imposto il prodotto nella combo
+        * - Prodotto_Ambiguo non imposto il prodotto nella combo ma faccio partire la ricerca dei prodotti con la descrizione sua che fa da filtro
+        * - Avversita_Non_Corretta, Avversita_Ambigua, Avversita_Non_Valorizzata non imposto l&#x27;avversita nella combo
+        * */
+
+        if(ProdottiForm &amp;&amp; ProdottiForm.get(&quot;Prodotto&quot;).getRawValue()){
+          problemi_DettaglioProdotto &#x3D; ProdottiForm.get(&quot;Prodotto&quot;).getRawValue().Tutti_Problemi_DettaglioProdotto;
+        }else if(Prodotto){
+          problemi_DettaglioProdotto &#x3D; Prodotto.Tutti_Problemi_DettaglioProdotto;
+        }
+
+
+        if(problemi_DettaglioProdotto &amp;&amp; problemi_DettaglioProdotto.length &gt; 0){
+
+          if(elem_cod &#x3D;&#x3D;&#x3D; FORMULATI){
+
+            if(!this.qdcservice.Mostra_Avversita_Prima_Dei_Prodotti){
+              if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Formulato_Non_Corretto)){
+                problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Formulato_Non_Corretto;
+              }else{
+                if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Formulato_Ambiguo)){
+                  problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Formulato_Ambiguo;
+                }else{
+                  if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Non_Corretta) ||
+                    problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Non_Valorizzata)){
+                    problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Avversita_Non_Corretta;
+                  }else if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Ambigua)){
+                    problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Avversita_Ambigua;
+                  }
+                }
+              }
+            }else{
+              if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Non_Corretta) ||
+                problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Non_Valorizzata)){
+                problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Avversita_Non_Corretta;
+              }else{
+                if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Avversita_Ambigua)){
+                  problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Avversita_Ambigua;
+                }else{
+                  if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Formulato_Non_Corretto)){
+                    problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Formulato_Non_Corretto;
+                  }else if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Formulato_Ambiguo)){
+                    problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Formulato_Ambiguo;
+                  }
+                }
+              }
+            }
+
+          }else if(elem_cod &#x3D;&#x3D;&#x3D; FERTILIZZANTI){
+            if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Fertilizzante_Non_Corretto)){
+              problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Non_Corretto;
+            }else if(problemi_DettaglioProdotto.includes(enum_Problema_DettaglioProdotto.Fertilizzante_Ambiguo)){
+              problema_DettaglioProdotto_da_risolvere &#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Ambiguo;
+            }
+          }
+
+        }
+
+        if(!riga_vuota){
+            if(ProdottiForm){
+
+                //TODO Da verificare bene fatto così perchè sembra che il valore del getrawvalue venga passatoi per riferimento e non funziona bene perchè dopo lo ricambio il valore
+                //let ProdottiFormValue: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi  &#x3D; JSON.parse(JSON.stringify(ProdottiForm.getRawValue()))
+                let ProdottiFormValue: Sezione_Prodotto_Formulati | Sezione_Prodotto_Fertilizzanti | Sezione_Prodotto_Sementi  &#x3D; ProdottiForm.getRawValue();
+
+                if(ProdottiFormValue){
+
+                    if(ProdottiFormValue.Prodotto){
+                        Prodotto_Selezionato &#x3D; ProdottiFormValue.Prodotto;
+                        Fr_Cod &#x3D; ProdottiFormValue.Prodotto.prodotto.codice;
+                        Fr_Des &#x3D; ProdottiFormValue.Prodotto.prodotto.descrizione;
+
+                        Magazzino_Agenzia &#x3D; this.getMagazzino_Agenzia(ProdottiFormValue.Prodotto.MagazziniMovimentazioni);
+
+                        let Magazzino_Esterno_con_Lotto &#x3D; this.qdcservice.getMagazzino_Esterno_con_Lotto(ProdottiFormValue.Prodotto.MagazziniMovimentazioni);
+
+                        if(Magazzino_Esterno_con_Lotto &amp;&amp; Magazzino_Esterno_con_Lotto.Magazzino_Esterno){
+                          Magazzino_Esterno &#x3D; Magazzino_Esterno_con_Lotto.Magazzino_Esterno;
+                        }
+                    }
+
+
+                    if(ProdottiFormValue.Magazzino_del_Prodotto_Selezionato){
+                        Magazzino_del_Prodotto_Selezionato &#x3D; ProdottiFormValue.Magazzino_del_Prodotto_Selezionato;
+                        Piva &#x3D; Magazzino_del_Prodotto_Selezionato.primaryKey.centroAziendalePK.partitaIva;
+                        Sa_Cod &#x3D; Magazzino_del_Prodotto_Selezionato.primaryKey.centroAziendalePK.codice;
+                        Fabbricato_Cod &#x3D; ProdottiFormValue.Magazzino_del_Prodotto_Selezionato.primaryKey.codice;
+                        Fabbricato_Des &#x3D; ProdottiFormValue.Magazzino_del_Prodotto_Selezionato.descrizione;
+                    }
+
+
+                    if(ProdottiFormValue.UdM){
+                        UdM_Indicata &#x3D; new UnitaDiMisura(ProdottiFormValue.UdM.codice,ProdottiFormValue.UdM.descrizione,ProdottiFormValue.UdM.simbolo);
+                        UdM &#x3D; new UnitaDiMisura(UdM_Indicata?.codice,UdM_Indicata.descrizione,UdM_Indicata.simbolo);
+                        UdM_Indicata.simbolo &#x3D; this.getSimboloUnitaDiMisuraIndicata(UdM_Indicata, ProdottiFormValue.flagTipoDose);
+                        Udm_Cod &#x3D; this.setUdm_Cod_for_ddl(UdM_Indicata.codice.toString(),UdM_Indicata.simbolo);
+                        Udm_Des &#x3D; UdM_Indicata.simbolo;
+                        UdM_Magazzino &#x3D; this.getUnitaDiMisura(UdM);
+                    }
+
+                    Dose_Ha &#x3D; ProdottiFormValue.Dose_Ha;
+                    Dose_Hl &#x3D; ProdottiFormValue.Dose_Hl;
+                    DoseTot_Ha &#x3D; ProdottiFormValue.DoseTot_Ha;
+                    Lotto &#x3D; ProdottiFormValue.Lotto;
+                    Visualizza_Solo_Prodotti_in_Giacenza &#x3D; ProdottiFormValue.Visualizza_Solo_Prodotti_in_Giacenza;
+                    Visualizza_Magazzini_Agenzie &#x3D; ProdottiFormValue.Visualizza_Magazzini_Agenzie;
+                    Visualizza_Magazzini_Esterni &#x3D; ProdottiFormValue.Visualizza_Magazzini_Esterni;
+
+                    switch(elem_cod){
+                        case FORMULATI:
+                        case INSETTI:
+
+                            ProdottiFormValue &#x3D; ProdottiFormValue as Sezione_Prodotto_Formulati;
+
+                            if(ProdottiFormValue.Avversita){
+                                Avversita &#x3D; ProdottiFormValue.Avversita;
+                                Av_Cod &#x3D; ProdottiFormValue.Avversita.codice;
+                                Av_Des &#x3D; ProdottiFormValue.Avversita.descrizione;
+                            }
+
+                            if(elem_cod &#x3D;&#x3D;&#x3D; FORMULATI){
+                                if(ProdottiFormValue.Soglia_Avversita){
+                                    Soglia_Avversita &#x3D; ProdottiFormValue.Soglia_Avversita;
+                                    Soglia_Des &#x3D; ProdottiFormValue.Soglia_Avversita.descrizione;
+                                }
+
+                                //Controllo se ci sono delle altre dosi collegate a quella scelta dall&#x27;utente
+                                if(ProdottiFormValue.Dose_Etichetta){
+                                    Dosi_Etichetta &#x3D; this.getDosi_Etichetta(ddl_dosi,ProdottiFormValue.Dose_Etichetta);
+                                    Dose_Etichetta &#x3D; ProdottiFormValue.Dose_Etichetta;
+                                }
+
+                                Dosi_Etichetta_Des &#x3D; this.getDescrizioniDosiEtichetta(Dosi_Etichetta);
+
+                                if(ProdottiFormValue.Prodotto?.bufferzone){
+                                    BufferZone &#x3D; ProdottiFormValue.Prodotto?.bufferzone;
+                                    BufferMin &#x3D; ProdottiFormValue.Prodotto?.bufferzone.minimo;
+                                    BufferMax &#x3D;  ProdottiFormValue.Prodotto?.bufferzone.massimo;
+                                }
+
+                                if(ProdottiFormValue.Prodotto?.tempoCarenza)
+                                    Carenza &#x3D; ProdottiFormValue.Prodotto?.tempoCarenza;
+
+                                Prima_Data &#x3D; this.qdcservice.getDataPrimaRaccoltaUtile(Carenza,Data);
+
+                                if(ProdottiFormValue.Prodotto)
+                                    Polverulento &#x3D; ProdottiFormValue.Prodotto.polverulento;
+
+                                if(ProdottiFormValue.Prodotto?.principiAttivi)
+                                    PrincipiAttivi &#x3D; ProdottiFormValue.Prodotto?.principiAttivi;
+                            }
+                            break;
+                        case FERTILIZZANTI:
+
+                            ProdottiFormValue &#x3D; ProdottiFormValue as Sezione_Prodotto_Fertilizzanti;
+                            Efficienza &#x3D; ProdottiFormValue.Efficienza;
+                            N &#x3D; ProdottiFormValue.N;
+                            N_Utile &#x3D; ProdottiFormValue.N_Utile;
+                            P &#x3D; ProdottiFormValue.P;
+                            K &#x3D; ProdottiFormValue.K;
+                            Cu &#x3D; ProdottiFormValue.Cu;
+                            N_Percentuale_X_Prodotto &#x3D; ProdottiFormValue.N_Percentuale_X_Prodotto;
+
+                            break;
+                        case SEMENTI:
+                            ProdottiFormValue &#x3D; ProdottiFormValue as Sezione_Prodotto_Sementi;
+
+                            if(ProdottiFormValue.Prodotto){
+                                Cod_Articolo &#x3D; ProdottiFormValue.Prodotto.codArticolo;
+                            }
+
+                            Sup_Calcolata_Per_Frazionamento &#x3D; ProdottiFormValue.Sup_Calcolata;
+
+                            break;
+                    }
+
+                  original_row_value &#x3D; cloneDeep(ProdottiFormValue.Original_Row_Value);
+
+                }
+
+            } else if(Prodotto) {
+
+                //TODO Da verificare bene fatto così perchè sembra che il valore del getrawvalue venga passatoi per riferimento e non funziona bene perchè dopo lo ricambio il valore
+                //Prodotto_Selezionato &#x3D; JSON.parse(JSON.stringify(Prodotto));
+
+                Prodotto_Selezionato &#x3D; Prodotto;
+
+                if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Formulato_Ambiguo ||
+                  problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Formulato_Non_Corretto){
+
+                    if(!this.qdcservice.Mostra_Avversita_Prima_Dei_Prodotti){
+
+                        if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Formulato_Ambiguo){
+
+                            Prodotto &#x3D; this.qdcservice.setCodDescrMultiColumnComboboxProdotto(FORMULATI,Prodotto);
+
+                            Prodotto_Selezionato &#x3D; Prodotto;
+                        }else if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Formulato_Non_Corretto){
+                            Prodotto_Selezionato &#x3D; this.qdcservice.Obj_Empty_MultiColumnComboboxTrattamento;
+                        }
+                    }else{
+                        Prodotto_Selezionato &#x3D; this.qdcservice.Obj_Empty_MultiColumnComboboxTrattamento;
+                    }
+                }
+
+                if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Ambiguo ||
+                  problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Non_Corretto){
+
+                  if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Ambiguo){
+
+                    Prodotto &#x3D; this.qdcservice.setCodDescrMultiColumnComboboxProdotto(FERTILIZZANTI,Prodotto);
+
+                    Prodotto_Selezionato &#x3D; Prodotto;
+                  }else if(problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Fertilizzante_Non_Corretto){
+                    Prodotto_Selezionato &#x3D; this.qdcservice.Obj_Empty_MultiColumnComboboxFertilizzazione;
+                  }
+                }
+
+                const MagazziniMovimentazioni: Array&lt;RilevamentoDiMagazzino&gt; &#x3D; Prodotto?.MagazziniMovimentazioni;
+
+                if(MagazziniMovimentazioni &amp;&amp; MagazziniMovimentazioni.length &#x3D;&#x3D;&#x3D; 1){
+
+                    const MagazzinoMovimentazione: RilevamentoDiMagazzino &#x3D; MagazziniMovimentazioni[0];
+
+                    Fabbricato_Cod &#x3D; MagazzinoMovimentazione?.Magazzino?.primaryKey?.codice;
+                    Fabbricato_Des &#x3D; MagazzinoMovimentazione?.Magazzino?.descrizione;
+                    Magazzino_del_Prodotto_Selezionato &#x3D; this.qdcservice.setCodDescrDdlMagazzino(MagazzinoMovimentazione?.Magazzino as DropdownListMagazzino);
+                    Piva &#x3D;  MagazzinoMovimentazione?.Magazzino?.primaryKey.centroAziendalePK.partitaIva;
+                    Sa_Cod &#x3D; MagazzinoMovimentazione?.Magazzino?.primaryKey.centroAziendalePK.codice;
+                    Lotto &#x3D; MagazzinoMovimentazione?.Lotto;
+                    Dose_Ha &#x3D; MagazzinoMovimentazione?.doseHaIndicata;
+                    Dose_Hl &#x3D; MagazzinoMovimentazione?.doseHlIndicata;
+                    DoseTot_Ha &#x3D; this.getDosePerMagazzino(MagazzinoMovimentazione?.Qta,Prodotto?.unitaDiMisuraIndicata?.codice);
+                    UdM_Magazzino &#x3D; MagazzinoMovimentazione?.udm;
+                    Magazzino_Agenzia &#x3D; MagazzinoMovimentazione.Agenzia;
+
+                    if(Magazzino_Agenzia){
+                      Visualizza_Magazzini_Agenzie &#x3D; true;
+                    }
+
+                    let Magazzino_Esterno_con_Lotto &#x3D; this.qdcservice.getMagazzino_Esterno_con_Lotto(MagazziniMovimentazioni);
+
+                    if(Magazzino_Esterno_con_Lotto &amp;&amp; Magazzino_Esterno_con_Lotto.Magazzino_Esterno){
+                      Magazzino_Esterno &#x3D; Magazzino_Esterno_con_Lotto.Magazzino_Esterno;
+                      Visualizza_Magazzini_Esterni &#x3D; true;
+                    }
+                } else {
+                    Dose_Ha &#x3D; Prodotto?.doseHaReale;
+                    Dose_Hl &#x3D; Prodotto?.doseHlReale;
+                    DoseTot_Ha &#x3D; Prodotto?.quantitaTotaleReale;
+                }
+
+                Fr_Cod &#x3D; Prodotto.prodotto.codice;
+                Fr_Des &#x3D; Prodotto.prodotto.descrizione;
+
+
+                if(Prodotto?.unitaDiMisuraIndicata){
+                    UdM_Indicata &#x3D;new UnitaDiMisura(Prodotto?.unitaDiMisuraIndicata.codice,Prodotto?.unitaDiMisuraIndicata.descrizione,Prodotto?.unitaDiMisuraIndicata.simbolo);
+                    UdM &#x3D; new UnitaDiMisura(UdM_Indicata.codice,UdM_Indicata.descrizione,UdM_Indicata.simbolo);
+                    UdM.simbolo &#x3D; this.getSimboloOriginaleUnitaDiMisuraIndicata(UdM_Indicata);
+                    Udm_Cod &#x3D; this.setUdm_Cod_for_ddl(Prodotto?.unitaDiMisuraIndicata?.codice.toString(),Prodotto?.unitaDiMisuraIndicata?.simbolo);
+                    Udm_Des &#x3D; Prodotto?.unitaDiMisuraIndicata?.simbolo;
+                }
+
+                switch(elem_cod){
+                    case FORMULATI:
+                    case INSETTI:
+
+                        Prodotto &#x3D; Prodotto as MultiColumnComboboxTrattamento;
+
+
+                        if((!this.qdcservice.Mostra_Avversita_Prima_Dei_Prodotti &amp;&amp; problema_DettaglioProdotto_da_risolvere !&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Nessuno) ||
+                            (this.qdcservice.Mostra_Avversita_Prima_Dei_Prodotti &amp;&amp; (problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Avversita_Ambigua || problema_DettaglioProdotto_da_risolvere &#x3D;&#x3D;&#x3D; enum_Problema_DettaglioProdotto.Avversita_Non_Corretta))){
+
+                            Avversita &#x3D; null;
+
+                            Av_Cod &#x3D; 0;
+
+                            Av_Des &#x3D; &quot;&quot;;
+                        }else{
+                            if(Prodotto?.avversitaGruppo){
+                            Avversita &#x3D; this.qdcservice.setCodDescrDdlAvversita(Prodotto?.avversitaGruppo as DropdownListAvversita,lav_cod);
+                                Av_Cod &#x3D; Prodotto?.avversitaGruppo?.codice;
+                                Av_Des &#x3D; Prodotto?.avversitaGruppo?.descrizione;
+                            }
+                        }
+
+                        if(elem_cod &#x3D;&#x3D;&#x3D; FORMULATI){
+                            Soglia_Avversita &#x3D; Prodotto?.soglia;
+                            Soglia_Des &#x3D; Prodotto?.soglia?.descrizione;
+
+                            if(Prodotto?.dosiEtichetta &amp;&amp; Prodotto?.dosiEtichetta.length &gt; 0){
+                                Dosi_Etichetta &#x3D; Prodotto?.dosiEtichetta as MultiColumnComboboxDose_Etichetta[];
+                                Dose_Etichetta &#x3D;  Prodotto?.dosiEtichetta[0] as MultiColumnComboboxDose_Etichetta;
+                            }
+
+                            Dosi_Etichetta_Des &#x3D; this.getDescrizioniDosiEtichetta(Dosi_Etichetta);
+
+                            if(Prodotto.bufferzone){
+                                BufferZone &#x3D; Prodotto.bufferzone;
+                                BufferMin &#x3D; Prodotto.bufferzone.minimo;
+                                BufferMax &#x3D; Prodotto.bufferzone.massimo;
+                            }
+
+                            Carenza &#x3D; Prodotto.tempoCarenza;
+                            Prima_Data &#x3D; this.qdcservice.getDataPrimaRaccoltaUtile(Carenza,Data);
+                            Polverulento &#x3D; Prodotto.polverulento;
+                            PrincipiAttivi &#x3D; Prodotto.principiAttivi;
+
+                        }
+
+                        break;
+                    case FERTILIZZANTI:
+                        Prodotto &#x3D; Prodotto as MultiColumnComboboxFertilizzazione;
+                        Efficienza &#x3D; Prodotto.efficienza;
+                        N &#x3D; Prodotto.N;
+                        N_Utile &#x3D; this.getN_Utile(Efficienza, N);
+                        P &#x3D; Prodotto.P;
+                        K &#x3D; Prodotto.K;
+                        Cu &#x3D; Prodotto.Cu;
+                        N_Percentuale_X_Prodotto &#x3D; 0;
+
+                        break;
+                    case SEMENTI:
+                        Prodotto &#x3D; Prodotto as MultiColumnComboboxSemina;
+                        Cod_Articolo &#x3D; Prodotto.codArticolo;
+                        break;
+                }
+            }
+        }
+
+        Row &#x3D; new FormGroup({
+            &#x27;Categoria_Magazzino&#x27;: new FormControl(elem_cod),
+            &#x27;Prodotto&#x27;: new FormControl(Prodotto_Selezionato),
+            &#x27;Centro_Aziendale&#x27;: new FormControl(Centro_Aziendale),
+            &#x27;Piva&#x27;: new FormControl(Piva),
+            &#x27;Sa_Cod&#x27;: new FormControl(Sa_Cod),
+            &#x27;Fabbricato_Cod&#x27;: new FormControl(Fabbricato_Cod),
+            &#x27;Fabbricato_Des&#x27;: new FormControl(Fabbricato_Des),
+            &#x27;Fr_Cod&#x27;: new FormControl(Fr_Cod),
+            &#x27;Fr_Des&#x27;: new FormControl(Fr_Des),
+            &#x27;UdM&#x27;: new FormControl(UdM),
+            &#x27;Operazione&#x27; : new FormControl(Operazione),
+            &#x27;UdM_Magazzino&#x27;:  new FormControl(UdM_Magazzino),
+            &#x27;UdM_Indicata&#x27;: new FormControl(UdM_Indicata),
+            &#x27;Udm_Cod&#x27;: new FormControl(Udm_Cod),
+            &#x27;Udm_Des&#x27;: new FormControl(Udm_Des),
+            &#x27;Udm_Cod_Trasformato&#x27;: new FormControl(0),
+            &#x27;Magazzino_del_Prodotto_Selezionato&#x27;: new FormControl(Magazzino_del_Prodotto_Selezionato),
+            &#x27;Dose_Ha&#x27;: new FormControl(this.funzionicomuniservice.roundNumber(Dose_Ha,this.qdcservice.Obj_Default_Numeric_Settings.decimals)),
+            &#x27;Dose_Hl&#x27;: new FormControl(this.funzionicomuniservice.roundNumber(Dose_Hl,this.qdcservice.Obj_Default_Numeric_Settings.decimals)),
+            &#x27;DoseTot_Ha&#x27;: new FormControl(this.funzionicomuniservice.roundNumber(DoseTot_Ha,this.qdcservice.Obj_Default_Numeric_Settings.decimals)),
+            &#x27;Ha_Hl&#x27;: new FormControl(0),
+            &#x27;Dose_QtaTot&#x27;: new FormControl(0),
+            &#x27;For_Veg_Cod&#x27;: new FormControl(0),
+            &#x27;Dose_Etichetta_Max&#x27;: new FormControl(0),
+            &#x27;Dose_Etichetta_Value&#x27;: new FormControl(0),
+            &#x27;Limite_Numero_Trattamenti&#x27;: new FormControl(0),
+            &#x27;Limite_Numero_Trattamenti_UDM_SIM&#x27;: new FormControl(0),
+            &#x27;Limite_Numero_Trattamenti_UDM_COD&#x27;: new FormControl(0),
+            &#x27;IntervalloTrattamenti_Min&#x27;: new FormControl(0),
+            &#x27;IntervalloTrattamenti_Max&#x27;: new FormControl(0),
+            &#x27;strPA_COD&#x27;: new FormControl(&quot;&quot;),
+            &#x27;strPA_COD_Pesi&#x27;: new FormControl(&quot;&quot;),
+            &#x27;strCLTOSS_COD&#x27;: new FormControl(&quot;&quot;),
+            &#x27;MgO&#x27;: new FormControl(0),
+            &#x27;Dose_Fittizia&#x27;: new FormControl(0),
+            &#x27;Lotto&#x27;: new FormControl(Lotto),
+            &#x27;Mat_Regolamento&#x27;: new FormControl(0),
+            &#x27;Mat_Veg_Cod&#x27;: new FormControl(0),
+            &#x27;Mat_Cul_Cod&#x27;: new FormControl(0),
+            &#x27;Sup_Calcolata&#x27;: new FormControl(this.funzionicomuniservice.roundNumber(Sup_Calcolata_Per_Frazionamento,this.qdcservice.Obj_Default_Numeric_Settings.decimals)),
+            &#x27;Piva_Rif&#x27;: new FormControl(&quot;&quot;),
+            &#x27;Sa_Cod_Rif&#x27;: new FormControl(0),
+            &#x27;ID_Agenda_Rif&#x27;: new FormControl(0),
+            &#x27;ID_Mov_Rif&#x27;: new FormControl(0),
+            &#x27;ID_Mov_Det_Rif&#x27;: new FormControl(0),
+            &#x27;Lav_Cod_Rif&#x27;: new FormControl(0),
+            &#x27;Cau_Mov_Rif&#x27;: new FormControl(&quot;&quot;),
+            &#x27;Des_Rif&#x27;: new FormControl(&quot;&quot;),
+            &#x27;Qta_Rif&#x27;: new FormControl(0),
+            &#x27;flagTipoDose&#x27;: new FormControl(flagTipoDose),
+            &#x27;flagDoseQuantitaTotale&#x27;: new FormControl(flagDoseQuantitaTotale),
+            &#x27;Dose_Acqua&#x27;: new FormControl(this.funzionicomuniservice.roundNumber(Dose_Acqua,this.qdcservice.Obj_Default_Numeric_Settings.decimals)),
+            &#x27;DosiProdottiGridrowId&#x27;: new FormControl(RowIndex),
+            &#x27;Visualizza_Magazzini_Agenzie&#x27;: new FormControl(Visualizza_Magazzini_Agenzie),
+            &#x27;Visualizza_Magazzini_Esterni&#x27;: new FormControl(Visualizza_Magazzini_Esterni),
+            &#x27;Magazzino_Agenzia&#x27;: new FormControl(Magazzino_Agenzia),
+            &#x27;Magazzino_Esterno&#x27;: new FormControl(Magazzino_Esterno),
+            &#x27;Visualizza_Solo_Prodotti_in_Giacenza&#x27;: new FormControl(Visualizza_Solo_Prodotti_in_Giacenza),
+            &#x27;Riga_Salvata&#x27;: new FormControl(riga_salvata),
+            &#x27;Nuova_Riga&#x27;: new FormControl(nuova_riga_da_btn),
+            &#x27;Modalita_Applicazione&#x27;: new FormControl(Modalita_Applicazione),
+            &#x27;Original_Row_Value&#x27;: new FormControl(original_row_value),
+            &#x27;Tutti_Problemi_DettaglioProdotto&#x27;: new FormControl(problemi_DettaglioProdotto),
+            &#x27;Problema_DettaglioProdotto_Da_Risolvere&#x27;: new FormControl(problema_DettaglioProdotto_da_risolvere)
+        });
+
+        switch(elem_cod){
+            case FORMULATI:
+            case INSETTI:
+                Row.addControl(&#x27;Avversita&#x27;,new FormControl(Avversita));
+                Row.addControl(&#x27;Av_Cod&#x27;,new FormControl(Av_Cod));
+                Row.addControl(&#x27;Av_Gru&#x27;,new FormControl(&quot;&quot;));
+                Row.addControl(&#x27;Av_Des&#x27;,new FormControl(Av_Des));
+
+                if(elem_cod &#x3D;&#x3D;&#x3D; FORMULATI){
+                    Row.addControl(&#x27;Soglia_Avversita&#x27;,new FormControl(Soglia_Avversita));
+                    Row.addControl(&#x27;Soglia_Value&#x27;,new FormControl(0));
+                    Row.addControl(&#x27;Soglia_Des&#x27;,new FormControl(Soglia_Des));
+                    Row.addControl(&#x27;Dose_Etichetta&#x27;,new FormControl(Dose_Etichetta));
+                    Row.addControl(&#x27;Dosi_Etichetta&#x27;,new FormControl(Dosi_Etichetta));
+                    Row.addControl(&#x27;Dose_Etichetta_Des&#x27;,new FormControl(Dosi_Etichetta_Des));
+
+
+                    Row.addControl(&#x27;BufferZone&#x27;,new FormControl(BufferZone));
+                    Row.addControl(&#x27;BufferMin&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(BufferMin,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                    Row.addControl(&#x27;BufferMax&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(BufferMax,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                    Row.addControl(&#x27;strBuffer&#x27;,new FormControl(this.getStrBuffer(BufferMin,BufferMax)));
+
+                    Row.addControl(&#x27;Carenza&#x27;,new FormControl(Carenza));
+                    Row.addControl(&#x27;Prima_Raccolta&#x27;,new FormControl(Prima_Data));
+                    Row.addControl(&#x27;Polverulento&#x27;,new FormControl(Polverulento));
+                    Row.addControl(&#x27;EpocaDPI&#x27;,new FormControl(EpocaDPI));
+                    Row.addControl(&#x27;PrincipiAttivi&#x27;,new FormControl(PrincipiAttivi));
+                }
+
+                break;
+            case FERTILIZZANTI:
+                Row.addControl(&#x27;Efficienza&#x27;,new FormControl(Efficienza));
+                Row.addControl(&#x27;N&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(N,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                Row.addControl(&#x27;N_Utile&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(N_Utile,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                Row.addControl(&#x27;P&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(P,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                Row.addControl(&#x27;K&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(K,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                Row.addControl(&#x27;Cu&#x27;,new FormControl(this.funzionicomuniservice.roundNumber(Cu,this.qdcservice.Obj_Default_Numeric_Settings.decimals)));
+                Row.addControl(&#x27;EpocaFertilizzazione&#x27;,new FormControl(EpocaFertilizzazione));
+                Row.addControl(&#x27;Utilizza_Direttiva_Nitrati&#x27;,new FormControl(Utilizza_Direttiva_Nitrati));
+                Row.addControl(&#x27;Direttiva_Nitrati&#x27;,new FormControl(Direttiva_Nitrati));
+                Row.addControl(&#x27;N_Percentuale_X_Prodotto&#x27;,new FormControl(N_Percentuale_X_Prodotto));
+
+                break;
+            case SEMENTI:
+                Row.addControl(&#x27;Cod_Articolo&#x27;,new FormControl(Cod_Articolo));
+                Row.addControl(&#x27;Opzioni_Semina&#x27;,new FormControl(Opzioni_Semina));
+                break;
+        }
+
+        return Row;
+    }
+
+    //Aggiunge una riga vuota nel GriDosiProdotti per visualizzare il formGroup appena viene richiamato il qdcservice.Gestisci_Sezioni_Prodotto
+    public AggiungiRigaVuotaGridDosiProdotti(disciplinare: DropdownListDisciplinare &#x3D; null){
+        if(!this.qdcservice.Abilitato_Inserimento_Prodotti_da_Grid_Dosi()){
+            let sezioni &#x3D; this.qdcservice.Sezioni_ProdottoFormArray.getRawValue();
+
+            if(sezioni){
+                sezioni.forEach(s&#x3D;&gt;{
+                    if(s.DosiProdotti.length &#x3D;&#x3D;&#x3D; 0 &amp;&amp; s.Operazione.primaryKey.codice !&#x3D;&#x3D; enum_LAVCOD.RACCOLTA){
+
+                        let lav_cod &#x3D; + (&lt;Lavorazione&gt;s.Operazione).primaryKey.codice;
+                        let Opzioni_Semina &#x3D; this.qdcservice.get_Default_Opzione_Semina(lav_cod);
+
+                        let Utilizza_Direttiva_Nitrati: boolean &#x3D; false;
+
+                        let Direttiva_Nitrati: Disciplinare &#x3D; null;
+
+                        if(+ s.Operazione.primaryKey.codice &#x3D;&#x3D;&#x3D; enum_LAVCOD.DISTRIBUZIONE_AMMENDANTI){
+
+                            if(s.Utilizza_Direttiva_Nitrati){
+
+                                Utilizza_Direttiva_Nitrati &#x3D; true;
+
+                                if(disciplinare &amp;&amp; disciplinare.Codice_Concatenato !&#x3D;&#x3D; &quot;&quot;){
+                                    if(disciplinare.regolamentoConcimazione &amp;&amp; disciplinare.regolamentoConcimazione.tipo &#x3D;&#x3D;&#x3D; enum_PUARegolamenti_Tipo.PUA){
+                                        Utilizza_Direttiva_Nitrati &#x3D; true;
+
+                                        Direttiva_Nitrati &#x3D; disciplinare as Disciplinare;
+                                    }
+                                }
+                            }
+                        }else{
+                            Utilizza_Direttiva_Nitrati &#x3D; false;
+
+                            Direttiva_Nitrati &#x3D; null;
+                        }
+
+                        let row: FormGroup &#x3D; this.getRigaGridDosiProdotti(s.DosiProdotti,-1,null,null,null,
+                            s.Operazione,null,enum_TipoMezzo.Ettaro,
+                            enum_doseQuantitaTotale.Dose,null,[],null,null,Utilizza_Direttiva_Nitrati,Direttiva_Nitrati,Opzioni_Semina,null,false,false, false);
+
+
+                        this.qdcservice.AggiornaFormArrayGridDosiProdotti(row.getRawValue(),-1,s.Operazione,enum_TipoOperazioneDB.Scrittura,null);
+                    }
+                });
+            }
+
+        }
+    }
+
+    private getStrBuffer(BufferMin: number, BufferMax: number): string{
+
+        //Costruzione stringa bufferzone
+        let strBuffer: string &#x3D; &#x27;&#x27;;
+
+        if (BufferMin !&#x3D;&#x3D; 0 || BufferMax !&#x3D;&#x3D; 0)
+            strBuffer &#x3D; BufferMin + &quot; - &quot; + BufferMax;
+
+        return strBuffer;
+
+    }
+
+    private getDescrizioniDosiEtichetta(dosiEtichetta: MultiColumnComboboxDose_Etichetta[]): string{
+
+        let DescrizioneDosiEtichetta: string &#x3D; &quot;&quot;;
+
+        if(dosiEtichetta){
+            DescrizioneDosiEtichetta &#x3D; dosiEtichetta.map((d: MultiColumnComboboxDose_Etichetta) &#x3D;&gt;
+                this.qdcservice.setCodDescrConcatenataMultiColumnComboboxMultiColumnComboboxDose_Etichetta(d).Descrizione_Concatenata
+            ).join(&quot;, &lt;br&gt;&quot;);
+        }
+
+        return DescrizioneDosiEtichetta;
+    }
+
+    private getN_Utile(efficienza: number, n: number){
+
+        let N_Utile: number &#x3D; 0;
+
+        N_Utile &#x3D; efficienza * n;
+
+        return N_Utile;
+    }
+
+    public getUnitaDiMisura(udm_indicata: UnitaDiMisura): UnitaDiMisura{
+        //Ottiene l&#x27;unità di misura da salvare nella griglia
+        //Replica la funzione in Trattamenti_2.ControllaSelezioneUnitadiMisura
+        //In Trattamenti_2.ControllaSelezioneUnitadiMisura UdmCod è udm_indicata (udm scelta dall’utente)
+        //In Trattamenti_2.ControllaSelezioneUnitadiMisura UdmCodTrasformato è udm (sempre kg o l per fitosanitari)
+
+        let udm_simbolo: string &#x3D; &quot;&quot;;
+
+        let udm_codice: number &#x3D; 0;
+
+        let udm_descrizione: string &#x3D; &quot;&quot;;
+
+        if(udm_indicata){
+
+            udm_descrizione &#x3D; udm_indicata.descrizione;
+
+            switch(udm_indicata.codice){
+                case enum_UnitaMisura.Grammi:
+                case enum_UnitaMisura.Quintali:
+                case enum_UnitaMisura.Tonnellate:
+                case enum_UnitaMisura.Milligrammi:
+                    udm_codice &#x3D; enum_UnitaMisura.KG;
+                    udm_simbolo &#x3D; &quot;kg&quot;;
+                    break;
+                case enum_UnitaMisura.Millilitri:
+                case enum_UnitaMisura.CentimetriCubi:
+                case enum_UnitaMisura.Metri_Cubi:
+                    udm_codice &#x3D; enum_UnitaMisura.Litri;
+                    udm_simbolo &#x3D; &quot;l&quot;;
+                    break;
+                case enum_UnitaMisura.KG:
+                case enum_UnitaMisura.Litri:
+                case enum_UnitaMisura.Unita_Seme:
+                case enum_UnitaMisura.Num_Piante:
+                case enum_UnitaMisura.Confezioni:
+                case enum_UnitaMisura.Numero:
+                case enum_UnitaMisura.Numero_Diffusori:
+                case enum_UnitaMisura.UNITA:
+                    udm_codice &#x3D; udm_indicata.codice;
+                    udm_simbolo &#x3D; udm_indicata.simbolo;
+                    break;
+            }
+        }
+
+        return  new UnitaDiMisura(udm_codice,udm_descrizione,udm_simbolo);
+
+    }
+
+    public  getSimboloUnitaDiMisuraIndicata(udm_indicata: UnitaDiMisura, flagTipoDose: number): string{
+
+        //Ottiene l&#x27;unità di misura indicata da salvare nella griglia
+        //Replica la funzione in Trattamenti_2.ControllaSelezioneUnitadiMisura
+        //In Trattamenti_2.ControllaSelezioneUnitadiMisura UdmCod è udm_indicata (udm scelta dall’utente)
+        //In Trattamenti_2.ControllaSelezioneUnitadiMisura UdmCodTrasformato è udm (sempre kg o l per fitosanitari)
+
+        let udm_indicata_simbolo: string &#x3D; &quot;&quot;;
+
+        let new_udm &#x3D; new UnitaDiMisura(udm_indicata.codice,udm_indicata.descrizione,udm_indicata.simbolo);
+
+        let simbolo: string &#x3D; new_udm?.simbolo;
+
+        switch(flagTipoDose){
+            case enum_TipoMezzo.Ettolitro:
+                udm_indicata_simbolo &#x3D; &quot;[&quot; + simbolo;
+
+                if(!simbolo.includes(&quot;/hl&quot;))
+                    udm_indicata_simbolo +&#x3D;&quot;/hl&quot;;
+
+                break;
+            case enum_TipoMezzo.Ettaro:
+                udm_indicata_simbolo &#x3D; &quot;[&quot; + simbolo;
+
+                if(!simbolo.includes(&quot;/ha&quot;))
+                    udm_indicata_simbolo +&#x3D;&quot;/ha&quot;;
+                break;
+        }
+
+        if(!simbolo.includes(&quot;]&quot;))
+            udm_indicata_simbolo +&#x3D;&quot;]&quot;;
+
+        return  udm_indicata_simbolo;
+
+    }
+
+    private getSimboloOriginaleUnitaDiMisuraIndicata(udm_indicata: UnitaDiMisura): string{
+
+        //Ottieni l&#x27;unita di misura originale che ha selezionato l&#x27;utente dalla ddl
+
+        let udm_indicata_simbolo: string &#x3D; udm_indicata.simbolo;
+
+        if(this.qdcservice.Elenco_UdM_Radice_Con_Ha.includes(udm_indicata.codice) || this.qdcservice.Elenco_UdM_Radice_Con_Hl.includes(udm_indicata.codice)){
+            udm_indicata_simbolo &#x3D; udm_indicata_simbolo.replace(&quot;[&quot;, &quot;&quot;).replace(&quot;]&quot;, &quot;&quot;);
+        }else{
+            udm_indicata_simbolo &#x3D; udm_indicata_simbolo.replace(&quot;[&quot;, &quot;&quot;).replace(&quot;]&quot;, &quot;&quot;).split(&quot;/&quot;)[0];
+        }
+
+        return  udm_indicata_simbolo;
+
+    }
+
+    setUdm_Cod_for_ddl(Udm_Cod: string, Udm_Des: string){
+
+        if(Udm_Des.includes(&#x27;hl&#x27;))
+            Udm_Cod +&#x3D; &quot;_&quot; + enum_TipoMezzo.Ettolitro;
+        else if(Udm_Des.includes(&#x27;ha&#x27;))
+            Udm_Cod +&#x3D; &quot;_&quot; + enum_TipoMezzo.Ettaro;
+
+        return Udm_Cod;
+    }
+
+
+    public getDosePerMagazzino(doseTrasformata: number, udm_codice: number): number{
+        let doseIndicata : number &#x3D; 0
+
+        switch(udm_codice){
+            case enum_UnitaMisura.Grammi:
+                doseIndicata &#x3D; doseTrasformata * 1000;
+                break;
+            case enum_UnitaMisura.Milligrammi:
+                doseIndicata &#x3D; doseTrasformata * 1000000;
+                break;
+            case enum_UnitaMisura.Quintali:
+                doseIndicata &#x3D; doseTrasformata / 100;
+                break;
+            case enum_UnitaMisura.Tonnellate:
+                doseIndicata &#x3D; doseTrasformata / 1000;
+                break;
+            case enum_UnitaMisura.Millilitri:
+                doseIndicata &#x3D; doseTrasformata * 1000;
+                break;
+            case enum_UnitaMisura.CentimetriCubi:
+                doseIndicata &#x3D; doseTrasformata * 1000;
+                break;
+            case enum_UnitaMisura.Metri_Cubi:
+                doseIndicata &#x3D; doseTrasformata / 1000;
+                break;
+            case enum_UnitaMisura.Litri:
+            case enum_UnitaMisura.KG:
+            case enum_UnitaMisura.Unita_Seme:
+            case enum_UnitaMisura.Num_Piante:
+            case enum_UnitaMisura.Confezioni:
+            case enum_UnitaMisura.Numero:
+            case enum_UnitaMisura.Numero_Diffusori:
+            case enum_UnitaMisura.UNITA:
+                doseIndicata &#x3D; doseTrasformata;
+                break;
+        }
+
+        return doseIndicata;
+    }
+
+    //introdotta verifica dei dosaggi tra loro solo per i dosaggi dello stesso decreto ( &#x3D; FormulatiXAllegatiNormative_IDRiga)
+    public getDosi_Etichetta(ddl_Dosi: MultiColumnComboboxDose_Etichetta[],Dose_Selezionata: MultiColumnComboboxDose_Etichetta){
+        let Dosi_Etichetta: MultiColumnComboboxDose_Etichetta[] &#x3D; [];
+
+        if(Dose_Selezionata){
+
+            Dosi_Etichetta.push(Dose_Selezionata);
+
+            let For_Veg_Av_Dos_Cod_selezionato &#x3D; Dose_Selezionata.codice;
+            let Udm_Cod_selezionata &#x3D; ! Dose_Selezionata?.Udm?.codice ? 0 : Dose_Selezionata.Udm.codice;
+            let FormulatiXAllegatiNormative_IDRiga_Selezionato &#x3D; ! Dose_Selezionata?.FormulatiXAllegatiNormative_IDRiga ? 0 : Dose_Selezionata.FormulatiXAllegatiNormative_IDRiga;
+            let Da_Epoca_selezionata &#x3D; ! Dose_Selezionata?.Da_Epoca ? &quot;&quot; : Dose_Selezionata.Da_Epoca;
+            let A_Epoca_selezionata &#x3D; ! Dose_Selezionata?.A_Epoca ? &quot;&quot; : Dose_Selezionata.A_Epoca;
+
+            if(ddl_Dosi &amp;&amp; ddl_Dosi.length &gt; 0){
+                ddl_Dosi.forEach(d&#x3D;&gt;{
+
+                    let For_Veg_Av_Dos_Cod &#x3D; d.codice;
+                    let Udm_Cod &#x3D; ! d?.Udm?.codice ? 0 : d.Udm.codice;
+                    let FormulatiXAllegatiNormative_IDRiga &#x3D; ! d?.FormulatiXAllegatiNormative_IDRiga ? 0 : d.FormulatiXAllegatiNormative_IDRiga;
+                    let Da_Epoca &#x3D; ! d?.Da_Epoca ? &quot;&quot; : d.Da_Epoca;
+                    let A_Epoca &#x3D; ! d?.A_Epoca ? &quot;&quot; : d.A_Epoca;
+
+
+
+                    if(For_Veg_Av_Dos_Cod !&#x3D;&#x3D; For_Veg_Av_Dos_Cod_selezionato &amp;&amp;
+                        (Udm_Cod_selezionata !&#x3D;&#x3D; Udm_Cod) &amp;&amp;
+                        (FormulatiXAllegatiNormative_IDRiga_Selezionato &#x3D;&#x3D;&#x3D; FormulatiXAllegatiNormative_IDRiga || FormulatiXAllegatiNormative_IDRiga &#x3D;&#x3D;&#x3D; 0) &amp;&amp;
+                        (Da_Epoca_selezionata &#x3D;&#x3D;&#x3D; Da_Epoca || Da_Epoca &#x3D;&#x3D;&#x3D; &quot;0&quot;) &amp;&amp;
+                        (A_Epoca_selezionata &#x3D;&#x3D;&#x3D; A_Epoca || A_Epoca &#x3D;&#x3D;&#x3D; &quot;0&quot;) &amp;&amp;
+                        (this.unitadimisuraservice.ScomponiUdm(d.Udm).perHa_hl &#x3D;&#x3D;&#x3D; 2123)) {
+
+                        Dosi_Etichetta.push(d);
+
+                    }
+                });
+            }
+
+        }
+
+        return Dosi_Etichetta;
+    }
+
+    public getMagazzino_Agenzia(rilevamentoMagazzino: RilevamentoDiMagazzino[]){
+
+        let Magazzino_Agenzia: Fabbricato &#x3D; null;
+
+        if(rilevamentoMagazzino &amp;&amp;
+            rilevamentoMagazzino.length &#x3D;&#x3D;&#x3D; 1){
+
+            if(this.qdcservice.IsMagazzinoAgenzia(rilevamentoMagazzino[0].Magazzino)){
+                Magazzino_Agenzia &#x3D; rilevamentoMagazzino[0].Magazzino;
+            }
+
+            if(!Magazzino_Agenzia){
+                if(this.qdcservice.IsMagazzinoAgenzia(rilevamentoMagazzino[0].Agenzia)){
+                    Magazzino_Agenzia &#x3D; rilevamentoMagazzino[0].Agenzia;
+                }
+            }
+
+        }
+
+        return Magazzino_Agenzia;
+    }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridDosiProdottiService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

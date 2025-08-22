@@ -1,0 +1,19 @@
+<div class="row">
+    <ng-template #template>
+        <span>
+            <fa-icon size="lg" [icon]="['fas', 'exclamation-triangle']" aria-hidden="true"></fa-icon>
+            {{'LaSuperficieDImpiegoDeveEssereMinoreOUgual' | transloco}}
+        </span>
+    </ng-template>
+    <div
+        kendoTooltip
+        showOn="none"
+        filter=".k-grid td"
+        [tooltipTemplate]="template">
+        <gias-kendo-grid #GridImpianti [gridId]="'ImpiantiGridId'" [id]="'ImpiantiGridId'" (selectionChange)="onSelected($event)" (rowsLoaded)="rowsLoaded()" class="kendo-grid-no-shadows">
+            <ng-container headerContentButtons>
+                <btn-rileva-fase-epoca></btn-rileva-fase-epoca>
+            </ng-container>
+        </gias-kendo-grid>
+    </div>
+  </div>

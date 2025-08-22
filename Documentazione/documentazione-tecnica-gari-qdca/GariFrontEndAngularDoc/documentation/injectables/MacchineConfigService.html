@@ -1,0 +1,4010 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >MacchineConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/macchine/macchine-grid-config.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#centresOnWhichIsUsed" >centresOnWhichIsUsed</a>
+                            </li>
+                            <li>
+                                <a href="#cmdColumn" >cmdColumn</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#companiesByWhichIsUsed" >companiesByWhichIsUsed</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoColumns" >kendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#KendoMacchine" >KendoMacchine</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#kendoModel" >kendoModel</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#macchineRows" >macchineRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#macchineSelezionate" >macchineSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#marche" >marche</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoAssegnazionePubblica" >permessoAssegnazionePubblica</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoNuovoDocumento" >permessoNuovoDocumento</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoRicercaDocumenti" >permessoRicercaDocumenti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prevContatto" >prevContatto</a>
+                            </li>
+                            <li>
+                                <a href="#resizable" >resizable</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#tipo" >tipo</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addMacchinaSelezionata" >addMacchinaSelezionata</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#caricaCentri" >caricaCentri</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#caricaContatti" >caricaContatti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#clearSelezionate" >clearSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#contattoChange" >contattoChange</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#controlloMovimentazioniMacchina" >controlloMovimentazioniMacchina</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#disableVisibilityItems" >disableVisibilityItems</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchCentresByWhichIsUsed" >fetchCentresByWhichIsUsed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fetchCompaniesByWhichIsUsed" >fetchCompaniesByWhichIsUsed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getMacchineSelezionate" >getMacchineSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#getRemoveMultipleRowsMessage" >getRemoveMultipleRowsMessage</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCommandEvent" >handleCommandEvent</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDropdowns" >handleDropdowns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isVisibilitaOrTypeOrValidityChanged" >isVisibilitaOrTypeOrValidityChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadCodificheAgea" >loadCodificheAgea</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#macchinaMovimentataCheck" >macchinaMovimentataCheck</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#msgWarningDelete" >msgWarningDelete</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#nascondiPulsantiEdit" >nascondiPulsantiEdit</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#performActions" >performActions</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prepareParameters" >prepareParameters</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#rimozioneCaratteristicheCheck" >rimozioneCaratteristicheCheck</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectMacchina_old" >selectMacchina_old</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setupDdlCommandsMenu" >setupDdlCommandsMenu</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, macchineService: <a href="../injectables/MacchineFactoryService.html" target="_self">MacchineFactoryService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, macchineGridEventsService: <a href="../injectables/MacchineGridEventsService.html" target="_self">MacchineGridEventsService</a>, renderer: Renderer2, router: Router, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, anagraficaService: <a href="../injectables/AnagraficaService.html" target="_self">AnagraficaService</a>, centriService: <a href="../injectables/CentriAziendaliService.html" target="_self">CentriAziendaliService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, translocoService: TranslocoService, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, caratteristicheService: <a href="../injectables/CaratteristicheService.html" target="_self">CaratteristicheService</a>, giasMessageService: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, budgetService: <a href="../injectables/BudgetService.html" target="_self">BudgetService</a>, contattiService: <a href="../injectables/ContattiService.html" target="_self">ContattiService</a>, codificheAgeaService: <a href="../injectables/CodificheAgeaService.html" target="_self">CodificheAgeaService</a>, businessLogic: <a href="../injectables/AnagraficaBusinessLogicService.html" target="_self">AnagraficaBusinessLogicService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="227" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:227</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>macchineService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MacchineFactoryService.html" target="_self" >MacchineFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>macchineGridEventsService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MacchineGridEventsService.html" target="_self" >MacchineGridEventsService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>renderer</td>
+                                                  
+                                                        <td>
+                                                                    <code>Renderer2</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>anagraficaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnagraficaService.html" target="_self" >AnagraficaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>centriService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CentriAziendaliService.html" target="_self" >CentriAziendaliService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>caratteristicheService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CaratteristicheService.html" target="_self" >CaratteristicheService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasMessageService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>budgetService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BudgetService.html" target="_self" >BudgetService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>contattiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContattiService.html" target="_self" >ContattiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>codificheAgeaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CodificheAgeaService.html" target="_self" >CodificheAgeaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>businessLogic</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AnagraficaBusinessLogicService.html" target="_self" >AnagraficaBusinessLogicService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addMacchinaSelezionata"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addMacchinaSelezionata</b></span>
+                        <a href="#addMacchinaSelezionata"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addMacchinaSelezionata(macchina: <a href="../interfaces/ParcoMacchine.html" target="_self">ParcoMacchine</a>, error: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="694"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:694</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>macchina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ParcoMacchine.html" target="_self" >ParcoMacchine</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>error</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="384"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:384</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaCentri"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>caricaCentri</b></span>
+                        <a href="#caricaCentri"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>caricaCentri(dataItem?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="581"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:581</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="caricaContatti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>caricaContatti</b></span>
+                        <a href="#caricaContatti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>caricaContatti()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="616"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:616</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="clearSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>clearSelezionate</b></span>
+                        <a href="#clearSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>clearSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="757"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:757</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="contattoChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>contattoChange</b></span>
+                        <a href="#contattoChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>contattoChange(fb: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="733"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:733</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fb</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="controlloMovimentazioniMacchina"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>controlloMovimentazioniMacchina</b></span>
+                        <a href="#controlloMovimentazioniMacchina"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>controlloMovimentazioniMacchina(macchina_new: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, actionType: HttpAction)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="677"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:677</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>macchina_new</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disableVisibilityItems"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>disableVisibilityItems</b></span>
+                        <a href="#disableVisibilityItems"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>disableVisibilityItems(itemArgs: literal type)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="761"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:761</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>itemArgs</td>
+                                            <td>
+                                                        <code>literal type</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchCentresByWhichIsUsed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fetchCentresByWhichIsUsed</b></span>
+                        <a href="#fetchCentresByWhichIsUsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchCentresByWhichIsUsed(macchina: <a href="../interfaces/ParcoMacchine.html" target="_self">ParcoMacchine</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="779"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:779</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>macchina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ParcoMacchine.html" target="_self" >ParcoMacchine</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;number[]&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fetchCompaniesByWhichIsUsed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fetchCompaniesByWhichIsUsed</b></span>
+                        <a href="#fetchCompaniesByWhichIsUsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fetchCompaniesByWhichIsUsed(macchina: <a href="../interfaces/ParcoMacchine.html" target="_self">ParcoMacchine</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="783"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:783</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>macchina</td>
+                                            <td>
+                                                            <code><a href="../interfaces/ParcoMacchine.html" target="_self" >ParcoMacchine</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/rispostaStandard.html" target="_self" >Observable&lt;rispostaStandard&lt;string[]&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMacchineSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getMacchineSelezionate</b></span>
+                        <a href="#getMacchineSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getMacchineSelezionate()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="698"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:698</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Map&lt;ParcoMacchine, string&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getRemoveMultipleRowsMessage"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>getRemoveMultipleRowsMessage</b></span>
+                        <a href="#getRemoveMultipleRowsMessage"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="373"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:373</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RemoveMultipleRowsParams</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCommandEvent"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCommandEvent</b></span>
+                        <a href="#handleCommandEvent"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCommandEvent()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="824"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:824</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="502"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:502</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDropdowns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDropdowns</b></span>
+                        <a href="#handleDropdowns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDropdowns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="537"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:537</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isVisibilitaOrTypeOrValidityChanged"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isVisibilitaOrTypeOrValidityChanged</b></span>
+                        <a href="#isVisibilitaOrTypeOrValidityChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isVisibilitaOrTypeOrValidityChanged(macchina_new: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="669"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:669</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>macchina_new</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCodificheAgea"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadCodificheAgea</b></span>
+                        <a href="#loadCodificheAgea"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadCodificheAgea()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="631"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:631</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;BaseCodeDescrStr[]&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="macchinaMovimentataCheck"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>macchinaMovimentataCheck</b></span>
+                        <a href="#macchinaMovimentataCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>macchinaMovimentataCheck(actionType: HttpAction, isMovimentata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="445"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:445</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMovimentata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="msgWarningDelete"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>msgWarningDelete</b></span>
+                        <a href="#msgWarningDelete"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>msgWarningDelete()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="702"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:702</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="nascondiPulsantiEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>nascondiPulsantiEdit</b></span>
+                        <a href="#nascondiPulsantiEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>nascondiPulsantiEdit(renderer: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, domElems: any[], elems: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="651"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:651</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>renderer</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>domElems</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>elems</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="363"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:363</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="performActions"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>performActions</b></span>
+                        <a href="#performActions"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>performActions(actionType: HttpAction, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, isMovimentata: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="403"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:403</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>isMovimentata</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareParameters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>prepareParameters</b></span>
+                        <a href="#prepareParameters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prepareParameters(agenda: <a href="../interfaces/Parametri.html" target="_self">ObjParametriAgenda</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="644"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:644</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>agenda</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="328"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:328</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;MacchinaKendoServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rimozioneCaratteristicheCheck"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>rimozioneCaratteristicheCheck</b></span>
+                        <a href="#rimozioneCaratteristicheCheck"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rimozioneCaratteristicheCheck(actionType: HttpAction, item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="465"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:465</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectMacchina_old"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>selectMacchina_old</b></span>
+                        <a href="#selectMacchina_old"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>selectMacchina_old(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="664"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:664</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setupDdlCommandsMenu"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setupDdlCommandsMenu</b></span>
+                        <a href="#setupDdlCommandsMenu"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setupDdlCommandsMenu(permessoEdit: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>, permessoInfo: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="787"
+                                    class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:787</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>permessoEdit</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>permessoInfo</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="centresOnWhichIsUsed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>centresOnWhichIsUsed</b></span>
+                        <a href="#centresOnWhichIsUsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>number[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cmdColumn"></a>
+                    <span class="name">
+                        <span ><b>cmdColumn</b></span>
+                        <a href="#cmdColumn"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Command.html" target="_self" >CommandsColumnSettings</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new CommandsColumnSettings({editBtn: false, infoBtn: false, removeBtn: false})</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="companiesByWhichIsUsed"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>companiesByWhichIsUsed</b></span>
+                        <a href="#companiesByWhichIsUsed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="65" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:65</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;MacchineConfigService&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoColumns</b></span>
+                        <a href="#kendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    new KendoGridColumn(
+      {field: &#x27;Descrizione&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;)},
+      {
+        resizable: true,
+        filterable: false,
+        editable: false,
+        media: &#x27;(max-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        component: MacchinaShortDescriptionComponent,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Sa_Cod&#x27;, title: this.translocoService.translate(&#x27;Visibilità&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;rag_soc&#x27;, title: this.translocoService.translate(&#x27;Impresa&#x27;)},
+      {resizable: true, editable: false, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Cod_Contatto&#x27;, title: this.translocoService.translate(&#x27;Contatto&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;CLASS_CODE&#x27;, title: this.translocoService.translate(&#x27;Tipologia&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Agea_Cod&#x27;, title: this.translocoService.translate(&#x27;CodificaAgea&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Ditta_Cod&#x27;, title: this.translocoService.translate(&#x27;Marca&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Modello&#x27;, title: this.translocoService.translate(&#x27;Modello&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Macchina&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Telaio&#x27;, title: this.translocoService.translate(&#x27;Telaio&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Targa&#x27;, title: this.translocoService.translate(&#x27;Targa&#x27;)}, {
+        resizable: true,
+        editable: true,
+        validators: [Validators.maxLength(10)],
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Codice&#x27;, title: this.translocoService.translate(&#x27;Codice&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Validita_Inizio&#x27;, title: this.translocoService.translate(&#x27;Validita_Inizio&#x27;)}, {
+        resizable: true,
+        editable: true,
+        date: {defaultValue: AGRODATAINIZIO},
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Validita_Fine&#x27;, title: this.translocoService.translate(&#x27;Validita_Fine&#x27;)}, {
+        resizable: true,
+        editable: true,
+        date: {defaultValue: AGRODATAFINE},
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Data_Creazione&#x27;, title: this.translocoService.translate(&#x27;DataCreazione&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Utente_Creazione&#x27;, title: this.translocoService.translate(&#x27;UtenteCreazione&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Data_Modifica&#x27;, title: this.translocoService.translate(&#x27;DataModifica&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Utente_Modifica&#x27;, title: this.translocoService.translate(&#x27;UtenteModifica&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    )
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KendoMacchine"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>KendoMacchine</b></span>
+                        <a href="#KendoMacchine"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="kendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>kendoModel</b></span>
+                        <a href="#kendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/KendoMacchineModel.html" target="_self" >KendoMacchineModel</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    Piva: new ModelEntry(CELL_TYPES.STRING, false),
+    Sa_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING, false),
+    Visibilita: new ModelEntry(CELL_TYPES.STRING, false),
+    Mac_Cod: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Cod_Contatto: new ModelEntry(CELL_TYPES.DROPDOWNLIST, false),
+    Contatto_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    tipologia: new ModelEntry(CELL_TYPES.STRING, false),
+    CLASS_CODE: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    AGEA_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    Agea_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    Ditta_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    Ditta_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    Modello: new ModelEntry(CELL_TYPES.STRING, true),
+    Macchina: new ModelEntry(CELL_TYPES.STRING, true),
+    Telaio: new ModelEntry(CELL_TYPES.STRING, true),
+    Targa: new ModelEntry(CELL_TYPES.STRING, true),
+    Codice: new ModelEntry(CELL_TYPES.STRING, true),
+    Validita_Inizio: new ModelEntry(CELL_TYPES.DATE, true),
+    Validita_Fine: new ModelEntry(CELL_TYPES.DATE, true),
+    Data_Creazione: new ModelEntry(CELL_TYPES.DATETIME, false),
+    Utente_Creazione: new ModelEntry(CELL_TYPES.STRING, false),
+    Data_Modifica: new ModelEntry(CELL_TYPES.DATETIME, false),
+    Utente_Modifica: new ModelEntry(CELL_TYPES.STRING, false),
+    Descrizione: new ModelEntry(CELL_TYPES.CUSTOM, false),
+  }</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="200" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:200</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="macchineRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>macchineRows</b></span>
+                        <a href="#macchineRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="macchineSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>macchineSelezionate</b></span>
+                        <a href="#macchineSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Map&lt;ParcoMacchine | string&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Map&lt;ParcoMacchine, string&gt;()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="marche"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>marche</b></span>
+                        <a href="#marche"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoAssegnazionePubblica"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoAssegnazionePubblica</b></span>
+                        <a href="#permessoAssegnazionePubblica"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="58" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:58</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoNuovoDocumento"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoNuovoDocumento</b></span>
+                        <a href="#permessoNuovoDocumento"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="56" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:56</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoRicercaDocumenti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoRicercaDocumenti</b></span>
+                        <a href="#permessoRicercaDocumenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="57" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prevContatto"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>prevContatto</b></span>
+                        <a href="#prevContatto"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resizable"></a>
+                    <span class="name">
+                        <span ><b>resizable</b></span>
+                        <a href="#resizable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ResizableSettings</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="tipo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>tipo</b></span>
+                        <a href="#tipo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="62" class="link-to-prism">src/app/anagrafica/macchine/macchine-grid-config.service.ts:62</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Inject, Injectable, Injector, Renderer2 } from &#x27;@angular/core&#x27;;
+import { AgrSelectableSettings, CommandsColumnSettings, CommandsDropDownEvents, CommandsDropDownSettings, RemoveMultipleRowsParams, ResizableSettings, ToolbarSettings } from &#x27;gias-kendo-grid&#x27;;
+import {  DropdownListItem, DropdownListWithForm, EditingMode, KendoGridColumn, LoaderType, ModelEntry, RendererGridEvent } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { forkJoin, from, Observable, of } from &#x27;rxjs&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { KendoMacchineModel, MacchinaKendoServerResult } from &#x27;./macchine.model&#x27;;
+import { ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+import { filter, map, mergeMap, switchMap, take, takeUntil, tap } from &#x27;rxjs/operators&#x27;;
+import { MacchineGridEventsService } from &#x27;./macchine-grid-events.service&#x27;;
+import { FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { enum_Security_Attivita } from &#x27;app/Model/TipiEnumerativi&#x27;;
+import { PermessiUtenteService } from &#x27;app/Service/permessi-utente.service&#x27;;
+import { AGRODATAFINE, AGRODATAINIZIO, SMARTPHONE_WIDTH } from &#x27;app/Model/CostantiPersonalizzate&#x27;;
+import { MasterService, rispostaStandard } from &#x27;app/Service/master.service&#x27;;
+import { UtilityFunctions } from &#x27;app/Utility/UtilityFunctions&#x27;;
+import {AnagraficaService, FilterData} from &#x27;../anagrafica.service&#x27;;
+import {CentriAziendaliService, LeggiCentriAziendali} from &#x27;app/Service/Anagrafica/centri.service&#x27;;
+import { Impresa } from &#x27;app/Model/anagrafiche/Impresa&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { MacchinaShortDescriptionComponent } from &#x27;./macchinaShortDescription/macchina-short-description.component&#x27;;
+import { GiasDialogService } from &#x27;app/Service/gias-dialog.service&#x27;;
+import { MacchineFactoryService, MACCHINE_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/macchine.factory.service&#x27;;
+import { CaratteristicheService } from &#x27;./macchine-edit/macchine-edit-caratteristiche/caratteristiche.service&#x27;;
+import { ParcoMacchine } from &#x27;app/Model/anagrafiche/ParcoMacchine&#x27;;
+import { GiasMessageService } from &#x27;app/Service/gias-message.service&#x27;;
+import {BudgetService} from &quot;../../Service/Budget/budget.service&quot;;
+import {ContattiService} from &#x27;app/Service/Anagrafica/contatti.service&#x27;;
+import {CodificaMacchineAgeaRequest} from &#x27;../../Model/metaschema/CodificheAgea&#x27;;
+import {CodificheAgeaService} from &#x27;../../Service/Metaschema/codifiche-agea.service&#x27;;
+import {BaseCodeDescrStr} from &#x27;../../Model/baseClass/baseCodeDescrStr&#x27;;
+import {AnagraficaBusinessLogicService} from &quot;../services/anagrafica-business-logic.service&quot;;
+import {GridCommandItem} from &quot;../../menu-agenda/components/utils&quot;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+
+@Injectable()
+export class MacchineConfigService extends AbstractGridConfigService&lt;MacchinaKendoServerResult&gt; {
+  gridId: string &#x3D; &#x27;MacchineConfigService&#x27;;
+
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_LINE;
+  rowId: string &#x3D; &#x27;chiave&#x27;;
+  cmdColumn: CommandsColumnSettings &#x3D; new CommandsColumnSettings({editBtn: false, infoBtn: false, removeBtn: false});
+  resizable: ResizableSettings;
+
+  private objParametriAgenda: ObjParametriAgenda;
+  private KendoMacchine: any;
+  private macchineSelezionate: Map&lt;ParcoMacchine, string&gt; &#x3D; new Map&lt;ParcoMacchine, string&gt;();
+
+  private macchineRows: any[];
+
+  
+  private permessoNuovoDocumento: boolean;
+  private permessoRicercaDocumenti: boolean;
+  private permessoAssegnazionePubblica: boolean;
+  private prevContatto: any;
+
+  private marche: any;
+  private tipo: any;
+
+  private centresOnWhichIsUsed: number[] &#x3D; [];
+  private companiesByWhichIsUsed: string[] &#x3D; [];
+
+  private kendoColumns: KendoGridColumn[] &#x3D; [
+    new KendoGridColumn(
+      {field: &#x27;Descrizione&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;)},
+      {
+        resizable: true,
+        filterable: false,
+        editable: false,
+        media: &#x27;(max-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        component: MacchinaShortDescriptionComponent,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Sa_Cod&#x27;, title: this.translocoService.translate(&#x27;Visibilità&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;rag_soc&#x27;, title: this.translocoService.translate(&#x27;Impresa&#x27;)},
+      {resizable: true, editable: false, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Cod_Contatto&#x27;, title: this.translocoService.translate(&#x27;Contatto&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;CLASS_CODE&#x27;, title: this.translocoService.translate(&#x27;Tipologia&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Agea_Cod&#x27;, title: this.translocoService.translate(&#x27;CodificaAgea&#x27;)},
+      {resizable: true, editable: true, width: 135}
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Ditta_Cod&#x27;, title: this.translocoService.translate(&#x27;Marca&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Modello&#x27;, title: this.translocoService.translate(&#x27;Modello&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Macchina&#x27;, title: this.translocoService.translate(&#x27;Descrizione&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Telaio&#x27;, title: this.translocoService.translate(&#x27;Telaio&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Targa&#x27;, title: this.translocoService.translate(&#x27;Targa&#x27;)}, {
+        resizable: true,
+        editable: true,
+        validators: [Validators.maxLength(10)],
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Codice&#x27;, title: this.translocoService.translate(&#x27;Codice&#x27;)}, {
+        resizable: true,
+        editable: true,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Validita_Inizio&#x27;, title: this.translocoService.translate(&#x27;Validita_Inizio&#x27;)}, {
+        resizable: true,
+        editable: true,
+        date: {defaultValue: AGRODATAINIZIO},
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Validita_Fine&#x27;, title: this.translocoService.translate(&#x27;Validita_Fine&#x27;)}, {
+        resizable: true,
+        editable: true,
+        date: {defaultValue: AGRODATAFINE},
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Data_Creazione&#x27;, title: this.translocoService.translate(&#x27;DataCreazione&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Utente_Creazione&#x27;, title: this.translocoService.translate(&#x27;UtenteCreazione&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Data_Modifica&#x27;, title: this.translocoService.translate(&#x27;DataModifica&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    ),
+    new KendoGridColumn(
+      {field: &#x27;Utente_Modifica&#x27;, title: this.translocoService.translate(&#x27;UtenteModifica&#x27;)}, {
+        resizable: true,
+        editable: false,
+        media: &#x27;(min-width: &#x27; + SMARTPHONE_WIDTH + &#x27;px)&#x27;,
+        width: 135
+      }
+    )
+  ];
+
+  private kendoModel: KendoMacchineModel &#x3D; {
+    chiave: new ModelEntry(CELL_TYPES.STRING, false),
+    Piva: new ModelEntry(CELL_TYPES.STRING, false),
+    Sa_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    rag_soc: new ModelEntry(CELL_TYPES.STRING, false),
+    Visibilita: new ModelEntry(CELL_TYPES.STRING, false),
+    Mac_Cod: new ModelEntry(CELL_TYPES.NUMBER, false),
+    Cod_Contatto: new ModelEntry(CELL_TYPES.DROPDOWNLIST, false),
+    Contatto_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    tipologia: new ModelEntry(CELL_TYPES.STRING, false),
+    CLASS_CODE: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    AGEA_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    Agea_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    Ditta_Des: new ModelEntry(CELL_TYPES.STRING, false),
+    Ditta_Cod: new ModelEntry(CELL_TYPES.DROPDOWNLIST, true),
+    Modello: new ModelEntry(CELL_TYPES.STRING, true),
+    Macchina: new ModelEntry(CELL_TYPES.STRING, true),
+    Telaio: new ModelEntry(CELL_TYPES.STRING, true),
+    Targa: new ModelEntry(CELL_TYPES.STRING, true),
+    Codice: new ModelEntry(CELL_TYPES.STRING, true),
+    Validita_Inizio: new ModelEntry(CELL_TYPES.DATE, true),
+    Validita_Fine: new ModelEntry(CELL_TYPES.DATE, true),
+    Data_Creazione: new ModelEntry(CELL_TYPES.DATETIME, false),
+    Utente_Creazione: new ModelEntry(CELL_TYPES.STRING, false),
+    Data_Modifica: new ModelEntry(CELL_TYPES.DATETIME, false),
+    Utente_Modifica: new ModelEntry(CELL_TYPES.STRING, false),
+    Descrizione: new ModelEntry(CELL_TYPES.CUSTOM, false),
+  };
+
+  constructor(
+    injector: Injector,
+    @Inject(MACCHINE_SERVICE_TOKEN) private macchineService: MacchineFactoryService,
+    private objParametriAgendaService: ObjParametriAgendaService,
+    private macchineGridEventsService: MacchineGridEventsService,
+    private renderer: Renderer2,
+    private router: Router, // non togliere perché è necessario al funzionamento della funzione editColumn.edit
+    private permessiUtenteService: PermessiUtenteService,
+    private anagraficaService: AnagraficaService,
+    private centriService: CentriAziendaliService,
+    private masterService: MasterService,
+    private translocoService: TranslocoService,
+    private giasDialogService: GiasDialogService,
+    private caratteristicheService: CaratteristicheService,
+    private giasMessageService: GiasMessageService,
+    private budgetService: BudgetService,
+    private contattiService: ContattiService,
+    private codificheAgeaService: CodificheAgeaService,
+    private businessLogic: AnagraficaBusinessLogicService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+
+    this.macchineGridEventsService.loadingService &#x3D; this.loadingService;
+    this.macchineGridEventsService.component &#x3D; this.gridPublicService.gridElRef;
+
+    this.objParametriAgenda &#x3D; objParametriAgendaService.getObjParamValue();
+
+    this.handleCustomizations();
+
+    this.gridPublicService.changeDetected.GiasSubscribe((event: any) &#x3D;&gt; {
+      if (event?.action &#x3D;&#x3D;&#x3D; &#x27;add&#x27;) {
+        let fb &#x3D; this.gridPublicService.formGroup.value;
+        fb.controls[&#x27;Cod_Contatto&#x27;].setValue(&#x27;&#x27;);
+        fb.controls[&#x27;Contatto_Des&#x27;].setValue(&#x27;&#x27;);
+
+        fb.controls[&#x27;Sa_Cod&#x27;].setValue({id: &#x27;0&#x27;, name: &#x27;Macchina Privata&#x27;});
+        fb.controls[&#x27;Validita_Inizio&#x27;].setValue(AGRODATAINIZIO);
+        fb.controls[&#x27;Validita_Fine&#x27;].setValue(AGRODATAFINE);
+        this.contattoChange(fb).subscribe();
+
+        if (this.prevContatto) {
+          let col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Cod_Contatto&#x27;);
+          col.ddl.data &#x3D; [new DropdownListItem(this.prevContatto.codice, this.prevContatto.descrizione)];
+          fb.controls[&#x27;Cod_Contatto&#x27;].patchValue(this.prevContatto.codice);
+          fb.controls[&#x27;Contatto_Des&#x27;].patchValue(this.prevContatto.descrizione);
+        }
+
+        fb.controls[&#x27;CLASS_CODE&#x27;].setValue(&#x27;15&#x27;);
+        let col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;CLASS_CODE&#x27;);
+
+        if (col) {
+          col.ddl.reload.next(true);
+        }
+      }
+
+      if (event?.action &#x3D;&#x3D; &#x27;edit&#x27;) {
+        let fb &#x3D; this.gridPublicService.formGroup.value;
+        if (fb !&#x3D; undefined) {
+          this.macchineService.isMacchinaMovimentata(this.macchineGridEventsService.prepareParcoMacchine(fb.getRawValue())).pipe(
+            take(1),
+            switchMap(r &#x3D;&gt; {
+              // se la macchina è movimentata impedisco la modifica della tipologia, e del contatto
+              if (r.RispostaStringa) {
+                fb.controls[&#x27;CLASS_CODE&#x27;].disable();
+                fb.controls[&#x27;Cod_Contatto&#x27;].disable();
+              } else {
+                if (fb.controls[&#x27;Cod_Contatto&#x27;].value !&#x3D; &#x27;&#x27;) {
+                  fb.controls[&#x27;Sa_Cod&#x27;].disable();
+                } else {
+                  fb.controls[&#x27;Sa_Cod&#x27;].enable();
+                }
+                this.contattoChange(fb).subscribe();
+              }
+
+              if (fb.controls[&#x27;Piva&#x27;].getRawValue() !&#x3D; this.objParametriAgendaService.getObjParamValue().Piva) {
+                this.giasDialogService.baseError(&#x27;&#x27;, this.translocoService.translate(&#x27;MacchinaAssociataAltraAzienda&#x27;), false);
+                this.gridPublicService.giasGridComponent.closeEditor(event.sender, event.rowIndex);
+                return;
+              }
+
+              return of(null);
+            })
+          ).subscribe();
+        }
+      }
+
+      if (event?.action &#x3D;&#x3D; &#x27;remove&#x27;) {
+        if (event?.dataItem.Piva !&#x3D; this.objParametriAgendaService.getObjParamValue().Piva) {
+          this.giasDialogService.baseError(&#x27;&#x27;, this.translocoService.translate(&#x27;MacchinaAssociataAltraAzienda&#x27;), false);
+          return;
+        }
+      }
+    });
+
+    this.permessoAssegnazionePubblica &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Macchine_Assegnazione_Pubblica, 2);
+    this.permessoRicercaDocumenti &#x3D; this.permessiUtenteService.canReadPermesso(enum_Security_Attivita.Documentale_Lista);
+    this.permessoNuovoDocumento &#x3D; this.permessiUtenteService.canWritePermesso(enum_Security_Attivita.Documentale_Inser);
+  }
+
+  read(): Observable&lt;MacchinaKendoServerResult&gt; {
+    this.objParametriAgenda.Data &#x3D; AGRODATAINIZIO;
+    let data: FilterData &#x3D; this.anagraficaService.filterData.getValue();
+    if (data.filter) {
+      this.objParametriAgenda.Data &#x3D; data.data;
+    }
+    this.msgWarningDelete();
+    this.loadingService.set_isLoading({isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef});
+    this.macchineGridEventsService.component &#x3D; this.gridPublicService.gridElRef;
+    const obs: Promise&lt;any&gt;[] &#x3D; [
+      this.macchineService.leggiMacchine(this.objParametriAgenda),
+      this.macchineService.leggi_CmbTipoMacchina_Tutto(),
+      this.macchineService.leggi_Ditte()
+    ];
+
+    return forkJoin(obs).pipe(map(result &#x3D;&gt; {
+      this.KendoMacchine &#x3D; result[0].RispostaStringa;
+      this.macchineRows &#x3D; &lt;Array&lt;any&gt;&gt;(this.KendoMacchine.kendo_rows);
+
+      this.tipo &#x3D; result[1];
+      this.marche &#x3D; result[2];
+
+      this.handleDropdowns();
+
+      const tableData &#x3D; new MacchinaKendoServerResult(
+        this.kendoModel,
+        this.kendoColumns,
+        this.macchineRows
+      );
+
+      this.loadingService.set_isLoading({isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef});
+      return tableData;
+    }));
+  }
+
+  perform(actionType: HttpAction, item: any): Observable&lt;any&gt; {
+    return this.controlloMovimentazioniMacchina(item, actionType).pipe(mergeMap((r) &#x3D;&gt; {
+      if (r.RispostaOK) {
+        return this.performActions(actionType, item, r.RispostaStringa);
+      } else {
+        throw new Error(r.Errore);
+      }
+    }));
+  }
+
+  override async getRemoveMultipleRowsMessage(opts: RemoveMultipleRowsParams) {
+    let msg: string;
+
+    msg &#x3D; this.translocoService.translate(&#x27;anagrafica.Delete_Msg&#x27;);
+    opts.data.forEach(r &#x3D;&gt; {
+      msg &#x3D; msg.concat(&#x27;\n - &#x27; + r[&#x27;Macchina&#x27;] + r[&#x27;tipologia&#x27;]);
+    });
+
+    return msg;
+  }
+
+  override applyRendererRules(opts: RendererGridEvent): void {
+    const {grid, gridElRef} &#x3D; {...opts};
+    let a &#x3D; gridElRef;
+    let rows: [] &#x3D; grid.data[&#x27;data&#x27;];
+
+    let visibleRows: [] &#x3D; gridElRef.nativeElement.querySelectorAll(&#x27;tbody tr&#x27;);
+    grid.view.forEach((el, index) &#x3D;&gt; {
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 0) {
+        this.renderer.addClass(visibleRows[index], &#x27;nonAttivo&#x27;);
+      }
+      if (el.Attivo &#x3D;&#x3D;&#x3D; 1) {
+        this.renderer.removeClass(visibleRows[index], &#x27;nonAttivo&#x27;);
+      }
+    });
+
+    this.nascondiPulsantiEdit(this.renderer, visibleRows, rows);
+    this.anagraficaService.applicaFiltri();
+  }
+
+  private performActions(actionType: HttpAction, item: any, isMovimentata: boolean) {
+    return this.rimozioneCaratteristicheCheck(actionType, item).pipe(
+      take(1),
+      switchMap((dialogRes) &#x3D;&gt; {
+        if (dialogRes) {
+          return this.macchinaMovimentataCheck(actionType, isMovimentata, item).pipe(
+            take(1),
+            switchMap((dialogRes) &#x3D;&gt; {
+              if (dialogRes) {
+                if (actionType &#x3D;&#x3D;&#x3D; HttpAction.UPDATE) {
+                  return this.macchineGridEventsService.updateMacchina(item);
+                } else if (actionType &#x3D;&#x3D;&#x3D; HttpAction.CREATE) {
+                  return this.macchineGridEventsService.scriviMacchina(item);
+                } else if (actionType &#x3D;&#x3D;&#x3D; HttpAction.REMOVE) {
+                  if (item.Piva &#x3D;&#x3D; this.objParametriAgendaService.getObjParamValue().Piva) {
+                    return this.macchineGridEventsService.eliminaMacchinaAngular(item).pipe(
+                      switchMap((r) &#x3D;&gt; {
+                        this.masterService.set_isLoading({isLoading: false, message: &#x27;&#x27;});
+                        if (r.RispostaOK) {
+                          this.addMacchinaSelezionata(item, &#x27;&#x27;);
+                        } else {
+                          this.addMacchinaSelezionata(item, r.ErroriGias[0].messaggio);
+                        }
+                        return of([]);
+                      })
+                    );
+                  } else {
+                    this.masterService.set_isLoading({isLoading: false, message: &#x27;&#x27;});
+                  }
+                }
+              } else {
+                return of([]);
+              }
+            })
+          );
+        } else {
+          return of([]);
+        }
+      })
+    );
+  }
+
+  private macchinaMovimentataCheck(actionType: HttpAction, isMovimentata: boolean, item: any): Observable&lt;boolean&gt; {
+    if (actionType &#x3D;&#x3D; HttpAction.UPDATE &amp;&amp; isMovimentata) {
+      return this.macchineService.isEditAllowed(this.macchineGridEventsService.prepareParcoMacchine(item)).pipe(
+        tap(r &#x3D;&gt; {
+          if (!r[&#x27;RispostaStringa&#x27;]) {
+            this.giasDialogService.baseError(
+              this.translocoService.translate(&#x27;MacchinaAttrezzatura&#x27;),
+              this.translocoService.translate(r[&#x27;Errore&#x27;])
+            );
+          }
+        }),
+        map(r &#x3D;&gt; r.RispostaStringa)
+      );
+    } else if (actionType &#x3D;&#x3D; HttpAction.REMOVE &amp;&amp; isMovimentata) {
+      this.addMacchinaSelezionata(item, &#x27; &#x27;.concat(this.translocoService.translate(&#x27;MenuBS_Anagrafica_DeleteElemento_ImpossibileCancellareMacchinarioConMovimenti&#x27;)));
+      return of(false);
+    }
+    return of(true);
+  }
+
+  private rimozioneCaratteristicheCheck(actionType: HttpAction, item: any): Observable&lt;boolean&gt; {
+    let macchinatemp &#x3D; undefined;
+    let class_code &#x3D; item.CLASS_CODE;
+    let objParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+    objParametriAgenda.Mac_Cod &#x3D; item.Mac_Cod;
+    objParametriAgenda.Piva &#x3D; item.Piva;
+    if (actionType &#x3D;&#x3D; &#x27;create&#x27;) {
+      return of(true);
+    }
+    return this.macchineService.leggiMacchina(objParametriAgenda).pipe(
+      take(1),
+      switchMap(macchina &#x3D;&gt; {
+        macchinatemp &#x3D; macchina.RispostaStringa;
+        return this.caratteristicheService.getCaratteristicheDisponibili(class_code);
+      }), switchMap(car_disp &#x3D;&gt; {
+        if (
+          actionType &#x3D;&#x3D; HttpAction.UPDATE &amp;&amp;
+          this.caratteristicheService.checkPerditaCaratteristiche(macchinatemp.caratteristiche, car_disp)
+        ) {
+          item.caratteristiche &#x3D; [];
+          return this.giasDialogService.dialogMessageObs_Result(this.transloco.translate(&#x27;MacchinaAttrezzatura&#x27;),
+            this.transloco.translate(&#x27;PerditaCaratteristiche&#x27;),
+            [
+              {text: this.transloco.translate(&#x27;Ok&#x27;), primary: true, returnObj: true},
+              {text: this.transloco.translate(&#x27;Annulla&#x27;), returnObj: false}
+            ],
+            undefined,
+            undefined
+          ).pipe(
+            map((dialogRes) &#x3D;&gt; (&lt;any&gt;dialogRes).returnObj)
+          );
+        }
+        return of(true);
+      })
+    );
+  }
+
+  private handleCustomizations(): void {
+    const permessoEdit: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_ParcoMacchine, 2) &amp;&amp; this.budgetService.getBudget().activeBudget &#x3D;&#x3D;&#x3D; false;
+    const permessoRemove: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_ParcoMacchine, 2) &amp;&amp; this.budgetService.getBudget().activeBudget &#x3D;&#x3D;&#x3D; false;
+    const permessoInfo: boolean &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Anagrafica_ParcoMacchine, 0);
+
+    this.selectable &#x3D; new AgrSelectableSettings();
+    this.selectable.selectable.checkboxOnly &#x3D; true;
+    this.selectable.selectable.enabled &#x3D; permessoEdit;
+    this.selectable.shouldShowCheckbox &#x3D; permessoEdit;
+
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; permessoEdit;
+    this.toolbar.resetChanges &#x3D; false;
+
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: permessoEdit,
+      removeBtn: permessoRemove,
+    });
+
+    this.setupDdlCommandsMenu(permessoEdit, permessoInfo)
+    this.handleCommandEvent();
+
+    this.resizable.autoFitColumns &#x3D; false;
+    this.resizable.isResizable &#x3D; true;
+
+    this.groups.groupable.enabled &#x3D; false;
+
+    if (window.innerWidth &lt; SMARTPHONE_WIDTH) {
+      this.toolbar.newItem &#x3D; false;
+      this.cmdColumn.editBtn &#x3D; false;
+      this.groups.groupable.enabled &#x3D; false;
+      this.views.enabled &#x3D; false;
+    }
+  }
+
+  private handleDropdowns(): void {
+    let data: any;
+    let col: KendoGridColumn;
+
+    col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Sa_Cod&#x27;);
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;VisibilitaPubblica&#x27;, &#x27;Sa_Cod&#x27;, &#x27;descrizione&#x27;, [], new DropdownListItem(0, &#x27;&#x27;));
+    col.ddl.valuePrimitive &#x3D; false;
+    col.validators &#x3D; [Validators.required];
+    col.ddl.id &#x3D; &#x27;codice&#x27;;
+    col.ddl.formControlValue &#x3D; &#x27;descrizione&#x27;;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;Visibilita&#x27;;
+    col.ddl.loadFunction &#x3D; this.caricaCentri.bind(this);
+    col.ddl.itemDisabledFn &#x3D; this.disableVisibilityItems.bind(this);
+
+    col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Cod_Contatto&#x27;);
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;Contatti&#x27;, &#x27;Cod_Contatto&#x27;, &#x27;Contatto_Des&#x27;, []);
+    col.ddl.descriptionField &#x3D; &#x27;Contatto_Des&#x27;;
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.id &#x3D; &#x27;primaryKey&#x27;;
+    col.ddl.formControlValue &#x3D; &#x27;ragione_Sociale&#x27;;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.loadFunction &#x3D; this.caricaContatti.bind(this);
+
+    col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;CLASS_CODE&#x27;);
+    data &#x3D; this.tipo.map(cod &#x3D;&gt; new DropdownListItem(cod.CLASS_CODE, cod.CLASS_DESC));
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;Tipologia&#x27;, &#x27;CLASS_CODE&#x27;, &#x27;tipologia&#x27;, data);
+    col.ddl.valuePrimitive &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;tipologia&#x27;;
+    col.validators &#x3D; [Validators.required];
+
+    col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Ditta_Cod&#x27;);
+    data &#x3D; this.marche.map(cod &#x3D;&gt; new DropdownListItem(cod.codice, cod.descrizione));
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;Marche&#x27;, &#x27;Ditta_Cod&#x27;, &#x27;Ditta_Des&#x27;, data);
+    col.ddl.descriptionField &#x3D; &#x27;Ditta_Des&#x27;;
+    col.ddl.valuePrimitive &#x3D; true;
+
+    col &#x3D; this.kendoColumns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Agea_Cod&#x27;);
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;Agea_Cod&#x27;, &#x27;descrizione&#x27;, []);
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.descriptionField &#x3D; &#x27;AGEA_Des&#x27;;
+    col.ddl.loadFunction &#x3D; this.loadCodificheAgea.bind(this);
+  }
+
+  private caricaCentri(dataItem?: any) {
+    this.prepareParameters(this.objParametriAgenda);
+
+    let impresa: Impresa &#x3D; new Impresa();
+    impresa.partitaIva &#x3D; this.objParametriAgenda.Piva;
+
+    let m: ParcoMacchine &#x3D; new ParcoMacchine();
+    m.codice &#x3D; dataItem[&#x27;Mac_Cod&#x27;] ?? 0;
+    m.partitaIva &#x3D; dataItem[&#x27;Piva&#x27;] ?? this.objParametriAgenda.Piva;
+
+    let centres$ &#x3D; from(this.centriService.leggiCentriAziendaliModelloQdC(&lt;LeggiCentriAziendali&gt;{
+      impresa: impresa,
+      data: this.objParametriAgenda.Validita_Inizio
+    }, false).then(vals &#x3D;&gt; {
+      let visibilitaPubblica &#x3D; [{codice: 0, descrizione: &#x27;Macchina Privata&#x27;}];
+      vals.forEach(el &#x3D;&gt; {
+        visibilitaPubblica.push({codice: el.primaryKey.codice, descrizione: el.nome});
+      });
+      if (this.permessoAssegnazionePubblica) {
+        visibilitaPubblica.push({codice: -1, descrizione: &#x27;Macchina Pubblica&#x27;});
+      }
+      return visibilitaPubblica;
+    }));
+
+    let usedCentres$ &#x3D; this.fetchCentresByWhichIsUsed(m);
+    let companies$ &#x3D; this.fetchCompaniesByWhichIsUsed(m);
+
+    return forkJoin([centres$, usedCentres$, companies$]).pipe(map(r &#x3D;&gt; {
+      this.centresOnWhichIsUsed &#x3D; r[1].RispostaStringa ?? [];
+      this.companiesByWhichIsUsed &#x3D; r[2].RispostaStringa ?? [];
+
+      return r[0];
+    }));
+  }
+
+  private caricaContatti(): Observable&lt;any[]&gt; {
+    return this.contattiService.leggiContattiMacchina({
+      objNG: this.objParametriAgenda,
+      Flag_Pubblico_Privato: this.permessoAssegnazionePubblica,
+      Flag_Visibilita_Centri: true,
+      Cod_Contatto: &#x27;&#x27;
+    }).pipe(
+      switchMap(r &#x3D;&gt; {
+        let contatti: any[] &#x3D; [{primaryKey: &#x27;&#x27;, ragione_Sociale: &#x27;&#x27;}];
+        contatti &#x3D; contatti.concat(r);
+        return of(contatti);
+      })
+    );
+  }
+
+  private loadCodificheAgea(): Observable&lt;BaseCodeDescrStr[]&gt; {
+    let params: CodificaMacchineAgeaRequest &#x3D; {
+      ageaCod: &#x27;&#x27;,
+      ageaDes: &#x27;&#x27;,
+      classCod: &#x27;&#x27;,
+    };
+    return this.codificheAgeaService.readAgeaMachineCodes(params).pipe(
+      map(r &#x3D;&gt; {
+        return [new BaseCodeDescrStr(&#x27;&#x27;, &#x27;&#x27;), ...r.RispostaStringa];
+      })
+    );
+  }
+
+  private prepareParameters(agenda: ObjParametriAgenda) {
+    agenda.Validita_Inizio &#x3D; AGRODATAINIZIO;
+    agenda.Validita_Fine &#x3D; AGRODATAFINE;
+    agenda.Data &#x3D; AGRODATAINIZIO;
+    return agenda;
+  }
+
+  private nascondiPulsantiEdit(renderer: any, domElems: any[], elems: any[]) {
+    elems.forEach((dataItem: any, index: number) &#x3D;&gt; {
+      let currDomRow &#x3D; domElems[index];
+      if (dataItem.Sa_Cod &#x3D;&#x3D; -1 &amp;&amp; !this.permessoAssegnazionePubblica) {
+        UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.editBtn&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+        UtilityFunctions.setStyle(renderer, currDomRow, &#x27;#btnDelete&#x27;, &#x27;display&#x27;, &#x27;none&#x27;);
+      } else {
+        UtilityFunctions.setStyle(renderer, currDomRow, &#x27;.editBtn&#x27;, &#x27;display&#x27;, &#x27;block&#x27;);
+        UtilityFunctions.setStyle(renderer, currDomRow, &#x27;#btnDelete&#x27;, &#x27;display&#x27;, &#x27;block&#x27;);
+      }
+    });
+  }
+
+  private selectMacchina_old(item: any) {
+    let macchina_old &#x3D; this.macchineRows.find(m &#x3D;&gt; m.chiave &#x3D;&#x3D; item.chiave);
+    return macchina_old;
+  }
+
+  private isVisibilitaOrTypeOrValidityChanged(macchina_new: any) {
+    let macchina_old &#x3D; this.selectMacchina_old(macchina_new);
+    return macchina_new.Sa_Cod.id !&#x3D; macchina_old.Sa_Cod || 
+           macchina_new.CLASS_CODE !&#x3D; macchina_old.CLASS_CODE || 
+           macchina_new.Validita_Fine !&#x3D; macchina_old.Validita_Fine || 
+           macchina_new.Validita_Inizio !&#x3D; macchina_old.Validita_Inizio;
+  }
+
+  private controlloMovimentazioniMacchina(macchina_new: any, actionType: HttpAction) {
+    if (
+      (actionType &#x3D;&#x3D; HttpAction.UPDATE &amp;&amp; this.isVisibilitaOrTypeOrValidityChanged(macchina_new)) ||
+      actionType &#x3D;&#x3D; HttpAction.REMOVE
+    ) {
+      let agenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+      agenda.Piva &#x3D; macchina_new.Piva;
+      agenda.Mac_Cod &#x3D; macchina_new.Mac_Cod;
+      return this.macchineService.isMacchinaMovimentata(this.macchineGridEventsService.prepareParcoMacchine(macchina_new));
+    } else {
+      let resp &#x3D; new rispostaStandard&lt;boolean&gt;();
+      resp.RispostaOK &#x3D; true;
+      resp.RispostaStringa &#x3D; false;
+      return from([resp]);
+    }
+  }
+
+  private addMacchinaSelezionata(macchina: ParcoMacchine, error: string) {
+    this.macchineSelezionate.set(macchina, error);
+  }
+
+  private getMacchineSelezionate() {
+    return this.macchineSelezionate;
+  }
+
+  private msgWarningDelete() {
+    let msgFailure &#x3D; this.translocoService.translate(&#x27;ErroreCancellazioneMacchine&#x27;);
+    let msgSuccess &#x3D; this.translocoService.translate(&#x27;SuccessoCancellazioneMacchine&#x27;);
+    let displaySuccess &#x3D; false;
+    let displayFailure &#x3D; false;
+    this.getMacchineSelezionate().forEach((error, mac) &#x3D;&gt; {
+      let mac_des &#x3D; &#x27;&#x27;;
+      if (mac[&#x27;Modello&#x27;] !&#x3D; &#x27;&#x27;) {
+        mac_des &#x3D; mac[&#x27;Modello&#x27;];
+      } else if (mac[&#x27;Macchina&#x27;] !&#x3D; &#x27;&#x27;) {
+        mac_des &#x3D; mac[&#x27;Macchina&#x27;];
+      } else if (mac[&#x27;tipologia&#x27;] !&#x3D; &#x27;&#x27;) {
+        mac_des &#x3D; mac[&#x27;tipologia&#x27;];
+      }
+      if (error &#x3D;&#x3D; &#x27;&#x27;) {
+        msgSuccess &#x3D; msgSuccess.concat(&#x27;\n&#x27; + mac_des);
+        displaySuccess &#x3D; true;
+      } else {
+        msgFailure &#x3D; msgFailure.concat(&#x27;\n&#x27; + mac_des + &#x27;:&#x27; + error);
+        displayFailure &#x3D; true;
+      }
+    });
+    if (displaySuccess) {
+      this.giasMessageService.successMessage(msgSuccess);
+    }
+    if (displayFailure) {
+      this.giasDialogService.baseError(&#x27;&#x27;, msgFailure);
+    }
+    this.clearSelezionate();
+  }
+
+  private contattoChange(fb: FormGroup): Observable&lt;any&gt; {
+    return fb.controls[&#x27;Cod_Contatto&#x27;].valueChanges.pipe(map(cod_contatto &#x3D;&gt; {
+      if (cod_contatto !&#x3D; &#x27;&#x27;) {
+        this.contattiService.leggiContattiMacchina({
+          objNG: this.objParametriAgenda,
+          Flag_Pubblico_Privato: true,
+          Flag_Visibilita_Centri: true,
+          Cod_Contatto: cod_contatto
+        }).pipe(take(1), map(r &#x3D;&gt; {
+          let contatto &#x3D; r[0];
+          this.caricaCentri().pipe(take(1), tap((vals) &#x3D;&gt; {
+            fb.controls[&#x27;Sa_Cod&#x27;].setValue({id: contatto.sa_cod, name: vals.find(s &#x3D;&gt; s.codice &#x3D;&#x3D; contatto.sa_cod).descrizione});
+            fb.controls[&#x27;Visibilita&#x27;].setValue(vals.find(s &#x3D;&gt; s.codice &#x3D;&#x3D; contatto.sa_cod).descrizione);
+            fb.controls[&#x27;Sa_Cod&#x27;].disable();
+          })).subscribe();
+          this.prevContatto &#x3D; {codice: cod_contatto, descrizione: contatto.ragione_Sociale};
+        })).subscribe();
+      } else {
+        fb.controls[&#x27;Sa_Cod&#x27;].enable();
+        fb.controls[&#x27;Cod_Contatto&#x27;].patchValue(&#x27;0&#x27;, {emitEvent: false});
+      }
+    }));
+  }
+
+  private clearSelezionate(): void {
+    this.macchineSelezionate &#x3D; new Map&lt;ParcoMacchine, string&gt;();
+  }
+
+  private disableVisibilityItems(itemArgs: { dataItem: { id: number; name: string; data: any }; }): boolean {
+    if (itemArgs.dataItem.id &#x3D;&#x3D;&#x3D; -1) {
+      return false;
+    } else if (itemArgs.dataItem.id &#x3D;&#x3D;&#x3D; 0) {
+      // o la macchina non è stata utilizzata, o è stata utilizzata solo dall&#x27;azienda proprietaria
+      return !(
+        this.companiesByWhichIsUsed.length &#x3D;&#x3D;&#x3D; 0 ||
+        (this.companiesByWhichIsUsed.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; this.companiesByWhichIsUsed.includes(this.objParametriAgenda.Piva))
+      );
+    } else {
+      // o la macchina non è stata utilizzata, o è stata utilizzato solo all&#x27;interno dello stesso centro
+      return !(
+        this.centresOnWhichIsUsed.length &#x3D;&#x3D;&#x3D; 0 ||
+        (this.centresOnWhichIsUsed.length &#x3D;&#x3D;&#x3D; 1 &amp;&amp; this.centresOnWhichIsUsed.includes(itemArgs.dataItem.id))
+      );
+    }
+  }
+
+  private fetchCentresByWhichIsUsed(macchina: ParcoMacchine): Observable&lt;rispostaStandard&lt;number[]&gt;&gt; {
+    return this.macchineService.centresOnWhichIsUsed(macchina).pipe(take(1));
+  }
+
+  private fetchCompaniesByWhichIsUsed(macchina: ParcoMacchine): Observable&lt;rispostaStandard&lt;string[]&gt;&gt; {
+    return this.macchineService.companiesByWichIsUsed(macchina).pipe(take(1));
+  }
+
+  private setupDdlCommandsMenu(permessoEdit: boolean, permessoInfo: boolean) {
+    this.cmdDropDown &#x3D; new CommandsDropDownSettings({
+      inlineEditBtn: false,
+      fullEditBtn: permessoEdit,
+      infoBtn: permessoInfo,
+      removeBtn: false,
+    })
+
+    this.cmdDropDown.addCommand(new GridCommandItem(
+      &quot;RicercaDocumenti&quot;,
+      this.businessLogic.commands.RICERCA_DOCUMENTI,
+      &#x27;faAnagraficaSearchDocument&#x27;
+    ));
+    this.cmdDropDown.addCommand(new GridCommandItem(
+      &quot;AggiungiNuovoAllegato&quot;,
+      this.businessLogic.commands.NUOVO_ALLEGATO,
+      &#x27;faAnagraficaUploadFile&#x27;
+    ));
+
+    this.gridPublicService.openCommands
+      .pipe(takeUntil(this.signal), filter(macchina &#x3D;&gt; !!macchina))
+      .subscribe(macchina &#x3D;&gt; {
+        console.log(macchina)
+        if (!this.permessoNuovoDocumento) {
+          this.cmdDropDown.removeCommand(this.businessLogic.commands.NUOVO_ALLEGATO);
+        }
+
+        if (!this.permessoRicercaDocumenti) {
+          this.cmdDropDown.removeCommand(this.businessLogic.commands.RICERCA_DOCUMENTI);
+        } else {
+          this.businessLogic.CheckAttachedDocumentsMacchine(macchina.Piva, macchina.Mac_Cod)
+            .pipe(filter(hasAttachments &#x3D;&gt; !hasAttachments))
+	          .subscribe(() &#x3D;&gt; this.cmdDropDown.removeCommand(this.businessLogic.commands.RICERCA_DOCUMENTI));
+        }
+      });
+  }
+
+  private handleCommandEvent() {
+    this.gridPublicService.commandEvent
+      .pipe(takeUntil(this.signal), filter(ev &#x3D;&gt; !!ev))
+      .subscribe(ev &#x3D;&gt; {
+        switch(ev.command.action) {
+          case CommandsDropDownEvents.FULL_EDIT:
+            this.macchineGridEventsService.modificaMacchinaAngular(ev.dataItem, false, ev.rowIndex);
+            break;
+          case this.businessLogic.commands.NUOVO_ALLEGATO:
+            this.businessLogic.apriKWindowMacchine(ev.dataItem, this.businessLogic.commands.NUOVO_ALLEGATO);
+            break;
+          case this.businessLogic.commands.RICERCA_DOCUMENTI:
+            this.businessLogic.apriKWindowMacchine(ev.dataItem, this.businessLogic.commands.RICERCA_DOCUMENTI);
+            break;
+        }
+      });
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'MacchineConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

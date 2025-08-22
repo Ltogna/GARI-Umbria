@@ -1,0 +1,36 @@
+<div class="row form-row ">
+    <div class="card">
+      <h5 class="card-title">{{ 'Contatti' | transloco }}</h5>
+        <div class="row form-row">
+         <div class="col-12 col-sm-12">
+
+             <gias-kendo-grid [gridId]="'Contatti'" class="kendo-grid-no-shadows">
+                 <ng-container headerContent>
+                     <div *ngIf="contattoPubblicoVisible" >
+                         <!--                 <input type="checkbox" [disabled]="contattoPubblicoDisabled" [checked]="contattoPubblicoIsChecked" (click)="contattoPubblicoClicked()" #notification kendoCheckBox />-->
+                         <!--                 <kendo-label class="k-checkbox-label" for="notification" [text]="'ContattoMovimentabileDaTutteLeImprese' | transloco"></kendo-label>-->
+                         <kendo-label [text]="'ContattoMovimentabileDaTutteLeImprese' | transloco">
+                             <kendo-switch
+                                 [disabled]="contattoPubblicoDisabled"
+                                 [(ngModel)]="contattoPubblicoIsChecked"
+                                 (valueChange)="contattoPubblicoClicked($event)"
+                             ></kendo-switch>
+                         </kendo-label>
+                     </div>
+                     <div *ngIf="visible">
+                         <!--                <input type="checkbox" [disabled]="disabled" [checked]="isChecked" (click)="clicked()" #notification kendoCheckBox />-->
+                         <!--                <kendo-label class="k-checkbox-label" for="notification" [text]="'SalvaInAziendaPadre' | transloco"></kendo-label>-->
+                         <kendo-label [text]="'SalvaInAziendaPadre' | transloco">
+                             <kendo-switch
+                                 [disabled]="disabled"
+                                 [(ngModel)]="isChecked"
+                                 (valueChange)="clicked($event)"
+                             ></kendo-switch>
+                         </kendo-label>
+                     </div>
+                 </ng-container>
+             </gias-kendo-grid>
+         </div>
+        </div>
+    </div>
+</div>

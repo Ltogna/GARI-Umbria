@@ -1,0 +1,2129 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >CatastoCampoEditService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#aggregates" >aggregates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#catastoRows" >catastoRows</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#KendoCatastoCampo" >KendoCatastoCampo</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#onCellClickBehavior" >onCellClickBehavior</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#selectionChange" >selectionChange</a>
+                            </li>
+                            <li>
+                                <a href="#toolbar" >toolbar</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#findRowCorrenspondingParticella" >findRowCorrenspondingParticella</a>
+                            </li>
+                            <li>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleDeselectedRows" >handleDeselectedRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleSelectedRows" >handleSelectedRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isSameParcel" >isSameParcel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#manageRowSelection" >manageRowSelection</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prepareCatastoCampoId" >prepareCatastoCampoId</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setKendoColumns" >setKendoColumns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setKendoModel" >setKendoModel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setKendoRows" >setKendoRows</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setRowSelected" >setRowSelected</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateArea" >updateArea</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#updateCatastoCampoBS" >updateCatastoCampoBS</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, catastoCampoService: <a href="../injectables/CatastoCampoService.html" target="_self">CatastoCampoService</a>, campiService: <a href="../injectables/CampiFactoryService.html" target="_self">CampiFactoryService</a>, objParametriAgendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, translocoLoc: TranslocoService, campiEditDataService: <a href="../injectables/CampiEditDataService.html" target="_self">CampiEditDataService</a>, giasDialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:48</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>catastoCampoService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CatastoCampoService.html" target="_self" >CatastoCampoService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>campiService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CampiFactoryService.html" target="_self" >CampiFactoryService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>objParametriAgendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoLoc</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>campiEditDataService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CampiEditDataService.html" target="_self" >CampiEditDataService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>giasDialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findRowCorrenspondingParticella"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>findRowCorrenspondingParticella</b></span>
+                        <a href="#findRowCorrenspondingParticella"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findRowCorrenspondingParticella(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="352"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:352</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CatastoCampoId.html" target="_self" >CatastoCampoId</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="122"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleDeselectedRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleDeselectedRows</b></span>
+                        <a href="#handleDeselectedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleDeselectedRows(event: SelectionEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="307"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:307</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>SelectionEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleSelectedRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleSelectedRows</b></span>
+                        <a href="#handleSelectedRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleSelectedRows(event: SelectionEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>event</td>
+                                            <td>
+                                                        <code>SelectionEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isSameParcel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isSameParcel</b></span>
+                        <a href="#isSameParcel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isSameParcel(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, pc: <a href="../classes/CatastoCampoId.html" target="_self">CatastoCampoId</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="367"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:367</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>pc</td>
+                                            <td>
+                                                            <code><a href="../classes/CatastoCampoId.html" target="_self" >CatastoCampoId</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="manageRowSelection"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>manageRowSelection</b></span>
+                        <a href="#manageRowSelection"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>manageRowSelection(rows: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="269"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rows</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareCatastoCampoId"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>prepareCatastoCampoId</b></span>
+                        <a href="#prepareCatastoCampoId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prepareCatastoCampoId(dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, catastoCampo: CatastoCampoId[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="378"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:378</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>catastoCampo</td>
+                                            <td>
+                                                        <code>CatastoCampoId[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/CatastoCampoId.html" target="_self" >CatastoCampoId</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;CatastoCampoKendoServerResult&gt;</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setKendoColumns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setKendoColumns</b></span>
+                        <a href="#setKendoColumns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setKendoColumns()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="166"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:166</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>KendoGridColumn[]</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setKendoModel"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setKendoModel</b></span>
+                        <a href="#setKendoModel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setKendoModel()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/Superfici.html" target="_self" >{ Com: { editable: boolean; type: any; }; COMUNI_PROV: { editable: boolean; type: any; }; Foglio: { editable: boolean; type: any; }; LOCALITA: { editable: boolean; type: any; }; Numero: { editable: boolean; type: any; }; ... 14 more ...; SuperficieIntersezione: { ...; }; }</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setKendoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setKendoRows</b></span>
+                        <a href="#setKendoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setKendoRows(righe: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>righe</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setRowSelected"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setRowSelected</b></span>
+                        <a href="#setRowSelected"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setRowSelected(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="256"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:256</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateArea"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateArea</b></span>
+                        <a href="#updateArea"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateArea(item: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="340"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:340</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>item</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="updateCatastoCampoBS"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>updateCatastoCampoBS</b></span>
+                        <a href="#updateCatastoCampoBS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>updateCatastoCampoBS(row: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="357"
+                                    class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:357</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggregates"></a>
+                    <span class="name">
+                        <span ><b>aggregates</b></span>
+                        <a href="#aggregates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>AggregateSettings</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      {field: &#x27;SuperficieIntersezione&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27;}
+    ]}
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="catastoRows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>catastoRows</b></span>
+                        <a href="#catastoRows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="48" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_CELL</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;catastoCampo&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="KendoCatastoCampo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>KendoCatastoCampo</b></span>
+                        <a href="#KendoCatastoCampo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onCellClickBehavior"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>onCellClickBehavior</b></span>
+                        <a href="#onCellClickBehavior"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="333" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:333</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>previene che si possa modificare la riga se essa non è stata selezionata</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;chiave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="selectionChange"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>selectionChange</b></span>
+                        <a href="#selectionChange"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; {...}</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="275" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:275</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toolbar"></a>
+                    <span class="name">
+                        <span ><b>toolbar</b></span>
+                        <a href="#toolbar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ToolbarSettings</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ToolbarSettings(false, false)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/anagrafica/campi/campi-edit/catasto-campo-edit/catasto-campo-edit-grid.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Inject, Injectable, Injector} from &#x27;@angular/core&#x27;;
+import {
+  AggregateSettings,
+  AgrSelectableSettings,
+  CommandsColumnSettings,
+  ExcelSettings,
+  PDFSettings,
+  ToolbarSettings
+} from &#x27;gias-kendo-grid&#x27;;
+import {  EditingMode, KendoGridColumn, LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { CELL_TYPES } from &#x27;gias-ui-kit&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { from, Observable } from &#x27;rxjs&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import {  ObjParametriAgendaService } from &#x27;app/Service/obj-parametri-agenda.service&#x27;;
+import { map } from &#x27;rxjs/operators&#x27;;
+import { CatastoCampoKendoServerResult } from &#x27;./catasto-campo-edit.model&#x27;;
+import { Validators } from &#x27;@angular/forms&#x27;;
+import { GiasKendoGridComponent } from &#x27;gias-kendo-grid&#x27;;
+import {CellClickEvent, SelectionEvent} from &#x27;@progress/kendo-angular-grid&#x27;;
+import { CatastoCampoId, CatastoCampoService } from &#x27;./catasto-campo.service&#x27;;
+import { ParticelleCatastali } from &#x27;app/Model/anagrafiche/ParticelleCatastali&#x27;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { CampiFactoryService, CAMPI_SERVICE_TOKEN } from &#x27;app/Service/ServiceFactory/campi.factory.service&#x27;;
+import { TranslocoService } from &#x27;@jsverse/transloco&#x27;;
+import { CampiEditDataService } from &#x27;../campi-edit-data.service&#x27;;
+import {GiasDialogService} from &#x27;../../../../Service/gias-dialog.service&#x27;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+
+@Injectable()
+export class CatastoCampoEditService extends AbstractGridConfigService&lt;CatastoCampoKendoServerResult&gt; {
+  gridId: string &#x3D; &#x27;catastoCampo&#x27;;
+  rowId: string &#x3D; &#x27;chiave&#x27;;
+
+  toolbar: ToolbarSettings &#x3D; new ToolbarSettings(false, false);
+
+  loader: LoaderType &#x3D; LoaderType.SERVICE;
+  editingMode: EditingMode &#x3D; EditingMode.IN_CELL;
+
+  aggregates: AggregateSettings &#x3D; new AggregateSettings({
+    enabled: true,
+    descriptors: [
+      {field: &#x27;SuperficieIntersezione&#x27;, aggregate: &#x27;sum&#x27;, format: &#x27;n4&#x27;}
+    ]}
+  );
+
+  private KendoCatastoCampo: any;
+  private catastoRows: any[];
+
+  constructor(
+    injector: Injector,
+    private catastoCampoService: CatastoCampoService,
+    @Inject(CAMPI_SERVICE_TOKEN) private campiService: CampiFactoryService,
+    private objParametriAgendaService: ObjParametriAgendaService,
+    private translocoLoc: TranslocoService,
+    private campiEditDataService: CampiEditDataService,
+    private giasDialogService: GiasDialogService
+  ) {
+    super(injector, ConfigTemplate.DefaultTemplate);
+    this.handleCustomizations();
+
+    // gestore del change della colonna SuperficieIntersezione
+    this.gridPublicService.formGroup.GiasSubscribe((fb) &#x3D;&gt; {
+      if (fb !&#x3D; undefined) {
+        fb.controls[&quot;SuperficieIntersezione&quot;].valueChanges.GiasSubscribe((supIntersezioneNew) &#x3D;&gt; {
+          if (supIntersezioneNew !&#x3D; undefined) {
+            let particella: CatastoCampoId &#x3D; this.findRowCorrenspondingParticella(fb.getRawValue());
+            let supDisponibileOld &#x3D; fb.controls[&quot;SuperficieDisponibile&quot;].value;
+            let increment: number &#x3D; (particella.area ?? 0) - supIntersezioneNew;  // corresponds to: supIntersezioneOld - supIntersezioneNew
+            fb.controls[&quot;SuperficieDisponibile&quot;].setValue(parseFloat((supDisponibileOld + increment).toFixed(4)));
+
+            // aggiorno il BehaviorSubjcet
+            this.updateCatastoCampoBS(fb.getRawValue());
+          }
+        });
+      }
+    });
+
+    this.objParametriAgendaService.currentObjParametriAgenda.GiasSubscribe(p &#x3D;&gt; {
+      this.gridPublicService.refresh(true);
+    });
+  }
+
+  perform(actionType: HttpAction, items: any): Observable&lt;any[]&gt; {
+    switch (actionType) {
+      case HttpAction.CREATE:
+        break;
+      case HttpAction.REMOVE:
+        break;
+      case HttpAction.UPDATE:
+        this.updateArea(items);
+        break;
+    }
+
+    return from([]);
+  }
+
+  read(): Observable&lt;CatastoCampoKendoServerResult&gt; {
+    const agenda: ObjParametriAgenda &#x3D; this.objParametriAgendaService.getObjParamValue();
+    const particelle &#x3D; this.campiService.leggiParticellePerCentro(agenda);
+
+    this.loadingService.set_isLoading({ isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+
+    return particelle.pipe(map(result &#x3D;&gt; {
+      this.KendoCatastoCampo &#x3D; result.RispostaStringa;
+      this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+      const righe &#x3D; &lt;any[]&gt;(this.KendoCatastoCampo.kendo_rows);
+      const model &#x3D; this.setKendoModel();
+      const cols &#x3D; this.setKendoColumns();
+
+      this.setKendoRows(righe);
+      this.manageRowSelection(this.catastoRows);
+
+      return new CatastoCampoKendoServerResult(
+        model,
+        cols,
+        this.catastoRows
+      );
+    }));
+  }
+
+  handleCustomizations(): void {
+    this.selectable &#x3D; new AgrSelectableSettings();
+    this.selectable.selectable.checkboxOnly &#x3D; true;
+    this.selectable.selectable.enabled &#x3D; true;
+    this.selectable.shouldShowCheckbox &#x3D; true;
+    this.selectable.columnSettings.showSelectAll &#x3D; true;
+
+    this.toolbar &#x3D; new ToolbarSettings();
+    this.toolbar.newItem &#x3D; false;
+    this.toolbar.resetChanges &#x3D; false;
+
+    this.cmdColumn &#x3D; new CommandsColumnSettings({
+      editBtn: false,
+      infoBtn: false,
+      removeBtn: false,
+      onDisableInfoBtn: () &#x3D;&gt; false
+    });
+
+    this.resizable.autoFitColumns &#x3D; false;
+    this.selectable.columnSettings.showSelectAll&#x3D;true;
+    this.selectable.shouldShowCheckbox &#x3D; this.objParametriAgendaService.getObjParamValue().TipoOperazioneDB !&#x3D; Enum_DBTypeOperation.Read;
+    this.selectable.columnSettings.title&#x3D;&#x27; &#x27;;
+    this.selectable.preselectedRows.selectionChangeFn &#x3D; this.selectionChange;
+
+    this.onCellClick &#x3D; this.onCellClickBehavior;
+
+    this.resizable.isResizable &#x3D; true;
+    this.selectable.selectable.checkboxOnly &#x3D; true;
+    this.selectable.selectable.enabled &#x3D; true;
+    this.views.enabled &#x3D; false;
+    this.columnMenu.columnMenu &#x3D; false;
+
+    // this.resizable.autoFitColumns &#x3D; true;
+    this.resizable.isResizable &#x3D; true;
+
+    // Setting generali
+    this.behavior.saveExternalChanges &#x3D; true;
+    this.behavior.excelSettings &#x3D; new ExcelSettings({enabled: false});
+    this.behavior.pdfSettings &#x3D; new PDFSettings({enabled: false});
+    this.generalSettings.reordable &#x3D; true;
+    this.generalSettings.performOnEdit &#x3D; true;
+    this.groups.groupable.enabled &#x3D; false;
+  }
+
+  private setKendoColumns (): KendoGridColumn[] {
+    return [
+      new KendoGridColumn(
+        { field: &#x27;COMUNI_PROV&#x27;, title: this.translocoLoc.translate(&#x27;Provincia&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 120 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;LOCALITA&#x27;, title: this.translocoLoc.translate(&#x27;Comune&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 200 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Sezione&#x27;, title: this.translocoLoc.translate(&#x27;Sezione&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 120 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Foglio&#x27;, title: this.translocoLoc.translate(&#x27;Foglio&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 100, numeric: {multiCheckFiltering: true} }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Numero&#x27;, title: this.translocoLoc.translate(&#x27;Numero&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 100, numeric: {multiCheckFiltering: true} }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Subalterno&#x27;, title: this.translocoLoc.translate(&#x27;Subalterno&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required],width: 120 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;Superficie&#x27;, title: this.translocoLoc.translate(&#x27;Superficie&#x27;) },
+        { resizable: true, editable: false, validators: [Validators.required], width: 120 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;SuperficieDisponibile&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieDisponibile&#x27;) },
+        { resizable: true, editable: false, numeric: { format: &#x27;n4&#x27; }, validators: [Validators.required], width: 140 }
+      ),
+      new KendoGridColumn(
+        { field: &#x27;SuperficieIntersezione&#x27;, title: this.translocoLoc.translate(&#x27;SuperficieIntersecataAbbr&#x27;) },
+        { resizable: true, editable: true, numeric: { defaultValue: 0, min: 0, format: &#x27;n4&#x27; }, width: 140 }
+      )
+    ];
+  }
+
+  private setKendoModel () {
+    return {
+      Com: {editable: false, type: CELL_TYPES.STRING},
+      COMUNI_PROV: {editable: false, type: CELL_TYPES.STRING},
+      Foglio: {editable: false, type: CELL_TYPES.NUMBER},
+      LOCALITA: {editable: false, type: CELL_TYPES.STRING},
+      Numero: {editable: false, type: CELL_TYPES.NUMBER},
+      Part_Cod: {editable: false, type: CELL_TYPES.NUMBER},
+      particella_are: {editable: false, type: CELL_TYPES.NUMBER},
+      Particella_centiare: {editable: false, type: CELL_TYPES.NUMBER},
+      Particella_ettari: {editable: false, type: CELL_TYPES.NUMBER},
+      Prov: {editable: false, type: CELL_TYPES.STRING},
+      Sezione: {editable: false, type: CELL_TYPES.STRING},
+      Subalterno: {editable: false, type: CELL_TYPES.STRING},
+      Sup_Condotta: {editable: false, type: CELL_TYPES.NUMBER},
+      Superficie: {editable: false, type: CELL_TYPES.NUMBER},
+      SuperficieDisponibile: {editable: false, type: CELL_TYPES.NUMBER},
+      SuperficieUtilizzata: {editable: false, type: CELL_TYPES.NUMBER},
+      AreaSuAppLiberi: {editable: false, type: CELL_TYPES.NUMBER},
+      AreaSuCampiSquadri: {editable: false, type: CELL_TYPES.NUMBER},
+      AreaSuAppSuCampiNonSquadri: {editable: false, type: CELL_TYPES.NUMBER},
+      SuperficieIntersezione: {editable: true, type: CELL_TYPES.NUMBER}
+    };
+  }
+
+  private setKendoRows(righe: any[]) {
+    this.catastoRows &#x3D; righe.map((item) &#x3D;&gt; ({
+      chiave: item.Prov + &#x27;_&#x27; + item.Com + &#x27;_&#x27; + item.Sezione + &#x27;_&#x27; + item.Foglio + &#x27;_&#x27; + item.Numero + &#x27;_&#x27; + item.Subalterno,
+      Prov: item.Prov,
+      Com: item.Com,
+      COMUNI_PROV: item.COMUNI_PROV,
+      LOCALITA: item.LOCALITA,
+      Sezione: (item.Sezione &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; : item.Sezione),
+      Foglio: item.Foglio,
+      Numero: item.Numero,
+      Subalterno: (item.Subalterno &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; : item.Subalterno),
+      Superficie: item.Superficie,
+      Particella_ettari: item.Particella_ettari,
+      Particella_are: item.Particella_are,
+      Particella_centiare: item.Particella_centiare,
+      SuperficieDisponibile: item.SuperficieDisponibile,
+      SuperficieUtilizzata: item.SuperficieUtilizzata,
+      AreaSuAppLiberi: item.AreaSuAppLiberi ?? 0,
+      AreaSuCampiSquadri: item.AreaSuCampiSquadri ?? 0,
+      AreaSuAppSuCampiNonSquadri: item.AreaSuAppSuCampiNonSquadri ?? 0,
+      SuperficieIntersezione: 0
+    }));
+  }
+
+  private setRowSelected(item: any): void {
+    const particelleCampo: CatastoCampoId[] &#x3D; this.campiEditDataService.catastoCampo;
+    for (const particella of particelleCampo) {
+      if(this.isSameParcel(item, particella)) {
+        // per le particelle checked imposto anche la Superficie di Intersezione
+        item.SuperficieIntersezione &#x3D; particella.area;
+        item.Selected &#x3D; true;
+        return;
+      }
+    }
+    item.Selected &#x3D; false;
+  }
+
+  private manageRowSelection(rows: any[]): void {
+    for (let i&#x3D; 0; i &lt; rows.length; i++) {
+      this.setRowSelected(rows[i]);
+    }
+  }
+
+  private selectionChange &#x3D; (event: SelectionEvent, component: GiasKendoGridComponent) &#x3D;&gt; {
+    this.handleSelectedRows(event);
+    this.handleDeselectedRows(event);
+
+    // forzo il ricalcolo dei totali, altrimenti tale operazione non viene fatta sinché non si va a modificare a mano il dato nella cella
+    this.gridPublicService.giasGridComponent.refreshAggregateTotal();
+  };
+
+  private handleSelectedRows(event: SelectionEvent): void {
+    const catastoCampo &#x3D; this.campiEditDataService.catastoCampo;
+    const selectedRows &#x3D; event.selectedRows;
+
+    if (selectedRows.length !&#x3D;&#x3D; 0) {
+      event.selectedRows.forEach(row &#x3D;&gt; {
+        if (row.dataItem.SuperficieDisponibile &gt; 0) {
+          // imposto la superficie utilizzata pari al massimo della superficie disponibile
+          row.dataItem.SuperficieIntersezione &#x3D; row.dataItem.SuperficieDisponibile;
+          row.dataItem.SuperficieDisponibile &#x3D; 0;
+
+          const catasto: CatastoCampoId &#x3D; this.prepareCatastoCampoId(row.dataItem, catastoCampo);
+          catastoCampo.push(catasto);
+
+          this.campiEditDataService.catastoCampo &#x3D; catastoCampo;
+          this.updateCatastoCampoBS(row.dataItem);
+        } else {
+          this.giasDialogService.baseInfo(&#x27;&#x27;, this.transloco.translate(&#x27;AssociazioneParticellaSuperficieDisponibileZero&#x27;));
+          this.gridPublicService.giasGridComponent.deselectRows([row]);
+        }
+      });
+    }
+  }
+
+  private handleDeselectedRows(event: SelectionEvent): void {
+    const catastoCampo &#x3D; this.campiEditDataService.catastoCampo;
+    const deselectedRows &#x3D; event.deselectedRows;
+
+    if (deselectedRows.length !&#x3D;&#x3D; 0 ) {
+      event.deselectedRows.forEach(row &#x3D;&gt; {
+        // imposto la superficie utilizzata pari al massimo della superficie disponibile
+        row.dataItem.SuperficieDisponibile +&#x3D; row.dataItem.SuperficieIntersezione;
+        row.dataItem.SuperficieIntersezione &#x3D; 0;
+
+        const index: number &#x3D; this.catastoCampoService.getIndexOfCatastoCampoId(row.dataItem, catastoCampo);
+
+        // chiudo tutte le celle della riga selezionata
+        this.gridPublicService.gridComp.closeRow(row.index);
+
+        if (index!&#x3D;&#x3D;-1) {
+          catastoCampo.splice(index, 1);
+        }
+
+        this.campiEditDataService.catastoCampo &#x3D; catastoCampo;
+        this.updateCatastoCampoBS(row.dataItem);
+      });
+    }
+  }
+
+  /** previene che si possa modificare la riga se essa non è stata selezionata */
+  private onCellClickBehavior &#x3D; (event: CellClickEvent) &#x3D;&gt; {
+    //Se la riga non è stata selezionata chiudo la cella
+    if(!event.dataItem.Selected) {
+      event.sender.closeRow(event.rowIndex);
+    }
+  };
+
+  private updateArea(item: any) {
+    let catasto: CatastoCampoId[] &#x3D; this.campiEditDataService.catastoCampo;
+
+    catasto.forEach(c &#x3D;&gt; {
+      if(this.isSameParcel(item[0], c)) {
+        c.area &#x3D; item[0].SuperficieIntersezione;
+      }
+    });
+
+    this.campiEditDataService.catastoCampo &#x3D; catasto;
+  }
+
+  private findRowCorrenspondingParticella(row: any): CatastoCampoId {
+    const particelleCampo: CatastoCampoId[] &#x3D; this.campiEditDataService.catastoCampo;
+    return particelleCampo.find(pc &#x3D;&gt; this.isSameParcel(row, pc));
+  }
+
+  private updateCatastoCampoBS(row: any): void {
+    this.campiEditDataService.catastoCampo &#x3D; this.campiEditDataService.catastoCampo.map(pc &#x3D;&gt; {
+      if (this.isSameParcel(row, pc)) {
+        pc.area &#x3D; row.SuperficieIntersezione;
+        pc.particella.Area &#x3D; row.SuperficieIntersezione;
+      }
+      return pc;
+    });
+  }
+
+  private isSameParcel(row: any, pc: CatastoCampoId): boolean {
+    return (
+      row.Com &#x3D;&#x3D; pc.particella.primaryKey.Com &amp;&amp;
+      row.Prov &#x3D;&#x3D; pc.particella.primaryKey.Prov &amp;&amp;
+      row.Foglio &#x3D;&#x3D; pc.particella.primaryKey.Foglio &amp;&amp;
+      row.Numero &#x3D;&#x3D; pc.particella.primaryKey.Numero &amp;&amp;
+      (row.Sezione &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; &#x3D;&#x3D; pc.particella.primaryKey.Sezione : row.Sezione &#x3D;&#x3D; pc.particella.primaryKey.Sezione) &amp;&amp;
+      (row.Subalterno &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; &#x3D;&#x3D; pc.particella.primaryKey.Subalterno : row.Subalterno &#x3D;&#x3D; pc.particella.primaryKey.Subalterno)
+    );
+  }
+
+  private prepareCatastoCampoId(dataItem: any, catastoCampo: CatastoCampoId[]): CatastoCampoId {
+    const catasto: CatastoCampoId &#x3D; new CatastoCampoId();
+    catasto.particella &#x3D; new ParticelleCatastali();
+    catasto.particella.primaryKey &#x3D; new ParticelleCatastali.PK(
+      dataItem.chiave.split(&#x27;_&#x27;)[0],
+      dataItem.chiave.split(&#x27;_&#x27;)[1],
+      (dataItem.chiave.split(&#x27;_&#x27;)[2] &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; : dataItem.chiave.split(&#x27;_&#x27;)[2]),
+      dataItem.chiave.split(&#x27;_&#x27;)[3],
+      dataItem.chiave.split(&#x27;_&#x27;)[4],
+      (dataItem.chiave.split(&#x27;_&#x27;)[5] &#x3D;&#x3D; &#x27;&#x27; ? &#x27;0&#x27; : dataItem.chiave.split(&#x27;_&#x27;)[5])
+    );
+
+    const index &#x3D; Math.max.apply(Math, catastoCampo.map(function (o) {
+      return o.id;
+    }));
+    catasto.id &#x3D; index + 1;
+
+    return catasto;
+  }
+
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'CatastoCampoEditService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

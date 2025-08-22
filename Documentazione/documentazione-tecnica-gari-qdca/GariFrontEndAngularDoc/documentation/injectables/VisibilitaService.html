@@ -1,0 +1,2387 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >VisibilitaService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/services/visibilita.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#$imprese" >$imprese</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#gridRefresh$" >gridRefresh$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#impreseSelezionate" >impreseSelezionate</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#saved$" >saved$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#utentiSelezionati" >utentiSelezionati</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aggiungiVisibilita" >aggiungiVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#assegnaVisibilitaTotale" >assegnaVisibilitaTotale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#checkIfAnyHasSons" >checkIfAnyHasSons</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#confrontaVisibilita" >confrontaVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#copiaVisibilita" >copiaVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hannoStessaVisibilita" >hannoStessaVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#hannoVisibilitaTotale" >hannoVisibilitaTotale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#haVisibilitaTotale" >haVisibilitaTotale</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiVisibilitaGruppi" >leggiVisibilitaGruppi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiVisibilitaImprese" >leggiVisibilitaImprese</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiVisibilitaUtente" >leggiVisibilitaUtente</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiVisibilitaUtenti" >leggiVisibilitaUtenti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#modificaVisibilitaUtenti" >modificaVisibilitaUtenti</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetData" >resetData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#resetDataIfSaved" >resetDataIfSaved</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rimuoviImpreseDaVisibilita" >rimuoviImpreseDaVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#rimuoviVisibilita" >rimuoviVisibilita</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#sovrascriviVisibilita" >sovrascriviVisibilita</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(APIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, master: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, transloco: TranslocoService, dialog: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:38</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>APIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>master</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transloco</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggiungiVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aggiungiVisibilita</b></span>
+                        <a href="#aggiungiVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>aggiungiVisibilita(utenti?: IUtenteDTO[], imprese?: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="57"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:57</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="assegnaVisibilitaTotale"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>assegnaVisibilitaTotale</b></span>
+                        <a href="#assegnaVisibilitaTotale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>assegnaVisibilitaTotale(utenti?: IUtenteDTO[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkIfAnyHasSons"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>checkIfAnyHasSons</b></span>
+                        <a href="#checkIfAnyHasSons"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>checkIfAnyHasSons(imprese: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="305"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:305</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confrontaVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>confrontaVisibilita</b></span>
+                        <a href="#confrontaVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>confrontaVisibilita(utente: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, base: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="255"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:255</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Confronta la visibilità di due utenti.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utente</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>username dell&#39;utente oggetto di confronto</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>base</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>username dell&#39;utente che funge da base di confronto</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>observable contente -1 se l&#39;utente oggetto di confronto ha visibilità minore di quello che funge da base, 1 se la sua visibilità è maggiore o 0 se è uguale.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copiaVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>copiaVisibilita</b></span>
+                        <a href="#copiaVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copiaVisibilita(base: string[], template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="129"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:129</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Assegna agli utenti in base la visibilità dell&#39;utente template.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>base</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>lista di username degli utenti a cui si vuole assegnare la visibilità</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>template</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>username dell&#39;utente template da cui copiare la visibilità</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hannoStessaVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>hannoStessaVisibilita</b></span>
+                        <a href="#hannoStessaVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hannoStessaVisibilita(usernames: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="238"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:238</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Stabilisce se gli utenti specificati hanno la stessa visibilità.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usernames</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>lista di username degli utenti su cui eseguire la verifica.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>observable contente true se tutti gli utenti hanno la stessa visibilità, false altrimenti.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hannoVisibilitaTotale"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>hannoVisibilitaTotale</b></span>
+                        <a href="#hannoVisibilitaTotale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>hannoVisibilitaTotale(usernames: string[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:222</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Controlla quali degli utenti specificati hanno visibilità totale sulle imprese.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usernames</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>una lista contenente gli username degli utenti desiderati.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="haVisibilitaTotale"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>haVisibilitaTotale</b></span>
+                        <a href="#haVisibilitaTotale"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>haVisibilitaTotale(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="210"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:210</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>username</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiVisibilitaGruppi"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiVisibilitaGruppi</b></span>
+                        <a href="#leggiVisibilitaGruppi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiVisibilitaGruppi(gruppi: string[], imprese: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>, leggiDettagli: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="202"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:202</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><ul>
+<li>visibilita: <code>IUtenteImpresa[]</code> - explosione utenti x imprese in visibilità</li>
+<li>visibilitaTotale: <code>string[]</code> - usernames degli utenti con visibilità totale</li>
+<li>imprese: <code>any[]</code> - dettagli delle imprese presenti in visibilità</li>
+<li>fullResult: <code>boolean</code> - false se il numero di utenti con visibilità è maggiore di 10000 (troppi)</li>
+</ul>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>gruppi</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                        </tr>
+                                        <tr>
+                                                <td>leggiDettagli</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>oggetto contente i seguenti campi:</p>
+<ul>
+<li>visibilita: <code>IUtenteImpresa[]</code> - explosione utenti x imprese in visibilità</li>
+<li>visibilitaTotale: <code>string[]</code> - usernames degli utenti con visibilità totale</li>
+<li>imprese: <code>any[]</code> - dettagli delle imprese presenti in visibilità</li>
+<li>fullResult: <code>boolean</code> - false se il numero di utenti con visibilità è maggiore di 10000 (troppi)</li>
+</ul>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiVisibilitaImprese"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiVisibilitaImprese</b></span>
+                        <a href="#leggiVisibilitaImprese"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiVisibilitaImprese(imprese: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="148"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:148</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Carica la visibilità per le imprese specificate.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>di cui si deve leggere la visibilità. Se non viene passata alcuna impresa, viene caricata la visibilità di tutte le imprese.</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;IUtenteImpresa[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiVisibilitaUtente"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiVisibilitaUtente</b></span>
+                        <a href="#leggiVisibilitaUtente"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiVisibilitaUtente(username: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, leggiDatiImprese: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Legge la visibilità dell&#39;utente specificato.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>username</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>l&#39;username dell&#39;utente specificato. Se non specificato, si fa riferimento all&#39;utente attuale.</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>leggiDatiImprese</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>indica se caricare anche i dati relativi alle imprese in visibilità o meno</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;IUtenteImpresa[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiVisibilitaUtenti"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiVisibilitaUtenti</b></span>
+                        <a href="#leggiVisibilitaUtenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiVisibilitaUtenti(utenti: string[], imprese: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>, leggiDettagli: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="185"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:185</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>usernames degli utenti di cui si vuole leggere la visibilità. Se non specificato fa riferimento a tutti gli utenti</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>[]</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>restrizione sulle aziende da visualizzare. Di default considera la visibilità dell&#39;utente loggato</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>leggiDettagli</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>false</code>
+                                            </td>
+
+                                            <td>
+                                                    <p>Se true, restituisce anche i dettagli (nome, cognome) degli utenti</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;IUtenteImpresa[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="modificaVisibilitaUtenti"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>modificaVisibilitaUtenti</b></span>
+                        <a href="#modificaVisibilitaUtenti"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>modificaVisibilitaUtenti(utenti: IUtenteDTO[], imprese: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>, sovrascrivi: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="289"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>This code defines a private function modificaVisibilitaUtenti that modifies
+the visibility of users and businesses. It sends a POST request to a specific
+API endpoint with the modified data. Depending on the response, it shows
+success, warning, or error messages using a dialog service.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>must adhere to the interface IUtenteDTO (only needs UserName valorized)</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>which business will the users be able to see</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>sovrascrivi</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetData"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetData</b></span>
+                        <a href="#resetData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetData()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="267"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:267</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetDataIfSaved"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>resetDataIfSaved</b></span>
+                        <a href="#resetDataIfSaved"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetDataIfSaved(saved: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="272"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:272</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>saved</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rimuoviImpreseDaVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rimuoviImpreseDaVisibilita</b></span>
+                        <a href="#rimuoviImpreseDaVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rimuoviImpreseDaVisibilita(utenti: IUtenteDTO[], imprese: any[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                        <code>any[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rimuoviVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>rimuoviVisibilita</b></span>
+                        <a href="#rimuoviVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>rimuoviVisibilita(utenti?: IUtenteDTO[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sovrascriviVisibilita"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>sovrascriviVisibilita</b></span>
+                        <a href="#sovrascriviVisibilita"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>sovrascriviVisibilita(utenti?: IUtenteDTO[], imprese?: <a href="../classes/Impresa.html" target="_self">ImpresaDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="47"
+                                    class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>utenti</td>
+                                            <td>
+                                                        <code>IUtenteDTO[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>imprese</td>
+                                            <td>
+                                                            <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="$imprese"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>$imprese</b></span>
+                        <a href="#$imprese"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BehaviorSubject&lt;any[]&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new BehaviorSubject&lt;any[]&gt;(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridRefresh$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>gridRefresh$</b></span>
+                        <a href="#gridRefresh$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="impreseSelezionate"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>impreseSelezionate</b></span>
+                        <a href="#impreseSelezionate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Impresa.html" target="_self" >ImpresaDto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="saved$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>saved$</b></span>
+                        <a href="#saved$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="utentiSelezionati"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>utentiSelezionati</b></span>
+                        <a href="#utentiSelezionati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>IUtenteDTO[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/profilazione/services/visibilita.service.ts:33</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable} from &#x27;@angular/core&#x27;;
+import {AjaxAgronicaAPIService} from &quot;../../Service/ajax-agronica.api.service&quot;;
+import {ImpresaDto} from &quot;../../Service/api.service&quot;;
+import {BehaviorSubject, map, Observable, of, pipe, Subject, switchMap, take, tap} from &quot;rxjs&quot;;
+import {GiasDialogService} from &quot;../../Service/gias-dialog.service&quot;;
+import {MasterService, rispostaStandard} from &quot;../../Service/master.service&quot;;
+import {TranslocoService} from &quot;@jsverse/transloco&quot;;
+import { ConfrontaVisibilitaUtenti } from &#x27;../models/ConfrontaVisibilitaUtenti&#x27;;
+import {IUtenteDTO, UtenteDTO} from &quot;../models/utente-dto.model&quot;;
+import {isBoolean} from &quot;lodash&quot;;
+import { CopiaImpostazioniObj } from &#x27;./impostazioni/impostazioni-utenti.service&#x27;;
+
+
+export class LeggiScriviVisibilitaUtenti {
+  constructor(
+    public Utenti &#x3D; Array&lt;IUtenteDTO&gt;(),
+    public AziendeVisibili &#x3D; Array&lt;ImpresaDto&gt;(),
+    public Sovrascrivi?: boolean,
+    public LeggiDatiImprese: boolean &#x3D; false,
+  ) { }
+}
+
+export interface IUtenteImpresa extends ImpresaDto {
+  Username: string;
+  DettagliUtente: string;
+}
+
+
+@Injectable({
+  providedIn: &#x27;root&#x27;
+})
+export class VisibilitaService {
+  public utentiSelezionati: IUtenteDTO[] &#x3D; [];
+  public impreseSelezionate: ImpresaDto[] &#x3D; [];
+  public $imprese: BehaviorSubject&lt;any[]&gt; &#x3D; new BehaviorSubject&lt;any[]&gt;(null);
+
+  public gridRefresh$ &#x3D; new Subject();
+  public saved$ &#x3D; new Subject();
+
+  constructor(
+    private APIService: AjaxAgronicaAPIService,
+    private master: MasterService,
+    private transloco: TranslocoService,
+    private dialog: GiasDialogService
+  ) { }
+
+  public sovrascriviVisibilita(utenti?: IUtenteDTO[], imprese?: ImpresaDto[]): Observable&lt;boolean&gt; {
+    utenti &#x3D; (!utenti &amp;&amp; this.utentiSelezionati?.length) ? this.utentiSelezionati : utenti;
+    imprese &#x3D; (!imprese &amp;&amp; this.impreseSelezionate?.length) ? this.impreseSelezionate : imprese;
+    return this.checkIfAnyHasSons(imprese).pipe(
+      switchMap((_next: boolean) &#x3D;&gt; _next
+        ? this.modificaVisibilitaUtenti(utenti, imprese, true).pipe(map(saved &#x3D;&gt; this.resetDataIfSaved(saved)))
+        : of(false))
+    );
+  }
+
+  public aggiungiVisibilita(utenti?: IUtenteDTO[], imprese?: ImpresaDto[]): Observable&lt;boolean&gt; {
+    utenti &#x3D; (!utenti &amp;&amp; this.utentiSelezionati?.length) ? this.utentiSelezionati : utenti;
+    imprese &#x3D; (!imprese &amp;&amp; this.impreseSelezionate?.length) ? this.impreseSelezionate : imprese;
+    return this.checkIfAnyHasSons(imprese).pipe(
+      tap(_next &#x3D;&gt; {
+        if (!_next) {
+          this.impreseSelezionate &#x3D; this.impreseSelezionate.filter(i &#x3D;&gt; !!i?.rag_soc);
+        }
+      }),
+      switchMap((_next: boolean) &#x3D;&gt; _next
+        ? this.modificaVisibilitaUtenti(utenti, imprese, false).pipe(map(saved &#x3D;&gt; this.resetDataIfSaved(saved)))
+        : of(false))
+    );
+  }
+
+  public assegnaVisibilitaTotale(utenti?: IUtenteDTO[]) {
+    if (!utenti &amp;&amp; this.utentiSelezionati?.length) {
+      utenti &#x3D; this.utentiSelezionati;
+    }
+    return this.modificaVisibilitaUtenti(utenti, [], true).pipe(map(saved &#x3D;&gt; {
+      if (saved) {
+        this.resetData();
+        // this.gridRefresh$.next(true);
+        this.saved$.next(true);
+      }
+      return saved;
+    }));
+  }
+
+  public rimuoviVisibilita(utenti?: IUtenteDTO[]) {
+    if (!utenti &amp;&amp; this.utentiSelezionati?.length) {
+      utenti &#x3D; this.utentiSelezionati;
+    }
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, any&gt;(
+      &#x27;Profilazione/RimuoviVisibilitaUtenti&#x27;, new LeggiScriviVisibilitaUtenti(utenti, [], true)
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        this.dialog.baseSuccess(&#x27;prof.VisibilitaAssociataOK&#x27;, &#x27;&#x27;);
+      } else if (R.RispostaStringa) {
+        this.dialog.baseWarning(this.transloco.translate(&quot;Attenzione&quot;), R.RispostaStringa, false);
+      } else {
+        this.dialog.baseError(&#x27;ImpossibileCompletareOperazione&#x27;, &#x27;&#x27;);
+      }
+      return R.RispostaOK;
+    }));
+    // return this.modificaVisibilitaUtenti(utenti, [new ImpresaDTO(&#x27;###########&#x27;)], true);
+  }
+
+  public rimuoviImpreseDaVisibilita(utenti: IUtenteDTO[], imprese: any[]) {
+    if (!utenti &amp;&amp; this.utentiSelezionati?.length) {
+      utenti &#x3D; this.utentiSelezionati;
+    }
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, any&gt;(
+      &#x27;Profilazione/RimuoviVisibilitaUtenti&#x27;,
+      new LeggiScriviVisibilitaUtenti(utenti, imprese, true)
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        this.dialog.baseSuccess(&#x27;prof.VisibilitaAssociataOK&#x27;, &#x27;&#x27;);
+      } else if (R.RispostaStringa) {
+        this.dialog.baseWarning(this.transloco.translate(&quot;Attenzione&quot;), R.RispostaStringa, false);
+      } else {
+        this.dialog.baseError(&#x27;ImpossibileCompletareOperazione&#x27;, R.Errore);
+      }
+      return R.RispostaOK;
+    }));
+  }
+
+  /**
+   * Assegna agli utenti in base la visibilità dell&#x27;utente template.
+   * @param base lista di username degli utenti a cui si vuole assegnare la visibilità
+   * @param template username dell&#x27;utente template da cui copiare la visibilità
+   */
+  public copiaVisibilita(base: string[], template: string) {
+    return this.APIService.ajaxAPIPost&lt;any, any&gt;(
+      &#x27;Profilazione/CopiaVisibilitaUtenti&#x27;, new CopiaImpostazioniObj(base, template)
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        void this.dialog.baseSuccess(&#x27;prof.VisibilitaAssociataOK&#x27;, &#x27;&#x27;);
+        this.gridRefresh$.next(true);
+        this.saved$.next(true);
+      } else {
+        this.dialog.baseError(&#x27;ImpossibileCompletareOperazione&#x27;, &#x27;&#x27;);
+      }
+      return R.RispostaOK;
+    }));
+  }
+
+  /**
+   * Carica la visibilità per le imprese specificate.
+   * @param imprese di cui si deve leggere la visibilità. Se non viene passata alcuna impresa, viene caricata la visibilità di tutte le imprese.
+   */
+  public leggiVisibilitaImprese(imprese: ImpresaDto[] &#x3D; []): Observable&lt;IUtenteImpresa[]&gt; {
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, any&gt;(
+      &#x27;Profilazione/LeggiAziendeVisibilita&#x27;, new LeggiScriviVisibilitaUtenti([], imprese)
+    ).pipe(map(R &#x3D;&gt; R.RispostaOK ? R.RispostaStringa : []));
+  }
+
+  /**
+   * Legge la visibilità dell&#x27;utente specificato.
+   * @param username l&#x27;username dell&#x27;utente specificato. Se non specificato, si fa riferimento all&#x27;utente attuale.
+   * @param leggiDatiImprese indica se caricare anche i dati relativi alle imprese in visibilità o meno
+   */
+  public leggiVisibilitaUtente(username: string, leggiDatiImprese: boolean): Observable&lt;IUtenteImpresa[]&gt; {
+    const params &#x3D; new LeggiScriviVisibilitaUtenti();
+    params.Utenti.push(new UtenteDTO(username || this.master.objP_utenti.UsernameOperazione));
+    params.LeggiDatiImprese &#x3D; leggiDatiImprese;
+    this.master.set_isLoading({isLoading: true});
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, rispostaStandard&lt;{visibilita: IUtenteImpresa[]; imprese: any[]}&gt;&gt;(
+      &#x27;Profilazione/leggiVisibilitaUtenti&#x27;, params
+    ).pipe(
+      take(1),
+      tap(() &#x3D;&gt; this.master.set_isLoading({isLoading: false})),
+      map(R &#x3D;&gt; R.RispostaOK
+        ? R.RispostaStringa as unknown as { visibilita: IUtenteImpresa[]; imprese: any[] }
+        : {visibilita: [], imprese: []}
+      ),
+      tap(R &#x3D;&gt; {
+        if (R.imprese) this.$imprese.next(R.imprese);
+      }),
+      map(R &#x3D;&gt; R.visibilita)
+    );
+  }
+
+  /**
+   * @param utenti usernames degli utenti di cui si vuole leggere la visibilità. Se non specificato fa riferimento a tutti gli utenti
+   * @param imprese restrizione sulle aziende da visualizzare. Di default considera la visibilità dell&#x27;utente loggato
+   * @param leggiDettagli Se true, restituisce anche i dettagli (nome, cognome) degli utenti
+   */
+  public leggiVisibilitaUtenti(utenti: string[] &#x3D; [], imprese: ImpresaDto[] &#x3D; [], leggiDettagli: boolean &#x3D; false): Observable&lt;IUtenteImpresa[]&gt; {
+    const params &#x3D; new LeggiScriviVisibilitaUtenti([], imprese, leggiDettagli);
+    if (utenti.length)
+      utenti.forEach(u &#x3D;&gt; params.Utenti.push(new UtenteDTO(u)));
+
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, rispostaStandard&lt;{visibilita: IUtenteImpresa[]; imprese: any[]}&gt;&gt;(
+      &#x27;Profilazione/leggiVisibilitaUtenti&#x27;, params
+    ).pipe(map(R &#x3D;&gt; R.RispostaOK ? R.RispostaStringa[&#x27;visibilita&#x27;] : []));
+  }
+
+  /**
+   * @return oggetto contente i seguenti campi:
+   * - visibilita: &#x60;IUtenteImpresa[]&#x60; - explosione utenti x imprese in visibilità
+   * - visibilitaTotale: &#x60;string[]&#x60; - usernames degli utenti con visibilità totale
+   * - imprese: &#x60;any[]&#x60; - dettagli delle imprese presenti in visibilità
+   * - fullResult: &#x60;boolean&#x60; - false se il numero di utenti con visibilità è maggiore di 10000 (troppi)
+   */
+  public leggiVisibilitaGruppi(gruppi: string[] &#x3D; [], imprese: ImpresaDto[] &#x3D; [], leggiDettagli: boolean &#x3D; false): Observable&lt;any&gt; {
+    const params &#x3D; new LeggiScriviVisibilitaUtenti([], imprese, leggiDettagli);
+    params.Utenti &#x3D; gruppi.map(g &#x3D;&gt; new UtenteDTO(g));
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, rispostaStandard&lt;{visibilita: IUtenteImpresa[]; imprese: any[]}&gt;&gt;(
+      &#x27;Profilazione/leggiVisibilitaGruppi&#x27;, params
+    ).pipe(map(R &#x3D;&gt; R.RispostaOK &amp;&amp; R.RispostaStringa ? R.RispostaStringa : []));
+  }
+
+  public haVisibilitaTotale(username: string): Observable&lt;boolean&gt; {
+    return this.APIService.ajaxAPIPost&lt;string[], any&gt;(
+      &#x27;Profilazione/haVisibilitaTotale&#x27;, [username]
+    ).pipe(map(R &#x3D;&gt;
+      R.RispostaOK ? R.RispostaStringa[0][&#x27;VisibilitaTotale&#x27;] : false
+    ));
+  }
+
+  /**
+   * Controlla quali degli utenti specificati hanno visibilità totale sulle imprese.
+   * @param usernames una lista contenente gli username degli utenti desiderati.
+   */
+  public hannoVisibilitaTotale(usernames: string[]): Observable&lt;any[]&gt; {
+    return this.APIService.ajaxAPIPost&lt;string[], any&gt;(
+      &#x27;Profilazione/haVisibilitaTotale&#x27;, usernames
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        return R.RispostaStringa;
+      }
+      return [];
+    }));
+  }
+
+  /**
+   * Stabilisce se gli utenti specificati hanno la stessa visibilità.
+   * @param usernames lista di username degli utenti su cui eseguire la verifica.
+   * @returns observable contente true se tutti gli utenti hanno la stessa visibilità, false altrimenti.
+   */
+  public hannoStessaVisibilita(usernames: string[]): Observable&lt;boolean&gt; {
+    return this.APIService.ajaxAPIPost&lt;string[], boolean&gt;(
+      &#x27;Profilazione/ControllaStessaVisibilita&#x27;, usernames
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        return R.RispostaStringa as boolean;
+      }
+      return false;
+    }));
+  }
+
+  /**
+   * Confronta la visibilità di due utenti.
+   * @param utente username dell&#x27;utente oggetto di confronto
+   * @param base username dell&#x27;utente che funge da base di confronto
+   * @return observable contente -1 se l&#x27;utente oggetto di confronto ha visibilità minore di quello che funge da base, 1 se la sua visibilità è maggiore o 0 se è uguale.
+   */
+  public confrontaVisibilita(utente: string, base: string) {
+    return this.APIService.ajaxAPIPost&lt;any, number&gt;(
+      &#x27;Profilazione/ConfrontaVisibilitaUtenti&#x27;,
+      new ConfrontaVisibilitaUtenti(utente, base)
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        return R.RispostaStringa;
+      }
+      return -1;
+    }));
+  }
+
+  private resetData() {
+    this.utentiSelezionati &#x3D; [];
+    this.impreseSelezionate &#x3D; [];
+  }
+
+  private resetDataIfSaved(saved: boolean): boolean {
+    if (saved) {
+      this.resetData();
+      this.saved$.next(true);
+    }
+    return saved;
+  }
+
+  /**
+   * This code defines a private function modificaVisibilitaUtenti that modifies
+   * the visibility of users and businesses. It sends a POST request to a specific
+   * API endpoint with the modified data. Depending on the response, it shows
+   * success, warning, or error messages using a dialog service.
+   * @param utenti must adhere to the interface IUtenteDTO (only needs UserName valorized)
+   * @param imprese which business will the users be able to see
+   * @private
+   */
+  private modificaVisibilitaUtenti(utenti: IUtenteDTO[], imprese: ImpresaDto[], sovrascrivi: boolean) {
+    const users &#x3D; utenti.map(u &#x3D;&gt; new UtenteDTO(u.UserName));
+    return this.APIService.ajaxAPIPost&lt;LeggiScriviVisibilitaUtenti, any&gt;(
+      &#x27;Profilazione/ModificaVisibilitaUtenti&#x27;, new LeggiScriviVisibilitaUtenti(users, imprese, sovrascrivi)
+    ).pipe(map(R &#x3D;&gt; {
+      if (R.RispostaOK) {
+        void this.dialog.baseSuccess(&#x27;prof.VisibilitaAssociataOK&#x27;, &#x27;&#x27;);
+      } else if (R.RispostaStringa) {
+        void this.dialog.baseWarning(this.transloco.translate(&quot;Attenzione&quot;), R.RispostaStringa, false);
+      } else {
+        this.dialog.baseError(&#x27;ImpossibileCompletareOperazione&#x27;, &#x27;&#x27;);
+      }
+      return R.RispostaOK;
+    }));
+  }
+
+  private checkIfAnyHasSons(imprese: ImpresaDto[]): Observable&lt;boolean&gt; {
+    return this.APIService.ajaxAPIPost&lt;ImpresaDto[], string[]&gt;(
+      &#x27;Profilazione/CheckFathersInList&#x27;, imprese
+    ).pipe(
+      map((r: rispostaStandard&lt;string[]&gt;) &#x3D;&gt; r.RispostaOK ? r.RispostaStringa : []),
+      switchMap(pive &#x3D;&gt; pive.length
+        ? this.dialog.warningObs(&#x27;prof.BusinessInHierarchy&#x27;, &#x27;prof.BusinessInHierarchyWarningText&#x27;)
+        : of(true)
+      ),
+      map(dialogResult &#x3D;&gt; isBoolean(dialogResult) ? dialogResult : false),
+      take(1)
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'VisibilitaService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

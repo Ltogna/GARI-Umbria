@@ -1,0 +1,1857 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >LettureContatoriGridConfigService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_columns" >_columns</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_counters" >_counters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_filters" >_filters</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_model" >_model</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_rows" >_rows</a>
+                            </li>
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#addReading" >addReading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                <a href="#applyRendererRules" >applyRendererRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#configureDdls" >configureDdls</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteReading" >deleteReading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#editReading" >editReading</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fixDateValorizationOnEdit" >fixDateValorizationOnEdit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#getCountersAt" >getCountersAt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCustomizations" >handleCustomizations</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleEvents" >handleEvents</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#isCounterValidAt" >isCounterValidAt</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#loadCounter" >loadCounter</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#setDefaultsOnNewItem" >setDefaultsOnNewItem</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#piva" >piva</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, message: <a href="../injectables/GiasMessageService.html" target="_self">GiasMessageService</a>, dialog: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, agenda: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, client: <a href="../injectables/ContatoriAcquaClient.html" target="_self">ContatoriAcquaClient</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="72" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:72</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>message</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasMessageService.html" target="_self" >GiasMessageService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialog</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agenda</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>client</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ContatoriAcquaClient.html" target="_self" >ContatoriAcquaClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addReading"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>addReading</b></span>
+                        <a href="#addReading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>addReading(row: <a href="../classes/LetturaContatoriGridItem.html" target="_self">LetturaContatoriGridItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="192"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:192</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/LetturaContatoriGridItem.html" target="_self" >LetturaContatoriGridItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="applyRendererRules"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                        <span ><b>applyRendererRules</b></span>
+                        <a href="#applyRendererRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>applyRendererRules(opts: RendererGridEvent)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>opts</td>
+                                            <td>
+                                                        <code>RendererGridEvent</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="configureDdls"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>configureDdls</b></span>
+                        <a href="#configureDdls"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>configureDdls()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteReading"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteReading</b></span>
+                        <a href="#deleteReading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteReading(row: <a href="../classes/LetturaContatoriGridItem.html" target="_self">LetturaContatoriGridItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="222"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:222</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/LetturaContatoriGridItem.html" target="_self" >LetturaContatoriGridItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editReading"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>editReading</b></span>
+                        <a href="#editReading"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>editReading(row: <a href="../classes/LetturaContatoriGridItem.html" target="_self">LetturaContatoriGridItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="207"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:207</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/LetturaContatoriGridItem.html" target="_self" >LetturaContatoriGridItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fixDateValorizationOnEdit"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fixDateValorizationOnEdit</b></span>
+                        <a href="#fixDateValorizationOnEdit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fixDateValorizationOnEdit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="180"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:180</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCountersAt"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>getCountersAt</b></span>
+                        <a href="#getCountersAt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getCountersAt(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="152"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCustomizations"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCustomizations</b></span>
+                        <a href="#handleCustomizations"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCustomizations()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleEvents"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleEvents</b></span>
+                        <a href="#handleEvents"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleEvents()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="168"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:168</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isCounterValidAt"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>isCounterValidAt</b></span>
+                        <a href="#isCounterValidAt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>isCounterValidAt(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>, date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="156"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:156</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loadCounter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>loadCounter</b></span>
+                        <a href="#loadCounter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>loadCounter(row: <a href="../classes/LetturaContatoriGridItem.html" target="_self">LetturaContatoriGridItem</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="162"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>row</td>
+                                            <td>
+                                                            <code><a href="../classes/LetturaContatoriGridItem.html" target="_self" >LetturaContatoriGridItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/BaseCodeDescr.html" target="_self" >Observable&lt;IBaseCodeDescr[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="../classes/LetturaContatoriGridItem.html" target="_self">LetturaContatoriGridItem</a>, oldRow?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="117"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="../classes/LetturaContatoriGridItem.html" target="_self" >LetturaContatoriGridItem</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="102"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;KendoServerResultImpl&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setDefaultsOnNewItem"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>setDefaultsOnNewItem</b></span>
+                        <a href="#setDefaultsOnNewItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>setDefaultsOnNewItem()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="173"
+                                    class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:173</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_columns"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_columns</b></span>
+                        <a href="#_columns"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>KendoGridColumn[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+    //new KendoGridColumn({ field: &#x27;Id_Lettura&#x27;, title: this.transloco.translate(&#x27;ID&#x27;) }, { editable: true, hidden: true, validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;DataLettura&#x27;, title: this.transloco.translate(&#x27;DataOraLettura&#x27;) }, { editable: true, date: new DateTimeSettings(), validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;ValoreMC&#x27;, title: this.transloco.translate(&#x27;ValoreRilevatoMC&#x27;) }, { editable: true, numeric: new NumericSettings(), validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;Id_Contatore&#x27;, title: this.transloco.translate(&#x27;Contatore&#x27;) }, { editable: true, validators: [Validators.required] }),
+    new KendoGridColumn({field: &#x27;Modello&#x27;, title: this.transloco.translate(&#x27;Modello&#x27;)}, {
+      editable: false,
+      hidden: true
+    }),
+    new KendoGridColumn({field: &#x27;Targa&#x27;, title: this.transloco.translate(&#x27;Targa&#x27;)}, {editable: false, hidden: true}),
+    //new KendoGridColumn({ field: &#x27;piva&#x27;, title: this.transloco.translate(&#x27;PIVA&#x27;) }, { editable: false, validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;Validita_Inizio&#x27;, title: this.transloco.translate(&#x27;ValiditaInizioContatore&#x27;) }, { editable: false, hidden:true, date: new DateSettings()}),
+    new KendoGridColumn({ field: &#x27;Validita_Fine&#x27;, title: this.transloco.translate(&#x27;ValiditaFineContatore&#x27;) }, { editable: false, hidden:true, date: new DateSettings() }),
+  ]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:51</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_counters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_counters</b></span>
+                        <a href="#_counters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/WaterCounter.html" target="_self" >WaterCounter[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="66" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_filters"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_filters</b></span>
+                        <a href="#_filters"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new LettureContatoriFilters(
+    new IntervalloTemporale(
+      new Date(DateUtility.getCurrentYear(), DateUtility.months.JANUARY, 1),
+      new Date(DateUtility.getCurrentYear(), DateUtility.months.DECEMBER, 31)
+    )
+  )</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_model"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_model</b></span>
+                        <a href="#_model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new LetturaContatoriGridItemModel()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_rows"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_rows</b></span>
+                        <a href="#_rows"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/LetturaContatoriModel.html" target="_self" >LetturaContatoriModel[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:50</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_LINE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;LettureContatoriAziendaliGrid&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:47</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&quot;Id_Lettura&quot;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="46" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="piva"></a>
+                        <span class="name"><b>piva</b><a href="#piva"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>piva()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/app/domanda-irrigua/components/letture-contatori-aziendali-grid/letture-contatori-aziendali-grid.service.ts:87</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {Injectable, Injector} from &quot;@angular/core&quot;;
+import {AbstractGridConfigService, HttpAction} from &#x27;gias-kendo-grid&#x27;;
+import {
+  DateSettings,
+  DateTimeSettings,
+  DropdownListWithForm,
+  EditingMode,
+  KendoGridColumn,
+  KendoServerResult,
+  LoaderType,
+  NumericSettings,
+  RendererGridEvent
+} from &#x27;gias-kendo-grid&#x27;;
+import {filter, map, Observable, of, take, takeUntil, tap} from &quot;rxjs&quot;;
+import {
+  LetturaContatoriGridItem,
+  LetturaContatoriGridItemForm,
+  LetturaContatoriGridItemModel,
+  LetturaContatoriModel
+} from &quot;../../model/LetturaContatori.model&quot;;
+import {CommandsColumnSettings, ToolbarSettings} from &#x27;gias-kendo-grid&#x27;;
+import {BaseCodeDescr as IBaseCodeDescr} from &quot;../../../Service/api.service&quot;;
+import {ObjParametriAgendaService} from &quot;../../../Service/obj-parametri-agenda.service&quot;;
+import {FormGroup, Validators} from &quot;@angular/forms&quot;;
+import {InData} from &quot;../../model/inData.model&quot;;
+import {ContatoriAcquaClient, RispostaStandard} from &quot;../../../Service/net-core6-api.service&quot;;
+import {GiasMessageService} from &quot;../../../Service/gias-message.service&quot;;
+import {LettureContatoriFilters} from &quot;../../pages/letture-contatori/letture-contatori.component&quot;;
+import {AGRODATAINIZIO} from &quot;../../../Model/CostantiPersonalizzate&quot;;
+import {GiasDialogService} from &quot;../../../Service/gias-dialog.service&quot;;
+import {IntervalloTemporale} from &quot;../../../Model/anagrafiche/IntervalloTemporale&quot;;
+import { DateUtility } from &#x27;gias-ui-kit&#x27;;
+import {WaterCounter} from &quot;../../model/WaterCounter&quot;;
+import {GridDataResult} from &quot;@progress/kendo-angular-grid&quot;;
+
+class KendoServerResultImpl extends KendoServerResult {
+  constructor(model, cols, rows) {
+    super(model, cols, rows);
+  }
+}
+
+@Injectable()
+export class LettureContatoriGridConfigService extends AbstractGridConfigService&lt;KendoServerResult&gt; {
+  editingMode &#x3D; EditingMode.IN_LINE;
+  loader &#x3D; LoaderType.SERVICE;
+  rowId &#x3D; &quot;Id_Lettura&quot;;
+  gridId &#x3D; &quot;LettureContatoriAziendaliGrid&quot;;
+
+  private _model &#x3D; new LetturaContatoriGridItemModel();
+  private _rows: LetturaContatoriModel[] &#x3D; [];
+  private _columns: KendoGridColumn[] &#x3D; [
+    //new KendoGridColumn({ field: &#x27;Id_Lettura&#x27;, title: this.transloco.translate(&#x27;ID&#x27;) }, { editable: true, hidden: true, validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;DataLettura&#x27;, title: this.transloco.translate(&#x27;DataOraLettura&#x27;) }, { editable: true, date: new DateTimeSettings(), validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;ValoreMC&#x27;, title: this.transloco.translate(&#x27;ValoreRilevatoMC&#x27;) }, { editable: true, numeric: new NumericSettings(), validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;Id_Contatore&#x27;, title: this.transloco.translate(&#x27;Contatore&#x27;) }, { editable: true, validators: [Validators.required] }),
+    new KendoGridColumn({field: &#x27;Modello&#x27;, title: this.transloco.translate(&#x27;Modello&#x27;)}, {
+      editable: false,
+      hidden: true
+    }),
+    new KendoGridColumn({field: &#x27;Targa&#x27;, title: this.transloco.translate(&#x27;Targa&#x27;)}, {editable: false, hidden: true}),
+    //new KendoGridColumn({ field: &#x27;piva&#x27;, title: this.transloco.translate(&#x27;PIVA&#x27;) }, { editable: false, validators: [Validators.required] }),
+    new KendoGridColumn({ field: &#x27;Validita_Inizio&#x27;, title: this.transloco.translate(&#x27;ValiditaInizioContatore&#x27;) }, { editable: false, hidden:true, date: new DateSettings()}),
+    new KendoGridColumn({ field: &#x27;Validita_Fine&#x27;, title: this.transloco.translate(&#x27;ValiditaFineContatore&#x27;) }, { editable: false, hidden:true, date: new DateSettings() }),
+  ];
+
+  private _counters: WaterCounter[] &#x3D; [];
+  private _filters &#x3D; new LettureContatoriFilters(
+    new IntervalloTemporale(
+      new Date(DateUtility.getCurrentYear(), DateUtility.months.JANUARY, 1),
+      new Date(DateUtility.getCurrentYear(), DateUtility.months.DECEMBER, 31)
+    )
+  );
+
+  constructor(
+    injector: Injector,
+    private message: GiasMessageService,
+    private dialog: GiasDialogService,
+    private agenda: ObjParametriAgendaService,
+    private client: ContatoriAcquaClient
+  ) {
+    super(injector);
+    this.handleCustomizations();
+    this.configureDdls();
+    this.handleEvents();
+  }
+
+  private get piva(): string {
+    return this.agenda.getObjParamValue().Piva;
+  }
+
+  override applyRendererRules(opts: RendererGridEvent): void {
+    const gridResult &#x3D; opts.grid.data as GridDataResult;
+    gridResult.data.forEach(row &#x3D;&gt; {
+      const counter &#x3D; this._counters.find(x &#x3D;&gt; x.codice &#x3D;&#x3D;&#x3D; row.Id_Contatore);
+      if (counter) {
+        row.Modello &#x3D; counter.modello;
+        row.Targa &#x3D; counter.targa;
+      }
+    });
+  }
+
+  read(options?: any): Observable&lt;KendoServerResultImpl&gt; {
+    if (options) {
+      this._filters &#x3D; options;
+      return of(null);
+    }
+    return this.client.contatoriAcquaGetLetturaContatori(new InData.DSS.Letture_IN(
+      this.piva, this._filters?.dateInterval
+    )).pipe(
+      map(r &#x3D;&gt; JSON.parse(r.RispostaStringa)),
+      tap((items: LetturaContatoriGridItem[]) &#x3D;&gt; items.forEach(x &#x3D;&gt; x.piva &#x3D; this.piva)),
+      tap(items &#x3D;&gt; this._rows &#x3D; items.map(x &#x3D;&gt; new LetturaContatoriModel().fromFlatGridItem(x))),
+      map(items &#x3D;&gt; new KendoServerResultImpl(this._model, this._columns, items))
+    );
+  }
+
+  perform(actionType: HttpAction, items: LetturaContatoriGridItem, oldRow?: any): Observable&lt;any&gt; {
+    if ((actionType &#x3D;&#x3D;&#x3D; HttpAction.CREATE || actionType &#x3D;&#x3D;&#x3D; HttpAction.UPDATE)
+      &amp;&amp; !this.isCounterValidAt(items.Id_Contatore, items.DataLettura)
+    ) {
+      this.dialog.baseError(&quot;ErroreSalvataggio&quot;, &quot;ContatoreInvalidoDataSelezionata&quot;);
+      return of(null);
+    }
+    switch (actionType) {
+      case HttpAction.CREATE:
+        return this.addReading(items);
+      case HttpAction.UPDATE:
+        return this.editReading(items);
+      case HttpAction.REMOVE:
+        return this.deleteReading(items);
+    }
+  }
+
+  private handleCustomizations() {
+    this.cmdColumn &#x3D; new CommandsColumnSettings({ editBtn: true, infoBtn: false, removeBtn: true });
+    this.toolbar &#x3D; new ToolbarSettings(true);
+  }
+
+  private configureDdls() {
+    const col &#x3D; this._columns.find(s &#x3D;&gt; s.field &#x3D;&#x3D;&#x3D; &#x27;Id_Contatore&#x27;);
+    col.ddl &#x3D; new DropdownListWithForm(&#x27;codice&#x27;, &#x27;Id_Contatore&#x27;, &#x27;descrizione&#x27;, []);
+    col.ddl.descriptionField &#x3D; &#x27;Descrizione&#x27;;
+    col.ddl.loadOnEdit &#x3D; true;
+    col.ddl.loadFunction &#x3D; this.loadCounter.bind(this);
+    col.ddl.defaultOpen &#x3D; true;
+    col.ddl.valuePrimitive &#x3D; true;
+    this.client.contatoriAcquaGetContatori(new InData.DSS.LeggiContatori_IN(this.piva, AGRODATAINIZIO))
+      .pipe(map(r &#x3D;&gt; JSON.parse(r.RispostaStringa)))
+      .subscribe(counters &#x3D;&gt; this._counters &#x3D; counters);
+  };
+
+  private getCountersAt(date: Date) {
+    return this._counters.filter(x &#x3D;&gt; date &gt;&#x3D; new Date(x.validita.inizio) &amp;&amp; date &lt;&#x3D; new Date(x.validita.fine));
+  }
+
+  private isCounterValidAt(id: number, date: Date) {
+    const selected &#x3D; this._counters.find(x &#x3D;&gt; x.codice &#x3D;&#x3D;&#x3D; id);
+    const counters &#x3D; this.getCountersAt(date);
+    return counters.includes(selected);
+  }
+
+  private loadCounter(row: LetturaContatoriGridItem): Observable&lt;IBaseCodeDescr[]&gt; {
+    if (!row.DataLettura) {
+      return of([]);
+    } else return of(this.getCountersAt(row.DataLettura));
+  }
+
+  private handleEvents() {
+    this.setDefaultsOnNewItem();
+    this.fixDateValorizationOnEdit();
+  }
+
+  private setDefaultsOnNewItem() {
+    this.gridPublicService.formGroup.pipe(
+      takeUntil(this.signal),
+      filter(fg &#x3D;&gt; fg !&#x3D; null &amp;&amp; !this._rows.find(r &#x3D;&gt; r[this.rowId] &#x3D;&#x3D;&#x3D; fg.value[this.rowId])),
+    ).subscribe((fg: FormGroup&lt;LetturaContatoriGridItemForm&gt;) &#x3D;&gt; fg.controls.piva.patchValue(this.piva));
+  }
+
+  private fixDateValorizationOnEdit() {
+    this.gridPublicService.formGroup.pipe(
+      takeUntil(this.signal),
+      filter(fg &#x3D;&gt; fg !&#x3D; null),
+    ).subscribe((fg: FormGroup&lt;LetturaContatoriGridItemForm&gt;) &#x3D;&gt; {
+      const item &#x3D; this._rows.find(r &#x3D;&gt; r[this.rowId] &#x3D;&#x3D;&#x3D; fg.value[this.rowId]);
+      if (item &amp;&amp; !fg.value.DataLettura) {
+        fg.controls.DataLettura.patchValue(new Date(item.dataLettura));
+      }
+    });
+  }
+
+  private addReading(row: LetturaContatoriGridItem): Observable&lt;any&gt; {
+    return this.client.contatoriAcquaWriteLetturaContatori(new InData.DSS.ScriviLetturaContatore(
+      0, row.piva, row.Id_Contatore, row.ValoreMC, row.DataLettura, false
+    )).pipe(
+      take(1),
+      tap((response: RispostaStandard) &#x3D;&gt; {
+        if (response.RispostaOK) {
+          this.message.successMessage(this.transloco.translate(&quot;SalvataggioAvvenutoConSuccesso&quot;));
+        } else {
+          this.message.errorMessage(this.transloco.translate(&quot;ErroreSalvataggio&quot;));
+        }
+      })
+    );
+  }
+
+  private editReading(row: LetturaContatoriGridItem) {
+    return this.client.contatoriAcquaWriteLetturaContatori(new InData.DSS.ScriviLetturaContatore(
+      row.Id_Lettura, row.piva, row.Id_Contatore, row.ValoreMC, row.DataLettura, false
+    )).pipe(
+      take(1),
+      tap((response: RispostaStandard) &#x3D;&gt; {
+        if (response.RispostaOK) {
+          this.message.successMessage(this.transloco.translate(&quot;ModificaAvvenutaConSuccesso&quot;));
+        } else {
+          this.message.errorMessage(this.transloco.translate(&quot;ErroreSalvataggio&quot;));
+        }
+      })
+    );
+  }
+
+  private deleteReading(row: LetturaContatoriGridItem) {
+    return this.client.contatoriAcquaWriteLetturaContatori(new InData.DSS.ScriviLetturaContatore(
+      row.Id_Lettura, row.piva, row.Id_Contatore, row.ValoreMC, row.DataLettura, true
+    )).pipe(
+      take(1),
+      tap((response: RispostaStandard) &#x3D;&gt; {
+        if (response.RispostaOK) {
+          this.message.successMessage(this.transloco.translate(&quot;CancellazioneAvvenuta&quot;));
+        } else {
+          this.message.errorMessage(this.transloco.translate(&quot;ErroreCancellazione&quot;));
+        }
+      })
+    );
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'LettureContatoriGridConfigService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

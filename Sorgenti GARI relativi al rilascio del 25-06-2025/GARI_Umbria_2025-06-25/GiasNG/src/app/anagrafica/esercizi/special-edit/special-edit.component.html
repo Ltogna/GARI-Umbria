@@ -1,0 +1,26 @@
+<kendo-tabstrip id="tabstrip" (tabSelect)="onTabSelect($event)">
+  <kendo-tabstrip-tab
+    *ngFor="let tab of tabs"
+    class="customTheme"
+    [title]="tab.title"
+    [selected]="isTabSelected(tab)"
+  >
+    <ng-template kendoTabTitle>
+      <span style="cursor: pointer;">{{tab.title | transloco}}</span>
+    </ng-template>
+
+    <ng-template kendoTabContent>
+      <app-agricultural-plot-slope
+        *ngIf="tab.id === SpecialEdit.PlotSlope && canEditSlope()"
+        [checkedRows$]="checkedRows$"
+      >
+      </app-agricultural-plot-slope>
+
+      <app-agricultural-plot-weaving
+        *ngIf="tab.id === SpecialEdit.PlotWeaving && canEditWeaving()"
+        [checkedRows$]="checkedRows$"
+      >
+      </app-agricultural-plot-weaving>
+    </ng-template>
+  </kendo-tabstrip-tab>
+</kendo-tabstrip>

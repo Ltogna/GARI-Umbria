@@ -1,0 +1,2445 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ImpostazioniFormService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/profilazione/services/impostazioni/impostazioni-form.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#_SQLFilter" >_SQLFilter</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#addOperationsInFilter$" >addOperationsInFilter$</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#datashare" >datashare</a>
+                            </li>
+                            <li>
+                                <a href="#filterChanged" >filterChanged</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#MASTER_EDIT" >MASTER_EDIT</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#masterService" >masterService</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#settingsForm" >settingsForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#USAGE_AREA" >USAGE_AREA</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#utentiSelezionati" >utentiSelezionati</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#aggiungiGuidaImpostazione" >aggiungiGuidaImpostazione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#copiaImpostazioni" >copiaImpostazioni</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#date2yyyymmdd" >date2yyyymmdd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#dividiImpostazioni" >dividiImpostazioni</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#findGuidaImpostazione" >findGuidaImpostazione</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#findImpostazioneForm" >findImpostazioneForm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#fixValorization" >fixValorization</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#getTouchedSettings" >getTouchedSettings</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#leggiAreeGIAS" >leggiAreeGIAS</a>
+                            </li>
+                            <li>
+                                <a href="#leggiDatiImpostazioni" >leggiDatiImpostazioni</a>
+                            </li>
+                            <li>
+                                <a href="#leggiSezioniImpostazioni" >leggiSezioniImpostazioni</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#resetImpostazioniToDefault" >resetImpostazioniToDefault</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#salvaImpostazioni" >salvaImpostazioni</a>
+                            </li>
+                            <li>
+                                <a href="#salvaImpostazioniModificate" >salvaImpostazioniModificate</a>
+                            </li>
+                            <li>
+                                <a href="#salvaImpostazioniModificateObs" >salvaImpostazioniModificateObs</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#salvaImpostazioniObs" >salvaImpostazioniObs</a>
+                            </li>
+                            <li>
+                                <a href="#salvaTutteImpostazioni" >salvaTutteImpostazioni</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#currentPage" >currentPage</a>
+                                </li>
+                                <li>
+                                    <a href="#SQL_Filter" >SQL_Filter</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(datashare: <a href="../injectables/ProfilazioneDataShareService.html" target="_self">ProfilazioneDataShareService</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>, userSettings: <a href="../injectables/ImpostazioniUtentiService.html" target="_self">ImpostazioniUtentiService</a>, ACSettings: <a href="../injectables/ImpostazioniAziendeCentriService.html" target="_self">ImpostazioniAziendeCentriService</a>, ajaxAgronicaService: <a href="../injectables/AjaxAgronicaService.html" target="_self">AjaxAgronicaService</a>, APIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:32</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>datashare</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProfilazioneDataShareService.html" target="_self" >ProfilazioneDataShareService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userSettings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpostazioniUtentiService.html" target="_self" >ImpostazioniUtentiService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ACSettings</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ImpostazioniAziendeCentriService.html" target="_self" >ImpostazioniAziendeCentriService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaService.html" target="_self" >AjaxAgronicaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>APIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="aggiungiGuidaImpostazione"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>aggiungiGuidaImpostazione</b></span>
+                        <a href="#aggiungiGuidaImpostazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>aggiungiGuidaImpostazione(guida: <a href="../interfaces/Impostazione.html" target="_self">Array&lt;Impostazione&gt;</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="306"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:306</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>GUIDA IMPOSTAZIONI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>guida</td>
+                                            <td>
+                                                            <code><a href="../interfaces/Impostazione.html" target="_self" >Array&lt;Impostazione&gt;</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="copiaImpostazioni"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>copiaImpostazioni</b></span>
+                        <a href="#copiaImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>copiaImpostazioni(base: string[], template: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="139"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:139</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>base</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>template</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="date2yyyymmdd"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>date2yyyymmdd</b></span>
+                        <a href="#date2yyyymmdd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>date2yyyymmdd(date: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank">Date</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="264"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>date</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dividiImpostazioni"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>dividiImpostazioni</b></span>
+                        <a href="#dividiImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>dividiImpostazioni(settingsForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="190"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:190</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suddivide i campi del form impostazioni nei singoli valori da salvare.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingsForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>il form impostazioni</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>{}</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>un array contenente gli oggetti da salvare</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findGuidaImpostazione"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>findGuidaImpostazione</b></span>
+                        <a href="#findGuidaImpostazione"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findGuidaImpostazione(codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="154"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:154</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Se il form impostazioni è stato caricato, ritorna l&#39;impostazione specificata.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>codice dell&#39;impostazione da ricercare</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Impostazione.html" target="_self" >Impostazione</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>return una copia del valore del controller dell&#39;impostazione o <code>undefined</code> se l&#39;impostazione non è stata trovata.</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findImpostazioneForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>findImpostazioneForm</b></span>
+                        <a href="#findImpostazioneForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findImpostazioneForm(codice: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="169"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:169</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codice</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>FormGroup</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fixValorization"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>fixValorization</b></span>
+                        <a href="#fixValorization"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>fixValorization(setting: ImpostazioniFormItem)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="249"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:249</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Fix the valorization of the setting based on certain conditions.
+If setting.valoreCorrente is a date, it converts it to the format YYYYMMDD.
+If it&#39;s an array, it concatenates the elements with a &#39;|&#39; separator.
+If it matches certain conditions based on setting.guida.Tipo_Campo, it validates setting.valoreCorrente
+against setting.valori and potentially updates it to an empty string to avoid saving invalid values such as <code>&quot;undefined&quot;</code>.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>setting</td>
+                                            <td>
+                                                        <code>ImpostazioniFormItem</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>the setting to be fixed</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getTouchedSettings"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>getTouchedSettings</b></span>
+                        <a href="#getTouchedSettings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>getTouchedSettings(settingsForm: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="217"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Suddivide i campi del form impostazioni nei singoli valori da salvare
+considerando unicamente i campi modificati.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingsForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>il form impostazioni</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Utente_Impostazioni[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>un array contenente gli oggetti da salvare</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiAreeGIAS"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>leggiAreeGIAS</b></span>
+                        <a href="#leggiAreeGIAS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>leggiAreeGIAS()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="288"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:288</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>AREE GIAS</p>
+</div>
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiDatiImpostazioni"></a>
+                    <span class="name">
+                        <span ><b>leggiDatiImpostazioni</b></span>
+                        <a href="#leggiDatiImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiDatiImpostazioni(codiciImpostazioni: number[], selected?: string[], setLoading)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="86"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:86</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Legge i valori delle impostazioni contenute nella pagina.
+In base alla pagina di utilizzo specificata in this.USAGE_AREA carica i
+valori selezionati dall&#39;utente o dall&#39;impresa/e selezionate.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>codiciImpostazioni</td>
+                                            <td>
+                                                        <code>number[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>codici delle impostazioni da caricare</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>selected</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <p>username dell&#39;utente o piva dell&#39;impresa/e</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>setLoading</td>
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>true</code>
+                                            </td>
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;literal type[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>Observable contenente la lista di valori di ogni impostazione</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="leggiSezioniImpostazioni"></a>
+                    <span class="name">
+                        <span ><b>leggiSezioniImpostazioni</b></span>
+                        <a href="#leggiSezioniImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>leggiSezioniImpostazioni(usage?: <a href="../undefineds/enum_PaginaImpostazioni.html" target="_self">enum_PaginaImpostazioni</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="67"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:67</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>DATI IMPOSTAZIONI</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>usage</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#enum_PaginaImpostazioni" target="_self" >enum_PaginaImpostazioni</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="resetImpostazioniToDefault"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>resetImpostazioniToDefault</b></span>
+                        <a href="#resetImpostazioniToDefault"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>resetImpostazioniToDefault(selected: string[], codes: number[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>Reimposta il valore delle impostazioni specificate al valore registrato dal superuser o quello di default.</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>selected</td>
+                                            <td>
+                                                        <code>string[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>gli username degli utenti cui resettare le impostazioni</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>codes</td>
+                                            <td>
+                                                        <code>number[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>i codici delle impostazioni su cui eseguire l&#39;operazione</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaImpostazioni"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>salvaImpostazioni</b></span>
+                        <a href="#salvaImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>salvaImpostazioni(impostazioni: Utente_Impostazioni[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="123"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:123</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>impostazioni</td>
+                                            <td>
+                                                        <code>Utente_Impostazioni[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaImpostazioniModificate"></a>
+                    <span class="name">
+                        <span ><b>salvaImpostazioniModificate</b></span>
+                        <a href="#salvaImpostazioniModificate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>salvaImpostazioniModificate(settingsForm?: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="113"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:113</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingsForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaImpostazioniModificateObs"></a>
+                    <span class="name">
+                        <span ><b>salvaImpostazioniModificateObs</b></span>
+                        <a href="#salvaImpostazioniModificateObs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>salvaImpostazioniModificateObs(settingsForm?: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="118"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:118</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingsForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaImpostazioniObs"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>salvaImpostazioniObs</b></span>
+                        <a href="#salvaImpostazioniObs"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>salvaImpostazioniObs(impostazioni: Utente_Impostazioni[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="131"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:131</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>impostazioni</td>
+                                            <td>
+                                                        <code>Utente_Impostazioni[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;boolean&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="salvaTutteImpostazioni"></a>
+                    <span class="name">
+                        <span ><b>salvaTutteImpostazioni</b></span>
+                        <a href="#salvaTutteImpostazioni"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>salvaTutteImpostazioni(settingsForm?: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="108"
+                                    class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:108</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>settingsForm</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="_SQLFilter"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>_SQLFilter</b></span>
+                        <a href="#_SQLFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>any[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="53" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:53</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addOperationsInFilter$"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>addOperationsInFilter$</b></span>
+                        <a href="#addOperationsInFilter$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/Lavorazione.html" target="_self" >Subject&lt;Lavorazione[]&gt;</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Subject()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="32" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="datashare"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>datashare</b></span>
+                        <a href="#datashare"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/ProfilazioneDataShareService.html" target="_self" >ProfilazioneDataShareService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="35" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:35</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="filterChanged"></a>
+                    <span class="name">
+                        <span ><b>filterChanged</b></span>
+                        <a href="#filterChanged"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EventEmitter&lt;any&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new EventEmitter()</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:52</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>FILTRO SQL</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MASTER_EDIT"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>MASTER_EDIT</b></span>
+                        <a href="#MASTER_EDIT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:26</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Flag interno per gestire le impostazioni</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="masterService"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>masterService</b></span>
+                        <a href="#masterService"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="36" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:36</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="settingsForm"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>settingsForm</b></span>
+                        <a href="#settingsForm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="31" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:31</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USAGE_AREA"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>USAGE_AREA</b></span>
+                        <a href="#USAGE_AREA"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#enum_PaginaImpostazioni" target="_self" >enum_PaginaImpostazioni</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>enum_PaginaImpostazioni.UNDEFINED</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="utentiSelezionati"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>utentiSelezionati</b></span>
+                        <a href="#utentiSelezionati"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:29</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Indica l&#39;utente da usare come riferiemnto per il caricamento delle impostazioni.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="currentPage"></a>
+                        <span class="name"><b>currentPage</b><a href="#currentPage"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>currentPage()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:45</a></div>
+                                </td>
+                            </tr>
+
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="SQL_Filter"></a>
+                        <span class="name"><b>SQL_Filter</b><a href="#SQL_Filter"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>get</b><code>SQL_Filter()</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:61</a></div>
+                                </td>
+                            </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>SQL_Filter(filter: any[])</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="55" class="link-to-prism">src/app/profilazione/services/impostazioni/impostazioni-form.service.ts:55</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>filter</td>
+                                                    
+                                                            <td>
+                                                                        <code>any[]</code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {EventEmitter, Injectable} from &#x27;@angular/core&#x27;;
+import {FormArray, FormGroup} from &#x27;@angular/forms&#x27;;
+import {AjaxAgronicaService} from &#x27;app/Service/ajax-agronica.service&#x27;;
+import {MasterService} from &#x27;app/Service/master.service&#x27;;
+import {map, Observable, of, Subject, tap} from &#x27;rxjs&#x27;;
+import {ImpostazioniAziendeCentriService} from &#x27;./impostazioni-aziende-centri.service&#x27;;
+import {ImpostazioniUtentiService} from &#x27;./impostazioni-utenti.service&#x27;;
+import {enum_PaginaImpostazioni} from &#x27;../../impostazioni-utente/impostazioni.model&#x27;;
+import {AjaxAgronicaAPIService} from &#x27;../../../Service/ajax-agronica.api.service&#x27;;
+import { GuidaValoreImpostazione, Impostazione } from &#x27;gias-ui-kit&#x27;;
+import {ProfilazioneDataShareService} from &#x27;../profilazione-data-share.service&#x27;;
+import { ImpostazioniFormItem } from &#x27;gias-ui-kit&#x27;;
+import {Utente_Impostazioni} from &#x27;../../../Model/utente/utente_impostazioni&#x27;;
+import {Lavorazione} from &quot;../../../Model/attivita/Lavorazione&quot;;
+import {cloneDeep, isDate} from &quot;lodash&quot;;
+import {enum_PagineProfilazione} from &quot;../../models/PaginaProfilazione.model&quot;;
+import { enum_TipoControllo } from &#x27;gias-ui-kit&#x27;;
+
+
+const linkAreeGIAS &#x3D; &quot;Metaschema/ImpostazioniUtente.asmx/Carica_AreeGIAS&quot;;
+
+
+@Injectable()
+export class ImpostazioniFormService {
+  /** Flag interno per gestire le impostazioni */
+  public readonly MASTER_EDIT &#x3D; false;
+
+  /** Indica l&#x27;utente da usare come riferiemnto per il caricamento delle impostazioni.*/
+  public utentiSelezionati: string[] &#x3D; [];
+  public USAGE_AREA: enum_PaginaImpostazioni &#x3D; enum_PaginaImpostazioni.UNDEFINED;
+  public settingsForm: FormGroup;
+  public addOperationsInFilter$: Subject&lt;Lavorazione[]&gt; &#x3D; new Subject();
+
+  constructor(
+    public datashare: ProfilazioneDataShareService,
+    public masterService: MasterService,
+    private userSettings: ImpostazioniUtentiService,
+    private ACSettings: ImpostazioniAziendeCentriService,
+    private ajaxAgronicaService: AjaxAgronicaService,
+    private APIService: AjaxAgronicaAPIService,
+  ) {
+    this.utentiSelezionati &#x3D; [this.masterService.objP_utenti.UtenteUsername];
+  }
+
+  public get currentPage(): enum_PagineProfilazione {
+    return this.datashare.currentPage.value;
+  }
+
+
+  /*********** FILTRO SQL ***********/
+
+  filterChanged: EventEmitter&lt;any&gt; &#x3D; new EventEmitter();
+  private _SQLFilter: any[] &#x3D; [];
+
+  public set SQL_Filter(filter: any[]) {
+    this._SQLFilter &#x3D; filter;
+
+    this.filterChanged.emit(this._SQLFilter);
+  }
+
+  public get SQL_Filter(): any[] {
+    return this._SQLFilter;
+  }
+
+  /*********** DATI IMPOSTAZIONI ***********/
+
+  leggiSezioniImpostazioni(usage?: enum_PaginaImpostazioni): Observable&lt;any&gt; {
+    const forPage &#x3D; usage || this.USAGE_AREA;
+    if (forPage &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.AZIENDE_CENTRI) {
+      return this.ACSettings.leggiSezioniImpostazioniAziendeCentri();
+    } else if (forPage &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.UTENTI) {
+      return this.userSettings.leggiSezioniImpostazioniUtente(0, this.utentiSelezionati);
+    }
+    return this.userSettings.leggiSezioniImpostazioniUtente();
+  }
+
+  /**
+   * Legge i valori delle impostazioni contenute nella pagina.
+   * In base alla pagina di utilizzo specificata in this.USAGE_AREA carica i
+   * valori selezionati dall&#x27;utente o dall&#x27;impresa/e selezionate.
+   *
+   * @param codiciImpostazioni codici delle impostazioni da caricare
+   * @param selected username dell&#x27;utente o piva dell&#x27;impresa/e
+   * @returns Observable contenente la lista di valori di ogni impostazione
+   */
+  leggiDatiImpostazioni(codiciImpostazioni: number[], selected?: string[], setLoading &#x3D; true)
+    : Observable&lt;{ Impostazione_Cod: number; data: GuidaValoreImpostazione[] }[]&gt; {
+    if (!selected) {
+      selected &#x3D; this.utentiSelezionati;
+    }
+    const alreadyLoading &#x3D; this.masterService.get_isLoading().isLoading;
+    if (setLoading &amp;&amp; !alreadyLoading) {
+      this.masterService.set_isLoading({isLoading: true, zIndex: 20000});
+    }
+    if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.AZIENDE_CENTRI) {
+      return this.ACSettings.leggiDatiImpostazioniAziendeCentri(codiciImpostazioni)
+        .pipe(tap(() &#x3D;&gt; {
+          if (setLoading &amp;&amp; !alreadyLoading) this.masterService.set_isLoading({isLoading: false});
+        }));
+    } else {
+      return this.userSettings.leggiControlliImpostazioniUtente(codiciImpostazioni, selected)
+        .pipe(tap(() &#x3D;&gt; {
+          if (setLoading &amp;&amp; !alreadyLoading) this.masterService.set_isLoading({isLoading: false});
+        }));
+    }
+  }
+
+  salvaTutteImpostazioni(settingsForm?: FormGroup) {
+    let form &#x3D; settingsForm || this.settingsForm;
+    this.salvaImpostazioni(this.dividiImpostazioni(form));
+  }
+
+  salvaImpostazioniModificate(settingsForm?: FormGroup) {
+    let impostazioni &#x3D; this.getTouchedSettings(settingsForm || this.settingsForm);
+    this.salvaImpostazioni(impostazioni);
+  }
+
+  salvaImpostazioniModificateObs(settingsForm?: FormGroup): Observable&lt;boolean&gt; {
+    let impostazioni &#x3D; this.getTouchedSettings(settingsForm || this.settingsForm);
+    return this.salvaImpostazioniObs(impostazioni);
+  }
+
+  private salvaImpostazioni(impostazioni: Utente_Impostazioni[]) {
+    if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.UTENTI || this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.SUPERUSER) {
+      this.userSettings.salvaImpostazioniUtente(impostazioni, this.utentiSelezionati);
+    } else if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.AZIENDE_CENTRI) {
+      this.ACSettings.salvaImpostazioniAziendeCentri(impostazioni);
+    }
+  }
+
+  private salvaImpostazioniObs(impostazioni: Utente_Impostazioni[]): Observable&lt;boolean&gt; {
+    if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.UTENTI || this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.SUPERUSER) {
+      return this.userSettings.salvaImpostazioniUtenteObs(impostazioni, this.utentiSelezionati);
+    } else if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.AZIENDE_CENTRI) {
+      this.ACSettings.salvaImpostazioniAziendeCentriObs(impostazioni);
+    }
+  }
+
+  public copiaImpostazioni(base: string[], template: string): Observable&lt;boolean&gt; {
+    if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.UTENTI) {
+      return this.userSettings.copiaImpostazioni(base, template);
+    } else if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.AZIENDE_CENTRI) {
+      let impostazioni &#x3D; this.dividiImpostazioni(this.settingsForm);
+      return this.ACSettings.copiaImpostazioni(base, template, impostazioni);
+    }
+    return of(false);
+  }
+
+  /**
+   * Se il form impostazioni è stato caricato, ritorna l&#x27;impostazione specificata.
+   * @param codice codice dell&#x27;impostazione da ricercare
+   * @return return una copia del valore del controller dell&#x27;impostazione o &lt;code&gt;undefined&lt;/code&gt; se l&#x27;impostazione non è stata trovata.
+   */
+  public findGuidaImpostazione(codice: number): Impostazione {
+    for (let sezione of this.settingsForm?.value?.sezioni) {
+      for (let sub of sezione.children) {
+        for (let livello of sub.children) {
+          const impostazione &#x3D; livello.impostazioni.find(i &#x3D;&gt; i.guida.Impostazione_Cod &#x3D;&#x3D;&#x3D; codice);
+          if (impostazione !&#x3D;&#x3D; undefined) {
+            impostazione.guida.value &#x3D; impostazione.valoreCorrente;
+            return cloneDeep(impostazione.guida);
+          }
+        }
+      }
+    }
+    return undefined;
+  }
+
+  public findImpostazioneForm(codice: number): FormGroup {
+    for (let sezione of (this.settingsForm?.get(&quot;sezioni&quot;) as FormArray).controls) {
+      for (let sub of (sezione.get(&quot;children&quot;) as FormArray).controls) {
+        for (let livello of (sub.get(&quot;children&quot;) as FormArray).controls) {
+          const impostazione &#x3D; (livello.get(&quot;impostazioni&quot;) as FormArray).controls
+            .find(ctrl &#x3D;&gt; ctrl.value.guida.Impostazione_Cod &#x3D;&#x3D;&#x3D; codice);
+          if (impostazione !&#x3D;&#x3D; undefined) {
+            return impostazione as FormGroup;
+          }
+        }
+      }
+    }
+    return undefined;
+  }
+
+  /**
+   * Suddivide i campi del form impostazioni nei singoli valori da salvare.
+   *
+   * @param settingsForm il form impostazioni
+   * @returns un array contenente gli oggetti da salvare
+   */
+  private dividiImpostazioni(settingsForm: FormGroup) {
+    let impostazioni: Utente_Impostazioni[] &#x3D; [];
+    for (let sezione of settingsForm.get(&#x27;sezioni&#x27;).value) {
+      for (let sub of sezione.children) {
+        for (let livello of sub.children) {
+          let toAdd &#x3D; livello.impostazioni.map(c &#x3D;&gt; {
+            if (typeof (c.valoreCorrente) &#x3D;&#x3D;&#x3D; &#x27;number&#x27;) {
+              c.valoreCorrente &#x3D; c.valoreCorrente.toString();
+            } else if (typeof (c.valoreCorrente) &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; c.valoreCorrente.length) {
+              c.valoreCorrente &#x3D; c.valoreCorrente.reduce((a, b) &#x3D;&gt; a + &quot;|&quot; + b);
+            }
+            return new Utente_Impostazioni(c.guida.Impostazione_Cod, c.valoreCorrente);
+          });
+          impostazioni &#x3D; impostazioni.concat(toAdd);
+        }
+      }
+    }
+    return impostazioni;
+  }
+
+  /**
+   * Suddivide i campi del form impostazioni nei singoli valori da salvare
+   * considerando unicamente i campi modificati.
+   *
+   * @param settingsForm il form impostazioni
+   * @returns un array contenente gli oggetti da salvare
+   */
+  public getTouchedSettings(settingsForm: FormGroup): Utente_Impostazioni[] {
+    const touched: Utente_Impostazioni[] &#x3D; [];
+    let touchedSections &#x3D; (settingsForm.get(&#x27;sezioni&#x27;) as FormArray).controls.filter(c &#x3D;&gt; c.touched);
+    for (let sezioneCtrl of touchedSections) {
+
+      let touchedSubsections &#x3D; (sezioneCtrl.get(&#x27;children&#x27;) as FormArray).controls.filter(c &#x3D;&gt; c.touched);
+      for (let subCtrl of touchedSubsections) {
+
+        let touchedLevels &#x3D; (subCtrl.get(&#x27;children&#x27;) as FormArray).controls.filter(c &#x3D;&gt; c.touched);
+        for (let levelCtrl of touchedLevels) {
+          (levelCtrl.get(&#x27;impostazioni&#x27;) as FormArray).controls
+            .filter(c &#x3D;&gt; c.touched)
+            .map(absCtrl &#x3D;&gt; absCtrl.value)
+            .map(c &#x3D;&gt; {
+              this.fixValorization(c);
+              return new Utente_Impostazioni(c.guida.Impostazione_Cod, c.valoreCorrente);
+            })
+            .forEach(s &#x3D;&gt; touched.push(s));
+        }
+      }
+    }
+    return touched;
+  }
+
+  /**
+   * Fix the valorization of the setting based on certain conditions.
+   * If setting.valoreCorrente is a date, it converts it to the format YYYYMMDD.
+   * If it&#x27;s an array, it concatenates the elements with a &#x27;|&#x27; separator.
+   * If it matches certain conditions based on setting.guida.Tipo_Campo, it validates setting.valoreCorrente
+   * against setting.valori and potentially updates it to an empty string to avoid saving invalid values such as &#x60;&quot;undefined&quot;&#x60;.
+   * @param {ImpostazioniFormItem} setting - the setting to be fixed
+   */
+  private fixValorization(setting: ImpostazioniFormItem) {
+    if (isDate(setting.valoreCorrente)) {
+      // Salva la data in formato YYYYMMDD
+      setting.valoreCorrente &#x3D; this.date2yyyymmdd(setting.valoreCorrente as Date);
+    } else if (Array.isArray(setting.valoreCorrente)) {
+      setting.valoreCorrente &#x3D; setting.valoreCorrente.length
+        ? setting.valoreCorrente.reduce((a, b) &#x3D;&gt; a + &#x27;|&#x27; + b)
+        : &quot;&quot;;
+    } else if (+setting.guida.Tipo_Campo &#x3D;&#x3D;&#x3D; enum_TipoControllo.MENU_DISCESA) {
+      if (!setting.valori.find(value &#x3D;&gt; value.codice &#x3D;&#x3D;&#x3D; setting.valoreCorrente)) {
+        setting.valoreCorrente &#x3D; &quot;&quot;;
+      }
+    }
+  }
+
+  private date2yyyymmdd(date: Date): string {
+    const yyyy &#x3D; date.getFullYear().toString();
+    let mm &#x3D; (date.getMonth() + 1).toString();
+    mm &#x3D; +mm &lt; 10 ? &#x27;0&#x27; + mm : mm;
+    let dd &#x3D; date.getDate().toString();
+    dd &#x3D; +dd &lt; 10 ? &#x27;0&#x27; + dd : dd;
+    return yyyy + mm + dd;
+  }
+
+  /**
+   * Reimposta il valore delle impostazioni specificate al valore registrato dal superuser o quello di default.
+   * @param selected gli username degli utenti cui resettare le impostazioni
+   * @param codes i codici delle impostazioni su cui eseguire l&#x27;operazione
+   */
+  public resetImpostazioniToDefault(selected: string[], codes: number[]) {
+    if (!selected)
+      selected &#x3D; this.utentiSelezionati;
+    if (this.USAGE_AREA &#x3D;&#x3D;&#x3D; enum_PaginaImpostazioni.UTENTI) {
+      return this.userSettings.resetImpostazioniToDefault(codes, selected);
+    }
+  }
+
+  /*********** AREE GIAS ***********/
+
+  public leggiAreeGIAS() {
+    const parametri &#x3D; {
+      objParametri_Utenti: this.masterService.ObjParametri_Utenti,
+      objParametri_Server: this.masterService.ObjParametri_Server,
+      data: &#x27;&#x27;
+    };
+    this.masterService.set_isLoading({isLoading: true, message: &#x27;&#x27;});
+    return this.ajaxAgronicaService.legacy_get(
+      this.masterService.link_CoreWS + linkAreeGIAS,
+      parametri
+    ).pipe(map((risposta) &#x3D;&gt; {
+      this.masterService.set_isLoading({isLoading: false, message: &#x27;&#x27;});
+      const listItems &#x3D; JSON.parse(risposta.RispostaStringa);
+      return listItems;
+    }));
+  }
+
+  /** GUIDA IMPOSTAZIONI **/
+  public aggiungiGuidaImpostazione(guida: Array&lt;Impostazione&gt;) {
+    return this.APIService.ajaxAPIPost&lt;Impostazione[], any&gt;(
+      &quot;Profilazione/AggiungiGuidaImpostazione&quot;, guida
+    ).subscribe(R &#x3D;&gt; {
+      console.log(R);
+    });
+  }
+
+}
+
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ImpostazioniFormService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

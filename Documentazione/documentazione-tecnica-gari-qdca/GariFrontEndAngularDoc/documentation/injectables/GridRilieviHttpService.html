@@ -1,0 +1,1382 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>GiasNG documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">GiasNG documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >GridRilieviHttpService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/app/rilievi/service/grid-rilievi-http.service.ts</code>
+        </p>
+
+
+
+            <p class="comment">
+                <h3>Extends</h3>
+            </p>
+            <p class="comment">
+                        <code>AbstractGridConfigService</code>
+            </p>
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#editingMode" >editingMode</a>
+                            </li>
+                            <li>
+                                <a href="#gridId" >gridId</a>
+                            </li>
+                            <li>
+                                <a href="#loader" >loader</a>
+                            </li>
+                            <li>
+                                <a href="#objParametriAgenda" >objParametriAgenda</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#permessoQdC_W" >permessoQdC_W</a>
+                            </li>
+                            <li>
+                                <a href="#rowId" >rowId</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#deleteItem" >deleteItem</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#goToRilievo" >goToRilievo</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#handleCommands" >handleCommands</a>
+                            </li>
+                            <li>
+                                <a href="#perform" >perform</a>
+                            </li>
+                            <li>
+                                <a href="#read" >read</a>
+                            </li>
+                            <li>
+                                <a href="#setColumnsFilterSorted" >setColumnsFilterSorted</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(injector: Injector, filterRilieviService: <a href="../injectables/FiltersRilieviService.html" target="_self">FiltersRilieviService</a>, gias2010Redirector: <a href="../injectables/Gias2010Redirector.html" target="_self">Gias2010Redirector</a>, permessiUtenteService: <a href="../injectables/PermessiUtenteService.html" target="_self">PermessiUtenteService</a>, agendaService: <a href="../injectables/ObjParametriAgendaService.html" target="_self">ObjParametriAgendaService</a>, conversionService: <a href="../injectables/ConversionService.html" target="_self">ConversionService</a>, translocoService: TranslocoService, datepipe: DatePipe, ajaxAgronicaAPIService: <a href="../injectables/AjaxAgronicaAPIService.html" target="_self">AjaxAgronicaAPIService</a>, dialogService: <a href="../injectables/GiasDialogService.html" target="_self">GiasDialogService</a>, rilieviService: <a href="../injectables/MetaschemaNGClient.html" target="_self">MetaschemaNGClient</a>, masterService: <a href="../injectables/MasterService.html" target="_self">MasterService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:45</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>injector</td>
+                                                  
+                                                        <td>
+                                                                    <code>Injector</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filterRilieviService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FiltersRilieviService.html" target="_self" >FiltersRilieviService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>gias2010Redirector</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/Gias2010Redirector.html" target="_self" >Gias2010Redirector</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>permessiUtenteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/PermessiUtenteService.html" target="_self" >PermessiUtenteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>agendaService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ObjParametriAgendaService.html" target="_self" >ObjParametriAgendaService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>conversionService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ConversionService.html" target="_self" >ConversionService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>translocoService</td>
+                                                  
+                                                        <td>
+                                                                    <code>TranslocoService</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datepipe</td>
+                                                  
+                                                        <td>
+                                                                    <code>DatePipe</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>ajaxAgronicaAPIService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/AjaxAgronicaAPIService.html" target="_self" >AjaxAgronicaAPIService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>dialogService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/GiasDialogService.html" target="_self" >GiasDialogService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>rilieviService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MetaschemaNGClient.html" target="_self" >MetaschemaNGClient</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>masterService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/MasterService.html" target="_self" >MasterService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteItem"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>deleteItem</b></span>
+                        <a href="#deleteItem"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteItem(rowsIn: KendoGridRow[] | KendoGridRow, proseguiInCasoDiAlert: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank">boolean</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="231"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:231</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>rowsIn</td>
+                                            <td>
+                                                        <code>KendoGridRow[] | KendoGridRow</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>proseguiInCasoDiAlert</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="goToRilievo"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>goToRilievo</b></span>
+                        <a href="#goToRilievo"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>goToRilievo(operationType: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, dataItem: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="193"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:193</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>operationType</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>dataItem</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="handleCommands"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>handleCommands</b></span>
+                        <a href="#handleCommands"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>handleCommands()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="220"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:220</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="perform"></a>
+                    <span class="name">
+                        <span ><b>perform</b></span>
+                        <a href="#perform"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>perform(actionType: HttpAction, items: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>, oldRow?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="278"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:278</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>actionType</td>
+                                            <td>
+                                                        <code>HttpAction</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>items</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                        <tr>
+                                                <td>oldRow</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../miscellaneous/typealiases.html#Obs" target="_self" >Observable&lt;any&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="read"></a>
+                    <span class="name">
+                        <span ><b>read</b></span>
+                        <a href="#read"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>read(options?: <a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank">any</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>options</td>
+                                            <td>
+                                                            <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../interfaces/Result.html" target="_self" >Observable&lt;GridRilieviServerResult&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="setColumnsFilterSorted"></a>
+                    <span class="name">
+                        <span ><b>setColumnsFilterSorted</b></span>
+                        <a href="#setColumnsFilterSorted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>setColumnsFilterSorted(columns: KendoGridColumn[])</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="171"
+                                    class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:171</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>columns</td>
+                                            <td>
+                                                        <code>KendoGridColumn[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>KendoGridColumn[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="editingMode"></a>
+                    <span class="name">
+                        <span ><b>editingMode</b></span>
+                        <a href="#editingMode"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>EditingMode</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>EditingMode.IN_PAGE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="37" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:37</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="gridId"></a>
+                    <span class="name">
+                        <span ><b>gridId</b></span>
+                        <a href="#gridId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;RilieviGridId&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="loader"></a>
+                    <span class="name">
+                        <span ><b>loader</b></span>
+                        <a href="#loader"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/enumerations.html#Type" target="_self" >LoaderType</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LoaderType.SERVICE</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:38</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="objParametriAgenda"></a>
+                    <span class="name">
+                        <span ><b>objParametriAgenda</b></span>
+                        <a href="#objParametriAgenda"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Parametri.html" target="_self" >ObjParametriAgenda</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="43" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:43</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="permessoQdC_W"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>permessoQdC_W</b></span>
+                        <a href="#permessoQdC_W"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="45" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:45</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="rowId"></a>
+                    <span class="name">
+                        <span ><b>rowId</b></span>
+                        <a href="#rowId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;idRowRilieviGrid&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/rilievi/service/grid-rilievi-http.service.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable, Injector } from &quot;@angular/core&quot;;
+import { TranslocoService } from &quot;@jsverse/transloco&quot;;
+import { LeggiRilievi, MetaschemaNGClient, RispostaStandard } from &quot;app/Service/api.service&quot;;
+import { CommandsColumnSettings, CommandsDropDownSettings } from &#x27;gias-kendo-grid&#x27;;
+import { EditingMode, KendoGridColumn, KendoGridModel, KendoGridRow, KendoServerResult, LoaderType } from &#x27;gias-kendo-grid&#x27;;
+import { ConfigTemplate } from &#x27;gias-kendo-grid&#x27;;
+import { AbstractGridConfigService, HttpAction } from &#x27;gias-kendo-grid&#x27;;
+import { Observable, catchError, map, of, switchMap, takeUntil } from &quot;rxjs&quot;;
+import { FiltersRilieviService } from &quot;../filters-rilievi/service/filters-rilievi.service&quot;;
+import { AGRODATAFINE, AGRODATAINIZIO } from &quot;app/Model/CostantiPersonalizzate&quot;;
+import { DestinazioneUso } from &quot;app/Model/metaschema/utilizzi/DestinazioneUso&quot;;
+import { Varieta } from &quot;app/Model/metaschema/utilizzi/Varieta&quot;;
+import { PermessiUtenteService } from &quot;app/Service/permessi-utente.service&quot;;
+import { enum_PagineGiasNG, enum_Security_Attivita } from &quot;app/Model/TipiEnumerativi&quot;;
+import { Gias2010Redirector } from &quot;app/menu-agenda/components/grid-qdc/Gias2010Redirector.service&quot;;
+import { ObjParametriAgendaService } from &quot;app/Service/obj-parametri-agenda.service&quot;;
+import { Link_ElimOpMultipla, enum_menuAgendaGridCommands } from &quot;app/menu-agenda/components/utils&quot;;
+import { Enum_DBTypeOperation } from &#x27;gias-ui-kit&#x27;;
+import { Tipo_Attivita} from &#x27;gias-ui-kit&#x27;;
+import { DatePipe } from &quot;@angular/common&quot;;
+import { MasterService } from &quot;app/Service/master.service&quot;;
+import { AjaxAgronicaAPIService } from &quot;app/Service/ajax-agronica.api.service&quot;;
+import { elimina_operazione_multipla } from &quot;app/menu-agenda/components/grid-qdc/qdc-config.service&quot;;
+import { GiasDialogService } from &quot;app/Service/gias-dialog.service&quot;;
+import { ObjParametriAgenda } from &#x27;gias-ui-kit&#x27;;
+import { ConversionService } from &quot;app/Service/conversion.service&quot;;
+
+export class GridRilieviServerResult extends KendoServerResult {
+    constructor(rows: KendoGridRow[], cols: KendoGridColumn[], model: KendoGridModel) {
+        super(model, cols, rows);
+    }
+}
+
+@Injectable()
+export class GridRilieviHttpService extends AbstractGridConfigService&lt;GridRilieviServerResult&gt;{
+
+    editingMode: EditingMode &#x3D; EditingMode.IN_PAGE;
+    loader: LoaderType &#x3D; LoaderType.SERVICE;
+
+    rowId: string &#x3D; &#x27;idRowRilieviGrid&#x27;;
+    gridId: string &#x3D; &#x27;RilieviGridId&#x27;;
+
+    objParametriAgenda: ObjParametriAgenda;
+
+    private permessoQdC_W: boolean;
+
+    constructor(injector: Injector,
+        private filterRilieviService: FiltersRilieviService,
+        private gias2010Redirector: Gias2010Redirector,
+        private permessiUtenteService: PermessiUtenteService,
+        private agendaService: ObjParametriAgendaService,
+        private conversionService: ConversionService,
+        private translocoService: TranslocoService,
+        private datepipe: DatePipe,
+        private ajaxAgronicaAPIService: AjaxAgronicaAPIService,
+        private dialogService: GiasDialogService,
+        private rilieviService: MetaschemaNGClient,
+        private masterService: MasterService
+    ) {
+        super(injector, ConfigTemplate.DefaultTemplate);
+
+        this.permessoQdC_W &#x3D; this.permessiUtenteService.getPermesso(enum_Security_Attivita.Agenda_AccessoMenu_NG, 2);
+        this.objParametriAgenda &#x3D; this.agendaService.getObjParamValue();
+
+        this.objParametriAgenda.Pagina_Provenienza &#x3D; enum_PagineGiasNG.Pagina_Menu_Rilievi;
+        this.agendaService.changeObjParametriAgenda(this.objParametriAgenda);
+        
+        this.resizable.autoFitColumns &#x3D; true;
+
+        // this.dettagliColumn &#x3D; new DettagliColumnSettings({
+        //     editBtn: this.permessoQdC_W,
+        //     edit: (data) &#x3D;&gt; this.goToRilievo(&#x27;edit&#x27;, data)
+        //     //title: &quot;qdc.ModificaCompleta&quot;
+        // });
+
+        this.cmdColumn &#x3D; new CommandsColumnSettings({
+            editBtn: false,
+            infoBtn: true,
+            removeBtn: false,
+            onDisableInfoBtn: () &#x3D;&gt; false,
+            width: 10
+        });
+
+        this.cmdDropDown &#x3D; new CommandsDropDownSettings({
+            removeBtn: false, infoBtn: false
+        });
+
+        this.filterRilieviService.filters.subscribe(value &#x3D;&gt; {
+            this.gridPublicService.refresh(true);
+        });
+
+        this.gridPublicService.changeDetected.pipe(
+            takeUntil(this.signal)
+        ).subscribe((event: any) &#x3D;&gt; {
+            //per bottone di info
+            this.goToRilievo(event.action, event.dataItem);
+        });
+
+        this.handleCommands();
+
+    }
+
+    read(options?: any): Observable&lt;GridRilieviServerResult&gt; {
+        
+        this.loadingService.set_isLoading({ isLoading: true, component: this.gridPublicService.gridElRef });
+
+        let param &#x3D; {
+            AziendaRilievi: null,
+            CentroAziendaleRilievi: null,
+            TipoRilievi: null,
+            SpecieRilievi:  null,
+            Da: AGRODATAINIZIO,
+            A: AGRODATAFINE
+        } as LeggiRilievi;
+
+        let filtersValue &#x3D; this.filterRilieviService.filters.getValue();
+
+        if (filtersValue) {
+
+            if (filtersValue.AziendaRilievi)
+              if (filtersValue.AziendaRilievi.partitaIva !&#x3D; &quot;-1&quot;)
+                param.AziendaRilievi &#x3D; filtersValue.AziendaRilievi;
+
+            if (filtersValue.CentroAziendaleRilievi)
+                if (filtersValue.CentroAziendaleRilievi.primaryKey.partitaIva !&#x3D; &quot;-1&quot;)
+                    param.CentroAziendaleRilievi &#x3D; filtersValue.CentroAziendaleRilievi;
+
+            if (filtersValue.TipoRilievi)
+              if (filtersValue.TipoRilievi.codice !&#x3D; -1)
+                  param.TipoRilievi &#x3D; filtersValue.TipoRilievi;
+
+            if (filtersValue.SpecieRilievi) {
+                if (filtersValue.SpecieRilievi.hasOwnProperty(&quot;classType&quot;)) {
+                    let destUso &#x3D; new DestinazioneUso();
+                    destUso.codice &#x3D; filtersValue.SpecieRilievi.codice;
+                    destUso.descrizione &#x3D; filtersValue.SpecieRilievi.descrizione;
+                    param.SpecieRilievi &#x3D; destUso;
+                  } else {
+                    if (filtersValue.SpecieRilievi.codice !&#x3D; -1) {
+                      let varSpecie &#x3D; new Varieta();
+                      varSpecie.specie &#x3D; filtersValue.SpecieRilievi;
+                      param.SpecieRilievi &#x3D; varSpecie;
+                    }
+                  }
+            }
+            // param.SpecieRilievi &#x3D; filtersValue.SpecieRilievi;
+            param.Da &#x3D; filtersValue.Da;
+            param.A &#x3D; filtersValue.A;
+        }
+
+        return this.rilieviService.metaschemaNGLeggiRilievi(param).pipe(catchError((err) &#x3D;&gt; {
+            this.loadingService.set_isLoading({ isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef });
+            return of();
+        }), map((r:any) &#x3D;&gt; {
+
+            this.loadingService.set_isLoading({ isLoading: false, component: this.gridPublicService.gridElRef });
+
+            let kendoObj &#x3D; this.conversionService.ConversionDateInObject(JSON.parse(r.RispostaStringa));
+
+            let gridListaRilieviServerResult &#x3D; new GridRilieviServerResult(
+                kendoObj.kendo_rows,
+                this.setColumnsFilterSorted(kendoObj.kendo_columns),
+                kendoObj.kendo_model as KendoGridModel
+            );
+
+            return gridListaRilieviServerResult;
+        }));
+
+    }
+
+    setColumnsFilterSorted(columns: KendoGridColumn[]): KendoGridColumn[] {
+      columns.forEach((col: KendoGridColumn) &#x3D;&gt; {
+        if (col.field &#x3D;&#x3D; &#x27;Veg_Des&#x27;) {
+          col.filterOrdering &#x3D; (rows) &#x3D;&gt; {
+            const firstItem &#x3D; rows.filter(item &#x3D;&gt; item.Veg_Des &#x3D;&#x3D; this.transloco.translate(&#x27;NessunaSpecie&#x27;));
+            const otherItems &#x3D; rows.filter(item &#x3D;&gt; item.Veg_Des !&#x3D; this.transloco.translate(&#x27;NessunaSpecie&#x27;));
+
+            otherItems.sort((a, b) &#x3D;&gt; a.Veg_Des.localeCompare(b.Veg_Des));
+
+            return [...firstItem, ...otherItems];
+          };
+        }
+      });
+
+      return columns;
+    
+    }
+
+    // goToEditPage() {
+
+    // }
+
+    private goToRilievo(operationType: string, dataItem: any) {
+
+        let objParam &#x3D;  this.agendaService.resettaObjAgenda(this.agendaService.getObjParamValue());
+
+        objParam.Piva &#x3D; dataItem.Piva;
+
+        objParam.RagSoc &#x3D; dataItem.rag_soc;
+
+        objParam.Lav_Cod &#x3D; dataItem.Lav_cod;
+
+        objParam.Lav_Des &#x3D; dataItem.Lav_Des;
+
+        objParam.Id_Agenda &#x3D; dataItem.id_agenda;
+
+        objParam.TipoOperazioneDB &#x3D; (operationType &#x3D;&#x3D; &#x27;info&#x27;) ? Enum_DBTypeOperation.Read : Enum_DBTypeOperation.Update;
+
+        objParam.TipoOperazioneAgenda &#x3D; Tipo_Attivita.QuadernoDiCampagna;
+
+        objParam.Sa_Cod &#x3D; dataItem.Sa_Cod;
+
+        objParam.Data &#x3D; dataItem.Validita_Inizio_Rilievo;
+
+        objParam.Pagina_Provenienza &#x3D; enum_PagineGiasNG.Pagina_Menu_Rilievi;
+
+        this.gias2010Redirector.gestisciRedirectToQdC(objParam).then();
+    }
+
+    private handleCommands() {
+        this.gridPublicService.commandEvent.GiasSubscribe(ev &#x3D;&gt; {
+            if (!ev) return;
+            switch (ev.command.action) {
+                case enum_menuAgendaGridCommands.INFO:
+                    this.goToRilievo(&#x27;info&#x27;, ev.dataItem);
+                break;
+            }
+        });
+    }
+
+    private deleteItem(rowsIn: KendoGridRow[] | KendoGridRow, proseguiInCasoDiAlert: boolean): Observable&lt;any&gt; {
+
+        let rows: KendoGridRow[] &#x3D; [];
+        if (!rowsIn[&#x27;length&#x27;]) {
+          let row &#x3D; rowsIn as KendoGridRow;
+          rows.push(row);
+        } else {
+          rows &#x3D; rowsIn as KendoGridRow[];
+        }
+    
+        let chiavi &#x3D; this.datepipe.transform(rows[0][&#x27;Data2&#x27;] as Date,&#x27;dd/MM/yyyy hh:mm:ss&#x27;,undefined, undefined) + &quot;_&quot; + rows[0][&#x27;id_agenda&#x27;] + &quot;_&quot; + rows[0][&#x27;Lav_cod&#x27;] + &quot;_&quot; + &quot;0&quot; + &quot;_&quot; + &quot;0&quot; + &quot;_&quot; + &quot;0&quot; + &quot;_&quot; + &quot;0&quot; + &quot;_&quot; + rows[0][&#x27;Piva&#x27;];
+        
+        const getParams: elimina_operazione_multipla &#x3D; {
+          strChiaviComposite: &quot;del_elem|&quot; + chiavi,
+          proseguiInCasoDiAlert: proseguiInCasoDiAlert,
+          variabiliInSessione_NG: this.masterService.variabiliInSessione
+        }
+    
+        this.loadingService.set_isLoading({isLoading: true, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef});
+    
+        return this.ajaxAgronicaAPIService.ajaxAPIPost&lt;elimina_operazione_multipla, string&gt;(Link_ElimOpMultipla, getParams).pipe(switchMap((risposta: RispostaStandard | any) &#x3D;&gt; {
+    
+          this.loadingService.set_isLoading({isLoading: false, message: &#x27;&#x27;, component: this.gridPublicService.gridElRef});
+    
+          if (risposta.RispostaOK) {
+            this.dialogService.baseSuccess(&#x27;&#x27;, this.transloco.translate(&#x27;RilievoCancellato&#x27;, { }), false, false);
+          }
+          else if(risposta.RispostaConferma) {
+            return this.dialogService.baseWarning(&#x27;&#x27;, risposta.Errore, false);
+          }
+          else {
+            const errMsg &#x3D; risposta.Errore ? risposta.Errore : this.transloco.translate(&quot;ImpossibileEliminareOperazione&quot;);
+            this.dialogService.baseError(&#x27;&#x27;, errMsg, false);
+          }
+    
+          return [];
+        }), switchMap((result)&#x3D;&gt; {
+          if(result[&#x27;returnObj&#x27;])
+            return this.deleteItem(rows, true);
+          return of([]);
+        }));
+    
+        //}
+    
+        //return of([]);
+    }
+
+    perform(actionType: HttpAction, items: any, oldRow?: any): Observable&lt;any&gt; {
+        switch(actionType) {
+            case HttpAction.REMOVE:
+              console.log(items);
+              return this.deleteItem(items, false);
+        }
+          //return from(items);
+        return of();
+    }
+
+}</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'GridRilieviHttpService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

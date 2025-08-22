@@ -1,0 +1,59 @@
+﻿using AgronicaNetCore.Base.Models;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AgronicaNetCore.Operazione.DAL.DataLayer.Agenda
+{
+    public interface IMagazzino
+    {
+        public Task<DataTable> SchedaGiacenzeMagazzino(DateTime Data_Giacenza, 
+            string Piva, 
+            int Sa_Cod, 
+            int Id_Destinazione, 
+            int Elem_Cod, 
+            int Pro_Cod, 
+            int Mat_Cod, 
+            int Cal_Cod, 
+            int Cod_Progetto, 
+            int Fase_Cod, 
+            int Udm_Cod, 
+            string Lotto, 
+            bool Flag_QtaNoZero,
+            FiltroAggiuntivo? xFiltroAggiuntivo,
+            FiltroAggiuntivo? xFiltroAggiuntivo_1,
+            FiltroAggiuntivo? xFiltroAggiuntivo_2,
+            FiltroAggiuntivo? xFiltroAggiuntivo_3,
+            FiltroAggiuntivo? xFiltroAggiuntivo_4,
+            FiltroAggiuntivo? xFiltroAggiuntivo_5,
+            FiltroAggiuntivo? xFiltroAggiuntivo_6,
+            FiltroAggiuntivo? xFiltroAggiuntivo_7,
+            FiltroAggiuntivo? xFiltroAggiuntivo_8,
+            FiltroAggiuntivo? xFiltroAggiuntivo_9,
+            FiltroAggiuntivo? xFiltroAggiuntivo_10,
+            FiltroAggiuntivo? xFiltroAggiuntivo_12, 
+            string xOrderBy, 
+            AgronicaCoreParametri objParametriServer, 
+            AgronicaCoreParametri objParametriUtenti,
+            FiltroAggiuntivo? xFiltroAggiuntivo_13 = null, 
+            string StrQuery_Output = "", 
+            bool isFreshAndFood = false, 
+            bool cercaLottoPerLike = false,
+            FiltroAggiuntivo? xFiltroAggiuntivo_14 = null, 
+            bool Flag_QtaMaggioreZero = false, 
+            bool flagRecuperaCodArticolo = false, 
+            string codArticolo = "", 
+            bool cercaCodArticoloPerLike = false,
+            FiltroAggiuntivo? xFiltroAggiuntivo_15 = null, 
+            bool eseguiQuery = true, 
+            bool inibisciVisibilitaGruppiMerce = false, 
+            bool creaParametriSql = true,
+            FiltroAggiuntivo? xFiltroAggiuntivo_16 = null, 
+            bool leggiLinea = false, 
+            List<string> filtroMagazziniEsterni = null, 
+            List<int> calCodEsclusi = null);
+    }
+}

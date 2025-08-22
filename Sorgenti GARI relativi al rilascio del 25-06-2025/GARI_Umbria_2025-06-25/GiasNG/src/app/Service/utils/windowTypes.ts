@@ -1,0 +1,19 @@
+export enum WindowTypes {
+  LayerWindow,
+  DrawWindow,
+  ColorPickerWindow,
+  ThemeWindow,
+  LayerVisibilityConfigurationWindow,
+  DeleteLayerWindow,
+  GenericWindow,
+  FixedLayerPropertyWindow,
+  MarkerWindow,
+  LayerPermissionWindow,
+  LayerAdvancedSettingsWindow,
+  LineeGuidaABWindow,
+  AnalisiMappeSatellitariWindow,
+  AlgorithmConfigurationWindow,
+  PolygonMergeWindow,
+  RasterConfigurationWindow,
+  BookmarksWindow
+}
